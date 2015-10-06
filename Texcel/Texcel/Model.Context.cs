@@ -43,5 +43,6 @@ namespace Texcel
         public virtual DbSet<TypeTest> tblTypeTest { get; set; }
         public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
         public virtual DbSet<AllSysExp> AllSysExp { get; set; }
+        public virtual DbSet<AllEquipe> AllEquipe { get; set; }
     }
 }

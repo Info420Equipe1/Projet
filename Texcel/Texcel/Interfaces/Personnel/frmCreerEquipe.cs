@@ -13,6 +13,7 @@ namespace Texcel.Interfaces.Personnel
 {
     public partial class frmCreerEquipe : frmForm
     {
+        bool Modification = false;
         public frmCreerEquipe()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Texcel.Interfaces.Personnel
             txtNom.Text = _equ.nomEquipe;
             //cmbNom.Text = chef dequipe
             //rtbCommentaire.Text = commentaire
+            Modification = true;
         }
 
         private void frmCreerEquipe_Load(object sender, EventArgs e)
@@ -57,8 +59,23 @@ namespace Texcel.Interfaces.Personnel
             {
                 listEmp.Add(CtrlEmploye.emp(nom));
             }
+            if (Modification == false)
+            {
+                CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(listBox2.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+            }
+            else
+            {
 
-            CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(listBox2.Items.Count), rtbCommentaire.Text, listEmp);
+            }
+        }
+
+        private void cmbNom_DropDown(object sender, EventArgs e)
+        {
+            cmbNom.Items.Clear();
+            foreach (Employe emp in CtrlEmploye.listEmployeChefEquipe())
+            {
+                cmbNom.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
+            }
         }
     }
 }

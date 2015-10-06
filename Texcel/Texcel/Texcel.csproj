@@ -53,6 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllEquipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllPlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllSysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlAdmin.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
@@ -67,12 +76,6 @@
     <Compile Include="Classes\Jeu\CtrlTypePlateforme.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionSysExp.cs" />
-    <Compile Include="AllPlateforme.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AllSysExp.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="cJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

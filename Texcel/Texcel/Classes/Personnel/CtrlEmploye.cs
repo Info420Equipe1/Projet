@@ -52,8 +52,29 @@ namespace Texcel.Classes.Personnel
         public static Employe emp(string _nomPren)
         {
             Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();
-
+            
             return emp;
+        }
+
+        //Employés qui sont chef d'équipe
+        public static List<Employe> listEmployeChefEquipe()
+        {
+            List<Employe> listEmp = new List<Employe>();
+            foreach (Groupe gr in context.tblGroupe.Where(x => x.nomGroupe == "Chef d'équipe"))
+            {
+                foreach (Utilisateur uti in gr.Utilisateur)
+                {
+                    foreach (Employe emp in listEmploye())
+                    {
+                        if (emp.idEmploye == uti.idEmploye)
+                        {
+                            listEmp.Add(emp);
+                        }
+                    }
+                }
+            }
+
+            return listEmp;
         }
 
     }

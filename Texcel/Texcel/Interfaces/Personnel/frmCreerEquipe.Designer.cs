@@ -75,6 +75,7 @@
             this.cmbNom.Size = new System.Drawing.Size(677, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
+            this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             // 
             // label1
             // 

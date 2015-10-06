@@ -10,12 +10,14 @@ namespace Texcel.Classes.Personnel
     {
 
         //Enregistré équipe
-        public static void Ajouter(string _nom, Int16 _nbEmp, string _desc, List<Employe> _listEmp)
+        public static void Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
         {
             Equipe equipe = new Equipe();
             
             equipe.nomEquipe = _nom;
             equipe.nbTesteur = _nbEmp;
+            equipe.idChefEquipe = _empChefEquipe.idEmploye;
+            equipe.descEquipe = _desc;
 
             context.tblEquipe.Add(equipe);
             context.SaveChanges();

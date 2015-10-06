@@ -21,8 +21,6 @@
         <EntityTypeShape EntityType="dbProjetE1Model.Groupe" Width="1.5" PointX="10.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Utilisateur" Width="1.5" PointX="13" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.TypeTest" Width="1.5" PointX="10" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.AllPlateforme" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.AllSysExp" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="dbProjetE1Model.J_FK_codeClassification" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.ESE_FK_idSysExp" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.VSE_FK_idEdition" ManuallyRouted="false" />
@@ -38,6 +36,10 @@
         <AssociationConnector Association="dbProjetE1Model.tblDroit" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblEmployeEquipe" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblGroupeUtilisateur" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetE1Model.E_FK_idChefEquipe" />
+        <EntityTypeShape EntityType="dbProjetE1Model.AllPlateforme" Width="1.5" PointX="5.5" PointY="0.5" />
+        <EntityTypeShape EntityType="dbProjetE1Model.AllSysExp" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="dbProjetE1Model.AllEquipe" Width="1.5" PointX="0.875" PointY="7.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
