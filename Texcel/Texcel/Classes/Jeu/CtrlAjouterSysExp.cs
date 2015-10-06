@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Texcel.Classes.Jeu
+{
+    class CtrlAjouterSysExp : CtrlController
+    {
+        private static SysExp sysExp;
+        
+        public static int GetCount()
+        {
+            return context.tblSysExp.Count();
+        }
+
+        public static List<SysExp> Rechercher()
+        {
+            List<SysExp> lstSysExp = new List<SysExp>();
+            foreach (SysExp sysExp in context.tblSysExp)
+            {
+                lstSysExp.Add(sysExp);
+            }
+            return lstSysExp;         
+        }   
+
+        // On ajoute un nouveau système d'exploitation dans la table tblSysExp
+        public static bool Ajouter(string _nomSysExp, string _codeSysExp, string _commSysExp)
+        {
+            if (!Verifier(_nomSysExp))
+            {
+                sysExp = new SysExp();
+                sysExp.nomSysExp = _nomSysExp;
+                sysExp.codeSysExp = _codeSysExp;
+                //sysExp.descSysExp = _commSysExp;
+                return Enregistrer(sysExp);
+            }
+            /*if(Rechercher(_nomSysExp).First().commSysExp != _commSysExp)
+            {
+                
+            }*/
+            return false;
+        }
+
+        public static bool Verifier(string _nomSysExp)
+        {
+            if (context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).Count() != 0)
+            {
+                return true;    //lorsque le système d'exploitation existe  
+            }
+            return false;   // lorsque le système d'exploitation n'existe pas 
+        }
+
+        // Rechercher un système d'exploitation dans la table tblSysExp
+        public static List<SysExp> Rechercher(string _nomSysExp)
+        {
+            List<SysExp> lstSysExp = new List<SysExp>(); ;
+            foreach (SysExp sysExp in context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp))
+            {
+                lstSysExp.Add(sysExp);
+            }
+            return lstSysExp;
+        }
+
+        // On enregistre dans la table le nouveau système d'exploitation
+        private static bool Enregistrer(SysExp _sysExp)
+        {
+            context.tblSysExp.Add(_sysExp);
+            try
+            {
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Une erreur est survenue lors de l'ajout du Système d'Exploitation. Les données n'ont pas été enregistrées.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            
+        }
+    }
+}

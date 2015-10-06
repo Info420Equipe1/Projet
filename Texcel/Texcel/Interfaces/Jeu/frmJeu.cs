@@ -1,0 +1,486 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Texcel.Classes.Jeu;
+
+namespace Texcel.Interfaces.Jeu
+{
+    public partial class frmJeu : frmForm
+    {
+        public frmJeu()
+        {
+            InitializeComponent();
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmJeu_Load(object sender, EventArgs e)
+        {
+            txtID.Text = "";
+            //Emplissage de la list box des Plateforme Globales
+            foreach (Plateforme plat in CtrlPlateforme.lstPlateformeJeu())
+            {
+                lstBoxPlat2.Items.Add(plat.nomPlateforme);
+            }
+            
+            //Emplissage de la list box des Themes globaux
+            foreach (ThemeJeu theme in CtrlThemeJeu.LstThemeJeu())
+            {
+                lstBoxTheme2.Items.Add(theme.nomTheme);
+            }
+
+            //Emplissage de la list box des Genres globaux
+            foreach (GenreJeu genre in CtrlGenreJeu.LstGenreJeu())
+            {
+                lstBoxGenre2.Items.Add(genre.nomGenre);
+            }
+
+            foreach (ClassificationJeu classJeu in CtrlClassificationJeu.Rechercher())
+            {
+                cmbClassification.Items.Add(classJeu.nomClassification);
+            }
+        }
+
+        private void cmbNom_DropDown(object sender, EventArgs e)
+        {
+            cmbNom.Items.Clear();
+            foreach (cJeu jeu in CtrlJeu.LstJeu())
+            {
+                cmbNom.Items.Add(jeu.nomJeu);
+            }
+        }
+        private void cmbClassification_DropDown(object sender, EventArgs e)
+        {
+            cmbClassification.Items.Clear();
+            foreach (ClassificationJeu classJeu in CtrlClassificationJeu.Rechercher())
+            {
+                cmbClassification.Items.Add(classJeu.codeClassification + " - " + classJeu.nomClassification);
+            }
+        }
+        private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstBoxPlat2.SelectedIndex = -1;
+            lstBoxTheme2.SelectedIndex = -1;
+            lstBoxGenre2.SelectedIndex = -1;
+
+            string nomJeu = cmbNom.Text;
+            btnEnregistrer.Text = "Modifier";
+
+            //Emplissage des champs par rapport au Jeu
+            cJeu jeu = CtrlJeu.GetJeu(nomJeu);
+            txtID.Text = jeu.idJeu.ToString();
+            txtDeveloppeur.Text = jeu.developeur;
+            cmbClassification.SelectedItem = jeu.ClassificationJeu.nomClassification;
+            rtbDescription.Text = jeu.descJeu;
+            rtbConfiguration.Text = jeu.configMinimal;
+            try
+            {
+                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
+            }
+            catch (FileNotFoundException)
+            {
+                picJeu.ImageLocation = @"..\..\Images\NoImage.png";
+            }
+
+            
+            //Emplissage de la list box des Plateformes par rapport au jeu
+            lstBoxPlat1.Items.Clear();
+            foreach (Plateforme plat in jeu.Plateforme)
+            {
+                lstBoxPlat1.Items.Add(plat.nomPlateforme);
+            }
+            //Emplissage de la list box des Themes par rapport au jeu
+            lstBoxTheme1.Items.Clear();
+            foreach (ThemeJeu themeJeu in jeu.ThemeJeu)
+            {
+                lstBoxTheme1.Items.Add(themeJeu.nomTheme);
+            }
+
+            //Emplissage de la list box des Genres par rapport au jeu
+            lstBoxGenre1.Items.Clear();
+            foreach (GenreJeu genreJeu in jeu.GenreJeu)
+            {
+                lstBoxGenre1.Items.Add(genreJeu.nomGenre);
+            }
+
+            //Emplissage de la list box des version par rapport au jeu
+            //lstBoxVersion.Items.Clear();
+            //foreach (VersionJeu VersionJeu in jeu.)
+            //{
+            //    lstBoxVersion.Items.Add(VersionJeu.nomVersionJeu);
+            //}
+
+            //Selectionne tous les LstBox afin de pouvoir remove rapidement(DemandeClient)
+            string name;
+            for (int i = 0; i < lstBoxPlat1.Items.Count; i++)
+            {
+                name = lstBoxPlat1.Items[i].ToString();
+                lstBoxPlat2.Items.Remove(name);
+                lstBoxPlat1.SetSelected(i, true);
+            }
+            for (int i = 0; i < lstBoxTheme1.Items.Count; i++)
+            {
+                name = lstBoxTheme1.Items[i].ToString();
+                lstBoxTheme2.Items.Remove(name);
+                lstBoxTheme1.SetSelected(i, true);
+            }
+            for (int i = 0; i < lstBoxGenre1.Items.Count; i++)
+            {
+                name = lstBoxGenre1.Items[i].ToString();
+                lstBoxGenre2.Items.Remove(name);
+                lstBoxGenre1.SetSelected(i, true);
+            }
+            
+        }
+
+        private void cmbNom_TextUpdate(object sender, EventArgs e)
+        {
+            btnEnregistrer.Text = "Enregistrer";
+            txtID.Text = "";
+        }
+
+        private void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+            DialogResult DR;
+            string message;
+            List<Plateforme> plateforme = new List<Plateforme>();
+            List<ThemeJeu> themeJeu = new List<ThemeJeu>();
+            List<GenreJeu> genreJeu = new List<GenreJeu>();
+            List<VersionJeu> versionJeu = new List<VersionJeu>();
+
+            foreach (string nomPlat in lstBoxPlat1.Items)
+            {
+                plateforme.Add(CtrlPlateforme.GetPlateforme(nomPlat));
+            }
+            foreach (string nomTheme in lstBoxTheme1.Items)
+            {
+                themeJeu.Add(CtrlThemeJeu.GetTheme(nomTheme));
+            }
+            foreach (string nomGenre in lstBoxGenre1.Items)
+            {
+                genreJeu.Add(CtrlGenreJeu.GetGenre(nomGenre));
+            }
+            //foreach (string nomVersion in lstBoxVersion.Items)
+            //{
+            //    versionJeu.Add(CtrlVersionJeu.ge)
+            //}
+
+            if (cmbNom.Text == "")
+            {
+                MessageBox.Show("Veuillez ajouter un nom!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if ((cmbClassification.Text == null)||(cmbClassification.Text == ""))
+            {
+                MessageBox.Show("Veuillez ajouter une classification!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Validation
+            if (CtrlJeu.VerifierJeu(cmbNom.Text.Trim()))
+            {
+                DR = MessageBox.Show("Vous ètes en train de modifier un Jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DR == DialogResult.Yes)
+                {
+                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, cmbClassification.Text, rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
+                    if (message.Contains("erreur"))
+                    {
+                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), cmbClassification.Text, rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtID.Text = (CtrlJeu.GetCount()).ToString();
+                }
+            }
+            lstBoxPlat2.SelectedIndex = -1;
+            lstBoxTheme2.SelectedIndex = -1;
+            lstBoxGenre2.SelectedIndex = -1;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtID.Text = "";
+            cmbNom.Text = "";
+            txtDeveloppeur.Text = "";
+            cmbClassification.Text = "";
+            rtbDescription.Text = "";
+            rtbConfiguration.Text = "";
+            lstBoxPlat1.Items.Clear();
+            lstBoxTheme1.Items.Clear();
+            lstBoxGenre1.Items.Clear();
+            lstBoxVersion.Items.Clear();
+            lstBoxPlat2.SelectedIndex = -1;
+            lstBoxTheme2.SelectedIndex = -1;
+            lstBoxGenre2.SelectedIndex = -1;
+            btnEnregistrer.Text = "Enregistrer";
+        }
+
+        //Ajouter une Plateforme par rapport au jeu
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner une plateforme à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomPlateforme = (string)lstBoxPlat2.SelectedItem;
+            lstBoxPlat2.Items.Remove(nomPlateforme);
+            lstBoxPlat1.Items.Add(nomPlateforme);
+        }
+
+        //Ajouter plusieurs Plateformes par rapport au jeu
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs plateformes à ajouter", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxPlat2.SelectedItems;
+            string platName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                platName = lstBoxSOC[0].ToString();
+                lstBoxPlat2.Items.Remove(platName);
+                lstBoxPlat1.Items.Add(platName);
+            }
+        }
+
+        //Ajouter un theme par rapport au jeu
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner un thème à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomTheme = (string)lstBoxTheme2.SelectedItem;
+            lstBoxTheme2.Items.Remove(nomTheme);
+            lstBoxTheme1.Items.Add(nomTheme);
+        }
+
+        //Ajouter plusieurs theme par rapport au jeu
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs thèmes à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxTheme2.SelectedItems;
+            string themeName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                themeName = lstBoxSOC[0].ToString();
+                lstBoxTheme2.Items.Remove(themeName);
+                lstBoxTheme1.Items.Add(themeName);
+            }
+        }
+
+        //Ajouter un Genre par rapport au jeu
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner un genre à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomGenre = (string)lstBoxGenre2.SelectedItem;
+            lstBoxGenre1.Items.Add(nomGenre);
+            lstBoxGenre2.Items.Remove(nomGenre);
+        }
+
+        //Ajouter plusieurs Genre par rapport au jeu
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs genres à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxGenre2.SelectedItems;
+            string genreName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                genreName = lstBoxSOC[0].ToString();
+                lstBoxGenre2.Items.Remove(genreName);
+                lstBoxGenre1.Items.Add(genreName);
+            }
+        }
+
+        //Remove une plateforme par rapport au jeu
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1)||(lstBoxPlat1.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner une plateforme à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomPlateforme = (string)lstBoxPlat1.SelectedItem;
+            lstBoxPlat1.Items.Remove(lstBoxPlat1.SelectedItem);
+            lstBoxPlat2.Items.Add(nomPlateforme);
+        }
+
+        //Remove plusieurs plateformes par rapport au jeu
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1) || (lstBoxPlat1.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs plateformes à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxPlat1.SelectedItems;
+            string platName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                platName = lstBoxSOC[0].ToString();
+                lstBoxPlat1.Items.Remove(platName);
+                lstBoxPlat2.Items.Add(platName);
+            }
+        }
+
+        //Remove un Thème par rapport au Jeu
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner un thème à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomTheme = (string)lstBoxTheme1.SelectedItem;
+            lstBoxTheme1.Items.Remove(nomTheme);
+            lstBoxTheme2.Items.Add(nomTheme);
+        }
+
+        //Remove plusieurs Thèmes par rapport au Jeu
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs thèmes à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxTheme1.SelectedItems;
+            string themeName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                themeName = lstBoxSOC[0].ToString();
+                lstBoxTheme1.Items.Remove(themeName);
+                lstBoxTheme2.Items.Add(themeName);
+            }
+        }
+
+        //Remove un Genre par rapport au jeu
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1)|| (lstBoxGenre1.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner un genre à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomGenre = (string)lstBoxGenre1.SelectedItem;
+            lstBoxGenre1.Items.Remove(nomGenre);
+            lstBoxGenre2.Items.Add(nomGenre);
+        }
+
+        //Remove plusieurs Genres par rapport au jeu
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1) || (lstBoxGenre1.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs genres à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListBox.SelectedObjectCollection lstBoxSOC = lstBoxGenre1.SelectedItems;
+            string genreName;
+            int selectedItems = lstBoxSOC.Count;
+            for (int i = 0; i < selectedItems; i++)
+            {
+                genreName = lstBoxSOC[0].ToString();
+                lstBoxGenre1.Items.Remove(genreName);
+                lstBoxGenre2.Items.Add(genreName);
+            }
+        }
+
+
+
+        private void pcbAjouterPlateforme_Click(object sender, EventArgs e)
+        {
+            frmPlateforme frmPlat = new frmPlateforme();
+            frmPlat.ShowDialog();
+            this.Refresh();
+        }
+
+        private void pcbAjouterTheme_Click(object sender, EventArgs e)
+        {
+            frmTheme frmTheme = new frmTheme();
+            frmTheme.ShowDialog();
+            this.Refresh();
+        }
+
+        private void pcbAjouterGenre_Click(object sender, EventArgs e)
+        {
+            frmGenre frmGenre = new frmGenre();
+            frmGenre.ShowDialog();
+            this.Refresh();
+        }
+
+        private void pcbAjouterVerJeu_Click(object sender, EventArgs e)
+        {
+        }
+
+       
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    }
+}

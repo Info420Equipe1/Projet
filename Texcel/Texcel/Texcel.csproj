@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5FF53530-C298-4822-8DBC-4FCD209DD04A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Texcel</RootNamespace>
+    <AssemblyName>Texcel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CtrlController.cs" />
+    <Compile Include="Classes\CtrlAdmin.cs" />
+    <Compile Include="Classes\CtrlLogin.cs" />
+    <Compile Include="Classes\Jeu\CtrlClassificationJeu.cs" />
+    <Compile Include="Classes\Jeu\CtrlEditionSysExp.cs" />
+    <Compile Include="Classes\Jeu\CtrlGenreJeu.cs" />
+    <Compile Include="Classes\Jeu\CtrlJeu.cs" />
+    <Compile Include="Classes\Jeu\CtrlListeSysExp.cs" />
+    <Compile Include="Classes\Jeu\CtrlPlateforme.cs" />
+    <Compile Include="Classes\Jeu\CtrlAjouterSysExp.cs" />
+    <Compile Include="Classes\Jeu\CtrlThemeJeu.cs" />
+    <Compile Include="Classes\Jeu\CtrlTypePlateforme.cs" />
+    <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />
+    <Compile Include="Classes\Jeu\CtrlVersionSysExp.cs" />
+    <Compile Include="AllPlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllSysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Personnel\CtrlEmploye.cs" />
+    <Compile Include="Classes\Personnel\CtrlEquipe.cs" />
+    <Compile Include="Classes\Test\CtrlTypeTest.cs" />
+    <Compile Include="ClassificationJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EditionSysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Equipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenreJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groupe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmClassification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmClassification.Designer.cs">
+      <DependentUpon>frmClassification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmEmployeRecu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmEmployeRecu.Designer.cs">
+      <DependentUpon>frmEmployeRecu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmAjouterEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmAjouterEmploye.Designer.cs">
+      <DependentUpon>frmAjouterEmploye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmListeSysExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmListeSysExp.Designer.cs">
+      <DependentUpon>frmListeSysExp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmCreerEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmCreerEquipe.Designer.cs">
+      <DependentUpon>frmCreerEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Personnel\frmUtilisateur.Designer.cs">
+      <DependentUpon>frmUtilisateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\frmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\frmForm.Designer.cs">
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmJeu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmJeu.Designer.cs">
+      <DependentUpon>frmJeu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmAjouterSysExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmAjouterSysExp.Designer.cs">
+      <DependentUpon>frmAjouterSysExp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmPlateforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmPlateforme.Designer.cs">
+      <DependentUpon>frmPlateforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmTheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmTheme.Designer.cs">
+      <DependentUpon>frmTheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmTypePlateforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmTypePlateforme.Designer.cs">
+      <DependentUpon>frmTypePlateforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Jeu\frmGenre.Designer.cs">
+      <DependentUpon>frmGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypePlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utilisateur.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VersionJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VersionSysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interfaces\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmForm.resx">
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmClassification.resx">
+      <DependentUpon>frmClassification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmJeu.resx">
+      <DependentUpon>frmJeu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmAjouterSysExp.resx">
+      <DependentUpon>frmAjouterSysExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmListeSysExp.resx">
+      <DependentUpon>frmListeSysExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmPlateforme.resx">
+      <DependentUpon>frmPlateforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmTheme.resx">
+      <DependentUpon>frmTheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmTypePlateforme.resx">
+      <DependentUpon>frmTypePlateforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmGenre.resx">
+      <DependentUpon>frmGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Personnel\frmAjouterEmploye.resx">
+      <DependentUpon>frmAjouterEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Personnel\frmCreerEquipe.resx">
+      <DependentUpon>frmCreerEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Personnel\frmEmployeRecu.resx">
+      <DependentUpon>frmEmployeRecu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Personnel\frmUtilisateur.resx">
+      <DependentUpon>frmUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\Projet\" />
+    <Folder Include="Interfaces\Projet\" />
+    <Folder Include="Interfaces\Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Jeu\Classifications\AO.jpg" />
+    <Content Include="Images\Jeu\Classifications\E.jpg" />
+    <Content Include="Images\Jeu\Classifications\E10.jpg" />
+    <Content Include="Images\Jeu\Classifications\EC.jpg" />
+    <Content Include="Images\Jeu\Classifications\M.jpg" />
+    <Content Include="Images\Jeu\Classifications\T.jpg" />
+    <Content Include="Images\Jeu\Jeux\1.jpg" />
+    <Content Include="Images\Jeu\Jeux\10.jpg" />
+    <Content Include="Images\Jeu\Jeux\11.jpg" />
+    <Content Include="Images\Jeu\Jeux\2.jpg" />
+    <Content Include="Images\Jeu\Jeux\3.jpg" />
+    <Content Include="Images\Jeu\Jeux\4.jpg" />
+    <Content Include="Images\Jeu\Jeux\5.jpg" />
+    <Content Include="Images\Jeu\Jeux\6.jpg" />
+    <Content Include="Images\Jeu\Jeux\7.jpg" />
+    <Content Include="Images\Jeu\Jeux\8.jpg" />
+    <Content Include="Images\Jeu\Jeux\9.jpg" />
+    <Content Include="Images\NoImage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
