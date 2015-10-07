@@ -32,7 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnRechercher = new System.Windows.Forms.Button();
-            this.lsbResultats = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,8 +53,10 @@
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvResultats = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.mnsMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -97,15 +98,6 @@
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
             this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
-            // 
-            // lsbResultats
-            // 
-            this.lsbResultats.FormattingEnabled = true;
-            this.lsbResultats.ItemHeight = 16;
-            this.lsbResultats.Location = new System.Drawing.Point(15, 107);
-            this.lsbResultats.Name = "lsbResultats";
-            this.lsbResultats.Size = new System.Drawing.Size(683, 580);
-            this.lsbResultats.TabIndex = 2;
             // 
             // label2
             // 
@@ -156,7 +148,7 @@
             this.smiGestionPersonnel});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Size = new System.Drawing.Size(1255, 28);
+            this.mnsMain.Size = new System.Drawing.Size(1253, 28);
             this.mnsMain.TabIndex = 8;
             this.mnsMain.Text = "menuStrip1";
             // 
@@ -172,7 +164,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -280,15 +272,29 @@
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
             // 
+            // dgvResultats
+            // 
+            this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
+            this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultats.Location = new System.Drawing.Point(15, 107);
+            this.dgvResultats.Name = "dgvResultats";
+            this.dgvResultats.RowHeadersVisible = false;
+            this.dgvResultats.RowTemplate.Height = 24;
+            this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvResultats.Size = new System.Drawing.Size(683, 576);
+            this.dgvResultats.TabIndex = 9;
+            this.dgvResultats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultats_CellContentClick);
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(1255, 711);
+            this.ClientSize = new System.Drawing.Size(1253, 702);
+            this.Controls.Add(this.dgvResultats);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnRechercher);
-            this.Controls.Add(this.lsbResultats);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbFiltre);
             this.Controls.Add(this.label1);
@@ -300,6 +306,7 @@
             this.tabControl1.ResumeLayout(false);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +318,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFiltre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lsbResultats;
         private System.Windows.Forms.Button btnRechercher;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -333,6 +339,7 @@
         private System.Windows.Forms.ToolStripMenuItem smiJeu;
         private System.Windows.Forms.ToolStripMenuItem smiEmploye;
         private System.Windows.Forms.ToolStripMenuItem smiEquipe;
+        private System.Windows.Forms.DataGridView dgvResultats;
 
     }
 }

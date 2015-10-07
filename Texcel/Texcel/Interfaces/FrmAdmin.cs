@@ -24,44 +24,51 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            int n = 0;
+            dgvResultats.Columns.Clear();
             if (cmbFiltre.Text != "")
             {
                 switch (cmbFiltre.Text)
                 {
                     case "Plateforme":
-                        foreach (AllPlateforme Plat in CtrlAdmin.GetAllPlateformeView())
+                        dgvResultats.Columns.Add("0","Type de plateforme");
+                        dgvResultats.Columns.Add("1","Plateforme");
+                        foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
                         {
-                            lsbResultats.Items.Add(Plat.nomPlateforme);
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
+                            dgvResultats.Rows[n].Cells[1].Value = plat.nomPlateforme;
+                            n++;
                         }
                         break;
 
                     case "Système d'exploitation":
-                        foreach (AllSysExp SysExp in CtrlAdmin.GetAllSysExpView())
+                        foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                         {
-                            lsbResultats.Items.Add(SysExp.nomSysExp);
+                            //lsbResultats.Items.Add(sysexp.nomSysExp);
                         }
                         break;
 
-                    /*case "Jeu":
-                        foreach (AllJeu Jeu in CtrlAdmin.GetAllJeuView())
+                    case "Jeu":
+                        foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
                         {
-                            lsbResultats.Items.Add(Jeu.nomJeu);
+                            //lsbResultats.Items.Add(jeu.nomJeu);
                         }
                         break;
 
                     case "Équipe":
-                        foreach (AllEquipe Equipe in CtrlAdmin.GetAllEquipeView())
+                        foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                         {
-                            lsbResultats.Items.Add(Equipe.nomEquipe);
+                            //lsbResultats.Items.Add(equipe.nomEquipe);
                         }
                         break;
 
                     case "Employé":
-                        foreach (AllEmploye Employe in CtrlAdmin.GetAllEmployeView())
+                        foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
                         {
-                            lsbResultats.Items.Add(Employe.nom + ", " + Employe.prenom);
+                            //lsbResultats.Items.Add(employe.nomEmploye + ", " + employe.prenomEmploye);
                         }
-                        break;*/
+                        break;
                 }
             }
         }
@@ -129,6 +136,11 @@ namespace Texcel.Interfaces
         private void smiQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dgvResultats_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
