@@ -10,7 +10,7 @@ namespace Texcel.Classes.Personnel
     {
 
         //Enregistré équipe
-        public static void Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
+        public static string Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
         {
             Equipe equipe = new Equipe();
             
@@ -19,10 +19,17 @@ namespace Texcel.Classes.Personnel
             equipe.idChefEquipe = _empChefEquipe.idEmploye;
             equipe.descEquipe = _desc;
 
-            context.tblEquipe.Add(equipe);
-            context.SaveChanges();
-
-            LierEmploye(_listEmp, equipe);
+            try
+            {
+                context.tblEquipe.Add(equipe);
+                context.SaveChanges();
+                LierEmploye(_listEmp, equipe);
+                return "Équipe créé";
+            }
+            catch (Exception)
+            {
+                return "Une erreur c'est produite";
+            }
         }
 
         //Lier les employés à l'équipe
