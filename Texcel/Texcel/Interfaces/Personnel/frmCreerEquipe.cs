@@ -162,5 +162,10 @@ namespace Texcel.Interfaces.Personnel
             listBox1.Items.Add(nomEmploye);
             listBox2.Items.Remove(nomEmploye);
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
