@@ -62,37 +62,39 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(707, 75);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(707, 80);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(534, 612);
+            this.tabControl1.Size = new System.Drawing.Size(534, 607);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(526, 583);
+            this.tabPage1.Size = new System.Drawing.Size(526, 579);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(526, 583);
+            this.tabPage2.Size = new System.Drawing.Size(526, 574);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnRechercher
             // 
+            this.btnRechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRechercher.Location = new System.Drawing.Point(1120, 47);
             this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(121, 23);
+            this.btnRechercher.Size = new System.Drawing.Size(121, 28);
             this.btnRechercher.TabIndex = 5;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
@@ -100,24 +102,27 @@
             // 
             // lsbResultats
             // 
+            this.lsbResultats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsbResultats.FormattingEnabled = true;
-            this.lsbResultats.ItemHeight = 16;
+            this.lsbResultats.ItemHeight = 20;
             this.lsbResultats.Location = new System.Drawing.Point(15, 107);
             this.lsbResultats.Name = "lsbResultats";
-            this.lsbResultats.Size = new System.Drawing.Size(683, 580);
+            this.lsbResultats.Size = new System.Drawing.Size(683, 564);
             this.lsbResultats.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(704, 50);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(707, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 17);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Filtre:";
             // 
             // cmbFiltre
             // 
+            this.cmbFiltre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFiltre.FormattingEnabled = true;
             this.cmbFiltre.Items.AddRange(new object[] {
             "Employé",
@@ -125,26 +130,28 @@
             "Jeu",
             "Plateforme",
             "Système d\'exploitation"});
-            this.cmbFiltre.Location = new System.Drawing.Point(753, 47);
+            this.cmbFiltre.Location = new System.Drawing.Point(762, 47);
             this.cmbFiltre.Name = "cmbFiltre";
-            this.cmbFiltre.Size = new System.Drawing.Size(361, 24);
+            this.cmbFiltre.Size = new System.Drawing.Size(352, 28);
             this.cmbFiltre.Sorted = true;
             this.cmbFiltre.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Rechercher:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 48);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(119, 48);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(594, 22);
+            this.textBox1.Size = new System.Drawing.Size(579, 27);
             this.textBox1.TabIndex = 1;
             // 
             // mnsMain
@@ -172,7 +179,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
