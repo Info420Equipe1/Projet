@@ -101,19 +101,6 @@
             this.btnRechercher.UseVisualStyleBackColor = true;
             this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
-<<<<<<< HEAD
-=======
-            // lsbResultats
-            // 
-            this.lsbResultats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lsbResultats.FormattingEnabled = true;
-            this.lsbResultats.ItemHeight = 20;
-            this.lsbResultats.Location = new System.Drawing.Point(15, 107);
-            this.lsbResultats.Name = "lsbResultats";
-            this.lsbResultats.Size = new System.Drawing.Size(683, 564);
-            this.lsbResultats.TabIndex = 2;
-            // 
->>>>>>> origin/sprint2
             // label2
             // 
             this.label2.AutoSize = true;
@@ -303,7 +290,6 @@
             this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
             this.dgvResultats.TabIndex = 9;
-            this.dgvResultats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultats_CellContentClick);
             // 
             // frmAdmin
             // 

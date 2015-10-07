@@ -138,12 +138,6 @@ namespace Texcel.Interfaces
             Application.Exit();
         }
 
-<<<<<<< HEAD
-        private void dgvResultats_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-=======
         private void frmAdmin_Load(object sender, EventArgs e)
         {
 
@@ -183,8 +177,5 @@ namespace Texcel.Interfaces
                 }
             }
         }
-
-       
->>>>>>> origin/sprint2
     }
 }
