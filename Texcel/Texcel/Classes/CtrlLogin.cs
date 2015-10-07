@@ -15,6 +15,7 @@ namespace Texcel.Classes
                 Utilisateur user = context.tblUtilisateur.Where(x => x.nomUtilisateur == _username).First();
                 if (user.motPasse == _password)
                 {
+                    CtrlController.SetCurrentUser(user);
                     return "Connexion réussie";
                 }
                 else

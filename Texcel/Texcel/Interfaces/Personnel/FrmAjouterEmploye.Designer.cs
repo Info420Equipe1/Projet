@@ -57,10 +57,10 @@
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrenom.Location = new System.Drawing.Point(20, 129);
+            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenom.Location = new System.Drawing.Point(24, 127);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(81, 23);
+            this.lblPrenom.Size = new System.Drawing.Size(77, 20);
             this.lblPrenom.TabIndex = 29;
             this.lblPrenom.Text = "Prenom :";
             // 
@@ -78,8 +78,8 @@
             this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSupprimer.FlatAppearance.BorderSize = 2;
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupprimer.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimer.Location = new System.Drawing.Point(553, 541);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
@@ -93,22 +93,23 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCancel.FlatAppearance.BorderSize = 2;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Location = new System.Drawing.Point(815, 541);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEnregistrer
             // 
             this.btnEnregistrer.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnEnregistrer.FlatAppearance.BorderSize = 2;
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnregistrer.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
             this.btnEnregistrer.Location = new System.Drawing.Point(684, 541);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
@@ -150,20 +151,20 @@
             // lblCompetences
             // 
             this.lblCompetences.AutoSize = true;
-            this.lblCompetences.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompetences.Location = new System.Drawing.Point(16, 388);
+            this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompetences.Location = new System.Drawing.Point(12, 391);
             this.lblCompetences.Name = "lblCompetences";
-            this.lblCompetences.Size = new System.Drawing.Size(226, 23);
+            this.lblCompetences.Size = new System.Drawing.Size(209, 20);
             this.lblCompetences.TabIndex = 20;
             this.lblCompetences.Text = "Compétences particulières";
             // 
             // lblTypeTest
             // 
             this.lblTypeTest.AutoSize = true;
-            this.lblTypeTest.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeTest.Location = new System.Drawing.Point(16, 242);
+            this.lblTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeTest.Location = new System.Drawing.Point(12, 245);
             this.lblTypeTest.Name = "lblTypeTest";
-            this.lblTypeTest.Size = new System.Drawing.Size(114, 23);
+            this.lblTypeTest.Size = new System.Drawing.Size(101, 20);
             this.lblTypeTest.TabIndex = 19;
             this.lblTypeTest.Text = "Type de test";
             // 
@@ -190,60 +191,60 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(505, 127);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(515, 129);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 23);
+            this.label1.Size = new System.Drawing.Size(150, 20);
             this.label1.TabIndex = 15;
             this.label1.Text = "Date d\'embauche :";
             // 
             // lblTelPrimaire
             // 
             this.lblTelPrimaire.AutoSize = true;
-            this.lblTelPrimaire.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelPrimaire.Location = new System.Drawing.Point(547, 55);
+            this.lblTelPrimaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelPrimaire.Location = new System.Drawing.Point(551, 57);
             this.lblTelPrimaire.Name = "lblTelPrimaire";
-            this.lblTelPrimaire.Size = new System.Drawing.Size(118, 23);
+            this.lblTelPrimaire.Size = new System.Drawing.Size(114, 20);
             this.lblTelPrimaire.TabIndex = 14;
             this.lblTelPrimaire.Text = "Tel. Primaire :";
             // 
             // lblTelSec
             // 
             this.lblTelSec.AutoSize = true;
-            this.lblTelSec.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelSec.Location = new System.Drawing.Point(523, 91);
+            this.lblTelSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelSec.Location = new System.Drawing.Point(530, 91);
             this.lblTelSec.Name = "lblTelSec";
-            this.lblTelSec.Size = new System.Drawing.Size(142, 23);
+            this.lblTelSec.Size = new System.Drawing.Size(135, 20);
             this.lblTelSec.TabIndex = 13;
             this.lblTelSec.Text = "Tel. Secondaire :";
             // 
             // lblAdresse
             // 
             this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdresse.Location = new System.Drawing.Point(16, 163);
+            this.lblAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdresse.Location = new System.Drawing.Point(20, 165);
             this.lblAdresse.Name = "lblAdresse";
-            this.lblAdresse.Size = new System.Drawing.Size(85, 23);
+            this.lblAdresse.Size = new System.Drawing.Size(81, 20);
             this.lblAdresse.TabIndex = 12;
             this.lblAdresse.Text = "Adresse :";
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(45, 91);
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(47, 91);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(56, 23);
+            this.lblNom.Size = new System.Drawing.Size(54, 20);
             this.lblNom.TabIndex = 11;
             this.lblNom.Text = "Nom :";
             // 
             // lblNumeroEmp
             // 
             this.lblNumeroEmp.AutoSize = true;
-            this.lblNumeroEmp.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroEmp.Location = new System.Drawing.Point(19, 55);
+            this.lblNumeroEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroEmp.Location = new System.Drawing.Point(23, 57);
             this.lblNumeroEmp.Name = "lblNumeroEmp";
-            this.lblNumeroEmp.Size = new System.Drawing.Size(82, 23);
+            this.lblNumeroEmp.Size = new System.Drawing.Size(78, 20);
             this.lblNumeroEmp.TabIndex = 10;
             this.lblNumeroEmp.Text = "Numéro :";
             // 

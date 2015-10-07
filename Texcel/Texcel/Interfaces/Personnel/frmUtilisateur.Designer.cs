@@ -45,20 +45,20 @@
             // lblMotPasse
             // 
             this.lblMotPasse.AutoSize = true;
-            this.lblMotPasse.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotPasse.Location = new System.Drawing.Point(70, 110);
+            this.lblMotPasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotPasse.Location = new System.Drawing.Point(80, 112);
             this.lblMotPasse.Name = "lblMotPasse";
-            this.lblMotPasse.Size = new System.Drawing.Size(129, 23);
+            this.lblMotPasse.Size = new System.Drawing.Size(120, 20);
             this.lblMotPasse.TabIndex = 15;
             this.lblMotPasse.Text = "Mot de passe :";
             // 
             // lblNomUtil
             // 
             this.lblNomUtil.AutoSize = true;
-            this.lblNomUtil.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomUtil.Location = new System.Drawing.Point(44, 74);
+            this.lblNomUtil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomUtil.Location = new System.Drawing.Point(55, 76);
             this.lblNomUtil.Name = "lblNomUtil";
-            this.lblNomUtil.Size = new System.Drawing.Size(156, 23);
+            this.lblNomUtil.Size = new System.Drawing.Size(145, 20);
             this.lblNomUtil.TabIndex = 14;
             this.lblNomUtil.Text = "Nom d\'utilisateur :";
             // 
@@ -104,10 +104,10 @@
             // lblGroupes
             // 
             this.lblGroupes.AutoSize = true;
-            this.lblGroupes.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroupes.Location = new System.Drawing.Point(74, 179);
+            this.lblGroupes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroupes.Location = new System.Drawing.Point(70, 182);
             this.lblGroupes.Name = "lblGroupes";
-            this.lblGroupes.Size = new System.Drawing.Size(77, 23);
+            this.lblGroupes.Size = new System.Drawing.Size(73, 20);
             this.lblGroupes.TabIndex = 26;
             this.lblGroupes.Text = "Groupes";
             // 
@@ -136,8 +136,8 @@
             this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSupprimer.FlatAppearance.BorderSize = 2;
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupprimer.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimer.Location = new System.Drawing.Point(241, 347);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
@@ -151,8 +151,8 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCancel.FlatAppearance.BorderSize = 2;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Location = new System.Drawing.Point(503, 347);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
@@ -165,8 +165,8 @@
             this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAjouter.FlatAppearance.BorderSize = 2;
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjouter.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.ForeColor = System.Drawing.Color.Black;
             this.btnAjouter.Location = new System.Drawing.Point(372, 347);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);

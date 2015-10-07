@@ -10,7 +10,7 @@ namespace Texcel.Classes.Personnel
 {
     class CtrlEmploye:CtrlController
     {
-        public static string Ajouter(string _nomEmp, string _prenomEmp,string _adresseEmp, string _telPrimEmp,string _TelSecEmp, DateTime _dateEmbEmp)
+        public static string Ajouter(string _nomEmp, string _prenomEmp,string _adresseEmp, string _telPrimEmp,string _TelSecEmp, string _compPart, DateTime _dateEmbEmp)
         {
             //Nouvel employé
             Employe emp = new Employe();
@@ -20,18 +20,33 @@ namespace Texcel.Classes.Personnel
             emp.numTelPrincipal = _telPrimEmp;
             emp.numTelSecondaire = _TelSecEmp;
             emp.dateEmbauche = _dateEmbEmp;
+            emp.competenceParticuliere = _compPart;
 
             // Reste a àjouter les type de test à l'employé
             // valider aussi
 
             try
             {
-                //Enregistrer(emp);
+                context.tblEmploye.Add(emp);
+                context.SaveChanges();
+                LierTypeTest(emp);
                 return "Le jeu a été ajouté avec succès!";
             }
             catch (Exception)
             {
                 return "Une erreur est survenue lors de l'ajout du Jeu. Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        public static void LierTypeTest(Employe _emp)
+        {
+            foreach (KeyValuePair<TypeTest, int> typeTest in CtrlTypeTest.getlstTypeTestLstBox)
+            {
+                if (typeTest.Value == 1)
+                {
+                    _emp.TypeTest.Add(typeTest.Key);
+                    context.SaveChanges();
+                }
             }
         }
 

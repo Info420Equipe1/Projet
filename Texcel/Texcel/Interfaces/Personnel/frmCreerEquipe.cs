@@ -30,11 +30,21 @@ namespace Texcel.Interfaces.Personnel
 
         private void frmCreerEquipe_Load(object sender, EventArgs e)
         {
+            ChargerPage();
+        }
+
+        public void ChargerPage()
+        {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             //Load list box 1
             foreach (Employe emp in CtrlEmploye.listEmploye())
             {
                 listBox1.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
             }
+            txtNom.Text = "";
+            rtbCommentaire.Text = "";
+            cmbNom.Text = "";
         }
 
         //Ajouter un employé dans list box 2
@@ -54,6 +64,18 @@ namespace Texcel.Interfaces.Personnel
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             List<Employe> listEmp = new List<Employe>();
+            string message;
+
+            if (txtNom.Text == "")
+            {
+                MessageBox.Show("Veuillez ajouter un nom!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cmbNom.Text == "")
+            {
+                MessageBox.Show("Veuillez ajouter un `chef d'équipe!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             foreach (string nom in listBox2.Items)
             {
@@ -61,11 +83,20 @@ namespace Texcel.Interfaces.Personnel
             }
             if (Modification == false)
             {
-                CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(listBox2.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(listBox2.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ChargerPage();
+                }
             }
             else
             {
-
+                //Modification de l'équipe
             }
         }
 
@@ -76,6 +107,65 @@ namespace Texcel.Interfaces.Personnel
             {
                 cmbNom.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
             }
+        }
+
+        //Ajoutes des employés dans list box 2
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if ((listBox1.Items.Count == 0) || (listBox1.SelectedIndex == -1) || (listBox1.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs employées à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListBox.SelectedObjectCollection lstBox= listBox1.SelectedItems;
+            string emp;
+            int num = lstBox.Count;
+            for (int i = 0; i < num; i++)
+            {
+                emp = lstBox[0].ToString();
+                listBox1.Items.Remove(emp);
+                listBox2.Items.Add(emp);
+            }
+        }
+
+        //Enleve des employés dans list box 2
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if ((listBox2.Items.Count == 0) || (listBox2.SelectedIndex == -1) || (listBox2.SelectedItems.Count < 2))
+            {
+                MessageBox.Show("Veuillez selectionner plusieurs employées à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ListBox.SelectedObjectCollection lstBox = listBox2.SelectedItems;
+            string emp;
+            int num = lstBox.Count;
+            for (int i = 0; i < num; i++)
+            {
+                emp = lstBox[0].ToString();
+                listBox2.Items.Remove(emp);
+                listBox1.Items.Add(emp);
+            }
+        }
+
+        //Enleve un employé de la list box 2
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if ((listBox2.Items.Count == 0) || (listBox2.SelectedIndex == -1) || (listBox2.SelectedItems.Count > 1))
+            {
+                MessageBox.Show("Veuillez selectionner un employé à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string nomEmploye = (string)listBox2.SelectedItem;
+            listBox1.Items.Add(nomEmploye);
+            listBox2.Items.Remove(nomEmploye);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
