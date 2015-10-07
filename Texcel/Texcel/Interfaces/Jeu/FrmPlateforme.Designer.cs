@@ -59,8 +59,8 @@
             this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAjouter.FlatAppearance.BorderSize = 2;
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjouter.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.ForeColor = System.Drawing.Color.Black;
             this.btnAjouter.Location = new System.Drawing.Point(430, 542);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);
@@ -79,7 +79,7 @@
             this.grbSE.Controls.Add(this.lblNomSE);
             this.grbSE.Controls.Add(this.cmbNomSE);
             this.grbSE.Enabled = false;
-            this.grbSE.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbSE.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grbSE.Location = new System.Drawing.Point(16, 414);
             this.grbSE.Name = "grbSE";
@@ -103,20 +103,20 @@
             // lblVersionSE
             // 
             this.lblVersionSE.AutoSize = true;
-            this.lblVersionSE.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersionSE.Location = new System.Drawing.Point(414, 40);
             this.lblVersionSE.Name = "lblVersionSE";
-            this.lblVersionSE.Size = new System.Drawing.Size(75, 23);
+            this.lblVersionSE.Size = new System.Drawing.Size(71, 20);
             this.lblVersionSE.TabIndex = 13;
             this.lblVersionSE.Text = "Version:";
             // 
             // lblEditionSE
             // 
             this.lblEditionSE.AutoSize = true;
-            this.lblEditionSE.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEditionSE.Location = new System.Drawing.Point(218, 40);
             this.lblEditionSE.Name = "lblEditionSE";
-            this.lblEditionSE.Size = new System.Drawing.Size(68, 23);
+            this.lblEditionSE.Size = new System.Drawing.Size(65, 20);
             this.lblEditionSE.TabIndex = 12;
             this.lblEditionSE.Text = "Edition:";
             // 
@@ -149,10 +149,10 @@
             // lblNomSE
             // 
             this.lblNomSE.AutoSize = true;
-            this.lblNomSE.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomSE.Location = new System.Drawing.Point(23, 40);
             this.lblNomSE.Name = "lblNomSE";
-            this.lblNomSE.Size = new System.Drawing.Size(50, 23);
+            this.lblNomSE.Size = new System.Drawing.Size(49, 20);
             this.lblNomSE.TabIndex = 9;
             this.lblNomSE.Text = "Nom:";
             // 
@@ -201,20 +201,20 @@
             // lblTypePlateforme
             // 
             this.lblTypePlateforme.AutoSize = true;
-            this.lblTypePlateforme.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypePlateforme.Location = new System.Drawing.Point(12, 83);
+            this.lblTypePlateforme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypePlateforme.Location = new System.Drawing.Point(25, 85);
             this.lblTypePlateforme.Name = "lblTypePlateforme";
-            this.lblTypePlateforme.Size = new System.Drawing.Size(147, 23);
+            this.lblTypePlateforme.Size = new System.Drawing.Size(134, 20);
             this.lblTypePlateforme.TabIndex = 6;
             this.lblTypePlateforme.Text = "Type plateforme:";
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(109, 117);
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(109, 119);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(50, 23);
+            this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 7;
             this.lblNom.Text = "Nom:";
             // 
@@ -239,20 +239,20 @@
             // lblConfiguration
             // 
             this.lblConfiguration.AutoSize = true;
-            this.lblConfiguration.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfiguration.Location = new System.Drawing.Point(35, 151);
+            this.lblConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfiguration.Location = new System.Drawing.Point(45, 153);
             this.lblConfiguration.Name = "lblConfiguration";
-            this.lblConfiguration.Size = new System.Drawing.Size(123, 23);
+            this.lblConfiguration.Size = new System.Drawing.Size(113, 20);
             this.lblConfiguration.TabIndex = 10;
             this.lblConfiguration.Text = "Configuration:";
             // 
             // lblCommentaire
             // 
             this.lblCommentaire.AutoSize = true;
-            this.lblCommentaire.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommentaire.Location = new System.Drawing.Point(36, 283);
+            this.lblCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommentaire.Location = new System.Drawing.Point(44, 285);
             this.lblCommentaire.Name = "lblCommentaire";
-            this.lblCommentaire.Size = new System.Drawing.Size(122, 23);
+            this.lblCommentaire.Size = new System.Drawing.Size(114, 20);
             this.lblCommentaire.TabIndex = 11;
             this.lblCommentaire.Text = "Commentaire:";
             // 
@@ -261,8 +261,8 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnCancel.FlatAppearance.BorderSize = 2;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Location = new System.Drawing.Point(561, 542);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
@@ -276,8 +276,8 @@
             this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSupprimer.FlatAppearance.BorderSize = 2;
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupprimer.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(130)))), ((int)(((byte)(144)))));
+            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimer.Location = new System.Drawing.Point(299, 542);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
@@ -290,10 +290,10 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Font = new System.Drawing.Font("Blue Highway", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(83, 50);
+            this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumero.Location = new System.Drawing.Point(86, 52);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(76, 23);
+            this.lblNumero.Size = new System.Drawing.Size(73, 20);
             this.lblNumero.TabIndex = 14;
             this.lblNumero.Text = "Numéro:";
             // 

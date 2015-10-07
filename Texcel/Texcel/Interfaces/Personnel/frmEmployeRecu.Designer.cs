@@ -48,7 +48,7 @@
             this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSupprimer.FlatAppearance.BorderSize = 2;
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimer.Location = new System.Drawing.Point(651, 671);
             this.btnSupprimer.Name = "btnSupprimer";
@@ -63,7 +63,7 @@
             this.btnAnnuler.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAnnuler.FlatAppearance.BorderSize = 2;
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
             this.btnAnnuler.Location = new System.Drawing.Point(913, 671);
             this.btnAnnuler.Name = "btnAnnuler";
@@ -77,7 +77,7 @@
             this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnAjouter.FlatAppearance.BorderSize = 2;
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Black;
             this.btnAjouter.Location = new System.Drawing.Point(782, 671);
             this.btnAjouter.Name = "btnAjouter";
