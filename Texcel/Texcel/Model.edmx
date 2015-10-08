@@ -223,9 +223,9 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" />
+          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -1084,9 +1084,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         </Association>
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllSysExp">

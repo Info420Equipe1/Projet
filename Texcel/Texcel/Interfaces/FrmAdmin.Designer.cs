@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRechercher = new System.Windows.Forms.TextBox();
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.smiFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.smiQuitter = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +126,7 @@
             this.cmbFiltre.Size = new System.Drawing.Size(352, 28);
             this.cmbFiltre.Sorted = true;
             this.cmbFiltre.TabIndex = 3;
+            this.cmbFiltre.SelectedIndexChanged += new System.EventHandler(this.cmbFiltre_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -137,13 +138,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rechercher:";
             // 
-            // textBox1
+            // txtRechercher
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(119, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(579, 27);
-            this.textBox1.TabIndex = 1;
+            this.txtRechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRechercher.Location = new System.Drawing.Point(119, 48);
+            this.txtRechercher.Name = "txtRechercher";
+            this.txtRechercher.Size = new System.Drawing.Size(579, 27);
+            this.txtRechercher.TabIndex = 1;
             // 
             // mnsMain
             // 
@@ -280,6 +281,7 @@
             // 
             // dgvResultats
             // 
+            this.dgvResultats.AllowUserToResizeRows = false;
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -304,7 +306,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbFiltre);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRechercher);
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;
             this.Name = "frmAdmin";
@@ -321,7 +323,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRechercher;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbFiltre;
         private System.Windows.Forms.Label label2;

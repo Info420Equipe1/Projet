@@ -25,6 +25,7 @@ namespace Texcel.Interfaces
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             int n = 0;
+            string cle = txtRechercher.Text;
             dgvResultats.Columns.Clear();
             if (cmbFiltre.Text != "")
             {
@@ -35,38 +36,77 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1","Plateforme");
                         foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
                         {
-                            dgvResultats.Rows.Add();
-                            dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
-                            dgvResultats.Rows[n].Cells[1].Value = plat.nomPlateforme;
-                            n++;
+                            if (cle == "" || plat.nomTypePlateforme.Contains(cle) || plat.nomPlateforme.Contains(cle))
+                            {
+                                dgvResultats.Rows.Add();
+                                dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
+                                dgvResultats.Rows[n].Cells[1].Value = plat.nomPlateforme;
+                                n++; 
+                            }
                         }
                         break;
 
                     case "Système d'exploitation":
+                        dgvResultats.Columns.Add("0", "Système d'exploitation");
+                        dgvResultats.Columns.Add("1", "Code");
+                        dgvResultats.Columns.Add("2", "Edition");
+                        dgvResultats.Columns.Add("3", "Version");
                         foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                         {
-                            //lsbResultats.Items.Add(sysexp.nomSysExp);
+                            if (cle == "" || sysexp.nomSysExp.Contains(cle) || sysexp.codeSysExp.Contains(cle) || sysexp.nomEdition.Contains(cle) || (sysexp.noVersion ?? "").Contains(cle))
+                            {
+                                dgvResultats.Rows.Add();
+                                dgvResultats.Rows[n].Cells[0].Value = sysexp.nomSysExp;
+                                dgvResultats.Rows[n].Cells[1].Value = sysexp.codeSysExp;
+                                dgvResultats.Rows[n].Cells[2].Value = sysexp.nomEdition;
+                                dgvResultats.Rows[n].Cells[3].Value = sysexp.noVersion;
+                                n++; 
+                            }
                         }
                         break;
 
                     case "Jeu":
+                        dgvResultats.Columns.Add("0", "Jeu");
+                        dgvResultats.Columns.Add("1", "Developpeur");
                         foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
                         {
-                            //lsbResultats.Items.Add(jeu.nomJeu);
+                            if (cle == "" || jeu.nomJeu.Contains(cle) || jeu.developeur.Contains(cle))
+                            {
+                                dgvResultats.Rows.Add();
+                                dgvResultats.Rows[n].Cells[0].Value = jeu.nomJeu;
+                                dgvResultats.Rows[n].Cells[1].Value = jeu.developeur;
+                                n++; 
+                            }
                         }
                         break;
 
                     case "Équipe":
+                        dgvResultats.Columns.Add("0", "Équipe");
+                        dgvResultats.Columns.Add("1", "Chef d'équipe");
                         foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                         {
-                            //lsbResultats.Items.Add(equipe.nomEquipe);
+                            if (cle == "" || equipe.nomEquipe.Contains(cle) || equipe.ChefEquipe.Contains(cle))
+                            {
+                                dgvResultats.Rows.Add();
+                                dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
+                                dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
+                                n++; 
+                            }
                         }
                         break;
 
                     case "Employé":
+                        dgvResultats.Columns.Add("0", "Nom");
+                        dgvResultats.Columns.Add("1", "Prenom");
                         foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
                         {
-                            //lsbResultats.Items.Add(employe.nomEmploye + ", " + employe.prenomEmploye);
+                            if (cle == "" || employe.nomEmploye.Contains(cle) || employe.prenomEmploye.Contains(cle))
+                            {
+                                dgvResultats.Rows.Add();
+                                dgvResultats.Rows[n].Cells[0].Value = employe.nomEmploye;
+                                dgvResultats.Rows[n].Cells[1].Value = employe.prenomEmploye;
+                                n++; 
+                            }
                         }
                         break;
                 }
@@ -176,6 +216,12 @@ namespace Texcel.Interfaces
                     MessageBox.Show("Un administrateur du système est connecté");
                 }
             }
+        }
+
+        private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtRechercher.Clear();
+            dgvResultats.Columns.Clear();
         }
     }
 }
