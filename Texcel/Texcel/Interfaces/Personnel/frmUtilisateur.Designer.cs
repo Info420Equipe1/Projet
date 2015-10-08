@@ -173,6 +173,7 @@
             this.btnAjouter.TabIndex = 5;
             this.btnAjouter.Text = "&Enregistrer";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // frmUtilisateur
             // 
