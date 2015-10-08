@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Texcel.Classes.Test;
 using Texcel.Classes;
-
+using Texcel.Classes.Personnel;
 using Texcel.Interfaces.Jeu;
 using Texcel.Interfaces.Personnel;
 
@@ -228,7 +228,11 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Employé")
             {
-                
+                string nomPren;
+                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                Employe emp = CtrlEmploye.emp(nomPren);
+                frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
+                frmEmp.ShowDialog();
             }
         }
     }

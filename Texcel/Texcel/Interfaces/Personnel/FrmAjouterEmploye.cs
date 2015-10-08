@@ -27,6 +27,7 @@ namespace Texcel.Interfaces.Personnel
         //Mode modifier (Arrive de la fenetre recherche)
         public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
         {
+            InitializeComponent();
             txtNom.Text = _nom;
             txtPrenom.Text = _pren;
             txtAdresse.Text = _adresse;
@@ -121,16 +122,23 @@ namespace Texcel.Interfaces.Personnel
                 MessageBox.Show("Certain champs ne sont pas rempli");
                 return;
             }
-            string message;
-            message = CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value);
-            if (message.Contains("erreur"))
+            if (modifier == false)
             {
-                MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string message;
+                message = CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
             }
             else
             {
-                MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
         }
 
