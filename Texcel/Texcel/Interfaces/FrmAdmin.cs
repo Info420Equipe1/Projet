@@ -25,7 +25,7 @@ namespace Texcel.Interfaces
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             int n = 0;
-            string cle = txtRechercher.Text;
+            string cle = txtRechercher.Text.ToLower();
             dgvResultats.Columns.Clear();
             if (cmbFiltre.Text != "")
             {
@@ -36,7 +36,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1","Plateforme");
                         foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
                         {
-                            if (cle == "" || plat.nomTypePlateforme.Contains(cle) || plat.nomPlateforme.Contains(cle))
+                            if (cle == "" || plat.nomTypePlateforme.ToLower().Contains(cle) || plat.nomPlateforme.ToLower().Contains(cle))
                             {
                                 dgvResultats.Rows.Add();
                                 dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
@@ -53,7 +53,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("3", "Version");
                         foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                         {
-                            if (cle == "" || sysexp.nomSysExp.Contains(cle) || sysexp.codeSysExp.Contains(cle) || sysexp.nomEdition.Contains(cle) || (sysexp.noVersion ?? "").Contains(cle))
+                            if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
                             {
                                 dgvResultats.Rows.Add();
                                 dgvResultats.Rows[n].Cells[0].Value = sysexp.nomSysExp;
@@ -70,7 +70,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1", "Developpeur");
                         foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
                         {
-                            if (cle == "" || jeu.nomJeu.Contains(cle) || jeu.developeur.Contains(cle))
+                            if (cle == "" || jeu.nomJeu.ToLower().Contains(cle) || jeu.developeur.ToLower().Contains(cle))
                             {
                                 dgvResultats.Rows.Add();
                                 dgvResultats.Rows[n].Cells[0].Value = jeu.nomJeu;
@@ -85,7 +85,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1", "Chef d'équipe");
                         foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                         {
-                            if (cle == "" || equipe.nomEquipe.Contains(cle) || equipe.ChefEquipe.Contains(cle))
+                            if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                             {
                                 dgvResultats.Rows.Add();
                                 dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
@@ -100,7 +100,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1", "Prenom");
                         foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
                         {
-                            if (cle == "" || employe.nomEmploye.Contains(cle) || employe.prenomEmploye.Contains(cle))
+                            if (cle == "" || employe.nomEmploye.ToLower().Contains(cle) || employe.prenomEmploye.ToLower().Contains(cle))
                             {
                                 dgvResultats.Rows.Add();
                                 dgvResultats.Rows[n].Cells[0].Value = employe.nomEmploye;
