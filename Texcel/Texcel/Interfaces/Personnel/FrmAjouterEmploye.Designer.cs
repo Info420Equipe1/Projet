@@ -312,6 +312,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(235, 84);
             this.listBox1.TabIndex = 31;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -325,7 +326,6 @@
             // 
             // btnCreerUti
             // 
-            this.btnCreerUti.Enabled = false;
             this.btnCreerUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnCreerUti.Location = new System.Drawing.Point(761, 198);
             this.btnCreerUti.Name = "btnCreerUti";
@@ -333,6 +333,7 @@
             this.btnCreerUti.TabIndex = 33;
             this.btnCreerUti.Text = "Créer";
             this.btnCreerUti.UseVisualStyleBackColor = true;
+            this.btnCreerUti.Click += new System.EventHandler(this.btnCreerUti_Click);
             // 
             // btnModifUti
             // 
@@ -344,6 +345,7 @@
             this.btnModifUti.Text = "Modifier";
             this.btnModifUti.UseVisualStyleBackColor = true;
             this.btnModifUti.Visible = false;
+            this.btnModifUti.Click += new System.EventHandler(this.btnModifUti_Click);
             // 
             // frmAjouterEmploye
             // 
@@ -380,7 +382,6 @@
             this.Controls.Add(this.txtNumeroEmp);
             this.Name = "frmAjouterEmploye";
             this.Text = "Ajouter un employé";
-           
             this.ResumeLayout(false);
             this.PerformLayout();
 

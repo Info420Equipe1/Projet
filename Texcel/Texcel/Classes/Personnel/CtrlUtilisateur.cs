@@ -34,5 +34,38 @@ namespace Texcel.Classes.Personnel
             context.tblUtilisateur.Add(NewUtilisateur);
             context.SaveChanges();
         }
+
+        //Liste des utilisateurs associé a un employé
+        public static List<Utilisateur> lstUtilisateurAssocEmp(Employe _emp)
+        {
+            List<Utilisateur> lstUti = new List<Utilisateur>();
+
+            foreach (Utilisateur uti in _emp.Utilisateur)
+            {
+                lstUti.Add(uti);
+            }
+
+            return lstUti;
+        }
+
+        //Trouver utilisateur par son nom d'utilisateur
+        public static Utilisateur utilisateur(string _nomUti)
+        {
+            Utilisateur uti = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
+
+            return uti;
+        }
+
+        //Liste des groupes associés a un utilisateur
+        public static List<Groupe> lstGrAssUtil(Utilisateur _uti)
+        {
+            List<Groupe> lstGr = new List<Groupe>();
+
+            foreach (Groupe gr in _uti.Groupe)
+            {
+                lstGr.Add(gr);
+            }
+            return lstGr;
+        }
     }
 }

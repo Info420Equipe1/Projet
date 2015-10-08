@@ -36,7 +36,9 @@ namespace Texcel.Interfaces.Personnel
             richTextBox1.Text = _compParti;
             RemplirListBoxPourModeModif(_emp);
             AfficherLstBox();
+            remplirListBoxUtil(_emp);
             modifier = true;
+            
 
         }
 
@@ -87,6 +89,14 @@ namespace Texcel.Interfaces.Personnel
         
         
         }
+
+        private void remplirListBoxUtil(Employe _emp)
+        {
+            foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(_emp))
+            {
+                listBox1.Items.Add(uti.nomUtilisateur);
+            }
+        }
       
         private void bntFlecheRetirer_Click(object sender, EventArgs e)
         {
@@ -127,6 +137,24 @@ namespace Texcel.Interfaces.Personnel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnModifUti.Visible = true;
+        }
+
+        private void btnModifUti_Click(object sender, EventArgs e)
+        {
+            Utilisateur uti = CtrlUtilisateur.utilisateur(listBox1.SelectedItem.ToString());
+            frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti));
+            frmUti.ShowDialog();
+        }
+
+        private void btnCreerUti_Click(object sender, EventArgs e)
+        {
+            frmUtilisateur frmUti = new frmUtilisateur();
+            frmUti.ShowDialog();
         }
 
         // remplir les infos employé avec les données des R.H.!!
