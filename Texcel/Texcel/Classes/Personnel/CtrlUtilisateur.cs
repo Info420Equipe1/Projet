@@ -10,13 +10,14 @@ namespace Texcel.Classes.Personnel
     {
 
 
-        public static string AjouterUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur)
+        public static string AjouterUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, Employe _Employe)
         {
             //Ajout d'un nouveau Utilisateur
             Utilisateur NewUtilisateur = new Utilisateur();
             NewUtilisateur.nomUtilisateur = nomUtilisateur;
             NewUtilisateur.motPasse = MotDePasse;
             NewUtilisateur.Groupe = lstGroupeUtilisateur;
+            NewUtilisateur.Employe = _Employe;
 
             try
             {
@@ -29,6 +30,56 @@ namespace Texcel.Classes.Personnel
             }
         }
 
+        public static string ModifierUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, string nomUtilisateurAModifier)
+        {
+            Utilisateur UtilisateurAModifier = new Utilisateur();
+
+            foreach (Utilisateur user in context.tblUtilisateur)
+            {
+                if (user.nomUtilisateur == nomUtilisateurAModifier)
+                {
+                    UtilisateurAModifier = user;
+                }
+            }
+            UtilisateurAModifier.nomUtilisateur = nomUtilisateur;
+            UtilisateurAModifier.motPasse = MotDePasse;
+            UtilisateurAModifier.Groupe = lstGroupeUtilisateur;
+
+            try
+            {
+                context.SaveChanges();
+                return "L'Utilisateur a été modifié avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la modification de l'Utilisateur. Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        public static string SupprimerUtilisateur(string _NomUtilisateurASupprimer)
+        {
+            Utilisateur UtilisateurASupprimer = new Utilisateur();
+
+            foreach (Utilisateur user in context.tblUtilisateur)
+            {
+                if (user.nomUtilisateur == _NomUtilisateurASupprimer)
+                {
+                    UtilisateurASupprimer = user;
+                }
+            }
+
+            context.tblUtilisateur.Remove(UtilisateurASupprimer);
+
+            try
+            {
+                context.SaveChanges();
+                return "L'utilisateur a été supprimer avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la suppression de l'Utilisateur. Les données n'ont pas été supprimées.";
+            }
+        }
         private static void Enregistrer(Utilisateur NewUtilisateur)
         {
             context.tblUtilisateur.Add(NewUtilisateur);

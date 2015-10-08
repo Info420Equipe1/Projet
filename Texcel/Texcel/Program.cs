@@ -17,7 +17,7 @@ namespace Texcel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Interfaces.frmLogin());
+            Application.Run(new Interfaces.Personnel.frmUtilisateur());
         }
     }
 }
