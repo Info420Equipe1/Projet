@@ -155,13 +155,13 @@ namespace Texcel.Interfaces.Personnel
         private void btnModifUti_Click(object sender, EventArgs e)
         {
             Utilisateur uti = CtrlUtilisateur.utilisateur(listBox1.SelectedItem.ToString());
-            frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti));
+            frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti), CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
             frmUti.ShowDialog();
         }
 
         private void btnCreerUti_Click(object sender, EventArgs e)
         {
-            frmUtilisateur frmUti = new frmUtilisateur();
+            frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
             frmUti.ShowDialog();
         }
 
