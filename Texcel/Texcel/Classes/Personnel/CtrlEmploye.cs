@@ -22,8 +22,7 @@ namespace Texcel.Classes.Personnel
             emp.dateEmbauche = _dateEmbEmp;
             emp.competenceParticuliere = _compPart;
 
-            // Reste a àjouter les type de test à l'employé
-            // valider aussi
+            
 
             try
             {
@@ -31,6 +30,30 @@ namespace Texcel.Classes.Personnel
                 context.SaveChanges();
                 LierTypeTest(emp);
                 return "Le jeu a été ajouté avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de l'ajout du Jeu. Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        public static string Modifier(string _nomEmp, string _prenomEmp,string _adresseEmp, string _telPrimEmp,string _TelSecEmp, string _compPart, DateTime _dateEmbEmp, Employe _emp)
+        {
+            Employe employe = _emp;
+            employe.nomEmploye = _nomEmp;
+            employe.prenomEmploye = _prenomEmp;
+            employe.adressePostale = _adresseEmp;
+            employe.numTelPrincipal = _telPrimEmp;
+            employe.numTelSecondaire = _TelSecEmp;
+            employe.dateEmbauche = _dateEmbEmp;
+            employe.competenceParticuliere = _compPart;
+
+            try
+            {
+                
+                context.SaveChanges();
+                LierTypeTest(employe);
+                return "Le jeu a été modifié avec succès!";
             }
             catch (Exception)
             {

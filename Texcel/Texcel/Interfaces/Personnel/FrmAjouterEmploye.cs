@@ -16,6 +16,7 @@ namespace Texcel.Interfaces.Personnel
     public partial class frmAjouterEmploye : frmForm
     {
         bool modifier = false;
+        Employe employe = new Employe();
         //Mode creer employé
         public frmAjouterEmploye()
         {
@@ -35,11 +36,13 @@ namespace Texcel.Interfaces.Personnel
             txtTelSec.Text = _telSec;
             //dateTPEmp = _date;
             richTextBox1.Text = _compParti;
-            RemplirListBoxPourModeModif(_emp);
+            
+            CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
+            RemplirListBoxPourModeModif(_emp);
             remplirListBoxUtil(_emp);
             modifier = true;
-            
+            employe = CtrlEmploye.emp(_nom + " " + _pren);
 
         }
 
@@ -117,7 +120,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == "") || (txtTelSec.Text == "") || (richTextBox1.Text == ""))
+            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == "") || (txtTelSec.Text == ""))
             {
                 MessageBox.Show("Certain champs ne sont pas rempli");
                 return;
@@ -138,7 +141,17 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-
+                string message;
+                message = CtrlEmploye.Modifier(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value, employe);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
