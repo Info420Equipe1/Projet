@@ -223,5 +223,13 @@ namespace Texcel.Interfaces
             txtRechercher.Clear();
             dgvResultats.Columns.Clear();
         }
+
+        private void dgvResultats_DoubleClick(object sender, EventArgs e)
+        {
+            if (cmbFiltre.Text == "Employé")
+            {
+                
+            }
+        }
     }
 }
