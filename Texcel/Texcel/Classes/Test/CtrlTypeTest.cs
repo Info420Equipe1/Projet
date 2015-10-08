@@ -60,5 +60,29 @@ namespace Texcel.Classes.Test
             return monTT;      
         }
 
+
+        //Rechercher les types test associé a un employé
+        public static List<TypeTest> lstTypeTestAssEmp(Employe _emp)
+        {
+            List<TypeTest> lstTypTest = new List<TypeTest>();
+            foreach (TypeTest typTes in _emp.TypeTest)
+            {
+                lstTypTest.Add(typTes);
+            }
+
+            return lstTypTest;
+        }
+
+        //Liste de tous les types test
+        public static List<TypeTest> lstTypeTest()
+        {
+            List<TypeTest> lstTypTest = new List<TypeTest>();
+
+            foreach (TypeTest typTest in context.tblTypeTest)
+            {
+                lstTypTest.Add(typTest);
+            }
+            return lstTypTest;
+        }
     }
 }

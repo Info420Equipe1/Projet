@@ -15,15 +15,38 @@ namespace Texcel.Interfaces.Personnel
 {
     public partial class frmAjouterEmploye : frmForm
     {
+        bool modifier = false;
+        //Mode creer employé
         public frmAjouterEmploye()
         {
             InitializeComponent();
-        }
-
-        private void frmAjouterEmploye_Load(object sender, EventArgs e)
-        {
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
+        }
+
+        //Mode modifier (Arrive de la fenetre recherche)
+        public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
+        {
+            txtNom.Text = _nom;
+            txtPrenom.Text = _pren;
+            txtAdresse.Text = _adresse;
+            txtTelPrim.Text = _telPrim;
+            txtTelSec.Text = _telSec;
+            //dateTPEmp = _date;
+            richTextBox1.Text = _compParti;
+            RemplirListBoxPourModeModif(_emp);
+            AfficherLstBox();
+            modifier = true;
+
+        }
+
+        private void RemplirListBoxPourModeModif(Employe _emp)
+        {
+            foreach (TypeTest typTest in CtrlTypeTest.lstTypeTestAssEmp(_emp))
+            {
+                lstBoxTypeTestEmp.Items.Add(typTest.nomTest);
+                
+            }
         }
 
         // Remplir les lstBox

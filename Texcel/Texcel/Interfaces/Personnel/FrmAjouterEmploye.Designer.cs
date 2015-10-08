@@ -52,6 +52,10 @@
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtNumeroEmp = new System.Windows.Forms.TextBox();
             this.dateTPEmp = new System.Windows.Forms.DateTimePicker();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCreerUti = new System.Windows.Forms.Button();
+            this.btnModifUti = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -80,7 +84,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(553, 541);
+            this.btnSupprimer.Location = new System.Drawing.Point(553, 603);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 11;
@@ -95,7 +99,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(815, 541);
+            this.btnCancel.Location = new System.Drawing.Point(815, 603);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 13;
@@ -110,7 +114,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(684, 541);
+            this.btnEnregistrer.Location = new System.Drawing.Point(684, 603);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 12;
@@ -120,7 +124,7 @@
             // 
             // bntFlecheRetirer
             // 
-            this.bntFlecheRetirer.Location = new System.Drawing.Point(459, 320);
+            this.bntFlecheRetirer.Location = new System.Drawing.Point(459, 382);
             this.bntFlecheRetirer.Name = "bntFlecheRetirer";
             this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 32);
             this.bntFlecheRetirer.TabIndex = 23;
@@ -131,7 +135,7 @@
             // 
             // btnFlecheAjouter
             // 
-            this.btnFlecheAjouter.Location = new System.Drawing.Point(459, 282);
+            this.btnFlecheAjouter.Location = new System.Drawing.Point(459, 344);
             this.btnFlecheAjouter.Name = "btnFlecheAjouter";
             this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 32);
             this.btnFlecheAjouter.TabIndex = 22;
@@ -142,7 +146,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(16, 414);
+            this.richTextBox1.Location = new System.Drawing.Point(16, 476);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(924, 121);
             this.richTextBox1.TabIndex = 10;
@@ -152,7 +156,7 @@
             // 
             this.lblCompetences.AutoSize = true;
             this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompetences.Location = new System.Drawing.Point(12, 391);
+            this.lblCompetences.Location = new System.Drawing.Point(12, 453);
             this.lblCompetences.Name = "lblCompetences";
             this.lblCompetences.Size = new System.Drawing.Size(209, 20);
             this.lblCompetences.TabIndex = 20;
@@ -162,7 +166,7 @@
             // 
             this.lblTypeTest.AutoSize = true;
             this.lblTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeTest.Location = new System.Drawing.Point(12, 245);
+            this.lblTypeTest.Location = new System.Drawing.Point(12, 307);
             this.lblTypeTest.Name = "lblTypeTest";
             this.lblTypeTest.Size = new System.Drawing.Size(101, 20);
             this.lblTypeTest.TabIndex = 19;
@@ -173,7 +177,7 @@
             this.lstBoxTypeTestEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTypeTestEmp.FormattingEnabled = true;
             this.lstBoxTypeTestEmp.ItemHeight = 20;
-            this.lstBoxTypeTestEmp.Location = new System.Drawing.Point(497, 268);
+            this.lstBoxTypeTestEmp.Location = new System.Drawing.Point(497, 330);
             this.lstBoxTypeTestEmp.Name = "lstBoxTypeTestEmp";
             this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(443, 104);
             this.lstBoxTypeTestEmp.TabIndex = 9;
@@ -183,7 +187,7 @@
             this.lstBoxTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTypeTest.FormattingEnabled = true;
             this.lstBoxTypeTest.ItemHeight = 20;
-            this.lstBoxTypeTest.Location = new System.Drawing.Point(16, 268);
+            this.lstBoxTypeTest.Location = new System.Drawing.Point(16, 330);
             this.lstBoxTypeTest.Name = "lstBoxTypeTest";
             this.lstBoxTypeTest.Size = new System.Drawing.Size(443, 104);
             this.lstBoxTypeTest.TabIndex = 8;
@@ -300,11 +304,56 @@
             this.dateTPEmp.Size = new System.Drawing.Size(269, 22);
             this.dateTPEmp.TabIndex = 30;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(519, 198);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(235, 84);
+            this.listBox1.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(520, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 20);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Comptes utilisateurs";
+            // 
+            // btnCreerUti
+            // 
+            this.btnCreerUti.Enabled = false;
+            this.btnCreerUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.btnCreerUti.Location = new System.Drawing.Point(761, 198);
+            this.btnCreerUti.Name = "btnCreerUti";
+            this.btnCreerUti.Size = new System.Drawing.Size(88, 31);
+            this.btnCreerUti.TabIndex = 33;
+            this.btnCreerUti.Text = "Créer";
+            this.btnCreerUti.UseVisualStyleBackColor = true;
+            // 
+            // btnModifUti
+            // 
+            this.btnModifUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.btnModifUti.Location = new System.Drawing.Point(761, 249);
+            this.btnModifUti.Name = "btnModifUti";
+            this.btnModifUti.Size = new System.Drawing.Size(88, 33);
+            this.btnModifUti.TabIndex = 34;
+            this.btnModifUti.Text = "Modifier";
+            this.btnModifUti.UseVisualStyleBackColor = true;
+            this.btnModifUti.Visible = false;
+            // 
             // frmAjouterEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 607);
+            this.ClientSize = new System.Drawing.Size(960, 661);
+            this.Controls.Add(this.btnModifUti);
+            this.Controls.Add(this.btnCreerUti);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dateTPEmp);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.txtPrenom);
@@ -331,7 +380,7 @@
             this.Controls.Add(this.txtNumeroEmp);
             this.Name = "frmAjouterEmploye";
             this.Text = "Ajouter un employé";
-            this.Load += new System.EventHandler(this.frmAjouterEmploye_Load);
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +412,9 @@
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.DateTimePicker dateTPEmp;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCreerUti;
+        private System.Windows.Forms.Button btnModifUti;
     }
 }
