@@ -32,15 +32,8 @@ namespace Texcel.Classes.Personnel
 
         public static string ModifierUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, string nomUtilisateurAModifier)
         {
-            Utilisateur UtilisateurAModifier = new Utilisateur();
+            Utilisateur UtilisateurAModifier = context.tblUtilisateur.Where(x => x.nomUtilisateur == nomUtilisateurAModifier).First();
 
-            foreach (Utilisateur user in context.tblUtilisateur)
-            {
-                if (user.nomUtilisateur == nomUtilisateurAModifier)
-                {
-                    UtilisateurAModifier = user;
-                }
-            }
             UtilisateurAModifier.nomUtilisateur = nomUtilisateur;
             UtilisateurAModifier.motPasse = MotDePasse;
             UtilisateurAModifier.Groupe = lstGroupeUtilisateur;

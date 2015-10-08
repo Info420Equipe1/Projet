@@ -28,7 +28,7 @@ namespace Texcel.Interfaces.Personnel
         {
             InitializeComponent();
             btnSupprimer.Visible = true;
-            NomUtilisateurAModifier = txtNomUtil.Text;
+            NomUtilisateurAModifier = NomUtilisateur;
             ModifierUtilisateur = true;
             EmployeLier = _Employe;
             txtNomUtil.Text = NomUtilisateur;
