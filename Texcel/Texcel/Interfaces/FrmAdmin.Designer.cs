@@ -164,6 +164,7 @@
             this.smiFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smiQuitter});
             this.smiFichier.Name = "smiFichier";
+            this.smiFichier.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.smiFichier.Size = new System.Drawing.Size(64, 24);
             this.smiFichier.Text = "&Fichier";
             // 
@@ -171,7 +172,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -189,70 +190,78 @@
             this.toolStripMenuItem3,
             this.smiJeu});
             this.smiGestionJeu.Name = "smiGestionJeu";
+            this.smiGestionJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.J)));
             this.smiGestionJeu.Size = new System.Drawing.Size(129, 24);
             this.smiGestionJeu.Text = "&Gestion des jeux";
             // 
             // smiSysExp
             // 
             this.smiSysExp.Name = "smiSysExp";
-            this.smiSysExp.Size = new System.Drawing.Size(229, 24);
+            this.smiSysExp.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.smiSysExp.Size = new System.Drawing.Size(275, 24);
             this.smiSysExp.Text = "&Système d\'exploitation";
             this.smiSysExp.Click += new System.EventHandler(this.SmiSysExp_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(272, 6);
             // 
             // smiTypePlateforme
             // 
             this.smiTypePlateforme.Name = "smiTypePlateforme";
-            this.smiTypePlateforme.Size = new System.Drawing.Size(229, 24);
+            this.smiTypePlateforme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Y)));
+            this.smiTypePlateforme.Size = new System.Drawing.Size(275, 24);
             this.smiTypePlateforme.Text = "&Type de plateforme";
             this.smiTypePlateforme.Click += new System.EventHandler(this.SmiTypePlateforme_Click);
             // 
             // smiPlateforme
             // 
             this.smiPlateforme.Name = "smiPlateforme";
-            this.smiPlateforme.Size = new System.Drawing.Size(229, 24);
+            this.smiPlateforme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
+            this.smiPlateforme.Size = new System.Drawing.Size(275, 24);
             this.smiPlateforme.Text = "&Plateforme";
             this.smiPlateforme.Click += new System.EventHandler(this.SmiPlateforme_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(272, 6);
             // 
             // smiTheme
             // 
             this.smiTheme.Name = "smiTheme";
-            this.smiTheme.Size = new System.Drawing.Size(229, 24);
+            this.smiTheme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.smiTheme.Size = new System.Drawing.Size(275, 24);
             this.smiTheme.Text = "&Thème";
             this.smiTheme.Click += new System.EventHandler(this.SmiTheme_Click);
             // 
             // smiGenre
             // 
             this.smiGenre.Name = "smiGenre";
-            this.smiGenre.Size = new System.Drawing.Size(229, 24);
+            this.smiGenre.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.G)));
+            this.smiGenre.Size = new System.Drawing.Size(275, 24);
             this.smiGenre.Text = "&Genre";
             this.smiGenre.Click += new System.EventHandler(this.SmiGenre_Click);
             // 
             // smiClassification
             // 
             this.smiClassification.Name = "smiClassification";
-            this.smiClassification.Size = new System.Drawing.Size(229, 24);
+            this.smiClassification.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
+            this.smiClassification.Size = new System.Drawing.Size(275, 24);
             this.smiClassification.Text = "&Classification";
             this.smiClassification.Click += new System.EventHandler(this.SmiClassification_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(272, 6);
             // 
             // smiJeu
             // 
             this.smiJeu.Name = "smiJeu";
-            this.smiJeu.Size = new System.Drawing.Size(229, 24);
+            this.smiJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.J)));
+            this.smiJeu.Size = new System.Drawing.Size(275, 24);
             this.smiJeu.Text = "&Jeu";
             this.smiJeu.Click += new System.EventHandler(this.SmiJeu_Click);
             // 
@@ -262,20 +271,23 @@
             this.smiEmploye,
             this.smiEquipe});
             this.smiGestionPersonnel.Name = "smiGestionPersonnel";
+            this.smiGestionPersonnel.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.smiGestionPersonnel.Size = new System.Drawing.Size(161, 24);
             this.smiGestionPersonnel.Text = "&Gestion du personnel";
             // 
             // smiEmploye
             // 
             this.smiEmploye.Name = "smiEmploye";
-            this.smiEmploye.Size = new System.Drawing.Size(136, 24);
+            this.smiEmploye.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
+            this.smiEmploye.Size = new System.Drawing.Size(187, 24);
             this.smiEmploye.Text = "E&mployé";
             this.smiEmploye.Click += new System.EventHandler(this.smiEmploye_Click);
             // 
             // smiEquipe
             // 
             this.smiEquipe.Name = "smiEquipe";
-            this.smiEquipe.Size = new System.Drawing.Size(136, 24);
+            this.smiEquipe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
+            this.smiEquipe.Size = new System.Drawing.Size(187, 24);
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
             // 
