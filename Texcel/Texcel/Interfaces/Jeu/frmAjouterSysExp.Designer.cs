@@ -89,10 +89,10 @@
             // 
             this.cmbEdition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEdition.FormattingEnabled = true;
-            this.cmbEdition.Location = new System.Drawing.Point(83, 82);
+            this.cmbEdition.Location = new System.Drawing.Point(132, 82);
             this.cmbEdition.MaxLength = 50;
             this.cmbEdition.Name = "cmbEdition";
-            this.cmbEdition.Size = new System.Drawing.Size(376, 28);
+            this.cmbEdition.Size = new System.Drawing.Size(388, 28);
             this.cmbEdition.Sorted = true;
             this.cmbEdition.TabIndex = 2;
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
@@ -101,10 +101,10 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(83, 45);
+            this.cmbNom.Location = new System.Drawing.Point(132, 45);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(376, 28);
+            this.cmbNom.Size = new System.Drawing.Size(388, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 0;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -124,10 +124,10 @@
             // 
             this.cmbVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVersion.FormattingEnabled = true;
-            this.cmbVersion.Location = new System.Drawing.Point(83, 149);
+            this.cmbVersion.Location = new System.Drawing.Point(132, 149);
             this.cmbVersion.MaxLength = 30;
             this.cmbVersion.Name = "cmbVersion";
-            this.cmbVersion.Size = new System.Drawing.Size(376, 28);
+            this.cmbVersion.Size = new System.Drawing.Size(388, 28);
             this.cmbVersion.Sorted = true;
             this.cmbVersion.TabIndex = 3;
             this.cmbVersion.DropDown += new System.EventHandler(this.cmbVersion_DropDown);
@@ -191,7 +191,7 @@
             // txtCode
             // 
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(83, 116);
+            this.txtCode.Location = new System.Drawing.Point(132, 116);
             this.txtCode.MaxLength = 20;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(146, 27);
