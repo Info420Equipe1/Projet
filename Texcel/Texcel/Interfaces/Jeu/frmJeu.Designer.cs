@@ -83,7 +83,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(644, 60);
+            this.txtID.Location = new System.Drawing.Point(522, 46);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 27);
             this.txtID.TabIndex = 0;
@@ -92,7 +92,7 @@
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(565, 63);
+            this.lblNumero.Location = new System.Drawing.Point(420, 49);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(73, 20);
             this.lblNumero.TabIndex = 25;
@@ -105,7 +105,7 @@
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(774, 860);
+            this.btnAnnuler.Location = new System.Drawing.Point(788, 860);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
             this.btnAnnuler.TabIndex = 14;
@@ -117,17 +117,17 @@
             // 
             this.lblConfiguration.AutoSize = true;
             this.lblConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfiguration.Location = new System.Drawing.Point(505, 311);
+            this.lblConfiguration.Location = new System.Drawing.Point(419, 294);
             this.lblConfiguration.Name = "lblConfiguration";
-            this.lblConfiguration.Size = new System.Drawing.Size(134, 20);
+            this.lblConfiguration.Size = new System.Drawing.Size(94, 20);
             this.lblConfiguration.TabIndex = 22;
-            this.lblConfiguration.Text = "Config minimale:";
+            this.lblConfiguration.Text = "Config min:";
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(539, 200);
+            this.lblDescription.Location = new System.Drawing.Point(419, 183);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(100, 20);
             this.lblDescription.TabIndex = 21;
@@ -136,18 +136,18 @@
             // rtbConfiguration
             // 
             this.rtbConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbConfiguration.Location = new System.Drawing.Point(645, 308);
+            this.rtbConfiguration.Location = new System.Drawing.Point(521, 291);
             this.rtbConfiguration.Name = "rtbConfiguration";
-            this.rtbConfiguration.Size = new System.Drawing.Size(454, 104);
+            this.rtbConfiguration.Size = new System.Drawing.Size(392, 104);
             this.rtbConfiguration.TabIndex = 5;
             this.rtbConfiguration.Text = "";
             // 
             // rtbDescription
             // 
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDescription.Location = new System.Drawing.Point(645, 197);
+            this.rtbDescription.Location = new System.Drawing.Point(521, 180);
             this.rtbDescription.Name = "rtbDescription";
-            this.rtbDescription.Size = new System.Drawing.Size(454, 105);
+            this.rtbDescription.Size = new System.Drawing.Size(392, 105);
             this.rtbDescription.TabIndex = 4;
             this.rtbDescription.Text = "";
             // 
@@ -155,7 +155,7 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(589, 96);
+            this.lblNom.Location = new System.Drawing.Point(420, 82);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 18;
@@ -165,10 +165,10 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(644, 93);
+            this.cmbNom.Location = new System.Drawing.Point(522, 79);
             this.cmbNom.MaxLength = 50;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(454, 28);
+            this.cmbNom.Size = new System.Drawing.Size(370, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -182,7 +182,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(643, 860);
+            this.btnEnregistrer.Location = new System.Drawing.Point(657, 860);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 13;
@@ -193,17 +193,17 @@
             // txtDeveloppeur
             // 
             this.txtDeveloppeur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeveloppeur.Location = new System.Drawing.Point(644, 127);
+            this.txtDeveloppeur.Location = new System.Drawing.Point(526, 113);
             this.txtDeveloppeur.MaxLength = 50;
             this.txtDeveloppeur.Name = "txtDeveloppeur";
-            this.txtDeveloppeur.Size = new System.Drawing.Size(454, 27);
+            this.txtDeveloppeur.Size = new System.Drawing.Size(387, 27);
             this.txtDeveloppeur.TabIndex = 2;
             // 
             // lblDeveloppeur
             // 
             this.lblDeveloppeur.AutoSize = true;
             this.lblDeveloppeur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeveloppeur.Location = new System.Drawing.Point(530, 130);
+            this.lblDeveloppeur.Location = new System.Drawing.Point(420, 116);
             this.lblDeveloppeur.Name = "lblDeveloppeur";
             this.lblDeveloppeur.Size = new System.Drawing.Size(108, 20);
             this.lblDeveloppeur.TabIndex = 28;
@@ -213,7 +213,7 @@
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(566, 754);
+            this.lblVersion.Location = new System.Drawing.Point(420, 401);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(71, 20);
             this.lblVersion.TabIndex = 32;
@@ -223,7 +223,7 @@
             // 
             this.lblGenre.AutoSize = true;
             this.lblGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenre.Location = new System.Drawing.Point(76, 639);
+            this.lblGenre.Location = new System.Drawing.Point(419, 749);
             this.lblGenre.Name = "lblGenre";
             this.lblGenre.Size = new System.Drawing.Size(60, 20);
             this.lblGenre.TabIndex = 33;
@@ -233,7 +233,7 @@
             // 
             this.lblTheme.AutoSize = true;
             this.lblTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheme.Location = new System.Drawing.Point(71, 529);
+            this.lblTheme.Location = new System.Drawing.Point(419, 638);
             this.lblTheme.Name = "lblTheme";
             this.lblTheme.Size = new System.Drawing.Size(65, 20);
             this.lblTheme.TabIndex = 34;
@@ -244,9 +244,9 @@
             this.lstBoxVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxVersion.FormattingEnabled = true;
             this.lstBoxVersion.ItemHeight = 20;
-            this.lstBoxVersion.Location = new System.Drawing.Point(643, 749);
+            this.lstBoxVersion.Location = new System.Drawing.Point(521, 401);
             this.lstBoxVersion.Name = "lstBoxVersion";
-            this.lstBoxVersion.Size = new System.Drawing.Size(454, 104);
+            this.lstBoxVersion.Size = new System.Drawing.Size(392, 104);
             this.lstBoxVersion.Sorted = true;
             this.lstBoxVersion.TabIndex = 12;
             // 
@@ -255,10 +255,10 @@
             this.lstBoxTheme1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTheme1.FormattingEnabled = true;
             this.lstBoxTheme1.ItemHeight = 20;
-            this.lstBoxTheme1.Location = new System.Drawing.Point(643, 528);
+            this.lstBoxTheme1.Location = new System.Drawing.Point(522, 638);
             this.lstBoxTheme1.Name = "lstBoxTheme1";
             this.lstBoxTheme1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxTheme1.Size = new System.Drawing.Size(455, 104);
+            this.lstBoxTheme1.Size = new System.Drawing.Size(391, 104);
             this.lstBoxTheme1.Sorted = true;
             this.lstBoxTheme1.TabIndex = 9;
             // 
@@ -267,10 +267,10 @@
             this.lstBoxTheme2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTheme2.FormattingEnabled = true;
             this.lstBoxTheme2.ItemHeight = 20;
-            this.lstBoxTheme2.Location = new System.Drawing.Point(142, 529);
+            this.lstBoxTheme2.Location = new System.Drawing.Point(35, 638);
             this.lstBoxTheme2.Name = "lstBoxTheme2";
             this.lstBoxTheme2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxTheme2.Size = new System.Drawing.Size(457, 104);
+            this.lstBoxTheme2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxTheme2.Sorted = true;
             this.lstBoxTheme2.TabIndex = 8;
             // 
@@ -279,10 +279,10 @@
             this.lstBoxGenre1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxGenre1.FormattingEnabled = true;
             this.lstBoxGenre1.ItemHeight = 20;
-            this.lstBoxGenre1.Location = new System.Drawing.Point(643, 639);
+            this.lstBoxGenre1.Location = new System.Drawing.Point(522, 749);
             this.lstBoxGenre1.Name = "lstBoxGenre1";
             this.lstBoxGenre1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxGenre1.Size = new System.Drawing.Size(455, 104);
+            this.lstBoxGenre1.Size = new System.Drawing.Size(391, 104);
             this.lstBoxGenre1.Sorted = true;
             this.lstBoxGenre1.TabIndex = 11;
             // 
@@ -291,16 +291,16 @@
             this.lstBoxGenre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxGenre2.FormattingEnabled = true;
             this.lstBoxGenre2.ItemHeight = 20;
-            this.lstBoxGenre2.Location = new System.Drawing.Point(142, 639);
+            this.lstBoxGenre2.Location = new System.Drawing.Point(35, 749);
             this.lstBoxGenre2.Name = "lstBoxGenre2";
             this.lstBoxGenre2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxGenre2.Size = new System.Drawing.Size(457, 104);
+            this.lstBoxGenre2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxGenre2.Sorted = true;
             this.lstBoxGenre2.TabIndex = 10;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(607, 587);
+            this.button2.Location = new System.Drawing.Point(382, 695);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 23);
             this.button2.TabIndex = 42;
@@ -311,7 +311,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(607, 697);
+            this.button3.Location = new System.Drawing.Point(382, 805);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(32, 23);
             this.button3.TabIndex = 43;
@@ -322,7 +322,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(606, 639);
+            this.button6.Location = new System.Drawing.Point(381, 747);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(32, 23);
             this.button6.TabIndex = 46;
@@ -335,7 +335,7 @@
             // 
             this.pcbAjouterVerJeu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterVerJeu.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterVerJeu.Image")));
-            this.pcbAjouterVerJeu.Location = new System.Drawing.Point(612, 777);
+            this.pcbAjouterVerJeu.Location = new System.Drawing.Point(916, 401);
             this.pcbAjouterVerJeu.Name = "pcbAjouterVerJeu";
             this.pcbAjouterVerJeu.Size = new System.Drawing.Size(25, 25);
             this.pcbAjouterVerJeu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -347,7 +347,7 @@
             // 
             this.pcbAjouterTheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterTheme.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterTheme.Image")));
-            this.pcbAjouterTheme.Location = new System.Drawing.Point(114, 555);
+            this.pcbAjouterTheme.Location = new System.Drawing.Point(916, 639);
             this.pcbAjouterTheme.Name = "pcbAjouterTheme";
             this.pcbAjouterTheme.Size = new System.Drawing.Size(25, 25);
             this.pcbAjouterTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -359,7 +359,7 @@
             // 
             this.pcbAjouterGenre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterGenre.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterGenre.Image")));
-            this.pcbAjouterGenre.Location = new System.Drawing.Point(114, 665);
+            this.pcbAjouterGenre.Location = new System.Drawing.Point(916, 749);
             this.pcbAjouterGenre.Name = "pcbAjouterGenre";
             this.pcbAjouterGenre.Size = new System.Drawing.Size(25, 25);
             this.pcbAjouterGenre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -374,7 +374,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.Black;
-            this.btnClear.Location = new System.Drawing.Point(974, 860);
+            this.btnClear.Location = new System.Drawing.Point(526, 860);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(125, 50);
             this.btnClear.TabIndex = 15;
@@ -387,10 +387,10 @@
             this.lstBoxPlat1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxPlat1.FormattingEnabled = true;
             this.lstBoxPlat1.ItemHeight = 20;
-            this.lstBoxPlat1.Location = new System.Drawing.Point(644, 418);
+            this.lstBoxPlat1.Location = new System.Drawing.Point(521, 528);
             this.lstBoxPlat1.Name = "lstBoxPlat1";
             this.lstBoxPlat1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxPlat1.Size = new System.Drawing.Size(455, 104);
+            this.lstBoxPlat1.Size = new System.Drawing.Size(392, 104);
             this.lstBoxPlat1.Sorted = true;
             this.lstBoxPlat1.TabIndex = 7;
             // 
@@ -399,16 +399,16 @@
             this.lstBoxPlat2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxPlat2.FormattingEnabled = true;
             this.lstBoxPlat2.ItemHeight = 20;
-            this.lstBoxPlat2.Location = new System.Drawing.Point(144, 419);
+            this.lstBoxPlat2.Location = new System.Drawing.Point(35, 528);
             this.lstBoxPlat2.Name = "lstBoxPlat2";
             this.lstBoxPlat2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxPlat2.Size = new System.Drawing.Size(457, 104);
+            this.lstBoxPlat2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxPlat2.Sorted = true;
             this.lstBoxPlat2.TabIndex = 6;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(607, 479);
+            this.button1.Location = new System.Drawing.Point(382, 587);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 23);
             this.button1.TabIndex = 53;
@@ -419,7 +419,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(606, 529);
+            this.button5.Location = new System.Drawing.Point(381, 637);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(32, 23);
             this.button5.TabIndex = 45;
@@ -430,7 +430,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(607, 421);
+            this.button4.Location = new System.Drawing.Point(382, 529);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(32, 23);
             this.button4.TabIndex = 0;
@@ -443,7 +443,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(523, 166);
+            this.label1.Location = new System.Drawing.Point(419, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 20);
             this.label1.TabIndex = 55;
@@ -454,10 +454,10 @@
             this.cmbClassification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClassification.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClassification.FormattingEnabled = true;
-            this.cmbClassification.Location = new System.Drawing.Point(644, 163);
+            this.cmbClassification.Location = new System.Drawing.Point(534, 146);
             this.cmbClassification.MaxLength = 3;
             this.cmbClassification.Name = "cmbClassification";
-            this.cmbClassification.Size = new System.Drawing.Size(454, 28);
+            this.cmbClassification.Size = new System.Drawing.Size(379, 28);
             this.cmbClassification.Sorted = true;
             this.cmbClassification.TabIndex = 3;
             this.cmbClassification.DropDown += new System.EventHandler(this.cmbClassification_DropDown);
@@ -466,7 +466,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 421);
+            this.label2.Location = new System.Drawing.Point(420, 528);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 57;
@@ -476,7 +476,7 @@
             // 
             this.pcbAjouterPlateforme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterPlateforme.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterPlateforme.Image")));
-            this.pcbAjouterPlateforme.Location = new System.Drawing.Point(115, 445);
+            this.pcbAjouterPlateforme.Location = new System.Drawing.Point(916, 529);
             this.pcbAjouterPlateforme.Name = "pcbAjouterPlateforme";
             this.pcbAjouterPlateforme.Size = new System.Drawing.Size(25, 25);
             this.pcbAjouterPlateforme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -486,7 +486,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(607, 445);
+            this.button7.Location = new System.Drawing.Point(382, 553);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(32, 23);
             this.button7.TabIndex = 59;
@@ -497,7 +497,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(607, 502);
+            this.button8.Location = new System.Drawing.Point(382, 610);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(32, 23);
             this.button8.TabIndex = 60;
@@ -508,7 +508,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(606, 554);
+            this.button9.Location = new System.Drawing.Point(381, 662);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(32, 23);
             this.button9.TabIndex = 61;
@@ -519,7 +519,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(607, 610);
+            this.button10.Location = new System.Drawing.Point(382, 718);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(32, 23);
             this.button10.TabIndex = 62;
@@ -530,7 +530,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(607, 664);
+            this.button11.Location = new System.Drawing.Point(382, 772);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(32, 23);
             this.button11.TabIndex = 63;
@@ -541,7 +541,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(607, 720);
+            this.button12.Location = new System.Drawing.Point(382, 828);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(32, 23);
             this.button12.TabIndex = 64;
@@ -552,9 +552,9 @@
             // 
             // picJeu
             // 
-            this.picJeu.Location = new System.Drawing.Point(24, 60);
+            this.picJeu.Location = new System.Drawing.Point(35, 46);
             this.picJeu.Name = "picJeu";
-            this.picJeu.Size = new System.Drawing.Size(467, 332);
+            this.picJeu.Size = new System.Drawing.Size(378, 412);
             this.picJeu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picJeu.TabIndex = 65;
             this.picJeu.TabStop = false;
@@ -564,7 +564,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(1145, 922);
+            this.ClientSize = new System.Drawing.Size(956, 922);
             this.Controls.Add(this.picJeu);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);

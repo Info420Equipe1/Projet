@@ -47,7 +47,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(452, 310);
+            this.btnCancel.Location = new System.Drawing.Point(381, 310);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 4;
@@ -62,7 +62,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(321, 310);
+            this.btnEnregistrer.Location = new System.Drawing.Point(250, 310);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDescription.Location = new System.Drawing.Point(118, 176);
             this.rtbDescription.Name = "rtbDescription";
-            this.rtbDescription.Size = new System.Drawing.Size(459, 128);
+            this.rtbDescription.Size = new System.Drawing.Size(388, 128);
             this.rtbDescription.TabIndex = 2;
             this.rtbDescription.Text = "";
             // 
@@ -93,7 +93,7 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(63, 67);
+            this.lblNom.Location = new System.Drawing.Point(12, 42);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 26;
@@ -103,7 +103,7 @@
             // 
             this.lblCode.AutoSize = true;
             this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(59, 101);
+            this.lblCode.Location = new System.Drawing.Point(12, 76);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(53, 20);
             this.lblCode.TabIndex = 35;
@@ -113,7 +113,7 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(118, 64);
+            this.cmbNom.Location = new System.Drawing.Point(71, 39);
             this.cmbNom.MaxLength = 20;
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(249, 28);
@@ -126,7 +126,7 @@
             // txtCode
             // 
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(118, 98);
+            this.txtCode.Location = new System.Drawing.Point(71, 73);
             this.txtCode.MaxLength = 3;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(249, 27);
@@ -134,7 +134,7 @@
             // 
             // picClassification
             // 
-            this.picClassification.Location = new System.Drawing.Point(423, 12);
+            this.picClassification.Location = new System.Drawing.Point(362, 12);
             this.picClassification.Name = "picClassification";
             this.picClassification.Size = new System.Drawing.Size(130, 158);
             this.picClassification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 371);
+            this.ClientSize = new System.Drawing.Size(528, 371);
             this.Controls.Add(this.picClassification);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.cmbNom);
