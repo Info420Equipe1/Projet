@@ -70,6 +70,11 @@ namespace Texcel.Classes.Personnel
                     _emp.TypeTest.Add(typeTest.Key);
                     context.SaveChanges();
                 }
+                else
+                {
+                    _emp.TypeTest.Remove(typeTest.Key);
+                    context.SaveChanges();
+                }
             }
         }
 

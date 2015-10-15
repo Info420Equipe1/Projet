@@ -34,12 +34,12 @@ namespace Texcel.Interfaces.Personnel
             txtAdresse.Text = _adresse;
             txtTelPrim.Text = _telPrim;
             txtTelSec.Text = _telSec;
-            //dateTPEmp = _date;
+            dateTPEmp.Value = _date;
             richTextBox1.Text = _compParti;
             
-            CtrlTypeTest.PopulateLstTypeTest();
+            CtrlTypeTest.PopulateLstTypeTest(_emp);
             AfficherLstBox();
-            RemplirListBoxPourModeModif(_emp);
+            //RemplirListBoxPourModeModif(_emp);
             remplirListBoxUtil(_emp);
             modifier = true;
             employe = CtrlEmploye.emp(_nom + " " + _pren);

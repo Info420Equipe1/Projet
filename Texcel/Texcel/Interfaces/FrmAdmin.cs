@@ -233,6 +233,7 @@ namespace Texcel.Interfaces
                 Employe emp = CtrlEmploye.emp(nomPren);
                 frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
                 frmEmp.ShowDialog();
+                dgvResultats.Rows.Clear();
             }
         }
     }
