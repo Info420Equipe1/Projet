@@ -64,7 +64,7 @@
             this.txtNom.Location = new System.Drawing.Point(134, 27);
             this.txtNom.MaxLength = 20;
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(677, 27);
+            this.txtNom.Size = new System.Drawing.Size(185, 27);
             this.txtNom.TabIndex = 0;
             // 
             // cmbNom
@@ -74,7 +74,7 @@
             this.cmbNom.Location = new System.Drawing.Point(134, 59);
             this.cmbNom.MaxLength = 42;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(677, 28);
+            this.cmbNom.Size = new System.Drawing.Size(395, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);

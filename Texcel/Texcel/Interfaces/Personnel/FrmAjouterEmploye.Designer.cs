@@ -74,7 +74,7 @@
             this.txtPrenom.Location = new System.Drawing.Point(107, 126);
             this.txtPrenom.MaxLength = 20;
             this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(365, 27);
+            this.txtPrenom.Size = new System.Drawing.Size(185, 27);
             this.txtPrenom.TabIndex = 3;
             // 
             // btnSupprimer
@@ -256,10 +256,10 @@
             // txtAdresse
             // 
             this.txtAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdresse.Location = new System.Drawing.Point(107, 162);
+            this.txtAdresse.Location = new System.Drawing.Point(107, 160);
             this.txtAdresse.MaxLength = 50;
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(365, 27);
+            this.txtAdresse.Size = new System.Drawing.Size(360, 27);
             this.txtAdresse.TabIndex = 4;
             // 
             // txtTelSec
@@ -268,7 +268,7 @@
             this.txtTelSec.Location = new System.Drawing.Point(623, 126);
             this.txtTelSec.MaxLength = 12;
             this.txtTelSec.Name = "txtTelSec";
-            this.txtTelSec.Size = new System.Drawing.Size(269, 27);
+            this.txtTelSec.Size = new System.Drawing.Size(117, 27);
             this.txtTelSec.TabIndex = 6;
             // 
             // txtTelPrim
@@ -277,8 +277,9 @@
             this.txtTelPrim.Location = new System.Drawing.Point(623, 88);
             this.txtTelPrim.MaxLength = 12;
             this.txtTelPrim.Name = "txtTelPrim";
-            this.txtTelPrim.Size = new System.Drawing.Size(269, 27);
+            this.txtTelPrim.Size = new System.Drawing.Size(117, 27);
             this.txtTelPrim.TabIndex = 5;
+            this.txtTelPrim.Text = "222222222222";
             // 
             // txtNom
             // 
@@ -286,7 +287,7 @@
             this.txtNom.Location = new System.Drawing.Point(107, 88);
             this.txtNom.MaxLength = 20;
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(365, 27);
+            this.txtNom.Size = new System.Drawing.Size(185, 27);
             this.txtNom.TabIndex = 2;
             // 
             // txtNumeroEmp
@@ -295,14 +296,14 @@
             this.txtNumeroEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroEmp.Location = new System.Drawing.Point(107, 54);
             this.txtNumeroEmp.Name = "txtNumeroEmp";
-            this.txtNumeroEmp.Size = new System.Drawing.Size(178, 27);
+            this.txtNumeroEmp.Size = new System.Drawing.Size(79, 27);
             this.txtNumeroEmp.TabIndex = 1;
             // 
             // dateTPEmp
             // 
             this.dateTPEmp.Location = new System.Drawing.Point(623, 165);
             this.dateTPEmp.Name = "dateTPEmp";
-            this.dateTPEmp.Size = new System.Drawing.Size(269, 22);
+            this.dateTPEmp.Size = new System.Drawing.Size(150, 22);
             this.dateTPEmp.TabIndex = 30;
             // 
             // listBox1

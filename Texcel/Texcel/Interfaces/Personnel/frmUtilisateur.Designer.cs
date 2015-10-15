@@ -70,7 +70,7 @@
             this.txtMotPasse.Location = new System.Drawing.Point(163, 77);
             this.txtMotPasse.MaxLength = 20;
             this.txtMotPasse.Name = "txtMotPasse";
-            this.txtMotPasse.Size = new System.Drawing.Size(286, 27);
+            this.txtMotPasse.Size = new System.Drawing.Size(185, 27);
             this.txtMotPasse.TabIndex = 1;
             // 
             // txtNomUtil
@@ -79,7 +79,7 @@
             this.txtNomUtil.Location = new System.Drawing.Point(163, 41);
             this.txtNomUtil.MaxLength = 20;
             this.txtNomUtil.Name = "txtNomUtil";
-            this.txtNomUtil.Size = new System.Drawing.Size(286, 27);
+            this.txtNomUtil.Size = new System.Drawing.Size(185, 27);
             this.txtNomUtil.TabIndex = 0;
             // 
             // button2
