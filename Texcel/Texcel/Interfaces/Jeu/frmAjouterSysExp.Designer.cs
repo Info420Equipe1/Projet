@@ -92,9 +92,10 @@
             this.cmbEdition.Location = new System.Drawing.Point(132, 82);
             this.cmbEdition.MaxLength = 50;
             this.cmbEdition.Name = "cmbEdition";
-            this.cmbEdition.Size = new System.Drawing.Size(388, 28);
+            this.cmbEdition.Size = new System.Drawing.Size(478, 28);
             this.cmbEdition.Sorted = true;
             this.cmbEdition.TabIndex = 2;
+            this.cmbEdition.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
             // 
             // cmbNom
@@ -104,7 +105,7 @@
             this.cmbNom.Location = new System.Drawing.Point(132, 45);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(388, 28);
+            this.cmbNom.Size = new System.Drawing.Size(300, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 0;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -127,7 +128,7 @@
             this.cmbVersion.Location = new System.Drawing.Point(132, 149);
             this.cmbVersion.MaxLength = 30;
             this.cmbVersion.Name = "cmbVersion";
-            this.cmbVersion.Size = new System.Drawing.Size(388, 28);
+            this.cmbVersion.Size = new System.Drawing.Size(300, 28);
             this.cmbVersion.Sorted = true;
             this.cmbVersion.TabIndex = 3;
             this.cmbVersion.DropDown += new System.EventHandler(this.cmbVersion_DropDown);
@@ -194,8 +195,9 @@
             this.txtCode.Location = new System.Drawing.Point(132, 116);
             this.txtCode.MaxLength = 20;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(146, 27);
+            this.txtCode.Size = new System.Drawing.Size(188, 27);
             this.txtCode.TabIndex = 30;
+            this.txtCode.Text = "aaaaaaaaaaaaaaaaaaaa";
             // 
             // lblCode
             // 
@@ -223,7 +225,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(537, 356);
+            this.ClientSize = new System.Drawing.Size(628, 356);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtID);

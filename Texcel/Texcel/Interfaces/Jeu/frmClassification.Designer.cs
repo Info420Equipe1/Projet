@@ -116,7 +116,7 @@
             this.cmbNom.Location = new System.Drawing.Point(71, 39);
             this.cmbNom.MaxLength = 20;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(249, 28);
+            this.cmbNom.Size = new System.Drawing.Size(210, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 0;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -129,8 +129,9 @@
             this.txtCode.Location = new System.Drawing.Point(71, 73);
             this.txtCode.MaxLength = 3;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(249, 27);
+            this.txtCode.Size = new System.Drawing.Size(41, 27);
             this.txtCode.TabIndex = 1;
+            this.txtCode.Text = "aaa";
             // 
             // picClassification
             // 

@@ -140,9 +140,10 @@
             this.cmbNom.Location = new System.Drawing.Point(132, 63);
             this.cmbNom.MaxLength = 50;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(376, 28);
+            this.cmbNom.Size = new System.Drawing.Size(489, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 25;
+            this.cmbNom.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);
@@ -151,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 316);
+            this.ClientSize = new System.Drawing.Size(633, 316);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAjouter);

@@ -168,7 +168,7 @@
             this.cmbNom.Location = new System.Drawing.Point(522, 79);
             this.cmbNom.MaxLength = 50;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(370, 28);
+            this.cmbNom.Size = new System.Drawing.Size(482, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -196,7 +196,7 @@
             this.txtDeveloppeur.Location = new System.Drawing.Point(526, 113);
             this.txtDeveloppeur.MaxLength = 50;
             this.txtDeveloppeur.Name = "txtDeveloppeur";
-            this.txtDeveloppeur.Size = new System.Drawing.Size(387, 27);
+            this.txtDeveloppeur.Size = new System.Drawing.Size(478, 27);
             this.txtDeveloppeur.TabIndex = 2;
             // 
             // lblDeveloppeur
@@ -457,7 +457,7 @@
             this.cmbClassification.Location = new System.Drawing.Point(534, 146);
             this.cmbClassification.MaxLength = 3;
             this.cmbClassification.Name = "cmbClassification";
-            this.cmbClassification.Size = new System.Drawing.Size(379, 28);
+            this.cmbClassification.Size = new System.Drawing.Size(88, 28);
             this.cmbClassification.Sorted = true;
             this.cmbClassification.TabIndex = 3;
             this.cmbClassification.DropDown += new System.EventHandler(this.cmbClassification_DropDown);
@@ -564,7 +564,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(956, 922);
+            this.ClientSize = new System.Drawing.Size(1054, 922);
             this.Controls.Add(this.picJeu);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -609,7 +609,7 @@
             this.Controls.Add(this.cmbNom);
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmJeu";
-            this.Text = "Gestion des jeux";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmJeu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterVerJeu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterTheme)).EndInit();
