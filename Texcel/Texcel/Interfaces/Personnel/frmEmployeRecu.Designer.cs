@@ -53,7 +53,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(651, 671);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 8;
+            this.btnSupprimer.TabIndex = 1;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
@@ -68,7 +68,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(913, 671);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
-            this.btnAnnuler.TabIndex = 10;
+            this.btnAnnuler.TabIndex = 3;
             this.btnAnnuler.Text = "A&nnuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
@@ -82,7 +82,7 @@
             this.btnAjouter.Location = new System.Drawing.Point(782, 671);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);
-            this.btnAjouter.TabIndex = 9;
+            this.btnAjouter.TabIndex = 2;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
             // 

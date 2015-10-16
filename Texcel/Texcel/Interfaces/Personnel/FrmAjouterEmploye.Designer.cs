@@ -279,7 +279,6 @@
             this.txtTelPrim.Name = "txtTelPrim";
             this.txtTelPrim.Size = new System.Drawing.Size(117, 27);
             this.txtTelPrim.TabIndex = 5;
-            this.txtTelPrim.Text = "222222222222";
             // 
             // txtNom
             // 
@@ -304,7 +303,7 @@
             this.dateTPEmp.Location = new System.Drawing.Point(623, 165);
             this.dateTPEmp.Name = "dateTPEmp";
             this.dateTPEmp.Size = new System.Drawing.Size(150, 22);
-            this.dateTPEmp.TabIndex = 30;
+            this.dateTPEmp.TabIndex = 7;
             // 
             // listBox1
             // 
@@ -314,7 +313,7 @@
             this.listBox1.Location = new System.Drawing.Point(27, 225);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(332, 84);
-            this.listBox1.TabIndex = 31;
+            this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
@@ -333,7 +332,7 @@
             this.btnCreerUti.Location = new System.Drawing.Point(365, 225);
             this.btnCreerUti.Name = "btnCreerUti";
             this.btnCreerUti.Size = new System.Drawing.Size(88, 31);
-            this.btnCreerUti.TabIndex = 33;
+            this.btnCreerUti.TabIndex = 9;
             this.btnCreerUti.Text = "Créer";
             this.btnCreerUti.UseVisualStyleBackColor = true;
             this.btnCreerUti.Click += new System.EventHandler(this.btnCreerUti_Click);
@@ -344,7 +343,7 @@
             this.btnModifUti.Location = new System.Drawing.Point(365, 276);
             this.btnModifUti.Name = "btnModifUti";
             this.btnModifUti.Size = new System.Drawing.Size(88, 33);
-            this.btnModifUti.TabIndex = 34;
+            this.btnModifUti.TabIndex = 10;
             this.btnModifUti.Text = "Modifier";
             this.btnModifUti.UseVisualStyleBackColor = true;
             this.btnModifUti.Visible = false;

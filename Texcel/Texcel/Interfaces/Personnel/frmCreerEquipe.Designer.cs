@@ -105,7 +105,7 @@
             this.rtbCommentaire.Location = new System.Drawing.Point(134, 127);
             this.rtbCommentaire.Name = "rtbCommentaire";
             this.rtbCommentaire.Size = new System.Drawing.Size(677, 96);
-            this.rtbCommentaire.TabIndex = 2;
+            this.rtbCommentaire.TabIndex = 3;
             this.rtbCommentaire.Text = "";
             // 
             // listBox1
@@ -117,7 +117,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(314, 264);
-            this.listBox1.TabIndex = 3;
+            this.listBox1.TabIndex = 4;
             // 
             // listBox2
             // 
@@ -128,7 +128,7 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox2.Size = new System.Drawing.Size(314, 264);
-            this.listBox2.TabIndex = 4;
+            this.listBox2.TabIndex = 5;
             // 
             // label2
             // 
@@ -150,7 +150,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(423, 499);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 5;
+            this.btnSupprimer.TabIndex = 6;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -165,7 +165,7 @@
             this.btnCancel.Location = new System.Drawing.Point(685, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -180,7 +180,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(554, 499);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 6;
+            this.btnEnregistrer.TabIndex = 7;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
@@ -238,7 +238,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(677, 28);
             this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 51;
+            this.comboBox1.TabIndex = 2;
             // 
             // label3
             // 
