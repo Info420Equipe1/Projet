@@ -34,6 +34,7 @@ namespace Texcel.Interfaces
                     case "Plateforme":
                         dgvResultats.Columns.Add("0","Type de plateforme");
                         dgvResultats.Columns.Add("1","Plateforme");
+                        tabControl1.SelectedIndex = 3;
                         foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
                         {
                             if (cle == "" || plat.nomTypePlateforme.ToLower().Contains(cle) || plat.nomPlateforme.ToLower().Contains(cle))
@@ -51,6 +52,7 @@ namespace Texcel.Interfaces
                         dgvResultats.Columns.Add("1", "Code");
                         dgvResultats.Columns.Add("2", "Edition");
                         dgvResultats.Columns.Add("3", "Version");
+                        tabControl1.SelectedIndex = 4;
                         foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                         {
                             if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
@@ -68,6 +70,7 @@ namespace Texcel.Interfaces
                     case "Jeu":
                         dgvResultats.Columns.Add("0", "Jeu");
                         dgvResultats.Columns.Add("1", "Developpeur");
+                        tabControl1.SelectedIndex = 2;
                         foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
                         {
                             if (cle == "" || jeu.nomJeu.ToLower().Contains(cle) || jeu.developeur.ToLower().Contains(cle))
@@ -83,6 +86,7 @@ namespace Texcel.Interfaces
                     case "Équipe":
                         dgvResultats.Columns.Add("0", "Équipe");
                         dgvResultats.Columns.Add("1", "Chef d'équipe");
+                        tabControl1.SelectedIndex = 1;
                         foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                         {
                             if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
@@ -98,6 +102,7 @@ namespace Texcel.Interfaces
                     case "Employé":
                         dgvResultats.Columns.Add("0", "Nom");
                         dgvResultats.Columns.Add("1", "Prenom");
+                        tabControl1.SelectedIndex = 0;
                         foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
                         {
                             if (cle == "" || employe.nomEmploye.ToLower().Contains(cle) || employe.prenomEmploye.ToLower().Contains(cle))
@@ -225,6 +230,47 @@ namespace Texcel.Interfaces
         }
 
         private void dgvResultats_DoubleClick(object sender, EventArgs e)
+        {
+            if (cmbFiltre.Text == "Employé")
+            {
+                string nomPren;
+                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                Employe emp = CtrlEmploye.emp(nomPren);
+                frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
+                frmEmp.ShowDialog();
+                dgvResultats.Rows.Clear();
+            }
+        }
+
+        private void dgvResultats_Click(object sender, EventArgs e)
+        {
+            if (cmbFiltre.Text == "Employé")
+            {
+                string nomPren;
+                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                Employe emp = CtrlEmploye.emp(nomPren);
+                lblNoEmp.Text = emp.idEmploye.ToString();
+                lblNomEmp.Text = emp.nomEmploye;
+                lblPrenEmp.Text = emp.prenomEmploye;
+                lblAdresseEmp.Text = emp.adressePostale;
+                lblTelPrimEmp.Text = emp.numTelPrincipal;
+                lblTelSecEmp.Text = emp.numTelSecondaire;
+                dateTimePicker1.Value = emp.dateEmbauche;
+                listBox1.Items.Clear();
+                //foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
+                //{
+                //    listBox1.Items.Add(tT.nomTest);
+                //}
+                lstBoxTypeTest.Items.Clear();
+                foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
+                {
+                    listBox1.Items.Add(uti.nomUtilisateur);
+                }
+                richTextBox1.Text = emp.competenceParticuliere;
+            }
+        }
+
+        private void btnModifierEmp_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Employé")
             {

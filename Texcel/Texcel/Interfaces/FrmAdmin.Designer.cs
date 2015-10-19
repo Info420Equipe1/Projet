@@ -30,6 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnModifierEmp = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lblCompetences = new System.Windows.Forms.Label();
+            this.lblTypeTest = new System.Windows.Forms.Label();
+            this.lstBoxTypeTest = new System.Windows.Forms.ListBox();
             this.DateEmbEmp = new System.Windows.Forms.Label();
             this.lblTelSecEmp = new System.Windows.Forms.Label();
             this.lblTelPrimEmp = new System.Windows.Forms.Label();
@@ -71,13 +79,6 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lblCompetences = new System.Windows.Forms.Label();
-            this.lblTypeTest = new System.Windows.Forms.Label();
-            this.lstBoxTypeTest = new System.Windows.Forms.ListBox();
-            this.btnModifierEmp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.mnsMain.SuspendLayout();
@@ -101,6 +102,7 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.btnModifierEmp);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.listBox1);
@@ -129,6 +131,82 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(165, 226);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
+            this.dateTimePicker1.TabIndex = 58;
+            // 
+            // btnModifierEmp
+            // 
+            this.btnModifierEmp.Location = new System.Drawing.Point(399, 635);
+            this.btnModifierEmp.Name = "btnModifierEmp";
+            this.btnModifierEmp.Size = new System.Drawing.Size(93, 34);
+            this.btnModifierEmp.TabIndex = 57;
+            this.btnModifierEmp.Text = "Modifier...";
+            this.btnModifierEmp.UseVisualStyleBackColor = true;
+            this.btnModifierEmp.Click += new System.EventHandler(this.btnModifierEmp_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 251);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 20);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Comptes utilisateurs";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(12, 274);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(332, 84);
+            this.listBox1.TabIndex = 51;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(12, 514);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(480, 115);
+            this.richTextBox1.TabIndex = 53;
+            this.richTextBox1.Text = "";
+            // 
+            // lblCompetences
+            // 
+            this.lblCompetences.AutoSize = true;
+            this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompetences.Location = new System.Drawing.Point(8, 491);
+            this.lblCompetences.Name = "lblCompetences";
+            this.lblCompetences.Size = new System.Drawing.Size(209, 20);
+            this.lblCompetences.TabIndex = 55;
+            this.lblCompetences.Text = "Compétences particulières";
+            // 
+            // lblTypeTest
+            // 
+            this.lblTypeTest.AutoSize = true;
+            this.lblTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeTest.Location = new System.Drawing.Point(8, 361);
+            this.lblTypeTest.Name = "lblTypeTest";
+            this.lblTypeTest.Size = new System.Drawing.Size(101, 20);
+            this.lblTypeTest.TabIndex = 54;
+            this.lblTypeTest.Text = "Type de test";
+            // 
+            // lstBoxTypeTest
+            // 
+            this.lstBoxTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBoxTypeTest.FormattingEnabled = true;
+            this.lstBoxTypeTest.ItemHeight = 20;
+            this.lstBoxTypeTest.Location = new System.Drawing.Point(12, 384);
+            this.lstBoxTypeTest.Name = "lstBoxTypeTest";
+            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
+            this.lstBoxTypeTest.TabIndex = 52;
             // 
             // DateEmbEmp
             // 
@@ -515,75 +593,8 @@
             this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
             this.dgvResultats.TabIndex = 9;
+            this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 20);
-            this.label4.TabIndex = 56;
-            this.label4.Text = "Comptes utilisateurs";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 274);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(332, 84);
-            this.listBox1.TabIndex = 51;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 514);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(480, 115);
-            this.richTextBox1.TabIndex = 53;
-            this.richTextBox1.Text = "";
-            // 
-            // lblCompetences
-            // 
-            this.lblCompetences.AutoSize = true;
-            this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompetences.Location = new System.Drawing.Point(8, 491);
-            this.lblCompetences.Name = "lblCompetences";
-            this.lblCompetences.Size = new System.Drawing.Size(209, 20);
-            this.lblCompetences.TabIndex = 55;
-            this.lblCompetences.Text = "Compétences particulières";
-            // 
-            // lblTypeTest
-            // 
-            this.lblTypeTest.AutoSize = true;
-            this.lblTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeTest.Location = new System.Drawing.Point(8, 361);
-            this.lblTypeTest.Name = "lblTypeTest";
-            this.lblTypeTest.Size = new System.Drawing.Size(101, 20);
-            this.lblTypeTest.TabIndex = 54;
-            this.lblTypeTest.Text = "Type de test";
-            // 
-            // lstBoxTypeTest
-            // 
-            this.lstBoxTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstBoxTypeTest.FormattingEnabled = true;
-            this.lstBoxTypeTest.ItemHeight = 20;
-            this.lstBoxTypeTest.Location = new System.Drawing.Point(12, 384);
-            this.lstBoxTypeTest.Name = "lstBoxTypeTest";
-            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
-            this.lstBoxTypeTest.TabIndex = 52;
-            // 
-            // btnModifierEmp
-            // 
-            this.btnModifierEmp.Location = new System.Drawing.Point(399, 635);
-            this.btnModifierEmp.Name = "btnModifierEmp";
-            this.btnModifierEmp.Size = new System.Drawing.Size(93, 34);
-            this.btnModifierEmp.TabIndex = 57;
-            this.btnModifierEmp.Text = "Modifier...";
-            this.btnModifierEmp.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
@@ -666,6 +677,7 @@
         private System.Windows.Forms.Label lblCompetences;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.ListBox lstBoxTypeTest;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
 
     }
 }
