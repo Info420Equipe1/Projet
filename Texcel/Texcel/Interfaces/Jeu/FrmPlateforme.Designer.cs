@@ -35,9 +35,9 @@
             this.lblVersionSE = new System.Windows.Forms.Label();
             this.lblEditionSE = new System.Windows.Forms.Label();
             this.cmbVersionSE = new System.Windows.Forms.ComboBox();
-            this.cmbEditionSE = new System.Windows.Forms.ComboBox();
             this.lblNomSE = new System.Windows.Forms.Label();
             this.cmbNomSE = new System.Windows.Forms.ComboBox();
+            this.cmbEditionSE = new System.Windows.Forms.ComboBox();
             this.cmbNom = new System.Windows.Forms.ComboBox();
             this.cmbTypePlateforme = new System.Windows.Forms.ComboBox();
             this.lblTypePlateforme = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Black;
-            this.btnAjouter.Location = new System.Drawing.Point(430, 542);
+            this.btnAjouter.Location = new System.Drawing.Point(450, 686);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);
             this.btnAjouter.TabIndex = 9;
@@ -83,7 +83,7 @@
             this.grbSE.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grbSE.Location = new System.Drawing.Point(16, 414);
             this.grbSE.Name = "grbSE";
-            this.grbSE.Size = new System.Drawing.Size(670, 122);
+            this.grbSE.Size = new System.Drawing.Size(670, 246);
             this.grbSE.TabIndex = 3;
             this.grbSE.TabStop = false;
             this.grbSE.Text = "Système d\'exploitation";
@@ -92,7 +92,7 @@
             // 
             this.pcbAjouterSE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterSE.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterSE.Image")));
-            this.pcbAjouterSE.Location = new System.Drawing.Point(614, 69);
+            this.pcbAjouterSE.Location = new System.Drawing.Point(375, 120);
             this.pcbAjouterSE.Name = "pcbAjouterSE";
             this.pcbAjouterSE.Size = new System.Drawing.Size(25, 25);
             this.pcbAjouterSE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -104,7 +104,7 @@
             // 
             this.lblVersionSE.AutoSize = true;
             this.lblVersionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersionSE.Location = new System.Drawing.Point(414, 40);
+            this.lblVersionSE.Location = new System.Drawing.Point(23, 148);
             this.lblVersionSE.Name = "lblVersionSE";
             this.lblVersionSE.Size = new System.Drawing.Size(71, 20);
             this.lblVersionSE.TabIndex = 13;
@@ -114,7 +114,7 @@
             // 
             this.lblEditionSE.AutoSize = true;
             this.lblEditionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditionSE.Location = new System.Drawing.Point(218, 40);
+            this.lblEditionSE.Location = new System.Drawing.Point(23, 94);
             this.lblEditionSE.Name = "lblEditionSE";
             this.lblEditionSE.Size = new System.Drawing.Size(65, 20);
             this.lblEditionSE.TabIndex = 12;
@@ -125,26 +125,13 @@
             this.cmbVersionSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVersionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVersionSE.FormattingEnabled = true;
-            this.cmbVersionSE.Location = new System.Drawing.Point(418, 69);
+            this.cmbVersionSE.Location = new System.Drawing.Point(27, 171);
             this.cmbVersionSE.MaxLength = 30;
             this.cmbVersionSE.Name = "cmbVersionSE";
             this.cmbVersionSE.Size = new System.Drawing.Size(302, 28);
             this.cmbVersionSE.Sorted = true;
             this.cmbVersionSE.TabIndex = 7;
             this.cmbVersionSE.DropDown += new System.EventHandler(this.cmbVersionSE_DropDown);
-            // 
-            // cmbEditionSE
-            // 
-            this.cmbEditionSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEditionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEditionSE.FormattingEnabled = true;
-            this.cmbEditionSE.Location = new System.Drawing.Point(222, 69);
-            this.cmbEditionSE.MaxLength = 50;
-            this.cmbEditionSE.Name = "cmbEditionSE";
-            this.cmbEditionSE.Size = new System.Drawing.Size(302, 28);
-            this.cmbEditionSE.Sorted = true;
-            this.cmbEditionSE.TabIndex = 6;
-            this.cmbEditionSE.DropDown += new System.EventHandler(this.cmbEditionSE_DropDown);
             // 
             // lblNomSE
             // 
@@ -161,13 +148,26 @@
             this.cmbNomSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNomSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNomSE.FormattingEnabled = true;
-            this.cmbNomSE.Location = new System.Drawing.Point(27, 69);
+            this.cmbNomSE.Location = new System.Drawing.Point(27, 63);
             this.cmbNomSE.MaxLength = 30;
             this.cmbNomSE.Name = "cmbNomSE";
             this.cmbNomSE.Size = new System.Drawing.Size(302, 28);
             this.cmbNomSE.Sorted = true;
             this.cmbNomSE.TabIndex = 5;
             this.cmbNomSE.DropDown += new System.EventHandler(this.cmbNomSE_DropDown);
+            // 
+            // cmbEditionSE
+            // 
+            this.cmbEditionSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEditionSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEditionSE.FormattingEnabled = true;
+            this.cmbEditionSE.Location = new System.Drawing.Point(27, 117);
+            this.cmbEditionSE.MaxLength = 50;
+            this.cmbEditionSE.Name = "cmbEditionSE";
+            this.cmbEditionSE.Size = new System.Drawing.Size(302, 28);
+            this.cmbEditionSE.Sorted = true;
+            this.cmbEditionSE.TabIndex = 6;
+            this.cmbEditionSE.DropDown += new System.EventHandler(this.cmbEditionSE_DropDown);
             // 
             // cmbNom
             // 
@@ -263,7 +263,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(561, 542);
+            this.btnCancel.Location = new System.Drawing.Point(581, 686);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 10;
@@ -278,7 +278,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(299, 542);
+            this.btnSupprimer.Location = new System.Drawing.Point(319, 686);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 8;
@@ -311,7 +311,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(718, 611);
+            this.ClientSize = new System.Drawing.Size(718, 748);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.btnSupprimer);
