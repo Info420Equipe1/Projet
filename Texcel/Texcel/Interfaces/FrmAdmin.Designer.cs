@@ -30,10 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-<<<<<<< HEAD
+
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-=======
->>>>>>> origin/sprint2
+
+
             this.btnModifierEmp = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -108,15 +108,14 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
-=======
+
             this.lblNoJeu = new System.Windows.Forms.Label();
             this.lblNomJeu = new System.Windows.Forms.Label();
             this.lblDevJeu = new System.Windows.Forms.Label();
             this.lblClassJeu = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
->>>>>>> origin/sprint2
+
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -172,7 +171,7 @@
             this.tabPage1.Text = "Employé";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
+
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(165, 226);
@@ -180,8 +179,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
             this.dateTimePicker1.TabIndex = 58;
             // 
-=======
->>>>>>> origin/sprint2
+
             // btnModifierEmp
             // 
             this.btnModifierEmp.Location = new System.Drawing.Point(399, 635);
@@ -190,10 +188,9 @@
             this.btnModifierEmp.TabIndex = 57;
             this.btnModifierEmp.Text = "Modifier...";
             this.btnModifierEmp.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
+
             this.btnModifierEmp.Click += new System.EventHandler(this.btnModifierEmp_Click);
-=======
->>>>>>> origin/sprint2
+
             // 
             // label4
             // 
@@ -937,8 +934,7 @@
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
-<<<<<<< HEAD
-=======
+
             // lblNoJeu
             // 
             this.lblNoJeu.AutoSize = true;
@@ -993,7 +989,7 @@
             this.button2.Text = "Modifier...";
             this.button2.UseVisualStyleBackColor = true;
             // 
->>>>>>> origin/sprint2
+
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1079,9 +1075,9 @@
         private System.Windows.Forms.Label lblCompetences;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.ListBox lstBoxTypeTest;
-<<<<<<< HEAD
+
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-=======
+
         private System.Windows.Forms.Label lblProjetEquipe;
         private System.Windows.Forms.Label lblChefEquipe;
         private System.Windows.Forms.Label lblNomEquipe;
@@ -1114,7 +1110,7 @@
         private System.Windows.Forms.Label lblDevJeu;
         private System.Windows.Forms.Label lblNomJeu;
         private System.Windows.Forms.Label lblNoJeu;
->>>>>>> origin/sprint2
+
 
     }
 }
