@@ -78,8 +78,19 @@
             this.lblTypeTest = new System.Windows.Forms.Label();
             this.lstBoxTypeTest = new System.Windows.Forms.ListBox();
             this.btnModifierEmp = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lblCommentaire = new System.Windows.Forms.Label();
+            this.rtbCommentaire = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblNomEquipe = new System.Windows.Forms.Label();
+            this.lblChefEquipe = new System.Windows.Forms.Label();
+            this.lblProjetEquipe = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.mnsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.SuspendLayout();
@@ -265,6 +276,16 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblProjetEquipe);
+            this.tabPage2.Controls.Add(this.lblChefEquipe);
+            this.tabPage2.Controls.Add(this.lblNomEquipe);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Controls.Add(this.lblCommentaire);
+            this.tabPage2.Controls.Add(this.rtbCommentaire);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -585,6 +606,103 @@
             this.btnModifierEmp.Text = "Modifier...";
             this.btnModifierEmp.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(66, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Projet:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(44, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 20);
+            this.label6.TabIndex = 61;
+            this.label6.Text = "Testeurs:";
+            // 
+            // listBox2
+            // 
+            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 20;
+            this.listBox2.Location = new System.Drawing.Point(130, 208);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox2.Size = new System.Drawing.Size(314, 264);
+            this.listBox2.TabIndex = 57;
+            // 
+            // lblCommentaire
+            // 
+            this.lblCommentaire.AutoSize = true;
+            this.lblCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommentaire.Location = new System.Drawing.Point(24, 109);
+            this.lblCommentaire.Name = "lblCommentaire";
+            this.lblCommentaire.Size = new System.Drawing.Size(100, 20);
+            this.lblCommentaire.TabIndex = 60;
+            this.lblCommentaire.Text = "Description:";
+            // 
+            // rtbCommentaire
+            // 
+            this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCommentaire.Location = new System.Drawing.Point(130, 106);
+            this.rtbCommentaire.Name = "rtbCommentaire";
+            this.rtbCommentaire.Size = new System.Drawing.Size(390, 96);
+            this.rtbCommentaire.TabIndex = 56;
+            this.rtbCommentaire.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(8, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 20);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Chef d\'équipe:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(75, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 20);
+            this.label8.TabIndex = 58;
+            this.label8.Text = "Nom:";
+            // 
+            // lblNomEquipe
+            // 
+            this.lblNomEquipe.AutoSize = true;
+            this.lblNomEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomEquipe.Location = new System.Drawing.Point(130, 9);
+            this.lblNomEquipe.Name = "lblNomEquipe";
+            this.lblNomEquipe.Size = new System.Drawing.Size(0, 20);
+            this.lblNomEquipe.TabIndex = 63;
+            // 
+            // lblChefEquipe
+            // 
+            this.lblChefEquipe.AutoSize = true;
+            this.lblChefEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChefEquipe.Location = new System.Drawing.Point(130, 41);
+            this.lblChefEquipe.Name = "lblChefEquipe";
+            this.lblChefEquipe.Size = new System.Drawing.Size(0, 20);
+            this.lblChefEquipe.TabIndex = 64;
+            // 
+            // lblProjetEquipe
+            // 
+            this.lblProjetEquipe.AutoSize = true;
+            this.lblProjetEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProjetEquipe.Location = new System.Drawing.Point(130, 75);
+            this.lblProjetEquipe.Name = "lblProjetEquipe";
+            this.lblProjetEquipe.Size = new System.Drawing.Size(0, 20);
+            this.lblProjetEquipe.TabIndex = 65;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -606,6 +724,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
@@ -666,6 +786,16 @@
         private System.Windows.Forms.Label lblCompetences;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.ListBox lstBoxTypeTest;
+        private System.Windows.Forms.Label lblProjetEquipe;
+        private System.Windows.Forms.Label lblChefEquipe;
+        private System.Windows.Forms.Label lblNomEquipe;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label lblCommentaire;
+        private System.Windows.Forms.RichTextBox rtbCommentaire;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
 
     }
 }
