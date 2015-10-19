@@ -30,7 +30,24 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DateEmbEmp = new System.Windows.Forms.Label();
+            this.lblTelSecEmp = new System.Windows.Forms.Label();
+            this.lblTelPrimEmp = new System.Windows.Forms.Label();
+            this.lblAdresseEmp = new System.Windows.Forms.Label();
+            this.lblPrenEmp = new System.Windows.Forms.Label();
+            this.lblNomEmp = new System.Windows.Forms.Label();
+            this.lblNoEmp = new System.Windows.Forms.Label();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTelPrimaire = new System.Windows.Forms.Label();
+            this.lblTelSec = new System.Windows.Forms.Label();
+            this.lblAdresse = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblNumeroEmp = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
@@ -54,17 +71,13 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.lblPrenom = new System.Windows.Forms.Label();
-            this.txtPrenom = new System.Windows.Forms.TextBox();
-            this.lblAdresse = new System.Windows.Forms.Label();
-            this.lblNom = new System.Windows.Forms.Label();
-            this.lblNumeroEmp = new System.Windows.Forms.Label();
-            this.txtAdresse = new System.Windows.Forms.TextBox();
-            this.txtNom = new System.Windows.Forms.TextBox();
-            this.txtNumeroEmp = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lblCompetences = new System.Windows.Forms.Label();
+            this.lblTypeTest = new System.Windows.Forms.Label();
+            this.lstBoxTypeTest = new System.Windows.Forms.ListBox();
+            this.btnModifierEmp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.mnsMain.SuspendLayout();
@@ -87,14 +100,28 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.btnModifierEmp);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.lblCompetences);
+            this.tabPage1.Controls.Add(this.lblTypeTest);
+            this.tabPage1.Controls.Add(this.lstBoxTypeTest);
+            this.tabPage1.Controls.Add(this.DateEmbEmp);
+            this.tabPage1.Controls.Add(this.lblTelSecEmp);
+            this.tabPage1.Controls.Add(this.lblTelPrimEmp);
+            this.tabPage1.Controls.Add(this.lblAdresseEmp);
+            this.tabPage1.Controls.Add(this.lblPrenEmp);
+            this.tabPage1.Controls.Add(this.lblNomEmp);
+            this.tabPage1.Controls.Add(this.lblNoEmp);
             this.tabPage1.Controls.Add(this.lblPrenom);
-            this.tabPage1.Controls.Add(this.txtPrenom);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.lblTelPrimaire);
+            this.tabPage1.Controls.Add(this.lblTelSec);
             this.tabPage1.Controls.Add(this.lblAdresse);
             this.tabPage1.Controls.Add(this.lblNom);
             this.tabPage1.Controls.Add(this.lblNumeroEmp);
-            this.tabPage1.Controls.Add(this.txtAdresse);
-            this.tabPage1.Controls.Add(this.txtNom);
-            this.tabPage1.Controls.Add(this.txtNumeroEmp);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -102,6 +129,139 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // DateEmbEmp
+            // 
+            this.DateEmbEmp.AutoSize = true;
+            this.DateEmbEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateEmbEmp.Location = new System.Drawing.Point(164, 223);
+            this.DateEmbEmp.Name = "DateEmbEmp";
+            this.DateEmbEmp.Size = new System.Drawing.Size(0, 20);
+            this.DateEmbEmp.TabIndex = 50;
+            // 
+            // lblTelSecEmp
+            // 
+            this.lblTelSecEmp.AutoSize = true;
+            this.lblTelSecEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelSecEmp.Location = new System.Drawing.Point(164, 189);
+            this.lblTelSecEmp.Name = "lblTelSecEmp";
+            this.lblTelSecEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblTelSecEmp.TabIndex = 49;
+            // 
+            // lblTelPrimEmp
+            // 
+            this.lblTelPrimEmp.AutoSize = true;
+            this.lblTelPrimEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelPrimEmp.Location = new System.Drawing.Point(164, 155);
+            this.lblTelPrimEmp.Name = "lblTelPrimEmp";
+            this.lblTelPrimEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblTelPrimEmp.TabIndex = 48;
+            // 
+            // lblAdresseEmp
+            // 
+            this.lblAdresseEmp.AutoSize = true;
+            this.lblAdresseEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdresseEmp.Location = new System.Drawing.Point(164, 119);
+            this.lblAdresseEmp.Name = "lblAdresseEmp";
+            this.lblAdresseEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblAdresseEmp.TabIndex = 47;
+            // 
+            // lblPrenEmp
+            // 
+            this.lblPrenEmp.AutoSize = true;
+            this.lblPrenEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenEmp.Location = new System.Drawing.Point(164, 83);
+            this.lblPrenEmp.Name = "lblPrenEmp";
+            this.lblPrenEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblPrenEmp.TabIndex = 46;
+            // 
+            // lblNomEmp
+            // 
+            this.lblNomEmp.AutoSize = true;
+            this.lblNomEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomEmp.Location = new System.Drawing.Point(164, 50);
+            this.lblNomEmp.Name = "lblNomEmp";
+            this.lblNomEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblNomEmp.TabIndex = 45;
+            // 
+            // lblNoEmp
+            // 
+            this.lblNoEmp.AutoSize = true;
+            this.lblNoEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoEmp.Location = new System.Drawing.Point(164, 16);
+            this.lblNoEmp.Name = "lblNoEmp";
+            this.lblNoEmp.Size = new System.Drawing.Size(0, 20);
+            this.lblNoEmp.TabIndex = 44;
+            // 
+            // lblPrenom
+            // 
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenom.Location = new System.Drawing.Point(81, 83);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(77, 20);
+            this.lblPrenom.TabIndex = 43;
+            this.lblPrenom.Text = "Prenom :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 223);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 20);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Date d\'embauche :";
+            // 
+            // lblTelPrimaire
+            // 
+            this.lblTelPrimaire.AutoSize = true;
+            this.lblTelPrimaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelPrimaire.Location = new System.Drawing.Point(44, 155);
+            this.lblTelPrimaire.Name = "lblTelPrimaire";
+            this.lblTelPrimaire.Size = new System.Drawing.Size(114, 20);
+            this.lblTelPrimaire.TabIndex = 41;
+            this.lblTelPrimaire.Text = "Tel. Primaire :";
+            // 
+            // lblTelSec
+            // 
+            this.lblTelSec.AutoSize = true;
+            this.lblTelSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelSec.Location = new System.Drawing.Point(23, 189);
+            this.lblTelSec.Name = "lblTelSec";
+            this.lblTelSec.Size = new System.Drawing.Size(135, 20);
+            this.lblTelSec.TabIndex = 40;
+            this.lblTelSec.Text = "Tel. Secondaire :";
+            // 
+            // lblAdresse
+            // 
+            this.lblAdresse.AutoSize = true;
+            this.lblAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdresse.Location = new System.Drawing.Point(77, 119);
+            this.lblAdresse.Name = "lblAdresse";
+            this.lblAdresse.Size = new System.Drawing.Size(81, 20);
+            this.lblAdresse.TabIndex = 39;
+            this.lblAdresse.Text = "Adresse :";
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(104, 50);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(54, 20);
+            this.lblNom.TabIndex = 38;
+            this.lblNom.Text = "Nom :";
+            // 
+            // lblNumeroEmp
+            // 
+            this.lblNumeroEmp.AutoSize = true;
+            this.lblNumeroEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroEmp.Location = new System.Drawing.Point(80, 16);
+            this.lblNumeroEmp.Name = "lblNumeroEmp";
+            this.lblNumeroEmp.Size = new System.Drawing.Size(78, 20);
+            this.lblNumeroEmp.TabIndex = 37;
+            this.lblNumeroEmp.Text = "Numéro :";
             // 
             // tabPage2
             // 
@@ -112,6 +272,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(526, 574);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Jeu";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(526, 574);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Plateforme";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(526, 574);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Système d\'exploitation";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // btnRechercher
             // 
@@ -330,108 +517,73 @@
             this.dgvResultats.TabIndex = 9;
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
-            // tabPage3
+            // label4
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(526, 574);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Jeu";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 251);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 20);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Comptes utilisateurs";
             // 
-            // tabPage4
+            // listBox1
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(526, 574);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Plateforme";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(12, 274);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(332, 84);
+            this.listBox1.TabIndex = 51;
             // 
-            // tabPage5
+            // richTextBox1
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(526, 574);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Système d\'exploitation";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(12, 514);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(480, 115);
+            this.richTextBox1.TabIndex = 53;
+            this.richTextBox1.Text = "";
             // 
-            // lblPrenom
+            // lblCompetences
             // 
-            this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrenom.Location = new System.Drawing.Point(6, 93);
-            this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(77, 20);
-            this.lblPrenom.TabIndex = 37;
-            this.lblPrenom.Text = "Prenom :";
+            this.lblCompetences.AutoSize = true;
+            this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompetences.Location = new System.Drawing.Point(8, 491);
+            this.lblCompetences.Name = "lblCompetences";
+            this.lblCompetences.Size = new System.Drawing.Size(209, 20);
+            this.lblCompetences.TabIndex = 55;
+            this.lblCompetences.Text = "Compétences particulières";
             // 
-            // txtPrenom
+            // lblTypeTest
             // 
-            this.txtPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenom.Location = new System.Drawing.Point(90, 90);
-            this.txtPrenom.MaxLength = 20;
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(185, 27);
-            this.txtPrenom.TabIndex = 32;
+            this.lblTypeTest.AutoSize = true;
+            this.lblTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeTest.Location = new System.Drawing.Point(8, 361);
+            this.lblTypeTest.Name = "lblTypeTest";
+            this.lblTypeTest.Size = new System.Drawing.Size(101, 20);
+            this.lblTypeTest.TabIndex = 54;
+            this.lblTypeTest.Text = "Type de test";
             // 
-            // lblAdresse
+            // lstBoxTypeTest
             // 
-            this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdresse.Location = new System.Drawing.Point(6, 129);
-            this.lblAdresse.Name = "lblAdresse";
-            this.lblAdresse.Size = new System.Drawing.Size(81, 20);
-            this.lblAdresse.TabIndex = 36;
-            this.lblAdresse.Text = "Adresse :";
+            this.lstBoxTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBoxTypeTest.FormattingEnabled = true;
+            this.lstBoxTypeTest.ItemHeight = 20;
+            this.lstBoxTypeTest.Location = new System.Drawing.Point(12, 384);
+            this.lstBoxTypeTest.Name = "lstBoxTypeTest";
+            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
+            this.lstBoxTypeTest.TabIndex = 52;
             // 
-            // lblNom
+            // btnModifierEmp
             // 
-            this.lblNom.AutoSize = true;
-            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(6, 55);
-            this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(54, 20);
-            this.lblNom.TabIndex = 35;
-            this.lblNom.Text = "Nom :";
-            // 
-            // lblNumeroEmp
-            // 
-            this.lblNumeroEmp.AutoSize = true;
-            this.lblNumeroEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroEmp.Location = new System.Drawing.Point(6, 21);
-            this.lblNumeroEmp.Name = "lblNumeroEmp";
-            this.lblNumeroEmp.Size = new System.Drawing.Size(78, 20);
-            this.lblNumeroEmp.TabIndex = 34;
-            this.lblNumeroEmp.Text = "Numéro :";
-            // 
-            // txtAdresse
-            // 
-            this.txtAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdresse.Location = new System.Drawing.Point(90, 124);
-            this.txtAdresse.MaxLength = 50;
-            this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(360, 27);
-            this.txtAdresse.TabIndex = 33;
-            // 
-            // txtNom
-            // 
-            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNom.Location = new System.Drawing.Point(90, 52);
-            this.txtNom.MaxLength = 20;
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(185, 27);
-            this.txtNom.TabIndex = 31;
-            // 
-            // txtNumeroEmp
-            // 
-            this.txtNumeroEmp.Enabled = false;
-            this.txtNumeroEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroEmp.Location = new System.Drawing.Point(90, 18);
-            this.txtNumeroEmp.Name = "txtNumeroEmp";
-            this.txtNumeroEmp.Size = new System.Drawing.Size(79, 27);
-            this.txtNumeroEmp.TabIndex = 30;
+            this.btnModifierEmp.Location = new System.Drawing.Point(399, 635);
+            this.btnModifierEmp.Name = "btnModifierEmp";
+            this.btnModifierEmp.Size = new System.Drawing.Size(93, 34);
+            this.btnModifierEmp.TabIndex = 57;
+            this.btnModifierEmp.Text = "Modifier...";
+            this.btnModifierEmp.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
@@ -493,14 +645,27 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label DateEmbEmp;
+        private System.Windows.Forms.Label lblTelSecEmp;
+        private System.Windows.Forms.Label lblTelPrimEmp;
+        private System.Windows.Forms.Label lblAdresseEmp;
+        private System.Windows.Forms.Label lblPrenEmp;
+        private System.Windows.Forms.Label lblNomEmp;
+        private System.Windows.Forms.Label lblNoEmp;
         private System.Windows.Forms.Label lblPrenom;
-        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTelPrimaire;
+        private System.Windows.Forms.Label lblTelSec;
         private System.Windows.Forms.Label lblAdresse;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblNumeroEmp;
-        private System.Windows.Forms.TextBox txtAdresse;
-        private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.TextBox txtNumeroEmp;
+        private System.Windows.Forms.Button btnModifierEmp;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label lblCompetences;
+        private System.Windows.Forms.Label lblTypeTest;
+        private System.Windows.Forms.ListBox lstBoxTypeTest;
 
     }
 }
