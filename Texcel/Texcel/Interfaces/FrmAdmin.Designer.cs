@@ -53,6 +53,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.lblNumeroEmp = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblProjetEquipe = new System.Windows.Forms.Label();
             this.lblChefEquipe = new System.Windows.Forms.Label();
             this.lblNomEquipe = new System.Windows.Forms.Label();
@@ -64,6 +65,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lblClassJeu = new System.Windows.Forms.Label();
+            this.lblDevJeu = new System.Windows.Forms.Label();
+            this.lblNomJeu = new System.Windows.Forms.Label();
+            this.lblNoJeu = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lstBoxPlat1 = new System.Windows.Forms.ListBox();
@@ -81,6 +87,19 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lblConfPlate = new System.Windows.Forms.Label();
+            this.lblNomPlate = new System.Windows.Forms.Label();
+            this.lblTypePlate = new System.Windows.Forms.Label();
+            this.lblNoPlate = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblTypePlateforme = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -105,16 +124,13 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.lblNoJeu = new System.Windows.Forms.Label();
-            this.lblNomJeu = new System.Windows.Forms.Label();
-            this.lblDevJeu = new System.Windows.Forms.Label();
-            this.lblClassJeu = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblCommPlate = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.mnsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.SuspendLayout();
@@ -396,6 +412,15 @@
             this.tabPage2.Text = "Équipe";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(427, 488);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 34);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "Modifier...";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // lblProjetEquipe
             // 
             this.lblProjetEquipe.AutoSize = true;
@@ -523,6 +548,51 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Jeu";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(405, 799);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 34);
+            this.button2.TabIndex = 82;
+            this.button2.Text = "Modifier...";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // lblClassJeu
+            // 
+            this.lblClassJeu.AutoSize = true;
+            this.lblClassJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassJeu.Location = new System.Drawing.Point(123, 105);
+            this.lblClassJeu.Name = "lblClassJeu";
+            this.lblClassJeu.Size = new System.Drawing.Size(0, 20);
+            this.lblClassJeu.TabIndex = 81;
+            // 
+            // lblDevJeu
+            // 
+            this.lblDevJeu.AutoSize = true;
+            this.lblDevJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevJeu.Location = new System.Drawing.Point(123, 73);
+            this.lblDevJeu.Name = "lblDevJeu";
+            this.lblDevJeu.Size = new System.Drawing.Size(0, 20);
+            this.lblDevJeu.TabIndex = 80;
+            // 
+            // lblNomJeu
+            // 
+            this.lblNomJeu.AutoSize = true;
+            this.lblNomJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomJeu.Location = new System.Drawing.Point(123, 41);
+            this.lblNomJeu.Name = "lblNomJeu";
+            this.lblNomJeu.Size = new System.Drawing.Size(0, 20);
+            this.lblNomJeu.TabIndex = 79;
+            // 
+            // lblNoJeu
+            // 
+            this.lblNoJeu.AutoSize = true;
+            this.lblNoJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoJeu.Location = new System.Drawing.Point(123, 11);
+            this.lblNoJeu.Name = "lblNoJeu";
+            this.lblNoJeu.Size = new System.Drawing.Size(0, 20);
+            this.lblNoJeu.TabIndex = 78;
             // 
             // label9
             // 
@@ -691,12 +761,147 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.lblCommPlate);
+            this.tabPage4.Controls.Add(this.lblConfPlate);
+            this.tabPage4.Controls.Add(this.lblNomPlate);
+            this.tabPage4.Controls.Add(this.lblTypePlate);
+            this.tabPage4.Controls.Add(this.lblNoPlate);
+            this.tabPage4.Controls.Add(this.label16);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.richTextBox2);
+            this.tabPage4.Controls.Add(this.richTextBox3);
+            this.tabPage4.Controls.Add(this.label12);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.lblTypePlateforme);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(526, 574);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Plateforme";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // lblConfPlate
+            // 
+            this.lblConfPlate.AutoSize = true;
+            this.lblConfPlate.Location = new System.Drawing.Point(144, 110);
+            this.lblConfPlate.Name = "lblConfPlate";
+            this.lblConfPlate.Size = new System.Drawing.Size(0, 20);
+            this.lblConfPlate.TabIndex = 27;
+            // 
+            // lblNomPlate
+            // 
+            this.lblNomPlate.AutoSize = true;
+            this.lblNomPlate.Location = new System.Drawing.Point(144, 79);
+            this.lblNomPlate.Name = "lblNomPlate";
+            this.lblNomPlate.Size = new System.Drawing.Size(0, 20);
+            this.lblNomPlate.TabIndex = 26;
+            // 
+            // lblTypePlate
+            // 
+            this.lblTypePlate.AutoSize = true;
+            this.lblTypePlate.Location = new System.Drawing.Point(144, 47);
+            this.lblTypePlate.Name = "lblTypePlate";
+            this.lblTypePlate.Size = new System.Drawing.Size(0, 20);
+            this.lblTypePlate.TabIndex = 25;
+            // 
+            // lblNoPlate
+            // 
+            this.lblNoPlate.AutoSize = true;
+            this.lblNoPlate.Location = new System.Drawing.Point(144, 17);
+            this.lblNoPlate.Name = "lblNoPlate";
+            this.lblNoPlate.Size = new System.Drawing.Size(0, 20);
+            this.lblNoPlate.TabIndex = 24;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(23, 307);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 20);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Commentaire:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 175);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(113, 20);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Configuration:";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.Location = new System.Drawing.Point(143, 307);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(336, 126);
+            this.richTextBox2.TabIndex = 21;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox3.Location = new System.Drawing.Point(143, 175);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(336, 126);
+            this.richTextBox3.TabIndex = 20;
+            this.richTextBox3.Text = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(64, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 20);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Numéro:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(23, 143);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(114, 20);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Commentaire:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(24, 110);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(113, 20);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Configuration:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(88, 79);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 20);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Nom:";
+            // 
+            // lblTypePlateforme
+            // 
+            this.lblTypePlateforme.AutoSize = true;
+            this.lblTypePlateforme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypePlateforme.Location = new System.Drawing.Point(3, 47);
+            this.lblTypePlateforme.Name = "lblTypePlateforme";
+            this.lblTypePlateforme.Size = new System.Drawing.Size(134, 20);
+            this.lblTypePlateforme.TabIndex = 15;
+            this.lblTypePlateforme.Text = "Type plateforme:";
             // 
             // tabPage5
             // 
@@ -925,59 +1130,22 @@
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
-            // lblNoJeu
+            // lblCommPlate
             // 
-            this.lblNoJeu.AutoSize = true;
-            this.lblNoJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoJeu.Location = new System.Drawing.Point(123, 11);
-            this.lblNoJeu.Name = "lblNoJeu";
-            this.lblNoJeu.Size = new System.Drawing.Size(0, 20);
-            this.lblNoJeu.TabIndex = 78;
+            this.lblCommPlate.AutoSize = true;
+            this.lblCommPlate.Location = new System.Drawing.Point(144, 143);
+            this.lblCommPlate.Name = "lblCommPlate";
+            this.lblCommPlate.Size = new System.Drawing.Size(0, 20);
+            this.lblCommPlate.TabIndex = 28;
             // 
-            // lblNomJeu
+            // button3
             // 
-            this.lblNomJeu.AutoSize = true;
-            this.lblNomJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomJeu.Location = new System.Drawing.Point(123, 41);
-            this.lblNomJeu.Name = "lblNomJeu";
-            this.lblNomJeu.Size = new System.Drawing.Size(0, 20);
-            this.lblNomJeu.TabIndex = 79;
-            // 
-            // lblDevJeu
-            // 
-            this.lblDevJeu.AutoSize = true;
-            this.lblDevJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevJeu.Location = new System.Drawing.Point(123, 73);
-            this.lblDevJeu.Name = "lblDevJeu";
-            this.lblDevJeu.Size = new System.Drawing.Size(0, 20);
-            this.lblDevJeu.TabIndex = 80;
-            // 
-            // lblClassJeu
-            // 
-            this.lblClassJeu.AutoSize = true;
-            this.lblClassJeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassJeu.Location = new System.Drawing.Point(123, 105);
-            this.lblClassJeu.Name = "lblClassJeu";
-            this.lblClassJeu.Size = new System.Drawing.Size(0, 20);
-            this.lblClassJeu.TabIndex = 81;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(427, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 34);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Modifier...";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(405, 799);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 34);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "Modifier...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(386, 537);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 34);
+            this.button3.TabIndex = 83;
+            this.button3.Text = "Modifier...";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
@@ -1004,6 +1172,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
@@ -1097,5 +1267,20 @@
         private System.Windows.Forms.Label lblDevJeu;
         private System.Windows.Forms.Label lblNomJeu;
         private System.Windows.Forms.Label lblNoJeu;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblTypePlateforme;
+        private System.Windows.Forms.Label lblConfPlate;
+        private System.Windows.Forms.Label lblNomPlate;
+        private System.Windows.Forms.Label lblTypePlate;
+        private System.Windows.Forms.Label lblNoPlate;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblCommPlate;
     }
 }

@@ -282,5 +282,7 @@ namespace Texcel.Interfaces
                 dgvResultats.Rows.Clear();
             }
         }
+
+     
     }
 }
