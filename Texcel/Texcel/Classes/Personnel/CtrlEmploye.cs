@@ -21,10 +21,7 @@ namespace Texcel.Classes.Personnel
             emp.numTelSecondaire = _TelSecEmp;
             emp.dateEmbauche = _dateEmbEmp;
             emp.competenceParticuliere = _compPart;
-
-            
-
-            try
+      try
             {
                 context.tblEmploye.Add(emp);
                 context.SaveChanges();
@@ -94,8 +91,7 @@ namespace Texcel.Classes.Personnel
         //Trouver un employé a l'aide de son nom et prenom
         public static Employe emp(string _nomPren)
         {
-            Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();
-            
+            Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
             return emp;
         }
 

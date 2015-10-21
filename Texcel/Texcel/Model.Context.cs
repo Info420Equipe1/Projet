@@ -40,6 +40,9 @@ namespace Texcel
         public virtual DbSet<Forms> tblForms { get; set; }
         public virtual DbSet<Groupe> tblGroupe { get; set; }
         public virtual DbSet<Utilisateur> tblUtilisateur { get; set; }
+        public virtual DbSet<CasTest> tblCasTest { get; set; }
+        public virtual DbSet<FicheResultat> tblFicheResultat { get; set; }
+        public virtual DbSet<Projet> tblProjet { get; set; }
         public virtual DbSet<TypeTest> tblTypeTest { get; set; }
         public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
         public virtual DbSet<AllSysExp> AllSysExp { get; set; }

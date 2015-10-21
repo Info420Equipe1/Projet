@@ -257,11 +257,11 @@ namespace Texcel.Interfaces
                 lblTelSecEmp.Text = emp.numTelSecondaire;
                 dateTimePicker1.Value = emp.dateEmbauche;
                 listBox1.Items.Clear();
-                //foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
-                //{
-                //    listBox1.Items.Add(tT.nomTest);
-                //}
-                lstBoxTypeTest.Items.Clear();
+                foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
+                {
+                    lstBoxTypeTest.Items.Add(tT.nomTypeTest);
+                }
+                //lstBoxTypeTest.Items.Clear();
                 foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
                 {
                     listBox1.Items.Add(uti.nomUtilisateur);

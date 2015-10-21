@@ -16,10 +16,10 @@ namespace Texcel
     {
         public Employe()
         {
-            this.Utilisateur = new HashSet<Utilisateur>();
-            this.TypeTest = new HashSet<TypeTest>();
             this.Equipe = new HashSet<Equipe>();
-            this.Equipe2 = new HashSet<Equipe>();
+            this.Utilisateur = new HashSet<Utilisateur>();
+            this.Equipe1 = new HashSet<Equipe>();
+            this.TypeTest = new HashSet<TypeTest>();
         }
     
         public short idEmploye { get; set; }
@@ -31,9 +31,9 @@ namespace Texcel
         public System.DateTime dateEmbauche { get; set; }
         public string competenceParticuliere { get; set; }
     
-        public virtual ICollection<Utilisateur> Utilisateur { get; set; }
-        public virtual ICollection<TypeTest> TypeTest { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
-        public virtual ICollection<Equipe> Equipe2 { get; set; }
+        public virtual ICollection<Utilisateur> Utilisateur { get; set; }
+        public virtual ICollection<Equipe> Equipe1 { get; set; }
+        public virtual ICollection<TypeTest> TypeTest { get; set; }
     }
 }

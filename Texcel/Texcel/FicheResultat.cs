@@ -12,19 +12,13 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeTest
+    public partial class FicheResultat
     {
-        public TypeTest()
-        {
-            this.CasTest = new HashSet<CasTest>();
-            this.Employe = new HashSet<Employe>();
-        }
+        public short idResult { get; set; }
+        public string titreFicheRes { get; set; }
+        public Nullable<System.DateTime> dateCloture { get; set; }
+        public string codeCasTest { get; set; }
     
-        public short idTypeTest { get; set; }
-        public string nomTypeTest { get; set; }
-        public string descTypeTest { get; set; }
-    
-        public virtual ICollection<CasTest> CasTest { get; set; }
-        public virtual ICollection<Employe> Employe { get; set; }
+        public virtual CasTest CasTest { get; set; }
     }
 }

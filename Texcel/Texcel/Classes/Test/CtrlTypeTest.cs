@@ -69,7 +69,7 @@ namespace Texcel.Classes.Test
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
+            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
 
             return monTT;      
         }

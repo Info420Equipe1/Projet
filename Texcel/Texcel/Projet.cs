@@ -12,22 +12,18 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class Equipe
+    public partial class Projet
     {
-        public Equipe()
+        public Projet()
         {
-            this.Employe1 = new HashSet<Employe>();
             this.CasTest = new HashSet<CasTest>();
         }
     
-        public short idEquipe { get; set; }
-        public string nomEquipe { get; set; }
-        public short idChefEquipe { get; set; }
-        public Nullable<short> nbTesteur { get; set; }
-        public string descEquipe { get; set; }
+        public string codeProjet { get; set; }
+        public string nomProjet { get; set; }
+        public string chefProjet { get; set; }
+        public string descProjet { get; set; }
     
-        public virtual Employe Employe { get; set; }
-        public virtual ICollection<Employe> Employe1 { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

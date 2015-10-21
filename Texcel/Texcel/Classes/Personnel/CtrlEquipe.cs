@@ -37,7 +37,7 @@ namespace Texcel.Classes.Personnel
         {
             foreach (Employe emp in _emp)
             {
-                _equipe.Employe.Add(emp);
+                _equipe.Employe1.Add(emp);
                 context.SaveChanges();
             }
         }
