@@ -232,49 +232,6 @@ namespace Texcel.Interfaces
             Application.Exit();
         }
 
-<<<<<<< HEAD
-=======
-        private void frmAdmin_Load(object sender, EventArgs e)
-        {
-            lblUtilisateurConn.Text = "Utilisateur : " + CtrlController.GetNomUtilisateur();
-            foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
-            {
-                if (groupe.idGroupe == 1)
-                {
-                    MessageBox.Show("Un directeur de compte est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 2)
-                {
-                    MessageBox.Show("Un chef de projet est connecté");
-                    cmbFiltre.Text = "Equipe";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if(groupe.idGroupe == 3)
-                {
-                    MessageBox.Show("Un chef d'équipe est connecté");
-                    cmbFiltre.Text = "Employé";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if (groupe.idGroupe == 4)
-                {
-                    MessageBox.Show("Un testeur est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 5)
-                {
-                    MessageBox.Show("Un administrateur du système est connecté");
-                }
-            }
-        }
->>>>>>> origin/sprint2
-
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtRechercher.Clear();
