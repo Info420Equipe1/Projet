@@ -21,6 +21,7 @@ namespace Texcel.Interfaces
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text != "")
             {
                 if (txtPassword.Text != "")
@@ -30,7 +31,8 @@ namespace Texcel.Interfaces
                     {
                         frmAdmin frmAdmin = new frmAdmin();
                         frmAdmin.Show();
-                        this.Hide();          
+                        this.Hide();
+                        Cursor.Current = Cursors.Default;
                     }
                     else
                     {
