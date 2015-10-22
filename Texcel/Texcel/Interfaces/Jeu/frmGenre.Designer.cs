@@ -110,9 +110,9 @@
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(12, 100);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(114, 20);
+            this.lblDescription.Size = new System.Drawing.Size(100, 20);
             this.lblDescription.TabIndex = 28;
-            this.lblDescription.Text = "Commentaire:";
+            this.lblDescription.Text = "Description:";
             // 
             // rtbCommentaire
             // 
@@ -143,7 +143,6 @@
             this.cmbNom.Size = new System.Drawing.Size(489, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 25;
-            this.cmbNom.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);

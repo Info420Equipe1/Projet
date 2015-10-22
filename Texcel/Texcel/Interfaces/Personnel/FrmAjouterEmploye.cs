@@ -25,6 +25,13 @@ namespace Texcel.Interfaces.Personnel
             AfficherLstBox();
         }
 
+        public frmAjouterEmploye(Employe _employe)
+        {
+            InitializeComponent();
+            CtrlTypeTest.PopulateLstTypeTest();
+            AfficherLstBox();
+        }
+
         //Mode modifier (Arrive de la fenetre recherche)
         public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
         {
@@ -120,7 +127,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == "") || (txtTelSec.Text == ""))
+            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == ""))
             {
                 MessageBox.Show("Certain champs ne sont pas rempli");
                 return;

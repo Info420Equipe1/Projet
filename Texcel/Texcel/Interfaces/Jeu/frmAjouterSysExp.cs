@@ -103,6 +103,11 @@ namespace Texcel.Interfaces.Jeu
                 if (boolS || boolE || boolV)
                 {
                     MessageBox.Show("Le système d'exploitation a été ajouté avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cmbNom.Text = "";
+                    cmbEdition.Text = "";
+                    txtCode.Text = "";
+                    cmbVersion.Text = "";
+                    rtbCommentaire.Text = "";
                 }
                 else
                 {

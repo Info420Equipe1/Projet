@@ -95,7 +95,6 @@
             this.cmbEdition.Size = new System.Drawing.Size(478, 28);
             this.cmbEdition.Sorted = true;
             this.cmbEdition.TabIndex = 2;
-            this.cmbEdition.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
             // 
             // cmbNom
@@ -197,7 +196,6 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(188, 27);
             this.txtCode.TabIndex = 30;
-            this.txtCode.Text = "aaaaaaaaaaaaaaaaaaaa";
             // 
             // lblCode
             // 

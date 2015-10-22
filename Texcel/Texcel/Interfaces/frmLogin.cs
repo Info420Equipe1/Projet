@@ -21,6 +21,7 @@ namespace Texcel.Interfaces
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text != "")
             {
                 if (txtPassword.Text != "")
@@ -30,7 +31,8 @@ namespace Texcel.Interfaces
                     {
                         frmAdmin frmAdmin = new frmAdmin();
                         frmAdmin.Show();
-                        this.Hide();          
+                        this.Hide();
+
                     }
                     else
                     {
@@ -46,6 +48,7 @@ namespace Texcel.Interfaces
             {
                 MessageBox.Show("Veuillez saisir un nom d'utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

@@ -131,7 +131,6 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(41, 27);
             this.txtCode.TabIndex = 1;
-            this.txtCode.Text = "aaa";
             // 
             // picClassification
             // 
