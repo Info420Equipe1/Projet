@@ -126,6 +126,10 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
+=======
+            this.lblUtilisateurConn = new System.Windows.Forms.Label();
+>>>>>>> origin/sprint2
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1132,6 +1136,7 @@
             // 
             // dgvResultats
             // 
+            this.dgvResultats.AllowUserToAddRows = false;
             this.dgvResultats.AllowUserToResizeRows = false;
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
@@ -1147,12 +1152,31 @@
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
+<<<<<<< HEAD
+=======
+            // lblUtilisateurConn
+            // 
+            this.lblUtilisateurConn.AutoSize = true;
+            this.lblUtilisateurConn.BackColor = System.Drawing.Color.White;
+            this.lblUtilisateurConn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUtilisateurConn.Location = new System.Drawing.Point(698, 4);
+            this.lblUtilisateurConn.Name = "lblUtilisateurConn";
+            this.lblUtilisateurConn.Size = new System.Drawing.Size(0, 20);
+            this.lblUtilisateurConn.TabIndex = 10;
+            this.lblUtilisateurConn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+>>>>>>> origin/sprint2
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1404, 702);
+=======
+            this.ClientSize = new System.Drawing.Size(1253, 702);
+            this.Controls.Add(this.lblUtilisateurConn);
+>>>>>>> origin/sprint2
             this.Controls.Add(this.dgvResultats);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnRechercher);
@@ -1282,5 +1306,6 @@
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblCommPlate;
+        private System.Windows.Forms.Label lblUtilisateurConn;
     }
 }

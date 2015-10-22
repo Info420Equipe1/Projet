@@ -28,5 +28,22 @@ namespace Texcel.Classes
             return CurrentUtilisateur;
         }
 
+        public static string GetNomUtilisateur()
+        {
+            List<Employe> lstEmploye = new List<Employe>();
+            using (context)
+            {
+                var query = (from s in context.tblEmploye
+                             where s.idEmploye == CurrentUtilisateur.idEmploye
+                             select s);
+
+                foreach (var r in query)
+                {
+                    lstEmploye.Add(r);
+                }
+            }
+            return lstEmploye[0].prenomEmploye + " " + lstEmploye[0].nomEmploye;
+        }
+
     }
 }

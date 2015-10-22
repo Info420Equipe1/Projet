@@ -110,9 +110,9 @@
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(12, 100);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(114, 20);
+            this.lblDescription.Size = new System.Drawing.Size(100, 20);
             this.lblDescription.TabIndex = 28;
-            this.lblDescription.Text = "Commentaire:";
+            this.lblDescription.Text = "Description:";
             // 
             // rtbCommentaire
             // 
