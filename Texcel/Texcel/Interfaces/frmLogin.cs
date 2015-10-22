@@ -32,7 +32,7 @@ namespace Texcel.Interfaces
                         frmAdmin frmAdmin = new frmAdmin();
                         frmAdmin.Show();
                         this.Hide();
-                        Cursor.Current = Cursors.Default;
+
                     }
                     else
                     {
@@ -48,6 +48,7 @@ namespace Texcel.Interfaces
             {
                 MessageBox.Show("Veuillez saisir un nom d'utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
