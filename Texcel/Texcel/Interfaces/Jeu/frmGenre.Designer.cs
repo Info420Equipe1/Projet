@@ -143,7 +143,6 @@
             this.cmbNom.Size = new System.Drawing.Size(489, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 25;
-            this.cmbNom.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);
