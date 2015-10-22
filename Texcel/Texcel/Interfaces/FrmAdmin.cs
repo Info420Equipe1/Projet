@@ -185,7 +185,7 @@ namespace Texcel.Interfaces
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
-
+            lblUtilisateurConn.Text = "Utilisateur : " + CtrlController.GetNomUtilisateur();
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
                 if (groupe.idGroupe == 1)
