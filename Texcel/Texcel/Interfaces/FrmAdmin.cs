@@ -22,6 +22,55 @@ namespace Texcel.Interfaces
             InitializeComponent();
         }
 
+        private void frmAdmin_Shown(object sender, EventArgs e)
+        {
+            foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
+            {
+                if (groupe.idGroupe == 1)
+                {
+                    MessageBox.Show("Un directeur de compte est connecté");
+                    cmbFiltre.Text = "Jeu";
+                    smiGestionJeu.Visible = false;
+                    smiGestionPersonnel.Visible = false;
+                }
+                else if (groupe.idGroupe == 2)
+                {
+                    MessageBox.Show("Un chef de projet est connecté");
+                    cmbFiltre.Text = "Equipe";
+                    smiGestionJeu.Visible = false;
+                    smiEmploye.Visible = false;
+                }
+                else if (groupe.idGroupe == 3)
+                {
+                    MessageBox.Show("Un chef d'équipe est connecté");
+                    cmbFiltre.Text = "Employé";
+                    smiGestionJeu.Visible = false;
+                    smiEmploye.Visible = false;
+                }
+                else if (groupe.idGroupe == 4)
+                {
+                    MessageBox.Show("Un testeur est connecté");
+                    cmbFiltre.Text = "Jeu";
+                    smiGestionJeu.Visible = false;
+                    smiGestionPersonnel.Visible = false;
+                }
+                else if (groupe.idGroupe == 5)
+                {
+                    //MessageBox.Show("Un administrateur du système est connecté");
+                    //Verification du fichier RH
+                    if (!CtrlFile.IsEmpty())
+                    {
+                        DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dr == DialogResult.Yes)
+                        {
+                            frmEmployeRecu frmEmployeRecu = new frmEmployeRecu();
+                            frmEmployeRecu.ShowDialog();
+                        }
+                    }
+                }
+            }
+        }
+
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             int n = 0;
@@ -183,45 +232,6 @@ namespace Texcel.Interfaces
             Application.Exit();
         }
 
-        private void frmAdmin_Load(object sender, EventArgs e)
-        {
-
-            foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
-            {
-                if (groupe.idGroupe == 1)
-                {
-                    MessageBox.Show("Un directeur de compte est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 2)
-                {
-                    MessageBox.Show("Un chef de projet est connecté");
-                    cmbFiltre.Text = "Equipe";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if(groupe.idGroupe == 3)
-                {
-                    MessageBox.Show("Un chef d'équipe est connecté");
-                    cmbFiltre.Text = "Employé";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if (groupe.idGroupe == 4)
-                {
-                    MessageBox.Show("Un testeur est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 5)
-                {
-                    MessageBox.Show("Un administrateur du système est connecté");
-                }
-            }
-        }
 
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -282,7 +292,5 @@ namespace Texcel.Interfaces
                 dgvResultats.Rows.Clear();
             }
         }
-
-     
     }
 }
