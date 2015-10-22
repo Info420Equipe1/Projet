@@ -87,6 +87,8 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblCommPlate = new System.Windows.Forms.Label();
             this.lblConfPlate = new System.Windows.Forms.Label();
             this.lblNomPlate = new System.Windows.Forms.Label();
             this.lblTypePlate = new System.Windows.Forms.Label();
@@ -124,8 +126,6 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.lblCommPlate = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -783,6 +783,23 @@
             this.tabPage4.Text = "Plateforme";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(386, 537);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 34);
+            this.button3.TabIndex = 83;
+            this.button3.Text = "Modifier...";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // lblCommPlate
+            // 
+            this.lblCommPlate.AutoSize = true;
+            this.lblCommPlate.Location = new System.Drawing.Point(144, 143);
+            this.lblCommPlate.Name = "lblCommPlate";
+            this.lblCommPlate.Size = new System.Drawing.Size(0, 20);
+            this.lblCommPlate.TabIndex = 28;
+            // 
             // lblConfPlate
             // 
             this.lblConfPlate.AutoSize = true;
@@ -1115,6 +1132,7 @@
             // 
             // dgvResultats
             // 
+            this.dgvResultats.AllowUserToAddRows = false;
             this.dgvResultats.AllowUserToResizeRows = false;
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
@@ -1129,23 +1147,6 @@
             this.dgvResultats.TabIndex = 9;
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
-            // 
-            // lblCommPlate
-            // 
-            this.lblCommPlate.AutoSize = true;
-            this.lblCommPlate.Location = new System.Drawing.Point(144, 143);
-            this.lblCommPlate.Name = "lblCommPlate";
-            this.lblCommPlate.Size = new System.Drawing.Size(0, 20);
-            this.lblCommPlate.TabIndex = 28;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(386, 537);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 34);
-            this.button3.TabIndex = 83;
-            this.button3.Text = "Modifier...";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmAdmin
             // 
