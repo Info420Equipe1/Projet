@@ -120,7 +120,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == "") || (txtTelSec.Text == ""))
+            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == ""))
             {
                 MessageBox.Show("Certain champs ne sont pas rempli");
                 return;
