@@ -73,97 +73,102 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            ChoixFiltre(cmbFiltre.Text);            
+        }
+
+        // Pour déterminer et afficher la liste d'éléments selon le filtre choisi
+        private void ChoixFiltre(string _nomFiltre)
+        {
             int n = 0;
             string cle = txtRechercher.Text.ToLower();
             dgvResultats.Columns.Clear();
-            if (cmbFiltre.Text != "")
+
+            // si aucun filtre n'est sélectionner????            
+            switch (_nomFiltre)
             {
-                switch (cmbFiltre.Text)
-                {
-                    case "Plateforme":
-                        dgvResultats.Columns.Add("0","Type de plateforme");
-                        dgvResultats.Columns.Add("1","Plateforme");
-                        tabControl1.SelectedIndex = 3;
-                        foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
+                case "Plateforme":
+                    dgvResultats.Columns.Add("0", "Type de plateforme");
+                    dgvResultats.Columns.Add("1", "Plateforme");
+                    tabControl1.SelectedIndex = 3;
+                    foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
+                    {
+                        if (cle == "" || plat.nomTypePlateforme.ToLower().Contains(cle) || plat.nomPlateforme.ToLower().Contains(cle))
                         {
-                            if (cle == "" || plat.nomTypePlateforme.ToLower().Contains(cle) || plat.nomPlateforme.ToLower().Contains(cle))
-                            {
-                                dgvResultats.Rows.Add();
-                                dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
-                                dgvResultats.Rows[n].Cells[1].Value = plat.nomPlateforme;
-                                n++; 
-                            }
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
+                            dgvResultats.Rows[n].Cells[1].Value = plat.nomPlateforme;
+                            n++;
                         }
-                        break;
+                    }
+                    break;
 
-                    case "Système d'exploitation":
-                        dgvResultats.Columns.Add("0", "Système d'exploitation");
-                        dgvResultats.Columns.Add("1", "Code");
-                        dgvResultats.Columns.Add("2", "Edition");
-                        dgvResultats.Columns.Add("3", "Version");
-                        tabControl1.SelectedIndex = 4;
-                        foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
+                case "Système d'exploitation":
+                    dgvResultats.Columns.Add("0", "Système d'exploitation");
+                    dgvResultats.Columns.Add("1", "Code");
+                    dgvResultats.Columns.Add("2", "Edition");
+                    dgvResultats.Columns.Add("3", "Version");
+                    tabControl1.SelectedIndex = 4;
+                    foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
+                    {
+                        if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
                         {
-                            if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
-                            {
-                                dgvResultats.Rows.Add();
-                                dgvResultats.Rows[n].Cells[0].Value = sysexp.nomSysExp;
-                                dgvResultats.Rows[n].Cells[1].Value = sysexp.codeSysExp;
-                                dgvResultats.Rows[n].Cells[2].Value = sysexp.nomEdition;
-                                dgvResultats.Rows[n].Cells[3].Value = sysexp.noVersion;
-                                n++; 
-                            }
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = sysexp.nomSysExp;
+                            dgvResultats.Rows[n].Cells[1].Value = sysexp.codeSysExp;
+                            dgvResultats.Rows[n].Cells[2].Value = sysexp.nomEdition;
+                            dgvResultats.Rows[n].Cells[3].Value = sysexp.noVersion;
+                            n++;
                         }
-                        break;
+                    }
+                    break;
 
-                    case "Jeu":
-                        dgvResultats.Columns.Add("0", "Jeu");
-                        dgvResultats.Columns.Add("1", "Developpeur");
-                        tabControl1.SelectedIndex = 2;
-                        foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
+                case "Jeu":
+                    dgvResultats.Columns.Add("0", "Jeu");
+                    dgvResultats.Columns.Add("1", "Developpeur");
+                    tabControl1.SelectedIndex = 2;
+                    foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
+                    {
+                        if (cle == "" || jeu.nomJeu.ToLower().Contains(cle) || jeu.developeur.ToLower().Contains(cle))
                         {
-                            if (cle == "" || jeu.nomJeu.ToLower().Contains(cle) || jeu.developeur.ToLower().Contains(cle))
-                            {
-                                dgvResultats.Rows.Add();
-                                dgvResultats.Rows[n].Cells[0].Value = jeu.nomJeu;
-                                dgvResultats.Rows[n].Cells[1].Value = jeu.developeur;
-                                n++; 
-                            }
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = jeu.nomJeu;
+                            dgvResultats.Rows[n].Cells[1].Value = jeu.developeur;
+                            n++;
                         }
-                        break;
+                    }
+                    break;
 
-                    case "Équipe":
-                        dgvResultats.Columns.Add("0", "Équipe");
-                        dgvResultats.Columns.Add("1", "Chef d'équipe");
-                        tabControl1.SelectedIndex = 1;
-                        foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
+                case "Équipe":
+                    dgvResultats.Columns.Add("0", "Équipe");
+                    dgvResultats.Columns.Add("1", "Chef d'équipe");
+                    tabControl1.SelectedIndex = 1;
+                    foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
+                    {
+                        if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                         {
-                            if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
-                            {
-                                dgvResultats.Rows.Add();
-                                dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
-                                dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
-                                n++; 
-                            }
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
+                            dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
+                            n++;
                         }
-                        break;
+                    }
+                    break;
 
-                    case "Employé":
-                        dgvResultats.Columns.Add("0", "Nom");
-                        dgvResultats.Columns.Add("1", "Prenom");
-                        tabControl1.SelectedIndex = 0;
-                        foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
+                case "Employé":
+                    dgvResultats.Columns.Add("0", "Nom");
+                    dgvResultats.Columns.Add("1", "Prenom");
+                    tabControl1.SelectedIndex = 0;
+                    foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
+                    {
+                        if (cle == "" || employe.nomEmploye.ToLower().Contains(cle) || employe.prenomEmploye.ToLower().Contains(cle))
                         {
-                            if (cle == "" || employe.nomEmploye.ToLower().Contains(cle) || employe.prenomEmploye.ToLower().Contains(cle))
-                            {
-                                dgvResultats.Rows.Add();
-                                dgvResultats.Rows[n].Cells[0].Value = employe.nomEmploye;
-                                dgvResultats.Rows[n].Cells[1].Value = employe.prenomEmploye;
-                                n++; 
-                            }
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = employe.nomEmploye;
+                            dgvResultats.Rows[n].Cells[1].Value = employe.prenomEmploye;
+                            n++;
                         }
-                        break;
-                }
+                    }
+                    break;
             }
         }
 
@@ -236,6 +241,7 @@ namespace Texcel.Interfaces
         {
             txtRechercher.Clear();
             dgvResultats.Columns.Clear();
+            ChoixFiltre(cmbFiltre.Text);
         }
 
         private void dgvResultats_DoubleClick(object sender, EventArgs e)
@@ -266,17 +272,24 @@ namespace Texcel.Interfaces
                 lblTelSecEmp.Text = emp.numTelSecondaire;
                 dateTimePicker1.Value = emp.dateEmbauche;
                 listBox1.Items.Clear();
+                lstBoxTypeTest.Items.Clear();
                 foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
                 {
                     lstBoxTypeTest.Items.Add(tT.nomTypeTest);
                 }
-                //lstBoxTypeTest.Items.Clear();
+               
                 foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
                 {
                     listBox1.Items.Add(uti.nomUtilisateur);
                 }
                 richTextBox1.Text = emp.competenceParticuliere;
             }
+        }
+
+        // lorsqu'un élément dans la liste  est sélectionné, on affiche ses infos dans la tab 
+        private void AfficherInfoTab()
+        {
+
         }
 
         private void btnModifierEmp_Click(object sender, EventArgs e)

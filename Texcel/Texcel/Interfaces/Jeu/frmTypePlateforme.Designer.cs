@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
             this.lblCommentaire = new System.Windows.Forms.Label();
             this.rtbCommentaire = new System.Windows.Forms.RichTextBox();
             this.lblNom = new System.Windows.Forms.Label();
@@ -39,30 +37,11 @@
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(148, 33);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 27);
-            this.txtID.TabIndex = 0;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(28, 36);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(73, 20);
-            this.lblID.TabIndex = 32;
-            this.lblID.Text = "Numéro:";
-            // 
             // lblCommentaire
             // 
             this.lblCommentaire.AutoSize = true;
             this.lblCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommentaire.Location = new System.Drawing.Point(28, 103);
+            this.lblCommentaire.Location = new System.Drawing.Point(28, 61);
             this.lblCommentaire.Name = "lblCommentaire";
             this.lblCommentaire.Size = new System.Drawing.Size(114, 20);
             this.lblCommentaire.TabIndex = 31;
@@ -71,7 +50,7 @@
             // rtbCommentaire
             // 
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbCommentaire.Location = new System.Drawing.Point(148, 100);
+            this.rtbCommentaire.Location = new System.Drawing.Point(148, 58);
             this.rtbCommentaire.Name = "rtbCommentaire";
             this.rtbCommentaire.Size = new System.Drawing.Size(463, 143);
             this.rtbCommentaire.TabIndex = 2;
@@ -82,7 +61,7 @@
             this.lblNom.AccessibleDescription = "";
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(28, 70);
+            this.lblNom.Location = new System.Drawing.Point(28, 28);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 29;
@@ -92,7 +71,7 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(148, 67);
+            this.cmbNom.Location = new System.Drawing.Point(148, 25);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(463, 28);
@@ -153,12 +132,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(623, 309);
+            this.ClientSize = new System.Drawing.Size(623, 305);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEnregistrer);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblCommentaire);
             this.Controls.Add(this.rtbCommentaire);
             this.Controls.Add(this.lblNom);
@@ -173,8 +150,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblCommentaire;
         private System.Windows.Forms.RichTextBox rtbCommentaire;
         private System.Windows.Forms.Label lblNom;

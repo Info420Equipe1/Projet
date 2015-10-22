@@ -609,7 +609,7 @@
             this.Controls.Add(this.cmbNom);
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmJeu";
-            this.Text = " ";
+            this.Text = "Gestion des jeux";
             this.Load += new System.EventHandler(this.frmJeu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterVerJeu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterTheme)).EndInit();
