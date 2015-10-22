@@ -215,9 +215,9 @@
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.Location = new System.Drawing.Point(420, 401);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(71, 20);
+            this.lblVersion.Size = new System.Drawing.Size(104, 20);
             this.lblVersion.TabIndex = 32;
-            this.lblVersion.Text = "Version:";
+            this.lblVersion.Text = "Version test:";
             // 
             // lblGenre
             // 
@@ -249,6 +249,8 @@
             this.lstBoxVersion.Size = new System.Drawing.Size(392, 104);
             this.lstBoxVersion.Sorted = true;
             this.lstBoxVersion.TabIndex = 12;
+            this.lstBoxVersion.DoubleClick += new System.EventHandler(this.lstBoxVersion_DoubleClick);
+            this.lstBoxVersion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstBoxVersion_KeyDown);
             // 
             // lstBoxTheme1
             // 
@@ -609,7 +611,7 @@
             this.Controls.Add(this.cmbNom);
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmJeu";
-            this.Text = " ";
+            this.Text = " Gestion des Jeux";
             this.Load += new System.EventHandler(this.frmJeu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterVerJeu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterTheme)).EndInit();

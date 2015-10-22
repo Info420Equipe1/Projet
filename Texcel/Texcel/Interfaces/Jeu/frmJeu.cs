@@ -115,11 +115,11 @@ namespace Texcel.Interfaces.Jeu
             }
 
             //Emplissage de la list box des version par rapport au jeu
-            //lstBoxVersion.Items.Clear();
-            //foreach (VersionJeu VersionJeu in jeu.)
-            //{
-            //    lstBoxVersion.Items.Add(VersionJeu.nomVersionJeu);
-            //}
+            lstBoxVersion.Items.Clear();
+            foreach (VersionJeu VersionJeu in jeu.VersionJeu)
+            {
+                lstBoxVersion.Items.Add(VersionJeu.nomVersionJeu);
+            }
 
             //Selectionne tous les LstBox afin de pouvoir remove rapidement(DemandeClient)
             string name;
@@ -171,10 +171,10 @@ namespace Texcel.Interfaces.Jeu
             {
                 genreJeu.Add(CtrlGenreJeu.GetGenre(nomGenre));
             }
-            //foreach (string nomVersion in lstBoxVersion.Items)
-            //{
-            //    versionJeu.Add(CtrlVersionJeu.ge)
-            //}
+            foreach (string nomVersion in lstBoxVersion.Items)
+            {
+                versionJeu.Add(CtrlVersionJeu.GetVersionJeu(nomVersion));
+            }
 
             if (cmbNom.Text == "")
             {
@@ -467,20 +467,55 @@ namespace Texcel.Interfaces.Jeu
 
         private void pcbAjouterVerJeu_Click(object sender, EventArgs e)
         {
+            if(cmbNom.Text != "")
+            {
+                string nomJeu = cmbNom.Text;
+                frmAjouterVersionJeu frmVersionJeu = new frmAjouterVersionJeu(nomJeu);
+                frmVersionJeu.ShowDialog();
+                List<VersionJeu> lstVersionJeu = CtrlVersionJeu.LstVersionJeu(nomJeu);
+                lstBoxVersion.Items.Clear();
+                foreach (VersionJeu version in lstVersionJeu)
+                {
+                    lstBoxVersion.Items.Add(version.nomVersionJeu);
+                }
+            }
+            else
+            {
+                CtrlVersionJeu.MessageWarnng("Veuillez choisir un jeu afin de pouvoir lui associer une version de test.");
+            }
         }
 
-       
+        private void lstBoxVersion_DoubleClick(object sender, EventArgs e)
+        {
+            VersionJeu _Version = CtrlVersionJeu.GetVersionJeu(lstBoxVersion.SelectedItem.ToString());
+            frmAjouterVersionJeu frmVersion = new frmAjouterVersionJeu(_Version);
+            frmVersion.ShowDialog();
+        }
 
-        
+        private void lstBoxVersion_KeyDown(object sender, KeyEventArgs e)
+        {
+            string message;
+            if (e.KeyData == Keys.Delete)
+            {
+                message = CtrlVersionJeu.Supprimer(lstBoxVersion.SelectedItem.ToString());
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    List<VersionJeu> lstVersionJeu = CtrlVersionJeu.LstVersionJeu(cmbNom.Text);
+                    lstBoxVersion.Items.Clear();
+                    foreach (VersionJeu version in lstVersionJeu)
+                    {
+                        lstBoxVersion.Items.Add(version.nomVersionJeu);
+                    }
+                }
+            }
+        }
 
-        
-
-        
-
-        
-
-        
-
-        
+    
     }
 }

@@ -47,7 +47,8 @@ namespace Texcel.Interfaces.Jeu
             else
             {
                 cmbNom.Enabled = false;
-            }           
+            }
+            Recharger2();
         }
 
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,7 +198,7 @@ namespace Texcel.Interfaces.Jeu
 
             }
         }
-
+        //Recharger tout
         private void Recharger()
         {
             //txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
@@ -205,6 +206,16 @@ namespace Texcel.Interfaces.Jeu
             rtbConfiguration.Text = "";
             cmbNom.Text = "";
             cmbTypePlateforme.SelectedItem = null;
+            cmbNomSE.SelectedItem = null;
+            cmbVersionSE.SelectedItem = null;
+            cmbEditionSE.SelectedItem = null;
+        }
+        //Recharger sans enlever le type de test
+        private void Recharger2()
+        {
+            rtbCommentaire.Text = "";
+            rtbConfiguration.Text = "";
+            cmbNom.Text = "";
             cmbNomSE.SelectedItem = null;
             cmbVersionSE.SelectedItem = null;
             cmbEditionSE.SelectedItem = null;
