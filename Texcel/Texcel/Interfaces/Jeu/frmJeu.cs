@@ -27,6 +27,7 @@ namespace Texcel.Interfaces.Jeu
         private void frmJeu_Load(object sender, EventArgs e)
         {
             txtID.Text = "";
+            cmbClassification.SelectedIndex = -1;
             //Emplissage de la list box des Plateforme Globales
             foreach (Plateforme plat in CtrlPlateforme.lstPlateformeJeu())
             {
@@ -80,7 +81,7 @@ namespace Texcel.Interfaces.Jeu
             cJeu jeu = CtrlJeu.GetJeu(nomJeu);
             txtID.Text = jeu.idJeu.ToString();
             txtDeveloppeur.Text = jeu.developeur;
-            cmbClassification.SelectedItem = jeu.ClassificationJeu.nomClassification;
+            cmbClassification.Text = (jeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification); //jeu.ClassificationJeu.nomClassification;
             rtbDescription.Text = jeu.descJeu;
             rtbConfiguration.Text = jeu.configMinimal;
             try
@@ -193,7 +194,7 @@ namespace Texcel.Interfaces.Jeu
                 DR = MessageBox.Show("Vous ètes en train de modifier un Jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
                 {
-                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, cmbClassification.Text, rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
+                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -207,7 +208,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
-                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), cmbClassification.Text, rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
+                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -467,7 +468,7 @@ namespace Texcel.Interfaces.Jeu
 
         private void pcbAjouterVerJeu_Click(object sender, EventArgs e)
         {
-            if(cmbNom.Text != "")
+            if (CtrlJeu.VerifierJeu(cmbNom.Text))
             {
                 string nomJeu = cmbNom.Text;
                 frmAjouterVersionJeu frmVersionJeu = new frmAjouterVersionJeu(nomJeu);
@@ -479,6 +480,10 @@ namespace Texcel.Interfaces.Jeu
                     lstBoxVersion.Items.Add(version.nomVersionJeu);
                 }
             }
+            else if (!CtrlJeu.VerifierJeu(cmbNom.Text))
+            {
+                CtrlVersionJeu.MessageWarnng("Veuillez enregistrer le jeu avant de lui ajouter une version.");
+            }         
             else
             {
                 CtrlVersionJeu.MessageWarnng("Veuillez choisir un jeu afin de pouvoir lui associer une version de test.");
@@ -515,6 +520,7 @@ namespace Texcel.Interfaces.Jeu
                 }
             }
         }
+
 
     
     }

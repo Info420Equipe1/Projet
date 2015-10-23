@@ -116,5 +116,29 @@ namespace Texcel.Classes.Jeu
             ClassificationJeu classification = context.tblClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
             return classification;
         }
+
+        //Recoit un string EX:"AO - Adultes seulement" pour retourner seulement Adultes seulement
+        public static string GetClassificationName(string _nomClass)
+        {
+            string classNameReturn;
+            switch (_nomClass)
+            {
+                case "AO - Adultes seulement": classNameReturn = "Adultes seulement";
+                    break;
+                case "E - Tous": classNameReturn = "Tous";
+                    break;
+                case "E10 - Tous 10 ans et plus": classNameReturn = "Tous 10 ans et plus";
+                    break;
+                case "EC - Jeunes Enfants": classNameReturn = "Adultes seulement";
+                    break;
+                case "M - Adultes": classNameReturn = "Adultes";
+                    break;
+                case "T - Ados": classNameReturn = "Ados";
+                    break;
+                default: classNameReturn = null;
+                    break;
+            }
+            return classNameReturn;
+        }
     }
 }
