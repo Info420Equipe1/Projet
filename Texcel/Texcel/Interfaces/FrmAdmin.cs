@@ -28,10 +28,22 @@ namespace Texcel.Interfaces
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
                 lstDroits = CtrlController.GetDroits(groupe);
+                if (groupe.idGroupe == 2)
+                {
+                    cmbFiltre.Text = "Équipe";
+                    btnRechercher_Click(this, null);
+                }
+                if (groupe.idGroupe == 3)
+                {
+                    cmbFiltre.Text = "Employé";
+                    btnRechercher_Click(this, null);
+                }
                 if (groupe.idGroupe == 5)
                 {
                     //MessageBox.Show("Un administrateur du système est connecté");
                     //Verification du fichier RH
+                    cmbFiltre.Text = "Jeu";
+                    btnRechercher_Click(this, null);
                     if (CtrlFileEmployes.IsEmpty() > 0)
                     {
                         DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -268,7 +280,7 @@ namespace Texcel.Interfaces
         {
             txtRechercher.Clear();
             dgvResultats.Columns.Clear();
-            ChoixFiltre(cmbFiltre.Text);
+            //ChoixFiltre(cmbFiltre.Text);
         }
 
         private void dgvResultats_DoubleClick(object sender, EventArgs e)
