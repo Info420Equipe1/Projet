@@ -29,10 +29,7 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
-                        frmAdmin frmAdmin = new frmAdmin();
-                        frmAdmin.Show();
-                        this.Hide();
-
+                        this.Close();
                     }
                     else
                     {
@@ -53,9 +50,10 @@ namespace Texcel.Interfaces
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            this.Close();
+            //txtUsername.Text = "";
+            //txtPassword.Text = "";
+            //this.Close();
+            Application.Exit();
         }
     }
 }

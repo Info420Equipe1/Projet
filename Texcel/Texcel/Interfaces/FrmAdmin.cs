@@ -400,5 +400,11 @@ namespace Texcel.Interfaces
                 messageDroits();
             }
         }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
+        }
     }
 }

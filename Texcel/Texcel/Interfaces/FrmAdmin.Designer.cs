@@ -1173,6 +1173,7 @@
             this.MainMenuStrip = this.mnsMain;
             this.Name = "frmAdmin";
             this.Text = "Console d\'administration";
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.Shown += new System.EventHandler(this.frmAdmin_Shown);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

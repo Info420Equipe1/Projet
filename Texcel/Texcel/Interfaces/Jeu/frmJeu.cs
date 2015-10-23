@@ -86,12 +86,12 @@ namespace Texcel.Interfaces.Jeu
             rtbConfiguration.Text = jeu.configMinimal;
             try
             {
-                picJeu.Image = Image.FromFile(@"\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
                 //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
-                picJeu.ImageLocation = @"\Images\NoImage.png";
+                picJeu.ImageLocation = @"Images\NoImage.png";
             }
 
             
