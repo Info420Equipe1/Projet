@@ -17,6 +17,7 @@ namespace Texcel.Interfaces
 {
     public partial class frmAdmin : frmForm
     {
+        List<int> lstDroits = new List<int>();
         public frmAdmin()
         {
             InitializeComponent();
@@ -26,35 +27,8 @@ namespace Texcel.Interfaces
         {
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
-                if (groupe.idGroupe == 1)
-                {
-                    MessageBox.Show("Un directeur de compte est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 2)
-                {
-                    MessageBox.Show("Un chef de projet est connecté");
-                    cmbFiltre.Text = "Equipe";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if (groupe.idGroupe == 3)
-                {
-                    MessageBox.Show("Un chef d'équipe est connecté");
-                    cmbFiltre.Text = "Employé";
-                    smiGestionJeu.Visible = false;
-                    smiEmploye.Visible = false;
-                }
-                else if (groupe.idGroupe == 4)
-                {
-                    MessageBox.Show("Un testeur est connecté");
-                    cmbFiltre.Text = "Jeu";
-                    smiGestionJeu.Visible = false;
-                    smiGestionPersonnel.Visible = false;
-                }
-                else if (groupe.idGroupe == 5)
+                lstDroits = CtrlController.GetDroits(groupe.idGroupe);
+                if (groupe.idGroupe == 5)
                 {
                     //MessageBox.Show("Un administrateur du système est connecté");
                     //Verification du fichier RH
@@ -172,40 +146,87 @@ namespace Texcel.Interfaces
             }
         }
 
+        private void messageDroits()
+        {
+            MessageBox.Show("Vous ne possédez pas les droits requis pour accéder à cet écran. Contactez votre administrateur pour plus de détails. ", "Droits insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void SmiSysExp_Click(object sender, EventArgs e)
         {
-            frmAjouterSysExp frmSysExp = new frmAjouterSysExp();
-            frmSysExp.ShowDialog();
+            if (lstDroits.Contains(2))
+            {
+                frmAjouterSysExp frmSysExp = new frmAjouterSysExp();
+                frmSysExp.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiTypePlateforme_Click(object sender, EventArgs e)
         {
-            frmTypePlateforme frmTypePlateforme = new frmTypePlateforme();
-            frmTypePlateforme.ShowDialog();
+            if (lstDroits.Contains(10))
+            {
+                frmTypePlateforme frmTypePlateforme = new frmTypePlateforme();
+                frmTypePlateforme.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiPlateforme_Click(object sender, EventArgs e)
         {
-            frmPlateforme frmPlateforme = new frmPlateforme();
-            frmPlateforme.ShowDialog();
+            if (lstDroits.Contains(14))
+            {
+                frmPlateforme frmPlateforme = new frmPlateforme();
+                frmPlateforme.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiTheme_Click(object sender, EventArgs e)
         {
-            frmTheme frmTheme = new frmTheme();
-            frmTheme.ShowDialog();
+            if (lstDroits.Contains(12))
+            {
+                frmTheme frmTheme = new frmTheme();
+                frmTheme.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiGenre_Click(object sender, EventArgs e)
         {
-            frmGenre frmGenre = new frmGenre();
-            frmGenre.ShowDialog();
+            if (lstDroits.Contains(6))
+            {
+                frmGenre frmGenre = new frmGenre();
+                frmGenre.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiClassification_Click(object sender, EventArgs e)
         {
-            frmClassification frmClassification = new frmClassification();
-            frmClassification.ShowDialog();
+            if (lstDroits.Contains(4))
+            {
+                frmClassification frmClassification = new frmClassification();
+                frmClassification.ShowDialog(); 
+            }
+            else
+            {
+                messageDroits();
+            }
         }
 
         private void SmiJeu_Click(object sender, EventArgs e)
