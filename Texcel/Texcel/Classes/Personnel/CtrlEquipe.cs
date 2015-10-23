@@ -41,10 +41,9 @@ namespace Texcel.Classes.Personnel
                 context.SaveChanges();
             }
         }
-        public static Equipe getSelectedEquipe(string _nomEquipe, string _nomChefEquipe)
+        public static Equipe getSelectedEquipe(int _id)
         {
-            int id = CtrlEmploye.getIdEmploye(_nomChefEquipe);
-            Equipe selectedEquipe = context.tblEquipe.Where(x => x.nomEquipe == _nomEquipe && x.idChefEquipe == id).First();
+            Equipe selectedEquipe = context.tblEquipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;
         }
     }

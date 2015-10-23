@@ -11,6 +11,7 @@ using Texcel.Classes.Test;
 using Texcel.Classes;
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Projet;
+using Texcel.Classes.Jeu;
 using Texcel.Interfaces.Jeu;
 using Texcel.Interfaces.Personnel;
 
@@ -60,7 +61,8 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
-            ChoixFiltre(cmbFiltre.Text);            
+            ChoixFiltre(cmbFiltre.Text);
+            dgvResultats_Click(this, null);
         }
 
         // Pour déterminer et afficher la liste d'éléments selon le filtre choisi
@@ -131,13 +133,16 @@ namespace Texcel.Interfaces
                     dgvResultats.Columns.Add("0", "Équipe");
                     dgvResultats.Columns.Add("1", "Chef d'équipe");
                     tabControl1.SelectedIndex = 1;
+                    int id = 1;
                     foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                     {
                         if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Tag = id;
                             dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
                             dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
+                            id++;
                             n++;
                         }
                     }
@@ -326,12 +331,9 @@ namespace Texcel.Interfaces
             }
             else if (cmbFiltre.Text == "Équipe")
             {
-                
-                string nomEquipe = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
                 string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-
-                //Besoin d'UN ID ICITE CAR LEs EQUIPES SE DUPLIQUEnt
-                Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(/*ID  ,*/nomEquipe, nomChefEquipe);
+                int id = Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag);
+                Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
                 lblNomEquipe.Text = selectedEquipe.nomEquipe;
                 lblChefEquipe.Text = nomChefEquipe;
                 string codeProj = selectedEquipe.CasTest.First().codeProjet;
@@ -342,7 +344,47 @@ namespace Texcel.Interfaces
 	            {
                     lstTesteurEquipe.Items.Add(emp.prenomEmploye+" "+emp.nomEmploye);
 	            }
-                
+            }
+            else if (cmbFiltre.Text == "Jeu")
+            {
+                string nomJeu = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                cJeu jeu = CtrlJeu.GetJeu(nomJeu);
+                lblNoJeu.Text = jeu.idJeu.ToString();
+                lblNomJeu.Text = jeu.nomJeu;
+                lblDevJeu.Text = jeu.developeur;
+                lblClassJeu.Text = jeu.ClassificationJeu.nomClassification;
+                rtbDescription.Text = jeu.descJeu;
+                rtbConfiguration.Text = jeu.configMinimal;
+                lstBoxVersion.Items.Clear();
+                foreach (VersionJeu version in jeu.VersionJeu)
+                {
+                    lstBoxVersion.Items.Add(version.nomVersionJeu);
+                }
+                lstBoxPlat1.Items.Clear();
+                foreach (Plateforme plat in jeu.Plateforme)
+                {
+                    lstBoxPlat1.Items.Add(plat.nomPlateforme);
+                }
+                lstBoxTheme1.Items.Clear();
+                foreach (ThemeJeu theme in jeu.ThemeJeu)
+                {
+                    lstBoxTheme1.Items.Add(theme.nomTheme);
+                }
+                lstBoxGenre1.Items.Clear();
+                foreach (GenreJeu genre in jeu.GenreJeu)
+                {
+                    lstBoxGenre1.Items.Add(genre.nomGenre);
+                }
+            }
+            else if (cmbFiltre.Text == "Plateforme")
+            {
+                string nomPlat = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                Plateforme plat = CtrlPlateforme.GetPlateforme(nomPlat);
+                lblNoPlate.Text = plat.idPlateforme.ToString();
+                lblTypePlate.Text = plat.TypePlateforme.nomTypePlateforme;
+                lblNomPlate.Text = plat.nomPlateforme;
+                rtxtConfigPlate.Text = plat.configPlateforme;
+                rtxtCommPlate.Text = plat.commPlateforme;
             }
         }
 

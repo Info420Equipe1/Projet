@@ -95,11 +95,9 @@
             this.lblNoPlate = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.rtxtCommPlate = new System.Windows.Forms.RichTextBox();
+            this.rtxtConfigPlate = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblTypePlateforme = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -770,11 +768,9 @@
             this.tabPage4.Controls.Add(this.lblNoPlate);
             this.tabPage4.Controls.Add(this.label16);
             this.tabPage4.Controls.Add(this.label17);
-            this.tabPage4.Controls.Add(this.richTextBox2);
-            this.tabPage4.Controls.Add(this.richTextBox3);
+            this.tabPage4.Controls.Add(this.rtxtCommPlate);
+            this.tabPage4.Controls.Add(this.rtxtConfigPlate);
             this.tabPage4.Controls.Add(this.label12);
-            this.tabPage4.Controls.Add(this.label13);
-            this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.lblTypePlateforme);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
@@ -837,7 +833,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(23, 307);
+            this.label16.Location = new System.Drawing.Point(23, 260);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 20);
             this.label16.TabIndex = 23;
@@ -847,29 +843,29 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(24, 175);
+            this.label17.Location = new System.Drawing.Point(23, 128);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(113, 20);
             this.label17.TabIndex = 22;
             this.label17.Text = "Configuration:";
             // 
-            // richTextBox2
+            // rtxtCommPlate
             // 
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(143, 307);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(336, 126);
-            this.richTextBox2.TabIndex = 21;
-            this.richTextBox2.Text = "";
+            this.rtxtCommPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtCommPlate.Location = new System.Drawing.Point(142, 257);
+            this.rtxtCommPlate.Name = "rtxtCommPlate";
+            this.rtxtCommPlate.Size = new System.Drawing.Size(336, 126);
+            this.rtxtCommPlate.TabIndex = 21;
+            this.rtxtCommPlate.Text = "";
             // 
-            // richTextBox3
+            // rtxtConfigPlate
             // 
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox3.Location = new System.Drawing.Point(143, 175);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(336, 126);
-            this.richTextBox3.TabIndex = 20;
-            this.richTextBox3.Text = "";
+            this.rtxtConfigPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtConfigPlate.Location = new System.Drawing.Point(142, 125);
+            this.rtxtConfigPlate.Name = "rtxtConfigPlate";
+            this.rtxtConfigPlate.Size = new System.Drawing.Size(336, 126);
+            this.rtxtConfigPlate.TabIndex = 20;
+            this.rtxtConfigPlate.Text = "";
             // 
             // label12
             // 
@@ -880,26 +876,6 @@
             this.label12.Size = new System.Drawing.Size(73, 20);
             this.label12.TabIndex = 19;
             this.label12.Text = "Numéro:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(23, 143);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(114, 20);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Commentaire:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(24, 110);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(113, 20);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Configuration:";
             // 
             // label15
             // 
@@ -1278,8 +1254,6 @@
         private System.Windows.Forms.Label lblNomJeu;
         private System.Windows.Forms.Label lblNoJeu;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblTypePlateforme;
         private System.Windows.Forms.Label lblConfPlate;
@@ -1288,8 +1262,8 @@
         private System.Windows.Forms.Label lblNoPlate;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox rtxtCommPlate;
+        private System.Windows.Forms.RichTextBox rtxtConfigPlate;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblCommPlate;
         private System.Windows.Forms.Label lblUtilisateurConn;
