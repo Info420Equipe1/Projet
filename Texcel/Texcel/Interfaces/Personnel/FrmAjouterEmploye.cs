@@ -23,6 +23,9 @@ namespace Texcel.Interfaces.Personnel
             InitializeComponent();
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
+            listBox1.Visible = false;
+            label2.Visible = false;
+            btnCreerUti.Visible = false;
         }
 
         public frmAjouterEmploye(Employe _employe)
@@ -183,6 +186,7 @@ namespace Texcel.Interfaces.Personnel
         {
             frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
             frmUti.ShowDialog();
+            this.Close();
         }
 
         // remplir les infos employé avec les données des R.H.!!

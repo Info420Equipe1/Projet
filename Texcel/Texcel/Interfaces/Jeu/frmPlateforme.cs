@@ -62,8 +62,9 @@ namespace Texcel.Interfaces.Jeu
                 rtbCommentaire.Text = plateforme.commPlateforme;
                 rtbConfiguration.Text = plateforme.configPlateforme;
                 rtbCommentaire.SelectAll();
-                btnAjouter.Text = "Modifier";
-                btnSupprimer.Visible = true;
+                //btnAjouter.Text = "Modifier";
+                btnAjouter.Visible = false;
+                //btnSupprimer.Visible = true;
             }
         }
 
@@ -72,11 +73,12 @@ namespace Texcel.Interfaces.Jeu
             if (cmbNom.Text.Trim() == null || cmbNom.Text.Trim() == "" || cmbNom.Text.Trim() == "Aucun")
             {
                 grbSE.Enabled = false;
-                btnAjouter.Text = "Modifier";
+                //btnAjouter.Text = "Modifier";
             }
             else
             {
                 grbSE.Enabled = true;
+                btnAjouter.Visible = true;
                 btnAjouter.Text = "Enregistrer";
                 btnSupprimer.Visible = false;
                 txtID.Text = "";
@@ -137,31 +139,34 @@ namespace Texcel.Interfaces.Jeu
             {
                 if (cmbNomSE.Text == "")
                 {
-                    message = CtrlPlateforme.Modifier(cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
-                    if (message.Contains("erreur"))
-                    {
-                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Recharger();
-                    }
+
+                   
+                    //message = CtrlPlateforme.Modifier(cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
+                    //if (message.Contains("erreur"))
+                    //{
+                    //    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //    return;
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    Recharger();
+                    //}
                 }
                 else
                 {
-                    message = CtrlPlateforme.LierPlateformeSysExp(CtrlPlateforme.GetPlateforme(cmbNom.Text), cmbNomSE.Text.Trim());
-                    if (message.Contains("erreur"))
-                    {
-                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Recharger();
-                    }
+                    
+                //    message = CtrlPlateforme.LierPlateformeSysExp(CtrlPlateforme.GetPlateforme(cmbNom.Text), cmbNomSE.Text.Trim());
+                //    if (message.Contains("erreur"))
+                //    {
+                //        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        return;
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //        Recharger();
+                //    }
                 }
 
             }

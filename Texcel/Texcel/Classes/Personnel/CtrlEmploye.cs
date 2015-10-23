@@ -26,11 +26,11 @@ namespace Texcel.Classes.Personnel
                 context.tblEmploye.Add(emp);
                 context.SaveChanges();
                 LierTypeTest(emp);
-                return "Le jeu a été ajouté avec succès!";
+                return "L'employée a été créé avec succès!";
             }
             catch (Exception)
             {
-                return "Une erreur est survenue lors de l'ajout du Jeu. Les données n'ont pas été enregistrées.";
+                return "Une erreur est survenue lors de la creation de l'employée. Les données n'ont pas été enregistrées.";
             }
         }
 
