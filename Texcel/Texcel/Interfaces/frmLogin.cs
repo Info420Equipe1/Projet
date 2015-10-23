@@ -55,5 +55,13 @@ namespace Texcel.Interfaces
             //this.Close();
             Application.Exit();
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (txtPassword.Text == "" && txtUsername.Text == "")
+            {
+                Application.Exit();
+            }
+        }
     }
 }
