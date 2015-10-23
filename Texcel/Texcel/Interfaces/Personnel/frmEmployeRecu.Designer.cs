@@ -54,6 +54,7 @@
             this.telSec,
             this.dateEmbauche});
             this.dgvNouveauxEmployes.Location = new System.Drawing.Point(12, 23);
+            this.dgvNouveauxEmployes.MultiSelect = false;
             this.dgvNouveauxEmployes.Name = "dgvNouveauxEmployes";
             this.dgvNouveauxEmployes.RowTemplate.Height = 24;
             this.dgvNouveauxEmployes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

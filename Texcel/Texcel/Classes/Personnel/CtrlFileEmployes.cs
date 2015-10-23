@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 
-namespace Texcel.Classes
+using System.Xml;
+using System.IO;
+
+namespace Texcel.Classes.Personnel
 {
-    class CtrlFile
+    class CtrlFileEmployes
     {
         private static XmlDocument xmlDoc = new XmlDocument();
         
-
-        public static bool IsEmpty()
+        public static int IsEmpty()
         {
-            xmlDoc.Load("NouveauxEmployes.xml");
-            int count = xmlDoc.SelectNodes("NouveauxEmployes/Employe").Count;
-            if (count > 0)
+            try
             {
-                return false;
+                xmlDoc.Load("NouveauxEmployes.xml");
+                int count = xmlDoc.SelectNodes("NouveauxEmployes/Employe").Count;
+                return count;
             }
-            else
+            catch (FileNotFoundException)
             {
-                return true;
-            }
+                return -1;
+            }       
         }
 
         public static List<Employe> GetEmployesFromFile()
@@ -42,6 +43,13 @@ namespace Texcel.Classes
                 employes.Add(employe);
             }
             return employes;
+        }
+
+        public static void DeleteEmployeFromFile(Employe _employe, int _index)
+        {
+            xmlDoc.Load("NouveauxEmployes.xml");
+            XmlNodeList nodes = xmlDoc.SelectNodes("NouveauxEmployes/Employe");
+            nodes[_index].ParentNode.RemoveAll();
         }
     }
 }

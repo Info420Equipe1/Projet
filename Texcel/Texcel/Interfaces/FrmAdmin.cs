@@ -32,7 +32,7 @@ namespace Texcel.Interfaces
                 {
                     //MessageBox.Show("Un administrateur du système est connecté");
                     //Verification du fichier RH
-                    if (!CtrlFile.IsEmpty())
+                    if (CtrlFileEmployes.IsEmpty() > 0)
                     {
                         DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (dr == DialogResult.Yes)

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Test;
 using Texcel.Classes;
 
 namespace Texcel.Interfaces.Personnel
 {
+    
     public partial class frmAjouterEmploye : frmForm
     {
         bool modifier = false;
@@ -33,6 +35,17 @@ namespace Texcel.Interfaces.Personnel
             InitializeComponent();
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
+            AfficherEmploye(_employe);
+        }
+
+        private void AfficherEmploye(Employe _employe)
+        {
+            txtNom.Text = _employe.nomEmploye;
+            txtPrenom.Text = _employe.prenomEmploye;
+            txtAdresse.Text = _employe.adressePostale;
+            txtTelPrim.Text = _employe.numTelPrincipal;
+            txtTelSec.Text = _employe.numTelSecondaire;
+            dateTPEmp.Value = _employe.dateEmbauche;
         }
 
         //Mode modifier (Arrive de la fenetre recherche)
@@ -53,7 +66,6 @@ namespace Texcel.Interfaces.Personnel
             remplirListBoxUtil(_emp);
             modifier = true;
             employe = CtrlEmploye.emp(_nom + " " + _pren);
-
         }
 
         private void RemplirListBoxPourModeModif(Employe _emp)
@@ -100,8 +112,6 @@ namespace Texcel.Interfaces.Personnel
                 CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTest.Text),true);
                 AfficherLstBox();
             }
-        
-        
         }
 
         private void remplirListBoxUtil(Employe _emp)

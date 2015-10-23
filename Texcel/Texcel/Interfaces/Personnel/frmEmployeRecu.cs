@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Texcel.Classes;
+using Texcel.Classes.Personnel;
 
 namespace Texcel.Interfaces.Personnel
 {
     public partial class frmEmployeRecu : frmForm
     {
-        private Employe employe;
+        private List<Employe> employes;
         
         public frmEmployeRecu()
         {
@@ -23,7 +23,8 @@ namespace Texcel.Interfaces.Personnel
 
         private void frmEmployeRecu_Load(object sender, EventArgs e)
         {
-            foreach (Employe employe in CtrlFile.GetEmployesFromFile())
+            employes = CtrlFileEmployes.GetEmployesFromFile();
+            foreach (Employe employe in employes)
             {
                 dgvNouveauxEmployes.Rows.Add(employe.nomEmploye, employe.prenomEmploye, employe.adressePostale, employe.numTelPrincipal, employe.numTelSecondaire, employe.dateEmbauche.Date.ToString("yyyy-MM-dd"));
             }
@@ -31,14 +32,15 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Une fois le nouvel employé supprimé, il sera impossible de l'ajouter à nouveau sauf si ce dernier est réenvoyé par les R.H.", "Supprimer un nouvel employé", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            //MessageBox.Show("Une fois le nouvel employé supprimé, il sera impossible de l'ajouter à nouveau sauf si ce dernier est réenvoyé par les R.H.", "Supprimer un nouvel employé", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (dgvNouveauxEmployes.SelectedRows.Count > 0)
             {
-                frmAjouterEmploye frmAjouterEmploye = new frmAjouterEmploye();
+                frmAjouterEmploye frmAjouterEmploye = new frmAjouterEmploye(employes[dgvNouveauxEmployes.SelectedRows[0].Index]);
                 frmAjouterEmploye.ShowDialog();
             }
             else

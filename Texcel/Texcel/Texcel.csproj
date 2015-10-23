@@ -85,7 +85,7 @@
     </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlAdmin.cs" />
-    <Compile Include="Classes\CtrlFile.cs" />
+    <Compile Include="Classes\Personnel\CtrlFileEmployes.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\Jeu\CtrlClassificationJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlEditionSysExp.cs" />
