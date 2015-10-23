@@ -102,8 +102,12 @@
     <Compile Include="Classes\Personnel\CtrlEquipe.cs" />
     <Compile Include="Classes\Personnel\CtrlGroupe.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
+    <Compile Include="Classes\Projet\CtrlProjet.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />
     <Compile Include="ClassificationJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="EditionSysExp.cs">
@@ -242,9 +246,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Projet.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -356,7 +357,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Projet\" />
     <Folder Include="Interfaces\Projet\" />
     <Folder Include="Interfaces\Test\" />
   </ItemGroup>

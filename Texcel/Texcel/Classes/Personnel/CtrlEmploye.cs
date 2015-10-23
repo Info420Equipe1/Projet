@@ -94,6 +94,11 @@ namespace Texcel.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
             return emp;
         }
+        public static int getIdEmploye(string _nomEmp)
+        {
+            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            return emp.idEmploye;
+        }
 
         //Employés qui sont chef d'équipe
         public static List<Employe> listEmployeChefEquipe()

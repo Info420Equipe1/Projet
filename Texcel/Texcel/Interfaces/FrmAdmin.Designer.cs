@@ -57,13 +57,13 @@
             this.lblProjetEquipe = new System.Windows.Forms.Label();
             this.lblChefEquipe = new System.Windows.Forms.Label();
             this.lblNomEquipe = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblProjet = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstTesteurEquipe = new System.Windows.Forms.ListBox();
             this.lblCommentaire = new System.Windows.Forms.Label();
             this.rtbCommentaire = new System.Windows.Forms.RichTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblNomChefEquipe = new System.Windows.Forms.Label();
+            this.lblNomEquip = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.lblClassJeu = new System.Windows.Forms.Label();
@@ -398,13 +398,13 @@
             this.tabPage2.Controls.Add(this.lblProjetEquipe);
             this.tabPage2.Controls.Add(this.lblChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquipe);
-            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.lblProjet);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Controls.Add(this.lstTesteurEquipe);
             this.tabPage2.Controls.Add(this.lblCommentaire);
             this.tabPage2.Controls.Add(this.rtbCommentaire);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.lblNomChefEquipe);
+            this.tabPage2.Controls.Add(this.lblNomEquip);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -449,15 +449,15 @@
             this.lblNomEquipe.Size = new System.Drawing.Size(0, 20);
             this.lblNomEquipe.TabIndex = 63;
             // 
-            // label5
+            // lblProjet
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(66, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Projet:";
+            this.lblProjet.AutoSize = true;
+            this.lblProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProjet.Location = new System.Drawing.Point(66, 75);
+            this.lblProjet.Name = "lblProjet";
+            this.lblProjet.Size = new System.Drawing.Size(58, 20);
+            this.lblProjet.TabIndex = 62;
+            this.lblProjet.Text = "Projet:";
             // 
             // label6
             // 
@@ -469,16 +469,16 @@
             this.label6.TabIndex = 61;
             this.label6.Text = "Testeurs:";
             // 
-            // listBox2
+            // lstTesteurEquipe
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(130, 208);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox2.Size = new System.Drawing.Size(390, 264);
-            this.listBox2.TabIndex = 57;
+            this.lstTesteurEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstTesteurEquipe.FormattingEnabled = true;
+            this.lstTesteurEquipe.ItemHeight = 20;
+            this.lstTesteurEquipe.Location = new System.Drawing.Point(130, 208);
+            this.lstTesteurEquipe.Name = "lstTesteurEquipe";
+            this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstTesteurEquipe.Size = new System.Drawing.Size(390, 264);
+            this.lstTesteurEquipe.TabIndex = 57;
             // 
             // lblCommentaire
             // 
@@ -499,25 +499,25 @@
             this.rtbCommentaire.TabIndex = 56;
             this.rtbCommentaire.Text = "";
             // 
-            // label7
+            // lblNomChefEquipe
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 41);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 20);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Chef d\'équipe:";
+            this.lblNomChefEquipe.AutoSize = true;
+            this.lblNomChefEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomChefEquipe.Location = new System.Drawing.Point(8, 41);
+            this.lblNomChefEquipe.Name = "lblNomChefEquipe";
+            this.lblNomChefEquipe.Size = new System.Drawing.Size(116, 20);
+            this.lblNomChefEquipe.TabIndex = 59;
+            this.lblNomChefEquipe.Text = "Chef d\'équipe:";
             // 
-            // label8
+            // lblNomEquip
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(75, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 20);
-            this.label8.TabIndex = 58;
-            this.label8.Text = "Nom:";
+            this.lblNomEquip.AutoSize = true;
+            this.lblNomEquip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomEquip.Location = new System.Drawing.Point(75, 9);
+            this.lblNomEquip.Name = "lblNomEquip";
+            this.lblNomEquip.Size = new System.Drawing.Size(49, 20);
+            this.lblNomEquip.TabIndex = 58;
+            this.lblNomEquip.Text = "Nom:";
             // 
             // tabPage3
             // 
@@ -1247,13 +1247,13 @@
         private System.Windows.Forms.Label lblProjetEquipe;
         private System.Windows.Forms.Label lblChefEquipe;
         private System.Windows.Forms.Label lblNomEquipe;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblProjet;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstTesteurEquipe;
         private System.Windows.Forms.Label lblCommentaire;
         private System.Windows.Forms.RichTextBox rtbCommentaire;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNomChefEquipe;
+        private System.Windows.Forms.Label lblNomEquip;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lstBoxPlat1;

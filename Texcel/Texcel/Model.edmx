@@ -1038,7 +1038,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CasTest" Relationship="Self.FR_FK_codeCasTest" FromRole="tblFicheResultat" ToRole="tblCasTest" />
         </EntityType>
-        <EntityType Name="Projet">
+        <EntityType Name="cProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
           </Key>
@@ -1181,7 +1181,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           </ReferentialConstraint>
         </Association>
         <Association Name="CT_FK_codeProjet">
-          <End Role="tblProjet" Type="dbProjetE1Model.Projet" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="dbProjetE1Model.cProjet" Multiplicity="0..1" />
           <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblProjet">
@@ -1274,7 +1274,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <EntitySet Name="tblUtilisateur" EntityType="dbProjetE1Model.Utilisateur" />
           <EntitySet Name="tblCasTest" EntityType="dbProjetE1Model.CasTest" />
           <EntitySet Name="tblFicheResultat" EntityType="dbProjetE1Model.FicheResultat" />
-          <EntitySet Name="tblProjet" EntityType="dbProjetE1Model.Projet" />
+          <EntitySet Name="tblProjet" EntityType="dbProjetE1Model.cProjet" />
           <EntitySet Name="tblTypeTest" EntityType="dbProjetE1Model.TypeTest" />
           <EntitySet Name="AllPlateforme" EntityType="Self.AllPlateforme" />
           <EntitySet Name="AllSysExp" EntityType="Self.AllSysExp" />
@@ -1544,7 +1544,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblProjet">
-            <EntityTypeMapping TypeName="dbProjetE1Model.Projet">
+            <EntityTypeMapping TypeName="dbProjetE1Model.cProjet">
               <MappingFragment StoreEntitySet="tblProjet">
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />

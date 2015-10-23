@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="dbProjetE1Model.Utilisateur" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.CasTest" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.FicheResultat" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.Projet" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.cProjet" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.TypeTest" Width="1.5" PointX="6" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.AllPlateforme" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.AllSysExp" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />

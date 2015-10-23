@@ -12,9 +12,9 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class Projet
+    public partial class cProjet
     {
-        public Projet()
+        public cProjet()
         {
             this.CasTest = new HashSet<CasTest>();
         }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Texcel.Classes.Test;
 using Texcel.Classes;
 using Texcel.Classes.Personnel;
+using Texcel.Classes.Projet;
 using Texcel.Interfaces.Jeu;
 using Texcel.Interfaces.Personnel;
 
@@ -322,6 +323,26 @@ namespace Texcel.Interfaces
                     listBox1.Items.Add(uti.nomUtilisateur);
                 }
                 richTextBox1.Text = emp.competenceParticuliere;
+            }
+            else if (cmbFiltre.Text == "Équipe")
+            {
+                
+                string nomEquipe = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+
+                //Besoin d'UN ID ICITE CAR LEs EQUIPES SE DUPLIQUEnt
+                Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(/*ID  ,*/nomEquipe, nomChefEquipe);
+                lblNomEquipe.Text = selectedEquipe.nomEquipe;
+                lblChefEquipe.Text = nomChefEquipe;
+                string codeProj = selectedEquipe.CasTest.First().codeProjet;
+                lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
+                rtbCommentaire.Text = selectedEquipe.descEquipe;
+                lstTesteurEquipe.Items.Clear();
+                foreach (Employe emp in selectedEquipe.Employe1)
+	            {
+                    lstTesteurEquipe.Items.Add(emp.prenomEmploye+" "+emp.nomEmploye);
+	            }
+                
             }
         }
 
