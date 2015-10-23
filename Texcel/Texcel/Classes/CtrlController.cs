@@ -45,5 +45,15 @@ namespace Texcel.Classes
             return lstEmploye[0].prenomEmploye + " " + lstEmploye[0].nomEmploye;
         }
 
+        public static List<int> GetDroits(Groupe groupeUti)
+        {
+            List<int> lstDroits = new List<int>();
+            foreach(Forms f in groupeUti.Forms)
+            {
+                lstDroits.Add(f.idForm);
+            }
+            return lstDroits;
+        }
+
     }
 }

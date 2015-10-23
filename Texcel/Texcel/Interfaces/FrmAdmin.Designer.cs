@@ -955,17 +955,12 @@
             // 
             this.cmbFiltre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFiltre.FormattingEnabled = true;
-            this.cmbFiltre.Items.AddRange(new object[] {
-            "Employé",
-            "Équipe",
-            "Jeu",
-            "Plateforme",
-            "Système d\'exploitation"});
             this.cmbFiltre.Location = new System.Drawing.Point(762, 47);
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(352, 28);
             this.cmbFiltre.Sorted = true;
             this.cmbFiltre.TabIndex = 3;
+            this.cmbFiltre.DropDown += new System.EventHandler(this.cmbFiltre_DropDown);
             this.cmbFiltre.SelectedIndexChanged += new System.EventHandler(this.cmbFiltre_SelectedIndexChanged);
             // 
             // label1

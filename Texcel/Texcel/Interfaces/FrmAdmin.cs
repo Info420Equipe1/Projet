@@ -17,7 +17,7 @@ namespace Texcel.Interfaces
 {
     public partial class frmAdmin : frmForm
     {
-        List<int> lstDroits = new List<int>();
+        List<int> lstDroits;
         public frmAdmin()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Texcel.Interfaces
         {
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
-                lstDroits = CtrlController.GetDroits(groupe.idGroupe);
+                lstDroits = CtrlController.GetDroits(groupe);
                 if (groupe.idGroupe == 5)
                 {
                     //MessageBox.Show("Un administrateur du système est connecté");
@@ -57,7 +57,8 @@ namespace Texcel.Interfaces
             string cle = txtRechercher.Text.ToLower();
             dgvResultats.Columns.Clear();
 
-            // si aucun filtre n'est sélectionner????            
+            // si aucun filtre n'est sélectionner????
+            //J'ai ajouté un default avec un messagebox qui dit d'en selectionner un, à discuter
             switch (_nomFiltre)
             {
                 case "Plateforme":
@@ -82,6 +83,7 @@ namespace Texcel.Interfaces
                     dgvResultats.Columns.Add("2", "Edition");
                     dgvResultats.Columns.Add("3", "Version");
                     tabControl1.SelectedIndex = 4;
+                    //bug ici
                     foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                     {
                         if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
@@ -143,12 +145,16 @@ namespace Texcel.Interfaces
                         }
                     }
                     break;
+
+                default : 
+                    MessageBox.Show("Veuillez sélectionner un filtre.", "Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    break;
             }
         }
 
         private void messageDroits()
         {
-            MessageBox.Show("Vous ne possédez pas les droits requis pour accéder à cet écran. Contactez votre administrateur pour plus de détails. ", "Droits insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Vous ne possédez pas les droits requis pour accéder à cette section. Contactez votre administrateur pour plus de détails. ", "Droits insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void SmiSysExp_Click(object sender, EventArgs e)
@@ -315,14 +321,50 @@ namespace Texcel.Interfaces
 
         private void btnModifierEmp_Click(object sender, EventArgs e)
         {
-            if (cmbFiltre.Text == "Employé")
+            if (lstDroits.Contains(16))
             {
-                string nomPren;
-                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                Employe emp = CtrlEmploye.emp(nomPren);
-                frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
-                frmEmp.ShowDialog();
-                dgvResultats.Rows.Clear();
+                if (cmbFiltre.Text == "Employé")
+                {
+                    string nomPren;
+                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    Employe emp = CtrlEmploye.emp(nomPren);
+                    frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
+                    frmEmp.ShowDialog();
+                    dgvResultats.Rows.Clear();
+                } 
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+
+        private void cmbFiltre_DropDown(object sender, EventArgs e)
+        {
+            cmbFiltre.Items.Clear();
+            if(lstDroits.Contains(15)||lstDroits.Contains(16))
+            {
+                cmbFiltre.Items.Add("Employé");
+            }
+            if(lstDroits.Contains(17)||lstDroits.Contains(18))
+            {
+                cmbFiltre.Items.Add("Équipe");
+            }
+            if(lstDroits.Contains(7)||lstDroits.Contains(8))
+            {
+                cmbFiltre.Items.Add("Jeu");
+            }
+            if(lstDroits.Contains(13)||lstDroits.Contains(14))
+            {
+                cmbFiltre.Items.Add("Plateforme");
+            }
+            if(lstDroits.Contains(1)||lstDroits.Contains(2))
+            {
+                cmbFiltre.Items.Add("Système d'exploitation");
+            }
+            if(cmbFiltre.Items.Count == 0)
+            {
+                messageDroits();
             }
         }
     }
