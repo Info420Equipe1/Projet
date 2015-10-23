@@ -32,8 +32,12 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Une fois le nouvel employé supprimé, il sera impossible de l'ajouter à nouveau sauf si ce dernier est réenvoyé par les R.H.", "Supprimer un nouvel employé", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
+            DialogResult dr = MessageBox.Show("Une fois le nouvel employé supprimé, il sera impossible de l'ajouter à nouveau sauf si ce dernier est réenvoyé par les R.H.", "Supprimer un nouvel employé", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
+                dgvNouveauxEmployes.Rows.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
+            } 
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -41,7 +45,12 @@ namespace Texcel.Interfaces.Personnel
             if (dgvNouveauxEmployes.SelectedRows.Count > 0)
             {
                 frmAjouterEmploye frmAjouterEmploye = new frmAjouterEmploye(employes[dgvNouveauxEmployes.SelectedRows[0].Index]);
-                frmAjouterEmploye.ShowDialog();
+                DialogResult dr = frmAjouterEmploye.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
+                    dgvNouveauxEmployes.Rows.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
+                }
             }
             else
             {

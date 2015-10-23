@@ -49,7 +49,8 @@ namespace Texcel.Classes.Personnel
         {
             xmlDoc.Load("NouveauxEmployes.xml");
             XmlNodeList nodes = xmlDoc.SelectNodes("NouveauxEmployes/Employe");
-            nodes[_index].ParentNode.RemoveAll();
+            nodes[_index].ParentNode.RemoveChild(nodes[_index]);
+            xmlDoc.Save("NouveauxEmployes.xml");
         }
     }
 }
