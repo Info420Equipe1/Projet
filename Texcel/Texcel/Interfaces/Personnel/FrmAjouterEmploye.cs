@@ -66,6 +66,7 @@ namespace Texcel.Interfaces.Personnel
             remplirListBoxUtil(_emp);
             modifier = true;
             employe = CtrlEmploye.emp(_nom + " " + _pren);
+            btnEnregistrer.Text = "Modifier";
         }
 
         private void RemplirListBoxPourModeModif(Employe _emp)

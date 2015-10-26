@@ -24,11 +24,30 @@ namespace Texcel.Classes.Personnel
                 context.tblEquipe.Add(equipe);
                 context.SaveChanges();
                 LierEmploye(_listEmp, equipe);
-                return "Équipe créé";
+                return "L'équipe a été ajoutée avec succès!";
             }
             catch (Exception)
             {
-                return "Une erreur c'est produite";
+                return "Une erreur est survenue lors de l'ajout de l'Équipe. Les données n'ont pas été enregistrées.";
+            }
+        }
+        public static string Modifier(int idEquipe, string nomEquipe, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
+        {
+            Equipe equipe = getSelectedEquipe(idEquipe);
+            equipe.nomEquipe = nomEquipe;
+            equipe.nbTesteur = nbTesteur;
+            equipe.descEquipe = commEquipe;
+            equipe.Employe = chefEquipe;
+            equipe.Employe1 = lstTesteur;
+
+            try
+            {
+                context.SaveChanges();
+                return "L'équipe a été modifiée avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la modification de l'Équipe. Les données n'ont pas été enregistrées.";
             }
         }
 

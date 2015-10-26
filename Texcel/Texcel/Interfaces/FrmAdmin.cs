@@ -287,7 +287,21 @@ namespace Texcel.Interfaces
         {
             txtRechercher.Clear();
             dgvResultats.Columns.Clear();
-            //ChoixFiltre(cmbFiltre.Text);
+            switch (cmbFiltre.Text)
+            {
+                case "Employé": tabControl1.SelectedIndex = 0;
+                    break;
+                case "Équipe": tabControl1.SelectedIndex = 1;
+                    break;
+                case "Jeu": tabControl1.SelectedIndex = 2;
+                    break;
+                case "Plateforme": tabControl1.SelectedIndex = 3;
+                    break;
+                case "Système d'exploitation": tabControl1.SelectedIndex = 4;
+                    break;
+                default: tabControl1.SelectedIndex = 0;
+                    break;
+            }
         }
 
         private void dgvResultats_DoubleClick(object sender, EventArgs e)
@@ -332,7 +346,7 @@ namespace Texcel.Interfaces
             }
             else if (cmbFiltre.Text == "Équipe")
             {
-                string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
                 int id = Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag);
                 Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
                 lblNomEquipe.Text = selectedEquipe.nomEquipe;
@@ -436,12 +450,16 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Employé")
                 {
+                    int selectedRow = dgvResultats.SelectedRows[0].Index;
                     string nomPren;
                     nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
                     Employe emp = CtrlEmploye.emp(nomPren);
                     frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
                     frmEmp.ShowDialog();
-                    //dgvResultats.Rows.Clear();
+                    ChoixFiltre("Employé");
+                    dgvResultats.Rows[0].Selected = false;
+                    dgvResultats.Rows[selectedRow].Selected = true;
+                    dgvResultats_Click(this, null);  //La View ne se refresh pas lors du retour sur la fenetre de recherche dans la forme admin
                 }
             }
             else
@@ -456,9 +474,15 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Équipe")
                 {
+                    int selectedRow = dgvResultats.SelectedRows[0].Index;
                     Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
                     frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                     frmEquipe.ShowDialog();
+                    
+                    ChoixFiltre("Équipe");
+                    dgvResultats.Rows[0].Selected = false;
+                    dgvResultats.Rows[selectedRow].Selected = true;
+                    dgvResultats_Click(this, null);
                 }
             }
             else
@@ -473,10 +497,14 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Jeu")
                 {
+                    int selectedRow = dgvResultats.SelectedRows[0].Index;
                     cJeu jeu = CtrlJeu.GetJeu(lblNomJeu.Text);
                     frmJeu frmJeu = new Jeu.frmJeu(jeu);
                     frmJeu.ShowDialog();
-                    //dgvResultats.Rows.Clear();
+                    ChoixFiltre("Jeu");
+                    dgvResultats.Rows[0].Selected = false;
+                    dgvResultats.Rows[selectedRow].Selected = true;
+                    dgvResultats_Click(this, null);
                 }
             }
             else
@@ -491,10 +519,14 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Plateforme")
                 {
+                    int selectedRow = dgvResultats.SelectedRows[0].Index;
                     Plateforme plat = CtrlPlateforme.GetPlateforme(lblNomPlate.Text);
                     frmPlateforme frmPlat = new frmPlateforme(plat);
                     frmPlat.ShowDialog();
-                    //dgvResultats.Rows.Clear();
+                    ChoixFiltre("Plateforme");
+                    dgvResultats.Rows[0].Selected = false;
+                    dgvResultats.Rows[selectedRow].Selected = true;
+                    dgvResultats_Click(this, null);
                 }
             }
             else

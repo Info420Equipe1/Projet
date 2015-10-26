@@ -9,39 +9,48 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Test;
+using Texcel.Classes;
 
 namespace Texcel.Interfaces.Personnel
 {
     public partial class frmCreerEquipe : frmForm
     {
         bool Modification = false;
+        int id;
         public frmCreerEquipe()
         {
             InitializeComponent();
+            ChargerPage();
         }
 
         //Lorsque la fenetre est ouverte via recherche d'une équipe
         public frmCreerEquipe(Equipe _equ)
         {
-            txtNom.Enabled = false;
+            InitializeComponent();
+            id = _equ.idEquipe;
             txtNom.Text = _equ.nomEquipe;
-            cmbNom.Text = _equ.Employe.nomEmploye;
+            cmbNom.Text = _equ.Employe.nomEmploye+" "+_equ.Employe.prenomEmploye;
             cmbProjet.Text = _equ.CasTest.First().Projet.nomProjet;
             rtbCommentaire.Text = _equ.descEquipe;
             foreach (Employe employe in _equ.Employe1)
             {
-                lstTesteurEquipe.Items.Add(employe.prenomEmploye + " " + employe.nomEmploye);
+                lstTesteurEquipe.Items.Add(employe.nomEmploye+" " + employe.prenomEmploye);
             }
-            //foreach (Employe employe in )
+            foreach (Employe emp in CtrlEmploye.listEmploye())
+            {
+                lstTesteurGlobal.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
+            }
+            //foreach (AllTesteurs employe in CtrlAdmin.GetAllEmployeView()) //Where is my view?
             //{
-                
+                      //VIEW ICITE, Pour linstant jai pri la methide a jay
             //}
             Modification = true;
+            btnEnregistrer.Text = "Modifier";
         }
 
         private void frmCreerEquipe_Load(object sender, EventArgs e)
         {
-            ChargerPage();
+            
         }
 
         public void ChargerPage()
@@ -107,7 +116,16 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-                //Modification de l'équipe
+                message = CtrlEquipe.Modifier(id, txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

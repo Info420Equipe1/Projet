@@ -50,11 +50,11 @@ namespace Texcel.Classes.Personnel
                 
                 context.SaveChanges();
                 LierTypeTest(employe);
-                return "Le jeu a été modifié avec succès!";
+                return "L'employé a été modifié avec succès!";
             }
             catch (Exception)
             {
-                return "Une erreur est survenue lors de l'ajout du Jeu. Les données n'ont pas été enregistrées.";
+                return "Une erreur est survenue lors de l'ajout de l'Employé. Les données n'ont pas été enregistrées.";
             }
         }
 

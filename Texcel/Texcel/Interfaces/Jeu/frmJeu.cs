@@ -14,14 +14,17 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmJeu : frmForm
     {
+        bool modif;
         public frmJeu()
         {
             InitializeComponent();
+            modif = false;
         }
 
         public frmJeu(cJeu jeu)
         {
             InitializeComponent();
+            modif = true;
             btnEnregistrer.Text = "Modifier";
             txtID.Enabled = false;
             txtID.Text = jeu.idJeu.ToString();
@@ -233,6 +236,10 @@ namespace Texcel.Interfaces.Jeu
                     else
                     {
                         MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (modif)
+                        {
+                            this.Close();
+                        }
                     }
                 }
             }
