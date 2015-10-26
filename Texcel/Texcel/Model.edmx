@@ -289,10 +289,21 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <Key>
             <PropertyRef Name="idEquipe" />
             
+            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ChefEquipe" Type="varchar" MaxLength="41" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AllTesteurs">
+          <Key>
+            <PropertyRef Name="prenomEmploye" />
+            <PropertyRef Name="nomEmploye" />
+          </Key>
+          <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="1" />
@@ -717,6 +728,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
     [AllEquipe].[nomEquipe] AS [nomEquipe], 
     [AllEquipe].[ChefEquipe] AS [ChefEquipe]
     FROM [Personnel].[AllEquipe] AS [AllEquipe]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllTesteurs" EntityType="Self.AllTesteurs" store:Type="Views" store:Schema="Personnel">
+            <DefiningQuery>SELECT 
+    [AllTesteurs].[nomEmploye] AS [nomEmploye], 
+    [AllTesteurs].[prenomEmploye] AS [prenomEmploye]
+    FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
             <End Role="tblJeu" EntitySet="tblJeu" />
@@ -1368,7 +1385,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
             <End Role="tblCasTest" EntitySet="tblCasTest" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
+          <EntitySet Name="AllTesteurs" EntityType="dbProjetE1Model.AllTesteurs" />
         </EntityContainer>
+        <EntityType Name="AllTesteurs">
+          <Key>
+            <PropertyRef Name="prenomEmploye" />
+            <PropertyRef Name="nomEmploye" />
+          </Key>
+          <Property Name="nomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="prenomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1675,6 +1701,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
               <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="AllTesteurs">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
+              <MappingFragment StoreEntitySet="AllTesteurs">
+                <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
+                <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
