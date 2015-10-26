@@ -394,26 +394,6 @@ namespace Texcel.Interfaces
 
         }
 
-        private void btnModifierEmp_Click(object sender, EventArgs e)
-        {
-            if (lstDroits.Contains(16))
-            {
-                if (cmbFiltre.Text == "Employé")
-                {
-                    string nomPren;
-                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                    Employe emp = CtrlEmploye.emp(nomPren);
-                    frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
-                    frmEmp.ShowDialog();
-                    dgvResultats.Rows.Clear();
-                } 
-            }
-            else
-            {
-                messageDroits();
-            }
-        }
-
         private void cmbFiltre_DropDown(object sender, EventArgs e)
         {
             cmbFiltre.Items.Clear();
@@ -448,5 +428,81 @@ namespace Texcel.Interfaces
             frmLogin frmLogin = new frmLogin();
             frmLogin.ShowDialog();
         }
+
+        private void btnModifierEmp_Click(object sender, EventArgs e)
+        {
+            if (lstDroits.Contains(16))
+            {
+                if (cmbFiltre.Text == "Employé")
+                {
+                    string nomPren;
+                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    Employe emp = CtrlEmploye.emp(nomPren);
+                    frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
+                    frmEmp.ShowDialog();
+                    //dgvResultats.Rows.Clear();
+                }
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+
+        private void btnModifierEquipe_Click(object sender, EventArgs e)
+        {
+            if (lstDroits.Contains(18))
+            {
+                if (cmbFiltre.Text == "Équipe")
+                {
+                    //Equipe equipe = CtrlEquipe.getSelectedEquipe() Probleme ID si en ordre croissant
+                }
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+
+        private void btnModifierJeu_Click(object sender, EventArgs e)
+        {
+            if (lstDroits.Contains(8))
+            {
+                if (cmbFiltre.Text == "Jeu")
+                {
+                    cJeu jeu = CtrlJeu.GetJeu(lblNomJeu.Text);
+                    frmJeu frmJeu = new Jeu.frmJeu(jeu);
+                    frmJeu.ShowDialog();
+                    //dgvResultats.Rows.Clear();
+                }
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+
+        private void btnModifierPlateforme_Click(object sender, EventArgs e)
+        {
+            if (lstDroits.Contains(10))
+            {
+                if (cmbFiltre.Text == "Plateforme")
+                {
+                    Plateforme plat = CtrlPlateforme.GetPlateforme(lblNomPlate.Text);
+                    frmPlateforme frmPlat = new frmPlateforme(plat);
+                    frmPlat.ShowDialog();
+                    //dgvResultats.Rows.Clear();
+                }
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+
+    
+
+        
+
     }
 }

@@ -19,6 +19,38 @@ namespace Texcel.Interfaces.Jeu
             InitializeComponent();
         }
 
+        public frmJeu(cJeu jeu)
+        {
+            InitializeComponent();
+            btnEnregistrer.Text = "Modifier";
+            txtID.Enabled = false;
+            txtID.Text = jeu.idJeu.ToString();
+            cmbNom.Enabled = false;
+            cmbNom.Text = jeu.nomJeu;
+            txtDeveloppeur.Text = jeu.developeur;
+            cmbClassification.Text = jeu.ClassificationJeu.nomClassification; //Probleme daffichage... Prendrait le selected index
+            rtbDescription.Text = jeu.descJeu;
+            rtbDescription.Focus();
+            rtbDescription.SelectAll();
+            rtbConfiguration.Text = jeu.configMinimal;
+            foreach (VersionJeu version in jeu.VersionJeu)
+            {
+                lstBoxVersion.Items.Add(version.nomVersionJeu);
+            }
+            foreach (Plateforme plat in jeu.Plateforme)
+            {
+                lstBoxPlat1.Items.Add(plat.nomPlateforme);
+            }
+            foreach (ThemeJeu theme in jeu.ThemeJeu)
+            {
+                lstBoxTheme1.Items.Add(theme.nomTheme);
+            }
+            foreach (GenreJeu genre in jeu.GenreJeu)
+            {
+                lstBoxGenre1.Items.Add(genre.nomGenre);
+            }
+        }
+
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,8 +58,6 @@ namespace Texcel.Interfaces.Jeu
 
         private void frmJeu_Load(object sender, EventArgs e)
         {
-            txtID.Text = "";
-            cmbClassification.SelectedIndex = -1;
             //Emplissage de la list box des Plateforme Globales
             foreach (Plateforme plat in CtrlPlateforme.lstPlateformeJeu())
             {

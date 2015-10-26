@@ -18,7 +18,26 @@ namespace Texcel.Interfaces.Jeu
         public frmPlateforme()
         {
             InitializeComponent();
-
+        }
+        public frmPlateforme(Plateforme plat)
+        {
+            InitializeComponent();
+            txtID.Enabled = false;
+            txtID.Text = plat.idPlateforme.ToString();
+            cmbTypePlateforme.Enabled = false;
+            cmbTypePlateforme.Text = plat.TypePlateforme.nomTypePlateforme;
+            //cmbTypePlateforme.SelectedIndex = cmbTypePlateforme.Items.IndexOf(plat.TypePlateforme.nomTypePlateforme);
+            cmbNom.Enabled = false;
+            cmbNom.Text = plat.nomPlateforme;
+            rtbConfiguration.Text = plat.configPlateforme;
+            rtbCommentaire.Text = plat.commPlateforme;
+            SysExp SE = plat.SysExp.First();
+            cmbNomSE.Text = SE.nomSysExp;
+            EditionSysExp EditionSE = SE.EditionSysExp.First();
+            cmbEditionSE.Text = EditionSE.nomEdition;
+            VersionSysExp VersionSE = EditionSE.VersionSysExp.First();
+            cmbVersionSE.Text = VersionSE.noVersion;
+            btnAjouter.Text = "Modifier";
         }
 
         private void frmPlateforme_Load(object sender, EventArgs e)

@@ -53,7 +53,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.lblNumeroEmp = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnModifierEquipe = new System.Windows.Forms.Button();
             this.lblProjetEquipe = new System.Windows.Forms.Label();
             this.lblChefEquipe = new System.Windows.Forms.Label();
             this.lblNomEquipe = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.lblNomChefEquipe = new System.Windows.Forms.Label();
             this.lblNomEquip = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnModifierJeu = new System.Windows.Forms.Button();
             this.lblClassJeu = new System.Windows.Forms.Label();
             this.lblDevJeu = new System.Windows.Forms.Label();
             this.lblNomJeu = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnModifierPlateforme = new System.Windows.Forms.Button();
             this.lblCommPlate = new System.Windows.Forms.Label();
             this.lblConfPlate = new System.Windows.Forms.Label();
             this.lblNomPlate = new System.Windows.Forms.Label();
@@ -392,7 +392,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnModifierEquipe);
             this.tabPage2.Controls.Add(this.lblProjetEquipe);
             this.tabPage2.Controls.Add(this.lblChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquipe);
@@ -411,14 +411,15 @@
             this.tabPage2.Text = "Équipe";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnModifierEquipe
             // 
-            this.button1.Location = new System.Drawing.Point(427, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 34);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Modifier...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModifierEquipe.Location = new System.Drawing.Point(427, 488);
+            this.btnModifierEquipe.Name = "btnModifierEquipe";
+            this.btnModifierEquipe.Size = new System.Drawing.Size(93, 34);
+            this.btnModifierEquipe.TabIndex = 66;
+            this.btnModifierEquipe.Text = "Modifier...";
+            this.btnModifierEquipe.UseVisualStyleBackColor = true;
+            this.btnModifierEquipe.Click += new System.EventHandler(this.btnModifierEquipe_Click);
             // 
             // lblProjetEquipe
             // 
@@ -520,7 +521,7 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
-            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.btnModifierJeu);
             this.tabPage3.Controls.Add(this.lblClassJeu);
             this.tabPage3.Controls.Add(this.lblDevJeu);
             this.tabPage3.Controls.Add(this.lblNomJeu);
@@ -548,14 +549,15 @@
             this.tabPage3.Text = "Jeu";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnModifierJeu
             // 
-            this.button2.Location = new System.Drawing.Point(405, 799);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 34);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "Modifier...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModifierJeu.Location = new System.Drawing.Point(405, 799);
+            this.btnModifierJeu.Name = "btnModifierJeu";
+            this.btnModifierJeu.Size = new System.Drawing.Size(93, 34);
+            this.btnModifierJeu.TabIndex = 82;
+            this.btnModifierJeu.Text = "Modifier...";
+            this.btnModifierJeu.UseVisualStyleBackColor = true;
+            this.btnModifierJeu.Click += new System.EventHandler(this.btnModifierJeu_Click);
             // 
             // lblClassJeu
             // 
@@ -760,7 +762,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.btnModifierPlateforme);
             this.tabPage4.Controls.Add(this.lblCommPlate);
             this.tabPage4.Controls.Add(this.lblConfPlate);
             this.tabPage4.Controls.Add(this.lblNomPlate);
@@ -780,14 +782,15 @@
             this.tabPage4.Text = "Plateforme";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnModifierPlateforme
             // 
-            this.button3.Location = new System.Drawing.Point(386, 537);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 34);
-            this.button3.TabIndex = 83;
-            this.button3.Text = "Modifier...";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnModifierPlateforme.Location = new System.Drawing.Point(386, 537);
+            this.btnModifierPlateforme.Name = "btnModifierPlateforme";
+            this.btnModifierPlateforme.Size = new System.Drawing.Size(93, 34);
+            this.btnModifierPlateforme.TabIndex = 83;
+            this.btnModifierPlateforme.Text = "Modifier...";
+            this.btnModifierPlateforme.UseVisualStyleBackColor = true;
+            this.btnModifierPlateforme.Click += new System.EventHandler(this.btnModifierPlateforme_Click);
             // 
             // lblCommPlate
             // 
@@ -1247,8 +1250,8 @@
         private System.Windows.Forms.RichTextBox rtbConfiguration;
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnModifierEquipe;
+        private System.Windows.Forms.Button btnModifierJeu;
         private System.Windows.Forms.Label lblClassJeu;
         private System.Windows.Forms.Label lblDevJeu;
         private System.Windows.Forms.Label lblNomJeu;
@@ -1264,7 +1267,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RichTextBox rtxtCommPlate;
         private System.Windows.Forms.RichTextBox rtxtConfigPlate;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnModifierPlateforme;
         private System.Windows.Forms.Label lblCommPlate;
         private System.Windows.Forms.Label lblUtilisateurConn;
     }

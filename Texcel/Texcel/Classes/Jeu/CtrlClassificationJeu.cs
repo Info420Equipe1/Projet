@@ -68,7 +68,7 @@ namespace Texcel.Classes.Jeu
             {
                 if (classificationJeu.nomClassification == _nomClassificationJeu)
                 {
-                    return true; //True lorsque le theme existe deja
+                    return true; //True lorsque la classification existe deja
                 }
             }
             return false; 
