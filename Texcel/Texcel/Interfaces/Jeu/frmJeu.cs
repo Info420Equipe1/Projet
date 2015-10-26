@@ -36,6 +36,15 @@ namespace Texcel.Interfaces.Jeu
             rtbDescription.Focus();
             rtbDescription.SelectAll();
             rtbConfiguration.Text = jeu.configMinimal;
+            try
+            {
+                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
+            }
+            catch (FileNotFoundException)
+            {
+                picJeu.ImageLocation = @"Images\NoImage.png";
+            }
             foreach (VersionJeu version in jeu.VersionJeu)
             {
                 lstBoxVersion.Items.Add(version.nomVersionJeu);

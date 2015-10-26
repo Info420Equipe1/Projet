@@ -101,6 +101,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lblTypePlateforme = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.versionSE = new System.Windows.Forms.Label();
+            this.codeSE = new System.Windows.Forms.Label();
+            this.edSE = new System.Windows.Forms.Label();
+            this.nomSE = new System.Windows.Forms.Label();
+            this.noSE = new System.Windows.Forms.Label();
+            this.lblNoSysExp = new System.Windows.Forms.Label();
             this.btnModifierSysExp = new System.Windows.Forms.Button();
             this.rtbCommSysExp = new System.Windows.Forms.RichTextBox();
             this.lblCodeSysExp = new System.Windows.Forms.Label();
@@ -132,7 +138,6 @@
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
             this.lblUtilisateurConn = new System.Windows.Forms.Label();
-            this.lblNoSysExp = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -911,6 +916,11 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.versionSE);
+            this.tabPage5.Controls.Add(this.codeSE);
+            this.tabPage5.Controls.Add(this.edSE);
+            this.tabPage5.Controls.Add(this.nomSE);
+            this.tabPage5.Controls.Add(this.noSE);
             this.tabPage5.Controls.Add(this.lblNoSysExp);
             this.tabPage5.Controls.Add(this.btnModifierSysExp);
             this.tabPage5.Controls.Add(this.rtbCommSysExp);
@@ -926,6 +936,56 @@
             this.tabPage5.Text = "Système d\'exploitation";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // versionSE
+            // 
+            this.versionSE.AutoSize = true;
+            this.versionSE.Location = new System.Drawing.Point(167, 171);
+            this.versionSE.Name = "versionSE";
+            this.versionSE.Size = new System.Drawing.Size(0, 20);
+            this.versionSE.TabIndex = 70;
+            // 
+            // codeSE
+            // 
+            this.codeSE.AutoSize = true;
+            this.codeSE.Location = new System.Drawing.Point(167, 138);
+            this.codeSE.Name = "codeSE";
+            this.codeSE.Size = new System.Drawing.Size(0, 20);
+            this.codeSE.TabIndex = 69;
+            // 
+            // edSE
+            // 
+            this.edSE.AutoSize = true;
+            this.edSE.Location = new System.Drawing.Point(167, 104);
+            this.edSE.Name = "edSE";
+            this.edSE.Size = new System.Drawing.Size(0, 20);
+            this.edSE.TabIndex = 68;
+            // 
+            // nomSE
+            // 
+            this.nomSE.AutoSize = true;
+            this.nomSE.Location = new System.Drawing.Point(167, 67);
+            this.nomSE.Name = "nomSE";
+            this.nomSE.Size = new System.Drawing.Size(0, 20);
+            this.nomSE.TabIndex = 67;
+            // 
+            // noSE
+            // 
+            this.noSE.AutoSize = true;
+            this.noSE.Location = new System.Drawing.Point(167, 33);
+            this.noSE.Name = "noSE";
+            this.noSE.Size = new System.Drawing.Size(0, 20);
+            this.noSE.TabIndex = 66;
+            // 
+            // lblNoSysExp
+            // 
+            this.lblNoSysExp.AutoSize = true;
+            this.lblNoSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoSysExp.Location = new System.Drawing.Point(47, 33);
+            this.lblNoSysExp.Name = "lblNoSysExp";
+            this.lblNoSysExp.Size = new System.Drawing.Size(73, 20);
+            this.lblNoSysExp.TabIndex = 65;
+            this.lblNoSysExp.Text = "Numéro:";
+            // 
             // btnModifierSysExp
             // 
             this.btnModifierSysExp.Location = new System.Drawing.Point(409, 329);
@@ -934,6 +994,7 @@
             this.btnModifierSysExp.TabIndex = 64;
             this.btnModifierSysExp.Text = "Modifier";
             this.btnModifierSysExp.UseVisualStyleBackColor = true;
+            this.btnModifierSysExp.Click += new System.EventHandler(this.btnModifierSysExp_Click);
             // 
             // rtbCommSysExp
             // 
@@ -1198,6 +1259,7 @@
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResultats.Location = new System.Drawing.Point(15, 107);
             this.dgvResultats.Name = "dgvResultats";
             this.dgvResultats.RowHeadersVisible = false;
@@ -1219,16 +1281,6 @@
             this.lblUtilisateurConn.Size = new System.Drawing.Size(0, 20);
             this.lblUtilisateurConn.TabIndex = 10;
             this.lblUtilisateurConn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblNoSysExp
-            // 
-            this.lblNoSysExp.AutoSize = true;
-            this.lblNoSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoSysExp.Location = new System.Drawing.Point(47, 33);
-            this.lblNoSysExp.Name = "lblNoSysExp";
-            this.lblNoSysExp.Size = new System.Drawing.Size(73, 20);
-            this.lblNoSysExp.TabIndex = 65;
-            this.lblNoSysExp.Text = "Numéro:";
             // 
             // frmAdmin
             // 
@@ -1296,7 +1348,6 @@
         private System.Windows.Forms.ToolStripMenuItem smiJeu;
         private System.Windows.Forms.ToolStripMenuItem smiEmploye;
         private System.Windows.Forms.ToolStripMenuItem smiEquipe;
-        private System.Windows.Forms.DataGridView dgvResultats;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label DateEmbEmp;
@@ -1367,6 +1418,7 @@
         private System.Windows.Forms.Button btnModifierPlateforme;
         private System.Windows.Forms.Label lblCommPlate;
         private System.Windows.Forms.Label lblUtilisateurConn;
+
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button btnModifierSysExp;
         private System.Windows.Forms.RichTextBox rtbCommSysExp;
@@ -1376,5 +1428,13 @@
         private System.Windows.Forms.Label lblNomSysExp;
         private System.Windows.Forms.Label lblEditionSysExp;
         private System.Windows.Forms.Label lblNoSysExp;
+
+        private System.Windows.Forms.DataGridView dgvResultats;
+        private System.Windows.Forms.Label versionSE;
+        private System.Windows.Forms.Label codeSE;
+        private System.Windows.Forms.Label edSE;
+        private System.Windows.Forms.Label nomSE;
+        private System.Windows.Forms.Label noSE;
+
     }
 }

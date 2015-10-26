@@ -90,5 +90,11 @@ namespace Texcel.Classes.Jeu
             return Distinct;
             //Cette classe existe déjà
         }
+
+        public static VersionSysExp GetVersionSysExp(int _idEdition,string _noVersion)
+        {
+            VersionSysExp vSE = context.tblVersionSysExp.Where(x => x.idEdition == _idEdition && x.noVersion == _noVersion).First();
+            return vSE;
+        }
     }
 }

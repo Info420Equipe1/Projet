@@ -403,12 +403,19 @@ namespace Texcel.Interfaces
             }
             else if (cmbFiltre.Text == "Système d'exploitation")
             {
+                string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
                 string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
                 string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
-                //List<SysExp> monSysExp = CtrlSysExp.GetSysExp(editionSysExp,versionSysExp);
-                //lblNomSysExp.Text = sE.nomSysExp;
-                //lblEditionSysExp.Text = sE.EditionSysExp.ToString();
-               
+                SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
+                EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp,sE.idSysExp);
+                VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+
+                noSE.Text = sE.idSysExp.ToString();
+                nomSE.Text = sE.nomSysExp;
+                edSE.Text = editionSysExp;
+                versionSE.Text = versionSysExp;
+                codeSE.Text = sE.codeSysExp;
+                rtbCommSysExp.Text = vSE.commSysExp;
             }
         }
 
@@ -487,7 +494,7 @@ namespace Texcel.Interfaces
                     Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
                     frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                     frmEquipe.ShowDialog();
-                    
+                    CtrlAdmin.refreshEntity();
                     ChoixFiltre("Équipe");
                     dgvResultats.Rows[0].Selected = false;
                     dgvResultats.Rows[selectedRow].Selected = true;
@@ -543,6 +550,33 @@ namespace Texcel.Interfaces
                 messageDroits();
             }
         }
+        private void btnModifierSysExp_Click(object sender, EventArgs e)
+        {
+            if (lstDroits.Contains(10))
+            {
+                if (cmbFiltre.Text == "Système d'exploitation")
+                {
+                    string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                    string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
+                    string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                    SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
+                    EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
+                    VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+                    int selectedRow = dgvResultats.SelectedRows[0].Index;
+                    frmAjouterSysExp frmSysExp = new frmAjouterSysExp(sE,eSE,vSE);
+                    frmSysExp.ShowDialog();
+                    ChoixFiltre("Système d'exploitation");
+                    dgvResultats.Rows[0].Selected = false;
+                    dgvResultats.Rows[selectedRow].Selected = true;
+                    dgvResultats_Click(this, null);
+                }
+            }
+            else
+            {
+                messageDroits();
+            }
+        }
+        
         private void clearTableControl(string NomFiltre)
         {
             switch (NomFiltre)
@@ -619,28 +653,7 @@ namespace Texcel.Interfaces
             rtxtCommPlate.Text = "";
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-    
-
-        
+       
 
     }
 }

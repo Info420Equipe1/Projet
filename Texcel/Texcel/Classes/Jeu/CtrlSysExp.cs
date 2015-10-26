@@ -27,6 +27,12 @@ namespace Texcel.Classes.Jeu
             return lstSysExp;         
         }   
 
+        public static SysExp GetSysExp(string _nomSysExp)
+        {
+           SysExp monSe = context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).First();
+
+           return monSe;
+        }
         // On ajoute un nouveau système d'exploitation dans la table tblSysExp
         public static bool Ajouter(string _nomSysExp, string _codeSysExp, string _commSysExp)
         {
@@ -81,23 +87,24 @@ namespace Texcel.Classes.Jeu
             }
             
         }
-        public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
-        {          
-                return (
-                    from a in context.tblSysExp
-                    from b in a.EditionSysExp
-                    from c in b.VersionSysExp
-                    where b.nomEdition == _editionSysExp
-                    where c.noVersion == _versionSysExp
-                    select new SysExp()
-                    {
-                        idSysExp = a.idSysExp,
-                        nomSysExp = a.nomSysExp,
-                        codeSysExp = a.codeSysExp,
-                        EditionSysExp = a.EditionSysExp,
-                        Plateforme = a.Plateforme
-                    }).ToList();
+        // requete qui marche pas mais pourquoi?
+        //public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
+        //{          
+        //        return (
+        //            from a in context.tblSysExp
+        //            from b in a.EditionSysExp
+        //            from c in b.VersionSysExp
+        //            where b.nomEdition == _editionSysExp
+        //            where c.noVersion == _versionSysExp
+        //            select new SysExp()
+        //            {
+        //                idSysExp = a.idSysExp,
+        //                nomSysExp = a.nomSysExp,
+        //                codeSysExp = a.codeSysExp,
+        //                EditionSysExp = a.EditionSysExp,
+        //                Plateforme = a.Plateforme
+        //            }).ToList();
           
-        }
+        //}
     }
 }

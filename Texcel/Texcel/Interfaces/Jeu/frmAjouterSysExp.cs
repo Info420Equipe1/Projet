@@ -17,6 +17,24 @@ namespace Texcel.Interfaces.Jeu
         {
             InitializeComponent();
         }
+        public frmAjouterSysExp(SysExp _sE, EditionSysExp _eSE, VersionSysExp _vSE)
+        {
+            InitializeComponent();
+           
+            txtID.Text = _sE.idSysExp.ToString();          
+            cmbNom.Text = _sE.nomSysExp;
+            cmbEdition.Text = _eSE.nomEdition;
+            txtCode.Text = _sE.codeSysExp;
+            cmbVersion.Text = _vSE.noVersion;
+            rtbCommentaire.Text = _vSE.commSysExp;
+            btnEnregistrer.Text = "Modifier";
+
+            txtID.Enabled = false;
+            cmbNom.Enabled = false;
+            cmbEdition.Enabled = false;
+            txtCode.Enabled = false;
+            cmbVersion.Enabled = false;           
+        }
 
         private void frmSysExp_Load(object sender, EventArgs e)
         {
