@@ -48,6 +48,7 @@
         <AssociationConnector Association="dbProjetE1Model.tblGroupeUtilisateur" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblEmployeTypeTest" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblEquipeCasTest" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbProjetE1Model.AllTesteurs" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

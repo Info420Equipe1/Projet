@@ -131,17 +131,26 @@ namespace Texcel.Interfaces
                     break;
 
                 case "Équipe":
-                    dgvResultats.Columns.Add("0", "Équipe");
-                    dgvResultats.Columns.Add("1", "Chef d'équipe");
+                    dgvResultats.Columns.Add("0", "ID");
+                    dgvResultats.Columns.Add("1", "Équipe");
+                    dgvResultats.Columns.Add("2", "Chef d'équipe");
                     tabControl1.SelectedIndex = 1;
                     foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                     {
                         if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
+<<<<<<< HEAD
                             dgvResultats.Rows[n].Cells[0].Tag = equipe.idEquipe;
                             dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
                             dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
+=======
+                            dgvResultats.Rows[n].Cells[0].Tag = id;
+                            dgvResultats.Rows[n].Cells[0].Value = equipe.idEquipe;
+                            dgvResultats.Rows[n].Cells[1].Value = equipe.nomEquipe;
+                            dgvResultats.Rows[n].Cells[2].Value = equipe.ChefEquipe;
+                            id++;
+>>>>>>> origin/sprint2
                             n++;
                         }
                     }
