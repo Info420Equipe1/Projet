@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Texcel.Classes.Jeu;
 
 namespace Texcel.Classes.Jeu
 {
-    class CtrlAjouterSysExp : CtrlController
+    class CtrlSysExp : CtrlController
     {
         private static SysExp sysExp;
         
@@ -79,6 +80,24 @@ namespace Texcel.Classes.Jeu
                 return false;
             }
             
+        }
+        public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
+        {          
+                return (
+                    from a in context.tblSysExp
+                    from b in a.EditionSysExp
+                    from c in b.VersionSysExp
+                    where b.nomEdition == _editionSysExp
+                    where c.noVersion == _versionSysExp
+                    select new SysExp()
+                    {
+                        idSysExp = a.idSysExp,
+                        nomSysExp = a.nomSysExp,
+                        codeSysExp = a.codeSysExp,
+                        EditionSysExp = a.EditionSysExp,
+                        Plateforme = a.Plateforme
+                    }).ToList();
+          
         }
     }
 }

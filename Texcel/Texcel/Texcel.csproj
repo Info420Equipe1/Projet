@@ -96,7 +96,7 @@
     <Compile Include="Classes\Jeu\CtrlJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlListeSysExp.cs" />
     <Compile Include="Classes\Jeu\CtrlPlateforme.cs" />
-    <Compile Include="Classes\Jeu\CtrlAjouterSysExp.cs" />
+    <Compile Include="Classes\Jeu\CtrlSysExp.cs" />
     <Compile Include="Classes\Jeu\CtrlThemeJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlTypePlateforme.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />

@@ -101,6 +101,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lblTypePlateforme = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnModifierSysExp = new System.Windows.Forms.Button();
+            this.rtbCommSysExp = new System.Windows.Forms.RichTextBox();
+            this.lblCodeSysExp = new System.Windows.Forms.Label();
+            this.lblVersionSysExp = new System.Windows.Forms.Label();
+            this.lblCommSysExp = new System.Windows.Forms.Label();
+            this.lblNomSysExp = new System.Windows.Forms.Label();
+            this.lblEditionSysExp = new System.Windows.Forms.Label();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
@@ -125,11 +132,13 @@
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
             this.lblUtilisateurConn = new System.Windows.Forms.Label();
+            this.lblNoSysExp = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.mnsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.SuspendLayout();
@@ -902,12 +911,89 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.lblNoSysExp);
+            this.tabPage5.Controls.Add(this.btnModifierSysExp);
+            this.tabPage5.Controls.Add(this.rtbCommSysExp);
+            this.tabPage5.Controls.Add(this.lblCodeSysExp);
+            this.tabPage5.Controls.Add(this.lblVersionSysExp);
+            this.tabPage5.Controls.Add(this.lblCommSysExp);
+            this.tabPage5.Controls.Add(this.lblNomSysExp);
+            this.tabPage5.Controls.Add(this.lblEditionSysExp);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(675, 574);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Système d\'exploitation";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnModifierSysExp
+            // 
+            this.btnModifierSysExp.Location = new System.Drawing.Point(409, 329);
+            this.btnModifierSysExp.Name = "btnModifierSysExp";
+            this.btnModifierSysExp.Size = new System.Drawing.Size(133, 40);
+            this.btnModifierSysExp.TabIndex = 64;
+            this.btnModifierSysExp.Text = "Modifier";
+            this.btnModifierSysExp.UseVisualStyleBackColor = true;
+            // 
+            // rtbCommSysExp
+            // 
+            this.rtbCommSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCommSysExp.Location = new System.Drawing.Point(167, 205);
+            this.rtbCommSysExp.Name = "rtbCommSysExp";
+            this.rtbCommSysExp.Size = new System.Drawing.Size(375, 105);
+            this.rtbCommSysExp.TabIndex = 63;
+            this.rtbCommSysExp.Text = "";
+            // 
+            // lblCodeSysExp
+            // 
+            this.lblCodeSysExp.AutoSize = true;
+            this.lblCodeSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodeSysExp.Location = new System.Drawing.Point(47, 138);
+            this.lblCodeSysExp.Name = "lblCodeSysExp";
+            this.lblCodeSysExp.Size = new System.Drawing.Size(53, 20);
+            this.lblCodeSysExp.TabIndex = 34;
+            this.lblCodeSysExp.Text = "Code:";
+            // 
+            // lblVersionSysExp
+            // 
+            this.lblVersionSysExp.AutoSize = true;
+            this.lblVersionSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersionSysExp.Location = new System.Drawing.Point(47, 171);
+            this.lblVersionSysExp.Name = "lblVersionSysExp";
+            this.lblVersionSysExp.Size = new System.Drawing.Size(71, 20);
+            this.lblVersionSysExp.TabIndex = 33;
+            this.lblVersionSysExp.Text = "Version:";
+            // 
+            // lblCommSysExp
+            // 
+            this.lblCommSysExp.AutoSize = true;
+            this.lblCommSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommSysExp.Location = new System.Drawing.Point(47, 205);
+            this.lblCommSysExp.Name = "lblCommSysExp";
+            this.lblCommSysExp.Size = new System.Drawing.Size(114, 20);
+            this.lblCommSysExp.TabIndex = 32;
+            this.lblCommSysExp.Text = "Commentaire:";
+            // 
+            // lblNomSysExp
+            // 
+            this.lblNomSysExp.AccessibleDescription = "";
+            this.lblNomSysExp.AutoSize = true;
+            this.lblNomSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomSysExp.Location = new System.Drawing.Point(47, 67);
+            this.lblNomSysExp.Name = "lblNomSysExp";
+            this.lblNomSysExp.Size = new System.Drawing.Size(49, 20);
+            this.lblNomSysExp.TabIndex = 31;
+            this.lblNomSysExp.Text = "Nom:";
+            // 
+            // lblEditionSysExp
+            // 
+            this.lblEditionSysExp.AutoSize = true;
+            this.lblEditionSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditionSysExp.Location = new System.Drawing.Point(47, 104);
+            this.lblEditionSysExp.Name = "lblEditionSysExp";
+            this.lblEditionSysExp.Size = new System.Drawing.Size(65, 20);
+            this.lblEditionSysExp.TabIndex = 30;
+            this.lblEditionSysExp.Text = "Edition:";
             // 
             // btnRechercher
             // 
@@ -1134,6 +1220,16 @@
             this.lblUtilisateurConn.TabIndex = 10;
             this.lblUtilisateurConn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblNoSysExp
+            // 
+            this.lblNoSysExp.AutoSize = true;
+            this.lblNoSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoSysExp.Location = new System.Drawing.Point(47, 33);
+            this.lblNoSysExp.Name = "lblNoSysExp";
+            this.lblNoSysExp.Size = new System.Drawing.Size(73, 20);
+            this.lblNoSysExp.TabIndex = 65;
+            this.lblNoSysExp.Text = "Numéro:";
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1163,6 +1259,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
@@ -1201,7 +1299,6 @@
         private System.Windows.Forms.DataGridView dgvResultats;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label DateEmbEmp;
         private System.Windows.Forms.Label lblTelSecEmp;
         private System.Windows.Forms.Label lblTelPrimEmp;
@@ -1270,5 +1367,14 @@
         private System.Windows.Forms.Button btnModifierPlateforme;
         private System.Windows.Forms.Label lblCommPlate;
         private System.Windows.Forms.Label lblUtilisateurConn;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button btnModifierSysExp;
+        private System.Windows.Forms.RichTextBox rtbCommSysExp;
+        private System.Windows.Forms.Label lblCodeSysExp;
+        private System.Windows.Forms.Label lblVersionSysExp;
+        private System.Windows.Forms.Label lblCommSysExp;
+        private System.Windows.Forms.Label lblNomSysExp;
+        private System.Windows.Forms.Label lblEditionSysExp;
+        private System.Windows.Forms.Label lblNoSysExp;
     }
 }

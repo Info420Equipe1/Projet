@@ -122,7 +122,7 @@ namespace Texcel.Interfaces.Jeu
             cmbNomSE.Items.Clear();
 
 
-            foreach (SysExp sysExp in CtrlAjouterSysExp.Rechercher())
+            foreach (SysExp sysExp in CtrlSysExp.Rechercher())
             {
                 cmbNomSE.Items.Add(sysExp.nomSysExp);
 

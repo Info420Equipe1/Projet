@@ -99,7 +99,6 @@ namespace Texcel.Interfaces
                     dgvResultats.Columns.Add("2", "Edition");
                     dgvResultats.Columns.Add("3", "Version");
                     tabControl1.SelectedIndex = 4;
-                    //bug ici
                     foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                     {
                         if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
@@ -317,6 +316,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        //Afficher les tab ainsi que l'information de l'élément sélectionné
         private void dgvResultats_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Employé")
@@ -400,6 +400,15 @@ namespace Texcel.Interfaces
                 lblNomPlate.Text = plat.nomPlateforme;
                 rtxtConfigPlate.Text = plat.configPlateforme;
                 rtxtCommPlate.Text = plat.commPlateforme;
+            }
+            else if (cmbFiltre.Text == "Système d'exploitation")
+            {
+                string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
+                string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                //List<SysExp> monSysExp = CtrlSysExp.GetSysExp(editionSysExp,versionSysExp);
+                //lblNomSysExp.Text = sE.nomSysExp;
+                //lblEditionSysExp.Text = sE.EditionSysExp.ToString();
+               
             }
         }
 
@@ -608,6 +617,26 @@ namespace Texcel.Interfaces
             lblNomPlate.Text = "";
             rtxtConfigPlate.Text = "";
             rtxtCommPlate.Text = "";
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     
 
