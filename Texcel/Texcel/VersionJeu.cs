@@ -17,7 +17,7 @@ namespace Texcel
         public short idVersionJeu { get; set; }
         public string nomVersionJeu { get; set; }
         public string commVersionJeu { get; set; }
-        public short idJeu { get; set; }
+        public Nullable<short> idJeu { get; set; }
     
         public virtual cJeu cJeu { get; set; }
     }

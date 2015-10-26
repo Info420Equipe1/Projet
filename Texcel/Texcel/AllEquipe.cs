@@ -16,5 +16,6 @@ namespace Texcel
     {
         public string nomEquipe { get; set; }
         public string ChefEquipe { get; set; }
+        public short idEquipe { get; set; }
     }
 }

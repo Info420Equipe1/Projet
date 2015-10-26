@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssociationJeu">
           <Key>
             <PropertyRef Name="idJeu" />
@@ -121,7 +121,7 @@
           <Property Name="idVersionJeu" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomVersionJeu" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="commVersionJeu" Type="text" />
-          <Property Name="idJeu" Type="smallint" Nullable="false" />
+          <Property Name="idJeu" Type="smallint" />
         </EntityType>
         <EntityType Name="tblVersionSysExp">
           <Key>
@@ -262,6 +262,7 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
+            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
@@ -272,8 +273,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="noVersion" />
             <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
+            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -285,8 +287,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
 avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEquipe">
           <Key>
-            <PropertyRef Name="nomEquipe" />
+            <PropertyRef Name="idEquipe" />
+            
           </Key>
+          <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ChefEquipe" Type="varchar" MaxLength="41" Nullable="false" />
         </EntityType>
@@ -639,7 +643,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           </ReferentialConstraint>
         </Association>
         <Association Name="VJ_FK_idJeu">
-          <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="1" />
+          <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="0..1" />
           <End Role="tblVersionJeu" Type="Self.tblVersionJeu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblJeu">
@@ -709,6 +713,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           </EntitySet>
           <EntitySet Name="AllEquipe" EntityType="Self.AllEquipe" store:Type="Views" store:Schema="Personnel">
             <DefiningQuery>SELECT 
+    [AllEquipe].[idEquipe] AS [idEquipe], 
     [AllEquipe].[nomEquipe] AS [nomEquipe], 
     [AllEquipe].[ChefEquipe] AS [ChefEquipe]
     FROM [Personnel].[AllEquipe] AS [AllEquipe]</DefiningQuery>
@@ -838,8 +843,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -938,7 +942,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <Property Name="idVersionJeu" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomVersionJeu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commVersionJeu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="idJeu" Type="Int16" Nullable="false" />
+          <Property Name="idJeu" Type="Int16" />
           <NavigationProperty Name="cJeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblVersionJeu" ToRole="tblJeu" />
         </EntityType>
         <EntityType Name="VersionSysExp">
@@ -1079,10 +1083,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         </EntityType>
         <EntityType Name="AllEquipe">
           <Key>
-            <PropertyRef Name="nomEquipe" />
+            <PropertyRef Name="idEquipe" />
           </Key>
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChefEquipe" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEquipe" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="tblClassificationJeu" Type="dbProjetE1Model.ClassificationJeu" Multiplicity="1" />
@@ -1133,7 +1138,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           </ReferentialConstraint>
         </Association>
         <Association Name="VJ_FK_idJeu">
-          <End Role="tblJeu" Type="dbProjetE1Model.cJeu" Multiplicity="1" />
+          <End Role="tblJeu" Type="dbProjetE1Model.cJeu" Multiplicity="0..1" />
           <End Role="tblVersionJeu" Type="dbProjetE1Model.VersionJeu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblJeu">
@@ -1584,6 +1589,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <EntitySetMapping Name="AllEquipe">
             <EntityTypeMapping TypeName="dbProjetE1Model.AllEquipe">
               <MappingFragment StoreEntitySet="AllEquipe">
+                <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
                 <ScalarProperty Name="nomEquipe" ColumnName="nomEquipe" />
                 <ScalarProperty Name="ChefEquipe" ColumnName="ChefEquipe" />
               </MappingFragment>
