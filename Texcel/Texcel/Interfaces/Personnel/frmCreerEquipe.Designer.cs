@@ -34,8 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblCommentaire = new System.Windows.Forms.Label();
             this.rtbCommentaire = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstTesteurGlobal = new System.Windows.Forms.ListBox();
+            this.lstTesteurEquipe = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbProjet = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -108,27 +108,27 @@
             this.rtbCommentaire.TabIndex = 3;
             this.rtbCommentaire.Text = "";
             // 
-            // listBox1
+            // lstTesteurGlobal
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(134, 229);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(314, 264);
-            this.listBox1.TabIndex = 4;
+            this.lstTesteurGlobal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstTesteurGlobal.FormattingEnabled = true;
+            this.lstTesteurGlobal.ItemHeight = 20;
+            this.lstTesteurGlobal.Location = new System.Drawing.Point(134, 229);
+            this.lstTesteurGlobal.Name = "lstTesteurGlobal";
+            this.lstTesteurGlobal.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstTesteurGlobal.Size = new System.Drawing.Size(314, 264);
+            this.lstTesteurGlobal.TabIndex = 4;
             // 
-            // listBox2
+            // lstTesteurEquipe
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(497, 229);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox2.Size = new System.Drawing.Size(314, 264);
-            this.listBox2.TabIndex = 5;
+            this.lstTesteurEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstTesteurEquipe.FormattingEnabled = true;
+            this.lstTesteurEquipe.ItemHeight = 20;
+            this.lstTesteurEquipe.Location = new System.Drawing.Point(497, 229);
+            this.lstTesteurEquipe.Name = "lstTesteurEquipe";
+            this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstTesteurEquipe.Size = new System.Drawing.Size(314, 264);
+            this.lstTesteurEquipe.TabIndex = 5;
             // 
             // label2
             // 
@@ -229,16 +229,16 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // comboBox1
+            // cmbProjet
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 93);
-            this.comboBox1.MaxLength = 42;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(677, 28);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 2;
+            this.cmbProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProjet.FormattingEnabled = true;
+            this.cmbProjet.Location = new System.Drawing.Point(134, 93);
+            this.cmbProjet.MaxLength = 42;
+            this.cmbProjet.Name = "cmbProjet";
+            this.cmbProjet.Size = new System.Drawing.Size(677, 28);
+            this.cmbProjet.Sorted = true;
+            this.cmbProjet.TabIndex = 2;
             // 
             // label3
             // 
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 560);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbProjet);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -265,8 +265,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstTesteurEquipe);
+            this.Controls.Add(this.lstTesteurGlobal);
             this.Controls.Add(this.lblCommentaire);
             this.Controls.Add(this.rtbCommentaire);
             this.Controls.Add(this.cmbNom);
@@ -289,8 +289,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCommentaire;
         private System.Windows.Forms.RichTextBox rtbCommentaire;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstTesteurGlobal;
+        private System.Windows.Forms.ListBox lstTesteurEquipe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnCancel;
@@ -299,7 +299,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbProjet;
         private System.Windows.Forms.Label label3;
     }
 }

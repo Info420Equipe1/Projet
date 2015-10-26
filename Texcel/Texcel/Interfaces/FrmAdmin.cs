@@ -61,6 +61,7 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            clearTableControl(cmbFiltre.Text);
             ChoixFiltre(cmbFiltre.Text);
             dgvResultats_Click(this, null);
         }
@@ -133,16 +134,14 @@ namespace Texcel.Interfaces
                     dgvResultats.Columns.Add("0", "Équipe");
                     dgvResultats.Columns.Add("1", "Chef d'équipe");
                     tabControl1.SelectedIndex = 1;
-                    int id = 1;
                     foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                     {
                         if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
-                            dgvResultats.Rows[n].Cells[0].Tag = id;
+                            dgvResultats.Rows[n].Cells[0].Tag = equipe.idEquipe;
                             dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
                             dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
-                            id++;
                             n++;
                         }
                     }
@@ -455,7 +454,9 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Équipe")
                 {
-                    //Equipe equipe = CtrlEquipe.getSelectedEquipe() Probleme ID si en ordre croissant
+                    Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
+                    frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
+                    frmEquipe.ShowDialog();
                 }
             }
             else
@@ -499,7 +500,81 @@ namespace Texcel.Interfaces
                 messageDroits();
             }
         }
+        private void clearTableControl(string NomFiltre)
+        {
+            switch (NomFiltre)
+            {
+                case "Employé":
+                    clearTabControlEquipe();
+                    clearTabControlJeu();
+                    clearTabControlPlateforme();
+                    break;
+                case "Équipe":
+                    clearTabControlEmploye();
+                    clearTabControlJeu();
+                    clearTabControlPlateforme();
+                    break;
+                case "Jeu":
+                    clearTabControlEmploye();
+                    clearTabControlEquipe();
+                    clearTabControlPlateforme();
+                    break;
+                case "Plateforme":
+                    clearTabControlEmploye();
+                    clearTabControlEquipe();
+                    clearTabControlJeu();
+                    break;
 
+                default: 
+                    clearTabControlEmploye();
+                    clearTabControlEquipe();
+                    clearTabControlJeu();
+                    clearTabControlPlateforme();
+                    break;
+            }
+        }
+        private void clearTabControlEmploye()
+        {
+            lblNoEmp.Text = "";
+            lblNomEmp.Text = "";
+            lblPrenEmp.Text = "";
+            lblAdresseEmp.Text = "";
+            lblTelPrimEmp.Text = "";
+            lblTelSecEmp.Text = "";
+            dateTimePicker1.Value = DateTime.Today.AddYears(-100);
+            listBox1.Items.Clear();
+            lstBoxTypeTest.Items.Clear();
+            richTextBox1.Text = "";
+        }
+        private void clearTabControlEquipe()
+        {
+            lblNomEquipe.Text = "";
+            lblChefEquipe.Text = "";
+            lblProjetEquipe.Text = "";
+            rtbCommentaire.Text = "";
+            lstTesteurEquipe.Items.Clear();
+        }
+        private void clearTabControlJeu()
+        {
+            lblNoJeu.Text = "";
+            lblNomJeu.Text = "";
+            lblDevJeu.Text = "";
+            lblClassJeu.Text = "";
+            rtbDescription.Text = "";
+            rtbConfiguration.Text = "";
+            lstBoxVersion.Items.Clear();
+            lstBoxPlat1.Items.Clear();
+            lstBoxTheme1.Items.Clear();
+            lstBoxGenre1.Items.Clear();
+        }
+        private void clearTabControlPlateforme()
+        {
+            lblNoPlate.Text = "";
+            lblTypePlate.Text = "";
+            lblNomPlate.Text = "";
+            rtxtConfigPlate.Text = "";
+            rtxtCommPlate.Text = "";
+        }
     
 
         

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Personnel;
+using Texcel.Classes.Test;
 
 namespace Texcel.Interfaces.Personnel
 {
@@ -22,9 +23,19 @@ namespace Texcel.Interfaces.Personnel
         //Lorsque la fenetre est ouverte via recherche d'une équipe
         public frmCreerEquipe(Equipe _equ)
         {
+            txtNom.Enabled = false;
             txtNom.Text = _equ.nomEquipe;
-            //cmbNom.Text = chef dequipe
-            //rtbCommentaire.Text = commentaire
+            cmbNom.Text = _equ.Employe.nomEmploye;
+            cmbProjet.Text = _equ.CasTest.First().Projet.nomProjet;
+            rtbCommentaire.Text = _equ.descEquipe;
+            foreach (Employe employe in _equ.Employe1)
+            {
+                lstTesteurEquipe.Items.Add(employe.prenomEmploye + " " + employe.nomEmploye);
+            }
+            //foreach (Employe employe in )
+            //{
+                
+            //}
             Modification = true;
         }
 
@@ -35,12 +46,12 @@ namespace Texcel.Interfaces.Personnel
 
         public void ChargerPage()
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+            lstTesteurGlobal.Items.Clear();
+            lstTesteurEquipe.Items.Clear();
             //Load list box 1
             foreach (Employe emp in CtrlEmploye.listEmploye())
             {
-                listBox1.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
+                lstTesteurGlobal.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
             }
             txtNom.Text = "";
             rtbCommentaire.Text = "";
@@ -50,15 +61,15 @@ namespace Texcel.Interfaces.Personnel
         //Ajouter un employé dans list box 2
         private void button3_Click(object sender, EventArgs e)
         {
-            if ((listBox1.Items.Count == 0) || (listBox1.SelectedIndex == -1) || (listBox1.SelectedItems.Count > 1))
+            if ((lstTesteurGlobal.Items.Count == 0) || (lstTesteurGlobal.SelectedIndex == -1) || (lstTesteurGlobal.SelectedItems.Count > 1))
             {
                 MessageBox.Show("Veuillez selectionner un employé à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string nomEmploye = (string)listBox1.SelectedItem;
-            listBox2.Items.Add(nomEmploye);
-            listBox1.Items.Remove(nomEmploye);
+            string nomEmploye = (string)lstTesteurGlobal.SelectedItem;
+            lstTesteurEquipe.Items.Add(nomEmploye);
+            lstTesteurGlobal.Items.Remove(nomEmploye);
         }
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
@@ -77,13 +88,13 @@ namespace Texcel.Interfaces.Personnel
                 return;
             }
 
-            foreach (string nom in listBox2.Items)
+            foreach (string nom in lstTesteurEquipe.Items)
             {
                 listEmp.Add(CtrlEmploye.emp(nom));
             }
             if (Modification == false)
             {
-                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(listBox2.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -112,55 +123,55 @@ namespace Texcel.Interfaces.Personnel
         //Ajoutes des employés dans list box 2
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((listBox1.Items.Count == 0) || (listBox1.SelectedIndex == -1) || (listBox1.SelectedItems.Count < 2))
+            if ((lstTesteurGlobal.Items.Count == 0) || (lstTesteurGlobal.SelectedIndex == -1) || (lstTesteurGlobal.SelectedItems.Count < 2))
             {
                 MessageBox.Show("Veuillez selectionner plusieurs employées à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            ListBox.SelectedObjectCollection lstBox= listBox1.SelectedItems;
+            ListBox.SelectedObjectCollection lstBox= lstTesteurGlobal.SelectedItems;
             string emp;
             int num = lstBox.Count;
             for (int i = 0; i < num; i++)
             {
                 emp = lstBox[0].ToString();
-                listBox1.Items.Remove(emp);
-                listBox2.Items.Add(emp);
+                lstTesteurGlobal.Items.Remove(emp);
+                lstTesteurEquipe.Items.Add(emp);
             }
         }
 
         //Enleve des employés dans list box 2
         private void button2_Click(object sender, EventArgs e)
         {
-            if ((listBox2.Items.Count == 0) || (listBox2.SelectedIndex == -1) || (listBox2.SelectedItems.Count < 2))
+            if ((lstTesteurEquipe.Items.Count == 0) || (lstTesteurEquipe.SelectedIndex == -1) || (lstTesteurEquipe.SelectedItems.Count < 2))
             {
                 MessageBox.Show("Veuillez selectionner plusieurs employées à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            ListBox.SelectedObjectCollection lstBox = listBox2.SelectedItems;
+            ListBox.SelectedObjectCollection lstBox = lstTesteurEquipe.SelectedItems;
             string emp;
             int num = lstBox.Count;
             for (int i = 0; i < num; i++)
             {
                 emp = lstBox[0].ToString();
-                listBox2.Items.Remove(emp);
-                listBox1.Items.Add(emp);
+                lstTesteurEquipe.Items.Remove(emp);
+                lstTesteurGlobal.Items.Add(emp);
             }
         }
 
         //Enleve un employé de la list box 2
         private void button4_Click(object sender, EventArgs e)
         {
-            if ((listBox2.Items.Count == 0) || (listBox2.SelectedIndex == -1) || (listBox2.SelectedItems.Count > 1))
+            if ((lstTesteurEquipe.Items.Count == 0) || (lstTesteurEquipe.SelectedIndex == -1) || (lstTesteurEquipe.SelectedItems.Count > 1))
             {
                 MessageBox.Show("Veuillez selectionner un employé à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string nomEmploye = (string)listBox2.SelectedItem;
-            listBox1.Items.Add(nomEmploye);
-            listBox2.Items.Remove(nomEmploye);
+            string nomEmploye = (string)lstTesteurEquipe.SelectedItem;
+            lstTesteurGlobal.Items.Add(nomEmploye);
+            lstTesteurEquipe.Items.Remove(nomEmploye);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
