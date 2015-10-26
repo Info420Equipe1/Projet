@@ -140,17 +140,10 @@ namespace Texcel.Interfaces
                         if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
-<<<<<<< HEAD
                             dgvResultats.Rows[n].Cells[0].Tag = equipe.idEquipe;
-                            dgvResultats.Rows[n].Cells[0].Value = equipe.nomEquipe;
-                            dgvResultats.Rows[n].Cells[1].Value = equipe.ChefEquipe;
-=======
-                            dgvResultats.Rows[n].Cells[0].Tag = id;
                             dgvResultats.Rows[n].Cells[0].Value = equipe.idEquipe;
                             dgvResultats.Rows[n].Cells[1].Value = equipe.nomEquipe;
                             dgvResultats.Rows[n].Cells[2].Value = equipe.ChefEquipe;
-                            id++;
->>>>>>> origin/sprint2
                             n++;
                         }
                     }
