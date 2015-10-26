@@ -1112,6 +1112,7 @@
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResultats.Location = new System.Drawing.Point(15, 107);
             this.dgvResultats.Name = "dgvResultats";
             this.dgvResultats.RowHeadersVisible = false;
@@ -1198,7 +1199,6 @@
         private System.Windows.Forms.ToolStripMenuItem smiJeu;
         private System.Windows.Forms.ToolStripMenuItem smiEmploye;
         private System.Windows.Forms.ToolStripMenuItem smiEquipe;
-        private System.Windows.Forms.DataGridView dgvResultats;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
@@ -1270,5 +1270,6 @@
         private System.Windows.Forms.Button btnModifierPlateforme;
         private System.Windows.Forms.Label lblCommPlate;
         private System.Windows.Forms.Label lblUtilisateurConn;
+        private System.Windows.Forms.DataGridView dgvResultats;
     }
 }

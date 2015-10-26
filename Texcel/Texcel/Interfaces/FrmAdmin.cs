@@ -478,7 +478,7 @@ namespace Texcel.Interfaces
                     Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
                     frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                     frmEquipe.ShowDialog();
-                    
+                    CtrlAdmin.refreshEntity();
                     ChoixFiltre("Équipe");
                     dgvResultats.Rows[0].Selected = false;
                     dgvResultats.Rows[selectedRow].Selected = true;

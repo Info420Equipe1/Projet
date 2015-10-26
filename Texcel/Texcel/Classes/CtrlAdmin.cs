@@ -30,5 +30,12 @@ namespace Texcel.Classes
         {
             return context.tblEmploye;
         }
+        public static void refreshEntity()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
     }
 }
