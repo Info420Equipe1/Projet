@@ -30,7 +30,7 @@ namespace Texcel
         public Nullable<short> idJeu { get; set; }
     
         public virtual cJeu cJeu { get; set; }
-        public virtual cProjet Projet { get; set; }
+        public virtual cProjet cProjet { get; set; }
         public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<FicheResultat> FicheResultat { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
