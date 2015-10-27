@@ -107,10 +107,14 @@ namespace Texcel.Classes.Jeu
         }
 
         // SysExp et Plateforme existent, on veut seulement les associer
-        public static string LierPlateformeSysExp(Plateforme _Plateforme, String _sysExp)
+        public static string LierPlateformeSysExp(Plateforme _Plateforme, String _sysExp, string _nomPlateforme, string _configuration, string _comm)
         {
+            Plateforme plat = _Plateforme;
             SysExp sysExp = context.tblSysExp.Where(x => x.nomSysExp == _sysExp).First();
-            _Plateforme.SysExp.Add(sysExp);
+            plat.SysExp.Add(sysExp);
+            plat.nomPlateforme = _nomPlateforme;
+            plat.commPlateforme = _comm;
+            plat.configPlateforme = _configuration;
             try
             {
                 context.SaveChanges();
@@ -169,9 +173,10 @@ namespace Texcel.Classes.Jeu
 
 
 
-        public static string Modifier(string _nomPlateforme, string _configuration, string _comm)
+        public static string Modifier(string _nomPlateforme, string _configuration, string _comm, Plateforme _plat)
         {
-            Plateforme plateforme = GetPlateforme(_nomPlateforme);
+            Plateforme plateforme = _plat;
+            plateforme.nomPlateforme = _nomPlateforme;
             plateforme.configPlateforme = _configuration;
             plateforme.commPlateforme = _comm;
             try

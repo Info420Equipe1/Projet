@@ -78,7 +78,6 @@
             this.grbSE.Controls.Add(this.lblNomSE);
             this.grbSE.Controls.Add(this.cmbNomSE);
             this.grbSE.Controls.Add(this.cmbEditionSE);
-            this.grbSE.Enabled = false;
             this.grbSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbSE.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grbSE.Location = new System.Drawing.Point(16, 414);
@@ -171,6 +170,7 @@
             // 
             // cmbNom
             // 
+            this.cmbNom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cmbNom.Enabled = false;
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
@@ -329,7 +329,6 @@
             this.Name = "frmPlateforme";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Gestion des plateformes";
-            this.Load += new System.EventHandler(this.frmPlateforme_Load);
             this.grbSE.ResumeLayout(false);
             this.grbSE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterSE)).EndInit();
