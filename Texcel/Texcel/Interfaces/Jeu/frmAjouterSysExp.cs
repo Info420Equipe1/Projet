@@ -100,6 +100,8 @@ namespace Texcel.Interfaces.Jeu
             bool boolS, boolE, boolV;
             boolV = false;
 
+
+
             if(cmbNom.Text == "")
             {
                 MessageBox.Show("Veuillez entrer un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
