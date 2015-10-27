@@ -87,6 +87,20 @@ namespace Texcel.Classes.Jeu
             }
             
         }
+
+        public static void modif(string _nom, string _code, string _comm, SysExp _sysExp, string _nomEd, EditionSysExp _ed, string _nomVersion, VersionSysExp _ver)
+        {
+            SysExp sysExp = _sysExp;
+            sysExp.codeSysExp = _code;
+            sysExp.nomSysExp = _nom;
+            VersionSysExp ver = _ver;
+            ver.noVersion = _nomVersion;
+            ver.commSysExp = _comm;
+            EditionSysExp ed = _ed;
+            ed.nomEdition = _nomEd;
+            context.SaveChanges();
+
+        }
         // requete qui marche pas mais pourquoi?
         //public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
         //{          

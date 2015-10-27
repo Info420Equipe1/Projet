@@ -13,9 +13,14 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmAjouterSysExp : frmForm
     {
+        bool modif;
+        SysExp modifSysExp;
+        EditionSysExp modifEd;
+        VersionSysExp modifVersion;
         public frmAjouterSysExp()
         {
             InitializeComponent();
+            modif = false;
         }
         public frmAjouterSysExp(SysExp _sE, EditionSysExp _eSE, VersionSysExp _vSE)
         {
@@ -30,10 +35,15 @@ namespace Texcel.Interfaces.Jeu
             btnEnregistrer.Text = "Modifier";
 
             txtID.Enabled = false;
-            cmbNom.Enabled = false;
-            cmbEdition.Enabled = false;
-            txtCode.Enabled = false;
-            cmbVersion.Enabled = false;           
+            cmbNom.Enabled = true;
+            cmbNom.DropDownStyle = ComboBoxStyle.Simple;
+            cmbEdition.DropDownStyle = ComboBoxStyle.Simple;
+            cmbVersion.DropDownStyle = ComboBoxStyle.Simple;
+            modifVersion = _vSE;
+            modifEd = _eSE;
+            
+            modif = true;
+            modifSysExp = _sE;
         }
 
         private void frmSysExp_Load(object sender, EventArgs e)
@@ -100,36 +110,54 @@ namespace Texcel.Interfaces.Jeu
             bool boolS, boolE, boolV;
             boolV = false;
 
-            if(cmbNom.Text == "")
+            if (modif)
             {
-                MessageBox.Show("Veuillez entrer un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                try
+                {
+                    CtrlSysExp.modif(cmbNom.Text, txtCode.Text, rtbCommentaire.Text, modifSysExp, cmbEdition.Text, modifEd, cmbVersion.Text, modifVersion);
+                    MessageBox.Show("Modification reussie", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Une erreur est survenue", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                
             }
-
-            DialogResult rep = MessageBox.Show("Voulez-vous ajouter ce système d'exploitation ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (rep == DialogResult.Yes)
+            else
             {
-                boolS = CtrlSysExp.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbCommentaire.Text.Trim());
-                SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
-                boolE = CtrlEditionSysExp.Ajouter(sysExp, cmbEdition.Text.Trim());
-
-                if (cmbEdition.Text != "")
+                if (cmbNom.Text == "")
                 {
-                    EditionSysExp editionSysExp = CtrlEditionSysExp.Rechercher(CtrlSysExp.Rechercher(cmbNom.Text).First(), cmbEdition.Text).First();
-                    boolV = CtrlVersionSysExp.Ajouter(sysExp, editionSysExp, cmbVersion.Text.Trim(), rtbCommentaire.Text.Trim());
+                    MessageBox.Show("Veuillez entrer un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                if (boolS || boolE || boolV)
+                DialogResult rep = MessageBox.Show("Voulez-vous ajouter ce système d'exploitation ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (rep == DialogResult.Yes)
                 {
-                    MessageBox.Show("Le système d'exploitation a été ajouté avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cmbNom.Text = "";
-                    cmbEdition.Text = "";
-                    txtCode.Text = "";
-                    cmbVersion.Text = "";
-                    rtbCommentaire.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Le système d'exploitation n'a pas été ajouté. Vérifiez si les champs sont biens remplis ou si l'entrée existe.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    boolS = CtrlSysExp.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbCommentaire.Text.Trim());
+                    SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
+                    boolE = CtrlEditionSysExp.Ajouter(sysExp, cmbEdition.Text.Trim());
+
+                    if (cmbEdition.Text != "")
+                    {
+                        EditionSysExp editionSysExp = CtrlEditionSysExp.Rechercher(CtrlSysExp.Rechercher(cmbNom.Text).First(), cmbEdition.Text).First();
+                        boolV = CtrlVersionSysExp.Ajouter(sysExp, editionSysExp, cmbVersion.Text.Trim(), rtbCommentaire.Text.Trim());
+                    }
+
+                    if (boolS || boolE || boolV)
+                    {
+                        MessageBox.Show("Le système d'exploitation a été ajouté avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmbNom.Text = "";
+                        cmbEdition.Text = "";
+                        txtCode.Text = "";
+                        cmbVersion.Text = "";
+                        rtbCommentaire.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le système d'exploitation n'a pas été ajouté. Vérifiez si les champs sont biens remplis ou si l'entrée existe.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
         }
