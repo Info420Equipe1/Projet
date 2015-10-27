@@ -1044,7 +1044,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idTypeTest" Type="Int16" />
           <Property Name="idJeu" Type="Int16" />
           <NavigationProperty Name="cJeu" Relationship="Self.CT_FK_idJeu" FromRole="tblCasTest" ToRole="tblJeu" />
-          <NavigationProperty Name="Projet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
+          <NavigationProperty Name="cProjet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
           <NavigationProperty Name="TypeTest" Relationship="Self.CT_FK_idTypeTest" FromRole="tblCasTest" ToRole="tblTypeTest" />
           <NavigationProperty Name="FicheResultat" Relationship="Self.FR_FK_codeCasTest" FromRole="tblCasTest" ToRole="tblFicheResultat" />
           <NavigationProperty Name="Equipe" Relationship="Self.tblEquipeCasTest" FromRole="tblCasTest" ToRole="tblEquipe" />

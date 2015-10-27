@@ -30,7 +30,7 @@ namespace Texcel.Interfaces.Personnel
             id = _equ.idEquipe;
             txtNom.Text = _equ.nomEquipe;
             cmbNom.Text = _equ.Employe.nomEmploye+" "+_equ.Employe.prenomEmploye;
-            cmbProjet.Text = _equ.CasTest.First().Projet.nomProjet;
+            cmbProjet.Text = _equ.CasTest.First().cProjet.nomProjet;
             rtbCommentaire.Text = _equ.descEquipe;
             foreach (Employe employe in _equ.Employe1)
             {

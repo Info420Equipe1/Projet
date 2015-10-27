@@ -88,6 +88,7 @@ namespace Texcel.Classes.Jeu
             
         }
 
+<<<<<<< HEAD
         public static void modif(string _nom, string _code, string _comm, SysExp _sysExp, string _nomEd, EditionSysExp _ed, string _nomVersion, VersionSysExp _ver)
         {
             SysExp sysExp = _sysExp;
@@ -120,5 +121,7 @@ namespace Texcel.Classes.Jeu
         //            }).ToList();
           
         //}
+=======
+>>>>>>> origin/sprint2
     }
 }
