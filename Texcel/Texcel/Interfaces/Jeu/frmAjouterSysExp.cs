@@ -110,13 +110,7 @@ namespace Texcel.Interfaces.Jeu
             bool boolS, boolE, boolV;
             boolV = false;
 
-<<<<<<< HEAD
             if (modif)
-=======
-
-
-            if(cmbNom.Text == "")
->>>>>>> origin/sprint2
             {
                 try
                 {

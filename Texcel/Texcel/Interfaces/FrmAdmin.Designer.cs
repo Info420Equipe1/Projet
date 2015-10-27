@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblUtilisateurConn = new System.Windows.Forms.Label();
+            this.dgvResultats = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -136,8 +138,7 @@
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.lblUtilisateurConn = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -145,8 +146,37 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.mnsMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblUtilisateurConn
+            // 
+            this.lblUtilisateurConn.AutoSize = true;
+            this.lblUtilisateurConn.BackColor = System.Drawing.Color.White;
+            this.lblUtilisateurConn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUtilisateurConn.Location = new System.Drawing.Point(698, 4);
+            this.lblUtilisateurConn.Name = "lblUtilisateurConn";
+            this.lblUtilisateurConn.Size = new System.Drawing.Size(0, 20);
+            this.lblUtilisateurConn.TabIndex = 10;
+            this.lblUtilisateurConn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvResultats
+            // 
+            this.dgvResultats.AllowUserToAddRows = false;
+            this.dgvResultats.AllowUserToResizeRows = false;
+            this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
+            this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvResultats.Location = new System.Drawing.Point(15, 107);
+            this.dgvResultats.Name = "dgvResultats";
+            this.dgvResultats.RowHeadersVisible = false;
+            this.dgvResultats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvResultats.RowTemplate.Height = 24;
+            this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvResultats.Size = new System.Drawing.Size(683, 576);
+            this.dgvResultats.TabIndex = 9;
+            this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
+            this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
             // tabControl1
             // 
@@ -165,6 +195,7 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.btnModifierEmp);
             this.tabPage1.Controls.Add(this.label4);
@@ -193,10 +224,10 @@
             this.tabPage1.Size = new System.Drawing.Size(675, 574);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(165, 226);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
@@ -224,6 +255,7 @@
             // 
             // listBox1
             // 
+            this.listBox1.Enabled = false;
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
@@ -234,6 +266,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 514);
             this.richTextBox1.Name = "richTextBox1";
@@ -263,6 +296,7 @@
             // 
             // lstBoxTypeTest
             // 
+            this.lstBoxTypeTest.Enabled = false;
             this.lstBoxTypeTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTypeTest.FormattingEnabled = true;
             this.lstBoxTypeTest.ItemHeight = 20;
@@ -406,6 +440,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage2.Controls.Add(this.btnModifierEquipe);
             this.tabPage2.Controls.Add(this.lblProjetEquipe);
             this.tabPage2.Controls.Add(this.lblChefEquipe);
@@ -423,7 +458,6 @@
             this.tabPage2.Size = new System.Drawing.Size(675, 574);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnModifierEquipe
             // 
@@ -484,6 +518,7 @@
             // 
             // lstTesteurEquipe
             // 
+            this.lstTesteurEquipe.Enabled = false;
             this.lstTesteurEquipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTesteurEquipe.FormattingEnabled = true;
             this.lstTesteurEquipe.ItemHeight = 20;
@@ -505,6 +540,7 @@
             // 
             // rtbCommentaire
             // 
+            this.rtbCommentaire.Enabled = false;
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommentaire.Location = new System.Drawing.Point(130, 106);
             this.rtbCommentaire.Name = "rtbCommentaire";
@@ -535,6 +571,7 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage3.Controls.Add(this.btnModifierJeu);
             this.tabPage3.Controls.Add(this.lblClassJeu);
             this.tabPage3.Controls.Add(this.lblDevJeu);
@@ -561,7 +598,6 @@
             this.tabPage3.Size = new System.Drawing.Size(675, 574);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Jeu";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnModifierJeu
             // 
@@ -631,6 +667,7 @@
             // 
             // lstBoxPlat1
             // 
+            this.lstBoxPlat1.Enabled = false;
             this.lstBoxPlat1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxPlat1.FormattingEnabled = true;
             this.lstBoxPlat1.ItemHeight = 20;
@@ -643,6 +680,7 @@
             // 
             // lstBoxGenre1
             // 
+            this.lstBoxGenre1.Enabled = false;
             this.lstBoxGenre1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxGenre1.FormattingEnabled = true;
             this.lstBoxGenre1.ItemHeight = 20;
@@ -655,6 +693,7 @@
             // 
             // lstBoxTheme1
             // 
+            this.lstBoxTheme1.Enabled = false;
             this.lstBoxTheme1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTheme1.FormattingEnabled = true;
             this.lstBoxTheme1.ItemHeight = 20;
@@ -667,6 +706,7 @@
             // 
             // lstBoxVersion
             // 
+            this.lstBoxVersion.Enabled = false;
             this.lstBoxVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxVersion.FormattingEnabled = true;
             this.lstBoxVersion.ItemHeight = 20;
@@ -748,6 +788,7 @@
             // 
             // rtbConfiguration
             // 
+            this.rtbConfiguration.Enabled = false;
             this.rtbConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbConfiguration.Location = new System.Drawing.Point(123, 248);
             this.rtbConfiguration.Name = "rtbConfiguration";
@@ -757,6 +798,7 @@
             // 
             // rtbDescription
             // 
+            this.rtbDescription.Enabled = false;
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDescription.Location = new System.Drawing.Point(123, 137);
             this.rtbDescription.Name = "rtbDescription";
@@ -776,6 +818,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage4.Controls.Add(this.btnModifierPlateforme);
             this.tabPage4.Controls.Add(this.lblCommPlate);
             this.tabPage4.Controls.Add(this.lblConfPlate);
@@ -794,11 +837,10 @@
             this.tabPage4.Size = new System.Drawing.Size(675, 574);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Plateforme";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // btnModifierPlateforme
             // 
-            this.btnModifierPlateforme.Location = new System.Drawing.Point(386, 537);
+            this.btnModifierPlateforme.Location = new System.Drawing.Point(385, 389);
             this.btnModifierPlateforme.Name = "btnModifierPlateforme";
             this.btnModifierPlateforme.Size = new System.Drawing.Size(93, 34);
             this.btnModifierPlateforme.TabIndex = 83;
@@ -868,6 +910,7 @@
             // 
             // rtxtCommPlate
             // 
+            this.rtxtCommPlate.Enabled = false;
             this.rtxtCommPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtCommPlate.Location = new System.Drawing.Point(142, 257);
             this.rtxtCommPlate.Name = "rtxtCommPlate";
@@ -877,6 +920,7 @@
             // 
             // rtxtConfigPlate
             // 
+            this.rtxtConfigPlate.Enabled = false;
             this.rtxtConfigPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtConfigPlate.Location = new System.Drawing.Point(142, 125);
             this.rtxtConfigPlate.Name = "rtxtConfigPlate";
@@ -916,6 +960,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage5.Controls.Add(this.versionSE);
             this.tabPage5.Controls.Add(this.codeSE);
             this.tabPage5.Controls.Add(this.edSE);
@@ -934,7 +979,6 @@
             this.tabPage5.Size = new System.Drawing.Size(675, 574);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Système d\'exploitation";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // versionSE
             // 
@@ -988,16 +1032,17 @@
             // 
             // btnModifierSysExp
             // 
-            this.btnModifierSysExp.Location = new System.Drawing.Point(409, 329);
+            this.btnModifierSysExp.Location = new System.Drawing.Point(449, 316);
             this.btnModifierSysExp.Name = "btnModifierSysExp";
-            this.btnModifierSysExp.Size = new System.Drawing.Size(133, 40);
+            this.btnModifierSysExp.Size = new System.Drawing.Size(93, 34);
             this.btnModifierSysExp.TabIndex = 64;
-            this.btnModifierSysExp.Text = "Modifier";
+            this.btnModifierSysExp.Text = "Modifier...";
             this.btnModifierSysExp.UseVisualStyleBackColor = true;
             this.btnModifierSysExp.Click += new System.EventHandler(this.btnModifierSysExp_Click);
             // 
             // rtbCommSysExp
             // 
+            this.rtbCommSysExp.Enabled = false;
             this.rtbCommSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommSysExp.Location = new System.Drawing.Point(167, 205);
             this.rtbCommSysExp.Name = "rtbCommSysExp";
@@ -1252,36 +1297,6 @@
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
             // 
-            // dgvResultats
-            // 
-            this.dgvResultats.AllowUserToAddRows = false;
-            this.dgvResultats.AllowUserToResizeRows = false;
-            this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
-            this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvResultats.Location = new System.Drawing.Point(15, 107);
-            this.dgvResultats.Name = "dgvResultats";
-            this.dgvResultats.RowHeadersVisible = false;
-            this.dgvResultats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvResultats.RowTemplate.Height = 24;
-            this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultats.Size = new System.Drawing.Size(683, 576);
-            this.dgvResultats.TabIndex = 9;
-            this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
-            this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
-            // 
-            // lblUtilisateurConn
-            // 
-            this.lblUtilisateurConn.AutoSize = true;
-            this.lblUtilisateurConn.BackColor = System.Drawing.Color.White;
-            this.lblUtilisateurConn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUtilisateurConn.Location = new System.Drawing.Point(698, 4);
-            this.lblUtilisateurConn.Name = "lblUtilisateurConn";
-            this.lblUtilisateurConn.Size = new System.Drawing.Size(0, 20);
-            this.lblUtilisateurConn.TabIndex = 10;
-            this.lblUtilisateurConn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1302,6 +1317,7 @@
             this.Text = "Console d\'administration";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.Shown += new System.EventHandler(this.frmAdmin_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1315,7 +1331,6 @@
             this.tabPage5.PerformLayout();
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
