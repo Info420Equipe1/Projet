@@ -61,7 +61,10 @@
             <asp:TextBox runat="server" ID="rtxtDivers" TextMode="MultiLine" CssClass="txtColum2"/>
         </div>
         <div id="DataGridBillet">
-            <asp:DataGrid id="DataGridBilletTravail" runat="server"></asp:DataGrid>
+            <asp:DataGrid id="DataGridBilletTravail" runat="server">
+                <HeaderStyle Font-Bold="True" HorizontalAlign="Center" VerticalAlign="Top" BackColor="SaddleBrown" ForeColor="Ivory" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" BackColor="Beige" ForeColor="Brown" />
+            </asp:DataGrid>
         </div>
         <div id="btnCopierEnregistrerAnnuler">
             <asp:Button runat="server" ID="btnCopier" Text="Copier" />

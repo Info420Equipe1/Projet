@@ -40,6 +40,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void AfficherEmploye(Employe _employe)
         {
+            txtNumeroEmp.Text = _employe.idEmploye.ToString();   
             txtNom.Text = _employe.nomEmploye;
             txtPrenom.Text = _employe.prenomEmploye;
             txtAdresse.Text = _employe.adressePostale;
@@ -52,6 +53,7 @@ namespace Texcel.Interfaces.Personnel
         public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
         {
             InitializeComponent();
+            txtNumeroEmp.Text = _emp.idEmploye.ToString();   
             txtNom.Text = _nom;
             txtPrenom.Text = _pren;
             txtAdresse.Text = _adresse;
@@ -98,22 +100,7 @@ namespace Texcel.Interfaces.Personnel
 
             }
         }
-        private void btnFlecheAjouter_Click(object sender, EventArgs e)
-        {
-       
-            if ((lstBoxTypeTest.Items.Count == 0) || 
-                (lstBoxTypeTest.SelectedIndex == -1) || 
-                (lstBoxTypeTest.SelectedItems.Count > 1))
-            {
-                string ad = "Veuillez selectionner un type de test à ajouter.";
-                CtrlController.MessageWarnng(ad);             
-            }
-            else
-            {
-                CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTest.Text),true);
-                AfficherLstBox();
-            }
-        }
+        
 
         private void remplirListBoxUtil(Employe _emp)
         {
@@ -123,21 +110,7 @@ namespace Texcel.Interfaces.Personnel
             }
         }
       
-        private void bntFlecheRetirer_Click(object sender, EventArgs e)
-        {
-            if ((lstBoxTypeTestEmp.Items.Count == 0) ||
-                (lstBoxTypeTestEmp.SelectedIndex == -1) ||
-                (lstBoxTypeTestEmp.SelectedItems.Count > 1))
-            {
-                string ad = "Veuillez selectionner une type de test à retirer à l'employé.";
-                CtrlController.MessageWarnng(ad);
-            }
-            else
-            {
-                CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTestEmp.Text), false);
-                AfficherLstBox();
-            }
-        }
+        
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
@@ -198,6 +171,83 @@ namespace Texcel.Interfaces.Personnel
             frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
             frmUti.ShowDialog();
             this.Close();
+        }
+
+        private void btnFlecheAjouter_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTypeTest.Items.Count == 0) || (lstBoxTypeTest.SelectedIndex == -1) || (lstBoxTypeTest.SelectedItems.Count > 1))
+            {
+                string ad = "Veuillez selectionner un type de test à ajouter.";
+                CtrlController.MessageWarnng(ad);
+            }
+            else
+            {
+                CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTest.Text), true);
+                AfficherLstBox();
+            }
+        }
+
+        private void bntFlecheRetirer_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTypeTestEmp.Items.Count == 0) || (lstBoxTypeTestEmp.SelectedIndex == -1) || (lstBoxTypeTestEmp.SelectedItems.Count > 1))
+            {
+                string ad = "Veuillez selectionner une type de test à retirer à l'employé.";
+                CtrlController.MessageWarnng(ad);
+            }
+            else
+            {
+                CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTestEmp.Text), false);
+                AfficherLstBox();
+            }
+        }
+        private void btnFlecheAjouterMultiple_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTypeTest.Items.Count == 0))
+            {
+                string ad = "Veuillez selectionner un type de test à ajouter.";
+                CtrlController.MessageWarnng(ad);
+            }
+            else if (lstBoxTypeTest.SelectedIndex == -1)
+            {
+                foreach (string item in lstBoxTypeTest.Items)
+                {
+                    CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(item), true);
+                }
+                AfficherLstBox();
+            }
+            else
+            {
+                foreach (string item in lstBoxTypeTest.SelectedItems)
+                {
+                    CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(item), true);
+                }
+                AfficherLstBox();
+            }
+        }
+
+        private void bntFlecheRetirerMultiple_Click(object sender, EventArgs e)
+        {
+            if ((lstBoxTypeTestEmp.Items.Count == 0))
+            {
+                string ad = "Veuillez selectionner une type de test à retirer à l'employé.";
+                CtrlController.MessageWarnng(ad);
+            }
+            else if ((lstBoxTypeTestEmp.SelectedIndex == -1))
+            {
+                foreach (string item in lstBoxTypeTestEmp.Items)
+                {
+                    CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(item), false);
+                }
+                AfficherLstBox();
+            }
+            else
+            {
+                foreach (string item in lstBoxTypeTestEmp.SelectedItems)
+                {
+                    CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(item), false);
+                }
+                AfficherLstBox();
+            }
         }
 
         // remplir les infos employé avec les données des R.H.!!

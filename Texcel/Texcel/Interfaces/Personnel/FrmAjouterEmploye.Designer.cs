@@ -56,6 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCreerUti = new System.Windows.Forms.Button();
             this.btnModifUti = new System.Windows.Forms.Button();
+            this.btnFlecheAjouterMultiple = new System.Windows.Forms.Button();
+            this.bntFlecheRetirerMultiple = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -84,7 +86,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(541, 603);
+            this.btnSupprimer.Location = new System.Drawing.Point(542, 761);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 11;
@@ -100,7 +102,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(803, 603);
+            this.btnCancel.Location = new System.Drawing.Point(804, 761);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 13;
@@ -116,7 +118,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(672, 603);
+            this.btnEnregistrer.Location = new System.Drawing.Point(673, 761);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 12;
@@ -126,32 +128,32 @@
             // 
             // bntFlecheRetirer
             // 
-            this.bntFlecheRetirer.Location = new System.Drawing.Point(459, 398);
+            this.bntFlecheRetirer.Location = new System.Drawing.Point(459, 477);
             this.bntFlecheRetirer.Name = "bntFlecheRetirer";
-            this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 32);
+            this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 34);
             this.bntFlecheRetirer.TabIndex = 23;
             this.bntFlecheRetirer.TabStop = false;
-            this.bntFlecheRetirer.Text = "<<";
+            this.bntFlecheRetirer.Text = "<";
             this.bntFlecheRetirer.UseVisualStyleBackColor = true;
             this.bntFlecheRetirer.Click += new System.EventHandler(this.bntFlecheRetirer_Click);
             // 
             // btnFlecheAjouter
             // 
-            this.btnFlecheAjouter.Location = new System.Drawing.Point(459, 360);
+            this.btnFlecheAjouter.Location = new System.Drawing.Point(459, 357);
             this.btnFlecheAjouter.Name = "btnFlecheAjouter";
-            this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 32);
+            this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 34);
             this.btnFlecheAjouter.TabIndex = 22;
             this.btnFlecheAjouter.TabStop = false;
-            this.btnFlecheAjouter.Text = ">>";
+            this.btnFlecheAjouter.Text = ">";
             this.btnFlecheAjouter.UseVisualStyleBackColor = true;
             this.btnFlecheAjouter.Click += new System.EventHandler(this.btnFlecheAjouter_Click);
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 476);
+            this.richTextBox1.Location = new System.Drawing.Point(27, 609);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(902, 121);
+            this.richTextBox1.Size = new System.Drawing.Size(902, 146);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "";
             // 
@@ -159,7 +161,7 @@
             // 
             this.lblCompetences.AutoSize = true;
             this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompetences.Location = new System.Drawing.Point(23, 453);
+            this.lblCompetences.Location = new System.Drawing.Point(23, 586);
             this.lblCompetences.Name = "lblCompetences";
             this.lblCompetences.Size = new System.Drawing.Size(209, 20);
             this.lblCompetences.TabIndex = 20;
@@ -181,8 +183,10 @@
             this.lstBoxTypeTestEmp.FormattingEnabled = true;
             this.lstBoxTypeTestEmp.ItemHeight = 20;
             this.lstBoxTypeTestEmp.Location = new System.Drawing.Point(502, 346);
+            this.lstBoxTypeTestEmp.MultiColumn = true;
             this.lstBoxTypeTestEmp.Name = "lstBoxTypeTestEmp";
-            this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(427, 104);
+            this.lstBoxTypeTestEmp.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(427, 224);
             this.lstBoxTypeTestEmp.TabIndex = 9;
             // 
             // lstBoxTypeTest
@@ -192,7 +196,8 @@
             this.lstBoxTypeTest.ItemHeight = 20;
             this.lstBoxTypeTest.Location = new System.Drawing.Point(27, 346);
             this.lstBoxTypeTest.Name = "lstBoxTypeTest";
-            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
+            this.lstBoxTypeTest.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 224);
             this.lstBoxTypeTest.TabIndex = 8;
             // 
             // label1
@@ -351,11 +356,35 @@
             this.btnModifUti.Visible = false;
             this.btnModifUti.Click += new System.EventHandler(this.btnModifUti_Click);
             // 
+            // btnFlecheAjouterMultiple
+            // 
+            this.btnFlecheAjouterMultiple.Location = new System.Drawing.Point(459, 397);
+            this.btnFlecheAjouterMultiple.Name = "btnFlecheAjouterMultiple";
+            this.btnFlecheAjouterMultiple.Size = new System.Drawing.Size(37, 34);
+            this.btnFlecheAjouterMultiple.TabIndex = 33;
+            this.btnFlecheAjouterMultiple.TabStop = false;
+            this.btnFlecheAjouterMultiple.Text = ">>";
+            this.btnFlecheAjouterMultiple.UseVisualStyleBackColor = true;
+            this.btnFlecheAjouterMultiple.Click += new System.EventHandler(this.btnFlecheAjouterMultiple_Click);
+            // 
+            // bntFlecheRetirerMultiple
+            // 
+            this.bntFlecheRetirerMultiple.Location = new System.Drawing.Point(459, 437);
+            this.bntFlecheRetirerMultiple.Name = "bntFlecheRetirerMultiple";
+            this.bntFlecheRetirerMultiple.Size = new System.Drawing.Size(37, 34);
+            this.bntFlecheRetirerMultiple.TabIndex = 34;
+            this.bntFlecheRetirerMultiple.TabStop = false;
+            this.bntFlecheRetirerMultiple.Text = "<<";
+            this.bntFlecheRetirerMultiple.UseVisualStyleBackColor = true;
+            this.bntFlecheRetirerMultiple.Click += new System.EventHandler(this.bntFlecheRetirerMultiple_Click);
+            // 
             // frmAjouterEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 661);
+            this.ClientSize = new System.Drawing.Size(938, 823);
+            this.Controls.Add(this.bntFlecheRetirerMultiple);
+            this.Controls.Add(this.btnFlecheAjouterMultiple);
             this.Controls.Add(this.btnModifUti);
             this.Controls.Add(this.btnCreerUti);
             this.Controls.Add(this.label2);
@@ -421,5 +450,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCreerUti;
         private System.Windows.Forms.Button btnModifUti;
+        private System.Windows.Forms.Button btnFlecheAjouterMultiple;
+        private System.Windows.Forms.Button bntFlecheRetirerMultiple;
     }
 }
