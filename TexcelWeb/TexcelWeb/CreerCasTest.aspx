@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreerCasTest.aspx.cs" Inherits="TexcelWeb.CreerCasTest" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,7 @@
 <title>Texcel</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/projet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/casTest.css" media="screen" />
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -69,7 +70,7 @@ $(function(){
 		<div id="sidebar">
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
-				<ul id="home">
+				<ul>
 					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
 					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
@@ -78,7 +79,7 @@ $(function(){
 			</div>		
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
-				<ul>
+				<ul id="home">
 					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b1"><a class="icon photo" href="">Add new gallery</a></li>
@@ -164,6 +165,7 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">
+                    <asp:ScriptManager ID="ToolkitScriptManager1" runat="server" />
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
                             <div class="info">
@@ -176,19 +178,23 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Difficulté: " class="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" class="txtColum1"/>
+                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" class="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Priorité: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtPrioritéCasTest" class="txtColum1"/>
+                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" class="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Création: " class="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateCreationCasTest" class="txtColum1"/>
+                                <!--<cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationCasTest" Format="dd/MM/yyyy">
+                                </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Livraison: " class="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" class="txtColum1"/>
+                                <!--<cc1:CalendarExtender ID="txtDateLivraison_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonCasTest" Format="dd/MM/yyyy">
+                    </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " class="lblColum1"/>
@@ -213,8 +219,8 @@ $(function(){
 					<thead>
 						<tr>
 							<th scope="col" style="width:200px">Fichier</th>
-							<th scope="col" style="width:40px" style="text-align:center">Type</th>
-							<th scope="col" style="width:40px" style="text-align:center">Taille</th>
+							<th scope="col" style="width:40px;text-align:center">Type</th>
+							<th scope="col" style="width:40px;text-align:center">Taille</th>
 							<th scope="col" style="width:150px">Auteur</th>
 							<th scope="col" style="width:90px">Dernière Modif</th>
 							<th scope="col" style="width:65px;">Modifier</th>
@@ -234,18 +240,6 @@ $(function(){
 								<a href="#" class="table-icon delete" title="Delete"></a>
 							</td>
 						</tr>
-						<tr>
-							<td>TesteurInformation</td>
-							<td>.txt</td>
-							<td>150 mb</td>
-							<td>Benoit Simard</td>
-							<td>22-03-2012</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
 							
 						<tr>
 							<td>VisualParadigmDoc</td>
@@ -258,20 +252,7 @@ $(function(){
 								<a href="#" class="table-icon archive" title="Archive"></a>
 								<a href="#" class="table-icon delete" title="Delete"></a>
 							</td>
-						</tr>
-							
-						<tr>
-							<td>Power Point CasTest</td>
-							<td>.pptx</td>
-							<td>100 mb</td>
-							<td>Marcel Leblond</td>
-							<td>25-03-2012</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>						
+						</tr>					
 						<tr>
 							<td>Documentation2</td>
 							<td>.txt</td>
@@ -284,20 +265,7 @@ $(function(){
 								<a href="#" class="table-icon delete" title="Delete"></a>
 							</td>
 						</tr>
-							
-						<tr>
-							<td>Instruction</td>
-							<td>.pdf</td>
-							<td>280 mb</td>
-							<td>Sébastien Tremblay</td>
-							<td>23-03-2012</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
+						
 						<tr>
 							<td>ReadME</td>
 							<td>.txt</td>
@@ -314,8 +282,8 @@ $(function(){
 				</table>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:Button runat="server" ID="btnCopier" Text="Copier" />
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" />
+                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit"/>
+                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit"/>
                 </div>
                 </form>
 				<!-- <form action="" method="post">
