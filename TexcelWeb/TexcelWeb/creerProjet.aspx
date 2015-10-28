@@ -173,7 +173,7 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Chef de projet: " class="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtChefProjetCasTest" class="txtColum1"/>
+                                <asp:DropDownList runat="server" ID="txtChefProjetCasTest" class="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Création: " class="lblColum1"/>
@@ -200,115 +200,48 @@ $(function(){
                             <asp:Label runat="server" Text="Divers: "/><br />
                             <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" class="richtextbox"/>
                         </div>
-                        <!-- <asp:DataGrid id="DataGrid" runat="server"></asp:DataGrid> --><br />
                     </div>
                     <table>
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Title</th>
-							<th scope="col">Author</th>
-							<th scope="col">Date</th>
-							<th scope="col">Category</th>
-							<th scope="col" style="width: 65px;">Modify</th>
-						</tr>
-					</thead>						
-					<tbody>
-						<tr>
-							<td class="align-center">2</td>
-							<td>Home</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="align-center">3</td>
-							<td>Our offer</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">5</td>
-							<td>About</td>
-							<td>Admin</td>
-							<td>23-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">12</td>
-							<td>Contact</td>
-							<td>Admin</td>
-							<td>25-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>						
-						<tr>
-							<td class="align-center">114</td>
-							<td>Portfolio</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">116</td>
-							<td>Clients</td>
-							<td>Admin</td>
-							<td>23-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">131</td>
-							<td>Customer reviews</td>
-							<td>Admin</td>
-							<td>25-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-                <div id="btnCopierEnregistrerAnnuler">
+					    <thead>
+						    <tr>
+							    <th scope="col">Code</th>
+							    <th scope="col">Nom</th>
+							    <th scope="col">Date Livraison</th>
+							    <th scope="col">Priorité</th>
+							    <th scope="col">Difficulté</th>
+							    <th scope="col" style="width: 65px;">Modification</th>
+						    </tr>
+					    </thead>						
+					    <tbody>
+						    <tr>
+							    <td class="align-center">ASU</td>
+							    <td>AssassinsCreedUnity</td>
+							    <td class="align-center">01-11-2015</td>
+							    <td class="align-center">Modérée</td>
+							    <td class="align-center">Élevée</td>
+							    <td class="align-center">
+								    <a href="#" class="table-icon edit" title="Edit"></a>
+								    <a href="#" class="table-icon delete" title="Delete"></a>
+							    </td>
+						    </tr>
+                            <tr>
+							    <td class="align-center">CODAW</td>
+							    <td>CallofDutyAdvancedWarfare</td>
+							    <td class="align-center">05-12-2015</td>
+							    <td class="align-center">Faible</td>
+							    <td class="align-center">Modérée</td>
+							    <td class="align-center">
+								    <a href="#" class="table-icon edit" title="Edit"></a>
+								    <a href="#" class="table-icon delete" title="Delete"></a>
+							    </td>
+						    </tr>
+					    </tbody>
+				    </table>     
+                    <div id="btnCopierEnregistrerAnnuler">
                         <asp:Button runat="server" ID="btnCopier" Text="Copier" />
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" />
-                </div>
+                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit" />
+                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit" />
+                    </div>
                 </form>
 				<!-- <form action="" method="post">
 					<div class="element">

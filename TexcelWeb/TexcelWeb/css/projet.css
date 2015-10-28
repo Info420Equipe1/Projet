@@ -28,9 +28,10 @@
     width: 50%;
     display:inline-block;
 }
-#btnDroit{
+.btnDroit{
     display:inline-block;
-    align-items:flex-end;
+    float:right;
+    margin-right:5px;
 }
 #btnCentre{
     display:inline-block;
@@ -47,7 +48,7 @@
 
 .txtColum1{
     display:inline;
-    width:65%;
+    width:70%;
 }
 
 .info{
@@ -62,6 +63,6 @@
 }
 
 .richtextbox{
-    width: 295px;
+    width: 310px;
     height: 150px;
 }

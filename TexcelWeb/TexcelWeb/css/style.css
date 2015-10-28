@@ -276,8 +276,9 @@ button:hover, .button:hover{
 /* MAIN TABLE */
 
 table{ 
-	border-collapse: collapse; 
-	margin: 15px; 
+	border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
 	width: 650px; 
 }
 table th{ 
