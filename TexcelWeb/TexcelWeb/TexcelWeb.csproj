@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreerCasTest.aspx" />
     <Content Include="css\login.css" />
     <Content Include="css\navi.css" />
     <Content Include="css\projet.css" />
@@ -74,6 +75,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreerCasTest.aspx.cs">
+      <DependentUpon>CreerCasTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreerCasTest.aspx.designer.cs">
+      <DependentUpon>CreerCasTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
