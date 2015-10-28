@@ -222,10 +222,10 @@
             this.tabPage1.Controls.Add(this.lblAdresse);
             this.tabPage1.Controls.Add(this.lblNom);
             this.tabPage1.Controls.Add(this.lblNumeroEmp);
-            this.tabPage1.Location = new System.Drawing.Point(4, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 104);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(675, 576);
+            this.tabPage1.Size = new System.Drawing.Size(675, 477);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
             // 
@@ -239,6 +239,7 @@
             // 
             // btnModifierEmp
             // 
+            this.btnModifierEmp.CausesValidation = false;
             this.btnModifierEmp.Location = new System.Drawing.Point(399, 635);
             this.btnModifierEmp.Name = "btnModifierEmp";
             this.btnModifierEmp.Size = new System.Drawing.Size(93, 34);
@@ -456,10 +457,10 @@
             this.tabPage2.Controls.Add(this.rtbCommentaire);
             this.tabPage2.Controls.Add(this.lblNomChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquip);
-            this.tabPage2.Location = new System.Drawing.Point(4, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 104);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 576);
+            this.tabPage2.Size = new System.Drawing.Size(675, 477);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
             // 
@@ -597,14 +598,15 @@
             this.tabPage3.Controls.Add(this.rtbConfiguration);
             this.tabPage3.Controls.Add(this.rtbDescription);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 104);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(675, 576);
+            this.tabPage3.Size = new System.Drawing.Size(675, 477);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Jeu";
             // 
             // btnModifierJeu
             // 
+            this.btnModifierJeu.CausesValidation = false;
             this.btnModifierJeu.Location = new System.Drawing.Point(405, 799);
             this.btnModifierJeu.Name = "btnModifierJeu";
             this.btnModifierJeu.Size = new System.Drawing.Size(93, 34);
@@ -836,9 +838,9 @@
             this.tabPage4.Controls.Add(this.label12);
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.lblTypePlateforme);
-            this.tabPage4.Location = new System.Drawing.Point(4, 5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 104);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(675, 576);
+            this.tabPage4.Size = new System.Drawing.Size(675, 477);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Plateforme";
             // 
