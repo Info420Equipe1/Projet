@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Texcel.Classes
 {
     class CtrlAdmin : CtrlController
@@ -16,17 +18,24 @@ namespace Texcel.Classes
         {
             return context.AllPlateforme;
         }
-        /*public static System.Data.Entity.DbSet<AllJeu> GetAllJeuView()
+        public static System.Data.Entity.DbSet<cJeu> GetAllJeuView()
         {
-            return context.AllPlateforme;
+            return context.tblJeu;
         }
         public static System.Data.Entity.DbSet<AllEquipe> GetAllEquipeView()
         {
-            return context.AllPlateforme;
+            return context.AllEquipe;
         }
-        public static System.Data.Entity.DbSet<AllEmploye> GetAllEmployeView()
+        public static System.Data.Entity.DbSet<Employe> GetAllEmployeView()
         {
-            return context.AllPlateforme;
-        }*/
+            return context.tblEmploye;
+        }
+        public static void refreshEntity()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
     }
 }

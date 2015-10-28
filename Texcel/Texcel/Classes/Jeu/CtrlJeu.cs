@@ -31,7 +31,7 @@ namespace Texcel.Classes.Jeu
             jeu.Plateforme = _plateformeJeu;
             jeu.ThemeJeu = _themeJeu;
             jeu.GenreJeu = _genreJeu;
-            //jeu.versionJeu = _versionJeu; La version est inexistante pour le moment
+            jeu.VersionJeu = _versionJeu;
 
             try
             {
@@ -76,7 +76,7 @@ namespace Texcel.Classes.Jeu
             {
                 if (jeu.nomJeu == _nomJeu)
                 {
-                    return true; //True lorsque le theme existe deja
+                    return true; //True lorsque le jeu existe deja
                 }
             }
             return false;

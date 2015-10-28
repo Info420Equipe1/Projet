@@ -49,7 +49,7 @@
             // 
             this.lblCommentaire.AutoSize = true;
             this.lblCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommentaire.Location = new System.Drawing.Point(24, 186);
+            this.lblCommentaire.Location = new System.Drawing.Point(12, 186);
             this.lblCommentaire.Name = "lblCommentaire";
             this.lblCommentaire.Size = new System.Drawing.Size(114, 20);
             this.lblCommentaire.TabIndex = 16;
@@ -58,9 +58,9 @@
             // rtbCommentaire
             // 
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbCommentaire.Location = new System.Drawing.Point(144, 183);
+            this.rtbCommentaire.Location = new System.Drawing.Point(132, 183);
             this.rtbCommentaire.Name = "rtbCommentaire";
-            this.rtbCommentaire.Size = new System.Drawing.Size(376, 96);
+            this.rtbCommentaire.Size = new System.Drawing.Size(388, 96);
             this.rtbCommentaire.TabIndex = 4;
             this.rtbCommentaire.Text = "";
             // 
@@ -69,7 +69,7 @@
             this.lblNom.AccessibleDescription = "";
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(89, 51);
+            this.lblNom.Location = new System.Drawing.Point(12, 48);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 14;
@@ -79,7 +79,7 @@
             // 
             this.lblEdition.AutoSize = true;
             this.lblEdition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdition.Location = new System.Drawing.Point(73, 85);
+            this.lblEdition.Location = new System.Drawing.Point(12, 85);
             this.lblEdition.Name = "lblEdition";
             this.lblEdition.Size = new System.Drawing.Size(65, 20);
             this.lblEdition.TabIndex = 13;
@@ -89,10 +89,10 @@
             // 
             this.cmbEdition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEdition.FormattingEnabled = true;
-            this.cmbEdition.Location = new System.Drawing.Point(144, 82);
+            this.cmbEdition.Location = new System.Drawing.Point(132, 82);
             this.cmbEdition.MaxLength = 50;
             this.cmbEdition.Name = "cmbEdition";
-            this.cmbEdition.Size = new System.Drawing.Size(376, 28);
+            this.cmbEdition.Size = new System.Drawing.Size(478, 28);
             this.cmbEdition.Sorted = true;
             this.cmbEdition.TabIndex = 2;
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
@@ -101,10 +101,10 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(144, 48);
+            this.cmbNom.Location = new System.Drawing.Point(132, 45);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(376, 28);
+            this.cmbNom.Size = new System.Drawing.Size(300, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 0;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -114,7 +114,7 @@
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(67, 152);
+            this.lblVersion.Location = new System.Drawing.Point(12, 152);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(71, 20);
             this.lblVersion.TabIndex = 18;
@@ -124,10 +124,10 @@
             // 
             this.cmbVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVersion.FormattingEnabled = true;
-            this.cmbVersion.Location = new System.Drawing.Point(144, 149);
+            this.cmbVersion.Location = new System.Drawing.Point(132, 149);
             this.cmbVersion.MaxLength = 30;
             this.cmbVersion.Name = "cmbVersion";
-            this.cmbVersion.Size = new System.Drawing.Size(376, 28);
+            this.cmbVersion.Size = new System.Drawing.Size(300, 28);
             this.cmbVersion.Sorted = true;
             this.cmbVersion.TabIndex = 3;
             this.cmbVersion.DropDown += new System.EventHandler(this.cmbVersion_DropDown);
@@ -191,17 +191,17 @@
             // txtCode
             // 
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(144, 116);
+            this.txtCode.Location = new System.Drawing.Point(132, 116);
             this.txtCode.MaxLength = 20;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(146, 27);
+            this.txtCode.Size = new System.Drawing.Size(188, 27);
             this.txtCode.TabIndex = 30;
             // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
             this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(85, 119);
+            this.lblCode.Location = new System.Drawing.Point(12, 119);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(53, 20);
             this.lblCode.TabIndex = 29;
@@ -223,7 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(537, 356);
+            this.ClientSize = new System.Drawing.Size(628, 356);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtID);

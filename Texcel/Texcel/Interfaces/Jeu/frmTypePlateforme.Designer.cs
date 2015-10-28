@@ -43,7 +43,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(140, 52);
+            this.txtID.Location = new System.Drawing.Point(148, 33);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 27);
             this.txtID.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(61, 55);
+            this.lblID.Location = new System.Drawing.Point(28, 36);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(73, 20);
             this.lblID.TabIndex = 32;
@@ -62,7 +62,7 @@
             // 
             this.lblCommentaire.AutoSize = true;
             this.lblCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommentaire.Location = new System.Drawing.Point(20, 122);
+            this.lblCommentaire.Location = new System.Drawing.Point(28, 103);
             this.lblCommentaire.Name = "lblCommentaire";
             this.lblCommentaire.Size = new System.Drawing.Size(114, 20);
             this.lblCommentaire.TabIndex = 31;
@@ -71,9 +71,9 @@
             // rtbCommentaire
             // 
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbCommentaire.Location = new System.Drawing.Point(140, 119);
+            this.rtbCommentaire.Location = new System.Drawing.Point(148, 100);
             this.rtbCommentaire.Name = "rtbCommentaire";
-            this.rtbCommentaire.Size = new System.Drawing.Size(463, 220);
+            this.rtbCommentaire.Size = new System.Drawing.Size(463, 143);
             this.rtbCommentaire.TabIndex = 2;
             this.rtbCommentaire.Text = "";
             // 
@@ -82,7 +82,7 @@
             this.lblNom.AccessibleDescription = "";
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(85, 89);
+            this.lblNom.Location = new System.Drawing.Point(28, 70);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 29;
@@ -92,7 +92,7 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(140, 86);
+            this.cmbNom.Location = new System.Drawing.Point(148, 67);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(463, 28);
@@ -109,7 +109,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(216, 345);
+            this.btnSupprimer.Location = new System.Drawing.Point(224, 249);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 3;
@@ -125,7 +125,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(478, 345);
+            this.btnCancel.Location = new System.Drawing.Point(486, 249);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 5;
@@ -140,7 +140,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(347, 345);
+            this.btnEnregistrer.Location = new System.Drawing.Point(355, 249);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 4;
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(623, 415);
+            this.ClientSize = new System.Drawing.Size(623, 309);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEnregistrer);

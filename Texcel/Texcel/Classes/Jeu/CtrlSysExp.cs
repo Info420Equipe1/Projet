@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Texcel.Classes.Jeu;
 
 namespace Texcel.Classes.Jeu
 {
-    class CtrlAjouterSysExp : CtrlController
+    class CtrlSysExp : CtrlController
     {
         private static SysExp sysExp;
         
@@ -26,6 +27,12 @@ namespace Texcel.Classes.Jeu
             return lstSysExp;         
         }   
 
+        public static SysExp GetSysExp(string _nomSysExp)
+        {
+           SysExp monSe = context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).First();
+
+           return monSe;
+        }
         // On ajoute un nouveau système d'exploitation dans la table tblSysExp
         public static bool Ajouter(string _nomSysExp, string _codeSysExp, string _commSysExp)
         {
@@ -80,5 +87,38 @@ namespace Texcel.Classes.Jeu
             }
             
         }
+
+        public static void modif(string _nom, string _code, string _comm, SysExp _sysExp, string _nomEd, EditionSysExp _ed, string _nomVersion, VersionSysExp _ver)
+        {
+            SysExp sysExp = _sysExp;
+            sysExp.codeSysExp = _code;
+            sysExp.nomSysExp = _nom;
+            VersionSysExp ver = _ver;
+            ver.noVersion = _nomVersion;
+            ver.commSysExp = _comm;
+            EditionSysExp ed = _ed;
+            ed.nomEdition = _nomEd;
+            context.SaveChanges();
+
+        }
+        // requete qui marche pas mais pourquoi?
+        //public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
+        //{          
+        //        return (
+        //            from a in context.tblSysExp
+        //            from b in a.EditionSysExp
+        //            from c in b.VersionSysExp
+        //            where b.nomEdition == _editionSysExp
+        //            where c.noVersion == _versionSysExp
+        //            select new SysExp()
+        //            {
+        //                idSysExp = a.idSysExp,
+        //                nomSysExp = a.nomSysExp,
+        //                codeSysExp = a.codeSysExp,
+        //                EditionSysExp = a.EditionSysExp,
+        //                Plateforme = a.Plateforme
+        //            }).ToList();
+          
+        //}
     }
 }

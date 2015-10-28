@@ -30,10 +30,24 @@ namespace Texcel.Classes.Test
         public static void PopulateLstTypeTest(Employe _emp)
         {
             lstTypeTestLstBox.Clear();
-
+            bool yo = true;
             // Mettre une 1 dans le dictionnary_value si L'employé possède le typetest
-           
-           
+            foreach (TypeTest tTAll in lstTypeTest())
+            {
+                yo = false;
+                foreach (TypeTest tT in lstTypeTestAssEmp(_emp))
+                {
+                    if (tTAll == tT)
+                    {
+                        lstTypeTestLstBox.Add(tT, 1);
+                        yo = true;
+                    }
+                }
+                if (yo == false)
+                {
+                    lstTypeTestLstBox.Add(tTAll, 0);
+                }
+            }
         }
         // on change la value dans le dictionnaire pour la déplacer dans l'autre list
         public static Dictionary<TypeTest, int> ModifierLstBox(TypeTest _tT,bool _option)
@@ -55,10 +69,35 @@ namespace Texcel.Classes.Test
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
+            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
 
             return monTT;      
         }
 
+
+        //Rechercher les types test associé a un employé
+        public static List<TypeTest> lstTypeTestAssEmp(Employe _emp)
+        {
+            List<TypeTest> lstTypTest = new List<TypeTest>();
+            foreach (TypeTest typTes in _emp.TypeTest)
+            {
+                lstTypTest.Add(typTes);
+            }
+            
+
+            return lstTypTest;
+        }
+
+        //Liste de tous les types test
+        public static List<TypeTest> lstTypeTest()
+        {
+            List<TypeTest> lstTypTest = new List<TypeTest>();
+
+            foreach (TypeTest typTest in context.tblTypeTest)
+            {
+                lstTypTest.Add(typTest);
+            }
+            return lstTypTest;
+        }
     }
 }

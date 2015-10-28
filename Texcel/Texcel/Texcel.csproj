@@ -11,6 +11,21 @@
     <AssemblyName>Texcel</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publier\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,8 +68,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllEquipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllPlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllSysExp.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllTesteurs.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CasTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlAdmin.cs" />
+    <Compile Include="Classes\Personnel\CtrlFileEmployes.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\Jeu\CtrlClassificationJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlEditionSysExp.cs" />
@@ -62,24 +96,21 @@
     <Compile Include="Classes\Jeu\CtrlJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlListeSysExp.cs" />
     <Compile Include="Classes\Jeu\CtrlPlateforme.cs" />
-    <Compile Include="Classes\Jeu\CtrlAjouterSysExp.cs" />
+    <Compile Include="Classes\Jeu\CtrlSysExp.cs" />
     <Compile Include="Classes\Jeu\CtrlThemeJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlTypePlateforme.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionSysExp.cs" />
-    <Compile Include="AllPlateforme.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AllSysExp.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cJeu.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Personnel\CtrlEmploye.cs" />
     <Compile Include="Classes\Personnel\CtrlEquipe.cs" />
+    <Compile Include="Classes\Personnel\CtrlGroupe.cs" />
+    <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
+    <Compile Include="Classes\Projet\CtrlProjet.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />
     <Compile Include="ClassificationJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="EditionSysExp.cs">
@@ -91,7 +122,16 @@
     <Compile Include="Equipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FicheResultat.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Forms.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\frmLogin.cs">
@@ -100,11 +140,11 @@
     <Compile Include="Interfaces\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenreJeu.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Interfaces\Jeu\frmAjouterVersionJeu.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Groupe.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Interfaces\Jeu\frmAjouterVersionJeu.Designer.cs">
+      <DependentUpon>frmAjouterVersionJeu.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Jeu\frmClassification.cs">
       <SubType>Form</SubType>
@@ -117,21 +157,6 @@
     </Compile>
     <Compile Include="Interfaces\Personnel\frmEmployeRecu.Designer.cs">
       <DependentUpon>frmEmployeRecu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Personnel\frmAjouterEmploye.cs">
       <SubType>Form</SubType>
@@ -205,9 +230,26 @@
     <Compile Include="Interfaces\Jeu\frmGenre.Designer.cs">
       <DependentUpon>frmGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Plateforme.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -229,8 +271,6 @@
     <Compile Include="VersionSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaces\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Jeu\frmAjouterVersionJeu.resx">
+      <DependentUpon>frmAjouterVersionJeu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Jeu\frmClassification.resx">
       <DependentUpon>frmClassification.cs</DependentUpon>
@@ -317,7 +360,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Projet\" />
     <Folder Include="Interfaces\Projet\" />
     <Folder Include="Interfaces\Test\" />
   </ItemGroup>
@@ -343,6 +385,23 @@
     <Content Include="Images\Jeu\Jeux\8.jpg" />
     <Content Include="Images\Jeu\Jeux\9.jpg" />
     <Content Include="Images\NoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,13 +12,13 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class VersionJeu
+    public partial class FicheResultat
     {
-        public short idVersionJeu { get; set; }
-        public string nomVersionJeu { get; set; }
-        public string commVersionJeu { get; set; }
-        public Nullable<short> idJeu { get; set; }
+        public short idResult { get; set; }
+        public string titreFicheRes { get; set; }
+        public Nullable<System.DateTime> dateCloture { get; set; }
+        public string codeCasTest { get; set; }
     
-        public virtual cJeu cJeu { get; set; }
+        public virtual CasTest CasTest { get; set; }
     }
 }

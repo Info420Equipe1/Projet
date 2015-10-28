@@ -14,17 +14,44 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmPlateforme : frmForm
     {
+        bool modif;
+        Plateforme platModif;
         List<EditionSysExp> lstEd = new List<EditionSysExp>();
         public frmPlateforme()
         {
             InitializeComponent();
-
+            modif = false;
+            txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
+            cmbNom.DropDownStyle = ComboBoxStyle.DropDown;
         }
-
-        private void frmPlateforme_Load(object sender, EventArgs e)
+        public frmPlateforme(Plateforme plat)
         {
-            //txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
+            InitializeComponent();
+            txtID.Enabled = false;
+            txtID.Text = plat.idPlateforme.ToString();
+            cmbTypePlateforme.Enabled = false;
+            cmbTypePlateforme.Items.Add(plat.TypePlateforme.nomTypePlateforme);
+            cmbTypePlateforme.SelectedIndex = 0;
+            //cmbTypePlateforme.SelectedIndex = cmbTypePlateforme.Items.IndexOf(plat.TypePlateforme.nomTypePlateforme);
+            cmbNom.Enabled = true;
+            cmbNom.AllowDrop = false;
+            cmbNom.Text = plat.nomPlateforme;
+            rtbConfiguration.Text = plat.configPlateforme;
+            rtbCommentaire.Text = plat.commPlateforme;
+            //Probleme à discuter
+            //SysExp SE = plat.SysExp.First();
+            //cmbNomSE.Text = SE.nomSysExp;
+            //EditionSysExp EditionSE = SE.EditionSysExp.First();
+            //cmbEditionSE.Text = EditionSE.nomEdition;
+            //VersionSysExp VersionSE = EditionSE.VersionSysExp.First();
+            //cmbVersionSE.Text = VersionSE.noVersion;
+            btnAjouter.Text = "Modifier";
+            modif = true;
+            platModif = plat;
+            
         }
+
+        
 
 
         // fill la  liste de type plateforme
@@ -47,7 +74,8 @@ namespace Texcel.Interfaces.Jeu
             else
             {
                 cmbNom.Enabled = false;
-            }           
+            }
+            Recharger2();
         }
 
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,33 +83,35 @@ namespace Texcel.Interfaces.Jeu
             grbSE.Enabled = true;
             if (CtrlPlateforme.Verifier(cmbNom.Text))
             {
-                Plateforme plateforme = CtrlPlateforme.GetPlateforme(cmbNom.Text);
-                txtID.Text = plateforme.idPlateforme.ToString();
+                //Plateforme plateforme = CtrlPlateforme.GetPlateforme(cmbNom.Text);
+                //txtID.Text = plateforme.idPlateforme.ToString();
                 //Changer lors de la creation BD descPlateforme à commPlateforme
-                rtbCommentaire.Text = plateforme.commPlateforme;
-                rtbConfiguration.Text = plateforme.configPlateforme;
-                rtbCommentaire.SelectAll();
-                btnAjouter.Text = "Modifier";
-                btnSupprimer.Visible = true;
+                //rtbCommentaire.Text = plateforme.commPlateforme;
+                //rtbConfiguration.Text = plateforme.configPlateforme;
+                //rtbCommentaire.SelectAll();
+                //btnAjouter.Text = "Modifier";
+                //btnAjouter.Visible = false;
+                //btnSupprimer.Visible = true;
             }
         }
 
         private void cmbNom_TextUpdate(object sender, EventArgs e)
         {
-            if (cmbNom.Text.Trim() == null || cmbNom.Text.Trim() == "" || cmbNom.Text.Trim() == "Aucun")
-            {
-                grbSE.Enabled = false;
-                btnAjouter.Text = "Modifier";
-            }
-            else
-            {
-                grbSE.Enabled = true;
-                btnAjouter.Text = "Enregistrer";
-                btnSupprimer.Visible = false;
-                txtID.Text = "";
-                rtbConfiguration.Text = "";
-                rtbCommentaire.Text = "";
-            }
+            //if (cmbNom.Text.Trim() == null || cmbNom.Text.Trim() == "" || cmbNom.Text.Trim() == "Aucun")
+            //{
+            //    grbSE.Enabled = false;
+            //    //btnAjouter.Text = "Modifier";
+            //}
+            //else
+            //{
+            //    grbSE.Enabled = true;
+            //    btnAjouter.Visible = true;
+            //    btnAjouter.Text = "Enregistrer";
+            //    btnSupprimer.Visible = false;
+            //    txtID.Text = "";
+            //    rtbConfiguration.Text = "";
+            //    rtbCommentaire.Text = "";
+            //}
         }
 
         // fill la  liste de plateforme
@@ -100,7 +130,7 @@ namespace Texcel.Interfaces.Jeu
             cmbNomSE.Items.Clear();
 
 
-            foreach (SysExp sysExp in CtrlAjouterSysExp.Rechercher())
+            foreach (SysExp sysExp in CtrlSysExp.Rechercher())
             {
                 cmbNomSE.Items.Add(sysExp.nomSysExp);
 
@@ -132,11 +162,13 @@ namespace Texcel.Interfaces.Jeu
             }
 
 
-            if (CtrlPlateforme.Verifier(cmbNom.Text.Trim()))
+            if (modif)
             {
                 if (cmbNomSE.Text == "")
                 {
-                    message = CtrlPlateforme.Modifier(cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
+
+
+                    message = CtrlPlateforme.Modifier(cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text, platModif);
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -147,10 +179,12 @@ namespace Texcel.Interfaces.Jeu
                         MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Recharger();
                     }
+                    
                 }
                 else
                 {
-                    message = CtrlPlateforme.LierPlateformeSysExp(CtrlPlateforme.GetPlateforme(cmbNom.Text), cmbNomSE.Text.Trim());
+
+                    message = CtrlPlateforme.LierPlateformeSysExp(platModif, cmbNomSE.Text.Trim(), cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -162,7 +196,7 @@ namespace Texcel.Interfaces.Jeu
                         Recharger();
                     }
                 }
-
+                this.Close();
             }
             else
             {
@@ -197,7 +231,7 @@ namespace Texcel.Interfaces.Jeu
 
             }
         }
-
+        //Recharger tout
         private void Recharger()
         {
             //txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
@@ -205,6 +239,16 @@ namespace Texcel.Interfaces.Jeu
             rtbConfiguration.Text = "";
             cmbNom.Text = "";
             cmbTypePlateforme.SelectedItem = null;
+            cmbNomSE.SelectedItem = null;
+            cmbVersionSE.SelectedItem = null;
+            cmbEditionSE.SelectedItem = null;
+        }
+        //Recharger sans enlever le type de test
+        private void Recharger2()
+        {
+            rtbCommentaire.Text = "";
+            rtbConfiguration.Text = "";
+            cmbNom.Text = "";
             cmbNomSE.SelectedItem = null;
             cmbVersionSE.SelectedItem = null;
             cmbEditionSE.SelectedItem = null;

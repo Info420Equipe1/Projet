@@ -40,9 +40,8 @@ namespace Texcel.Interfaces.Jeu
             string nomTypePlat = cmbNom.Text;
 
             TypePlateforme typePlat = CtrlTypePlateforme.GetTypePlateforme(nomTypePlat);
-            txtID.Text = typePlat.idTypePlateforme.ToString();
-            rtbCommentaire.Text = typePlat.descTypePlateforme;
-            btnSupprimer.Visible = true;
+          
+            rtbCommentaire.Text = typePlat.descTypePlateforme;            
             btnEnregistrer.Text = "Modifier";
         }
 
@@ -54,7 +53,7 @@ namespace Texcel.Interfaces.Jeu
                 {
                     btnEnregistrer.Text = "Enregistrer";
                     btnSupprimer.Visible = false;
-                    txtID.Text = "";
+                    
                 }
             }
         }
@@ -100,7 +99,7 @@ namespace Texcel.Interfaces.Jeu
                 else
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtID.Text = "";
+                    
                     cmbNom.Text = "";
                     rtbCommentaire.Text = "";
                 }
@@ -120,8 +119,7 @@ namespace Texcel.Interfaces.Jeu
                 }
                 else
                 {
-                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtID.Text = "";
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
                     cmbNom.Text = "";
                     rtbCommentaire.Text = "";
                     btnSupprimer.Visible = false;

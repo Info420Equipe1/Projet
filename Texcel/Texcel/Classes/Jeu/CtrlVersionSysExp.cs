@@ -29,6 +29,7 @@ namespace Texcel.Classes.Jeu
                 return Enregistrer(versionSysExp);
             }
             return false;
+            
         }
 
         public static bool Verifier(SysExp sysExp, string _noVersion, string editionSysExp)
@@ -88,6 +89,12 @@ namespace Texcel.Classes.Jeu
             List<String> Distinct = lstVersion.Distinct().ToList();
             return Distinct;
             //Cette classe existe déjà
+        }
+
+        public static VersionSysExp GetVersionSysExp(int _idEdition,string _noVersion)
+        {
+            VersionSysExp vSE = context.tblVersionSysExp.Where(x => x.idEdition == _idEdition && x.noVersion == _noVersion).First();
+            return vSE;
         }
     }
 }

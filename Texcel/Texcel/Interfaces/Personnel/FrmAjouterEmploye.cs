@@ -7,23 +7,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Test;
 using Texcel.Classes;
 
 namespace Texcel.Interfaces.Personnel
 {
+    
     public partial class frmAjouterEmploye : frmForm
     {
+        bool modifier = false;
+        Employe employe = new Employe();
+        //Mode creer employé
         public frmAjouterEmploye()
         {
             InitializeComponent();
-        }
-
-        private void frmAjouterEmploye_Load(object sender, EventArgs e)
-        {
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
+            listBox1.Visible = false;
+            label2.Visible = false;
+            btnCreerUti.Visible = false;
+        }
+
+        public frmAjouterEmploye(Employe _employe)
+        {
+            InitializeComponent();
+            CtrlTypeTest.PopulateLstTypeTest();
+            AfficherLstBox();
+            AfficherEmploye(_employe);
+        }
+
+        private void AfficherEmploye(Employe _employe)
+        {
+            txtNom.Text = _employe.nomEmploye;
+            txtPrenom.Text = _employe.prenomEmploye;
+            txtAdresse.Text = _employe.adressePostale;
+            txtTelPrim.Text = _employe.numTelPrincipal;
+            txtTelSec.Text = _employe.numTelSecondaire;
+            dateTPEmp.Value = _employe.dateEmbauche;
+        }
+
+        //Mode modifier (Arrive de la fenetre recherche)
+        public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
+        {
+            InitializeComponent();
+            txtNom.Text = _nom;
+            txtPrenom.Text = _pren;
+            txtAdresse.Text = _adresse;
+            txtTelPrim.Text = _telPrim;
+            txtTelSec.Text = _telSec;
+            dateTPEmp.Value = _date;
+            richTextBox1.Text = _compParti;
+            
+            CtrlTypeTest.PopulateLstTypeTest(_emp);
+            AfficherLstBox();
+            //RemplirListBoxPourModeModif(_emp);
+            remplirListBoxUtil(_emp);
+            modifier = true;
+            employe = CtrlEmploye.emp(_nom + " " + _pren);
+            btnEnregistrer.Text = "Modifier";
+        }
+
+        private void RemplirListBoxPourModeModif(Employe _emp)
+        {
+            foreach (TypeTest typTest in CtrlTypeTest.lstTypeTestAssEmp(_emp))
+            {
+                lstBoxTypeTestEmp.Items.Add(typTest.nomTypeTest);
+                
+            }
         }
 
         // Remplir les lstBox
@@ -31,16 +83,17 @@ namespace Texcel.Interfaces.Personnel
         {
             lstBoxTypeTest.Items.Clear();
             lstBoxTypeTestEmp.Items.Clear();
+            //CtrlTypeTest.PopulateLstTypeTest();
             //Emplissage de la list box des TypeTest 
             foreach (KeyValuePair<TypeTest, int> tT in CtrlTypeTest.getlstTypeTestLstBox)
             {
                 if (tT.Value == 0)
                 {
-                    lstBoxTypeTest.Items.Add(tT.Key.nomTest); // ca va changer pas de descr!!!!!!!
+                    lstBoxTypeTest.Items.Add(tT.Key.nomTypeTest); 
                 }
                 else
                 {
-                    lstBoxTypeTestEmp.Items.Add(tT.Key.nomTest);
+                    lstBoxTypeTestEmp.Items.Add(tT.Key.nomTypeTest);
                 }
 
             }
@@ -60,8 +113,14 @@ namespace Texcel.Interfaces.Personnel
                 CtrlTypeTest.ModifierLstBox(CtrlTypeTest.GetTypeTest(lstBoxTypeTest.Text),true);
                 AfficherLstBox();
             }
-        
-        
+        }
+
+        private void remplirListBoxUtil(Employe _emp)
+        {
+            foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(_emp))
+            {
+                listBox1.Items.Add(uti.nomUtilisateur);
+            }
         }
       
         private void bntFlecheRetirer_Click(object sender, EventArgs e)
@@ -82,8 +141,63 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dateTPEmp.Text);
-            CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), dateTPEmp.Value);
+            if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == ""))
+            {
+                MessageBox.Show("Certain champs ne sont pas rempli");
+                return;
+            }
+            if (modifier == false)
+            {
+                string message;
+                message = CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            else
+            {
+                string message;
+                message = CtrlEmploye.Modifier(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value, employe);
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnModifUti.Visible = true;
+        }
+
+        private void btnModifUti_Click(object sender, EventArgs e)
+        {
+            Utilisateur uti = CtrlUtilisateur.utilisateur(listBox1.SelectedItem.ToString());
+            frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti), CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
+            frmUti.ShowDialog();
+        }
+
+        private void btnCreerUti_Click(object sender, EventArgs e)
+        {
+            frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
+            frmUti.ShowDialog();
+            this.Close();
         }
 
         // remplir les infos employé avec les données des R.H.!!

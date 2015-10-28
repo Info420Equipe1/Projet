@@ -16,13 +16,18 @@ namespace Texcel
     {
         public Equipe()
         {
-            this.Employe = new HashSet<Employe>();
+            this.Employe1 = new HashSet<Employe>();
+            this.CasTest = new HashSet<CasTest>();
         }
     
         public short idEquipe { get; set; }
         public string nomEquipe { get; set; }
+        public short idChefEquipe { get; set; }
         public Nullable<short> nbTesteur { get; set; }
+        public string descEquipe { get; set; }
     
-        public virtual ICollection<Employe> Employe { get; set; }
+        public virtual Employe Employe { get; set; }
+        public virtual ICollection<Employe> Employe1 { get; set; }
+        public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

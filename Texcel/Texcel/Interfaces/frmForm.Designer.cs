@@ -37,7 +37,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(820, 215);
             this.Name = "frmForm";
-            this.Text = "FrmForm";
+            this.Text = "Ajouter une version de test";
             this.ResumeLayout(false);
         }
 

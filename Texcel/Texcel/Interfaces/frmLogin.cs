@@ -21,6 +21,7 @@ namespace Texcel.Interfaces
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text != "")
             {
                 if (txtPassword.Text != "")
@@ -28,9 +29,7 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
-                        frmAdmin frmAdmin = new frmAdmin();
-                        frmAdmin.Show();
-                        this.Hide();          
+                        this.Close();
                     }
                     else
                     {
@@ -46,13 +45,23 @@ namespace Texcel.Interfaces
             {
                 MessageBox.Show("Veuillez saisir un nom d'utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            this.Close();
+            //txtUsername.Text = "";
+            //txtPassword.Text = "";
+            //this.Close();
+            Application.Exit();
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (txtPassword.Text == "" && txtUsername.Text == "")
+            {
+                Application.Exit();
+            }
         }
     }
 }

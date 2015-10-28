@@ -14,9 +14,53 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmJeu : frmForm
     {
+        bool modif;
         public frmJeu()
         {
             InitializeComponent();
+            modif = false;
+        }
+
+        public frmJeu(cJeu jeu)
+        {
+            InitializeComponent();
+            modif = true;
+            btnEnregistrer.Text = "Modifier";
+            txtID.Enabled = false;
+            txtID.Text = jeu.idJeu.ToString();
+            cmbNom.Enabled = false;
+            cmbNom.Text = jeu.nomJeu;
+            txtDeveloppeur.Text = jeu.developeur;
+            cmbClassification.Text = jeu.ClassificationJeu.nomClassification; //Probleme daffichage... Prendrait le selected index
+            rtbDescription.Text = jeu.descJeu;
+            rtbDescription.Focus();
+            rtbDescription.SelectAll();
+            rtbConfiguration.Text = jeu.configMinimal;
+            try
+            {
+                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
+            }
+            catch (FileNotFoundException)
+            {
+                picJeu.ImageLocation = @"Images\NoImage.png";
+            }
+            foreach (VersionJeu version in jeu.VersionJeu)
+            {
+                lstBoxVersion.Items.Add(version.nomVersionJeu);
+            }
+            foreach (Plateforme plat in jeu.Plateforme)
+            {
+                lstBoxPlat1.Items.Add(plat.nomPlateforme);
+            }
+            foreach (ThemeJeu theme in jeu.ThemeJeu)
+            {
+                lstBoxTheme1.Items.Add(theme.nomTheme);
+            }
+            foreach (GenreJeu genre in jeu.GenreJeu)
+            {
+                lstBoxGenre1.Items.Add(genre.nomGenre);
+            }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -26,7 +70,6 @@ namespace Texcel.Interfaces.Jeu
 
         private void frmJeu_Load(object sender, EventArgs e)
         {
-            txtID.Text = "";
             //Emplissage de la list box des Plateforme Globales
             foreach (Plateforme plat in CtrlPlateforme.lstPlateformeJeu())
             {
@@ -80,17 +123,17 @@ namespace Texcel.Interfaces.Jeu
             cJeu jeu = CtrlJeu.GetJeu(nomJeu);
             txtID.Text = jeu.idJeu.ToString();
             txtDeveloppeur.Text = jeu.developeur;
-            cmbClassification.SelectedItem = jeu.ClassificationJeu.nomClassification;
+            cmbClassification.Text = (jeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification); //jeu.ClassificationJeu.nomClassification;
             rtbDescription.Text = jeu.descJeu;
             rtbConfiguration.Text = jeu.configMinimal;
             try
             {
-                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
                 //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
-                picJeu.ImageLocation = @"..\..\Images\NoImage.png";
+                picJeu.ImageLocation = @"Images\NoImage.png";
             }
 
             
@@ -115,11 +158,11 @@ namespace Texcel.Interfaces.Jeu
             }
 
             //Emplissage de la list box des version par rapport au jeu
-            //lstBoxVersion.Items.Clear();
-            //foreach (VersionJeu VersionJeu in jeu.)
-            //{
-            //    lstBoxVersion.Items.Add(VersionJeu.nomVersionJeu);
-            //}
+            lstBoxVersion.Items.Clear();
+            foreach (VersionJeu VersionJeu in jeu.VersionJeu)
+            {
+                lstBoxVersion.Items.Add(VersionJeu.nomVersionJeu);
+            }
 
             //Selectionne tous les LstBox afin de pouvoir remove rapidement(DemandeClient)
             string name;
@@ -171,10 +214,10 @@ namespace Texcel.Interfaces.Jeu
             {
                 genreJeu.Add(CtrlGenreJeu.GetGenre(nomGenre));
             }
-            //foreach (string nomVersion in lstBoxVersion.Items)
-            //{
-            //    versionJeu.Add(CtrlVersionJeu.ge)
-            //}
+            foreach (string nomVersion in lstBoxVersion.Items)
+            {
+                versionJeu.Add(CtrlVersionJeu.GetVersionJeu(nomVersion));
+            }
 
             if (cmbNom.Text == "")
             {
@@ -193,7 +236,7 @@ namespace Texcel.Interfaces.Jeu
                 DR = MessageBox.Show("Vous ètes en train de modifier un Jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
                 {
-                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, cmbClassification.Text, rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
+                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -202,12 +245,16 @@ namespace Texcel.Interfaces.Jeu
                     else
                     {
                         MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (modif)
+                        {
+                            this.Close();
+                        }
                     }
                 }
             }
             else
             {
-                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), cmbClassification.Text, rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
+                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -467,20 +514,60 @@ namespace Texcel.Interfaces.Jeu
 
         private void pcbAjouterVerJeu_Click(object sender, EventArgs e)
         {
+            if (CtrlJeu.VerifierJeu(cmbNom.Text))
+            {
+                string nomJeu = cmbNom.Text;
+                frmAjouterVersionJeu frmVersionJeu = new frmAjouterVersionJeu(nomJeu);
+                frmVersionJeu.ShowDialog();
+                List<VersionJeu> lstVersionJeu = CtrlVersionJeu.LstVersionJeu(nomJeu);
+                lstBoxVersion.Items.Clear();
+                foreach (VersionJeu version in lstVersionJeu)
+                {
+                    lstBoxVersion.Items.Add(version.nomVersionJeu);
+                }
+            }
+            else if (!CtrlJeu.VerifierJeu(cmbNom.Text))
+            {
+                CtrlVersionJeu.MessageWarnng("Veuillez enregistrer le jeu avant de lui ajouter une version.");
+            }         
+            else
+            {
+                CtrlVersionJeu.MessageWarnng("Veuillez choisir un jeu afin de pouvoir lui associer une version de test.");
+            }
         }
 
-       
+        private void lstBoxVersion_DoubleClick(object sender, EventArgs e)
+        {
+            VersionJeu _Version = CtrlVersionJeu.GetVersionJeu(lstBoxVersion.SelectedItem.ToString());
+            frmAjouterVersionJeu frmVersion = new frmAjouterVersionJeu(_Version);
+            frmVersion.ShowDialog();
+        }
 
-        
+        private void lstBoxVersion_KeyDown(object sender, KeyEventArgs e)
+        {
+            string message;
+            if (e.KeyData == Keys.Delete)
+            {
+                message = CtrlVersionJeu.Supprimer(lstBoxVersion.SelectedItem.ToString());
+                if (message.Contains("erreur"))
+                {
+                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    List<VersionJeu> lstVersionJeu = CtrlVersionJeu.LstVersionJeu(cmbNom.Text);
+                    lstBoxVersion.Items.Clear();
+                    foreach (VersionJeu version in lstVersionJeu)
+                    {
+                        lstBoxVersion.Items.Add(version.nomVersionJeu);
+                    }
+                }
+            }
+        }
 
-        
 
-        
-
-        
-
-        
-
-        
+    
     }
 }

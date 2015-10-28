@@ -54,16 +54,6 @@ namespace Texcel.Classes.Jeu
             return lstEditionSysExp;
         }
 
-        /*public static List<EditionSysExp> RechercherSysExp(string _nomSysExp)
-        {
-            List<EditionSysExp> lstEditionSysExp = new List<EditionSysExp>();
-            foreach (EditionSysExp editionSysExp in context.tblEditionSysExp.Where(x => x.SysExp.nomSysExp == _nomSysExp))
-            {
-                lstEditionSysExp.Add(editionSysExp);
-            }
-            return lstEditionSysExp;
-        }*/
-
         // On enregistre dans la table la nouvelle edition
         private static bool Enregistrer(EditionSysExp _editionSysExp)
         {
@@ -89,6 +79,12 @@ namespace Texcel.Classes.Jeu
             }
             return lstEdition;
             //Cette classe existe déjà
+        }
+        public static EditionSysExp GetEditionSysExp(string _nomEdition, int _idSysExp)
+        {
+            EditionSysExp monSe = context.tblEditionSysExp.Where(x => x.idSysExp == _idSysExp && x.nomEdition ==_nomEdition).First();
+           return monSe;
+ 
         }
       
     }

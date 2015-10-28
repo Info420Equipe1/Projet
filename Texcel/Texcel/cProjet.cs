@@ -12,13 +12,18 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class VersionJeu
+    public partial class cProjet
     {
-        public short idVersionJeu { get; set; }
-        public string nomVersionJeu { get; set; }
-        public string commVersionJeu { get; set; }
-        public Nullable<short> idJeu { get; set; }
+        public cProjet()
+        {
+            this.CasTest = new HashSet<CasTest>();
+        }
     
-        public virtual cJeu cJeu { get; set; }
+        public string codeProjet { get; set; }
+        public string nomProjet { get; set; }
+        public string chefProjet { get; set; }
+        public string descProjet { get; set; }
+    
+        public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }
