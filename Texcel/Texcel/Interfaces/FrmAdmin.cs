@@ -34,11 +34,13 @@ namespace Texcel.Interfaces
                 {
                     cmbFiltre.Text = "Équipe";
                     btnRechercher_Click(this, null);
+                    lblNomEquip.Focus();
                 }
                 if (groupe.idGroupe == 3)
                 {
                     cmbFiltre.Text = "Employé";
                     btnRechercher_Click(this, null);
+                    lblNumeroEmp.Focus();
                 }
                 if (groupe.idGroupe == 5)
                 {
@@ -46,6 +48,8 @@ namespace Texcel.Interfaces
                     //Verification du fichier RH
                     cmbFiltre.Text = "Jeu";
                     btnRechercher_Click(this, null);
+                    lblNumero.Focus();
+                    tabControl1.SelectedIndex = 2;
                     if (CtrlFileEmployes.IsEmpty() > 0)
                     {
                         DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -168,6 +172,7 @@ namespace Texcel.Interfaces
                     MessageBox.Show("Veuillez sélectionner un filtre.", "Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     break;
             }
+            this.dgvResultats_Click(this, null);
         }
 
         private void messageDroits()
@@ -475,7 +480,7 @@ namespace Texcel.Interfaces
                     ChoixFiltre("Employé");
                     dgvResultats.Rows[0].Selected = false;
                     dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);  //La View ne se refresh pas lors du retour sur la fenetre de recherche dans la forme admin
+                    dgvResultats_Click(this, null);
                 }
             }
             else
@@ -652,6 +657,8 @@ namespace Texcel.Interfaces
             rtxtConfigPlate.Text = "";
             rtxtCommPlate.Text = "";
         }
+
+
 
        
 

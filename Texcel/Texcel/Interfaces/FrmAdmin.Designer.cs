@@ -270,7 +270,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 514);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(480, 115);
+            this.richTextBox1.Size = new System.Drawing.Size(636, 115);
             this.richTextBox1.TabIndex = 53;
             this.richTextBox1.Text = "";
             // 
@@ -302,7 +302,7 @@
             this.lstBoxTypeTest.ItemHeight = 20;
             this.lstBoxTypeTest.Location = new System.Drawing.Point(12, 384);
             this.lstBoxTypeTest.Name = "lstBoxTypeTest";
-            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
+            this.lstBoxTypeTest.Size = new System.Drawing.Size(636, 104);
             this.lstBoxTypeTest.TabIndex = 52;
             // 
             // DateEmbEmp
@@ -525,7 +525,7 @@
             this.lstTesteurEquipe.Location = new System.Drawing.Point(130, 208);
             this.lstTesteurEquipe.Name = "lstTesteurEquipe";
             this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstTesteurEquipe.Size = new System.Drawing.Size(390, 264);
+            this.lstTesteurEquipe.Size = new System.Drawing.Size(539, 264);
             this.lstTesteurEquipe.TabIndex = 57;
             // 
             // lblCommentaire
@@ -544,7 +544,7 @@
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommentaire.Location = new System.Drawing.Point(130, 106);
             this.rtbCommentaire.Name = "rtbCommentaire";
-            this.rtbCommentaire.Size = new System.Drawing.Size(390, 96);
+            this.rtbCommentaire.Size = new System.Drawing.Size(539, 96);
             this.rtbCommentaire.TabIndex = 56;
             this.rtbCommentaire.Text = "";
             // 
@@ -674,7 +674,7 @@
             this.lstBoxPlat1.Location = new System.Drawing.Point(123, 468);
             this.lstBoxPlat1.Name = "lstBoxPlat1";
             this.lstBoxPlat1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxPlat1.Size = new System.Drawing.Size(375, 104);
+            this.lstBoxPlat1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxPlat1.Sorted = true;
             this.lstBoxPlat1.TabIndex = 64;
             // 
@@ -687,7 +687,7 @@
             this.lstBoxGenre1.Location = new System.Drawing.Point(123, 689);
             this.lstBoxGenre1.Name = "lstBoxGenre1";
             this.lstBoxGenre1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxGenre1.Size = new System.Drawing.Size(375, 104);
+            this.lstBoxGenre1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxGenre1.Sorted = true;
             this.lstBoxGenre1.TabIndex = 66;
             // 
@@ -700,7 +700,7 @@
             this.lstBoxTheme1.Location = new System.Drawing.Point(123, 578);
             this.lstBoxTheme1.Name = "lstBoxTheme1";
             this.lstBoxTheme1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstBoxTheme1.Size = new System.Drawing.Size(375, 104);
+            this.lstBoxTheme1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxTheme1.Sorted = true;
             this.lstBoxTheme1.TabIndex = 65;
             // 
@@ -712,7 +712,7 @@
             this.lstBoxVersion.ItemHeight = 20;
             this.lstBoxVersion.Location = new System.Drawing.Point(123, 358);
             this.lstBoxVersion.Name = "lstBoxVersion";
-            this.lstBoxVersion.Size = new System.Drawing.Size(375, 104);
+            this.lstBoxVersion.Size = new System.Drawing.Size(516, 104);
             this.lstBoxVersion.Sorted = true;
             this.lstBoxVersion.TabIndex = 67;
             // 
@@ -792,7 +792,7 @@
             this.rtbConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbConfiguration.Location = new System.Drawing.Point(123, 248);
             this.rtbConfiguration.Name = "rtbConfiguration";
-            this.rtbConfiguration.Size = new System.Drawing.Size(375, 104);
+            this.rtbConfiguration.Size = new System.Drawing.Size(516, 104);
             this.rtbConfiguration.TabIndex = 63;
             this.rtbConfiguration.Text = "";
             // 
@@ -802,7 +802,7 @@
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDescription.Location = new System.Drawing.Point(123, 137);
             this.rtbDescription.Name = "rtbDescription";
-            this.rtbDescription.Size = new System.Drawing.Size(375, 105);
+            this.rtbDescription.Size = new System.Drawing.Size(516, 105);
             this.rtbDescription.TabIndex = 62;
             this.rtbDescription.Text = "";
             // 
@@ -914,7 +914,7 @@
             this.rtxtCommPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtCommPlate.Location = new System.Drawing.Point(142, 257);
             this.rtxtCommPlate.Name = "rtxtCommPlate";
-            this.rtxtCommPlate.Size = new System.Drawing.Size(336, 126);
+            this.rtxtCommPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtCommPlate.TabIndex = 21;
             this.rtxtCommPlate.Text = "";
             // 
@@ -924,7 +924,7 @@
             this.rtxtConfigPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtConfigPlate.Location = new System.Drawing.Point(142, 125);
             this.rtxtConfigPlate.Name = "rtxtConfigPlate";
-            this.rtxtConfigPlate.Size = new System.Drawing.Size(336, 126);
+            this.rtxtConfigPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtConfigPlate.TabIndex = 20;
             this.rtxtConfigPlate.Text = "";
             // 
@@ -1046,7 +1046,7 @@
             this.rtbCommSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommSysExp.Location = new System.Drawing.Point(167, 205);
             this.rtbCommSysExp.Name = "rtbCommSysExp";
-            this.rtbCommSysExp.Size = new System.Drawing.Size(375, 105);
+            this.rtbCommSysExp.Size = new System.Drawing.Size(505, 105);
             this.rtbCommSysExp.TabIndex = 63;
             this.rtbCommSysExp.Text = "";
             // 
