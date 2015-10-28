@@ -30,6 +30,42 @@ namespace Texcel.Interfaces
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
                 lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(2))
+                {
+                    this.smiSysExp.Visible = false;
+                }
+                if (!lstDroits.Contains(10))
+                {
+                    this.smiTypePlateforme.Visible = false;
+                }
+                if (!lstDroits.Contains(14))
+                {
+                    this.smiPlateforme.Visible = false;
+                }
+                if (!lstDroits.Contains(12))
+                {
+                    this.smiTheme.Visible = false;
+                }
+                if (!lstDroits.Contains(6))
+                {
+                    this.smiGenre.Visible = false;
+                }
+                if (lstDroits.Contains(4))
+                {
+                    this.smiClassification.Visible = false;
+                }
+                if (lstDroits.Contains(8))
+                {
+                    this.smiJeu.Visible = false;
+                }
+                if (lstDroits.Contains(16))
+                {
+                    this.smiEmploye.Visible = false;
+                }
+                if (lstDroits.Contains(18))
+                {
+                    this.smiEquipe.Visible = false;
+                }
                 if (groupe.idGroupe == 2)
                 {
                     cmbFiltre.Text = "Équipe";
@@ -182,80 +218,38 @@ namespace Texcel.Interfaces
 
         private void SmiSysExp_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(2))
-            {
                 frmAjouterSysExp frmSysExp = new frmAjouterSysExp();
-                frmSysExp.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmSysExp.ShowDialog();
         }
 
         private void SmiTypePlateforme_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(10))
-            {
                 frmTypePlateforme frmTypePlateforme = new frmTypePlateforme();
-                frmTypePlateforme.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmTypePlateforme.ShowDialog();
         }
 
         private void SmiPlateforme_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(14))
-            {
                 frmPlateforme frmPlateforme = new frmPlateforme();
-                frmPlateforme.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmPlateforme.ShowDialog();
         }
 
         private void SmiTheme_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(12))
-            {
                 frmTheme frmTheme = new frmTheme();
-                frmTheme.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmTheme.ShowDialog();
         }
 
         private void SmiGenre_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(6))
-            {
                 frmGenre frmGenre = new frmGenre();
-                frmGenre.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmGenre.ShowDialog();
         }
 
         private void SmiClassification_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(4))
-            {
                 frmClassification frmClassification = new frmClassification();
-                frmClassification.ShowDialog(); 
-            }
-            else
-            {
-                messageDroits();
-            }
+                frmClassification.ShowDialog();
         }
 
         private void SmiJeu_Click(object sender, EventArgs e)
