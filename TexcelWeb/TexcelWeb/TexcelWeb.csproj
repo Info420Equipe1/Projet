@@ -69,7 +69,7 @@
     <Content Include="css\navi.css" />
     <Content Include="css\projet.css" />
     <Content Include="css\style.css" />
-    <Content Include="index.aspx" />
+    <Content Include="creerProjet.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -212,8 +212,7 @@ $(function(){
 							<th scope="col">Category</th>
 							<th scope="col" style="width: 65px;">Modify</th>
 						</tr>
-					</thead>
-						
+					</thead>						
 					<tbody>
 						<tr>
 							<td class="align-center">2</td>
