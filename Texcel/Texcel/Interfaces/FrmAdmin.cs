@@ -33,6 +33,7 @@ namespace Texcel.Interfaces
                 if (!lstDroits.Contains(2))
                 {
                     this.smiSysExp.Visible = false;
+                    this.btnModifierSysExp.Visible = false;
                 }
                 if (!lstDroits.Contains(10))
                 {
@@ -41,6 +42,7 @@ namespace Texcel.Interfaces
                 if (!lstDroits.Contains(14))
                 {
                     this.smiPlateforme.Visible = false;
+                    this.btnModifierPlateforme.Visible = false;
                 }
                 if (!lstDroits.Contains(12))
                 {
@@ -50,21 +52,24 @@ namespace Texcel.Interfaces
                 {
                     this.smiGenre.Visible = false;
                 }
-                if (lstDroits.Contains(4))
+                if (!lstDroits.Contains(4))
                 {
                     this.smiClassification.Visible = false;
                 }
-                if (lstDroits.Contains(8))
+                if (!lstDroits.Contains(8))
                 {
                     this.smiJeu.Visible = false;
+                    this.btnModifierJeu.Visible = false;
                 }
-                if (lstDroits.Contains(16))
+                if (!lstDroits.Contains(16))
                 {
                     this.smiEmploye.Visible = false;
+                    this.btnModifierEmp.Visible = false;
                 }
-                if (lstDroits.Contains(18))
+                if (!lstDroits.Contains(18))
                 {
                     this.smiEquipe.Visible = false;
+                    this.btnModifierEquipe.Visible = false;
                 }
                 if (groupe.idGroupe == 2)
                 {
@@ -461,118 +466,83 @@ namespace Texcel.Interfaces
 
         private void btnModifierEmp_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(16))
+            if (cmbFiltre.Text == "Employé")
             {
-                if (cmbFiltre.Text == "Employé")
-                {
-                    int selectedRow = dgvResultats.SelectedRows[0].Index;
-                    string nomPren;
-                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                    Employe emp = CtrlEmploye.emp(nomPren);
-                    frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
-                    frmEmp.ShowDialog();
-                    ChoixFiltre("Employé");
-                    dgvResultats.Rows[0].Selected = false;
-                    dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);
-                }
-            }
-            else
-            {
-                messageDroits();
+                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                string nomPren;
+                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                Employe emp = CtrlEmploye.emp(nomPren);
+                frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
+                frmEmp.ShowDialog();
+                ChoixFiltre("Employé");
+                dgvResultats.Rows[0].Selected = false;
+                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats_Click(this, null);
             }
         }
 
         private void btnModifierEquipe_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(18))
+            if (cmbFiltre.Text == "Équipe")
             {
-                if (cmbFiltre.Text == "Équipe")
-                {
-                    int selectedRow = dgvResultats.SelectedRows[0].Index;
-                    Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
-                    frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
-                    frmEquipe.ShowDialog();
-                    CtrlAdmin.refreshEntity();
-                    ChoixFiltre("Équipe");
-                    dgvResultats.Rows[0].Selected = false;
-                    dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);
-                }
-            }
-            else
-            {
-                messageDroits();
+                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
+                frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
+                frmEquipe.ShowDialog();
+                CtrlAdmin.refreshEntity();
+                ChoixFiltre("Équipe");
+                dgvResultats.Rows[0].Selected = false;
+                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats_Click(this, null);
             }
         }
 
         private void btnModifierJeu_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(8))
+            if (cmbFiltre.Text == "Jeu")
             {
-                if (cmbFiltre.Text == "Jeu")
-                {
-                    int selectedRow = dgvResultats.SelectedRows[0].Index;
-                    cJeu jeu = CtrlJeu.GetJeu(lblNomJeu.Text);
-                    frmJeu frmJeu = new Jeu.frmJeu(jeu);
-                    frmJeu.ShowDialog();
-                    ChoixFiltre("Jeu");
-                    dgvResultats.Rows[0].Selected = false;
-                    dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);
-                }
-            }
-            else
-            {
-                messageDroits();
+                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                cJeu jeu = CtrlJeu.GetJeu(lblNomJeu.Text);
+                frmJeu frmJeu = new Jeu.frmJeu(jeu);
+                frmJeu.ShowDialog();
+                ChoixFiltre("Jeu");
+                dgvResultats.Rows[0].Selected = false;
+                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats_Click(this, null);
             }
         }
 
         private void btnModifierPlateforme_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(10))
+            if (cmbFiltre.Text == "Plateforme")
             {
-                if (cmbFiltre.Text == "Plateforme")
-                {
-                    int selectedRow = dgvResultats.SelectedRows[0].Index;
-                    Plateforme plat = CtrlPlateforme.GetPlateforme(lblNomPlate.Text);
-                    frmPlateforme frmPlat = new frmPlateforme(plat);
-                    frmPlat.ShowDialog();
-                    ChoixFiltre("Plateforme");
-                    dgvResultats.Rows[0].Selected = false;
-                    dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);
-                }
-            }
-            else
-            {
-                messageDroits();
+                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                Plateforme plat = CtrlPlateforme.GetPlateforme(lblNomPlate.Text);
+                frmPlateforme frmPlat = new frmPlateforme(plat);
+                frmPlat.ShowDialog();
+                ChoixFiltre("Plateforme");
+                dgvResultats.Rows[0].Selected = false;
+                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats_Click(this, null);
             }
         }
         private void btnModifierSysExp_Click(object sender, EventArgs e)
         {
-            if (lstDroits.Contains(10))
+            if (cmbFiltre.Text == "Système d'exploitation")
             {
-                if (cmbFiltre.Text == "Système d'exploitation")
-                {
-                    string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
-                    string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                    string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
-                    SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
-                    EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
-                    VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
-                    int selectedRow = dgvResultats.SelectedRows[0].Index;
-                    frmAjouterSysExp frmSysExp = new frmAjouterSysExp(sE,eSE,vSE);
-                    frmSysExp.ShowDialog();
-                    ChoixFiltre("Système d'exploitation");
-                    dgvResultats.Rows[0].Selected = false;
-                    dgvResultats.Rows[selectedRow].Selected = true;
-                    dgvResultats_Click(this, null);
-                }
-            }
-            else
-            {
-                messageDroits();
+                string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
+                string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
+                EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
+                VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                frmAjouterSysExp frmSysExp = new frmAjouterSysExp(sE,eSE,vSE);
+                frmSysExp.ShowDialog();
+                ChoixFiltre("Système d'exploitation");
+                dgvResultats.Rows[0].Selected = false;
+                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats_Click(this, null);
             }
         }
         
