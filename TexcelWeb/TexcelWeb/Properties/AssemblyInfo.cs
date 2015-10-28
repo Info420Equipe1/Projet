@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("AspNetInterfaces")]
+[assembly: AssemblyTitle("TexcelWeb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AspNetInterfaces")]
+[assembly: AssemblyProduct("TexcelWeb")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("9767da46-70dc-4e06-95d6-19c6e6173611")]
+[assembly: Guid("398d58c6-ec7c-4dea-aaab-571e73232786")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{01A94DAE-53AC-4C6A-919E-88194BD69F65}</ProjectGuid>
+    <ProjectGuid>{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AspNetInterfaces</RootNamespace>
-    <AssemblyName>AspNetInterfaces</AssemblyName>
+    <RootNamespace>TexcelWeb</RootNamespace>
+    <AssemblyName>TexcelWeb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -38,9 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -60,36 +57,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="frmCasdeTest.aspx" />
-    <Content Include="frmCreerProjet.aspx" />
-    <Content Include="StyleCasdeTest.css" />
-    <Content Include="StyleCreerProjet.css" />
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App_GlobalResources\Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
-    <Compile Include="frmCasdeTest.aspx.cs">
-      <DependentUpon>frmCasdeTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmCasdeTest.aspx.designer.cs">
-      <DependentUpon>frmCasdeTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmCreerProjet.aspx.cs">
-      <DependentUpon>frmCreerProjet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmCreerProjet.aspx.designer.cs">
-      <DependentUpon>frmCreerProjet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -98,13 +65,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Resource1.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-    </Content>
+    <Content Include="css\login.css" />
+    <Content Include="css\navi.css" />
+    <Content Include="css\projet.css" />
+    <Content Include="css\style.css" />
+    <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -119,9 +92,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4348</DevelopmentServerPort>
+          <DevelopmentServerPort>9204</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2964/</IISUrl>
+          <IISUrl>http://localhost:9204/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

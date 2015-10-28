@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texcel", "Texcel\Texcel.csproj", "{5FF53530-C298-4822-8DBC-4FCD209DD04A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetInterfaces", "..\AspNetInterfaces\AspNetInterfaces\AspNetInterfaces.csproj", "{01A94DAE-53AC-4C6A-919E-88194BD69F65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TexcelWeb", "..\TexcelWeb\TexcelWeb\TexcelWeb.csproj", "{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5FF53530-C298-4822-8DBC-4FCD209DD04A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FF53530-C298-4822-8DBC-4FCD209DD04A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FF53530-C298-4822-8DBC-4FCD209DD04A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01A94DAE-53AC-4C6A-919E-88194BD69F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01A94DAE-53AC-4C6A-919E-88194BD69F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01A94DAE-53AC-4C6A-919E-88194BD69F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01A94DAE-53AC-4C6A-919E-88194BD69F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6ED96E9-B7FD-407A-B487-1DCA897EC1D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

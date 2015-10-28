@@ -1,10 +1,6 @@
 ﻿body {
 }
 
-div{
-    /* border: 1px solid red; */
-}
-
 #CasTestInfo {
     width: 100%;
     display:inline-block;
@@ -20,6 +16,7 @@ div{
 #CasTestDesc{
     width: 50%;
     display:inline-block;
+    vertical-align:top;
 }
 
 #CasTestDiv{
@@ -31,9 +28,15 @@ div{
     width: 50%;
     display:inline-block;
 }
-
+#btnDroit{
+    display:inline-block;
+    align-items:flex-end;
+}
+#btnCentre{
+    display:inline-block;
+}
 .lblColum1{
-    width:20%;
+    width:25%;
     text-align:right;
     display:inline-block;
 }
@@ -44,6 +47,7 @@ div{
 
 .txtColum1{
     display:inline;
+    width:65%;
 }
 
 .info{
@@ -51,18 +55,13 @@ div{
     margin-bottom:5px;
 }
 
-.txtColum2{
-    height:145px;
-    width:95%;
-    }
 
 #DataGrid{
     border: 1px solid red;
     width: 95%;
 }
-#DataGridBillet{
-    margin-top:5px;
-    margin-left:200px;
-    font-size:25px;
-}
 
+.richtextbox{
+    width: 295px;
+    height: 150px;
+}
