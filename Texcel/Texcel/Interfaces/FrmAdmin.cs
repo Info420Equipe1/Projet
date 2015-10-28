@@ -101,7 +101,7 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
-            clearTableControl(cmbFiltre.Text);
+            clearTabControl(cmbFiltre.Text);
             ChoixFiltre(cmbFiltre.Text);
             dgvResultats_Click(this, null);
         }
@@ -576,7 +576,7 @@ namespace Texcel.Interfaces
             }
         }
         
-        private void clearTableControl(string NomFiltre)
+        private void clearTabControl(string NomFiltre)
         {
             switch (NomFiltre)
             {
