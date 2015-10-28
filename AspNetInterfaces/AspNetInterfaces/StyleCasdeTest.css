@@ -1,0 +1,68 @@
+﻿body {
+}
+
+div{
+    /* border: 1px solid red; */
+}
+
+#CasTestInfo {
+    width: 100%;
+    display:inline-block;
+}
+
+#CasTestObj{
+    width: 49%;
+    display:inline-block;
+    vertical-align:top;
+    margin-top:5px;
+}
+
+#CasTestDesc{
+    width: 50%;
+    display:inline-block;
+}
+
+#CasTestDiv{
+    width:49%;
+    display:inline-block;
+}
+
+#lblColumn1{
+    width: 50%;
+    display:inline-block;
+}
+
+.lblColum1{
+    width:20%;
+    text-align:right;
+    display:inline-block;
+}
+
+.lblColum2{
+    display:block;
+}
+
+.txtColum1{
+    display:inline;
+}
+
+.info{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.txtColum2{
+    height:145px;
+    width:95%;
+    }
+
+#DataGrid{
+    border: 1px solid red;
+    width: 95%;
+}
+#DataGridBillet{
+    margin-top:5px;
+    margin-left:200px;
+    font-size:25px;
+}
+
