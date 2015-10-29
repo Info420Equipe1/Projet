@@ -280,10 +280,23 @@ $(function(){
 						</tr>
 					</tbody>
 				</table>
+                <div class="pagination">
+					<span>« First</span>
+					<span class="active">1</span>
+					<a href="">2</a>
+					<a href="">3</a>
+					<a href="">4</a>
+					<span>...</span>
+					<a href="">23</a>
+					<a href="">24</a>
+					<a href="">Last »</a>
+				</div>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:Button runat="server" ID="btnCopier" Text="Copier" />
                         <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit"/>
                         <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit"/>
+                    <br />
+                    <br />
                 </div>
                 </form>
 				<!-- <form action="" method="post">
@@ -429,18 +442,9 @@ $(function(){
 						</tr>
 					</tbody>
 				</table>
-				<div class="entry">
-					<div class="pagination">
-						<span>« First</span>
-						<span class="active">1</span>
-						<a href="">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
-						<span>...</span>
-						<a href="">23</a>
-						<a href="">24</a>
-						<a href="">Last »</a>
-					</div>
+				<div class="entry">-->
+					
+                    <!--
 					<div class="sep"></div>		
 					<a class="button add" href="">Add new page</a> <a class="button" href="">Categories</a> 
 				</div>

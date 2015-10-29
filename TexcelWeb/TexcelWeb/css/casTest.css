@@ -33,6 +33,9 @@
     float:right;
     margin-right:5px;
 }
+#btnCopier{
+    float:left;
+}
 #btnCentre{
     display:inline-block;
 }
