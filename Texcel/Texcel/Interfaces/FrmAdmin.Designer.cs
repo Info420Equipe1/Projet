@@ -168,6 +168,7 @@
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResultats.Location = new System.Drawing.Point(15, 107);
+            this.dgvResultats.MultiSelect = false;
             this.dgvResultats.Name = "dgvResultats";
             this.dgvResultats.RowHeadersVisible = false;
             this.dgvResultats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -176,7 +177,6 @@
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
             this.dgvResultats.TabIndex = 9;
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
-            this.dgvResultats.DoubleClick += new System.EventHandler(this.dgvResultats_DoubleClick);
             // 
             // tabControl1
             // 

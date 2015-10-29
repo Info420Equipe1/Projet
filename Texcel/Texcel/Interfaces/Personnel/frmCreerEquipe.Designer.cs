@@ -117,6 +117,7 @@
             this.lstTesteurGlobal.Name = "lstTesteurGlobal";
             this.lstTesteurGlobal.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstTesteurGlobal.Size = new System.Drawing.Size(314, 264);
+            this.lstTesteurGlobal.Sorted = true;
             this.lstTesteurGlobal.TabIndex = 4;
             // 
             // lstTesteurEquipe
@@ -128,6 +129,7 @@
             this.lstTesteurEquipe.Name = "lstTesteurEquipe";
             this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstTesteurEquipe.Size = new System.Drawing.Size(314, 264);
+            this.lstTesteurEquipe.Sorted = true;
             this.lstTesteurEquipe.TabIndex = 5;
             // 
             // label2

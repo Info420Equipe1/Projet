@@ -63,5 +63,13 @@ namespace Texcel.Interfaces
                 Application.Exit();
             }
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
