@@ -192,7 +192,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(683, 585);
+            this.tabControl1.Size = new System.Drawing.Size(706, 585);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 4;
             // 
@@ -222,10 +222,10 @@
             this.tabPage1.Controls.Add(this.lblAdresse);
             this.tabPage1.Controls.Add(this.lblNom);
             this.tabPage1.Controls.Add(this.lblNumeroEmp);
-            this.tabPage1.Location = new System.Drawing.Point(4, 104);
+            this.tabPage1.Location = new System.Drawing.Point(4, 5);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(675, 477);
+            this.tabPage1.Size = new System.Drawing.Size(698, 576);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
             // 
@@ -272,10 +272,11 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Enabled = false;
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 514);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(636, 115);
             this.richTextBox1.TabIndex = 53;
             this.richTextBox1.Text = "";
@@ -458,10 +459,10 @@
             this.tabPage2.Controls.Add(this.rtbCommentaire);
             this.tabPage2.Controls.Add(this.lblNomChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquip);
-            this.tabPage2.Location = new System.Drawing.Point(4, 104);
+            this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 477);
+            this.tabPage2.Size = new System.Drawing.Size(675, 576);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
             // 
@@ -546,10 +547,11 @@
             // 
             // rtbCommentaire
             // 
-            this.rtbCommentaire.Enabled = false;
+            this.rtbCommentaire.BackColor = System.Drawing.SystemColors.Window;
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommentaire.Location = new System.Drawing.Point(130, 106);
             this.rtbCommentaire.Name = "rtbCommentaire";
+            this.rtbCommentaire.ReadOnly = true;
             this.rtbCommentaire.Size = new System.Drawing.Size(539, 96);
             this.rtbCommentaire.TabIndex = 56;
             this.rtbCommentaire.Text = "";
@@ -599,9 +601,9 @@
             this.tabPage3.Controls.Add(this.rtbConfiguration);
             this.tabPage3.Controls.Add(this.rtbDescription);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 104);
+            this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(675, 477);
+            this.tabPage3.Size = new System.Drawing.Size(675, 576);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Jeu";
             // 
@@ -796,20 +798,22 @@
             // 
             // rtbConfiguration
             // 
-            this.rtbConfiguration.Enabled = false;
+            this.rtbConfiguration.BackColor = System.Drawing.SystemColors.Window;
             this.rtbConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbConfiguration.Location = new System.Drawing.Point(123, 248);
             this.rtbConfiguration.Name = "rtbConfiguration";
+            this.rtbConfiguration.ReadOnly = true;
             this.rtbConfiguration.Size = new System.Drawing.Size(516, 104);
             this.rtbConfiguration.TabIndex = 63;
             this.rtbConfiguration.Text = "";
             // 
             // rtbDescription
             // 
-            this.rtbDescription.Enabled = false;
+            this.rtbDescription.BackColor = System.Drawing.SystemColors.Window;
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDescription.Location = new System.Drawing.Point(123, 137);
             this.rtbDescription.Name = "rtbDescription";
+            this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(516, 105);
             this.rtbDescription.TabIndex = 62;
             this.rtbDescription.Text = "";
@@ -840,9 +844,9 @@
             this.tabPage4.Controls.Add(this.label12);
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.lblTypePlateforme);
-            this.tabPage4.Location = new System.Drawing.Point(4, 104);
+            this.tabPage4.Location = new System.Drawing.Point(4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(675, 477);
+            this.tabPage4.Size = new System.Drawing.Size(675, 576);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Plateforme";
             // 
@@ -919,20 +923,22 @@
             // 
             // rtxtCommPlate
             // 
-            this.rtxtCommPlate.Enabled = false;
+            this.rtxtCommPlate.BackColor = System.Drawing.SystemColors.Window;
             this.rtxtCommPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtCommPlate.Location = new System.Drawing.Point(142, 257);
             this.rtxtCommPlate.Name = "rtxtCommPlate";
+            this.rtxtCommPlate.ReadOnly = true;
             this.rtxtCommPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtCommPlate.TabIndex = 21;
             this.rtxtCommPlate.Text = "";
             // 
             // rtxtConfigPlate
             // 
-            this.rtxtConfigPlate.Enabled = false;
+            this.rtxtConfigPlate.BackColor = System.Drawing.SystemColors.Window;
             this.rtxtConfigPlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtConfigPlate.Location = new System.Drawing.Point(142, 125);
             this.rtxtConfigPlate.Name = "rtxtConfigPlate";
+            this.rtxtConfigPlate.ReadOnly = true;
             this.rtxtConfigPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtConfigPlate.TabIndex = 20;
             this.rtxtConfigPlate.Text = "";
@@ -1052,10 +1058,11 @@
             // 
             // rtbCommSysExp
             // 
-            this.rtbCommSysExp.Enabled = false;
+            this.rtbCommSysExp.BackColor = System.Drawing.SystemColors.Window;
             this.rtbCommSysExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommSysExp.Location = new System.Drawing.Point(167, 205);
             this.rtbCommSysExp.Name = "rtbCommSysExp";
+            this.rtbCommSysExp.ReadOnly = true;
             this.rtbCommSysExp.Size = new System.Drawing.Size(505, 105);
             this.rtbCommSysExp.TabIndex = 63;
             this.rtbCommSysExp.Text = "";
@@ -1171,7 +1178,7 @@
             this.smiGestionPersonnel});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Size = new System.Drawing.Size(1404, 28);
+            this.mnsMain.Size = new System.Drawing.Size(1425, 28);
             this.mnsMain.TabIndex = 8;
             this.mnsMain.Text = "menuStrip1";
             // 
@@ -1312,7 +1319,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(1404, 702);
+            this.ClientSize = new System.Drawing.Size(1425, 702);
             this.Controls.Add(this.lblUtilisateurConn);
             this.Controls.Add(this.dgvResultats);
             this.Controls.Add(this.tabControl1);

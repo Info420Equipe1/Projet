@@ -128,7 +128,7 @@
             // 
             // bntFlecheRetirer
             // 
-            this.bntFlecheRetirer.Location = new System.Drawing.Point(443, 477);
+            this.bntFlecheRetirer.Location = new System.Drawing.Point(443, 458);
             this.bntFlecheRetirer.Name = "bntFlecheRetirer";
             this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 34);
             this.bntFlecheRetirer.TabIndex = 23;
@@ -139,7 +139,7 @@
             // 
             // btnFlecheAjouter
             // 
-            this.btnFlecheAjouter.Location = new System.Drawing.Point(443, 357);
+            this.btnFlecheAjouter.Location = new System.Drawing.Point(443, 418);
             this.btnFlecheAjouter.Name = "btnFlecheAjouter";
             this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 34);
             this.btnFlecheAjouter.TabIndex = 22;
@@ -361,7 +361,7 @@
             // 
             // btnFlecheAjouterMultiple
             // 
-            this.btnFlecheAjouterMultiple.Location = new System.Drawing.Point(443, 397);
+            this.btnFlecheAjouterMultiple.Location = new System.Drawing.Point(443, 346);
             this.btnFlecheAjouterMultiple.Name = "btnFlecheAjouterMultiple";
             this.btnFlecheAjouterMultiple.Size = new System.Drawing.Size(37, 34);
             this.btnFlecheAjouterMultiple.TabIndex = 33;
@@ -372,7 +372,7 @@
             // 
             // bntFlecheRetirerMultiple
             // 
-            this.bntFlecheRetirerMultiple.Location = new System.Drawing.Point(443, 437);
+            this.bntFlecheRetirerMultiple.Location = new System.Drawing.Point(443, 536);
             this.bntFlecheRetirerMultiple.Name = "bntFlecheRetirerMultiple";
             this.bntFlecheRetirerMultiple.Size = new System.Drawing.Size(37, 34);
             this.bntFlecheRetirerMultiple.TabIndex = 34;
