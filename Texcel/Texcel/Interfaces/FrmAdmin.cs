@@ -75,13 +75,11 @@ namespace Texcel.Interfaces
                 {
                     cmbFiltre.Text = "Équipe";
                     btnRechercher_Click(this, null);
-                    lblNomEquip.Focus();
                 }
                 if (groupe.idGroupe == 3)
                 {
                     cmbFiltre.Text = "Employé";
                     btnRechercher_Click(this, null);
-                    lblNumeroEmp.Focus();
                 }
                 if (groupe.idGroupe == 5)
                 {
@@ -89,7 +87,6 @@ namespace Texcel.Interfaces
                     //Verification du fichier RH
                     cmbFiltre.Text = "Jeu";
                     btnRechercher_Click(this, null);
-                    lblNumero.Focus();
                     tabControl1.SelectedIndex = 2;
                     if (CtrlFileEmployes.IsEmpty() > 0)
                     {

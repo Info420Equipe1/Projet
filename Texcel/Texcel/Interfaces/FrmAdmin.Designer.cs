@@ -244,6 +244,7 @@
             this.btnModifierEmp.Name = "btnModifierEmp";
             this.btnModifierEmp.Size = new System.Drawing.Size(93, 34);
             this.btnModifierEmp.TabIndex = 57;
+            this.btnModifierEmp.TabStop = false;
             this.btnModifierEmp.Text = "Modifier...";
             this.btnModifierEmp.UseVisualStyleBackColor = true;
             this.btnModifierEmp.Click += new System.EventHandler(this.btnModifierEmp_Click);
@@ -611,6 +612,7 @@
             this.btnModifierJeu.Name = "btnModifierJeu";
             this.btnModifierJeu.Size = new System.Drawing.Size(93, 34);
             this.btnModifierJeu.TabIndex = 82;
+            this.btnModifierJeu.TabStop = false;
             this.btnModifierJeu.Text = "Modifier...";
             this.btnModifierJeu.UseVisualStyleBackColor = true;
             this.btnModifierJeu.Click += new System.EventHandler(this.btnModifierJeu_Click);
@@ -850,6 +852,7 @@
             this.btnModifierPlateforme.Name = "btnModifierPlateforme";
             this.btnModifierPlateforme.Size = new System.Drawing.Size(93, 34);
             this.btnModifierPlateforme.TabIndex = 83;
+            this.btnModifierPlateforme.TabStop = false;
             this.btnModifierPlateforme.Text = "Modifier...";
             this.btnModifierPlateforme.UseVisualStyleBackColor = true;
             this.btnModifierPlateforme.Click += new System.EventHandler(this.btnModifierPlateforme_Click);
@@ -1042,6 +1045,7 @@
             this.btnModifierSysExp.Name = "btnModifierSysExp";
             this.btnModifierSysExp.Size = new System.Drawing.Size(93, 34);
             this.btnModifierSysExp.TabIndex = 64;
+            this.btnModifierSysExp.TabStop = false;
             this.btnModifierSysExp.Text = "Modifier...";
             this.btnModifierSysExp.UseVisualStyleBackColor = true;
             this.btnModifierSysExp.Click += new System.EventHandler(this.btnModifierSysExp_Click);
