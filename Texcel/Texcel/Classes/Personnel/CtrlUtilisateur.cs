@@ -13,31 +13,38 @@ namespace Texcel.Classes.Personnel
         public static string AjouterUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, Employe _Employe)
         {
             //Ajout d'un nouveau Utilisateur
-            Utilisateur NewUtilisateur = new Utilisateur();
-            NewUtilisateur.nomUtilisateur = nomUtilisateur;
-            NewUtilisateur.motPasse = MotDePasse;
-            NewUtilisateur.Groupe = lstGroupeUtilisateur;
-            NewUtilisateur.Employe = _Employe;
+            Utilisateur newUtilisateur = new Utilisateur();
+            newUtilisateur.nomUtilisateur = nomUtilisateur;
+            newUtilisateur.motPasse = MotDePasse;
+            newUtilisateur.Groupe = lstGroupeUtilisateur;
+            newUtilisateur.Employe = _Employe;
+
 
             try
             {
-                Enregistrer(NewUtilisateur);
-                return "L'Utilisateur a été ajouté avec succès!";
+                Enregistrer(newUtilisateur);
+                return "L'utilisateur a été ajouté avec succès!";
             }
             catch (Exception)
             {
-                return "Une erreur est survenue lors de l'ajout de l'Utilisateur. Les données n'ont pas été enregistrées.";
+                return "Une erreur est survenue lors de l'ajout de l'utilisateur car le nom de cet utilisateur existe déjà. Veuillez trouver un autre nom utilisateur!";
             }
         }
 
+
         public static string ModifierUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, string nomUtilisateurAModifier)
         {
+            // On assigne
             Utilisateur UtilisateurAModifier = context.tblUtilisateur.Where(x => x.nomUtilisateur == nomUtilisateurAModifier).First();
-
             UtilisateurAModifier.nomUtilisateur = nomUtilisateur;
             UtilisateurAModifier.motPasse = MotDePasse;
-            UtilisateurAModifier.Groupe = lstGroupeUtilisateur;
 
+            if (VerifierSiGroupeVide(lstGroupeUtilisateur))
+            {
+                UtilisateurAModifier.Groupe = lstGroupeUtilisateur;
+            }
+
+            // rendu la AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDAD
             try
             {
                 context.SaveChanges();
@@ -110,6 +117,17 @@ namespace Texcel.Classes.Personnel
                 lstGr.Add(gr);
             }
             return lstGr;
+        }
+
+        // on vérifier si le listbox de groupe est vide        
+        public static bool VerifierSiGroupeVide(List<Groupe> _lstGroupeUtilisateur)
+        {
+            if (_lstGroupeUtilisateur.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

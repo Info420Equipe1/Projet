@@ -24,16 +24,17 @@ namespace Texcel.Interfaces.Personnel
             ModifierUtilisateur = false;
             btnSupprimer.Visible = false;
         }
-        public frmUtilisateur(string NomUtilisateur, string MotDePasse, List<Groupe> GroupeUtilisateur, Employe _Employe)
+        public frmUtilisateur(string _NomUtilisateur, string _MotDePasse, List<Groupe> _GroupeUtilisateur, Employe _Employe)
         {
             InitializeComponent();
             btnSupprimer.Visible = true;
-            NomUtilisateurAModifier = NomUtilisateur;
+            NomUtilisateurAModifier = _NomUtilisateur;
             ModifierUtilisateur = true;
             EmployeLier = _Employe;
-            txtNomUtil.Text = NomUtilisateur;
-            txtMotPasse.Text = MotDePasse;
-            foreach (Groupe groupe in GroupeUtilisateur)
+            txtNomUtil.Text = _NomUtilisateur;
+            txtMotPasse.Text = _MotDePasse;
+
+            foreach (Groupe groupe in _GroupeUtilisateur)
             {
                 lsbGroupes2.Items.Add(groupe.nomGroupe);
             }
@@ -41,7 +42,12 @@ namespace Texcel.Interfaces.Personnel
 
         private void frmUtilisateur_Load(object sender, EventArgs e)
         {
-            if (!ModifierUtilisateur)
+            Réaffichage();
+        }
+
+        private void Réaffichage()
+        {
+           if (!ModifierUtilisateur)
             {
                 foreach (Groupe groupe in CtrlGroupe.GetAllGroupe())
                 {
@@ -57,9 +63,10 @@ namespace Texcel.Interfaces.Personnel
                         lsbGroupes.Items.Add(groupe.nomGroupe);
                     }
                 }
-            }
+            }        
         }
 
+        // Bouton ajouter et/ou modifier
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             string message;
@@ -83,16 +90,18 @@ namespace Texcel.Interfaces.Personnel
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomUtil.Text = "";
                     txtMotPasse.Text = "";
-                    FillLsbGroupeDefault();
+                   
                 }
             }
+            //Modifier un Utilisateur existant
             else
             {
-                //Modifier un Utilisateur existant
+                //ajouter les groupe de l'utlisateur
                 foreach (string nomGroupe in lsbGroupes2.Items)
                 {
                     lstGroupeUtilisateur.Add(CtrlGroupe.GetGroupByName(nomGroupe));
                 }
+
                 message = CtrlUtilisateur.ModifierUtilisateur(txtNomUtil.Text, txtMotPasse.Text, lstGroupeUtilisateur, NomUtilisateurAModifier);
                 if (message.Contains("erreur"))
                 {
@@ -105,6 +114,8 @@ namespace Texcel.Interfaces.Personnel
                     this.Close();
                 }
             }
+            FillLsbGroupeDefault();
+            Refresh();
         }
         public void FillLsbGroupeDefault()
         {
@@ -117,7 +128,7 @@ namespace Texcel.Interfaces.Personnel
         }
 
         //ajouter un groupe par rapport a l'utilisateur
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPtiteFlecheDroite_Click(object sender, EventArgs e)
         {
             if ((lsbGroupes.Items.Count == 0) || (lsbGroupes.SelectedIndex == -1) || (lsbGroupes.SelectedItems.Count > 1))
             {
@@ -131,7 +142,7 @@ namespace Texcel.Interfaces.Personnel
         }
 
         //ajouter plusieurs groupes par rapport a l'utilisateur
-        private void button3_Click(object sender, EventArgs e)
+        private void btn2FlecheDroite_Click(object sender, EventArgs e)
         {
             if ((lsbGroupes.Items.Count == 0) || (lsbGroupes.SelectedIndex == -1) || (lsbGroupes.SelectedItems.Count < 2))
             {
@@ -150,7 +161,7 @@ namespace Texcel.Interfaces.Personnel
         }
 
         //Remove plusieurs groupes par rapport a l'utilisateur
-        private void button4_Click(object sender, EventArgs e)
+        private void btn2FlecheGauche_Click(object sender, EventArgs e)
         {
             if ((lsbGroupes2.Items.Count == 0) || (lsbGroupes2.SelectedIndex == -1) || (lsbGroupes2.SelectedItems.Count < 2))
             {
@@ -167,8 +178,9 @@ namespace Texcel.Interfaces.Personnel
                 lsbGroupes.Items.Add(groupeName);
             }
         }
+
         //Remove un groupe par rapport a l'utilisateur
-        private void button2_Click(object sender, EventArgs e)
+        private void btnPtiteFlecheGauche_Click(object sender, EventArgs e)
         {
             if ((lsbGroupes2.Items.Count == 0) || (lsbGroupes2.SelectedIndex == -1) || (lsbGroupes2.SelectedItems.Count > 1))
             {
