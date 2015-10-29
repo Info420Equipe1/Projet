@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="creerProjet.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -69,23 +70,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CreerCasTest.aspx" />
+    <Content Include="creerCasTest.aspx" />
     <Content Include="css\casTest.css" />
     <Content Include="css\login.css" />
     <Content Include="css\navi.css" />
     <Content Include="css\projet.css" />
     <Content Include="css\style.css" />
-    <Content Include="creerProjet.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreerCasTest.aspx.cs">
-      <DependentUpon>CreerCasTest.aspx</DependentUpon>
+    <Compile Include="creerCasTest.aspx.cs">
+      <DependentUpon>creerCasTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreerCasTest.aspx.designer.cs">
-      <DependentUpon>CreerCasTest.aspx</DependentUpon>
+    <Compile Include="creerCasTest.aspx.designer.cs">
+      <DependentUpon>creerCasTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="creerProjet.aspx.cs">
+      <DependentUpon>creerProjet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="creerProjet.aspx.designer.cs">
+      <DependentUpon>creerProjet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
