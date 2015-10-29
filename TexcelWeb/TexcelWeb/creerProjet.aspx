@@ -236,7 +236,18 @@ $(function(){
 							    </td>
 						    </tr>
 					    </tbody>
-				    </table>     
+				    </table> 
+                    <div class="pagination">
+						<span>« First</span>
+						<span class="active">1</span>
+						<a href="">2</a>
+						<a href="">3</a>
+						<a href="">4</a>
+						<span>...</span>
+						<a href="">23</a>
+						<a href="">24</a>
+						<a href="">Last »</a>
+					</div>  
                     <div id="btnCopierEnregistrerAnnuler">
                         <asp:Button runat="server" ID="btnCopier" Text="Copier" />
                         <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit" />
