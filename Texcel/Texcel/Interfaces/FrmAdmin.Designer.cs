@@ -176,6 +176,7 @@
             this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
             this.dgvResultats.TabIndex = 9;
+            this.dgvResultats.TabStop = false;
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
             // 
             // tabControl1
@@ -195,6 +196,7 @@
             this.tabControl1.Size = new System.Drawing.Size(706, 585);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.TabStop = false;
             // 
             // tabPage1
             // 
@@ -236,6 +238,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
             this.dateTimePicker1.TabIndex = 58;
+            this.dateTimePicker1.TabStop = false;
             // 
             // btnModifierEmp
             // 
@@ -269,6 +272,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(332, 84);
             this.listBox1.TabIndex = 51;
+            this.listBox1.TabStop = false;
             // 
             // richTextBox1
             // 
@@ -279,6 +283,7 @@
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(636, 115);
             this.richTextBox1.TabIndex = 53;
+            this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = "";
             // 
             // lblCompetences
@@ -311,6 +316,7 @@
             this.lstBoxTypeTest.Name = "lstBoxTypeTest";
             this.lstBoxTypeTest.Size = new System.Drawing.Size(636, 104);
             this.lstBoxTypeTest.TabIndex = 52;
+            this.lstBoxTypeTest.TabStop = false;
             // 
             // DateEmbEmp
             // 
@@ -447,6 +453,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage2.Controls.Add(this.btnModifierEquipe);
             this.tabPage2.Controls.Add(this.lblProjetEquipe);
@@ -459,10 +466,10 @@
             this.tabPage2.Controls.Add(this.rtbCommentaire);
             this.tabPage2.Controls.Add(this.lblNomChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquip);
-            this.tabPage2.Location = new System.Drawing.Point(4, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 104);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 576);
+            this.tabPage2.Size = new System.Drawing.Size(698, 477);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
             // 
@@ -472,6 +479,7 @@
             this.btnModifierEquipe.Name = "btnModifierEquipe";
             this.btnModifierEquipe.Size = new System.Drawing.Size(93, 34);
             this.btnModifierEquipe.TabIndex = 66;
+            this.btnModifierEquipe.TabStop = false;
             this.btnModifierEquipe.Text = "Modifier...";
             this.btnModifierEquipe.UseVisualStyleBackColor = true;
             this.btnModifierEquipe.Click += new System.EventHandler(this.btnModifierEquipe_Click);
@@ -534,6 +542,7 @@
             this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstTesteurEquipe.Size = new System.Drawing.Size(539, 264);
             this.lstTesteurEquipe.TabIndex = 57;
+            this.lstTesteurEquipe.TabStop = false;
             // 
             // lblCommentaire
             // 
@@ -554,6 +563,7 @@
             this.rtbCommentaire.ReadOnly = true;
             this.rtbCommentaire.Size = new System.Drawing.Size(539, 96);
             this.rtbCommentaire.TabIndex = 56;
+            this.rtbCommentaire.TabStop = false;
             this.rtbCommentaire.Text = "";
             // 
             // lblNomChefEquipe
@@ -603,7 +613,7 @@
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(675, 576);
+            this.tabPage3.Size = new System.Drawing.Size(698, 576);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Jeu";
             // 
@@ -687,6 +697,7 @@
             this.lstBoxPlat1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxPlat1.Sorted = true;
             this.lstBoxPlat1.TabIndex = 64;
+            this.lstBoxPlat1.TabStop = false;
             // 
             // lstBoxGenre1
             // 
@@ -700,6 +711,7 @@
             this.lstBoxGenre1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxGenre1.Sorted = true;
             this.lstBoxGenre1.TabIndex = 66;
+            this.lstBoxGenre1.TabStop = false;
             // 
             // lstBoxTheme1
             // 
@@ -713,6 +725,7 @@
             this.lstBoxTheme1.Size = new System.Drawing.Size(516, 104);
             this.lstBoxTheme1.Sorted = true;
             this.lstBoxTheme1.TabIndex = 65;
+            this.lstBoxTheme1.TabStop = false;
             // 
             // lstBoxVersion
             // 
@@ -725,6 +738,7 @@
             this.lstBoxVersion.Size = new System.Drawing.Size(516, 104);
             this.lstBoxVersion.Sorted = true;
             this.lstBoxVersion.TabIndex = 67;
+            this.lstBoxVersion.TabStop = false;
             // 
             // lblTheme
             // 
@@ -805,6 +819,7 @@
             this.rtbConfiguration.ReadOnly = true;
             this.rtbConfiguration.Size = new System.Drawing.Size(516, 104);
             this.rtbConfiguration.TabIndex = 63;
+            this.rtbConfiguration.TabStop = false;
             this.rtbConfiguration.Text = "";
             // 
             // rtbDescription
@@ -816,6 +831,7 @@
             this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(516, 105);
             this.rtbDescription.TabIndex = 62;
+            this.rtbDescription.TabStop = false;
             this.rtbDescription.Text = "";
             // 
             // label11
@@ -846,7 +862,7 @@
             this.tabPage4.Controls.Add(this.lblTypePlateforme);
             this.tabPage4.Location = new System.Drawing.Point(4, 5);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(675, 576);
+            this.tabPage4.Size = new System.Drawing.Size(698, 576);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Plateforme";
             // 
@@ -930,6 +946,7 @@
             this.rtxtCommPlate.ReadOnly = true;
             this.rtxtCommPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtCommPlate.TabIndex = 21;
+            this.rtxtCommPlate.TabStop = false;
             this.rtxtCommPlate.Text = "";
             // 
             // rtxtConfigPlate
@@ -941,6 +958,7 @@
             this.rtxtConfigPlate.ReadOnly = true;
             this.rtxtConfigPlate.Size = new System.Drawing.Size(530, 126);
             this.rtxtConfigPlate.TabIndex = 20;
+            this.rtxtConfigPlate.TabStop = false;
             this.rtxtConfigPlate.Text = "";
             // 
             // label12
@@ -991,7 +1009,7 @@
             this.tabPage5.Controls.Add(this.lblEditionSysExp);
             this.tabPage5.Location = new System.Drawing.Point(4, 5);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(675, 576);
+            this.tabPage5.Size = new System.Drawing.Size(698, 576);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Système d\'exploitation";
             // 
@@ -1065,6 +1083,7 @@
             this.rtbCommSysExp.ReadOnly = true;
             this.rtbCommSysExp.Size = new System.Drawing.Size(505, 105);
             this.rtbCommSysExp.TabIndex = 63;
+            this.rtbCommSysExp.TabStop = false;
             this.rtbCommSysExp.Text = "";
             // 
             // lblCodeSysExp

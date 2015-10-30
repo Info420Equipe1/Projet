@@ -285,9 +285,8 @@ namespace Texcel.Interfaces
 
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtRechercher.Focus();
-            txtRechercher.SelectAll();
             dgvResultats.Columns.Clear();
+            clearTabControl();
             switch (cmbFiltre.Text)
             {
                 case "Employé": tabControl1.SelectedIndex = 0;
@@ -303,6 +302,8 @@ namespace Texcel.Interfaces
                 default: tabControl1.SelectedIndex = 0;
                     break;
             }
+            txtRechercher.Focus();
+            txtRechercher.SelectAll();
         }
 
         //Afficher les tab ainsi que l'information de l'élément sélectionné
@@ -544,7 +545,7 @@ namespace Texcel.Interfaces
             clearTabControlEquipe();
             clearTabControlJeu();
             clearTabControlPlateforme();
-            //clearTabControlSysExp();
+            clearTabControlSysExp();
         }
         private void clearTabControlEmploye()
         {
@@ -587,6 +588,16 @@ namespace Texcel.Interfaces
             lblNomPlate.Text = "";
             rtxtConfigPlate.Text = "";
             rtxtCommPlate.Text = "";
+        }
+        
+        private void clearTabControlSysExp()
+        {
+            noSE.Text = "";
+            nomSE.Text = "";
+            edSE.Text = "";
+            codeSE.Text = "";
+            versionSE.Text = "";
+            rtbCommSysExp.Text = "";
         }
 
 
