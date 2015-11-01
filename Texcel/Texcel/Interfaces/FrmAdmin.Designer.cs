@@ -123,6 +123,7 @@
             this.txtRechercher = new System.Windows.Forms.TextBox();
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.smiFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.smiDeconnection = new System.Windows.Forms.ToolStripMenuItem();
             this.smiQuitter = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionJeu = new System.Windows.Forms.ToolStripMenuItem();
             this.smiSysExp = new System.Windows.Forms.ToolStripMenuItem();
@@ -466,10 +467,10 @@
             this.tabPage2.Controls.Add(this.rtbCommentaire);
             this.tabPage2.Controls.Add(this.lblNomChefEquipe);
             this.tabPage2.Controls.Add(this.lblNomEquip);
-            this.tabPage2.Location = new System.Drawing.Point(4, 104);
+            this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(698, 477);
+            this.tabPage2.Size = new System.Drawing.Size(698, 576);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Équipe";
             // 
@@ -1204,17 +1205,25 @@
             // smiFichier
             // 
             this.smiFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smiDeconnection,
             this.smiQuitter});
             this.smiFichier.Name = "smiFichier";
             this.smiFichier.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.smiFichier.Size = new System.Drawing.Size(64, 24);
             this.smiFichier.Text = "&Fichier";
             // 
+            // smiDeconnection
+            // 
+            this.smiDeconnection.Name = "smiDeconnection";
+            this.smiDeconnection.Size = new System.Drawing.Size(175, 24);
+            this.smiDeconnection.Text = "&Déconnexion";
+            this.smiDeconnection.Click += new System.EventHandler(this.smiDeconnection_Click);
+            // 
             // smiQuitter
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -1486,6 +1495,7 @@
         private System.Windows.Forms.Label edSE;
         private System.Windows.Forms.Label nomSE;
         private System.Windows.Forms.Label noSE;
+        private System.Windows.Forms.ToolStripMenuItem smiDeconnection;
 
     }
 }

@@ -277,6 +277,17 @@ namespace Texcel.Interfaces
             frmCreerEquipe frmCreerEquipe = new frmCreerEquipe();
             frmCreerEquipe.ShowDialog();
         }
+        private void smiDeconnection_Click(object sender, EventArgs e)
+        {
+            CtrlAdmin.SetCurrentUser(null);
+            foreach (Form f in Application.OpenForms)
+	        {
+                f.Close();
+	        }
+
+            frmLogin maFrmlogin = new frmLogin();
+            maFrmlogin.ShowDialog();
+        }
 
         private void smiQuitter_Click(object sender, EventArgs e)
         {
@@ -599,6 +610,9 @@ namespace Texcel.Interfaces
             versionSE.Text = "";
             rtbCommSysExp.Text = "";
         }
+
+      
+       
 
 
 
