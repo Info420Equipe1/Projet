@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Personnel;
+using Texcel.Classes;
 
 namespace Texcel.Interfaces.Personnel
 {
@@ -72,17 +73,19 @@ namespace Texcel.Interfaces.Personnel
             string message;
             List<Groupe> lstGroupeUtilisateur = new List<Groupe>();
 
+            //Ajout d'un nouvel Utilisateur si false
             if (!ModifierUtilisateur)
             {
-                //Ajout d'un nouvel Utilisateur
+                //affiche groupe dans liste
                 foreach (string nomGroupe in lsbGroupes2.Items)
                 {
                     lstGroupeUtilisateur.Add(CtrlGroupe.GetGroupByName(nomGroupe));
                 }
+
                 message = CtrlUtilisateur.AjouterUtilisateur(txtNomUtil.Text, txtMotPasse.Text, lstGroupeUtilisateur, EmployeLier);
                 if (message.Contains("erreur"))
                 {
-                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CtrlController.MessageWarnng(message);
                     return;
                 }
                 else
@@ -115,7 +118,7 @@ namespace Texcel.Interfaces.Personnel
                 }
             }
             FillLsbGroupeDefault();
-            Refresh();
+            Réaffichage();
         }
         public void FillLsbGroupeDefault()
         {
@@ -126,7 +129,6 @@ namespace Texcel.Interfaces.Personnel
                 lsbGroupes.Items.Add(groupe.nomGroupe);
             }
         }
-
         //ajouter un groupe par rapport a l'utilisateur
         private void btnPtiteFlecheDroite_Click(object sender, EventArgs e)
         {
