@@ -30,6 +30,17 @@ namespace Texcel.Interfaces
                     if (message == "Connexion réussie")
                     {
                         this.Close();
+                        List<Form> lstForm = new List<Form>();
+
+                        foreach (Form f in Application.OpenForms)
+                        {
+                            lstForm.Add(f);
+                        }
+
+                        foreach (Form fo in lstForm)
+                        {
+                            fo.Visible = true;
+                        }              
                     }
                     else
                     {

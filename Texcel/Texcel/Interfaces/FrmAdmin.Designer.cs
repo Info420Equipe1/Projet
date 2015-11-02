@@ -1216,7 +1216,7 @@
             // smiDeconnection
             // 
             this.smiDeconnection.Name = "smiDeconnection";
-            this.smiDeconnection.Size = new System.Drawing.Size(175, 24);
+            this.smiDeconnection.Size = new System.Drawing.Size(173, 24);
             this.smiDeconnection.Text = "&Déconnexion";
             this.smiDeconnection.Click += new System.EventHandler(this.smiDeconnection_Click);
             // 
@@ -1224,7 +1224,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -1362,7 +1362,7 @@
             this.Name = "frmAdmin";
             this.Text = "Console d\'administration";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
-            this.Shown += new System.EventHandler(this.frmAdmin_Shown);
+            this.VisibleChanged += new System.EventHandler(this.frmAdmin_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

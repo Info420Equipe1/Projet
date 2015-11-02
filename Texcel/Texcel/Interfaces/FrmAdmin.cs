@@ -26,7 +26,7 @@ namespace Texcel.Interfaces
         }
 
         private void frmAdmin_Shown(object sender, EventArgs e)
-        {
+        {           
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {
                 lstDroits = CtrlController.GetDroits(groupe);
@@ -285,11 +285,7 @@ namespace Texcel.Interfaces
         private void smiDeconnection_Click(object sender, EventArgs e)
         {
             CtrlAdmin.SetCurrentUser(null);
-            foreach (Form f in Application.OpenForms)
-	        {
-                f.Close();
-	        }
-
+            this.Visible = false;
             frmLogin maFrmlogin = new frmLogin();
             maFrmlogin.ShowDialog();
         }
