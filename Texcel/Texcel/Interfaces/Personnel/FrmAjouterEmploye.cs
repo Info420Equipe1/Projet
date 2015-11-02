@@ -25,7 +25,7 @@ namespace Texcel.Interfaces.Personnel
             InitializeComponent();
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
-            listBox1.Visible = false;
+            lstBoxCompteUti.Visible = false;
             label2.Visible = false;
             btnCreerUti.Visible = false;
         }
@@ -87,7 +87,7 @@ namespace Texcel.Interfaces.Personnel
         {
             lstBoxTypeTest.Items.Clear();
             lstBoxTypeTestEmp.Items.Clear();
-            //CtrlTypeTest.PopulateLstTypeTest();
+        
             //Emplissage de la list box des TypeTest 
             foreach (KeyValuePair<TypeTest, int> tT in CtrlTypeTest.getlstTypeTestLstBox)
             {
@@ -102,13 +102,13 @@ namespace Texcel.Interfaces.Personnel
 
             }
         }
-        
 
+        // Afficher les comptes utilisateurs à  l'employé
         private void remplirListBoxUtil(Employe _emp)
         {
             foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(_emp))
             {
-                listBox1.Items.Add(uti.nomUtilisateur);
+                lstBoxCompteUti.Items.Add(uti.nomUtilisateur);
             }
         }
       
@@ -163,16 +163,18 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnModifUti_Click(object sender, EventArgs e)
         {
-            Utilisateur uti = CtrlUtilisateur.utilisateur(listBox1.SelectedItem.ToString());
+            Utilisateur uti = CtrlUtilisateur.getUtilisateur(lstBoxCompteUti.SelectedItem.ToString());
             frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti), CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
+            this.Close();
             frmUti.ShowDialog();
+            
         }
 
         private void btnCreerUti_Click(object sender, EventArgs e)
         {
             frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
-            frmUti.ShowDialog();
             this.Close();
+            frmUti.ShowDialog();           
         }
 
         private void btnFlecheAjouter_Click(object sender, EventArgs e)

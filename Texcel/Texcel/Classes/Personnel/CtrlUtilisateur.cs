@@ -46,8 +46,8 @@ namespace Texcel.Classes.Personnel
         public static string ModifierUtilisateur(string _nomUtilisateur, string _motDePasse, List<Groupe> _lstGroupeUtilisateur, string _nomUtilisateurAModifier)
         {
             // On assigne
-            Utilisateur UtilisateurAModifier = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUtilisateurAModifier).First();
-            UtilisateurAModifier.nomUtilisateur = _nomUtilisateur;
+            Utilisateur UtilisateurAModifier = getUtilisateur(_nomUtilisateurAModifier);
+            //UtilisateurAModifier.nomUtilisateur = _nomUtilisateur;
             UtilisateurAModifier.motPasse = _motDePasse;
 
             //Vérifier si le aucun groupe n'est associé
@@ -117,7 +117,7 @@ namespace Texcel.Classes.Personnel
         }
 
         //Trouver utilisateur par son nom d'utilisateur
-        public static Utilisateur utilisateur(string _nomUti)
+        public static Utilisateur getUtilisateur(string _nomUti)
         {
             Utilisateur uti = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
 

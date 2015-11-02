@@ -1383,7 +1383,7 @@
             this.Name = "frmAdmin";
             this.Text = "Console d\'administration";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
-            this.VisibleChanged += new System.EventHandler(this.frmAdmin_Shown);
+            this.VisibleChanged += new System.EventHandler(this.frmAdmin_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);

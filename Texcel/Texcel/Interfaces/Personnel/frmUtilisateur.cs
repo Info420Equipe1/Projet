@@ -48,6 +48,9 @@ namespace Texcel.Interfaces.Personnel
 
         private void Réaffichage()
         {
+            lsbGroupes.Items.Clear();
+            lsbGroupes2.Items.Clear();
+
            if (!ModifierUtilisateur)
             {
                 foreach (Groupe groupe in CtrlGroupe.GetAllGroupe())
@@ -67,7 +70,7 @@ namespace Texcel.Interfaces.Personnel
             }        
         }
 
-        // Bouton ajouter et/ou modifier
+        // Bouton enregistrer et/ou modifier
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             string message;
@@ -116,19 +119,12 @@ namespace Texcel.Interfaces.Personnel
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
-            }
-            FillLsbGroupeDefault();
+                frmAjouterEmploye fEmp = new frmAjouterEmploye(EmployeLier);
+                fEmp.ShowDialog();
+            }     
             Réaffichage();
         }
-        public void FillLsbGroupeDefault()
-        {
-            lsbGroupes2.Items.Clear();
-            lsbGroupes.Items.Clear();
-            foreach (Groupe groupe in CtrlGroupe.GetAllGroupe())
-            {
-                lsbGroupes.Items.Add(groupe.nomGroupe);
-            }
-        }
+       
         //ajouter un groupe par rapport a l'utilisateur
         private void btnPtiteFlecheDroite_Click(object sender, EventArgs e)
         {
@@ -198,6 +194,7 @@ namespace Texcel.Interfaces.Personnel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            frmAjouterEmploye fAE = new frmAjouterEmploye(EmployeLier);
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)

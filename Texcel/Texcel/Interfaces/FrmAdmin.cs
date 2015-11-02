@@ -25,7 +25,7 @@ namespace Texcel.Interfaces
             InitializeComponent();
         }
 
-        private void frmAdmin_Shown(object sender, EventArgs e)
+        private void frmAdmin_VisibleChanged(object sender, EventArgs e)
         {           
             foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
             {

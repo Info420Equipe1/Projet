@@ -52,7 +52,7 @@
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtNumeroEmp = new System.Windows.Forms.TextBox();
             this.dateTPEmp = new System.Windows.Forms.DateTimePicker();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstBoxCompteUti = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCreerUti = new System.Windows.Forms.Button();
             this.btnModifUti = new System.Windows.Forms.Button();
@@ -314,17 +314,17 @@
             this.dateTPEmp.Size = new System.Drawing.Size(150, 22);
             this.dateTPEmp.TabIndex = 7;
             // 
-            // listBox1
+            // lstBoxCompteUti
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(502, 101);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 84);
-            this.listBox1.Sorted = true;
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lstBoxCompteUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBoxCompteUti.FormattingEnabled = true;
+            this.lstBoxCompteUti.ItemHeight = 20;
+            this.lstBoxCompteUti.Location = new System.Drawing.Point(502, 101);
+            this.lstBoxCompteUti.Name = "lstBoxCompteUti";
+            this.lstBoxCompteUti.Size = new System.Drawing.Size(411, 84);
+            this.lstBoxCompteUti.Sorted = true;
+            this.lstBoxCompteUti.TabIndex = 8;
+            this.lstBoxCompteUti.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -391,7 +391,7 @@
             this.Controls.Add(this.btnModifUti);
             this.Controls.Add(this.btnCreerUti);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstBoxCompteUti);
             this.Controls.Add(this.dateTPEmp);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.txtPrenom);
@@ -449,7 +449,7 @@
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.DateTimePicker dateTPEmp;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstBoxCompteUti;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCreerUti;
         private System.Windows.Forms.Button btnModifUti;
