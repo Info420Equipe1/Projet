@@ -7,10 +7,17 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
+<<<<<<< HEAD:TexcelWeb/TexcelWeb/Interfaces/creerCasTest.aspx
 <title>Texcel</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../../css/navi.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../../css/casTest.css" media="screen" />
+=======
+<title>Texcel - Creer un cas de test</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/navi.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/casTest.css" media="screen" />
+>>>>>>> origin/sprint3:TexcelWeb/TexcelWeb/CreerCasTest.aspx
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -33,7 +40,7 @@ $(function(){
 				</div>
 			</div>
 		</div>
-		<div id="nav">
+		<!-- <div id="nav">
 			<ul>
 				<li class="upp"><a href="#">Gestion des tests</a>
 					<ul>
@@ -61,9 +68,9 @@ $(function(){
 						<li>&#8250; <a href="">Site configuration</a></li>
 						<li>&#8250; <a href="">Contact Form</a></li>
 					</ul>
-				</li> -->
+				</li>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 	
 	<div id="content">

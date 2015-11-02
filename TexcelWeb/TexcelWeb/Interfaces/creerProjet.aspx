@@ -5,10 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<<<<<<< HEAD:TexcelWeb/TexcelWeb/Interfaces/creerProjet.aspx
 <title>Texcel</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../../css/navi.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../../css/projet.css" media="screen" />
+=======
+<title>Texcel - Creer un projet</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/navi.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/projet.css" media="screen" />
+>>>>>>> origin/sprint3:TexcelWeb/TexcelWeb/creerProjet.aspx
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -147,11 +154,11 @@ $(function(){
                                 <asp:DropDownList runat="server" ID="txtChefProjetCasTest" class="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date Création: " class="lblColum1"/>
+                                <asp:Label runat="server" Text="Date création: " class="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateCreationCasTest" class="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date Livraison: " class="lblColum1"/>
+                                <asp:Label runat="server" Text="Date livraison: " class="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" class="txtColum1"/>
                             </div>
                             <div class="info">
@@ -177,7 +184,7 @@ $(function(){
 						    <tr>
 							    <th scope="col">Code</th>
 							    <th scope="col">Nom</th>
-							    <th scope="col">Date Livraison</th>
+							    <th scope="col" style="width: 85px;">Date livraison</th>
 							    <th scope="col">Priorité</th>
 							    <th scope="col">Difficulté</th>
 							    <th scope="col" style="width: 65px;">Modification</th>
@@ -209,7 +216,7 @@ $(function(){
 					    </tbody>
 				    </table> 
                     <div class="pagination">
-						<span>« First</span>
+						<span>« Première</span>
 						<span class="active">1</span>
 						<a href="">2</a>
 						<a href="">3</a>
@@ -217,12 +224,12 @@ $(function(){
 						<span>...</span>
 						<a href="">23</a>
 						<a href="">24</a>
-						<a href="">Last »</a>
+						<a href="">Dernière »</a>
 					</div>  
                     <div id="btnCopierEnregistrerAnnuler">
-                        <asp:Button runat="server" ID="btnCopier" Text="Copier" />
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit" />
+                        <asp:Button runat="server" ID="btnCopier" Text="Copier" class="button"/>
+                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit button" />
+                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit button" />
                     </div>
                 </form>
 				<!-- <form action="" method="post">
@@ -385,7 +392,7 @@ $(function(){
 				</div>
 			</div> -->
 		</div>  
-		<div class="clear"></div>
+		<!-- <div class="clear"></div> -->
 	</div>
 
 	<div id="footer">

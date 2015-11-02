@@ -10,52 +10,76 @@ namespace Texcel.Classes.Personnel
     {
 
 
-        public static string AjouterUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, Employe _Employe)
+        public static string AjouterUtilisateur(string _nomUtilisateur, string _motDePasse, List<Groupe> _lstGroupeUtilisateur, Employe _employe)
         {
             //Ajout d'un nouveau Utilisateur
-            Utilisateur NewUtilisateur = new Utilisateur();
-            NewUtilisateur.nomUtilisateur = nomUtilisateur;
-            NewUtilisateur.motPasse = MotDePasse;
-            NewUtilisateur.Groupe = lstGroupeUtilisateur;
-            NewUtilisateur.Employe = _Employe;
+            Utilisateur newUtilisateur = new Utilisateur();
+            newUtilisateur.nomUtilisateur = _nomUtilisateur;
+            newUtilisateur.motPasse = _motDePasse;
+            newUtilisateur.Employe = _employe;
 
-            try
+            //Vérifier si le aucun groupe n'est associé
+            if (VerifierSiGroupeVide(_lstGroupeUtilisateur))
             {
-                Enregistrer(NewUtilisateur);
-                return "L'Utilisateur a été ajouté avec succès!";
+                newUtilisateur.Groupe = _lstGroupeUtilisateur;
+                try
+                {
+                    Enregistrer(newUtilisateur);
+                    return "L'utilisateur a été ajouté avec succès!";
+                }
+                catch (Exception)
+                {
+                    return "Une erreur est survenue lors de l'ajout de l'utilisateur car le nom de cet utilisateur existe déjà. Veuillez trouver un autre nom utilisateur!";
+                }
             }
-            catch (Exception)
+            //groupe vide
+            else
             {
-                return "Une erreur est survenue lors de l'ajout de l'Utilisateur. Les données n'ont pas été enregistrées.";
+                return "Une erreur est survenu lors de l'ajout de l'utilisateur,car vous devez associé au moins un groupe à cet utilisateur";
             }
+
+
+           
         }
 
-        public static string ModifierUtilisateur(string nomUtilisateur, string MotDePasse, List<Groupe> lstGroupeUtilisateur, string nomUtilisateurAModifier)
+
+        public static string ModifierUtilisateur(string _nomUtilisateur, string _motDePasse, List<Groupe> _lstGroupeUtilisateur, string _nomUtilisateurAModifier)
         {
-            Utilisateur UtilisateurAModifier = context.tblUtilisateur.Where(x => x.nomUtilisateur == nomUtilisateurAModifier).First();
+            // On assigne
+            Utilisateur UtilisateurAModifier = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUtilisateurAModifier).First();
+            UtilisateurAModifier.nomUtilisateur = _nomUtilisateur;
+            UtilisateurAModifier.motPasse = _motDePasse;
 
-            UtilisateurAModifier.nomUtilisateur = nomUtilisateur;
-            UtilisateurAModifier.motPasse = MotDePasse;
-            UtilisateurAModifier.Groupe = lstGroupeUtilisateur;
-
-            try
+            //Vérifier si le aucun groupe n'est associé
+            if (VerifierSiGroupeVide(_lstGroupeUtilisateur))
             {
-                context.SaveChanges();
-                return "L'Utilisateur a été modifié avec succès!";
+                // on  assigne groupe à l'utilisateur
+                UtilisateurAModifier.Groupe = _lstGroupeUtilisateur;
+                try
+                {
+                    context.SaveChanges();
+                    return "L'Utilisateur a été modifié avec succès!";
+                }
+                catch (Exception)
+                {
+                    return "Une erreur est survenue lors de la modification de l'Utilisateur. Les données n'ont pas été enregistrées.";
+                }
             }
-            catch (Exception)
+                //groupe vide
+            else
             {
-                return "Une erreur est survenue lors de la modification de l'Utilisateur. Les données n'ont pas été enregistrées.";
+                return "Une erreur est survenu lors de l'ajout de l'utilisateur,car vous devez associé au moins un groupe à cet utilisateur";
+
             }
         }
 
-        public static string SupprimerUtilisateur(string _NomUtilisateurASupprimer)
+        public static string SupprimerUtilisateur(string _nomUtilisateurASupprimer)
         {
             Utilisateur UtilisateurASupprimer = new Utilisateur();
 
             foreach (Utilisateur user in context.tblUtilisateur)
             {
-                if (user.nomUtilisateur == _NomUtilisateurASupprimer)
+                if (user.nomUtilisateur == _nomUtilisateurASupprimer)
                 {
                     UtilisateurASupprimer = user;
                 }
@@ -73,9 +97,9 @@ namespace Texcel.Classes.Personnel
                 return "Une erreur est survenue lors de la suppression de l'Utilisateur. Les données n'ont pas été supprimées.";
             }
         }
-        private static void Enregistrer(Utilisateur NewUtilisateur)
+        private static void Enregistrer(Utilisateur _newUtilisateur)
         {
-            context.tblUtilisateur.Add(NewUtilisateur);
+            context.tblUtilisateur.Add(_newUtilisateur);
             context.SaveChanges();
         }
 
@@ -110,6 +134,17 @@ namespace Texcel.Classes.Personnel
                 lstGr.Add(gr);
             }
             return lstGr;
+        }
+
+        // on vérifier si le listbox de groupe est vide        
+        public static bool VerifierSiGroupeVide(List<Groupe> _lstGroupeUtilisateur)
+        {
+            if (_lstGroupeUtilisateur.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

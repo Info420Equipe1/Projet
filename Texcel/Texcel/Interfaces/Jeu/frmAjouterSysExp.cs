@@ -25,7 +25,7 @@ namespace Texcel.Interfaces.Jeu
         public frmAjouterSysExp(SysExp _sE, EditionSysExp _eSE, VersionSysExp _vSE)
         {
             InitializeComponent();
-           
+            this.Text = "Modifier systeme d'exploitation";
             txtID.Text = _sE.idSysExp.ToString();          
             cmbNom.Text = _sE.nomSysExp;
             cmbEdition.Text = _eSE.nomEdition;

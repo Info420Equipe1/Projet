@@ -71,6 +71,11 @@ namespace Texcel.Interfaces
                     this.smiEquipe.Visible = false;
                     this.btnModifierEquipe.Visible = false;
                 }
+                if (groupe.idGroupe == 1)
+                {
+                    cmbFiltre.Text = "Employé";
+                    btnRechercher_Click(this, null);
+                }
                 if (groupe.idGroupe == 2)
                 {
                     cmbFiltre.Text = "Équipe";
@@ -103,7 +108,7 @@ namespace Texcel.Interfaces
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
-            clearTabControl(cmbFiltre.Text);
+            clearTabControl();
             ChoixFiltre(cmbFiltre.Text);
             dgvResultats_Click(this, null);
         }
@@ -277,6 +282,17 @@ namespace Texcel.Interfaces
             frmCreerEquipe frmCreerEquipe = new frmCreerEquipe();
             frmCreerEquipe.ShowDialog();
         }
+        private void smiDeconnection_Click(object sender, EventArgs e)
+        {
+            CtrlAdmin.SetCurrentUser(null);
+            foreach (Form f in Application.OpenForms)
+	        {
+                f.Close();
+	        }
+
+            frmLogin maFrmlogin = new frmLogin();
+            maFrmlogin.ShowDialog();
+        }
 
         private void smiQuitter_Click(object sender, EventArgs e)
         {
@@ -285,8 +301,8 @@ namespace Texcel.Interfaces
 
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtRechercher.Clear();
             dgvResultats.Columns.Clear();
+            clearTabControl();
             switch (cmbFiltre.Text)
             {
                 case "Employé": tabControl1.SelectedIndex = 0;
@@ -302,121 +318,117 @@ namespace Texcel.Interfaces
                 default: tabControl1.SelectedIndex = 0;
                     break;
             }
-        }
-
-        private void dgvResultats_DoubleClick(object sender, EventArgs e)
-        {
-            if (cmbFiltre.Text == "Employé")
-            {
-                string nomPren;
-                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                Employe emp = CtrlEmploye.emp(nomPren);
-                frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
-                frmEmp.ShowDialog();
-                dgvResultats.Rows.Clear();
-            }
+            txtRechercher.Focus();
+            txtRechercher.SelectAll();
         }
 
         //Afficher les tab ainsi que l'information de l'élément sélectionné
         private void dgvResultats_Click(object sender, EventArgs e)
         {
-            if (cmbFiltre.Text == "Employé")
+            if (dgvResultats.Rows.Count != 0)
             {
-                string nomPren;
-                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                Employe emp = CtrlEmploye.emp(nomPren);
-                lblNoEmp.Text = emp.idEmploye.ToString();
-                lblNomEmp.Text = emp.nomEmploye;
-                lblPrenEmp.Text = emp.prenomEmploye;
-                lblAdresseEmp.Text = emp.adressePostale;
-                lblTelPrimEmp.Text = emp.numTelPrincipal;
-                lblTelSecEmp.Text = emp.numTelSecondaire;
-                dateTimePicker1.Value = emp.dateEmbauche;
-                listBox1.Items.Clear();
-                lstBoxTypeTest.Items.Clear();
-                foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
+                if (cmbFiltre.Text == "Employé")
                 {
-                    lstBoxTypeTest.Items.Add(tT.nomTypeTest);
-                }
-               
-                foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
-                {
-                    listBox1.Items.Add(uti.nomUtilisateur);
-                }
-                richTextBox1.Text = emp.competenceParticuliere;
-            }
-            else if (cmbFiltre.Text == "Équipe")
-            {
-                string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                int id = Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag);
-                Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
-                lblNomEquipe.Text = selectedEquipe.nomEquipe;
-                lblChefEquipe.Text = nomChefEquipe;
-                string codeProj = selectedEquipe.CasTest.First().codeProjet;
-                lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
-                rtbCommentaire.Text = selectedEquipe.descEquipe;
-                lstTesteurEquipe.Items.Clear();
-                foreach (Employe emp in selectedEquipe.Employe1)
-	            {
-                    lstTesteurEquipe.Items.Add(emp.prenomEmploye+" "+emp.nomEmploye);
-	            }
-            }
-            else if (cmbFiltre.Text == "Jeu")
-            {
-                string nomJeu = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
-                cJeu jeu = CtrlJeu.GetJeu(nomJeu);
-                lblNoJeu.Text = jeu.idJeu.ToString();
-                lblNomJeu.Text = jeu.nomJeu;
-                lblDevJeu.Text = jeu.developeur;
-                lblClassJeu.Text = jeu.ClassificationJeu.nomClassification;
-                rtbDescription.Text = jeu.descJeu;
-                rtbConfiguration.Text = jeu.configMinimal;
-                lstBoxVersion.Items.Clear();
-                foreach (VersionJeu version in jeu.VersionJeu)
-                {
-                    lstBoxVersion.Items.Add(version.nomVersionJeu);
-                }
-                lstBoxPlat1.Items.Clear();
-                foreach (Plateforme plat in jeu.Plateforme)
-                {
-                    lstBoxPlat1.Items.Add(plat.nomPlateforme);
-                }
-                lstBoxTheme1.Items.Clear();
-                foreach (ThemeJeu theme in jeu.ThemeJeu)
-                {
-                    lstBoxTheme1.Items.Add(theme.nomTheme);
-                }
-                lstBoxGenre1.Items.Clear();
-                foreach (GenreJeu genre in jeu.GenreJeu)
-                {
-                    lstBoxGenre1.Items.Add(genre.nomGenre);
-                }
-            }
-            else if (cmbFiltre.Text == "Plateforme")
-            {
-                string nomPlat = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
-                Plateforme plat = CtrlPlateforme.GetPlateforme(nomPlat);
-                lblNoPlate.Text = plat.idPlateforme.ToString();
-                lblTypePlate.Text = plat.TypePlateforme.nomTypePlateforme;
-                lblNomPlate.Text = plat.nomPlateforme;
-                rtxtConfigPlate.Text = plat.configPlateforme;
-                rtxtCommPlate.Text = plat.commPlateforme;
-            }
-            else if (cmbFiltre.Text == "Système d'exploitation")
-            {
-                string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
-                string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
-                SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
-                EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp,sE.idSysExp);
-                VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+                    string nomPren;
+                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    Employe emp = CtrlEmploye.emp(nomPren);
+                    lblNoEmp.Text = emp.idEmploye.ToString();
+                    lblNomEmp.Text = emp.nomEmploye;
+                    lblPrenEmp.Text = emp.prenomEmploye;
+                    lblAdresseEmp.Text = emp.adressePostale;
+                    lblTelPrimEmp.Text = emp.numTelPrincipal;
+                    lblTelSecEmp.Text = emp.numTelSecondaire;
+                    dateTimePicker1.Value = emp.dateEmbauche;
+                    listBox1.Items.Clear();
+                    lstBoxTypeTest.Items.Clear();
+                    foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
+                    {
+                        lstBoxTypeTest.Items.Add(tT.nomTypeTest);
+                    }
 
-                noSE.Text = sE.idSysExp.ToString();
-                nomSE.Text = sE.nomSysExp;
-                edSE.Text = editionSysExp;
-                versionSE.Text = versionSysExp;
-                codeSE.Text = sE.codeSysExp;
-                rtbCommSysExp.Text = vSE.commSysExp;
+                    foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
+                    {
+                        listBox1.Items.Add(uti.nomUtilisateur);
+                    }
+                    richTextBox1.Text = emp.competenceParticuliere;
+                }
+                else if (cmbFiltre.Text == "Équipe")
+                {
+                    string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
+                    int id = Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag);
+                    Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
+                    lblNomEquipe.Text = selectedEquipe.nomEquipe;
+                    lblChefEquipe.Text = nomChefEquipe;
+                    string codeProj = selectedEquipe.CasTest.First().codeProjet;
+                    lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
+                    rtbCommentaire.Text = selectedEquipe.descEquipe;
+                    lstTesteurEquipe.Items.Clear();
+                    foreach (Employe emp in selectedEquipe.Employe1)
+                    {
+                        lstTesteurEquipe.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
+                    }
+                }
+                else if (cmbFiltre.Text == "Jeu")
+                {
+                    string nomJeu = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                    cJeu jeu = CtrlJeu.GetJeu(nomJeu);
+                    lblNoJeu.Text = jeu.idJeu.ToString();
+                    lblNomJeu.Text = jeu.nomJeu;
+                    lblDevJeu.Text = jeu.developeur;
+                    lblClassJeu.Text = jeu.ClassificationJeu.nomClassification;
+                    rtbDescription.Text = jeu.descJeu;
+                    rtbConfiguration.Text = jeu.configMinimal;
+                    lstBoxVersion.Items.Clear();
+                    foreach (VersionJeu version in jeu.VersionJeu)
+                    {
+                        lstBoxVersion.Items.Add(version.nomVersionJeu);
+                    }
+                    lstBoxPlat1.Items.Clear();
+                    foreach (Plateforme plat in jeu.Plateforme)
+                    {
+                        lstBoxPlat1.Items.Add(plat.nomPlateforme);
+                    }
+                    lstBoxTheme1.Items.Clear();
+                    foreach (ThemeJeu theme in jeu.ThemeJeu)
+                    {
+                        lstBoxTheme1.Items.Add(theme.nomTheme);
+                    }
+                    lstBoxGenre1.Items.Clear();
+                    foreach (GenreJeu genre in jeu.GenreJeu)
+                    {
+                        lstBoxGenre1.Items.Add(genre.nomGenre);
+                    }
+                }
+                else if (cmbFiltre.Text == "Plateforme")
+                {
+                    string nomPlat = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    Plateforme plat = CtrlPlateforme.GetPlateforme(nomPlat);
+                    lblNoPlate.Text = plat.idPlateforme.ToString();
+                    lblTypePlate.Text = plat.TypePlateforme.nomTypePlateforme;
+                    lblNomPlate.Text = plat.nomPlateforme;
+                    rtxtConfigPlate.Text = plat.configPlateforme;
+                    rtxtCommPlate.Text = plat.commPlateforme;
+                }
+                else if (cmbFiltre.Text == "Système d'exploitation")
+                {
+                    string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                    string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
+                    string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                    SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
+                    EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
+                    VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+
+                    noSE.Text = sE.idSysExp.ToString();
+                    nomSE.Text = sE.nomSysExp;
+                    edSE.Text = editionSysExp;
+                    versionSE.Text = versionSysExp;
+                    codeSE.Text = sE.codeSysExp;
+                    rtbCommSysExp.Text = vSE.commSysExp;
+                } 
+            }
+            else
+            {
+                clearTabControl();
             }
         }
 
@@ -543,38 +555,13 @@ namespace Texcel.Interfaces
             }
         }
         
-        private void clearTabControl(string NomFiltre)
+        private void clearTabControl()
         {
-            switch (NomFiltre)
-            {
-                case "Employé":
-                    clearTabControlEquipe();
-                    clearTabControlJeu();
-                    clearTabControlPlateforme();
-                    break;
-                case "Équipe":
-                    clearTabControlEmploye();
-                    clearTabControlJeu();
-                    clearTabControlPlateforme();
-                    break;
-                case "Jeu":
-                    clearTabControlEmploye();
-                    clearTabControlEquipe();
-                    clearTabControlPlateforme();
-                    break;
-                case "Plateforme":
-                    clearTabControlEmploye();
-                    clearTabControlEquipe();
-                    clearTabControlJeu();
-                    break;
-
-                default: 
-                    clearTabControlEmploye();
-                    clearTabControlEquipe();
-                    clearTabControlJeu();
-                    clearTabControlPlateforme();
-                    break;
-            }
+            clearTabControlEmploye();
+            clearTabControlEquipe();
+            clearTabControlJeu();
+            clearTabControlPlateforme();
+            clearTabControlSysExp();
         }
         private void clearTabControlEmploye()
         {
@@ -618,6 +605,19 @@ namespace Texcel.Interfaces
             rtxtConfigPlate.Text = "";
             rtxtCommPlate.Text = "";
         }
+        
+        private void clearTabControlSysExp()
+        {
+            noSE.Text = "";
+            nomSE.Text = "";
+            edSE.Text = "";
+            codeSE.Text = "";
+            versionSE.Text = "";
+            rtbCommSysExp.Text = "";
+        }
+
+      
+       
 
 
 
