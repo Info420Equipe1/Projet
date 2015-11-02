@@ -37,9 +37,7 @@ namespace Texcel.Classes.Personnel
             {
                 return "Une erreur est survenu lors de l'ajout de l'utilisateur,car vous devez associé au moins un groupe à cet utilisateur";
             }
-
-
-           
+       
         }
 
 

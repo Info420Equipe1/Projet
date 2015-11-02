@@ -195,6 +195,7 @@ namespace Texcel.Interfaces.Personnel
         {
             this.Close();
             frmAjouterEmploye fAE = new frmAjouterEmploye(EmployeLier);
+            fAE.ShowDialog();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)

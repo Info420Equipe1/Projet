@@ -59,8 +59,7 @@ namespace Texcel.Classes.Personnel
             {
                 _equipe.Employe1.Add(emp);
                 context.SaveChanges();
-            }
-            
+            }           
         }
         public static Equipe getSelectedEquipe(int _id)
         {
