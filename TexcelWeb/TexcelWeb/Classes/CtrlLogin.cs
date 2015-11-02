@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Texcel.Classes
+namespace TexcelWeb.Classes
 {
-    class CtrlLogin : CtrlController
+    public class CtrlLogin : CtrlController
     {
         public static string VerifierLogin(string _username, string _password)
         {
@@ -16,7 +15,7 @@ namespace Texcel.Classes
                 if (user.motPasse == _password)
                 {
                     CtrlController.SetCurrentUser(user);
-                    return "Connexion réussie";
+                    return "Connexion réussie!";
                 }
                 else
                 {

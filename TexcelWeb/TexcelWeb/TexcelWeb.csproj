@@ -125,6 +125,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\CtrlController.cs" />
+    <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
     <Compile Include="ClassificationJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>

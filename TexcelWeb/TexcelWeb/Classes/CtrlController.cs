@@ -10,17 +10,38 @@ namespace TexcelWeb.Classes
     public class CtrlController
     {
         protected static dbProjetE1Entities context = new dbProjetE1Entities();
-        protected static Utilisateur CurrentUtilisateur;
+        protected static Utilisateur currentUtilisateur;
 
-        public static void openConnection()
+
+
+        public static void SetCurrentUser(Utilisateur user)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["context"].ConnectionString;
-            var builder = new SqlConnectionStringBuilder(connectionString);
-            builder.Password = "Jambon15";
-            connectionString = builder.ConnectionString;
-            //dbContext.Database.Connection.ConnectionString = connectionString;
-            //dbContext.SaveChanges();
-            //dbContext.Database.Connection.Close();
+            currentUtilisateur = user;
         }
+        public static Utilisateur GetCurrentUser()
+        {
+            return currentUtilisateur;
+        }
+        public static Utilisateur getUtilisateurByName(string nomUtilisateur)
+        {
+            foreach (Utilisateur user in context.tblUtilisateur)
+            {
+                if (user.nomUtilisateur == nomUtilisateur)
+                {
+                    return user;
+                }
+            }
+            return null;
+        }
+        public static List<int> GetDroits(Groupe groupeUti)
+        {
+            List<int> lstDroits = new List<int>();
+            foreach (Forms f in groupeUti.Forms)
+            {
+                lstDroits.Add(f.idForm);
+            }
+            return lstDroits;
+        }
+        
     }
 }

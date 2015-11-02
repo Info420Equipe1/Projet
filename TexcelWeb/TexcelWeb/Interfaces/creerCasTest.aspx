@@ -235,9 +235,9 @@ $(function(){
 							<td>Marcel Leblond</td>
 							<td>22-03-2012</td>
 							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
+								<a href="#" class="table-icon edit" title="Modifier"></a>
+								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
+								<a href="#" class="table-icon delete" title="Supprimer"></a>
 							</td>
 						</tr>
 							
@@ -248,9 +248,9 @@ $(function(){
 							<td>Louis-Alexandre Munger</td>
 							<td>23-03-2012</td>
 							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
+								<a href="#" class="table-icon edit" title="Modifier"></a>
+								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
+								<a href="#" class="table-icon delete" title="Supprimer"></a>
 							</td>
 						</tr>					
 						<tr>
@@ -260,9 +260,9 @@ $(function(){
 							<td>Jérémie Tremblay</td>
 							<td>22-03-2012</td>
 							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
+								<a href="#" class="table-icon edit" title="Modifier"></a>
+								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
+								<a href="#" class="table-icon delete" title="Supprimer"></a>
 							</td>
 						</tr>
 						
@@ -273,9 +273,21 @@ $(function(){
 							<td>Benoit Simard</td>
 							<td>25-03-2012</td>
 							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
+								<a href="#" class="table-icon edit" title="Modifier"></a>
+								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
+								<a href="#" class="table-icon delete" title="Supprimer"></a>
+							</td>
+						</tr>
+                        <tr>
+							<td>ReadME</td>
+							<td>.txt</td>
+							<td>170 mb</td>
+							<td>Benoit Simard</td>
+							<td>25-03-2012</td>
+							<td>
+								<a href="#" class="table-icon edit" title="Modifier"></a>
+								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
+								<a href="#" class="table-icon delete" title="Supprimer"></a>
 							</td>
 						</tr>
 					</tbody>

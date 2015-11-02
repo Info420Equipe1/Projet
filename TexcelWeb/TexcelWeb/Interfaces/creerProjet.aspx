@@ -23,7 +23,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
@@ -187,23 +187,56 @@ $(function(){
 						    <tr>
 							    <td class="align-center">ASU</td>
 							    <td>AssassinsCreedUnity</td>
-							    <td class="align-center">01-11-2015</td>
+							    <td class="align-center">2015-10-29</td>
 							    <td class="align-center">Modérée</td>
 							    <td class="align-center">Élevée</td>
 							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Edit"></a>
-								    <a href="#" class="table-icon delete" title="Delete"></a>
+								    <a href="#" class="table-icon edit" title="Modifier"></a>
+								    <a href="#" class="table-icon delete" title="Supprimer"></a>
 							    </td>
 						    </tr>
                             <tr>
 							    <td class="align-center">CODAW</td>
 							    <td>CallofDutyAdvancedWarfare</td>
-							    <td class="align-center">05-12-2015</td>
+							    <td class="align-center">2015-10-30</td>
 							    <td class="align-center">Faible</td>
 							    <td class="align-center">Modérée</td>
 							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Edit"></a>
-								    <a href="#" class="table-icon delete" title="Delete"></a>
+								    <a href="#" class="table-icon edit" title="Modifier"></a>
+								    <a href="#" class="table-icon delete" title="Supprimer"></a>
+							    </td>
+						    </tr>
+                            <tr>
+							    <td class="align-center">GHWT</td>
+							    <td>GuitarHeroWorldTour</td>
+							    <td class="align-center">2015-11-02</td>
+							    <td class="align-center">Modérée</td>
+							    <td class="align-center">Élevée</td>
+							    <td class="align-center">
+								    <a href="#" class="table-icon edit" title="Modifier"></a>
+								    <a href="#" class="table-icon delete" title="Supprimer"></a>
+							    </td>
+						    </tr>
+                            <tr>
+							    <td class="align-center">GTA5</td>
+							    <td>GrandTheftAuto5</td>
+							    <td class="align-center">2015-11-03</td>
+							    <td class="align-center">Faible</td>
+							    <td class="align-center">Modérée</td>
+							    <td class="align-center">
+								    <a href="#" class="table-icon edit" title="Modifier"></a>
+								    <a href="#" class="table-icon delete" title="Supprimer"></a>
+							    </td>
+						    </tr>
+                            <tr>
+							    <td class="align-center">LOL</td>
+							    <td>LeagueOfLegends</td>
+							    <td class="align-center">2015-11-04</td>
+							    <td class="align-center">Faible</td>
+							    <td class="align-center">Modérée</td>
+							    <td class="align-center">
+								    <a href="#" class="table-icon edit" title="Modifier"></a>
+								    <a href="#" class="table-icon delete" title="Supprimer"></a>
 							    </td>
 						    </tr>
 					    </tbody>

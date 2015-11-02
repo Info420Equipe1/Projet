@@ -7,20 +7,6 @@ namespace TexcelWeb.Classes.Personnel
 {
     public class CtrlUtilisateur : CtrlController
     {
-        public static bool ValidationConnexion(string NomUtilisateur, string MotPasse)
-        {
-            //dbContext.Database.Connection.Open();
-            foreach (Utilisateur user in context.tblUtilisateur)
-            {
-                if ((NomUtilisateur == user.nomUtilisateur) && (MotPasse == user.motPasse))
-                {
-                    //dbContext.Database.Connection.Close();
-                    return true;
-                }
-            }
-            //dbContext.Database.Connection.Close();
-            return false;
-        }
         public static List<Employe> getLstChefProjet()
         {
             List<Employe> lstChefProjet = new List<Employe>();

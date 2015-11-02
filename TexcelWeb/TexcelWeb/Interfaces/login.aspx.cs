@@ -24,21 +24,25 @@ namespace TexcelWeb
                 {
                     string nomUtilisateur = String.Format("{0}", Request.Form["txtNomUtilisateur"]);
                     string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
-                    if (CtrlUtilisateur.ValidationConnexion(nomUtilisateur, motPasse))
+                    if (CtrlLogin.VerifierLogin(nomUtilisateur, motPasse).Contains("Connexion réussie!"))
                     {
                         this.Form.Dispose();
-                        creerProjet frmCreerProjet = new creerProjet();
+                        //creerProjet frmCreerProjet = new creerProjet();
                         System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
+                    }
+                    else
+                    {
+                        //Connexion Échouée
                     }
                 }
                 else
                 {
-
+                    //Aucun texte dans le mot de passe
                 }
             }
             else
             {
-
+                //Aucun texte dans le nom utilisateur
             }
         }
     }
