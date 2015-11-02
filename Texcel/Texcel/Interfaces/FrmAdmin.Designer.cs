@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblUtilisateurConn = new System.Windows.Forms.Label();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -140,6 +143,7 @@
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -167,6 +171,7 @@
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultats.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResultats.Location = new System.Drawing.Point(15, 107);
             this.dgvResultats.MultiSelect = false;
@@ -174,11 +179,27 @@
             this.dgvResultats.RowHeadersVisible = false;
             this.dgvResultats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvResultats.RowTemplate.Height = 24;
-            this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
             this.dgvResultats.TabIndex = 9;
             this.dgvResultats.TabStop = false;
+            this.dgvResultats.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultats_CellMouseDown);
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copierToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 28);
+            // 
+            // copierToolStripMenuItem
+            // 
+            this.copierToolStripMenuItem.Name = "copierToolStripMenuItem";
+            this.copierToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.copierToolStripMenuItem.Text = "Copier";
+            this.copierToolStripMenuItem.Click += new System.EventHandler(this.copierToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -1188,10 +1209,10 @@
             this.txtRechercher.Name = "txtRechercher";
             this.txtRechercher.Size = new System.Drawing.Size(579, 27);
             this.txtRechercher.TabIndex = 1;
-            
             // 
             // mnsMain
             // 
+            this.mnsMain.ContextMenuStrip = this.contextMenuStrip1;
             this.mnsMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smiFichier,
@@ -1364,6 +1385,7 @@
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.VisibleChanged += new System.EventHandler(this.frmAdmin_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1497,6 +1519,8 @@
         private System.Windows.Forms.Label nomSE;
         private System.Windows.Forms.Label noSE;
         private System.Windows.Forms.ToolStripMenuItem smiDeconnection;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem copierToolStripMenuItem;
 
     }
 }

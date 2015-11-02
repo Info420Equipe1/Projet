@@ -325,8 +325,10 @@ namespace Texcel.Interfaces
             {
                 if (cmbFiltre.Text == "Employé")
                 {
+                    int num = dgvResultats.CurrentCell.RowIndex;
+                    
                     string nomPren;
-                    nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    nomPren = dgvResultats[0, num].Value.ToString() + " " + dgvResultats[1, num].Value.ToString();
                     Employe emp = CtrlEmploye.emp(nomPren);
                     lblNoEmp.Text = emp.idEmploye.ToString();
                     lblNomEmp.Text = emp.nomEmploye;
@@ -350,8 +352,9 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Équipe")
                 {
-                    string nomChefEquipe = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                    int id = Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag);
+                    int num = dgvResultats.CurrentCell.RowIndex;
+                    string nomChefEquipe = dgvResultats[2, num].Value.ToString();
+                    int id = Convert.ToInt16(dgvResultats[0, num].Tag);
                     Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
                     lblNomEquipe.Text = selectedEquipe.nomEquipe;
                     lblChefEquipe.Text = nomChefEquipe;
@@ -366,7 +369,8 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Jeu")
                 {
-                    string nomJeu = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
+                    int num = dgvResultats.CurrentCell.RowIndex;
+                    string nomJeu = dgvResultats[0, num].Value.ToString();
                     cJeu jeu = CtrlJeu.GetJeu(nomJeu);
                     lblNoJeu.Text = jeu.idJeu.ToString();
                     lblNomJeu.Text = jeu.nomJeu;
@@ -397,7 +401,8 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Plateforme")
                 {
-                    string nomPlat = dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                    int num = dgvResultats.CurrentCell.RowIndex;
+                    string nomPlat = dgvResultats[1, num].Value.ToString();
                     Plateforme plat = CtrlPlateforme.GetPlateforme(nomPlat);
                     lblNoPlate.Text = plat.idPlateforme.ToString();
                     lblTypePlate.Text = plat.TypePlateforme.nomTypePlateforme;
@@ -407,9 +412,10 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Système d'exploitation")
                 {
-                    string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
-                    string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                    string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                    int num = dgvResultats.CurrentCell.RowIndex;
+                    string nomSysExp = dgvResultats[0, num].Value.ToString();
+                    string editionSysExp = dgvResultats[2, num].Value.ToString();
+                    string versionSysExp = dgvResultats[3, num].Value.ToString();
                     SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
                     EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
                     VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
@@ -612,6 +618,21 @@ namespace Texcel.Interfaces
             rtbCommSysExp.Text = "";
         }
 
+        private void copierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvResultats.SelectedCells[0].Value.ToString());
+        }
+
+        private void dgvResultats_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvResultats.ClearSelection();
+                dgvResultats[e.ColumnIndex, e.RowIndex].Selected = true;
+            }
+        }
+
+    
       
        
 
