@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Test;
-using Texcel.Classes;
+using Texcel.Classes.Projet;
 
 namespace Texcel.Interfaces.Personnel
 {
@@ -26,6 +26,7 @@ namespace Texcel.Interfaces.Personnel
         //Lorsque la fenetre est ouverte via recherche d'une équipe
         public frmCreerEquipe(Equipe _equ)
         {
+            
             InitializeComponent();
             id = _equ.idEquipe;
             txtNom.Text = _equ.nomEquipe;
@@ -46,6 +47,7 @@ namespace Texcel.Interfaces.Personnel
             //}
             Modification = true;
             btnEnregistrer.Text = "Modifier";
+            this.Text = "Modifier équipe";
         }
 
         private void frmCreerEquipe_Load(object sender, EventArgs e)
@@ -103,7 +105,7 @@ namespace Texcel.Interfaces.Personnel
             }
             if (Modification == false)
             {
-                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp, CtrlProjet.getProjet(cmbProjet.Text));
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -195,6 +197,18 @@ namespace Texcel.Interfaces.Personnel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+     
+
+        private void cmbProjet_DropDown(object sender, EventArgs e)
+        {
+            cmbProjet.Items.Clear();
+
+            foreach (cProjet proj in CtrlProjet.listDeProjet())
+            {
+                cmbProjet.Items.Add(proj.nomProjet);
+            }
         }
     }
 }

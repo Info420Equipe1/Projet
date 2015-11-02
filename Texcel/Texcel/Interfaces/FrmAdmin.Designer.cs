@@ -1188,6 +1188,7 @@
             this.txtRechercher.Name = "txtRechercher";
             this.txtRechercher.Size = new System.Drawing.Size(579, 27);
             this.txtRechercher.TabIndex = 1;
+            
             // 
             // mnsMain
             // 

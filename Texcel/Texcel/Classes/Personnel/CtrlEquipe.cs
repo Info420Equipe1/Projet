@@ -10,7 +10,7 @@ namespace Texcel.Classes.Personnel
     {
 
         //Enregistré équipe
-        public static string Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
+        public static string Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp, cProjet _proj)
         {
             Equipe equipe = new Equipe();
             
@@ -23,7 +23,7 @@ namespace Texcel.Classes.Personnel
             {
                 context.tblEquipe.Add(equipe);
                 context.SaveChanges();
-                LierEmploye(_listEmp, equipe);
+                LierEmploye(_listEmp, equipe, _proj);
                 return "L'équipe a été ajoutée avec succès!";
             }
             catch (Exception)
@@ -52,13 +52,15 @@ namespace Texcel.Classes.Personnel
         }
 
         //Lier les employés à l'équipe
-        private static void LierEmploye(List<Employe> _emp, Equipe _equipe)
+        private static void LierEmploye(List<Employe> _emp, Equipe _equipe, cProjet _proj)
         {
+            
             foreach (Employe emp in _emp)
             {
                 _equipe.Employe1.Add(emp);
                 context.SaveChanges();
             }
+            
         }
         public static Equipe getSelectedEquipe(int _id)
         {

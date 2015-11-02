@@ -36,6 +36,7 @@ namespace Texcel.Interfaces.Personnel
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
             AfficherEmploye(_employe);
+          
         }
 
         private void AfficherEmploye(Employe _employe)
@@ -69,6 +70,7 @@ namespace Texcel.Interfaces.Personnel
             modifier = true;
             employe = CtrlEmploye.emp(_nom + " " + _pren);
             btnEnregistrer.Text = "Modifier";
+            this.Text = "Modifier employée";
         }
 
         private void RemplirListBoxPourModeModif(Employe _emp)

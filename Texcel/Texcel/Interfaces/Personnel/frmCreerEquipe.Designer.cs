@@ -241,6 +241,8 @@
             this.cmbProjet.Size = new System.Drawing.Size(677, 28);
             this.cmbProjet.Sorted = true;
             this.cmbProjet.TabIndex = 2;
+            this.cmbProjet.DropDown += new System.EventHandler(this.cmbProjet_DropDown);
+          
             // 
             // label3
             // 
