@@ -71,6 +71,11 @@ namespace Texcel.Interfaces
                     this.smiEquipe.Visible = false;
                     this.btnModifierEquipe.Visible = false;
                 }
+                if (groupe.idGroupe == 1)
+                {
+                    cmbFiltre.Text = "Employé";
+                    btnRechercher_Click(this, null);
+                }
                 if (groupe.idGroupe == 2)
                 {
                     cmbFiltre.Text = "Équipe";
