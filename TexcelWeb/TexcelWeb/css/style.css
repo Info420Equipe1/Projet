@@ -2,11 +2,12 @@
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	background: #f3f3f3 url(../img/bg_top2.png) repeat-x;
 	color: #bebebe;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
-	font-size: 11px;
+	font-size: 14px;
 	margin: 0;
 }
 
@@ -18,9 +19,11 @@ h1, h2, h3, h4{
 a{
 	text-decoration: none;
 }
+
 a:hover{
 	text-decoration: underline;
 }
+
 button, .button{
 	background: #F3F3F3;
 	border: 1px solid #DCDCDC;
@@ -35,6 +38,7 @@ button, .button{
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #FFFFFF;
 }
+
 button:hover, .button:hover{
 	border-bottom-color: #999999;
 	border-left-color: #999999;
@@ -46,16 +50,18 @@ button:hover, .button:hover{
 
 .wrap{
 	margin: 0 auto;
-	width: 900px;
+	width: 1400px;
 }
 
 #header #top{
 	height: 34px;
 	padding: 14px 20px 0 20px;
 }
+
 #header #top p{
 	text-shadow: #000 0px 1px 1px;
 }
+
 #header #top a{
 	color: #f07e01;
 }
@@ -63,9 +69,11 @@ button:hover, .button:hover{
 #content{
 	margin: 30px 0 30px 0;
 }
+
 #content .b1{
 	background: #ffffff;
 }
+
 #content .b2{
 	background: #f7f7f7;
 }
@@ -73,6 +81,7 @@ button:hover, .button:hover{
 #content tr:nth-child(even){
 	background: #ffffff;
 }
+
 #content tr:nth-child(odd){
 	background: #f7f7f7;
 }
@@ -82,8 +91,9 @@ button:hover, .button:hover{
 #content #sidebar{
 	float: left;
 	margin: 0 20px 0 0;
-	width: 190px;
+	width: 300px;
 }
+
 #sidebar a{
 	color: #656565;
 }
@@ -92,13 +102,14 @@ button:hover, .button:hover{
 	border: 1px solid #DCDDE1;
 	margin: 0 0 12px 0;
 }
+
 #sidebar .box .h_title{
-	background: url(../img/bg_box_head.jpg) repeat-x;
+	background: url(../img/bg_box_head.png) repeat-x;
 	color: #bebebe;
 	cursor: pointer;
-	font-size: 11px;
-	font-weight: normal;
-	height: 22px;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
 	padding: 7px 0 0 15px;
 	text-shadow: #0E0E0E 0px 1px 1px;
 }
@@ -106,9 +117,11 @@ button:hover, .button:hover{
 #sidebar .box ul{
 	list-style: none;
 }
+
 #sidebar .box ul li{
 	padding: 8px 0 8px 5px;
 }
+
 .box ul li .icon{ padding: 2px 0 2px 22px;}
 .box ul li .page{ background: url(../img/i_page.png) no-repeat center left;}
 .box ul li .view_page{ background: url(../img/i_view_page.png) no-repeat center left;}
@@ -129,7 +142,7 @@ button:hover, .button:hover{
 #content #main{
 	float: right;
 	margin: 0 0 12px 0;
-	width: 680px;
+	width: 1080px;
 }
 
 #content #main ul, #content #main ol{
@@ -143,21 +156,25 @@ button:hover, .button:hover{
 	color: #848484;
 	margin: 0 0 20px 0;
 }
+
 #main .full_w .h_title, #main .half_w .h_title{
-	background: url(../img/bg_box_head.jpg) repeat-x;
+	background: url(../img/bg_box_head.png) repeat-x;
 	color: #bebebe;
-	font-size: 11px;
-	font-weight: normal;
-	height: 22px;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
 	padding: 7px 0 0 15px;
 	text-shadow: #0E0E0E 0px 1px 1px;
 }
+
 #main .full_w .list{
 	list-style: none;
 }
+
 #main .full_w h1, #main .full_w h2, #main .full_w h3{
 	margin: 15px 15px 5px 15px;
 }
+
 #main .full_w p{
 	line-height: 16px;
 	margin: 5px 15px;
@@ -171,9 +188,11 @@ button:hover, .button:hover{
 	width: 330px;
 	float: left;
 }
+
 #main .half_left{
 	margin-right: 10px;
 }
+
 #main .half_right{
 	margin-left: 4px;
 }
@@ -187,20 +206,24 @@ button:hover, .button:hover{
 	text-shadow: #fff 1px 1px 0px;
 	width: 49%;
 }
+
 #main .stats .today{
 	border-right: 1px dashed #c0c0c0;
 }
+
 #main .stats h3{
 	color: #797777;
 	font-size: 12px;
 	margin-bottom: 5px;
 	text-transform: uppercase;
 }
+
 #main .stats .count{
 	color: #444444;
 	font-size: 23px;
 	font-weight: bold;
 }
+
 #main .stats .type{
 	font-size: 10px;
 	margin-bottom: 5px;
@@ -211,6 +234,7 @@ button:hover, .button:hover{
 #main form{
 	margin: 15px;
 }
+
 #main form .element{
 	clear: both;
 	border-bottom: 1px dashed #ededed;
@@ -218,6 +242,7 @@ button:hover, .button:hover{
 	margin: 0;
 	padding: 10px 10px;
 }
+
 #main form label{
 	color: #575757;
 	display: block;
@@ -226,11 +251,13 @@ button:hover, .button:hover{
 	margin: 0 0 5px 0;
 	padding: 0 0 0 3px;
 }
+
 #main form label span{
 	color: #b8b8b8;
 	font-size: 11px;
 	font-weight: normal;
 }
+
 #main form input, #main form select, #main form textarea{
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
@@ -239,22 +266,27 @@ button:hover, .button:hover{
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	padding: 5px 3px;
 }
+
+
 #main form input:focus, #main form select:focus, #main form textarea:focus{	border: 1px solid #b3b3b3;}
 
 #main form select{
 	border: 1px solid #DDDDDD;
 	border-radius: 3px;
-
 }
+
 #main form .text{
 	width: 100%;
 }
+
 #main form .textarea{
 	width: 100%;
 }
+
 #main form .err{
 	border: 1px solid #FF5252;
 }
+
 #main form .red{
 	color: #FF5252;
 }
@@ -279,8 +311,9 @@ table{
 	border-collapse: collapse;
     margin-top: 15px;
     margin-bottom: 15px;
-	width: 650px; 
+	width: 1045px; 
 }
+
 table th{ 
 	background: url(../img/bg_box_head.jpg) repeat-x;
 	color: #DACDCD;
@@ -291,20 +324,24 @@ table th{
 	padding: 7px; 
 	text-shadow: 0px 1px #242424; 
 }
+
 table tr{ 
 	border-left: 1px solid #ffffff;
 	border-right: 1px solid #ffffff;
 }
+
 table td{ 
 	border-bottom: 1px solid #ffffff; 
 	border-top: 1px solid ffffff; 
 	color: #565656;
 	padding: 8px; 
 }
+
 table tr:hover td{ 
 	background: #fff8cf;
 	color: #000000; 
 }
+
 table .chb{ 
 	width: 20px; 
 }
@@ -319,29 +356,35 @@ table .chb{
 	padding: 12px 0;
 	text-align: center;
 }
+
 .pagination a{ 
 	border:solid 1px #d2d2d2; 
 	color: #444444;  
 	margin-right:2px; 
 }
+
 .pagination span{ 
 	border:solid 1px #ddd; 
 	margin-right:2px; 
 }
+
 .pagination .active{
 	border:solid 1px #e0e0e0; 
 	color:#000; 
 	font-weight:bold;  
 }
+
 .pagination a:link, .pagination a:visited{
 	padding:6px 10px; 
 	text-decoration:none; 
 }
+
 .pagination span{ 
 	color:#b6b6b6; 
 	padding:6px 10px; 
 	text-decoration:none; 
 }
+
 .pagination a:hover{ 
 	border:solid 1px #b2b2b2; 
 }
@@ -354,10 +397,12 @@ table .chb{
 	color: #939393;
 	float: left;
 	margin: 0 auto;
-	padding: 8px 20px;
+	padding: 8px 8px;
 	text-shadow: #111111 0px 1px 1px;
-	width: 860px;
+	width: 1385px;
+    font-size: 12px;
 }
+
 #footer a{
 	color: #939393;
 	font-weight: bold;

@@ -28,14 +28,17 @@
     width: 50%;
     display:inline-block;
 }
+
 .btnDroit{
     display:inline-block;
     float:right;
     margin-right:5px;
 }
+
 #btnCentre{
     display:inline-block;
 }
+
 .lblColum1{
     width:25%;
     text-align:right;
@@ -49,6 +52,7 @@
 .txtColum1{
     display:inline;
     width:70%;
+    font-size: 14px;
 }
 
 .info{
@@ -56,13 +60,16 @@
     margin-bottom:5px;
 }
 
-
 #DataGrid{
     border: 1px solid red;
     width: 95%;
 }
 
 .richtextbox{
-    width: 310px;
+    width: 505px;
     height: 150px;
+}
+
+.button{
+    width:100px;
 }
