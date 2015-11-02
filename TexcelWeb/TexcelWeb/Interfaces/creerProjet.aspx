@@ -5,18 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<<<<<<< HEAD:TexcelWeb/TexcelWeb/Interfaces/creerProjet.aspx
-<title>Texcel</title>
-<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../../css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../../css/projet.css" media="screen" />
-=======
 <title>Texcel - Creer un projet</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/projet.css" media="screen" />
->>>>>>> origin/sprint3:TexcelWeb/TexcelWeb/creerProjet.aspx
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/projet.css" media="screen" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$(".box .h_title").not(this).next("ul").hide("normal");
@@ -30,7 +23,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="">deconnection</a> ]</p>
+				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
@@ -45,7 +38,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
 					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
@@ -54,7 +47,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b1"><a class="icon photo" href="">Add new gallery</a></li>
 					<li class="b2"><a class="icon category" href="">Categories</a></li> -->
@@ -142,41 +135,41 @@ $(function(){
                     <div id="ProjetInfo">
                         <div id="lblColumn1">
                             <div class="info">
-                                <asp:Label runat="server" Text="Code: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtCodeCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Nom: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtNomCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Chef de projet: " class="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtChefProjetCasTest" class="txtColum1" style="width:72%"/>
+                                <asp:Label runat="server" Text="Chef de projet: " CssClass="lblColum1"/>
+                                <asp:DropDownList runat="server" ID="txtChefProjetCasTest" CssClass="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date création: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Date création: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date livraison: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Version du jeu: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtVersionJeuCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtVersionJeuCasTest" CssClass="txtColum1"/>
                             </div>
                         </div>  
                         <div id="CasTestObj">
                             <asp:Label runat="server" Text="Objectif: " /><br />
-                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                     <table>
@@ -218,18 +211,18 @@ $(function(){
                     <div class="pagination">
 						<span>« Première</span>
 						<span class="active">1</span>
-						<a href="">2</a>
-						<a href="">3</a>
-						<a href="">4</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
 						<span>...</span>
-						<a href="">23</a>
-						<a href="">24</a>
-						<a href="">Dernière »</a>
+						<a href="#">23</a>
+						<a href="#">24</a>
+						<a href="#">Dernière »</a>
 					</div>  
                     <div id="btnCopierEnregistrerAnnuler">
-                        <asp:Button runat="server" ID="btnCopier" Text="Copier" class="button"/>
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit button" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit button" />
+                        <asp:Button runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>
+                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button" />
+                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button" />
                     </div>
                 </form>
 				<!-- <form action="" method="post">
@@ -397,7 +390,7 @@ $(function(){
 
 	<div id="footer">
 		<div class="left">
-			<p>Design: <a href="">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
+			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
 		<!-- <div class="right">
 			<p><a href="">Example link 1</a> | <a href="">Example link 2</a></p>

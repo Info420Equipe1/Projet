@@ -10,7 +10,6 @@ namespace TexcelWeb
 {
     public partial class creerProjet : System.Web.UI.Page
     {
-<<<<<<< HEAD:TexcelWeb/TexcelWeb/Interfaces/creerProjet.aspx.cs
         protected void Page_Load(object sender, EventArgs e)
         {
             foreach (Employe Emp in CtrlUtilisateur.getLstChefProjet())
@@ -18,7 +17,5 @@ namespace TexcelWeb
                 txtChefProjetCasTest.Items.Add(Emp.nomEmploye + " " + Emp.prenomEmploye);
 	        }
         }
-=======
->>>>>>> origin/sprint3:TexcelWeb/TexcelWeb/creerProjet.aspx.cs
     }
 }

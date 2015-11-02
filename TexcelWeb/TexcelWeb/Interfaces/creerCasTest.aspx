@@ -7,18 +7,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
-<<<<<<< HEAD:TexcelWeb/TexcelWeb/Interfaces/creerCasTest.aspx
-<title>Texcel</title>
-<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../../css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../../css/casTest.css" media="screen" />
-=======
 <title>Texcel - Creer un cas de test</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/casTest.css" media="screen" />
->>>>>>> origin/sprint3:TexcelWeb/TexcelWeb/CreerCasTest.aspx
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/casTest.css" media="screen" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$(".box .h_title").not(this).next("ul").hide("normal");
@@ -32,7 +25,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="">deconnection</a> ]</p>
+				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
@@ -78,7 +71,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
 					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
@@ -87,7 +80,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b1"><a class="icon photo" href="">Add new gallery</a></li>
 					<li class="b2"><a class="icon category" href="">Categories</a></li> -->
@@ -176,49 +169,49 @@ $(function(){
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
                             <div class="info">
-                                <asp:Label runat="server" Text="Code: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtCodeCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Nom: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtNomCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Difficulté: " class="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" class="txtColum1" style="width:72%"/>
+                                <asp:Label runat="server" Text="Difficulté: " CssClass="lblColum1"/>
+                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" CssClass="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Priorité: " class="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" class="txtColum1" style="width:72%"/>
+                                <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1"/>
+                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" CssClass="txtColum1" style="width:72%"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date Création: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Date Création: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1"/>
                                 <!--<cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationCasTest" Format="dd/MM/yyyy">
                                 </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date Livraison: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1"/>
                                 <!--<cc1:CalendarExtender ID="txtDateLivraison_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonCasTest" Format="dd/MM/yyyy">
                     </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Type de test: " class="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtTypeTestCasTest" class="txtColum1"/>
+                                <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>
+                                <asp:TextBox runat="server" ID="txtTypeTestCasTest" CssClass="txtColum1"/>
                             </div>
                         </div>  
                         <div id="CasTestObj">
                             <asp:Label runat="server" Text="Objectif: " /><br />
-                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" class="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <!-- <asp:DataGrid id="DataGrid" runat="server"></asp:DataGrid> --><br />
                     </div>
@@ -290,18 +283,18 @@ $(function(){
                 <div class="pagination">
 					<span>« First</span>
 					<span class="active">1</span>
-					<a href="">2</a>
-					<a href="">3</a>
-					<a href="">4</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
 					<span>...</span>
-					<a href="">23</a>
-					<a href="">24</a>
-					<a href="">Last »</a>
+					<a href="#">23</a>
+					<a href="#">24</a>
+					<a href="#">Last »</a>
 				</div>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:Button runat="server" ID="btnCopier" Text="Copier" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" class="btnDroit"/>
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" class="btnDroit"/>
+                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit"/>
+                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit"/>
                     <br />
                     <br />
                 </div>
@@ -462,7 +455,7 @@ $(function(){
 
 	<div id="footer">
 		<div class="left">
-			<p>Design: <a href="">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
+			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
 		<!-- <div class="right">
 			<p><a href="">Example link 1</a> | <a href="">Example link 2</a></p>
