@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Texcel.Classes.Personnel;
 
 using Texcel.Classes;
 
@@ -29,6 +30,11 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
+                        if (CtrlUtilisateur.VerifPremiereConn(CtrlUtilisateur.getUtilisateur(txtUsername.Text)))
+                        {
+                            frmPassRenew frmPassRenew = new frmPassRenew(CtrlUtilisateur.getUtilisateur(txtUsername.Text));
+                            frmPassRenew.Visible = true;
+                        }
                         this.Close();
                         List<Form> lstForm = new List<Form>();
 

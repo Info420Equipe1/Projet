@@ -144,5 +144,23 @@ namespace Texcel.Classes.Personnel
 
             return true;
         }
+
+        //Verifie si c'est sa premiere connection
+        public static bool VerifPremiereConn(Utilisateur _uti)
+        {
+            //if (_uti.premierLogin == 0)
+            {
+                return true; 
+            }
+            return false;
+        }
+
+        //Modifier mot de passe
+        public static void ModifMotDePasse(Utilisateur _uti, string _motPasse)
+        {
+            _uti.motPasse = _motPasse;
+            //_uti.premierLogin = 1;
+            context.SaveChanges();
+        }
     }
 }

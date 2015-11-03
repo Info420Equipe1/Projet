@@ -633,6 +633,11 @@ namespace Texcel.Interfaces
             }
         }
 
+        private void txtRechercher_Enter(object sender, EventArgs e)
+        {
+            txtRechercher.SelectAll();
+        }
+
     
       
        
