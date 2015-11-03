@@ -479,7 +479,7 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Employé")
             {
-                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                int selectedRow = dgvResultats.CurrentCell.RowIndex;
                 string nomPren;
                 nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
                 Employe emp = CtrlEmploye.emp(nomPren);
@@ -496,7 +496,7 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Équipe")
             {
-                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                int selectedRow = dgvResultats.CurrentCell.RowIndex;
                 Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
                 frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                 frmEquipe.ShowDialog();
@@ -512,7 +512,7 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Jeu")
             {
-                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                int selectedRow = dgvResultats.CurrentCell.RowIndex;
                 cJeu jeu = CtrlJeu.GetJeu(lblNomJeu.Text);
                 frmJeu frmJeu = new Jeu.frmJeu(jeu);
                 frmJeu.ShowDialog();
@@ -527,7 +527,7 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Plateforme")
             {
-                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                int selectedRow = dgvResultats.CurrentCell.RowIndex;
                 Plateforme plat = CtrlPlateforme.GetPlateforme(lblNomPlate.Text);
                 frmPlateforme frmPlat = new frmPlateforme(plat);
                 frmPlat.ShowDialog();
