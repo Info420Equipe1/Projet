@@ -497,7 +497,7 @@ namespace Texcel.Interfaces
             if (cmbFiltre.Text == "Équipe")
             {
                 int selectedRow = dgvResultats.CurrentCell.RowIndex;
-                Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats.SelectedRows[0].Cells[0].Tag));
+                Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats[0, selectedRow].Value));
                 frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                 frmEquipe.ShowDialog();
                 CtrlAdmin.refreshEntity();
@@ -541,18 +541,19 @@ namespace Texcel.Interfaces
         {
             if (cmbFiltre.Text == "Système d'exploitation")
             {
-                string nomSysExp = dgvResultats.SelectedRows[0].Cells[0].Value.ToString();
-                string editionSysExp = dgvResultats.SelectedRows[0].Cells[2].Value.ToString();
-                string versionSysExp = dgvResultats.SelectedRows[0].Cells[3].Value.ToString();
+                int num = dgvResultats.CurrentCell.RowIndex;
+                string nomSysExp = dgvResultats[0, num].Value.ToString();
+                string editionSysExp = dgvResultats[2, num].Value.ToString();
+                string versionSysExp = dgvResultats[3, num].Value.ToString();
                 SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
                 EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
                 VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
-                int selectedRow = dgvResultats.SelectedRows[0].Index;
+                
                 frmAjouterSysExp frmSysExp = new frmAjouterSysExp(sE,eSE,vSE);
                 frmSysExp.ShowDialog();
                 ChoixFiltre("Système d'exploitation");
                 dgvResultats.Rows[0].Selected = false;
-                dgvResultats.Rows[selectedRow].Selected = true;
+                dgvResultats.Rows[num].Selected = true;
                 dgvResultats_Click(this, null);
             }
         }
