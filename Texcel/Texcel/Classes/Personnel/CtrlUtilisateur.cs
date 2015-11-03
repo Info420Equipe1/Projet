@@ -148,7 +148,7 @@ namespace Texcel.Classes.Personnel
         //Verifie si c'est sa premiere connection
         public static bool VerifPremiereConn(Utilisateur _uti)
         {
-            //if (_uti.premierLogin == 0)
+            if (_uti.premierLogin == 0)
             {
                 return true; 
             }
@@ -159,7 +159,7 @@ namespace Texcel.Classes.Personnel
         public static void ModifMotDePasse(Utilisateur _uti, string _motPasse)
         {
             _uti.motPasse = _motPasse;
-            //_uti.premierLogin = 1;
+            _uti.premierLogin = 1;
             context.SaveChanges();
         }
     }

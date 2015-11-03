@@ -49,6 +49,7 @@
             // 
             this.txtPass1.Location = new System.Drawing.Point(186, 34);
             this.txtPass1.Name = "txtPass1";
+            this.txtPass1.PasswordChar = '*';
             this.txtPass1.Size = new System.Drawing.Size(161, 22);
             this.txtPass1.TabIndex = 1;
             // 
@@ -56,6 +57,7 @@
             // 
             this.txtBoxPass2.Location = new System.Drawing.Point(186, 74);
             this.txtBoxPass2.Name = "txtBoxPass2";
+            this.txtBoxPass2.PasswordChar = '*';
             this.txtBoxPass2.Size = new System.Drawing.Size(161, 22);
             this.txtBoxPass2.TabIndex = 2;
             // 
@@ -79,6 +81,7 @@
             // 
             // frmPassRenew
             // 
+            this.AcceptButton = this.btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 154);
@@ -88,7 +91,7 @@
             this.Controls.Add(this.txtPass1);
             this.Controls.Add(this.btn);
             this.Name = "frmPassRenew";
-            this.Text = "frmPassRenew";
+            this.Text = "Changement de mot de passe";
             this.ResumeLayout(false);
             this.PerformLayout();
 

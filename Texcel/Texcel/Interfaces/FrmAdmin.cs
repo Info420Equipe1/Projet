@@ -481,7 +481,7 @@ namespace Texcel.Interfaces
             {
                 int selectedRow = dgvResultats.CurrentCell.RowIndex;
                 string nomPren;
-                nomPren = dgvResultats.SelectedRows[0].Cells[0].Value.ToString() + " " + dgvResultats.SelectedRows[0].Cells[1].Value.ToString();
+                nomPren = dgvResultats[0, selectedRow].Value.ToString() + " " + dgvResultats[1, selectedRow].Value.ToString();
                 Employe emp = CtrlEmploye.emp(nomPren);
                 frmAjouterEmploye frmEmp = new frmAjouterEmploye(emp.nomEmploye, emp.prenomEmploye, emp.adressePostale, emp.numTelPrincipal, emp.numTelSecondaire, emp.dateEmbauche, CtrlTypeTest.lstTypeTestAssEmp(emp), emp.competenceParticuliere, emp);
                 frmEmp.ShowDialog();

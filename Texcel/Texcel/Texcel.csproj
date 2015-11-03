@@ -132,10 +132,10 @@
     <Compile Include="Forms.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmPassRenew.cs">
+    <Compile Include="Interfaces\frmPassRenew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPassRenew.Designer.cs">
+    <Compile Include="Interfaces\frmPassRenew.Designer.cs">
       <DependentUpon>frmPassRenew.cs</DependentUpon>
     </Compile>
     <Compile Include="GenreJeu.cs">
@@ -281,7 +281,7 @@
     <Compile Include="VersionSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmPassRenew.resx">
+    <EmbeddedResource Include="Interfaces\frmPassRenew.resx">
       <DependentUpon>frmPassRenew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\frmAdmin.resx">

@@ -22,6 +22,7 @@ namespace Texcel.Interfaces
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+           
             Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text != "")
             {
@@ -30,11 +31,7 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
-                        if (CtrlUtilisateur.VerifPremiereConn(CtrlUtilisateur.getUtilisateur(txtUsername.Text)))
-                        {
-                            frmPassRenew frmPassRenew = new frmPassRenew(CtrlUtilisateur.getUtilisateur(txtUsername.Text));
-                            frmPassRenew.Visible = true;
-                        }
+                        
                         this.Close();
                         List<Form> lstForm = new List<Form>();
 
@@ -47,6 +44,11 @@ namespace Texcel.Interfaces
                         {
                             fo.Visible = true;
                         }              
+                    }
+                    else if (message == "Vous devez changer de mot de passe")
+                    {
+                        frmPassRenew frmPassRenew = new frmPassRenew(CtrlUtilisateur.getUtilisateur(txtUsername.Text));
+                        frmPassRenew.Visible = true;
                     }
                     else
                     {
@@ -88,5 +90,6 @@ namespace Texcel.Interfaces
                 e.SuppressKeyPress = true;
             }
         }
+       
     }
 }
