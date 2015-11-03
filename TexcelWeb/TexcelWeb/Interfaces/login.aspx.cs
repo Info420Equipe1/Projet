@@ -27,7 +27,6 @@ namespace TexcelWeb
                     if (CtrlLogin.VerifierLogin(nomUtilisateur, motPasse).Contains("Connexion réussie!"))
                     {
                         this.Form.Dispose();
-                        //creerProjet frmCreerProjet = new creerProjet();
                         System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
                     }
                     else

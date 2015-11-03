@@ -17,6 +17,10 @@ namespace TexcelWeb.Classes
         public static void SetCurrentUser(Utilisateur user)
         {
             currentUtilisateur = user;
+            foreach (Groupe groupe in currentUtilisateur.Groupe)
+            {
+                
+            }
         }
         public static Utilisateur GetCurrentUser()
         {

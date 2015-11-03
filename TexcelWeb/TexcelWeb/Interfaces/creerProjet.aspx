@@ -172,7 +172,7 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
-                    <table>
+                    <table id="dataGridListeCasTest">
 					    <thead>
 						    <tr>
 							    <th scope="col">Code</th>
