@@ -155,11 +155,21 @@ namespace Texcel.Classes.Personnel
             return false;
         }
 
+        public static string VerifApres6Mois(Utilisateur _uti)
+        {
+            TimeSpan result;
+            DateTime now = DateTime.Now;
+            double time = (now - Convert.ToDateTime(_uti.dateDernModif)).TotalHours;
+            result = now.Subtract(Convert.ToDateTime(_uti.dateDernModif));
+            return time.ToString();
+        }
+
         //Modifier mot de passe
         public static void ModifMotDePasse(Utilisateur _uti, string _motPasse)
         {
             _uti.motPasse = _motPasse;
             _uti.premierLogin = 1;
+            _uti.dateDernModif = DateTime.Now;
             context.SaveChanges();
         }
     }
