@@ -27,9 +27,9 @@ namespace Texcel
         public string difficulte { get; set; }
         public string codeProjet { get; set; }
         public Nullable<short> idTypeTest { get; set; }
-        public Nullable<short> idJeu { get; set; }
+        public Nullable<short> idVersionJeu { get; set; }
     
-        public virtual cJeu cJeu { get; set; }
+        public virtual VersionJeu VersionJeu { get; set; }
         public virtual cProjet cProjet { get; set; }
         public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<FicheResultat> FicheResultat { get; set; }

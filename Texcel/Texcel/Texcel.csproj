@@ -81,9 +81,6 @@
     <Compile Include="AllSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="AllTesteurs.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="CasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

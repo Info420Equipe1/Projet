@@ -16,7 +16,7 @@ namespace Texcel.Classes.Personnel
             
             equipe.nomEquipe = _nom;
             equipe.nbTesteur = _nbEmp;
-            equipe.idChefEquipe = _empChefEquipe.idEmploye;
+            equipe.noChefEquipe = _empChefEquipe.noEmploye;
             equipe.descEquipe = _desc;
 
             try

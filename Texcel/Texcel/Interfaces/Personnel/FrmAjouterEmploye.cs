@@ -41,7 +41,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void AfficherEmploye(Employe _employe)
         {
-            txtNumeroEmp.Text = _employe.idEmploye.ToString();   
+            txtNumeroEmp.Text = _employe.noEmploye.ToString();   
             txtNom.Text = _employe.nomEmploye;
             txtPrenom.Text = _employe.prenomEmploye;
             txtAdresse.Text = _employe.adressePostale;
@@ -54,7 +54,7 @@ namespace Texcel.Interfaces.Personnel
         public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
         {
             InitializeComponent();
-            txtNumeroEmp.Text = _emp.idEmploye.ToString();   
+            txtNumeroEmp.Text = _emp.noEmploye.ToString();   
             txtNom.Text = _nom;
             txtPrenom.Text = _pren;
             txtAdresse.Text = _adresse;

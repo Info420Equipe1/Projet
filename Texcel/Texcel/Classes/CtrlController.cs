@@ -34,7 +34,7 @@ namespace Texcel.Classes
             using (context)
             {
                 var query = (from s in context.tblEmploye
-                             where s.idEmploye == currentUtilisateur.idEmploye
+                             where s.noEmploye == currentUtilisateur.noEmploye
                              select s);
 
                 foreach (var r in query)

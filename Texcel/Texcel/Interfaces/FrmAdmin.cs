@@ -330,7 +330,7 @@ namespace Texcel.Interfaces
                     string nomPren;
                     nomPren = dgvResultats[0, num].Value.ToString() + " " + dgvResultats[1, num].Value.ToString();
                     Employe emp = CtrlEmploye.emp(nomPren);
-                    lblNoEmp.Text = emp.idEmploye.ToString();
+                    lblNoEmp.Text = emp.noEmploye.ToString();
                     lblNomEmp.Text = emp.nomEmploye;
                     lblPrenEmp.Text = emp.prenomEmploye;
                     lblAdresseEmp.Text = emp.adressePostale;

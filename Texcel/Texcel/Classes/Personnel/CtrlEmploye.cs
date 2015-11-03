@@ -97,7 +97,7 @@ namespace Texcel.Classes.Personnel
         public static int getIdEmploye(string _nomEmp)
         {
             Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
-            return emp.idEmploye;
+            return emp.noEmploye;
         }
 
         //Employés qui sont chef d'équipe
@@ -110,7 +110,7 @@ namespace Texcel.Classes.Personnel
                 {
                     foreach (Employe emp in listEmploye())
                     {
-                        if (emp.idEmploye == uti.idEmploye)
+                        if (emp.noEmploye == uti.noEmploye)
                         {
                             listEmp.Add(emp);
                         }

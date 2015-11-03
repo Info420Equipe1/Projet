@@ -16,7 +16,6 @@ namespace Texcel
     {
         public cJeu()
         {
-            this.CasTest = new HashSet<CasTest>();
             this.VersionJeu = new HashSet<VersionJeu>();
             this.cJeu1 = new HashSet<cJeu>();
             this.cJeu2 = new HashSet<cJeu>();
@@ -33,7 +32,6 @@ namespace Texcel
         public string codeClassification { get; set; }
     
         public virtual ClassificationJeu ClassificationJeu { get; set; }
-        public virtual ICollection<CasTest> CasTest { get; set; }
         public virtual ICollection<VersionJeu> VersionJeu { get; set; }
         public virtual ICollection<cJeu> cJeu1 { get; set; }
         public virtual ICollection<cJeu> cJeu2 { get; set; }

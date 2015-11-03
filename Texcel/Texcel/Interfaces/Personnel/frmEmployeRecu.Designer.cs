@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvNouveauxEmployes = new System.Windows.Forms.DataGridView();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telPri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telSec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateEmbauche = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnAjouter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNouveauxEmployes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.dgvNouveauxEmployes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNouveauxEmployes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNouveauxEmployes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numero,
             this.nom,
             this.prenom,
             this.adresse,
@@ -60,42 +62,6 @@
             this.dgvNouveauxEmployes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNouveauxEmployes.Size = new System.Drawing.Size(1026, 558);
             this.dgvNouveauxEmployes.TabIndex = 4;
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "Nom";
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            // 
-            // prenom
-            // 
-            this.prenom.HeaderText = "Prenom";
-            this.prenom.Name = "prenom";
-            this.prenom.ReadOnly = true;
-            // 
-            // adresse
-            // 
-            this.adresse.HeaderText = "Adresse";
-            this.adresse.Name = "adresse";
-            this.adresse.ReadOnly = true;
-            // 
-            // telPri
-            // 
-            this.telPri.HeaderText = "Tel. Primaire";
-            this.telPri.Name = "telPri";
-            this.telPri.ReadOnly = true;
-            // 
-            // telSec
-            // 
-            this.telSec.HeaderText = "Tel.Secondaire";
-            this.telSec.Name = "telSec";
-            this.telSec.ReadOnly = true;
-            // 
-            // dateEmbauche
-            // 
-            this.dateEmbauche.HeaderText = "Date Embauche";
-            this.dateEmbauche.Name = "dateEmbauche";
-            this.dateEmbauche.ReadOnly = true;
             // 
             // btnSupprimer
             // 
@@ -142,6 +108,47 @@
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
+            // numero
+            // 
+            this.numero.HeaderText = "Num.Employe";
+            this.numero.Name = "numero";
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            // 
+            // prenom
+            // 
+            this.prenom.HeaderText = "Prenom";
+            this.prenom.Name = "prenom";
+            this.prenom.ReadOnly = true;
+            // 
+            // adresse
+            // 
+            this.adresse.HeaderText = "Adresse";
+            this.adresse.Name = "adresse";
+            this.adresse.ReadOnly = true;
+            // 
+            // telPri
+            // 
+            this.telPri.HeaderText = "Tel. Primaire";
+            this.telPri.Name = "telPri";
+            this.telPri.ReadOnly = true;
+            // 
+            // telSec
+            // 
+            this.telSec.HeaderText = "Tel.Secondaire";
+            this.telSec.Name = "telSec";
+            this.telSec.ReadOnly = true;
+            // 
+            // dateEmbauche
+            // 
+            this.dateEmbauche.HeaderText = "Date Embauche";
+            this.dateEmbauche.Name = "dateEmbauche";
+            this.dateEmbauche.ReadOnly = true;
+            // 
             // frmEmployeRecu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -165,6 +172,7 @@
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.DataGridView dgvNouveauxEmployes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn adresse;
