@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Texcel.Classes.Personnel;
 using Texcel.Classes.Test;
 using Texcel.Classes.Projet;
+using Texcel.Classes;
 
 namespace Texcel.Interfaces.Personnel
 {
@@ -37,14 +38,10 @@ namespace Texcel.Interfaces.Personnel
             {
                 lstTesteurEquipe.Items.Add(employe.nomEmploye+" " + employe.prenomEmploye);
             }
-            foreach (Employe emp in CtrlEmploye.listEmploye())
+            foreach (AllTesteurs testeur in CtrlAdmin.GetAllTesteursView())
             {
-                lstTesteurGlobal.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
+                lstTesteurGlobal.Items.Add(testeur.nomEmploye + " " + testeur.prenomEmploye);
             }
-            //foreach (AllTesteurs employe in CtrlAdmin.GetAllEmployeView()) //Where is my view?
-            //{
-                      //VIEW ICITE, Pour linstant jai pri la methide a jay
-            //}
             Modification = true;
             btnEnregistrer.Text = "Modifier";
             this.Text = "Modifier équipe";
@@ -60,9 +57,9 @@ namespace Texcel.Interfaces.Personnel
             lstTesteurGlobal.Items.Clear();
             lstTesteurEquipe.Items.Clear();
             //Load list box 1
-            foreach (Employe emp in CtrlEmploye.listEmploye())
+            foreach (AllTesteurs testeur in CtrlAdmin.GetAllTesteursView())
             {
-                lstTesteurGlobal.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
+                lstTesteurGlobal.Items.Add(testeur.nomEmploye + " " + testeur.prenomEmploye);
             }
             txtNom.Text = "";
             rtbCommentaire.Text = "";
