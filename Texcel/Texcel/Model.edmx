@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssociationJeu">
           <Key>
             <PropertyRef Name="idJeu" />
@@ -263,6 +263,7 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
+            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
@@ -275,6 +276,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
             <PropertyRef Name="nomSysExp" />
             <PropertyRef Name="nomEdition" />
             <PropertyRef Name="noVersion" />
+            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -287,10 +289,22 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
+            
+            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ChefEquipe" Type="varchar" MaxLength="41" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AllTesteurs">
+          <Key>
+            <PropertyRef Name="nomEmploye" />
+            <PropertyRef Name="prenomEmploye" />
+          </Key>
+          <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="1" />
@@ -728,6 +742,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
     [AllEquipe].[ChefEquipe] AS [ChefEquipe]
     FROM [Personnel].[AllEquipe] AS [AllEquipe]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="AllTesteurs" EntityType="Self.AllTesteurs" store:Type="Views" store:Schema="Personnel">
+            <DefiningQuery>SELECT 
+    [AllTesteurs].[nomEmploye] AS [nomEmploye], 
+    [AllTesteurs].[prenomEmploye] AS [prenomEmploye]
+    FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
             <End Role="tblJeu" EntitySet="tblJeu" />
             <End Role="tblAssociationJeu" EntitySet="tblAssociationJeu" />
@@ -857,8 +877,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1402,7 +1421,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
             <End Role="tblCasTest" EntitySet="tblCasTest" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
+          <EntitySet Name="AllTesteurs" EntityType="dbProjetE1Model.AllTesteurs" />
         </EntityContainer>
+        <EntityType Name="AllTesteurs">
+          <Key>
+            <PropertyRef Name="nomEmploye" />
+            <PropertyRef Name="prenomEmploye" />
+          </Key>
+          <Property Name="nomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="prenomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1710,6 +1738,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
               <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="AllTesteurs">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
+              <MappingFragment StoreEntitySet="AllTesteurs">
+                <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
+                <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
