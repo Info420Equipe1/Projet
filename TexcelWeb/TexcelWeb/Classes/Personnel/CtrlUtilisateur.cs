@@ -12,7 +12,7 @@ namespace TexcelWeb.Classes.Personnel
             List<Employe> lstChefProjet = new List<Employe>();
             List<string> lstNomChefProjet = new List<string>();
             //dbContext.Database.Connection.Open();
-            foreach (Projet Projet in context.tblProjet)
+            foreach (cProjet Projet in context.tblProjet)
 	        {
 		        lstNomChefProjet.Add(Projet.chefProjet);
 	        }

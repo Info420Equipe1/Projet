@@ -17,8 +17,8 @@ namespace TexcelWeb
         public cJeu()
         {
             this.VersionJeu = new HashSet<VersionJeu>();
-            this.Jeu1 = new HashSet<cJeu>();
-            this.Jeu2 = new HashSet<cJeu>();
+            this.cJeu1 = new HashSet<cJeu>();
+            this.cJeu2 = new HashSet<cJeu>();
             this.GenreJeu = new HashSet<GenreJeu>();
             this.Plateforme = new HashSet<Plateforme>();
             this.ThemeJeu = new HashSet<ThemeJeu>();
@@ -33,8 +33,8 @@ namespace TexcelWeb
     
         public virtual ClassificationJeu ClassificationJeu { get; set; }
         public virtual ICollection<VersionJeu> VersionJeu { get; set; }
-        public virtual ICollection<cJeu> Jeu1 { get; set; }
-        public virtual ICollection<cJeu> Jeu2 { get; set; }
+        public virtual ICollection<cJeu> cJeu1 { get; set; }
+        public virtual ICollection<cJeu> cJeu2 { get; set; }
         public virtual ICollection<GenreJeu> GenreJeu { get; set; }
         public virtual ICollection<Plateforme> Plateforme { get; set; }
         public virtual ICollection<ThemeJeu> ThemeJeu { get; set; }

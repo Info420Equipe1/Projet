@@ -30,7 +30,7 @@ namespace TexcelWeb
         public Nullable<short> idVersionJeu { get; set; }
     
         public virtual VersionJeu VersionJeu { get; set; }
-        public virtual cProjet Projet { get; set; }
+        public virtual cProjet cProjet { get; set; }
         public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<FicheResultat> FicheResultat { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }

@@ -885,7 +885,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="nomClassification" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codeClassification" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descClassification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Jeu" Relationship="Self.J_FK_codeClassification" FromRole="tblClassificationJeu" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu" Relationship="Self.J_FK_codeClassification" FromRole="tblClassificationJeu" ToRole="tblJeu" />
         </EntityType>
         <EntityType Name="EditionSysExp">
           <Key>
@@ -904,7 +904,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idGenre" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descGenre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Jeu" Relationship="Self.tblJeuGenre" FromRole="tblGenreJeu" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu" Relationship="Self.tblJeuGenre" FromRole="tblGenreJeu" ToRole="tblJeu" />
         </EntityType>
         <EntityType Name="cJeu">
           <Key>
@@ -918,8 +918,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="codeClassification" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ClassificationJeu" Relationship="Self.J_FK_codeClassification" FromRole="tblJeu" ToRole="tblClassificationJeu" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblJeu" ToRole="tblVersionJeu" />
-          <NavigationProperty Name="Jeu1" Relationship="Self.tblAssociationJeu" FromRole="tblJeu" ToRole="tblJeu1" />
-          <NavigationProperty Name="Jeu2" Relationship="Self.tblAssociationJeu" FromRole="tblJeu1" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu1" Relationship="Self.tblAssociationJeu" FromRole="tblJeu" ToRole="tblJeu1" />
+          <NavigationProperty Name="cJeu2" Relationship="Self.tblAssociationJeu" FromRole="tblJeu1" ToRole="tblJeu" />
           <NavigationProperty Name="GenreJeu" Relationship="Self.tblJeuGenre" FromRole="tblJeu" ToRole="tblGenreJeu" />
           <NavigationProperty Name="Plateforme" Relationship="Self.tblJeuPlateforme" FromRole="tblJeu" ToRole="tblPlateforme" />
           <NavigationProperty Name="ThemeJeu" Relationship="Self.tblJeuTheme" FromRole="tblJeu" ToRole="tblThemeJeu" />
@@ -934,7 +934,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="commPlateforme" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="idTypePlateforme" Type="Int16" Nullable="false" />
           <NavigationProperty Name="TypePlateforme" Relationship="Self.P_FK_idTypePlateforme" FromRole="tblPlateforme" ToRole="tblTypePlateforme" />
-          <NavigationProperty Name="Jeu" Relationship="Self.tblJeuPlateforme" FromRole="tblPlateforme" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu" Relationship="Self.tblJeuPlateforme" FromRole="tblPlateforme" ToRole="tblJeu" />
           <NavigationProperty Name="SysExp" Relationship="Self.tblSysExpPlateforme" FromRole="tblPlateforme" ToRole="tblSysExp" />
         </EntityType>
         <EntityType Name="SysExp">
@@ -954,7 +954,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idTheme" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomTheme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commTheme" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Jeu" Relationship="Self.tblJeuTheme" FromRole="tblThemeJeu" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu" Relationship="Self.tblJeuTheme" FromRole="tblThemeJeu" ToRole="tblJeu" />
         </EntityType>
         <EntityType Name="TypePlateforme">
           <Key>
@@ -973,9 +973,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="nomVersionJeu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commVersionJeu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="idJeu" Type="Int16" />
-          <NavigationProperty Name="Jeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblVersionJeu" ToRole="tblJeu" />
+          <NavigationProperty Name="cJeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblVersionJeu" ToRole="tblJeu" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idVersionJeu" FromRole="tblVersionJeu" ToRole="tblCasTest" />
-          <NavigationProperty Name="Projet" Relationship="Self.P_FK_idVersionJeu" FromRole="tblVersionJeu" ToRole="tblProjet" />
+          <NavigationProperty Name="cProjet" Relationship="Self.P_FK_idVersionJeu" FromRole="tblVersionJeu" ToRole="tblProjet" />
         </EntityType>
         <EntityType Name="VersionSysExp">
           <Key>
@@ -1059,7 +1059,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idTypeTest" Type="Int16" />
           <Property Name="idVersionJeu" Type="Int16" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.CT_FK_idVersionJeu" FromRole="tblCasTest" ToRole="tblVersionJeu" />
-          <NavigationProperty Name="Projet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
+          <NavigationProperty Name="cProjet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
           <NavigationProperty Name="TypeTest" Relationship="Self.CT_FK_idTypeTest" FromRole="tblCasTest" ToRole="tblTypeTest" />
           <NavigationProperty Name="FicheResultat" Relationship="Self.FR_FK_codeCasTest" FromRole="tblCasTest" ToRole="tblFicheResultat" />
           <NavigationProperty Name="Equipe" Relationship="Self.tblEquipeCasTest" FromRole="tblCasTest" ToRole="tblEquipe" />

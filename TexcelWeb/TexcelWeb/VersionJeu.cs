@@ -17,7 +17,7 @@ namespace TexcelWeb
         public VersionJeu()
         {
             this.CasTest = new HashSet<CasTest>();
-            this.Projet = new HashSet<cProjet>();
+            this.cProjet = new HashSet<cProjet>();
         }
     
         public short idVersionJeu { get; set; }
@@ -25,8 +25,8 @@ namespace TexcelWeb
         public string commVersionJeu { get; set; }
         public Nullable<short> idJeu { get; set; }
     
-        public virtual cJeu Jeu { get; set; }
+        public virtual cJeu cJeu { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
-        public virtual ICollection<cProjet> Projet { get; set; }
+        public virtual ICollection<cProjet> cProjet { get; set; }
     }
 }

@@ -124,10 +124,16 @@
     <Compile Include="CasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="cJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
     <Compile Include="ClassificationJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="EditionSysExp.cs">
@@ -172,9 +178,6 @@
     <Compile Include="Interfaces\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Jeu.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,9 +194,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Plateforme.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Projet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
