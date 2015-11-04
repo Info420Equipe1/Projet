@@ -17,15 +17,25 @@ namespace Texcel.Interfaces.Personnel
         bool ModifierUtilisateur;
         string NomUtilisateurAModifier;
         Employe EmployeLier;
+        frmAjouterEmploye frmAjouEmp;
+        Utilisateur monUti;
 
-        public frmUtilisateur(Employe _Employe)
+        public frmUtilisateur()
+        {
+
+        }
+
+        //Construteur avec employé
+        public frmUtilisateur(Employe _Employe, frmAjouterEmploye _rfmAjou)
         {
             InitializeComponent();
             EmployeLier = _Employe;
             ModifierUtilisateur = false;
             btnSupprimer.Visible = false;
+            frmAjouEmp = _rfmAjou;
         }
-        public frmUtilisateur(string _NomUtilisateur, string _MotDePasse, List<Groupe> _GroupeUtilisateur, Employe _Employe)
+        //Constructeur avec info de modification
+        public frmUtilisateur(string _NomUtilisateur, string _MotDePasse, List<Groupe> _GroupeUtilisateur, Employe _Employe, frmAjouterEmploye _rfmAjou)
         {
             InitializeComponent();
             btnSupprimer.Visible = true;
@@ -34,11 +44,9 @@ namespace Texcel.Interfaces.Personnel
             EmployeLier = _Employe;
             txtNomUtil.Text = _NomUtilisateur;
             txtMotPasse.Text = _MotDePasse;
+            frmAjouEmp = _rfmAjou;
+            monUti = CtrlUtilisateur.getUtilisateur(_NomUtilisateur);
 
-            foreach (Groupe groupe in _GroupeUtilisateur)
-            {
-                lsbGroupes2.Items.Add(groupe.nomGroupe);
-            }
         }
 
         private void frmUtilisateur_Load(object sender, EventArgs e)
@@ -60,12 +68,16 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-                foreach (Groupe groupe in CtrlGroupe.GetAllGroupe())
+                foreach (Groupe grp in CtrlGroupe.GetAllGroupe())
                 {
-                    if (!lsbGroupes2.Items.Contains(groupe.nomGroupe))
-                    {
-                        lsbGroupes.Items.Add(groupe.nomGroupe);
-                    }
+                    lsbGroupes.Items.Add(grp.nomGroupe);
+                }
+
+                foreach (Groupe groupe in monUti.Groupe)
+                {
+                    lsbGroupes2.Items.Add(groupe.nomGroupe);
+                    lsbGroupes.Items.Remove(groupe.nomGroupe);
+
                 }
             }        
         }
@@ -96,13 +108,14 @@ namespace Texcel.Interfaces.Personnel
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomUtil.Text = "";
                     txtMotPasse.Text = "";
-                   
+                    Réaffichage();
                 }
+               
             }
             //Modifier un Utilisateur existant
             else
             {
-                //ajouter les groupe de l'utlisateur
+                
                 foreach (string nomGroupe in lsbGroupes2.Items)
                 {
                     lstGroupeUtilisateur.Add(CtrlGroupe.GetGroupByName(nomGroupe));
@@ -112,17 +125,20 @@ namespace Texcel.Interfaces.Personnel
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Réaffichage();
                     return;
+                    
                 }
                 else
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                frmAjouterEmploye fEmp = new frmAjouterEmploye(EmployeLier);
-                fEmp.ShowDialog();
-            }     
-            Réaffichage();
+                    FermetureForm();
+                }              
+                
+                
+            }
+            
+          
         }
        
         //ajouter un groupe par rapport a l'utilisateur
@@ -193,9 +209,7 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmAjouterEmploye fAE = new frmAjouterEmploye(EmployeLier);
-            fAE.ShowDialog();
+            FermetureForm();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -214,13 +228,23 @@ namespace Texcel.Interfaces.Personnel
                 else
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    FermetureForm();
+                                        
                 }
             }
         }
+        private void FermetureForm()
+        {          
+            this.Close();
+            Réaffichage();
+            frmAjouEmp.ActualiserLstCompte(); 
 
-        
+        }
 
-       
+        private void frmUtilisateur_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FermetureForm();
+        }
+     
     }
 }

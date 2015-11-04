@@ -19,6 +19,7 @@ namespace Texcel.Interfaces.Personnel
     {
         bool modifier = false;
         Employe employe = new Employe();
+
         //Mode creer employé
         public frmAjouterEmploye()
         {
@@ -28,6 +29,7 @@ namespace Texcel.Interfaces.Personnel
             lstBoxCompteUti.Visible = false;
             label2.Visible = false;
             btnCreerUti.Visible = false;
+      
         }
 
         public frmAjouterEmploye(Employe _employe)
@@ -36,7 +38,8 @@ namespace Texcel.Interfaces.Personnel
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
             AfficherEmploye(_employe);
-          
+
+            
         }
 
         private void AfficherEmploye(Employe _employe)
@@ -48,29 +51,33 @@ namespace Texcel.Interfaces.Personnel
             txtTelPrim.Text = _employe.numTelPrincipal;
             txtTelSec.Text = _employe.numTelSecondaire;
             dateTPEmp.Value = _employe.dateEmbauche;
+            rtbCompParticuliere.Text = _employe.competenceParticuliere;
+
+            
         }
 
         //Mode modifier (Arrive de la fenetre recherche)
-        public frmAjouterEmploye(string _nom, string _pren, string _adresse, string _telPrim, string _telSec, DateTime _date, List<TypeTest> _lstTypeTest, string _compParti, Employe _emp)
+        public frmAjouterEmploye(Employe _employe, int _parRapport)
         {
             InitializeComponent();
-            txtNumeroEmp.Text = _emp.noEmploye.ToString();   
-            txtNom.Text = _nom;
-            txtPrenom.Text = _pren;
-            txtAdresse.Text = _adresse;
-            txtTelPrim.Text = _telPrim;
-            txtTelSec.Text = _telSec;
-            dateTPEmp.Value = _date;
-            richTextBox1.Text = _compParti;
-            
-            CtrlTypeTest.PopulateLstTypeTest(_emp);
+            txtNumeroEmp.Text = _employe.noEmploye.ToString();
+            txtNom.Text = _employe.nomEmploye;
+            txtPrenom.Text = _employe.prenomEmploye;
+            txtAdresse.Text = _employe.adressePostale;
+            txtTelPrim.Text = _employe.numTelPrincipal;
+            txtTelSec.Text = _employe.numTelSecondaire;
+            dateTPEmp.Value = _employe.dateEmbauche;
+            rtbCompParticuliere.Text = _employe.competenceParticuliere;
+
+            CtrlTypeTest.PopulateLstTypeTest(_employe);
             AfficherLstBox();
             //RemplirListBoxPourModeModif(_emp);
-            remplirListBoxUtil(_emp);
+            remplirListBoxUtil(_employe);
             modifier = true;
-            employe = CtrlEmploye.emp(_nom + " " + _pren);
+            employe = CtrlEmploye.emp(_employe.nomEmploye + " " + _employe.prenomEmploye);
             btnEnregistrer.Text = "Modifier";
             this.Text = "Modifier employée";
+         
         }
 
         private void RemplirListBoxPourModeModif(Employe _emp)
@@ -106,6 +113,7 @@ namespace Texcel.Interfaces.Personnel
         // Afficher les comptes utilisateurs à  l'employé
         private void remplirListBoxUtil(Employe _emp)
         {
+            lstBoxCompteUti.Items.Clear();
             foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(_emp))
             {
                 lstBoxCompteUti.Items.Add(uti.nomUtilisateur);
@@ -124,7 +132,7 @@ namespace Texcel.Interfaces.Personnel
             if (modifier == false)
             {
                 string message;
-                message = CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value);
+                message = CtrlEmploye.Ajouter(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), rtbCompParticuliere.Text, dateTPEmp.Value);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -138,7 +146,7 @@ namespace Texcel.Interfaces.Personnel
             else
             {
                 string message;
-                message = CtrlEmploye.Modifier(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), richTextBox1.Text, dateTPEmp.Value, employe);
+                message = CtrlEmploye.Modifier(txtNom.Text.Trim(), txtPrenom.Text.Trim(), txtAdresse.Text, txtTelPrim.Text.Trim(), txtTelSec.Text.Trim(), rtbCompParticuliere.Text, dateTPEmp.Value, employe);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -163,18 +171,23 @@ namespace Texcel.Interfaces.Personnel
 
         private void btnModifUti_Click(object sender, EventArgs e)
         {
-            Utilisateur uti = CtrlUtilisateur.getUtilisateur(lstBoxCompteUti.SelectedItem.ToString());
-            frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti), CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
-            this.Close();
-            frmUti.ShowDialog();
+            if (lstBoxCompteUti.SelectedItem != null)
+            {
+                Utilisateur uti = CtrlUtilisateur.getUtilisateur(lstBoxCompteUti.SelectedItem.ToString());
+                frmUtilisateur frmUti = new frmUtilisateur(uti.nomUtilisateur, uti.motPasse, CtrlUtilisateur.lstGrAssUtil(uti), CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text), this);
+                frmUti.ShowDialog();          
+            }
+            else
+            {
+                CtrlAdmin.MessageWarnng("Vous devez choisir un compte!");
+            }
             
         }
 
         private void btnCreerUti_Click(object sender, EventArgs e)
         {
-            frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text));
-            this.Close();
-            frmUti.ShowDialog();           
+            frmUtilisateur frmUti = new frmUtilisateur(CtrlEmploye.emp(txtNom.Text + " " + txtPrenom.Text), this);           
+            frmUti.ShowDialog();
         }
 
         private void btnFlecheAjouter_Click(object sender, EventArgs e)
@@ -254,8 +267,12 @@ namespace Texcel.Interfaces.Personnel
             }
         }
 
-        // remplir les infos employé avec les données des R.H.!!
-        // À revoir pour l'ordre des items dans les listes (résolu!!!!!)
+        public void ActualiserLstCompte()
+        {            
+            remplirListBoxUtil(employe);
+        }
+
+
 
     }
 }

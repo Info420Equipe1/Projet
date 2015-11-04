@@ -228,6 +228,8 @@
             this.Name = "frmUtilisateur";
             this.Text = "frmUtilisateur";
             this.Load += new System.EventHandler(this.frmUtilisateur_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUtilisateur_FormClosed);
+            this.Load += new System.EventHandler(this.frmUtilisateur_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

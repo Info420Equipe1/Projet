@@ -35,7 +35,7 @@
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.bntFlecheRetirer = new System.Windows.Forms.Button();
             this.btnFlecheAjouter = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbCompParticuliere = new System.Windows.Forms.RichTextBox();
             this.lblCompetences = new System.Windows.Forms.Label();
             this.lblTypeTest = new System.Windows.Forms.Label();
             this.lstBoxTypeTestEmp = new System.Windows.Forms.ListBox();
@@ -148,14 +148,14 @@
             this.btnFlecheAjouter.UseVisualStyleBackColor = true;
             this.btnFlecheAjouter.Click += new System.EventHandler(this.btnFlecheAjouter_Click);
             // 
-            // richTextBox1
+            // rtbCompParticuliere
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 609);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(886, 146);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.rtbCompParticuliere.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCompParticuliere.Location = new System.Drawing.Point(27, 609);
+            this.rtbCompParticuliere.Name = "rtbCompParticuliere";
+            this.rtbCompParticuliere.Size = new System.Drawing.Size(886, 146);
+            this.rtbCompParticuliere.TabIndex = 10;
+            this.rtbCompParticuliere.Text = "";
             // 
             // lblCompetences
             // 
@@ -400,7 +400,7 @@
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.bntFlecheRetirer);
             this.Controls.Add(this.btnFlecheAjouter);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbCompParticuliere);
             this.Controls.Add(this.lblCompetences);
             this.Controls.Add(this.lblTypeTest);
             this.Controls.Add(this.lstBoxTypeTestEmp);
@@ -440,7 +440,7 @@
         private System.Windows.Forms.ListBox lstBoxTypeTestEmp;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.Label lblCompetences;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbCompParticuliere;
         private System.Windows.Forms.Button btnFlecheAjouter;
         private System.Windows.Forms.Button bntFlecheRetirer;
         private System.Windows.Forms.Button btnSupprimer;
