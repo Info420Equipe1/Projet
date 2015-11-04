@@ -155,13 +155,16 @@ namespace Texcel.Classes.Personnel
             return false;
         }
 
-        public static string VerifApres6Mois(Utilisateur _uti)
+        public static bool VerifApres6Mois(Utilisateur _uti)
         {
-            TimeSpan result;
+            
             DateTime now = DateTime.Now;
-            double time = (now - Convert.ToDateTime(_uti.dateDernModif)).TotalHours;
-            result = now.Subtract(Convert.ToDateTime(_uti.dateDernModif));
-            return time.ToString();
+            DateTime timeAfter6 = Convert.ToDateTime(_uti.dateDernModif).AddMonths(6);
+            if (now >= timeAfter6)
+            {
+                return true;
+            }
+            return false;
         }
 
         //Modifier mot de passe

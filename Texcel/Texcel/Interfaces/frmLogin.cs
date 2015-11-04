@@ -31,8 +31,7 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
-                        //Test pour 6 mois
-                        //MessageBox.Show(CtrlUtilisateur.VerifApres6Mois(CtrlUtilisateur.getUtilisateur(txtUsername.Text)));
+                     
                         this.Close();
                         List<Form> lstForm = new List<Form>();
 
