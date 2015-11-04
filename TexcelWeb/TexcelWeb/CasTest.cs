@@ -27,10 +27,10 @@ namespace TexcelWeb
         public string difficulte { get; set; }
         public string codeProjet { get; set; }
         public Nullable<short> idTypeTest { get; set; }
-        public Nullable<short> idJeu { get; set; }
+        public Nullable<short> idVersionJeu { get; set; }
     
-        public virtual Jeu Jeu { get; set; }
-        public virtual Projet Projet { get; set; }
+        public virtual VersionJeu VersionJeu { get; set; }
+        public virtual cProjet Projet { get; set; }
         public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<FicheResultat> FicheResultat { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }

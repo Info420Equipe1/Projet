@@ -16,7 +16,7 @@ namespace TexcelWeb
     {
         public Plateforme()
         {
-            this.Jeu = new HashSet<Jeu>();
+            this.Jeu = new HashSet<cJeu>();
             this.SysExp = new HashSet<SysExp>();
         }
     
@@ -27,7 +27,7 @@ namespace TexcelWeb
         public short idTypePlateforme { get; set; }
     
         public virtual TypePlateforme TypePlateforme { get; set; }
-        public virtual ICollection<Jeu> Jeu { get; set; }
+        public virtual ICollection<cJeu> Jeu { get; set; }
         public virtual ICollection<SysExp> SysExp { get; set; }
     }
 }

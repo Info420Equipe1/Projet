@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="creerProjet.aspx.cs" Inherits="TexcelWeb.creerProjet" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 
@@ -132,44 +133,46 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Créer un projet</div>
                 <form id="FrmProjet" runat="server">
+                    
                     <div id="ProjetInfo">
                         <div id="lblColumn1">
                             <div class="info">
                                 <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
+                                <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
+                                <asp:TextBox runat="server" ID="txtNomProjet" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Chef de projet: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtChefProjetCasTest" CssClass="txtColum1" style="width:72%"/>
+                                <asp:DropDownList runat="server" ID="txtChefProjet" CssClass="txtColum1" style="width:71%"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date création: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1"/>
-                            </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1"/>
+                                <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1" Style="width: 125px" />                                                         
+                            <asp:ScriptManager  ID="ScriptManager1" runat="server"> </asp:ScriptManager>                                                       
+                               <cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationProjet" Format="yyyy/MM/dd" DefaultView="Days"  CssClass="calendrier"/> 
+                                <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1" style="margin-left:-30px"/>
+                                <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1" style="width:125px"/>
+                                <cc1:CalendarExtender ID="txtDateLivraisonProjet_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonProjet" Format="yyyy/MM/dd"/>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtVersionJeuCasTest" CssClass="txtColum1"/>
+                                <asp:TextBox runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1"/>
                             </div>
                         </div>  
                         <div id="CasTestObj">
                             <asp:Label runat="server" Text="Objectif: " /><br />
-                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtObjectifProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                     <table id="dataGridListeCasTest">

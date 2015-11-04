@@ -187,13 +187,13 @@ $(function(){
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Création: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1"/>
-                                <!--<cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationCasTest" Format="dd/MM/yyyy">
+                                <!--<cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationCasTest" Format="yyyy/MM/dd">
                                 </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1"/>
-                                <!--<cc1:CalendarExtender ID="txtDateLivraison_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonCasTest" Format="dd/MM/yyyy">
+                                <!--<cc1:CalendarExtender ID="txtDateLivraison_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonCasTest" Format="yyyy/MM/dd">
                     </cc1:CalendarExtender>-->
                             </div>
                             <div class="info">

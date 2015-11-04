@@ -16,13 +16,13 @@ namespace TexcelWeb
     {
         public GenreJeu()
         {
-            this.Jeu = new HashSet<Jeu>();
+            this.Jeu = new HashSet<cJeu>();
         }
     
         public short idGenre { get; set; }
         public string nomGenre { get; set; }
         public string descGenre { get; set; }
     
-        public virtual ICollection<Jeu> Jeu { get; set; }
+        public virtual ICollection<cJeu> Jeu { get; set; }
     }
 }

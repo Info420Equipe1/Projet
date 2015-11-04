@@ -16,13 +16,13 @@ namespace TexcelWeb
     {
         public ThemeJeu()
         {
-            this.Jeu = new HashSet<Jeu>();
+            this.Jeu = new HashSet<cJeu>();
         }
     
         public short idTheme { get; set; }
         public string nomTheme { get; set; }
         public string commTheme { get; set; }
     
-        public virtual ICollection<Jeu> Jeu { get; set; }
+        public virtual ICollection<cJeu> Jeu { get; set; }
     }
 }

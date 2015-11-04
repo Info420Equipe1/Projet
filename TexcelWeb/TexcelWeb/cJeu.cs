@@ -12,14 +12,13 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class Jeu
+    public partial class cJeu
     {
-        public Jeu()
+        public cJeu()
         {
-            this.CasTest = new HashSet<CasTest>();
             this.VersionJeu = new HashSet<VersionJeu>();
-            this.Jeu1 = new HashSet<Jeu>();
-            this.Jeu2 = new HashSet<Jeu>();
+            this.Jeu1 = new HashSet<cJeu>();
+            this.Jeu2 = new HashSet<cJeu>();
             this.GenreJeu = new HashSet<GenreJeu>();
             this.Plateforme = new HashSet<Plateforme>();
             this.ThemeJeu = new HashSet<ThemeJeu>();
@@ -33,10 +32,9 @@ namespace TexcelWeb
         public string codeClassification { get; set; }
     
         public virtual ClassificationJeu ClassificationJeu { get; set; }
-        public virtual ICollection<CasTest> CasTest { get; set; }
         public virtual ICollection<VersionJeu> VersionJeu { get; set; }
-        public virtual ICollection<Jeu> Jeu1 { get; set; }
-        public virtual ICollection<Jeu> Jeu2 { get; set; }
+        public virtual ICollection<cJeu> Jeu1 { get; set; }
+        public virtual ICollection<cJeu> Jeu2 { get; set; }
         public virtual ICollection<GenreJeu> GenreJeu { get; set; }
         public virtual ICollection<Plateforme> Plateforme { get; set; }
         public virtual ICollection<ThemeJeu> ThemeJeu { get; set; }

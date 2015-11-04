@@ -12,9 +12,9 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class Projet
+    public partial class cProjet
     {
-        public Projet()
+        public cProjet()
         {
             this.CasTest = new HashSet<CasTest>();
         }
@@ -23,7 +23,9 @@ namespace TexcelWeb
         public string nomProjet { get; set; }
         public string chefProjet { get; set; }
         public string descProjet { get; set; }
+        public Nullable<short> idVersionJeu { get; set; }
     
+        public virtual VersionJeu VersionJeu { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

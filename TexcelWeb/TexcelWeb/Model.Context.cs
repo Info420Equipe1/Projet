@@ -28,7 +28,7 @@ namespace TexcelWeb
         public virtual DbSet<ClassificationJeu> tblClassificationJeu { get; set; }
         public virtual DbSet<EditionSysExp> tblEditionSysExp { get; set; }
         public virtual DbSet<GenreJeu> tblGenreJeu { get; set; }
-        public virtual DbSet<Jeu> tblJeu { get; set; }
+        public virtual DbSet<cJeu> tblJeu { get; set; }
         public virtual DbSet<Plateforme> tblPlateforme { get; set; }
         public virtual DbSet<SysExp> tblSysExp { get; set; }
         public virtual DbSet<ThemeJeu> tblThemeJeu { get; set; }
@@ -42,7 +42,7 @@ namespace TexcelWeb
         public virtual DbSet<Utilisateur> tblUtilisateur { get; set; }
         public virtual DbSet<CasTest> tblCasTest { get; set; }
         public virtual DbSet<FicheResultat> tblFicheResultat { get; set; }
-        public virtual DbSet<Projet> tblProjet { get; set; }
+        public virtual DbSet<cProjet> tblProjet { get; set; }
         public virtual DbSet<TypeTest> tblTypeTest { get; set; }
         public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
         public virtual DbSet<AllSysExp> AllSysExp { get; set; }

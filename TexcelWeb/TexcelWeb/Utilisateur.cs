@@ -21,9 +21,9 @@ namespace TexcelWeb
     
         public string nomUtilisateur { get; set; }
         public string motPasse { get; set; }
-        public bool premierLogin { get; set; }
+        public int premierLogin { get; set; }
         public Nullable<System.DateTime> dateDernModif { get; set; }
-        public short idEmploye { get; set; }
+        public int noEmploye { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual ICollection<Groupe> Groupe { get; set; }

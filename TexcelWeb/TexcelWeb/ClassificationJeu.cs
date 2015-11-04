@@ -16,13 +16,13 @@ namespace TexcelWeb
     {
         public ClassificationJeu()
         {
-            this.Jeu = new HashSet<Jeu>();
+            this.Jeu = new HashSet<cJeu>();
         }
     
         public string nomClassification { get; set; }
         public string codeClassification { get; set; }
         public string descClassification { get; set; }
     
-        public virtual ICollection<Jeu> Jeu { get; set; }
+        public virtual ICollection<cJeu> Jeu { get; set; }
     }
 }
