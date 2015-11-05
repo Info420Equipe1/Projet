@@ -67,17 +67,20 @@
 
 .richtextbox{
     width: 505px;
-    height: 150px;
+    height: 155px;
 }
 
 .button{
     width:100px;
+    text-align:center;
 }
 
 .txtDate{
-    width:50%;
+    width:24%;
+    font-size:20px;
 }
 
 .lblDate{
-    margin-left:-30px
+    margin-right:-1px;
+    width:19%;
 }

@@ -76,13 +76,22 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonProjet;
         
         /// <summary>
+        /// Contrôle txtJeuProjet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtJeuProjet;
+        
+        /// <summary>
         /// Contrôle txtVersionJeuProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtVersionJeuProjet;
+        protected global::System.Web.UI.WebControls.DropDownList txtVersionJeuProjet;
         
         /// <summary>
         /// Contrôle rtxtObjectifProjet.
@@ -127,16 +136,7 @@ namespace TexcelWeb {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCopier;
-        
-        /// <summary>
-        /// Contrôle btnEnregistrer.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
+        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
         
         /// <summary>
         /// Contrôle btnAnnuler.
@@ -145,6 +145,15 @@ namespace TexcelWeb {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.LinkButton btnAnnuler;
+        
+        /// <summary>
+        /// Contrôle btnEnregistrer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
     }
 }

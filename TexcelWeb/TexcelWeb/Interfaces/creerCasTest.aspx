@@ -149,6 +149,10 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
+                    <!-- <div class="element">
+					    <label for="attach">Attachments</label>
+					    <input type="file" name="attach" />
+				    </div> -->
                     <table>
 					<thead>
 						<tr>
@@ -159,8 +163,7 @@ $(function(){
 							<th scope="col" style="width:90px">Dernière Modif</th>
 							<th scope="col" style="width:65px;">Modifier</th>
 						</tr>
-					</thead>
-						
+					</thead>					
 					<tbody>
 						<tr>
 							<td>Documentation</td>
@@ -168,7 +171,7 @@ $(function(){
 							<td>180 mb</td>
 							<td>Marcel Leblond</td>
 							<td>22-03-2012</td>
-							<td>
+							<td class="align-center">
 								<a href="#" class="table-icon edit" title="Modifier"></a>
 								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
 								<a href="#" class="table-icon delete" title="Supprimer"></a>
@@ -181,7 +184,7 @@ $(function(){
 							<td>150 mb</td>
 							<td>Louis-Alexandre Munger</td>
 							<td>23-03-2012</td>
-							<td>
+							<td class="align-center">
 								<a href="#" class="table-icon edit" title="Modifier"></a>
 								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
 								<a href="#" class="table-icon delete" title="Supprimer"></a>
@@ -193,7 +196,7 @@ $(function(){
 							<td>160 mb</td>
 							<td>Jérémie Tremblay</td>
 							<td>22-03-2012</td>
-							<td>
+							<td class="align-center">
 								<a href="#" class="table-icon edit" title="Modifier"></a>
 								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
 								<a href="#" class="table-icon delete" title="Supprimer"></a>
@@ -206,7 +209,7 @@ $(function(){
 							<td>170 mb</td>
 							<td>Benoit Simard</td>
 							<td>25-03-2012</td>
-							<td>
+							<td class="align-center">
 								<a href="#" class="table-icon edit" title="Modifier"></a>
 								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
 								<a href="#" class="table-icon delete" title="Supprimer"></a>
@@ -218,7 +221,7 @@ $(function(){
 							<td>170 mb</td>
 							<td>Benoit Simard</td>
 							<td>25-03-2012</td>
-							<td>
+							<td class="align-center">
 								<a href="#" class="table-icon edit" title="Modifier"></a>
 								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
 								<a href="#" class="table-icon delete" title="Supprimer"></a>
@@ -227,7 +230,7 @@ $(function(){
 					</tbody>
 				</table>
                 <div class="pagination">
-					<span>« First</span>
+					<span>« Première</span>
 					<span class="active">1</span>
 					<a href="#">2</a>
 					<a href="#">3</a>
@@ -235,7 +238,7 @@ $(function(){
 					<span>...</span>
 					<a href="#">23</a>
 					<a href="#">24</a>
-					<a href="#">Last »</a>
+					<a href="#">Dernière »</a>
 				</div>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" />      
@@ -245,10 +248,6 @@ $(function(){
                     <br />
                 </div>
                 </form>
-				<!-- <div class="element">
-					<label for="attach">Attachments</label>
-					<input type="file" name="attach" />
-				</div> -->
 			</div>
 		</div>  
 	</div>
