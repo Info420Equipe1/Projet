@@ -146,16 +146,17 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Chef de projet: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtChefProjet" CssClass="txtColum1" style="width:71%"/>
+                                <asp:DropDownList runat="server" ID="txtChefProjet" CssClass="txtColum1" style="width:72%">
+                                    <asp:ListItem Selected="True" Text="Faible" Value="Faible"></asp:ListItem>
+                                    <asp:ListItem Text="Modérée" Value="Modorée"></asp:ListItem>
+                                    <asp:ListItem Text="Élevée" Value="Élevée"></asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date création: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1" Style="width: 125px" />                                                         
-                            <asp:ScriptManager  ID="ScriptManager1" runat="server"> </asp:ScriptManager>                                                       
-                               <cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationProjet" Format="yyyy/MM/dd" DefaultView="Days"  CssClass="calendrier"/> 
-                                <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1" style="margin-left:-30px"/>
-                                <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1" style="width:125px"/>
-                                <cc1:CalendarExtender ID="txtDateLivraisonProjet_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonProjet" Format="yyyy/MM/dd"/>
+                                <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1 txtDate" type="date" />                                                                                                               
+                                <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1 lblDate" />
+                                <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>

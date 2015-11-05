@@ -33,37 +33,6 @@ $(function(){
 				</div>
 			</div>
 		</div>
-		<!-- <div id="nav">
-			<ul>
-				<li class="upp"><a href="#">Gestion des tests</a>
-					<ul>
-						<li>&#8250; <a href="">Créer un Projet</a></li>
-						<li>&#8250; <a href="">Créer un cas de test</a></li>
-					</ul>
-				</li>
-				<!-- <li class="upp"><a href="#">Manage content</a>
-					<ul>
-						<li>&#8250; <a href="">Show all pages</a></li>
-						<li>&#8250; <a href="">Add new page</a></li>
-						<li>&#8250; <a href="">Add new gallery</a></li>
-						<li>&#8250; <a href="">Categories</a></li>
-					</ul>
-				</li>
-				<li class="upp"><a href="#">Users</a>
-					<ul>
-						<li>&#8250; <a href="">Show all uses</a></li>
-						<li>&#8250; <a href="">Add new user</a></li>
-						<li>&#8250; <a href="">Lock users</a></li>
-					</ul>
-				</li>
-				<li class="upp"><a href="#">Settings</a>
-					<ul>
-						<li>&#8250; <a href="">Site configuration</a></li>
-						<li>&#8250; <a href="">Contact Form</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div> -->
 	</div>
 	
 	<div id="content">
@@ -86,21 +55,6 @@ $(function(){
 					<li class="b2"><a class="icon category" href="">Categories</a></li> -->
 				</ul>
 			</div>
-			<!-- <div class="box">
-				<div class="h_title">&#8250; Users</div>
-				<ul>
-					<li class="b1"><a class="icon users" href="">Show all users</a></li>
-					<li class="b2"><a class="icon add_user" href="">Add new user</a></li>
-					<li class="b1"><a class="icon block_users" href="">Lock users</a></li>
-				</ul>
-			</div>
-			<div class="box">
-				<div class="h_title">&#8250; Settings</div>
-				<ul>
-					<li class="b1"><a class="icon config" href="">Site configuration</a></li>
-					<li class="b2"><a class="icon contact" href="">Contact Form</a></li>
-				</ul>
-			</div> -->
 		</div>
 	    <div id="main">
 			<!-- <div class="half_w half_left">
@@ -135,37 +89,13 @@ $(function(){
 			
 			<div class="clear"></div> -->
 			
-			<!-- <div class="full_w">
-				<div class="h_title">Paragraph, headers, lists, notify</div>
-				<h1>Level 1 header</h1>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takim</p>
-				<h2>Level 2 header</h2>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor i</p>
-				<h3>Level 3 header</h3>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvolupt</p>
-				<h3>Unordered list</h3>
-				<ul>
-					<li>first list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>second list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>third list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>fourth list item, Lorem ipsum dolor sit amet, consete</li>
-				</ul>
-				<h3>Ordered list</h3>
-				<ol>
-					<li>first list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>second list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>third list item, Lorem ipsum dolor sit amet, consete</li>
-					<li>fourth list item, Lorem ipsum dolor sit amet, consete</li>
-				</ol>
-                <div class="n_warning"><p>Attention notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
-				<div class="n_ok"><p>Success notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
-				<div class="n_error"><p>Error notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>		
-			</div> -->
+            <!-- <div class="n_warning"><p>Attention notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
+			<div class="n_ok"><p>Success notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
+			<div class="n_error"><p>Error notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div> -->
 			
 			<div class="full_w">
 				<div class="h_title">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">
-                    <asp:ScriptManager ID="ToolkitScriptManager1" runat="server" />
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
                             <div class="info">
@@ -177,24 +107,28 @@ $(function(){
                                 <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Difficulté: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" CssClass="txtColum1" style="width:72%"/>
+                                <asp:Label runat="server" Text="Projet: " CssClass="lblColum1" />
+                                <asp:DropDownList runat="server" ID="txtProjet" CssClass="txtColum1" style="width:71.5%" />
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" CssClass="txtColum1" style="width:72%"/>
+                                <asp:Label runat="server" Text="Difficulté: " CssClass="lblColum1" />
+                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" CssClass="txtColum1 txtDate1">
+                                    <asp:ListItem Selected="True" Text="Faible" Value="Faible"></asp:ListItem>
+                                    <asp:ListItem Text="Modérée" Value="Modorée"></asp:ListItem>
+                                    <asp:ListItem Text="Élevée" Value="Élevée"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
+                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" CssClass="txtColum1 txtDate1">
+                                    <asp:ListItem Selected="True" Text="Faible" Value="Faible"></asp:ListItem>
+                                    <asp:ListItem Text="Modérée" Value="Modorée"></asp:ListItem>
+                                    <asp:ListItem Text="Élevée" Value="Élevée"></asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Création: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1"/>
-                                <!--<cc1:CalendarExtender ID="txtDateCreation_CalendarExtender" runat="server" TargetControlID="txtDateCreationCasTest" Format="yyyy/MM/dd">
-                                </cc1:CalendarExtender>-->
-                            </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1"/>
-                                <!--<cc1:CalendarExtender ID="txtDateLivraison_CalendarExtender" runat="server" TargetControlID="txtDateLivraisonCasTest" Format="yyyy/MM/dd">
-                    </cc1:CalendarExtender>-->
+                                <asp:TextBox type="date" runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1 txtDate2" />
+                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1 lblDate2" />
+                                <asp:TextBox type="date" runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1 txtDate2" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>
@@ -213,7 +147,6 @@ $(function(){
                             <asp:Label runat="server" Text="Divers: "/><br />
                             <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
-                        <!-- <asp:DataGrid id="DataGrid" runat="server"></asp:DataGrid> --><br />
                     </div>
                     <table>
 					<thead>
@@ -231,7 +164,7 @@ $(function(){
 						<tr>
 							<td>Documentation</td>
 							<td>.txt</td>
-							<td>180mb</td>
+							<td>180 mb</td>
 							<td>Marcel Leblond</td>
 							<td>22-03-2012</td>
 							<td>
@@ -304,165 +237,19 @@ $(function(){
 					<a href="#">Last »</a>
 				</div>
                 <div id="btnCopierEnregistrerAnnuler">
-                        <asp:Button runat="server" ID="btnCopier" Text="Copier" />
-                        <asp:Button runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit"/>
-                        <asp:Button runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit"/>
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" />      
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add"/>
                     <br />
                     <br />
                 </div>
                 </form>
-				<!-- <form action="" method="post">
-					<div class="element">
-						<label for="name">Page title <span class="red">(required)</span></label>
-						<input id="name" name="name" class="text err" />
-					</div>
-					<div class="element">
-						<label for="category">Category <span class="red">(required)</span></label>
-						<select name="category" class="err">
-							<option value="0">-- select category</option>
-							<option value="1">Category 1</option>
-							<option value="2">Category 4</option>
-							<option value="3">Category 3</option>
-						</select>
-					</div>
-					<div class="element">
-						<label for="comments">Comments</label>
-						<input type="radio" name="comments" value="on" checked="checked" /> Enabled <input type="radio" name="comments" value="off" /> Disabled
-					</div>
-					<div class="element">
-						<label for="attach">Attachments</label>
-						<input type="file" name="attach" />
-					</div>
-					<div class="element">
-						<label for="content">Page content <span>(required)</span></label>
-						<textarea name="content" class="textarea" rows="10"></textarea>
-					</div>
-					<div class="entry">
-						<button type="submit">Preview</button> <button type="submit" class="add">Save page</button> <button class="cancel">Cancel</button>
-					</div>
-				</form> -->
+				<!-- <div class="element">
+					<label for="attach">Attachments</label>
+					<input type="file" name="attach" />
+				</div> -->
 			</div>
-			
-			<!-- <div class="full_w">
-				<div class="h_title">Manage pages - table</div>
-				<h2>Lorem ipsum dolor sit ame</h2>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvolupt</p>
-				
-				<div class="entry">
-					<div class="sep"></div>
-				</div>
-				<table>
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Title</th>
-							<th scope="col">Author</th>
-							<th scope="col">Date</th>
-							<th scope="col">Category</th>
-							<th scope="col" style="width: 65px;">Modify</th>
-						</tr>
-					</thead>
-						
-					<tbody>
-						<tr>
-							<td class="align-center">2</td>
-							<td>Home</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="align-center">3</td>
-							<td>Our offer</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">5</td>
-							<td>About</td>
-							<td>Admin</td>
-							<td>23-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">12</td>
-							<td>Contact</td>
-							<td>Admin</td>
-							<td>25-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>						
-						<tr>
-							<td class="align-center">114</td>
-							<td>Portfolio</td>
-							<td>Paweł B.</td>
-							<td>22-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">116</td>
-							<td>Clients</td>
-							<td>Admin</td>
-							<td>23-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td class="align-center">131</td>
-							<td>Customer reviews</td>
-							<td>Admin</td>
-							<td>25-03-2012</td>
-							<td>-</td>
-							<td>
-								<a href="#" class="table-icon edit" title="Edit"></a>
-								<a href="#" class="table-icon archive" title="Archive"></a>
-								<a href="#" class="table-icon delete" title="Delete"></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="entry">-->
-					
-                    <!--
-					<div class="sep"></div>		
-					<a class="button add" href="">Add new page</a> <a class="button" href="">Categories</a> 
-				</div>
-			</div> -->
 		</div>  
-		<div class="clear"></div>
 	</div>
 
 	<div id="footer">

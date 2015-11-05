@@ -67,24 +67,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDateCreationProjet;
         
         /// <summary>
-        /// Contrôle ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// Contrôle txtDateCreation_CalendarExtender.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtDateCreation_CalendarExtender;
-        
-        /// <summary>
         /// Contrôle txtDateLivraisonProjet.
         /// </summary>
         /// <remarks>
@@ -92,15 +74,6 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonProjet;
-        
-        /// <summary>
-        /// Contrôle txtDateLivraisonProjet_CalendarExtender.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtDateLivraisonProjet_CalendarExtender;
         
         /// <summary>
         /// Contrôle txtVersionJeuProjet.

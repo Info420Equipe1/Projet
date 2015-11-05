@@ -22,15 +22,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm FrmCasTest;
         
         /// <summary>
-        /// Contrôle ToolkitScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ToolkitScriptManager1;
-        
-        /// <summary>
         /// Contrôle txtCodeCasTest.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNomCasTest;
+        
+        /// <summary>
+        /// Contrôle txtProjet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtProjet;
         
         /// <summary>
         /// Contrôle txtDifficulteCasTest.
@@ -76,15 +76,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDateCreationCasTest;
         
         /// <summary>
-        /// Contrôle txtDateCreation_CalendarExtender.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtDateCreation_CalendarExtender;
-        
-        /// <summary>
         /// Contrôle txtDateLivraisonCasTest.
         /// </summary>
         /// <remarks>
@@ -92,15 +83,6 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
-        
-        /// <summary>
-        /// Contrôle txtDateLivraison_CalendarExtender.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender txtDateLivraison_CalendarExtender;
         
         /// <summary>
         /// Contrôle txtTypeTestCasTest.
@@ -139,22 +121,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox rtxtDiversCasTest;
         
         /// <summary>
-        /// Contrôle DataGrid.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid DataGrid;
-        
-        /// <summary>
         /// Contrôle btnCopier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCopier;
+        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
         
         /// <summary>
         /// Contrôle btnAnnuler.
@@ -163,7 +136,7 @@ namespace TexcelWeb {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.LinkButton btnAnnuler;
         
         /// <summary>
         /// Contrôle btnEnregistrer.
@@ -172,6 +145,6 @@ namespace TexcelWeb {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
+        protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
     }
 }

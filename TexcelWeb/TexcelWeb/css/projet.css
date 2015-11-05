@@ -73,3 +73,11 @@
 .button{
     width:100px;
 }
+
+.txtDate{
+    width:50%;
+}
+
+.lblDate{
+    margin-left:-30px
+}

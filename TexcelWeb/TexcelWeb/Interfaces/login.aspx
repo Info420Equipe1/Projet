@@ -20,7 +20,7 @@
 					<label for="pass">Password:</label>
 					<input id="txtMotPasse" name="txtMotPasse" type="password" class="text" />
 					<div class="sep"></div>
-                    <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button> <a class="button" href="">Forgotten password?</a>
+                    <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button> <a class="button" href="#">Forgotten password?</a>
 
 				</form>
 			</div>
