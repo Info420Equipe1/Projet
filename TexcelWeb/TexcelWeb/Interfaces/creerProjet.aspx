@@ -28,7 +28,7 @@ $(function(){
 			</div>
 			<div class="right">
 				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
+					<p>Dernière connexion: <strong id="txtDerniereConnexion" runat="server">28-10-2015</strong></p>
 				</div>
 			</div>
 		</div>
@@ -82,11 +82,11 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Jeu: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" />
+                                <asp:DropDownList runat="server" ID="txtJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" OnSelectedIndexChanged="txtJeuProjet_SelectedIndexChanged" AutoPostBack="true" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" />
+                                <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" Enabled="False" />
                             </div>
                         </div>  
                         <div id="CasTestObj">
@@ -102,7 +102,7 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
-                    <table id="dataGridLstCasTest" runat="server">
+                    <table id="dataGridLstCasTest" runat="server" visible="False">
 					    <thead>
 						    <tr>
 							    <th scope="col">Code</th>
@@ -171,7 +171,7 @@ $(function(){
 						    </tr>
 					    </tbody>
 				    </table> 
-                    <div class="pagination">
+                    <div id="dataGridPagination" class="pagination" runat="server" visible="false">
 						<span>« Première</span>
 						<span class="active">1</span>
 						<a href="#">2</a>
@@ -184,8 +184,8 @@ $(function(){
 					</div>  
                     <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" />
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>
                 </form>
 			</div>
