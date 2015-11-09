@@ -109,7 +109,7 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Projet: " CssClass="lblColum1" />
-                                <asp:DropDownList runat="server" ID="txtProjet" CssClass="txtColum1" style="width:71.5%" />
+                                <asp:DropDownList runat="server" ID="dropDownProjet" CssClass="txtColum1" style="width:71.5%" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Difficulté: " CssClass="lblColum1" />
@@ -133,7 +133,7 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtTypeTestCasTest" CssClass="txtColum1"/>
+                                <asp:DropDownList runat="server" ID="dropDownTypeTestCasTest" CssClass="txtColum1"/>
                             </div>
                         </div>  
                         <div id="CasTestObj">

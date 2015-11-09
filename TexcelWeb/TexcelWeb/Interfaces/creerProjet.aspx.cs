@@ -8,6 +8,7 @@ using TexcelWeb.Classes.Personnel;
 using TexcelWeb.Classes.Test;
 using TexcelWeb.Classes;
 using System.Web.UI.HtmlControls;
+using TexcelWeb.Classes.Projet;
 
 namespace TexcelWeb
 {

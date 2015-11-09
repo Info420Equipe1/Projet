@@ -40,13 +40,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtNomCasTest;
         
         /// <summary>
-        /// Contrôle txtProjet.
+        /// Contrôle dropDownProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtProjet;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownProjet;
         
         /// <summary>
         /// Contrôle txtDifficulteCasTest.
@@ -85,13 +85,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
         
         /// <summary>
-        /// Contrôle txtTypeTestCasTest.
+        /// Contrôle dropDownTypeTestCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTypeTestCasTest;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownTypeTestCasTest;
         
         /// <summary>
         /// Contrôle rtxtObjectifCasTest.

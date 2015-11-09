@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TexcelWeb.Classes.Test;
-using TexcelWeb.Classes.Jeu;
+using TexcelWeb.Classes.Projet;
 
-namespace TexcelWeb.Classes.Test
+namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
@@ -15,27 +14,21 @@ namespace TexcelWeb.Classes.Test
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
-            projet.dateCreation = Convert.ToDateTime(dateCreationProjet);
-            projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
-            projet.VersionJeu = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
-            projet.descProjet = descProjet;
-            projet.objectifsProjet = objProjet;
-            projet.divers = DiversProjet;
+            
+            
+            return "lol";
+        }
 
-            try
-            {
-                Enregistrer(projet);
-                return "Le projet a été ajoutée avec succès!";
-            }
-            catch (Exception)
-            {
-                return "Une erreur est survenue lors de l'ajout du Projet. Les données n'ont pas été enregistrées.";
-            }
-        }
-        private static void Enregistrer(cProjet projet)
+        public static List<cProjet> GetListProjet()
         {
-            context.tblProjet.Add(projet);
-            context.SaveChanges();
+            List<cProjet> lstProjet = new List<cProjet>();
+
+            foreach (cProjet proj in context.tblProjet)
+            {
+                lstProjet.Add(proj);
+            }
+            return lstProjet;
         }
+
     }
 }
