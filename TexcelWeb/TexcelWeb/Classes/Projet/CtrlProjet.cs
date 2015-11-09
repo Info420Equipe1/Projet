@@ -15,7 +15,8 @@ namespace TexcelWeb.Classes.Test
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
             
-            return "vachier";
+            
+            return "lol";
         }
     }
 }
