@@ -26,6 +26,7 @@ namespace TexcelWeb
                     string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
                     if (CtrlLogin.VerifierLogin(nomUtilisateur, motPasse).Contains("Connexion réussie!"))
                     {
+                        //Connexion Réussi
                         this.Form.Dispose();
                         System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
                     }

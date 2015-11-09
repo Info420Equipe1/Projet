@@ -130,6 +130,8 @@
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
+    <Compile Include="Classes\Test\CtrlCasTest.cs" />
+    <Compile Include="Classes\Projet\CtrlProjet.cs" />
     <Compile Include="ClassificationJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

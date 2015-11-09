@@ -96,6 +96,7 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">
+                    
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
                             <div class="info">

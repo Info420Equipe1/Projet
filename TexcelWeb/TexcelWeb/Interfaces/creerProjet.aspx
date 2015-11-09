@@ -176,7 +176,7 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
-                    <table id="dataGridListeCasTest">
+                    <table id="dataGridLstCasTest" runat="server">
 					    <thead>
 						    <tr>
 							    <th scope="col">Code</th>
@@ -189,7 +189,7 @@ $(function(){
 					    </thead>						
 					    <tbody>
 						    <tr>
-							    <td class="align-center">ASU</td>
+							    <td class="align-center">ASUEvPr</td>
 							    <td>AssassinsCreedUnity</td>
 							    <td class="align-center">2015-10-29</td>
 							    <td class="align-center">Modérée</td>
@@ -200,7 +200,7 @@ $(function(){
 							    </td>
 						    </tr>
                             <tr>
-							    <td class="align-center">CODAW</td>
+							    <td class="align-center">CODAWChar</td>
 							    <td>CallofDutyAdvancedWarfare</td>
 							    <td class="align-center">2015-10-30</td>
 							    <td class="align-center">Faible</td>
@@ -211,7 +211,7 @@ $(function(){
 							    </td>
 						    </tr>
                             <tr>
-							    <td class="align-center">GHWT</td>
+							    <td class="align-center">GHWTComp</td>
 							    <td>GuitarHeroWorldTour</td>
 							    <td class="align-center">2015-11-02</td>
 							    <td class="align-center">Modérée</td>
@@ -222,7 +222,7 @@ $(function(){
 							    </td>
 						    </tr>
                             <tr>
-							    <td class="align-center">GTA5</td>
+							    <td class="align-center">GTA5ExJe</td>
 							    <td>GrandTheftAuto5</td>
 							    <td class="align-center">2015-11-03</td>
 							    <td class="align-center">Faible</td>
@@ -233,7 +233,7 @@ $(function(){
 							    </td>
 						    </tr>
                             <tr>
-							    <td class="align-center">LOL</td>
+							    <td class="align-center">LOLFonc</td>
 							    <td>LeagueOfLegends</td>
 							    <td class="align-center">2015-11-04</td>
 							    <td class="align-center">Faible</td>
