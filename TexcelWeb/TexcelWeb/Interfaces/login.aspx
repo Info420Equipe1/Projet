@@ -14,17 +14,16 @@
 	<div id="content">
 		<div id="main">
 			<div class="full_w">
-				<form runat="server" action="" method="post">
+				<form runat="server" action="#" method="post">
 					<label for="login">Username:</label>
                     <input id="txtNomUtilisateur" name="txtNomUtilisateur" class="text" />
 					<label for="pass">Password:</label>
 					<input id="txtMotPasse" name="txtMotPasse" type="password" class="text" />
 					<div class="sep"></div>
                     <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button> <a class="button" href="#">Forgotten password?</a>
-
 				</form>
 			</div>
-			<div class="footer">&raquo; <a href="">http://yourpage.com</a> | Admin Panel</div>
+			<div class="footer">&raquo; <a href="#">http://yourpage.com</a> | Admin Panel</div>
 		</div>
 	</div>
 </div>
