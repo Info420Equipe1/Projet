@@ -13,5 +13,15 @@ namespace TexcelWeb
         {
 
         }
+
+        protected void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+            if (txtNomCasTest.Text == "")
+            {
+                Response.Write("<script type=\"text/javascript\">alert('hahahahahhaha');</script>");
+                txtNomCasTest.Text = "sdcscds";
+                string yyy = txtCodeCasTest.Text;
+            }
+        }
     }
 }

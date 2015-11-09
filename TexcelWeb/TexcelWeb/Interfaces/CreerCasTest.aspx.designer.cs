@@ -22,15 +22,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm FrmCasTest;
         
         /// <summary>
-        /// Contrôle lsbProjets.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lsbProjets;
-        
-        /// <summary>
         /// Contrôle txtCodeCasTest.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,78 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList txtProjet;
+        
+        /// <summary>
+        /// Contrôle txtDifficulteCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtDifficulteCasTest;
+        
+        /// <summary>
+        /// Contrôle txtPrioritéCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtPrioritéCasTest;
+        
+        /// <summary>
+        /// Contrôle txtDateCreationCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateCreationCasTest;
+        
+        /// <summary>
+        /// Contrôle txtDateLivraisonCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
+        
+        /// <summary>
+        /// Contrôle txtTypeTestCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTypeTestCasTest;
+        
+        /// <summary>
+        /// Contrôle rtxtObjectifCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox rtxtObjectifCasTest;
+        
+        /// <summary>
+        /// Contrôle rtxtDescriptionCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionCasTest;
+        
+        /// <summary>
+        /// Contrôle rtxtDiversCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox rtxtDiversCasTest;
         
         /// <summary>
         /// Contrôle btnCopier.
