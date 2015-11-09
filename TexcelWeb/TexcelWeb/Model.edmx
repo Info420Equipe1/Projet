@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssociationJeu">
           <Key>
             <PropertyRef Name="idJeu" />
@@ -250,6 +250,10 @@
           <Property Name="chefProjet" Type="varchar" MaxLength="42" />
           <Property Name="descProjet" Type="text" />
           <Property Name="idVersionJeu" Type="smallint" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
+          <Property Name="objectifsProjet" Type="text" />
+          <Property Name="divers" Type="text" />
         </EntityType>
         <EntityType Name="tblTypeTest">
           <Key>
@@ -263,6 +267,7 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
+            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
@@ -275,6 +280,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
             <PropertyRef Name="nomSysExp" />
             <PropertyRef Name="nomEdition" />
             <PropertyRef Name="noVersion" />
+            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -287,6 +293,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
+            
+            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
@@ -873,8 +881,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1085,6 +1092,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idVersionJeu" Type="Int16" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.P_FK_idVersionJeu" FromRole="tblProjet" ToRole="tblVersionJeu" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_codeProjet" FromRole="tblProjet" ToRole="tblCasTest" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
+          <Property Name="objectifsProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="divers" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TypeTest">
           <Key>
@@ -1610,6 +1621,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <EntitySetMapping Name="tblProjet">
             <EntityTypeMapping TypeName="dbProjetE1Model.cProjet">
               <MappingFragment StoreEntitySet="tblProjet">
+                <ScalarProperty Name="divers" ColumnName="divers" />
+                <ScalarProperty Name="objectifsProjet" ColumnName="objectifsProjet" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
                 <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
