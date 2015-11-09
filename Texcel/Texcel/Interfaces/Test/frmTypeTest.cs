@@ -37,19 +37,14 @@ namespace Texcel.Interfaces.Test
         {
             foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
             {
-                if (cmbNom.Text == tT.nomTypeTest)
+                if (cmbNom.Text != tT.nomTypeTest)
                 {
-                    btnEnregistrer.Text = "Modifier";
-                    txtID.Text = tT.idTypeTest.ToString();
-                    rtbCommentaire.Text = tT.descTypeTest;
-                    break;
-                }
-                else
-                {
-                    btnEnregistrer.Text = "Enregistrer";
-                    txtID.Text = (CtrlTypeTest.lstTypeTest().Count + 1).ToString();
+                   
+                    txtID.Text = (tT.idTypeTest + 1).ToString();
                     rtbCommentaire.Text = "";
+                    
                 }
+                
             }
         }
 
@@ -104,6 +99,12 @@ namespace Texcel.Interfaces.Test
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TypeTest tT = CtrlTypeTest.GetTypeTest(cmbNom.Text);
+            rtbCommentaire.Text = tT.descTypeTest;
         }
 
      
