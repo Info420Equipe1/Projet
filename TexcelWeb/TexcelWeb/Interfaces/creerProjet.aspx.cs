@@ -17,11 +17,8 @@ namespace TexcelWeb
         {
             Utilisateur currentUser = CtrlController.GetCurrentUser();
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-            btnEnregistrer.Click += btnEnregistrer_Click;
-            //foreach (Employe Emp in CtrlUtilisateur.getLstChefProjet())
-            //{
-            //    txtChefProjetCasTest.Items.Add(Emp.nomEmploye + " " + Emp.prenomEmploye);
-            //}
+            string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
+            txtChefProjet.SelectedValue = nomChefProjet;
         }
 
         void btnEnregistrer_Click(object sender, EventArgs e)
@@ -52,5 +49,7 @@ namespace TexcelWeb
             //    }
             //}
         }
+
+ 
     }
 }

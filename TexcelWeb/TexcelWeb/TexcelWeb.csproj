@@ -50,6 +50,12 @@
       <HintPath>..\..\Texcel\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\Texcel\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\Texcel\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -130,6 +136,8 @@
     </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
+    <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />
+    <Compile Include="Classes\Personnel\CtrlEmploye.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
     <Compile Include="Classes\Test\CtrlCasTest.cs" />
     <Compile Include="Classes\Projet\CtrlProjet.cs" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TexcelWeb.Classes.Test;
+using TexcelWeb.Classes.Jeu;
 
 namespace TexcelWeb.Classes.Test
 {
@@ -14,9 +15,27 @@ namespace TexcelWeb.Classes.Test
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
-            
-            
-            return "lol";
+            projet.dateCreation = Convert.ToDateTime(dateCreationProjet);
+            projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
+            projet.VersionJeu = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
+            projet.descProjet = descProjet;
+            projet.objectifsProjet = objProjet;
+            projet.divers = DiversProjet;
+
+            try
+            {
+                Enregistrer(projet);
+                return "Le projet a été ajoutée avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de l'ajout du Projet. Les données n'ont pas été enregistrées.";
+            }
+        }
+        private static void Enregistrer(cProjet projet)
+        {
+            context.tblProjet.Add(projet);
+            context.SaveChanges();
         }
     }
 }
