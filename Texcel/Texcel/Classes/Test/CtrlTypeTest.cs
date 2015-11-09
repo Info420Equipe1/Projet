@@ -99,5 +99,51 @@ namespace Texcel.Classes.Test
             }
             return lstTypTest;
         }
+
+        public static bool Verifier(string _nom)
+        {
+            foreach (TypeTest tT in context.tblTypeTest)
+            {
+                if (tT.nomTypeTest == _nom)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static string Ajouter(string _nom, string _com)
+        {
+            TypeTest typeTest = new TypeTest();
+            typeTest.nomTypeTest = _nom;
+            typeTest.descTypeTest = _com;
+
+            try
+            {
+                context.tblTypeTest.Add(typeTest);
+                context.SaveChanges();
+                return "Le type test a été créé";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de l'ajout du Type de test. Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        public static string Modifier(string _nom, string _com)
+        {
+            TypeTest typeTest = GetTypeTest(_nom);
+            typeTest.descTypeTest = _com;
+
+            try
+            {
+                context.SaveChanges();
+                return "Le type de test a été modifié avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la modification du Type de test. Les données n'ont pas été enregistrées.";
+            }
+        }
     }
 }

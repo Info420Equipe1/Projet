@@ -142,6 +142,8 @@
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDesTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.typeDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1218,7 +1220,8 @@
             this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smiFichier,
             this.smiGestionJeu,
-            this.smiGestionPersonnel});
+            this.smiGestionPersonnel,
+            this.gestionDesTestsToolStripMenuItem});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
             this.mnsMain.Size = new System.Drawing.Size(1425, 28);
@@ -1364,6 +1367,22 @@
             this.smiEquipe.Size = new System.Drawing.Size(187, 24);
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
+            // 
+            // gestionDesTestsToolStripMenuItem
+            // 
+            this.gestionDesTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.typeDeTestToolStripMenuItem});
+            this.gestionDesTestsToolStripMenuItem.Name = "gestionDesTestsToolStripMenuItem";
+            this.gestionDesTestsToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.gestionDesTestsToolStripMenuItem.Text = "&Gestion des tests";
+            // 
+            // typeDeTestToolStripMenuItem
+            // 
+            this.typeDeTestToolStripMenuItem.Name = "typeDeTestToolStripMenuItem";
+            this.typeDeTestToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
+            this.typeDeTestToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.typeDeTestToolStripMenuItem.Text = "Type de test";
+            this.typeDeTestToolStripMenuItem.Click += new System.EventHandler(this.smiTypeTest_Click);
             // 
             // frmAdmin
             // 
@@ -1522,6 +1541,8 @@
         private System.Windows.Forms.ToolStripMenuItem smiDeconnection;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDesTestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem typeDeTestToolStripMenuItem;
 
     }
 }

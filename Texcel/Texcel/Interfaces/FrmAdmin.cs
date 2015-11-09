@@ -14,6 +14,7 @@ using Texcel.Classes.Projet;
 using Texcel.Classes.Jeu;
 using Texcel.Interfaces.Jeu;
 using Texcel.Interfaces.Personnel;
+using Texcel.Interfaces.Test;
 
 namespace Texcel.Interfaces
 {
@@ -282,6 +283,13 @@ namespace Texcel.Interfaces
             frmCreerEquipe frmCreerEquipe = new frmCreerEquipe();
             frmCreerEquipe.ShowDialog();
         }
+
+        private void smiTypeTest_Click(object sender, EventArgs e)
+        {
+            frmTypeTest frmTypeTest = new frmTypeTest();
+            frmTypeTest.ShowDialog();
+        }
+
         private void smiDeconnection_Click(object sender, EventArgs e)
         {
             CtrlAdmin.SetCurrentUser(null);
@@ -638,7 +646,9 @@ namespace Texcel.Interfaces
             txtRechercher.SelectAll();
         }
 
-    
+       
+
+      
       
        
 
