@@ -250,6 +250,10 @@
           <Property Name="chefProjet" Type="varchar" MaxLength="42" />
           <Property Name="descProjet" Type="text" />
           <Property Name="idVersionJeu" Type="smallint" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
+          <Property Name="objectifsProjet" Type="text" />
+          <Property Name="divers" Type="text" />
         </EntityType>
         <EntityType Name="tblTypeTest">
           <Key>
@@ -1088,6 +1092,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="idVersionJeu" Type="Int16" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.P_FK_idVersionJeu" FromRole="tblProjet" ToRole="tblVersionJeu" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_codeProjet" FromRole="tblProjet" ToRole="tblCasTest" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
+          <Property Name="objectifsProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="divers" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TypeTest">
           <Key>
@@ -1613,6 +1621,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <EntitySetMapping Name="tblProjet">
             <EntityTypeMapping TypeName="dbProjetE1Model.cProjet">
               <MappingFragment StoreEntitySet="tblProjet">
+                <ScalarProperty Name="divers" ColumnName="divers" />
+                <ScalarProperty Name="objectifsProjet" ColumnName="objectifsProjet" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
                 <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />

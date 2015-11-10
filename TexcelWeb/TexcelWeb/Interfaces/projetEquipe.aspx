@@ -95,30 +95,53 @@ $(function(){
 			
 			<div class="full_w">
 				<div class="h_title">Créer un cas de test</div>
-                <form id="FrmCasTest" runat="server">
-                    <div id="CasTestInfo">
-                        <div id="lblColumn1">
-                            <div class="info">
-                                <asp:ListBox runat="server" ID="lsbProjets" />
+                <form id="frmProjetEquipe" runat="server">
+                    <div id="projetEquipe">
+                        <div>
+                            <asp:Label runat="server" Text="Mes projets" /><br />
+                            <asp:ListBox runat="server" ID="lsbProjets" style="width:100%;height:150px" />
+                        </div>
+                        <br />
+                        <div>
+                            <div style="display:inline">
+                                <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
+                                <asp:ListBox runat="server" ID="lsbEquipes" style="width:40%;vertical-align:top" />
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
+                            <div style="display:inline">
+                                <div>
+                                    <asp:Label runat="server" Text="Nom de l'équipe:" />
+                                    <asp:TextBox runat="server" ID="txtNomEquipe" /><br />
+                                </div>
+                                <div>
+                                    <asp:Label runat="server" Text="Chef d'équipe:" />
+                                    <asp:TextBox runat="server" ID="txtChefEquipe" />
+                                </div>
+                                <div>
+                                    <asp:Label runat="server" Text="Nb. Testeurs:" />
+                                    <asp:TextBox runat="server" ID="txtNbTesteurs" />
+                                </div>
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
+                        </div>
+                        <div>
+                            <div style="display:inline">
+                                <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
+                                <asp:ListBox runat="server" ID="lbsCasTestProjet" />
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Projet: " CssClass="lblColum1" />
-                                <asp:DropDownList runat="server" ID="txtProjet" CssClass="txtColum1" style="width:71.5%" />
+                            <div style="display:inline;vertical-align:text-top">
+                                <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button"/>
+                                <asp:LinkButton runat="server" ID="btnRight" Text=">" CssClass="button"/>
+                                <asp:LinkButton runat="server" ID="btnLeft" Text="<" CssClass="button"/>
+                                <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button"/>    
                             </div>
-                        </div> 
+                            <div>
+                                <asp:Label runat="server" Text="Cas de test de l'équipe (untel)" /><br />
+                                <asp:ListBox runat="server" ID="lsbCasTestEquipe" />
+                            </div>
+                        </div>
                     </div>
-                <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" />      
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add"/>
+                <div id="btnEnregistrerAnnuler">  
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="button"/>
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="button"/>                       
                     <br />
                     <br />
                 </div>

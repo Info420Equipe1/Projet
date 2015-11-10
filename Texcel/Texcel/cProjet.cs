@@ -24,6 +24,10 @@ namespace Texcel
         public string chefProjet { get; set; }
         public string descProjet { get; set; }
         public Nullable<short> idVersionJeu { get; set; }
+        public Nullable<System.DateTime> dateCreation { get; set; }
+        public Nullable<System.DateTime> dateLivraison { get; set; }
+        public string objectifsProjet { get; set; }
+        public string divers { get; set; }
     
         public virtual VersionJeu VersionJeu { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
