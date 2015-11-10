@@ -16,7 +16,7 @@ namespace TexcelWeb.Classes.Projet
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
-            DateTime date = Convert.ToDateTime(dateCreationProjet).Date.;
+            DateTime date = Convert.ToDateTime(dateCreationProjet).Date;
             projet.dateCreation = date.Date;
             projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet).Date;
             VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
