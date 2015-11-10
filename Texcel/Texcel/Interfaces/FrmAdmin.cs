@@ -27,83 +27,86 @@ namespace Texcel.Interfaces
         }
 
         private void frmAdmin_VisibleChanged(object sender, EventArgs e)
-        {           
-            foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
+        {
+            if (CtrlController.GetCurrentUser() != null)
             {
-                lstDroits = CtrlController.GetDroits(groupe);
-                if (!lstDroits.Contains(2))
+                foreach (Groupe groupe in CtrlController.GetCurrentUser().Groupe)
                 {
-                    this.smiSysExp.Visible = false;
-                    this.btnModifierSysExp.Visible = false;
-                }
-                if (!lstDroits.Contains(10))
-                {
-                    this.smiTypePlateforme.Visible = false;
-                }
-                if (!lstDroits.Contains(14))
-                {
-                    this.smiPlateforme.Visible = false;
-                    this.btnModifierPlateforme.Visible = false;
-                }
-                if (!lstDroits.Contains(12))
-                {
-                    this.smiTheme.Visible = false;
-                }
-                if (!lstDroits.Contains(6))
-                {
-                    this.smiGenre.Visible = false;
-                }
-                if (!lstDroits.Contains(4))
-                {
-                    this.smiClassification.Visible = false;
-                }
-                if (!lstDroits.Contains(8))
-                {
-                    this.smiJeu.Visible = false;
-                    this.btnModifierJeu.Visible = false;
-                }
-                if (!lstDroits.Contains(16))
-                {
-                    this.smiEmploye.Visible = false;
-                    this.btnModifierEmp.Visible = false;
-                }
-                if (!lstDroits.Contains(18))
-                {
-                    this.smiEquipe.Visible = false;
-                    this.btnModifierEquipe.Visible = false;
-                }
-                if (groupe.idGroupe == 1)
-                {
-                    cmbFiltre.Text = "Employé";
-                    btnRechercher_Click(this, null);
-                }
-                if (groupe.idGroupe == 2)
-                {
-                    cmbFiltre.Text = "Équipe";
-                    btnRechercher_Click(this, null);
-                }
-                if (groupe.idGroupe == 3)
-                {
-                    cmbFiltre.Text = "Employé";
-                    btnRechercher_Click(this, null);
-                }
-                if (groupe.idGroupe == 5)
-                {
-                    //MessageBox.Show("Un administrateur du système est connecté");
-                    //Verification du fichier RH
-                    cmbFiltre.Text = "Jeu";
-                    btnRechercher_Click(this, null);
-                    tabControl1.SelectedIndex = 2;
-                    if (CtrlFileEmployes.IsEmpty() > 0)
+                    lstDroits = CtrlController.GetDroits(groupe);
+                    if (!lstDroits.Contains(2))
                     {
-                        DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (dr == DialogResult.Yes)
+                        this.smiSysExp.Visible = false;
+                        this.btnModifierSysExp.Visible = false;
+                    }
+                    if (!lstDroits.Contains(10))
+                    {
+                        this.smiTypePlateforme.Visible = false;
+                    }
+                    if (!lstDroits.Contains(14))
+                    {
+                        this.smiPlateforme.Visible = false;
+                        this.btnModifierPlateforme.Visible = false;
+                    }
+                    if (!lstDroits.Contains(12))
+                    {
+                        this.smiTheme.Visible = false;
+                    }
+                    if (!lstDroits.Contains(6))
+                    {
+                        this.smiGenre.Visible = false;
+                    }
+                    if (!lstDroits.Contains(4))
+                    {
+                        this.smiClassification.Visible = false;
+                    }
+                    if (!lstDroits.Contains(8))
+                    {
+                        this.smiJeu.Visible = false;
+                        this.btnModifierJeu.Visible = false;
+                    }
+                    if (!lstDroits.Contains(16))
+                    {
+                        this.smiEmploye.Visible = false;
+                        this.btnModifierEmp.Visible = false;
+                    }
+                    if (!lstDroits.Contains(18))
+                    {
+                        this.smiEquipe.Visible = false;
+                        this.btnModifierEquipe.Visible = false;
+                    }
+                    if (groupe.idGroupe == 1)
+                    {
+                        cmbFiltre.Text = "Employé";
+                        btnRechercher_Click(this, null);
+                    }
+                    if (groupe.idGroupe == 2)
+                    {
+                        cmbFiltre.Text = "Équipe";
+                        btnRechercher_Click(this, null);
+                    }
+                    if (groupe.idGroupe == 3)
+                    {
+                        cmbFiltre.Text = "Employé";
+                        btnRechercher_Click(this, null);
+                    }
+                    if (groupe.idGroupe == 5)
+                    {
+                        //MessageBox.Show("Un administrateur du système est connecté");
+                        //Verification du fichier RH
+                        cmbFiltre.Text = "Jeu";
+                        btnRechercher_Click(this, null);
+                        tabControl1.SelectedIndex = 2;
+                        if (CtrlFileEmployes.IsEmpty() > 0)
                         {
-                            frmEmployeRecu frmEmployeRecu = new frmEmployeRecu();
-                            frmEmployeRecu.ShowDialog();
+                            DialogResult dr = MessageBox.Show("De nouveaux employés ont été envoyé par les RH. Désirez-vous les ajouter?", "Nouveaux employés", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (dr == DialogResult.Yes)
+                            {
+                                frmEmployeRecu frmEmployeRecu = new frmEmployeRecu();
+                                frmEmployeRecu.ShowDialog();
+                            }
                         }
                     }
-                }
+                } 
             }
         }
 
