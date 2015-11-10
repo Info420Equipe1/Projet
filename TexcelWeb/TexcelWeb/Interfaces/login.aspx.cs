@@ -28,7 +28,7 @@ namespace TexcelWeb
                     {
                         //Connexion Réussi
                         this.Form.Dispose();
-                        System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
+                        System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx?modifier=false");
                     }
                     else
                     {
