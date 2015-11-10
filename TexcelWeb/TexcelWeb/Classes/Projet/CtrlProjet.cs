@@ -82,5 +82,11 @@ namespace TexcelWeb.Classes.Projet
             return lstProjet;
         }
 
+        public static cProjet GetProjet(string _nomProjet)
+        {
+            cProjet proj = context.tblProjet.Where(x => x.nomProjet == _nomProjet).First();
+            return proj;
+
+        }
     }
 }

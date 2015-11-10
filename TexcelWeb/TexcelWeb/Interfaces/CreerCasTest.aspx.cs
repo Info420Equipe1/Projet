@@ -15,16 +15,20 @@ namespace TexcelWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             ChargerDropDownList();
+            txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            //if (txtNomCasTest.Text == "")
-            //{
-            //    Response.Write("<script type=\"text/javascript\">alert('hahahahahhaha');</script>");
-            //    txtNomCasTest.Text = "sdcscds";
-            //    string yyy = txtCodeCasTest.Text;
-            //}
+            if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(dropDownProjet.Text), CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.Text)))
+            {
+                Response.Write("<script type=\"text/javascript\">alert('Cas de test créé');</script>");
+            }
+            else
+            {
+                Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
+            }
+           
         }
 
         protected void ChargerDropDownList()

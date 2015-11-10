@@ -13,5 +13,26 @@ namespace TexcelWeb.Classes.Test
         {
             return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
         }
+
+        //Ajouter lorsque il faut lier avec un projet et un type test
+        public static bool Ajouter(string _code, string _nom, cProjet _proj, TypeTest _tT)
+        {
+            CasTest casTest = new CasTest();
+            casTest.codeCasTest = _code;
+            casTest.nomCasTest = _nom;
+            casTest.idTypeTest = _tT.idTypeTest;
+            casTest.codeProjet = _proj.codeProjet;
+
+            try
+            {
+                context.tblCasTest.Add(casTest);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

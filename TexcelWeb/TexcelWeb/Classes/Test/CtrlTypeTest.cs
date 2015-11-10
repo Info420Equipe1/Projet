@@ -17,5 +17,13 @@ namespace TexcelWeb.Classes.Test
             }
             return lstTypeTest;
         }
+
+        public static TypeTest GetTypeTest(string _nomTypeTest)
+        {
+            TypeTest tT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
+            return tT;
+        }
     }
+
+
 }

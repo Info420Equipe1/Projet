@@ -102,10 +102,12 @@ $(function(){
                             <div class="info">
                                 <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCodeCasTest" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCodeCasTest" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Projet: " CssClass="lblColum1" />
@@ -243,7 +245,8 @@ $(function(){
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" />      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click"/>
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />
+                       
                     <br />
                     <br />
                 </div>

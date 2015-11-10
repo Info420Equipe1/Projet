@@ -71,6 +71,8 @@
 .button{
     width:100px;
     text-align:center;
+    top: 0px;
+    left: 0px;
 }
 
 .txtDate1{
