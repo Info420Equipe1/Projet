@@ -17,49 +17,55 @@ namespace TexcelWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Formatage Bienvenue, [NomUtilisateur] et la Date
-            Utilisateur currentUser = CtrlController.GetCurrentUser();
-            txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-            DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
-            txtDerniereConnexion.InnerText = date.ToString("d");// est-ce bien DateDernModif pour la derniere connexion?
-
-            //Emplissage du DropDownList Chef de Projet
-            txtChefProjet.Items.Clear();
-            foreach (Employe emp in CtrlEmploye.getLstChefProjet())
+            if (!IsPostBack)
             {
-                txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
-            }
+                //Premier loading de la page
+                //txtVersionJeuProjet.Enabled = false;
+                //Formatage Bienvenue, [NomUtilisateur] et la Date
+                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
+                txtDerniereConnexion.InnerText = date.ToString("d");// est-ce bien DateDernModif pour la derniere connexion?
 
-            //Variable qui laisse savoir si on modifie ou on ajoute un projet
-            bool modifier = Convert.ToBoolean(Request["modifier"]);
-            if (!modifier)
-            {
-                //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
-                string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
-                ListItem lst = new ListItem();
-                lst.Text = nomChefProjet;
-                txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);    
-                
-
-                //Date de création Aujourd'hui par défaut
-                txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
-
-                
-
-                //Emplissage du DropDownList Jeux
-                txtJeuProjet.Items.Clear();
-                foreach (cJeu jeu in CtrlJeu.LstJeu())
+                //Emplissage du DropDownList Chef de Projet
+                txtChefProjet.Items.Clear();
+                foreach (Employe emp in CtrlEmploye.getLstChefProjet())
                 {
-                    txtJeuProjet.Items.Add(jeu.nomJeu);
+                    txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
+                }
+
+                //Variable qui laisse savoir si on modifie ou on ajoute un projet
+                bool modifier = Convert.ToBoolean(Request["modifier"]);
+                if (!modifier)
+                {
+                    //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
+                    string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
+                    ListItem lst = new ListItem();
+                    lst.Text = nomChefProjet;
+                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+
+
+                    //Date de création Aujourd'hui par défaut
+                    txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
+
+
+
+                    //Emplissage du DropDownList Jeux
+                    txtJeuProjet.Items.Clear();
+                    foreach (cJeu jeu in CtrlJeu.LstJeu())
+                    {
+                        txtJeuProjet.Items.Add(jeu.nomJeu);
+                    }
+                }
+                else
+                {
+                    txtVersionJeuProjet.Enabled = true;
+
+                    string codeProjet = Request["codeProjet"];
+                    cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
                 }
             }
-            else
-            {
-                txtVersionJeuProjet.Enabled = true;
-
-                string codeProjet = Request["codeProjet"];
-                cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
-            }
+            
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)

@@ -59,7 +59,7 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Créer un projet</div>
                 <form id="FrmProjet" runat="server">
-                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+                    <!--<asp:ScriptManager ID="ToolkitScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>-->
                     <div id="ProjetInfo">
                         <div id="lblColumn1">
                             <div class="info">
@@ -82,19 +82,19 @@ $(function(){
                             </div>
                             <div class="info">
                                 
-                                <asp:UpdatePanel ID="updatePanel1" runat="server" UpdateMode="Conditional">
-                                    <ContentTemplate>
+                                <!--<asp:UpdatePanel ID="updatePanel1" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>-->
                                         <asp:Label runat="server" Text="Jeu: " CssClass="lblColum1"/>
                                         <asp:DropDownList runat="server" ID="txtJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" OnSelectedIndexChanged="txtJeuProjet_SelectedIndexChanged" AutoPostBack="true"/>
-                                    </ContentTemplate>
+                                    <!--</ContentTemplate>
                                     <Triggers>
                                         <asp:AsyncPostBackTrigger ControlID="txtJeuProjet" EventName="SelectedIndexChanged" />
                                     </Triggers>
-                                </asp:UpdatePanel>
+                                </asp:UpdatePanel>-->
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" Enabled="False" />
+                                <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" />
                             </div>
                         </div>  
                         <div id="CasTestObj">
