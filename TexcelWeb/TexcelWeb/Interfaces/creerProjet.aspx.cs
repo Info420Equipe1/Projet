@@ -15,6 +15,7 @@ namespace TexcelWeb
 {
     public partial class creerProjet : System.Web.UI.Page
     {
+        bool modifierProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,6 +39,7 @@ namespace TexcelWeb
                 bool modifier = Convert.ToBoolean(Request["modifier"]);
                 if (!modifier)
                 {
+                    modifierProjet = false;
                     //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
                     string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
                     ListItem lst = new ListItem();
@@ -59,6 +61,7 @@ namespace TexcelWeb
                 }
                 else
                 {
+                    modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
 
                     string codeProjet = Request["codeProjet"];
@@ -70,7 +73,7 @@ namespace TexcelWeb
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            //Collecte de l'information pour le projet
+            //Collecte de l'information pour un projet
             string codeProjet = String.Format("{0}", Request.Form["txtCodeProjet"]);
             string nomProjet = String.Format("{0}", Request.Form["txtNomProjet"]);
             string chefProjet = String.Format("{0}", Request.Form["txtChefProjet"]);
@@ -81,12 +84,19 @@ namespace TexcelWeb
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
             string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
 
-            //Ajout du projet dans la Base de Données
-            string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-            //
-            //Sa fonctionne a merveille
-
-
+            if (!modifierProjet)
+            {
+                //Ajout du projet dans la Base de Données
+                string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                //
+                //Sa fonctionne a merveille
+            }
+            else
+            {
+                //Modification du Projet
+                string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+            }
+            
 
 
 
