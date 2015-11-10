@@ -35,7 +35,10 @@ namespace TexcelWeb.Classes.Personnel
             {
                 if (Projet.chefProjet != null)
                 {
-                    lstNomChefProjet.Add(Projet.chefProjet);
+                    if (!lstNomChefProjet.Contains(Projet.chefProjet))
+                    {
+                        lstNomChefProjet.Add(Projet.chefProjet);
+                    }
                 }
             }
             foreach (Employe emp in context.tblEmploye)

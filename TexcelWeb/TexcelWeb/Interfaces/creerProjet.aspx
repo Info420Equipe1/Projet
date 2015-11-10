@@ -39,7 +39,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="#/Interfaces/creerProjet.aspx">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
 					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
@@ -81,7 +81,7 @@ $(function(){
                                 <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />
                             </div>
                             <div class="info">
-                                
+                                <!-- Update Une partie de l'interface
                                 <!--<asp:UpdatePanel ID="updatePanel1" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>-->
                                         <asp:Label runat="server" Text="Jeu: " CssClass="lblColum1"/>

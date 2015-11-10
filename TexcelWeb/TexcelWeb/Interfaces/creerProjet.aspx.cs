@@ -88,8 +88,9 @@ namespace TexcelWeb
             {
                 //Ajout du projet dans la Base de Données
                 string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-                //
-                //Sa fonctionne a merveille
+                string alert = "alert('"+message+"');";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", alert, true);
+                //Response.Write("<script type=\"text/javascript\">alert('" + message + "')</script>");
             }
             else
             {
