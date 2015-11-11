@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Test;
+using System.IO;
+
 
 
 namespace TexcelWeb
@@ -30,7 +32,6 @@ namespace TexcelWeb
             }
            
         }
-
         protected void ChargerDropDownList()
         {
             dropDownProjet.Items.Clear();
@@ -44,6 +45,19 @@ namespace TexcelWeb
             {
                 dropDownTypeTestCasTest.Items.Add(tT.nomTypeTest);
             }
+        }
+
+        protected void btnCopier_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo monrepertoire = new DirectoryInfo("Chemin de ton repertoire"); 
+              //liste tous les fichier ".txt" du repertoir 
+            FileInfo[] mesfichiers = monrepertoire.GetFiles("*.*"); 
+              //boucle sur les fichiers pour les traiter 
+
+            foreach (FileInfo files in mesfichiers) 
+            { 
+              
+            } 
         }
     }
 }
