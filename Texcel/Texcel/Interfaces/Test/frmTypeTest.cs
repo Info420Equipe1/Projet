@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Test;
+using Texcel.Classes;
 
 namespace Texcel.Interfaces.Test
 {
@@ -35,45 +36,46 @@ namespace Texcel.Interfaces.Test
 
         private void cmbNom_TextUpdate(object sender, EventArgs e)
         {
-            foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
-            {
-                if (cmbNom.Text != tT.nomTypeTest)
-                {
+            //foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
+            //{
+            //    if (cmbNom.Text != tT.nomTypeTest)
+            //    {
                    
-                    txtID.Text = (tT.idTypeTest + 1).ToString();
-                    rtbCommentaire.Text = "";
+            //        txtID.Text = (tT.idTypeTest + 1).ToString();
+            //        rtbCommentaire.Text = "";
                     
-                }
+            //    }
                 
-            }
+            //}
         }
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             if (cmbNom.Text == "")
             {
-                MessageBox.Show("Veuillez ajouter un nom!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez ajouter un nom!");
                 return;
             }
-
             DialogResult DR;
             string message;
 
             if (CtrlTypeTest.Verifier(cmbNom.Text.Trim()))
             {
                 message = "Vous êtes en train de modifier un type de plateforme, voulez-vous continuer?";
-                DR = MessageBox.Show(message, "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DR = CtrlController.getDR(message);
+
                 if (DR == DialogResult.Yes)
                 {
                     message = CtrlTypeTest.Modifier(cmbNom.Text, rtbCommentaire.Text);
                     if (message.Contains("erreur"))
                     {
-                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CtrlController.MessageErreur(message);
                         return;
                     }
                     else
                     {
-                        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CtrlController.MessageSucces(message);
+                        Réaffichage();
                     }
 
                 }
@@ -83,15 +85,16 @@ namespace Texcel.Interfaces.Test
                 message = CtrlTypeTest.Ajouter(cmbNom.Text.Trim(), rtbCommentaire.Text.Trim());
                 if (message.Contains("erreur"))
                 {
-                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CtrlController.MessageErreur(message);
                     return;
                 }
                 else
                 {
-                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CtrlController.MessageSucces(message);
 
                     cmbNom.Text = "";
                     rtbCommentaire.Text = "";
+                    Réaffichage();
                 }
             }
         }
@@ -104,9 +107,19 @@ namespace Texcel.Interfaces.Test
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             TypeTest tT = CtrlTypeTest.GetTypeTest(cmbNom.Text);
+            txtID.Text = tT.idTypeTest.ToString();
             rtbCommentaire.Text = tT.descTypeTest;
         }
 
-     
+        private void Réaffichage()
+        {
+            txtID.Text = (CtrlTypeTest.lstTypeTest().Count + 1).ToString();
+            cmbNom.Items.Clear();
+
+            foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
+            {
+                cmbNom.Items.Add(tT.nomTypeTest);
+            }
+        }
     }
 }

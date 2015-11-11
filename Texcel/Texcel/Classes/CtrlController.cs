@@ -14,9 +14,19 @@ namespace Texcel.Classes
         protected static Utilisateur currentUtilisateur;
 
 
-        public static void MessageWarnng(string _monWarning)
+        public static void MessageErreur(string _monWarning)
         {
             MessageBox.Show(_monWarning, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public static void MessageSucces(string _monSucces)
+        {
+            MessageBox.Show(_monSucces, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public static DialogResult getDR(string _monMessage)
+        {
+            DialogResult monDR;
+            monDR = MessageBox.Show(_monMessage, "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return monDR;
         }
 
         public static void SetCurrentUser(Utilisateur user)

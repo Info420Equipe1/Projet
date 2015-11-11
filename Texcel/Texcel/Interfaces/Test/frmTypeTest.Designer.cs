@@ -163,7 +163,7 @@
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.cmbNom);
             this.Name = "frmTypeTest";
-            this.Text = "frmTypeTest";
+            this.Text = "Gestion des TypeTest";
             this.Load += new System.EventHandler(this.frmTypeTest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

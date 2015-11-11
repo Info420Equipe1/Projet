@@ -100,7 +100,7 @@ namespace Texcel.Interfaces.Personnel
                 message = CtrlUtilisateur.AjouterUtilisateur(txtNomUtil.Text, txtMotPasse.Text, lstGroupeUtilisateur, EmployeLier);
                 if (message.Contains("erreur"))
                 {
-                    CtrlController.MessageWarnng(message);
+                    CtrlController.MessageErreur(message);
                     return;
                 }
                 else

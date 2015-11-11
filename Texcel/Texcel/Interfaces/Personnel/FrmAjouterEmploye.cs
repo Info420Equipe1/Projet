@@ -179,7 +179,7 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-                CtrlAdmin.MessageWarnng("Vous devez choisir un compte!");
+                CtrlController.MessageErreur("Vous devez choisir un compte!");
             }
             
         }
@@ -195,7 +195,7 @@ namespace Texcel.Interfaces.Personnel
             if ((lstBoxTypeTest.Items.Count == 0) || (lstBoxTypeTest.SelectedIndex == -1) || (lstBoxTypeTest.SelectedItems.Count > 1))
             {
                 string ad = "Veuillez selectionner un type de test à ajouter.";
-                CtrlController.MessageWarnng(ad);
+                CtrlController.MessageErreur(ad);
             }
             else
             {
@@ -209,7 +209,7 @@ namespace Texcel.Interfaces.Personnel
             if ((lstBoxTypeTestEmp.Items.Count == 0) || (lstBoxTypeTestEmp.SelectedIndex == -1) || (lstBoxTypeTestEmp.SelectedItems.Count > 1))
             {
                 string ad = "Veuillez selectionner une type de test à retirer à l'employé.";
-                CtrlController.MessageWarnng(ad);
+                CtrlController.MessageErreur(ad);
             }
             else
             {
@@ -222,7 +222,7 @@ namespace Texcel.Interfaces.Personnel
             if ((lstBoxTypeTest.Items.Count == 0))
             {
                 string ad = "Veuillez selectionner un type de test à ajouter.";
-                CtrlController.MessageWarnng(ad);
+                CtrlController.MessageErreur(ad);
             }
             else if (lstBoxTypeTest.SelectedIndex == -1)
             {
@@ -247,7 +247,7 @@ namespace Texcel.Interfaces.Personnel
             if ((lstBoxTypeTestEmp.Items.Count == 0))
             {
                 string ad = "Veuillez selectionner une type de test à retirer à l'employé.";
-                CtrlController.MessageWarnng(ad);
+                CtrlController.MessageErreur(ad);
             }
             else if ((lstBoxTypeTestEmp.SelectedIndex == -1))
             {
