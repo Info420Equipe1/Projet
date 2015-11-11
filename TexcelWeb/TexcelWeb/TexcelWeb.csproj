@@ -76,6 +76,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\creerProjet.aspx" />
     <Content Include="Interfaces\login.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />

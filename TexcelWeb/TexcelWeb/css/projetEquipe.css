@@ -1,0 +1,57 @@
+﻿body {
+}
+
+#lsbProjets{
+    width:100%;
+    height:150px;
+}
+
+#lsbEquipes{
+    width:495px;
+    height:150px;
+}
+
+#lbsCasTestProjet{
+    height:300px;
+    width:495px;
+}
+
+#lsbCasTestEquipe{
+    height:300px;
+    width:495px;
+}
+
+#colButton{
+    padding-left:10px;
+}
+
+#infoEquipe{
+    padding-left:75px;
+}
+
+.lblInfo{
+    width:150px;
+    text-align:right;
+    margin-top:5px;
+    display:inline;
+}
+
+.tableCell{
+    display:table-cell;
+}
+
+.btnFleches{
+    width:15px;
+    padding-left:10px;
+}
+
+.button{
+    text-align:center;
+}
+
+.btnDroit{
+    display:inline-block;
+    float:right;
+    margin-right:5px;
+    width:100px;
+}
