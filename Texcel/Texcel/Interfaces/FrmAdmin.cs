@@ -134,7 +134,7 @@ namespace Texcel.Interfaces
                     tabControl1.SelectedIndex = 3;
                     foreach (AllPlateforme plat in CtrlAdmin.GetAllPlateformeView())
                     {
-                        if (cle == "" || plat.nomTypePlateforme.ToLower().Contains(cle) || plat.nomPlateforme.ToLower().Contains(cle))
+                        if (cle == "" || plat.tagPlateforme.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
                             dgvResultats.Rows[n].Cells[0].Value = plat.nomTypePlateforme;
@@ -152,7 +152,7 @@ namespace Texcel.Interfaces
                     tabControl1.SelectedIndex = 4;
                     foreach (AllSysExp sysexp in CtrlAdmin.GetAllSysExpView())
                     {
-                        if (cle == "" || sysexp.nomSysExp.ToLower().Contains(cle) || sysexp.codeSysExp.ToLower().Contains(cle) || sysexp.nomEdition.ToLower().Contains(cle) || (sysexp.noVersion ?? "").ToLower().Contains(cle))
+                        if (cle == "" || sysexp.tagSysExp.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
                             dgvResultats.Rows[n].Cells[0].Value = sysexp.nomSysExp;
@@ -170,7 +170,7 @@ namespace Texcel.Interfaces
                     tabControl1.SelectedIndex = 2;
                     foreach (cJeu jeu in CtrlAdmin.GetAllJeuView())
                     {
-                        if (cle == "" || jeu.nomJeu.ToLower().Contains(cle) || jeu.developeur.ToLower().Contains(cle))
+                        if (cle == "" || jeu.tagJeu.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
                             dgvResultats.Rows[n].Cells[0].Value = jeu.nomJeu;
@@ -187,10 +187,9 @@ namespace Texcel.Interfaces
                     tabControl1.SelectedIndex = 1;
                     foreach (AllEquipe equipe in CtrlAdmin.GetAllEquipeView())
                     {
-                        if (cle == "" || equipe.nomEquipe.ToLower().Contains(cle) || equipe.ChefEquipe.ToLower().Contains(cle))
+                        if (cle == "" || equipe.tagEquipe.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
-                            dgvResultats.Rows[n].Cells[0].Tag = equipe.idEquipe;
                             dgvResultats.Rows[n].Cells[0].Value = equipe.idEquipe;
                             dgvResultats.Rows[n].Cells[1].Value = equipe.nomEquipe;
                             dgvResultats.Rows[n].Cells[2].Value = equipe.ChefEquipe;
@@ -205,7 +204,7 @@ namespace Texcel.Interfaces
                     tabControl1.SelectedIndex = 0;
                     foreach (Employe employe in CtrlAdmin.GetAllEmployeView())
                     {
-                        if (cle == "" || employe.nomEmploye.ToLower().Contains(cle) || employe.prenomEmploye.ToLower().Contains(cle))
+                        if (cle == "" || employe.tagEmploye.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
                             dgvResultats.Rows[n].Cells[0].Value = employe.nomEmploye;
