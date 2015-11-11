@@ -26,7 +26,7 @@ namespace TexcelWeb
                 Utilisateur currentUser = CtrlController.GetCurrentUser();
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
-                txtDerniereConnexion.InnerText = date.ToString("d");// est-ce bien DateDernModif pour la derniere connexion?
+                txtDerniereConnexion.InnerText = date.ToString("d");
 
                 //Emplissage du DropDownList Chef de Projet
                 txtChefProjet.Items.Clear();
@@ -88,9 +88,9 @@ namespace TexcelWeb
             {
                 //Ajout du projet dans la Base de Données
                 string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-                string alert = "alert('"+message+"');";
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", alert, true);
-                //Response.Write("<script type=\"text/javascript\">alert('" + message + "')</script>");
+                //string alert = "alert('"+message+"');";
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", alert, true);
+                Response.Write("<script type=\"text/javascript\">alert('"+message+"');</script>");
             }
             else
             {

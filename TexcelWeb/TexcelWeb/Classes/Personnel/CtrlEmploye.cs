@@ -17,7 +17,6 @@ namespace TexcelWeb.Classes.Personnel
         {
             List<Employe> lstChefProjet = new List<Employe>();
             List<string> lstNomChefProjet = new List<string>();
-            //dbContext.Database.Connection.Open();
 
             //Ajout dans la liste de tous les Employe qui ont comme groupe chef de Projet dans la BD
             foreach (Utilisateur user in context.tblUtilisateur)
@@ -31,13 +30,13 @@ namespace TexcelWeb.Classes.Personnel
 	            }
                 
             }
-            foreach (cProjet Projet in context.tblProjet)
+            foreach (cProjet projet in context.tblProjet)
             {
-                if (Projet.chefProjet != null)
+                if (projet.chefProjet != null)
                 {
-                    if (!lstNomChefProjet.Contains(Projet.chefProjet))
+                    if (!lstNomChefProjet.Contains(projet.chefProjet))
                     {
-                        lstNomChefProjet.Add(Projet.chefProjet);
+                        lstNomChefProjet.Add(projet.chefProjet);
                     }
                 }
             }
@@ -52,7 +51,6 @@ namespace TexcelWeb.Classes.Personnel
                 }
 
             }
-            //dbContext.Database.Connection.Close();
             return lstChefProjet;
         }
     }
