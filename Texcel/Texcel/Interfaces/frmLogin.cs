@@ -22,7 +22,6 @@ namespace Texcel.Interfaces
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-           
             Cursor.Current = Cursors.WaitCursor;
             if (txtUsername.Text != "")
             {
@@ -90,6 +89,11 @@ namespace Texcel.Interfaces
                 e.SuppressKeyPress = true;
             }
         }
-       
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            this.ContextMenu.MenuItems.RemoveByKey("Copier");
+            this.ContextMenu.MenuItems.RemoveByKey("Coller");
+        }
     }
 }
