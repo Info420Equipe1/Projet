@@ -42,28 +42,31 @@
             // pcbLogo
             // 
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
-            this.pcbLogo.Location = new System.Drawing.Point(2, 12);
+            this.pcbLogo.Location = new System.Drawing.Point(2, 10);
+            this.pcbLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbLogo.Name = "pcbLogo";
-            this.pcbLogo.Size = new System.Drawing.Size(506, 130);
+            this.pcbLogo.Size = new System.Drawing.Size(380, 106);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbLogo.TabIndex = 0;
             this.pcbLogo.TabStop = false;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(176, 155);
+            this.txtUsername.Location = new System.Drawing.Point(132, 126);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.MaxLength = 20;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(275, 22);
+            this.txtUsername.Size = new System.Drawing.Size(207, 20);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(176, 183);
+            this.txtPassword.Location = new System.Drawing.Point(132, 149);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(275, 22);
+            this.txtPassword.Size = new System.Drawing.Size(207, 20);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
@@ -71,9 +74,10 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(30, 155);
+            this.lblUsername.Location = new System.Drawing.Point(11, 126);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(140, 20);
+            this.lblUsername.Size = new System.Drawing.Size(117, 17);
             this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Nom d\'utilisateur:";
             // 
@@ -81,9 +85,10 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(55, 183);
+            this.lblPassword.Location = new System.Drawing.Point(31, 149);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(115, 20);
+            this.lblPassword.Size = new System.Drawing.Size(97, 17);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Mot de passe:";
             // 
@@ -94,9 +99,10 @@
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
-            this.btnConnect.Location = new System.Drawing.Point(176, 223);
+            this.btnConnect.Location = new System.Drawing.Point(132, 181);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(134, 42);
+            this.btnConnect.Size = new System.Drawing.Size(100, 34);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "&Connexion";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -109,9 +115,10 @@
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(317, 223);
+            this.btnAnnuler.Location = new System.Drawing.Point(238, 181);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(134, 42);
+            this.btnAnnuler.Size = new System.Drawing.Size(100, 34);
             this.btnAnnuler.TabIndex = 3;
             this.btnAnnuler.Text = "&Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -120,9 +127,9 @@
             // frmLogin
             // 
             this.AcceptButton = this.btnConnect;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 287);
+            this.ClientSize = new System.Drawing.Size(380, 233);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblPassword);
