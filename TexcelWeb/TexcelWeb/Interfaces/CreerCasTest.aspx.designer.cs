@@ -94,15 +94,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.DropDownList dropDownTypeTestCasTest;
         
         /// <summary>
-        /// Contrôle rtxtObjectifCasTest.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtObjectifCasTest;
-        
-        /// <summary>
         /// Contrôle rtxtDescriptionCasTest.
         /// </summary>
         /// <remarks>
@@ -110,15 +101,6 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionCasTest;
-        
-        /// <summary>
-        /// Contrôle rtxtDiversCasTest.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtDiversCasTest;
         
         /// <summary>
         /// Contrôle btnCopier.

@@ -139,16 +139,13 @@ $(function(){
                             </div>
                         </div>  
                         <div id="CasTestObj">
-                            <asp:Label runat="server" Text="Objectif: " /><br />
-                            <asp:TextBox runat="server" ID="rtxtObjectifCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="156px" Width="763px"/>
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                     <!-- <div class="element">
