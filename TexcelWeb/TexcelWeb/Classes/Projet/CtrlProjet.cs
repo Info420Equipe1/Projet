@@ -10,6 +10,7 @@ namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
+        //Ajouter un projet
         public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = new cProjet();
@@ -37,11 +38,12 @@ namespace TexcelWeb.Classes.Projet
         }
         private static void Enregistrer(cProjet _projet)
         {
-            //Ajouter dans la BD
+            //Ajouter un projet dans la BD
             context.tblProjet.Add(_projet);
             context.SaveChanges();
         }
-
+        
+        //Modifier un Projet
         public static string ModifierProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = getProjetByCode(codeProjet);
@@ -66,6 +68,7 @@ namespace TexcelWeb.Classes.Projet
             }
         }
 
+        //Retourne un projet à l'aide d'un code de projet
         public static cProjet getProjetByCode(string _code)
         {
             cProjet projet = context.tblProjet.Where(x => x.codeProjet == _code).First();
@@ -82,6 +85,22 @@ namespace TexcelWeb.Classes.Projet
             return lstProjet;
         }
 
+        //Retourne une liste de projet pour un chef de projet specifique
+        public static List<cProjet> GetListProjetChefProjet(string nomChefProjet)
+        {
+            List<cProjet> lstProjet = new List<cProjet>();
+
+            foreach (cProjet proj in context.tblProjet)
+            {
+                if (proj.chefProjet == nomChefProjet)
+                {
+                    lstProjet.Add(proj);
+                }
+            }
+            return lstProjet;
+        }
+
+        //Retourne un projet à l'aide d'un nom de projet
         public static cProjet GetProjet(string _nomProjet)
         {
             cProjet proj = context.tblProjet.Where(x => x.nomProjet == _nomProjet).First();

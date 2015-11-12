@@ -57,7 +57,7 @@ $(function(){
                     <div id="projetEquipe">
                         <div>
                             <asp:Label runat="server" Text="Mes projets" /><br />
-                            <asp:ListBox runat="server" ID="lsbProjets" />
+                            <asp:ListBox runat="server" ID="lsbProjets" OnSelectedIndexChanged="lsbProjets_SelectedIndexChanged" />
                         </div>
                         <br />
                         <div>
@@ -84,7 +84,7 @@ $(function(){
                         <div> 
                             <div class="tableCell">
                                 <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lbsCasTestProjet" />
+                                <asp:ListBox runat="server" ID="lsbCasTestProjet" />
                             </div>
                             <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
                                 <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button btnFleches" /><br /><br />
