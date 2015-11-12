@@ -9,7 +9,6 @@ using TexcelWeb.Classes.Test;
 using System.IO;
 
 
-
 namespace TexcelWeb
 {
     public partial class CreerCasTest : System.Web.UI.Page
@@ -18,6 +17,7 @@ namespace TexcelWeb
         {
             ChargerDropDownList();
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
+            
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
@@ -49,15 +49,7 @@ namespace TexcelWeb
 
         protected void btnCopier_Click(object sender, EventArgs e)
         {
-            DirectoryInfo monrepertoire = new DirectoryInfo("Chemin de ton repertoire"); 
-              //liste tous les fichier ".txt" du repertoir 
-            FileInfo[] mesfichiers = monrepertoire.GetFiles("*.*"); 
-              //boucle sur les fichiers pour les traiter 
-
-            foreach (FileInfo files in mesfichiers) 
-            { 
-              
-            } 
+           
         }
     }
 }
