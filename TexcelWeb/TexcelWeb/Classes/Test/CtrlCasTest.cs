@@ -8,11 +8,7 @@ namespace TexcelWeb.Classes.Test
 {
     public class CtrlCasTest : CtrlController
     {
-        //Rechercher un Cas de test avec le CodeCasTest
-        public static CasTest GetCasTestByCode(string codeCasTest)
-        {
-            return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
-        }
+        
 
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, TypeTest _tT)
@@ -33,6 +29,18 @@ namespace TexcelWeb.Classes.Test
             {
                 return false;
             }
+        }
+
+        //Rechercher un Cas de test avec le CodeCasTest
+        public static CasTest GetCasTestByCode(string codeCasTest)
+        {
+            return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
+        }
+
+        //Rechercher un Cas de test avec le NomCasTest
+        public static CasTest GetCasTestByNom(string nomCasTest)
+        {
+            return context.tblCasTest.Where(x => x.nomCasTest == nomCasTest).First();
         }
     }
 }

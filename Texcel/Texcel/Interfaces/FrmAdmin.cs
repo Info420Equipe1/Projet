@@ -365,7 +365,7 @@ namespace Texcel.Interfaces
                     int num = dgvResultats.CurrentCell.RowIndex;
                     string nomChefEquipe = dgvResultats[2, num].Value.ToString();
                     int id = Convert.ToInt16(dgvResultats[0, num].Tag);
-                    Equipe selectedEquipe = CtrlEquipe.getSelectedEquipe(id);
+                    Equipe selectedEquipe = CtrlEquipe.getEquipeById(id);
                     lblNomEquipe.Text = selectedEquipe.nomEquipe;
                     lblChefEquipe.Text = nomChefEquipe;
                     string codeProj = selectedEquipe.CasTest.First().codeProjet;
@@ -507,7 +507,7 @@ namespace Texcel.Interfaces
             if (cmbFiltre.Text == "Équipe")
             {
                 int selectedRow = dgvResultats.CurrentCell.RowIndex;
-                Equipe equipe = CtrlEquipe.getSelectedEquipe(Convert.ToInt16(dgvResultats[0, selectedRow].Value));
+                Equipe equipe = CtrlEquipe.getEquipeById(Convert.ToInt16(dgvResultats[0, selectedRow].Value));
                 frmCreerEquipe frmEquipe = new frmCreerEquipe(equipe);
                 frmEquipe.ShowDialog();
                 CtrlAdmin.refreshEntity();

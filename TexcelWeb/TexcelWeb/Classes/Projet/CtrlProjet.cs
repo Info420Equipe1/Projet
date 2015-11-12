@@ -105,7 +105,7 @@ namespace TexcelWeb.Classes.Projet
         {
             cProjet proj = context.tblProjet.Where(x => x.nomProjet == _nomProjet).First();
             return proj;
-
         }
+        
     }
 }

@@ -85,13 +85,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtNbTesteurs;
         
         /// <summary>
-        /// Contrôle lbsCasTestProjet.
+        /// Contrôle lsbCasTestProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbsCasTestProjet;
+        protected global::System.Web.UI.WebControls.ListBox lsbCasTestProjet;
         
         /// <summary>
         /// Contrôle btnAllRight.

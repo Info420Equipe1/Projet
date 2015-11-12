@@ -57,7 +57,7 @@ $(function(){
                     <div id="projetEquipe">
                         <div>
                             <asp:Label runat="server" Text="Mes projets" /><br />
-                            <asp:ListBox runat="server" ID="lsbProjets" OnSelectedIndexChanged="lsbProjets_SelectedIndexChanged" />
+                            <asp:ListBox runat="server" ID="lsbProjets" OnSelectedIndexChanged="lsbProjets_SelectedIndexChanged" AutoPostBack="true" />
                         </div>
                         <br />
                         <div>
@@ -84,24 +84,24 @@ $(function(){
                         <div> 
                             <div class="tableCell">
                                 <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbCasTestProjet" />
+                                <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
                             </div>
                             <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button btnFleches" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnRight" Text=">" CssClass="button btnFleches" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnLeft" Text="<" CssClass="button btnFleches" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button btnFleches" /> 
+                                <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button btnFleches" OnClick="btnAllRight_Click" /><br /><br />
+                                <asp:LinkButton runat="server" ID="btnRight" Text=">" CssClass="button btnFleches" OnClick="btnRight_Click" /><br /><br />
+                                <asp:LinkButton runat="server" ID="btnLeft" Text="<" CssClass="button btnFleches" OnClick="btnLeft_Click" /><br /><br />
+                                <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button btnFleches" OnClick="btnAllLeft_Click" /> 
                             </div>
                             <div class="tableCell">
                                 <asp:Label runat="server" Text="Cas de test de l'équipe (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbCasTestEquipe" />
+                                <asp:ListBox runat="server" ID="lsbCasTestEquipe" SelectionMode="Multiple" />
                             </div>
                         </div>
                     </div>
                     <br />
                     <div id="btnEnregistrerAnnuler">  
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="button btnDroit cancel"/> 
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="button btnDroit add"/>                             
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="button btnDroit add" OnClick="btnEnregistrer_Click"/>                             
                     </div>
                 </form>
 			</div>

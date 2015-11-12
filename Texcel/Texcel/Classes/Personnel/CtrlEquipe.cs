@@ -33,7 +33,7 @@ namespace Texcel.Classes.Personnel
         }
         public static string Modifier(int idEquipe, string nomEquipe, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
         {
-            Equipe equipe = getSelectedEquipe(idEquipe);
+            Equipe equipe = getEquipeById(idEquipe);
             equipe.nomEquipe = nomEquipe;
             equipe.nbTesteur = nbTesteur;
             equipe.descEquipe = commEquipe;
@@ -61,7 +61,7 @@ namespace Texcel.Classes.Personnel
                 context.SaveChanges();
             }           
         }
-        public static Equipe getSelectedEquipe(int _id)
+        public static Equipe getEquipeById(int _id)
         {
             Equipe selectedEquipe = context.tblEquipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;
