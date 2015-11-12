@@ -39,9 +39,9 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="#/Interfaces/creerProjet.aspx">Ajouter</a></li>
-					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
-					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
+					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
+					<li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>
+					<!--<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
 				</ul>
 			</div>		
