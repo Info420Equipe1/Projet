@@ -25,6 +25,7 @@ namespace TexcelWeb
         public int noChefEquipe { get; set; }
         public Nullable<short> nbTesteur { get; set; }
         public string descEquipe { get; set; }
+        public string tagEquipe { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual ICollection<Employe> Employe1 { get; set; }

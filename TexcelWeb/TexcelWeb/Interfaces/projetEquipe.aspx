@@ -61,22 +61,22 @@ $(function(){
                         </div>
                         <br />
                         <div>
-                            <div class="tableCell">
+                            <div style="float:left;height:185px">
                                 <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
                                 <asp:ListBox runat="server" ID="lsbEquipes" />
                             </div>
-                            <div id="infoEquipe" class="tableCell">
+                            <div id="infoEquipe" style="float:left">
                                 <div class="lblInfo">
                                     <asp:Label runat="server" Text="Nom de l'équipe:" />
-                                    <asp:TextBox runat="server" ID="txtNomEquipe" /><br />
+                                    <asp:TextBox runat="server" ID="txtNomEquipe" CssClass="textBox" Enabled="false" /><br /><br />
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label runat="server" Text="Chef d'équipe:" />
-                                    <asp:TextBox runat="server" ID="txtChefEquipe" /><br />
+                                    <asp:Label ID="lblChefEquipe" runat="server" Text="Chef d'équipe:" />
+                                    <asp:TextBox runat="server" ID="txtChefEquipe" CssClass="textBox" Enabled="false" /><br /><br />
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label runat="server" Text="Nb. Testeurs:" />
-                                    <asp:TextBox runat="server" ID="txtNbTesteurs" />
+                                    <asp:Label ID="lblNbTesteurs" runat="server" Text="Nb. Testeurs:" />
+                                    <asp:TextBox runat="server" ID="txtNbTesteurs" CssClass="textBox" Enabled="false" />
                                 </div>
                             </div>
                         </div>
@@ -100,8 +100,8 @@ $(function(){
                     </div>
                     <br />
                     <div id="btnEnregistrerAnnuler">  
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="button btnDroit add"/>
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="button btnDroit cancel"/>                       
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="button btnDroit cancel"/> 
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="button btnDroit add"/>                             
                     </div>
                 </form>
 			</div>

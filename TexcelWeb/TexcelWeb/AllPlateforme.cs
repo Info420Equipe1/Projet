@@ -16,5 +16,6 @@ namespace TexcelWeb
     {
         public string nomPlateforme { get; set; }
         public string nomTypePlateforme { get; set; }
+        public string tagPlateforme { get; set; }
     }
 }

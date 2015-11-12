@@ -30,6 +30,7 @@ namespace TexcelWeb
         public string adressePostale { get; set; }
         public System.DateTime dateEmbauche { get; set; }
         public string competenceParticuliere { get; set; }
+        public string tagEmploye { get; set; }
     
         public virtual ICollection<Equipe> Equipe { get; set; }
         public virtual ICollection<Utilisateur> Utilisateur { get; set; }

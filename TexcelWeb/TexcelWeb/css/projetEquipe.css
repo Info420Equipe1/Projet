@@ -26,14 +26,27 @@
 }
 
 #infoEquipe{
-    padding-left:75px;
+    padding-left:60px;
+    margin-top:30px;
+}
+
+#lblChefEquipe{
+    margin-left:15px
+}
+
+#lblNbTesteurs{
+    margin-left:20px;
+}
+
+#btnEnregistrerAnnuler{
+    height:30px;
 }
 
 .lblInfo{
     width:150px;
     text-align:right;
-    margin-top:5px;
     display:inline;
+    padding-top:5px;
 }
 
 .tableCell{
@@ -54,4 +67,8 @@
     float:right;
     margin-right:5px;
     width:100px;
+}
+
+.textBox{
+    width:340px;
 }

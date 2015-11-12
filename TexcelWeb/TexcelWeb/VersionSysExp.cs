@@ -18,6 +18,7 @@ namespace TexcelWeb
         public string noVersion { get; set; }
         public short idEdition { get; set; }
         public string commSysExp { get; set; }
+        public string tagSysExp { get; set; }
     
         public virtual EditionSysExp EditionSysExp { get; set; }
     }

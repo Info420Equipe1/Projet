@@ -19,5 +19,6 @@ namespace TexcelWeb
         public string nomEdition { get; set; }
         public string noVersion { get; set; }
         public string commSysExp { get; set; }
+        public string tagSysExp { get; set; }
     }
 }
