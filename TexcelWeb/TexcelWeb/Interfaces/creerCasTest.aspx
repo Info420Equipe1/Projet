@@ -144,9 +144,6 @@ $(function(){
                             <asp:Label runat="server" Text="Description: "/><br />
                             <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="156px" Width="763px"/>
                         </div>
-                        <div id="CasTestDiv">
-                            <asp:Label runat="server" Text="Divers: "/><br />
-                        </div>
                     </div>
                     <!-- <div class="element">
 					    <label for="attach">Attachments</label>
