@@ -65,83 +65,51 @@ $(function(){
                         <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
                         <br />
                     </div>
-                   
-                    <table id="tblRecherche" runat="server">
-					<thead>
-						<tr>
-							<th scope="col" id="col1" style="width:200px">1</th>
-							<th scope="col" id="col2" style="width:40px;text-align:center">2</th>
-							<th scope="col" id="col3" style="width:40px;text-align:center">3</th>
-							<th scope="col" id="col4" style="width:150px">4</th>
-							<th scope="col" id="col5" style="width:90px">5</th>
-							<th scope="col" id="col6" style="width:65px;">6</th>
-						</tr>
-					</thead>					
-					<tbody>
-						<tr>
-							<td>Documentation</td>
-							<td>.txt</td>
-							<td>180 mb</td>
-							<td>Marcel Leblond</td>
-							<td>22-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td>VisualParadigmDoc</td>
-							<td>.vpp</td>
-							<td>150 mb</td>
-							<td>Louis-Alexandre Munger</td>
-							<td>23-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>					
-						<tr>
-							<td>Documentation2</td>
-							<td>.txt</td>
-							<td>160 mb</td>
-							<td>Jérémie Tremblay</td>
-							<td>22-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>ReadME</td>
-							<td>.txt</td>
-							<td>170 mb</td>
-							<td>Benoit Simard</td>
-							<td>25-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-                        <tr>
-							<td>ReadME</td>
-							<td>.txt</td>
-							<td>170 mb</td>
-							<td>Benoit Simard</td>
-							<td>25-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+     
+          <div>
+            <asp:ListView ID="lvRecherche" runat="server" DataKeyNames="Id" EnableModelValidation="True" OnLoad="lvRecherche_Load"> 
+
+            <ItemTemplate>
+                <tr>
+                    <td class="firstcol">
+                        <input id='Checkbox<%# Eval("Id") %>' type="checkbox" />
+                    </td>
+
+                     <td class="firstcol">
+                        <input id="col2"  type="text"/>
+                    </td>
+
+                    <td class="firstcol">
+                        <input id="col3"  type="text"/>
+                    </td>
+
+                    <td class="firstcol">
+                        <input id="col4"  type="text"/>
+                    </td>
+
+
+                </tr>
+            </ItemTemplate>
+
+            <LayoutTemplate>
+               <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <th width="50" scope="col" class="firstcol"> </th>
+                    </tr>
+                    <tr id="itemPlaceholder" runat="server"></tr>
+                </table>
+
+                <asp:Button ID="btnCharger" runat="server" Text="Charger" Height="26px" />
+
+            </LayoutTemplate>
+        </asp:ListView>
+
+          </div>              
+
+
+
+
+
                 <div class="pagination">
 					<span>« Première</span>
 					<span class="active">1</span>
