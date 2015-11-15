@@ -117,6 +117,9 @@
     <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Difficulte.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="EditionSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -132,17 +135,17 @@
     <Compile Include="Forms.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\frmPassRenew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\frmPassRenew.Designer.cs">
-      <DependentUpon>frmPassRenew.cs</DependentUpon>
-    </Compile>
     <Compile Include="GenreJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\frmPassRenew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\frmPassRenew.Designer.cs">
+      <DependentUpon>frmPassRenew.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\frmLogin.cs">
       <SubType>Form</SubType>
@@ -260,6 +263,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NiveauPriorite.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Plateforme.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -379,7 +385,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\Projet\" />

@@ -16,15 +16,15 @@ namespace Texcel
     {
         public TypeTest()
         {
-            this.CasTest = new HashSet<CasTest>();
-            this.Employe = new HashSet<Employe>();
+            this.tblCasTest = new HashSet<CasTest>();
+            this.tblEmploye = new HashSet<Employe>();
         }
     
-        public short idTypeTest { get; set; }
-        public string nomTypeTest { get; set; }
-        public string descTypeTest { get; set; }
+        public short idTest { get; set; }
+        public string nomTest { get; set; }
+        public string descTest { get; set; }
     
-        public virtual ICollection<CasTest> CasTest { get; set; }
-        public virtual ICollection<Employe> Employe { get; set; }
+        public virtual ICollection<CasTest> tblCasTest { get; set; }
+        public virtual ICollection<Employe> tblEmploye { get; set; }
     }
 }

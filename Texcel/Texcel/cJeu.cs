@@ -30,6 +30,7 @@ namespace Texcel
         public string descJeu { get; set; }
         public string configMinimal { get; set; }
         public string codeClassification { get; set; }
+        public string tagJeu { get; set; }
     
         public virtual ClassificationJeu ClassificationJeu { get; set; }
         public virtual ICollection<VersionJeu> VersionJeu { get; set; }

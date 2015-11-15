@@ -12,16 +12,17 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class FicheResultat
+    public partial class NiveauPriorite
     {
-        public FicheResultat()
+        public NiveauPriorite()
         {
             this.CasTest = new HashSet<CasTest>();
         }
     
-        public short idResult { get; set; }
-        public string titreFicheRes { get; set; }
-        public Nullable<System.DateTime> dateCloture { get; set; }
+        public short idNivPri { get; set; }
+        public string nomNivPri { get; set; }
+        public string descNivPri { get; set; }
+        public string couleurNivPri { get; set; }
     
         public virtual ICollection<CasTest> CasTest { get; set; }
     }

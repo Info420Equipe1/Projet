@@ -12,16 +12,16 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class FicheResultat
+    public partial class Difficulte
     {
-        public FicheResultat()
+        public Difficulte()
         {
             this.CasTest = new HashSet<CasTest>();
         }
     
-        public short idResult { get; set; }
-        public string titreFicheRes { get; set; }
-        public Nullable<System.DateTime> dateCloture { get; set; }
+        public short idDiff { get; set; }
+        public string nomDiff { get; set; }
+        public string descDiff { get; set; }
     
         public virtual ICollection<CasTest> CasTest { get; set; }
     }
