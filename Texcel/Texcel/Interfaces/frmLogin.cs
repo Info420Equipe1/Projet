@@ -92,8 +92,7 @@ namespace Texcel.Interfaces
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            this.ContextMenu.MenuItems.RemoveByKey("Copier");
-            this.ContextMenu.MenuItems.RemoveByKey("Coller");
+            
         }
     }
 }
