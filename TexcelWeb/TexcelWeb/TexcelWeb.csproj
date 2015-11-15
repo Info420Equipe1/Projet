@@ -153,6 +153,9 @@
     <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Difficulte.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="EditionSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -223,6 +226,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NiveauPriorite.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Plateforme.cs">
       <DependentUpon>Model.tt</DependentUpon>

@@ -14,11 +14,15 @@ namespace TexcelWeb
     
     public partial class FicheResultat
     {
+        public FicheResultat()
+        {
+            this.CasTest = new HashSet<CasTest>();
+        }
+    
         public short idResult { get; set; }
         public string titreFicheRes { get; set; }
         public Nullable<System.DateTime> dateCloture { get; set; }
-        public string codeCasTest { get; set; }
     
-        public virtual CasTest CasTest { get; set; }
+        public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

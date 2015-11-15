@@ -351,7 +351,7 @@ namespace Texcel.Interfaces
                     lstBoxTypeTest.Items.Clear();
                     foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
                     {
-                        lstBoxTypeTest.Items.Add(tT.nomTypeTest);
+                        lstBoxTypeTest.Items.Add(tT.nomTest);
                     }
 
                     foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))

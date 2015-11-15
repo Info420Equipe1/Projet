@@ -69,7 +69,7 @@ namespace Texcel.Classes.Test
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
+            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
 
             return monTT;      
         }
@@ -104,7 +104,7 @@ namespace Texcel.Classes.Test
         {
             foreach (TypeTest tT in context.tblTypeTest)
             {
-                if (tT.nomTypeTest == _nom)
+                if (tT.nomTest == _nom)
                 {
                     return true;
                 }
@@ -115,8 +115,8 @@ namespace Texcel.Classes.Test
         public static string Ajouter(string _nom, string _com)
         {
             TypeTest typeTest = new TypeTest();
-            typeTest.nomTypeTest = _nom;
-            typeTest.descTypeTest = _com;
+            typeTest.nomTest = _nom;
+            typeTest.descTest = _com;
 
             try
             {
@@ -133,7 +133,7 @@ namespace Texcel.Classes.Test
         public static string Modifier(string _nom, string _com)
         {
             TypeTest typeTest = GetTypeTest(_nom);
-            typeTest.descTypeTest = _com;
+            typeTest.descTest = _com;
 
             try
             {

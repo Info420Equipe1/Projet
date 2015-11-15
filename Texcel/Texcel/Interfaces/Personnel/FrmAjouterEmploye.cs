@@ -84,7 +84,7 @@ namespace Texcel.Interfaces.Personnel
         {
             foreach (TypeTest typTest in CtrlTypeTest.lstTypeTestAssEmp(_emp))
             {
-                lstBoxTypeTestEmp.Items.Add(typTest.nomTypeTest);
+                lstBoxTypeTestEmp.Items.Add(typTest.nomTest);
                 
             }
         }
@@ -100,11 +100,11 @@ namespace Texcel.Interfaces.Personnel
             {
                 if (tT.Value == 0)
                 {
-                    lstBoxTypeTest.Items.Add(tT.Key.nomTypeTest); 
+                    lstBoxTypeTest.Items.Add(tT.Key.nomTest); 
                 }
                 else
                 {
-                    lstBoxTypeTestEmp.Items.Add(tT.Key.nomTypeTest);
+                    lstBoxTypeTestEmp.Items.Add(tT.Key.nomTest);
                 }
 
             }

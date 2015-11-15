@@ -16,23 +16,25 @@ namespace TexcelWeb
     {
         public CasTest()
         {
-            this.FicheResultat = new HashSet<FicheResultat>();
             this.Equipe = new HashSet<Equipe>();
         }
     
         public string codeCasTest { get; set; }
         public string nomCasTest { get; set; }
         public string descCasTest { get; set; }
-        public string priorite { get; set; }
-        public string difficulte { get; set; }
+        public Nullable<System.DateTime> dateCreation { get; set; }
+        public Nullable<System.DateTime> dateLivraison { get; set; }
         public string codeProjet { get; set; }
-        public Nullable<short> idTypeTest { get; set; }
-        public Nullable<short> idVersionJeu { get; set; }
+        public Nullable<short> idDiff { get; set; }
+        public Nullable<short> idTest { get; set; }
+        public Nullable<short> idResult { get; set; }
+        public Nullable<short> idNivPri { get; set; }
     
-        public virtual VersionJeu VersionJeu { get; set; }
         public virtual cProjet cProjet { get; set; }
+        public virtual Difficulte Difficulte { get; set; }
+        public virtual NiveauPriorite NiveauPriorite { get; set; }
+        public virtual FicheResultat FicheResultat { get; set; }
         public virtual TypeTest TypeTest { get; set; }
-        public virtual ICollection<FicheResultat> FicheResultat { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
     }
 }

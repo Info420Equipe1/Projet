@@ -12,19 +12,17 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeTest
+    public partial class Difficulte
     {
-        public TypeTest()
+        public Difficulte()
         {
             this.CasTest = new HashSet<CasTest>();
-            this.Employe = new HashSet<Employe>();
         }
     
-        public short idTest { get; set; }
-        public string nomTest { get; set; }
-        public string descTest { get; set; }
+        public short idDiff { get; set; }
+        public string nomDiff { get; set; }
+        public string descDiff { get; set; }
     
         public virtual ICollection<CasTest> CasTest { get; set; }
-        public virtual ICollection<Employe> Employe { get; set; }
     }
 }

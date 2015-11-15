@@ -25,7 +25,7 @@ namespace Texcel.Interfaces.Test
 
             foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
             {
-                cmbNom.Items.Add(tT.nomTypeTest);
+                cmbNom.Items.Add(tT.nomTest);
             }
         }
 
@@ -107,8 +107,8 @@ namespace Texcel.Interfaces.Test
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             TypeTest tT = CtrlTypeTest.GetTypeTest(cmbNom.Text);
-            txtID.Text = tT.idTypeTest.ToString();
-            rtbCommentaire.Text = tT.descTypeTest;
+            txtID.Text = tT.idTest.ToString();
+            rtbCommentaire.Text = tT.descTest;
         }
 
         private void Réaffichage()
@@ -118,7 +118,7 @@ namespace Texcel.Interfaces.Test
 
             foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
             {
-                cmbNom.Items.Add(tT.nomTypeTest);
+                cmbNom.Items.Add(tT.nomTest);
             }
         }
     }
