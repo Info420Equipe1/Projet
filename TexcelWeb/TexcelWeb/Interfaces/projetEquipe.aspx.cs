@@ -13,14 +13,20 @@ namespace TexcelWeb.Interfaces
 {
     public partial class projetEquipe : System.Web.UI.Page
     {
+        static string actualSelectedCodeProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
 	        {
-		        Utilisateur currentUser = CtrlController.GetCurrentUser();
-                
+                //Premier loading de la page
+                //Formatage Bienvenue, [NomUtilisateur] et la Date
+                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
+                txtDerniereConnexion.InnerText = date.ToString("d");
+
                 lsbProjets.DataSource = CtrlProjet.GetListProjetChefProjet(currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye);
-                //lsbProjets.DataTextField = "nomProjet";
+                lsbProjets.DataTextField = "nomProjet";
                 lsbProjets.DataBind();
 	        }
         }
@@ -29,36 +35,57 @@ namespace TexcelWeb.Interfaces
         {
             string nomProjet = lsbProjets.SelectedItem.ToString();
             cProjet projet = CtrlProjet.GetProjet(nomProjet);
-            //foreach (Equipe equipe in projet)
-            //{
-                
-            //}
+            List<Equipe> lstEquipe = new List<Equipe>();
+            actualSelectedCodeProjet = projet.codeProjet;
 
+            //Vider les champs d'information equipe
+            txtNomEquipe.Text = "";
+            txtChefEquipe.Text = "";
+            txtNbTesteurs.Text = "";
+            lsbCasTestEquipe.Items.Clear();
+
+            //Emplissage de la liste des equipes pour un projet
+            foreach (Equipe equipe in CtrlEquipe.lstEquipeByCodeProjet(projet.codeProjet))
+            {
+                lstEquipe.Add(equipe);
+            }
+
+            //DataSource de la liste des équipes pour un projet
+            lsbEquipes.DataSource = lstEquipe;
+            lsbEquipes.DataTextField = "nomEquipe";
+            lsbEquipes.DataBind();
+
+            //DataSource de la liste des cas de test du projet
             lsbCasTestProjet.DataSource = projet.CasTest;
             lsbCasTestProjet.DataTextField = "nomCasTest";
             lsbCasTestProjet.DataBind();
-            //foreach (CasTest casTest in projet.CasTest)
-            //{
-            //    lsbCasTestProjet.Items.Add(casTest.nomCasTest);
-            //}
+        }
+
+        protected void lsbEquipes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsbEquipes.SelectedIndex != -1)
+            {
+                string nomEquipe = lsbEquipes.SelectedItem.Text;
+                Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, actualSelectedCodeProjet);
+
+                //DataSource de la liste des cas de test pour une equipe
+                List<CasTest> lstCasTest = CtrlEquipe.lstCasTestByEquipe(equipe);
+                lsbCasTestEquipe.DataSource = lstCasTest;
+                lsbCasTestEquipe.DataTextField = "nomCasTest";
+                lsbCasTestEquipe.DataBind();
+
+                //Emplissage des information à propos de l'équipe
+                txtNomEquipe.Text = equipe.nomEquipe;
+                txtChefEquipe.Text = equipe.Employe.prenomEmploye +" "+ equipe.Employe.nomEmploye;
+                txtNbTesteurs.Text = equipe.nbTesteur.ToString();
+            }
         }
 
         protected void btnAllRight_Click(object sender, EventArgs e)
         {
-            foreach (ListItem item in lsbCasTestProjet.Items)
+            if (lsbEquipes.SelectedIndex != -1)
             {
-                if (!lsbCasTestEquipe.Items.Contains(item))
-                {
-                    lsbCasTestEquipe.Items.Add(item);
-                }
-            }
-        }
-
-        protected void btnRight_Click(object sender, EventArgs e)
-        {
-            foreach (ListItem item in lsbCasTestProjet.Items)
-            {
-                if (item.Selected == true)
+                foreach (ListItem item in lsbCasTestProjet.Items)
                 {
                     if (!lsbCasTestEquipe.Items.Contains(item))
                     {
@@ -68,35 +95,90 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        protected void btnRight_Click(object sender, EventArgs e)
+        {
+            if (lsbEquipes.SelectedIndex != -1)
+            {
+                if (lsbCasTestProjet.SelectedIndex != -1)
+                {
+                    foreach (ListItem item in lsbCasTestProjet.Items)
+                    {
+                        if (item.Selected == true)
+                        {
+                            if (!lsbCasTestEquipe.Items.Contains(item))
+                            {
+                                lsbCasTestEquipe.Items.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         protected void btnLeft_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
+            if (lsbCasTestEquipe.SelectedIndex != -1)
             {
-                if (lsbCasTestEquipe.Items[i].Selected == true)
+                for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
                 {
-                    lsbCasTestEquipe.Items.RemoveAt(i);
+                    if (lsbCasTestEquipe.Items[i].Selected == true)
+                    {
+                        lsbCasTestEquipe.Items.RemoveAt(i);
+                    }
                 }
             }
         }
 
         protected void btnAllLeft_Click(object sender, EventArgs e)
         {
-            lsbCasTestEquipe.Items.Clear();
+            if (lsbCasTestEquipe.Items.Count != 0)
+            {
+                lsbCasTestEquipe.Items.Clear();
+            }
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            string nomEquipe = lsbEquipes.SelectedItem.Text;
-            List<string> lstCasTest = new List<string>();
-            
-            for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
+            if (lsbProjets.SelectedIndex != -1)
             {
-                lstCasTest.Add(lsbCasTestEquipe.Items[i].Text);
+                if (lsbEquipes.SelectedIndex != -1)
+                {
+                    if (lsbCasTestEquipe.Items.Count != 0)
+                    {
+                        string nomEquipe = lsbEquipes.SelectedItem.Text;
+                        Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, actualSelectedCodeProjet);
+                        List<string> lstCasTest = new List<string>();
+
+                        for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
+                        {
+                            lstCasTest.Add(lsbCasTestEquipe.Items[i].Text);
+                        }
+
+                        string message = CtrlEquipe.lierEquipeCasTest(equipe, lstCasTest);
+
+                        //Alert ne saffiche pas.... 
+                        Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
+                    }
+                    else
+                    {
+                        //Aucun cas de test à lier avec l'équipe
+                        //L'alert n'apparait pas à l'écran contrairement à tous les autre.......????
+                        Response.Write("<script type=\"text/javascript\">alert('Veuillez ajouter un ou des cas de test afin de les lier à l'équipe sélectionnée');</script>");
+                    }
+                }
+                else
+                {
+                    //Pas d'équipe de selectionné
+                    Response.Write("<script type=\"text/javascript\">alert('Veuillez selectionner une équipe dans la liste');</script>");
+                }
             }
-
-            //message = CtrlEquipe.lierEquipeCasTest(nomEquipe, lstCasTest);
-
-
+            else
+            {
+                //Pas de projet de selectionné
+                Response.Write("<script type=\"text/javascript\">alert('Veuillez selectionner un projet dans la liste');</script>");
+            }
         }
+
+        
     }
 }

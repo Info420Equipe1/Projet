@@ -96,6 +96,7 @@ namespace TexcelWeb
             {
                 //Modification du Projet
                 string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
             }
             
 

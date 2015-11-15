@@ -25,11 +25,11 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
+					<p>Dernière connexion: <strong id="txtDerniereConnexion" runat="server">28-10-2015</strong></p>
 				</div>
 			</div>
 		</div>
@@ -39,8 +39,8 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
-					<li class="b2"><a class="icon page" href="#">Gérer les équipes</a></li>
+					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
+					<li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>
 				</ul>
 			</div>		
 			<div class="box">
@@ -63,7 +63,7 @@ $(function(){
                         <div>
                             <div style="float:left;height:185px">
                                 <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbEquipes" />
+                                <asp:ListBox runat="server" ID="lsbEquipes" OnSelectedIndexChanged="lsbEquipes_SelectedIndexChanged" AutoPostBack="true" />
                             </div>
                             <div id="infoEquipe" style="float:left">
                                 <div class="lblInfo">

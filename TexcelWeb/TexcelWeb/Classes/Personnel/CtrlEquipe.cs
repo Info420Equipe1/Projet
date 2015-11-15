@@ -14,13 +14,13 @@ namespace TexcelWeb.Classes.Personnel
             return selectedEquipe;
         }
 
-        public static Equipe getEquipeByNom(string _nom)
+        public static Equipe getEquipeByNomAndCodeProjet(string nomEquipe, string codeProjet)
         {
-            Equipe selectedEquipe = context.tblEquipe.Where(x => x.nomEquipe == _nom).First();
+            Equipe selectedEquipe = context.tblEquipe.Where(x => x.nomEquipe == nomEquipe && x.codeProjet == codeProjet).First();
             return selectedEquipe;
         }
 
-        public static void lierEquipeCasTest(string nomEquipe, List<string> casTest)
+        public static string lierEquipeCasTest(Equipe equipe, List<string> casTest)
         {
             List<CasTest> lstCasTestEquipe = new List<CasTest>();
 
@@ -29,7 +29,46 @@ namespace TexcelWeb.Classes.Personnel
                 lstCasTestEquipe.Add(CtrlCasTest.GetCasTestByNom(nomCasTest));
             }
 
-            //Equipe equipe = CtrlEquipe.getEquipeById();
+            equipe.CasTest = lstCasTestEquipe;
+            try
+            {
+                context.SaveChanges();
+                return "La liaison des cas de test pour l'équipe " + equipe.nomEquipe + " a été effectué avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la liaison des cas de test pour l'équipe " + equipe.nomEquipe + ". Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        //Retourne la liste des equipes pour un Projet en utilisant le codeProjet
+        public static List<Equipe> lstEquipeByCodeProjet(string codeProjet)
+        {
+            List<Equipe> lstEquipe = new List<Equipe>();
+
+            foreach (Equipe equipe in context.tblEquipe)
+            {
+                if (equipe.codeProjet == codeProjet)
+                {
+                    lstEquipe.Add(equipe);
+                }
+            }
+            return lstEquipe;
+        }
+
+        //Retourne une liste de cas de test d'une equipe pour un projet
+        public static List<CasTest> lstCasTestByEquipe(Equipe _equipe)
+        {
+            List<CasTest> lstCasTest = new List<CasTest>();
+
+            foreach (CasTest casTest in _equipe.CasTest)
+            {
+                if (casTest.codeProjet == _equipe.codeProjet)
+                {
+                    lstCasTest.Add(casTest);
+                }
+            }
+            return lstCasTest;
         }
     }
 }

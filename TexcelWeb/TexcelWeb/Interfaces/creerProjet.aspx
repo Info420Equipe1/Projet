@@ -65,20 +65,25 @@ $(function(){
                             <div class="info">
                                 <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCodeProjet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtNomProjet" CssClass="txtColum1"/>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNomProjet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Chef de projet: " CssClass="lblColum1"/>
                                 <asp:DropDownList runat="server" ID="txtChefProjet" CssClass="txtColum1" style="width:71.5%" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtChefProjet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date création: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1 txtDate" type="date" />                                                                                                               
+                                <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1 txtDate" type="date" />     
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationProjet" Display="dynamic" Text="*" ForeColor="Red" />                                                                                                          
                                 <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1 lblDate" />
                                 <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateLivraisonProjet" Display="dynamic" Text="*" ForeColor="Red" />   
                             </div>
                             <div class="info">
                                 <!-- Update Une partie de l'interface
@@ -95,6 +100,7 @@ $(function(){
                             <div class="info">
                                 <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
                                 <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtVersionJeuProjet" Display="dynamic" Text="*" ForeColor="Red" />   
                             </div>
                         </div>  
                         <div id="CasTestObj">
