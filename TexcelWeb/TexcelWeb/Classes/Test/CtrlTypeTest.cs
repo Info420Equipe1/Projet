@@ -20,7 +20,7 @@ namespace TexcelWeb.Classes.Test
 
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest tT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
+            TypeTest tT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
             return tT;
         }
     }

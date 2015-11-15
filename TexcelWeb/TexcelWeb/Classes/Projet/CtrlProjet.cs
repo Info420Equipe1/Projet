@@ -22,9 +22,9 @@ namespace TexcelWeb.Classes.Projet
             VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
             projet.VersionJeu = version;
             projet.descProjet = descProjet;
-            projet.objectifsProjet = objProjet;
-            projet.divers = DiversProjet;
-            projet.idVersionJeu = version.idVersionJeu;
+            projet.objProjet = objProjet;
+            projet.divProjet = DiversProjet;
+            projet.idVersion = version.idVersionJeu;
 
             try
             {
@@ -54,8 +54,8 @@ namespace TexcelWeb.Classes.Projet
             VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
             projet.VersionJeu = version;
             projet.descProjet = descProjet;
-            projet.objectifsProjet = objProjet;
-            projet.divers = DiversProjet;
+            projet.objProjet = objProjet;
+            projet.divProjet = DiversProjet;
 
             try
             {

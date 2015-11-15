@@ -43,7 +43,7 @@ namespace TexcelWeb
             }
             foreach (TypeTest tT in CtrlTypeTest.GetLstTypeTest())
             {
-                dropDownTypeTestCasTest.Items.Add(tT.nomTypeTest);
+                dropDownTypeTestCasTest.Items.Add(tT.nomTest);
             }
         }
 

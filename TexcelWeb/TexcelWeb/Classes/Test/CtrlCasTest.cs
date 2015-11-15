@@ -16,7 +16,7 @@ namespace TexcelWeb.Classes.Test
             CasTest casTest = new CasTest();
             casTest.codeCasTest = _code;
             casTest.nomCasTest = _nom;
-            casTest.idTypeTest = _tT.idTypeTest;
+            casTest.idTest = _tT.idTest;
             casTest.codeProjet = _proj.codeProjet;
 
             try
