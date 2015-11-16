@@ -35,8 +35,15 @@ namespace TexcelWeb
                     txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
                 }
 
+                //Emplissage du DropDownList Jeux
+                txtJeuProjet.Items.Clear();
+                foreach (cJeu jeu in CtrlJeu.LstJeu())
+                {
+                    txtJeuProjet.Items.Add(jeu.nomJeu);
+                }
+
                 //Variable qui laisse savoir si on modifie ou on ajoute un projet
-                bool modifier = Convert.ToBoolean(Request["modifier"]);
+                bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                 if (!modifier)
                 {
                     modifierProjet = false;
@@ -49,23 +56,117 @@ namespace TexcelWeb
 
                     //Date de création Aujourd'hui par défaut
                     txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
-
-
-
-                    //Emplissage du DropDownList Jeux
-                    txtJeuProjet.Items.Clear();
-                    foreach (cJeu jeu in CtrlJeu.LstJeu())
-                    {
-                        txtJeuProjet.Items.Add(jeu.nomJeu);
-                    }
                 }
                 else
                 {
+                    //Setup de la page pour la modification
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
+                    dataGridLstCasTest.Visible = true;
+                    dataGridPagination.Visible = true;
 
-                    string codeProjet = Request["codeProjet"];
+                    string codeProjet = (string)Session["modifCodeProjet"];
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
+
+                    txtCodeProjet.Text = projet.codeProjet;
+                    txtNomProjet.Text = projet.nomProjet;
+                    ListItem lst = new ListItem();
+                    lst.Text = projet.chefProjet;
+                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                    if (projet.dateCreation != null)
+                    {
+                        txtDateCreationProjet.Text = ((DateTime)projet.dateCreation).ToShortDateString();
+                    }
+                    if (projet.dateLivraison != null)
+                    {
+                        txtDateLivraisonProjet.Text = ((DateTime)projet.dateLivraison).ToShortDateString();
+                    }
+
+                    if (projet.VersionJeu != null)
+                    {
+                        lst = new ListItem();
+                        lst.Text = projet.VersionJeu.cJeu.nomJeu;
+                        txtJeuProjet.SelectedIndex = txtJeuProjet.Items.IndexOf(lst);
+
+                        lst = new ListItem();
+                        lst.Text = projet.VersionJeu.nomVersionJeu;
+                        txtVersionJeuProjet.Items.Add(lst);
+                        txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
+                    }
+                    else
+                    {
+                        txtJeuProjet.ClearSelection();
+                    }
+                    
+                    rtxtDescriptionProjet.Text = projet.descProjet;
+                    rtxtObjectifProjet.Text = projet.objProjet;
+                    rtxtDiversProjet.Text = projet.divProjet;
+
+
+                    for (int i = 0; i < dataGridLstCasTest.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+                            if (i>0)
+                            {
+                                dataGridLstCasTest.Rows[i].Cells[j].InnerText = "";
+                            }
+                        }
+                    }
+
+
+                    //Emplissage de la tableHTML pour les cas de test
+                    if (projet.CasTest.Count != 0)
+                    {
+                        int cpt = 1;
+                        foreach (CasTest casTest in projet.CasTest)
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                if (cpt < 6)
+                                {
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.codeCasTest;
+                                            break;
+                                        case 1:
+                                            dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.nomCasTest;
+                                            break;
+                                        case 2:
+                                            if (casTest.dateLivraison != null)
+                                            {
+                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = ((DateTime)casTest.dateLivraison).ToShortDateString();
+                                            }
+                                            break;
+                                        case 3:
+                                            if (casTest.NiveauPriorite != null)
+                                            {
+                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.NiveauPriorite.nomNivPri;
+                                            }
+                                            else
+                                            {
+                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = "";
+                                            }
+                                            break;
+                                        case 4:
+                                            if (casTest.Difficulte != null)
+                                            {
+                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.Difficulte.nomDiff;
+                                            }
+                                            else
+                                            {
+                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = "";
+                                            }
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }
+                            cpt++;
+                        }
+                    }
                 }
             }
             

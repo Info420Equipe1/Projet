@@ -102,7 +102,8 @@ namespace Texcel.Interfaces.Personnel
             }
             if (Modification == false)
             {
-                message = CtrlEquipe.Ajouter(txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp, CtrlProjet.getProjet(cmbProjet.Text));
+                cProjet projet = CtrlProjet.getProjet(cmbProjet.Text);
+                message = CtrlEquipe.Ajouter(txtNom.Text, projet.codeProjet, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp, CtrlProjet.getProjet(cmbProjet.Text));
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -115,7 +116,8 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-                message = CtrlEquipe.Modifier(id, txtNom.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                cProjet projet = CtrlProjet.getProjet(cmbProjet.Text);
+                message = CtrlEquipe.Modifier(id, txtNom.Text, projet.codeProjet, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -10,11 +10,12 @@ namespace Texcel.Classes.Personnel
     {
 
         //Enregistré équipe
-        public static string Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp, cProjet _proj)
+        public static string Ajouter(string _nom, string _codeProjet, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp, cProjet _proj)
         {
             Equipe equipe = new Equipe();
             
             equipe.nomEquipe = _nom;
+            equipe.codeProjet = _codeProjet;
             equipe.nbTesteur = _nbEmp;
             equipe.noChefEquipe = _empChefEquipe.noEmploye;
             equipe.descEquipe = _desc;
@@ -31,10 +32,11 @@ namespace Texcel.Classes.Personnel
                 return "Une erreur est survenue lors de l'ajout de l'Équipe. Les données n'ont pas été enregistrées.";
             }
         }
-        public static string Modifier(int idEquipe, string nomEquipe, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
+        public static string Modifier(int idEquipe, string nomEquipe, string codeProjet, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
         {
             Equipe equipe = getEquipeById(idEquipe);
             equipe.nomEquipe = nomEquipe;
+            equipe.codeProjet = codeProjet;
             equipe.nbTesteur = nbTesteur;
             equipe.descEquipe = commEquipe;
             equipe.Employe = chefEquipe;
