@@ -364,11 +364,11 @@ namespace Texcel.Interfaces
                 {
                     int num = dgvResultats.CurrentCell.RowIndex;
                     string nomChefEquipe = dgvResultats[2, num].Value.ToString();
-                    int id = Convert.ToInt16(dgvResultats[0, num].Tag);
+                    int id = Convert.ToInt16(dgvResultats[0, num].Value);
                     Equipe selectedEquipe = CtrlEquipe.getEquipeById(id);
                     lblNomEquipe.Text = selectedEquipe.nomEquipe;
                     lblChefEquipe.Text = nomChefEquipe;
-                    string codeProj = selectedEquipe.CasTest.First().codeProjet;
+                    string codeProj = selectedEquipe.codeProjet;
                     lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
                     rtbCommentaire.Text = selectedEquipe.descEquipe;
                     lstTesteurEquipe.Items.Clear();
