@@ -38,7 +38,7 @@ namespace Texcel.Classes
         {
             return context.AllProjet;
         }
-        public static System.Data.Entity.DbSet<AllCasTest> GetAllProjetView()
+        public static System.Data.Entity.DbSet<AllCasTest> GetAllCasTestView()
         {
             return context.AllCasTest;
         }
