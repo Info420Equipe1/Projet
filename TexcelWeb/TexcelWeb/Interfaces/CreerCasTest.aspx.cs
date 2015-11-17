@@ -42,8 +42,8 @@ namespace TexcelWeb
                 catch(Exception)
                 { }
                 //affiche pas La date pour l'instant
-                //txtDateCreationCasTest.Text = casTest.dateCreation.ToString();
-                //txtDateLivraisonCasTest.Text = casTest.dateLivraison.ToString();
+                txtDateCreationCasTest.Text = ((DateTime)(casTest.dateCreation)).ToShortDateString();
+                txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
                 rtxtDescriptionCasTest.Text = casTest.descCasTest;
             }
         }
