@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Classes\CtrlController.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
+    <Compile Include="Classes\CtrlRecherche.cs" />
     <Compile Include="Classes\Jeu\CtrlJeu.cs" />
     <Compile Include="Classes\Jeu\CtrlVersionJeu.cs" />
     <Compile Include="Classes\Personnel\CtrlEmploye.cs" />

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Test;
+using TexcelWeb.Classes;
 using System.IO;
 using System.Data;
 using System.Web.Services;
@@ -22,10 +23,9 @@ namespace TexcelWeb
 
         private void ChargerPage()
         {
-            ddlFiltre.Items.Clear();
-            ddlFiltre.Items.Add("CasTest");
-            ddlFiltre.Items.Add("Projet");
             AfficherGV(ddlFiltre.Text);
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);
+            
         }
 
         private void AfficherGV(string _filtre)
@@ -40,6 +40,8 @@ namespace TexcelWeb
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox Chk = (CheckBox)sender;
+            CtrlRecherche.VerifierChkBox(Chk);
+            
         }
     }
 }
