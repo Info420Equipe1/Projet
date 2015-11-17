@@ -51,14 +51,21 @@ $(function(){
 	    <div id="main">					
 			<div class="full_w">
                 <form id="FrmCasTest" runat="server">                         
-                    <div id="recherche">
-                        <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
-                        <asp:DropDownList ID="ddlFiltre" runat="server" />
-                        <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
-                    </div>
-                    <asp:ScriptManager runat="server"></asp:ScriptManager>  
-                    <asp:UpdatePanel runat="server">
+                    <asp:ScriptManager runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UPRecherche" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
+                            <div id="recherche">
+                                <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
+                                <asp:DropDownList ID="ddlFiltre" runat="server">
+                                    <asp:ListItem>Projet</asp:ListItem>
+                                    <asp:ListItem>CasTest</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <asp:UpdatePanel ID="UPGridView" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>              
                             <asp:GridView ID="gvRecherche" runat="server">
                                 <Columns>
                                     <asp:TemplateField>
@@ -67,30 +74,29 @@ $(function(){
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-                            </asp:GridView>
+                            </asp:GridView> 
+                            <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
+                            <div class="pagination">
+					            <span>« Première</span>
+					            <span class="active">1</span>
+					            <a href="#">2</a>
+					            <a href="#">3</a>
+					            <a href="#">4</a>
+					            <span>...</span>
+					            <a href="#">23</a>
+					            <a href="#">24</a>
+					            <a href="#">Dernière »</a>
+				            </div>
+                            <div id="btnCopierEnregistrerAnnuler">
+                                <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>      
+                                <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
+                                <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />
+                            </div>
                         </ContentTemplate>
-                    </asp:UpdatePanel>
-                    <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
-                    <div class="pagination">
-					    <span>« Première</span>
-					    <span class="active">1</span>
-					    <a href="#">2</a>
-					    <a href="#">3</a>
-					    <a href="#">4</a>
-					    <span>...</span>
-					    <a href="#">23</a>
-					    <a href="#">24</a>
-					    <a href="#">Dernière »</a>
-				    </div>
-                    <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>      
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" PostBackUrl="~/Interfaces/creerCasTest.aspx" />
-                    </div>
-                </form>
+                    </asp:UpdatePanel>       
+                </form>    
 			</div>
 		</div>  
-				<div class="h_title">Rechercher</div>
 	</div>
 	<div id="footer">
 		<div class="left">
