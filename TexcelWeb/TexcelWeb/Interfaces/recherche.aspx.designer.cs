@@ -31,13 +31,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtChampRecherche;
         
         /// <summary>
-        /// Contrôle dDLFiltre.
+        /// Contrôle ddlFiltre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dDLFiltre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltre;
         
         /// <summary>
         /// Contrôle btnRechercher.
@@ -49,13 +49,22 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.Button btnRechercher;
         
         /// <summary>
-        /// Contrôle lvRecherche.
+        /// Contrôle gvRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvRecherche;
+        protected global::System.Web.UI.WebControls.GridView gvRecherche;
+        
+        /// <summary>
+        /// Contrôle EntityDataSource.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource;
         
         /// <summary>
         /// Contrôle btnCopier.

@@ -80,7 +80,7 @@
     <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
-    <Content Include="Interfaces\login.aspx" />
+    <Content Include="Interfaces\index.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\Test.aspx" />
     <Content Include="packages.config" />
@@ -101,6 +101,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\TexcelWeb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -201,12 +202,12 @@
     <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Interfaces\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interfaces\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Interfaces\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\projetEquipe.aspx.cs">
       <DependentUpon>projetEquipe.aspx</DependentUpon>

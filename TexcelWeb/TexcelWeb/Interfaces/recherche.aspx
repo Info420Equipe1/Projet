@@ -6,7 +6,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
 <title>Texcel - Creer un cas de test</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
@@ -34,106 +33,65 @@ $(function(){
 			</div>
 		</div>
 	</div>
-	
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
-					
+					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>				
 				</ul>
 			</div>		
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
 				<ul id="home">
 					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
-					
 				</ul>
 			</div>
 		</div>
-	    <div id="main">
-						
+	    <div id="main">					
 			<div class="full_w">
-				<div class="h_title">Rechercher</div>
-                <form id="FrmCasTest" runat="server">
-                    
+                <form id="FrmCasTest" runat="server">                         
                     <div id="recherche">
-                        <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px"></asp:TextBox>
-                        <asp:DropDownList ID="dDLFiltre" runat="server">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
+                        <asp:DropDownList ID="ddlFiltre" runat="server" />
                         <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
-                        <br />
                     </div>
-     
-          <div>
-            <asp:ListView ID="lvRecherche" runat="server" DataKeyNames="Id" EnableModelValidation="True" OnLoad="lvRecherche_Load"> 
-
-            <ItemTemplate>
-                <tr>
-                    <td class="firstcol">
-                        <input id='Checkbox<%# Eval("Id") %>' type="checkbox" />
-                    </td>
-
-                     <td class="firstcol">
-                        <input id="col2"  type="text"/>
-                    </td>
-
-                    <td class="firstcol">
-                        <input id="col3"  type="text"/>
-                    </td>
-
-                    <td class="firstcol">
-                        <input id="col4"  type="text"/>
-                    </td>
-
-
-                </tr>
-            </ItemTemplate>
-
-            <LayoutTemplate>
-               <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <th width="50" scope="col" class="firstcol"> </th>
-                    </tr>
-                    <tr id="itemPlaceholder" runat="server"></tr>
-                </table>
-
-                <asp:Button ID="btnCharger" runat="server" Text="Charger" Height="26px" />
-
-            </LayoutTemplate>
-        </asp:ListView>
-
-          </div>              
-
-
-
-
-
-                <div class="pagination">
-					<span>« Première</span>
-					<span class="active">1</span>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<span>...</span>
-					<a href="#">23</a>
-					<a href="#">24</a>
-					<a href="#">Dernière »</a>
-				</div>
-                <div id="btnCopierEnregistrerAnnuler">
+                    <asp:ScriptManager runat="server"></asp:ScriptManager>  
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <asp:GridView ID="gvRecherche" runat="server">
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" AutoPostBack="true" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
+                    <div class="pagination">
+					    <span>« Première</span>
+					    <span class="active">1</span>
+					    <a href="#">2</a>
+					    <a href="#">3</a>
+					    <a href="#">4</a>
+					    <span>...</span>
+					    <a href="#">23</a>
+					    <a href="#">24</a>
+					    <a href="#">Dernière »</a>
+				    </div>
+                    <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" PostBackUrl="~/Interfaces/creerCasTest.aspx" />
-                       
-                    <br />
-                    <br />
-                </div>
+                    </div>
                 </form>
 			</div>
 		</div>  
+				<div class="h_title">Rechercher</div>
 	</div>
-
 	<div id="footer">
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
