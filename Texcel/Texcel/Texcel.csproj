@@ -110,6 +110,7 @@
     <Compile Include="Classes\Personnel\CtrlGroupe.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
     <Compile Include="Classes\Projet\CtrlProjet.cs" />
+    <Compile Include="Classes\Test\CtrlCasTest.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />
     <Compile Include="ClassificationJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>

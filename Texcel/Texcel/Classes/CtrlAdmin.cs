@@ -34,6 +34,14 @@ namespace Texcel.Classes
         {
             return context.AllTesteurs;
         }
+        public static System.Data.Entity.DbSet<AllProjet> GetAllProjetView()
+        {
+            return context.AllProjet;
+        }
+        public static System.Data.Entity.DbSet<AllCasTest> GetAllProjetView()
+        {
+            return context.AllCasTest;
+        }
         public static void refreshEntity()
         {
             foreach (var entity in context.ChangeTracker.Entries())

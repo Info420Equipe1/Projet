@@ -214,6 +214,44 @@ namespace Texcel.Interfaces
                     }
                     break;
 
+                case "Projet":
+                    dgvResultats.Columns.Add("0", "Code");
+                    dgvResultats.Columns.Add("1", "Nom");
+                    dgvResultats.Columns.Add("2", "Chef de projet");
+                    dgvResultats.Columns.Add("3", "Jeu");
+                    foreach (AllProjet projet in CtrlAdmin.GetAllProjetView())
+                    {
+                        if(cle == "" || projet.tagProjet.ToLower().Contains(cle))
+                        {
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = projet.codeProjet;
+                            dgvResultats.Rows[n].Cells[1].Value = projet.nomProjet;
+                            dgvResultats.Rows[n].Cells[2].Value = projet.chefProjet;
+                            dgvResultats.Rows[n].Cells[3].Value = projet.cJeu;
+                            n++;
+                        }
+                    }
+                    break;
+
+                case "Cas de test":
+                    dgvResultats.Columns.Add("0", "Code");
+                    dgvResultats.Columns.Add("1", "Nom");
+                    dgvResultats.Columns.Add("2", "Projet");
+                    dgvResultats.Columns.Add("3", "Type de test");
+                    foreach (CasTest casTest in CtrlAdmin.GetAllCasTestView())
+                    {
+                        if(cle == "" || casTest.tagCasTest.ToLower().Contains(cle))
+                        {
+                            dgvResultats.Rows.Add();
+                            dgvResultats.Rows[n].Cells[0].Value = casTest.codeCasTest;
+                            dgvResultats.Rows[n].Cells[1].Value = casTest.nomCasTest;
+                            dgvResultats.Rows[n].Cells[2].Value = casTest.cProjet;
+                            dgvResultats.Rows[n].Cells[3].Value = casTest.TypeTest;
+                            n++;
+                        }
+                    }
+                    break;
+
                 default : 
                     MessageBox.Show("Veuillez sélectionner un filtre.", "Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     break;
@@ -321,6 +359,10 @@ namespace Texcel.Interfaces
                     break;
                 case "Système d'exploitation": tabControl1.SelectedIndex = 4;
                     break;
+                case "Projet": tabControl1.SelectedIndex = 5;
+                    break;
+                case "Cas de test": tabControl1.SelectedIndex = 6;
+                    break;
                 default: tabControl1.SelectedIndex = 0;
                     break;
             }
@@ -333,10 +375,9 @@ namespace Texcel.Interfaces
         {
             if (dgvResultats.Rows.Count != 0)
             {
+                int num = dgvResultats.CurrentCell.RowIndex;
                 if (cmbFiltre.Text == "Employé")
-                {
-                    int num = dgvResultats.CurrentCell.RowIndex;
-                    
+                {   
                     string nomPren;
                     nomPren = dgvResultats[0, num].Value.ToString() + " " + dgvResultats[1, num].Value.ToString();
                     Employe emp = CtrlEmploye.emp(nomPren);
@@ -362,7 +403,6 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Équipe")
                 {
-                    int num = dgvResultats.CurrentCell.RowIndex;
                     string nomChefEquipe = dgvResultats[2, num].Value.ToString();
                     int id = Convert.ToInt16(dgvResultats[0, num].Value);
                     Equipe selectedEquipe = CtrlEquipe.getEquipeById(id);
@@ -379,7 +419,6 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Jeu")
                 {
-                    int num = dgvResultats.CurrentCell.RowIndex;
                     string nomJeu = dgvResultats[0, num].Value.ToString();
                     cJeu jeu = CtrlJeu.GetJeu(nomJeu);
                     lblNoJeu.Text = jeu.idJeu.ToString();
@@ -411,7 +450,6 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Plateforme")
                 {
-                    int num = dgvResultats.CurrentCell.RowIndex;
                     string nomPlat = dgvResultats[1, num].Value.ToString();
                     Plateforme plat = CtrlPlateforme.GetPlateforme(nomPlat);
                     lblNoPlate.Text = plat.idPlateforme.ToString();
@@ -422,7 +460,6 @@ namespace Texcel.Interfaces
                 }
                 else if (cmbFiltre.Text == "Système d'exploitation")
                 {
-                    int num = dgvResultats.CurrentCell.RowIndex;
                     string nomSysExp = dgvResultats[0, num].Value.ToString();
                     string editionSysExp = dgvResultats[2, num].Value.ToString();
                     string versionSysExp = dgvResultats[3, num].Value.ToString();
@@ -436,18 +473,43 @@ namespace Texcel.Interfaces
                     versionSE.Text = versionSysExp;
                     codeSE.Text = sE.codeSysExp;
                     rtbCommSysExp.Text = vSE.commSysExp;
-                } 
+                }
+                else if (cmbFiltre.Text == "Projet")
+                {
+                    string nomProjet = dgvResultats[1, num].Value.ToString();
+                    cProjet projet = CtrlProjet.getProjet(nomProjet);
+
+                    txtCode.Text = projet.codeProjet;
+                    txtNom.Text = projet.nomProjet;
+                    txtChefProjet.Text = projet.chefProjet;
+                    txtDateCreation.Text = Convert.ToString(projet.dateCreation);
+                    txtDateLivraison.Text = Convert.ToString(projet.dateLivraison);
+                    txtJeu.Text = projet.VersionJeu.cJeu.nomJeu;
+                    txtVersionJeu.Text = projet.VersionJeu.nomVersionJeu;
+                    rtbDescription.Text = projet.descProjet;
+                    rtbObj.Text = projet.objProjet;
+                    rtbDiv.Text = projet.divProjet;
+                }
+                else if (cmbFiltre.Text == "Cas de test")
+                {
+                    string nomCasTest = dgvResultats[1, num].Value.ToString();
+                    CasTest casTest = CtrlCasTest.getCasTest(nomCasTest);
+
+                    txtCodeCT.Text = casTest.codeCasTest;
+                    txtNomCT.Text = casTest.nomCasTest;
+                    txtProjet.Text = casTest.cProjet.nomProjet;
+                    txtDifficulte.Text = casTest.Difficulte.nomDiff;
+                    txtPriorite.Text = casTest.NiveauPriorite.nomNivPri;
+                    txtDateCreationCT.Text = Convert.ToString(casTest.dateCreation);
+                    txtDateLivraisonCT.Text = Convert.ToString(casTest.dateLivraison);
+                    txtTypeTest.Text = casTest.TypeTest.nomTest;
+                    rtbDescCT.Text = casTest.descCasTest;
+                }
             }
             else
             {
                 clearTabControl();
             }
-        }
-
-        // lorsqu'un élément dans la liste  est sélectionné, on affiche ses infos dans la tab 
-        private void AfficherInfoTab()
-        {
-
         }
 
         private void cmbFiltre_DropDown(object sender, EventArgs e)
@@ -473,6 +535,8 @@ namespace Texcel.Interfaces
             {
                 cmbFiltre.Items.Add("Système d'exploitation");
             }
+            cmbFiltre.Items.Add("Projet");
+            cmbFiltre.Items.Add("Cas de test");
             if(cmbFiltre.Items.Count == 0)
             {
                 messageDroits();
@@ -575,7 +639,10 @@ namespace Texcel.Interfaces
             clearTabControlJeu();
             clearTabControlPlateforme();
             clearTabControlSysExp();
+            clearTabControlProjet();
+            clearTabControlCasTest();
         }
+
         private void clearTabControlEmploye()
         {
             lblNoEmp.Text = "";
@@ -629,6 +696,33 @@ namespace Texcel.Interfaces
             rtbCommSysExp.Text = "";
         }
 
+        private void clearTabControlProjet()
+        {
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtChefProjet.Text = "";
+            txtDateCreation.Text = "";
+            txtDateLivraison.Text = "";
+            txtJeu.Text = "";
+            txtVersionJeu.Text = "";
+            rtbDescription.Text = "";
+            rtbObj.Text = "";
+            rtbDiv.Text = "";
+        }
+
+        private void clearTabControlCasTest()
+        {
+            txtCodeCT.Text = "";
+            txtNomCT.Text = "";
+            txtProjet.Text = "";
+            txtDifficulte.Text = "";
+            txtPriorite.Text = "";
+            txtDateCreationCT.Text = "";
+            txtDateLivraisonCT.Text = "";
+            txtTypeTest.Text = "";
+            rtbDescCT.Text = "";
+        }
+
         private void copierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(dgvResultats.SelectedCells[0].Value.ToString());
@@ -647,16 +741,5 @@ namespace Texcel.Interfaces
         {
             txtRechercher.SelectAll();
         }
-
-       
-
-      
-      
-       
-
-
-
-       
-
     }
 }
