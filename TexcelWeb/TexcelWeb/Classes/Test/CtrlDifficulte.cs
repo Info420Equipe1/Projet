@@ -24,5 +24,12 @@ namespace TexcelWeb.Classes.Test
 
             return diff;
         }
+
+        public static Difficulte GetDiff(int _id)
+        {
+            Difficulte diff = context.tblDifficulte.Where(x => x.idDiff == _id).First();
+
+            return diff;
+        }
     }
 }

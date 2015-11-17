@@ -13,6 +13,15 @@ namespace TexcelWeb {
     public partial class CreerCasTest {
         
         /// <summary>
+        /// Contrôle txtCurrentUserName.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
+        
+        /// <summary>
         /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>
@@ -49,22 +58,22 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.DropDownList dropDownProjet;
         
         /// <summary>
-        /// Contrôle txtDifficulteCasTest.
+        /// Contrôle dropDownDifficulteCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtDifficulteCasTest;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownDifficulteCasTest;
         
         /// <summary>
-        /// Contrôle txtPrioritéCasTest.
+        /// Contrôle dropDownPrioritéCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtPrioritéCasTest;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownPrioritéCasTest;
         
         /// <summary>
         /// Contrôle txtDateCreationCasTest.
@@ -83,6 +92,15 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
+        
+        /// <summary>
+        /// Contrôle CompareValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
         /// Contrôle dropDownTypeTestCasTest.

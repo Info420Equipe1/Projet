@@ -24,5 +24,12 @@ namespace TexcelWeb.Classes.Test
 
             return nivPrio;
         }
+
+        public static NiveauPriorite GetNivPrio(int _id)
+        {
+            NiveauPriorite nivPrio = context.tblNiveauPriorite.Where(x => x.idNivPri == _id).First();
+
+            return nivPrio;
+        }
     }
 }

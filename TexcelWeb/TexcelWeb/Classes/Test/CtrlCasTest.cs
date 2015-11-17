@@ -17,7 +17,7 @@ namespace TexcelWeb.Classes.Test
             casTest.codeCasTest = _code;
             casTest.nomCasTest = _nom;
             casTest.codeProjet = _proj.codeProjet;
-            casTest.idDiff = _proj.idVersion;
+            casTest.idDiff = _diff.idDiff;
             casTest.idNivPri = _prio.idNivPri;
             casTest.dateCreation = _crea;
             casTest.dateLivraison = _livr;
@@ -42,7 +42,7 @@ namespace TexcelWeb.Classes.Test
             _casTest.codeCasTest = _code;
             _casTest.nomCasTest = _nom;
             _casTest.codeProjet = _proj.codeProjet;
-            _casTest.idDiff = _proj.idVersion;
+            _casTest.idDiff = _diff.idDiff;
             _casTest.idNivPri = _prio.idNivPri;
             _casTest.dateCreation = _crea;
             _casTest.dateLivraison = _livr;
@@ -51,7 +51,7 @@ namespace TexcelWeb.Classes.Test
 
             try
             {
-                context.tblCasTest.Add(_casTest);
+                
                 context.SaveChanges();
                 return true;
             }
@@ -71,6 +71,17 @@ namespace TexcelWeb.Classes.Test
         public static CasTest GetCasTestByNom(string nomCasTest)
         {
             return context.tblCasTest.Where(x => x.nomCasTest == nomCasTest).First();
+        }
+
+        public static List<CasTest> GetLstCasTest()
+        {
+            List<CasTest> lst = new List<CasTest>();
+
+            foreach (CasTest casTest in context.tblCasTest)
+            {
+                lst.Add(casTest);
+            }
+            return lst;
         }
     }
 }

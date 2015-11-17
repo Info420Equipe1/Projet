@@ -82,6 +82,7 @@
     <Content Include="Interfaces\creerProjet.aspx" />
     <Content Include="Interfaces\login.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
+    <Content Include="Interfaces\Test.aspx" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="Interfaces\projetEquipe.aspx.designer.cs">
       <DependentUpon>projetEquipe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>

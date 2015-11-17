@@ -25,7 +25,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
@@ -40,7 +40,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
 					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
 					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
 					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
@@ -115,13 +115,13 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Difficulté: " CssClass="lblColum1" />
-                                <asp:DropDownList runat="server" ID="txtDifficulteCasTest" CssClass="txtColum1 txtDate1">
+                                <asp:DropDownList runat="server" ID="dropDownDifficulteCasTest" CssClass="txtColum1 txtDate1">
                                     <asp:ListItem Selected="True" Text="Faible" Value="Faible"></asp:ListItem>
                                     <asp:ListItem Text="Modérée" Value="Modorée"></asp:ListItem>
                                     <asp:ListItem Text="Élevée" Value="Élevée"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
-                                <asp:DropDownList runat="server" ID="txtPrioritéCasTest" CssClass="txtColum1 txtDate1">
+                                <asp:DropDownList runat="server" ID="dropDownPrioritéCasTest" CssClass="txtColum1 txtDate1">
                                     <asp:ListItem Selected="True" Text="Faible" Value="Faible"></asp:ListItem>
                                     <asp:ListItem Text="Modérée" Value="Modorée"></asp:ListItem>
                                     <asp:ListItem Text="Élevée" Value="Élevée"></asp:ListItem>
@@ -132,6 +132,7 @@ $(function(){
                                 <asp:TextBox type="date" runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1 txtDate2" />
                                 <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1 lblDate2" />
                                 <asp:TextBox type="date" runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1 txtDate2" />
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>
