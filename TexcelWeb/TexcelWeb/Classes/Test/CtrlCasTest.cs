@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TexcelWeb.Classes.Test;
+using System.IO;
 
 namespace TexcelWeb.Classes.Test
 {
@@ -23,7 +24,7 @@ namespace TexcelWeb.Classes.Test
             casTest.dateLivraison = _livr;
             casTest.idTest = _tT.idTest;
             casTest.descCasTest = _desc;
-
+            CreerDossier(casTest);
 
             try
             {
@@ -82,6 +83,15 @@ namespace TexcelWeb.Classes.Test
                 lst.Add(casTest);
             }
             return lst;
+        }
+
+        public static void CreerDossier(CasTest _casTest)
+        {
+            string path = HttpContext.Current.Server.MapPath(@"~/Yo/" + _casTest.nomCasTest);
+            if (!(Directory.Exists(path)))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
     }
 }

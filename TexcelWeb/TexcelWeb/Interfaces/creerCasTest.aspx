@@ -245,6 +245,29 @@ $(function(){
                     <br />
                     <br />
                 </div>
+                    <div>
+                        
+<asp:FileUpload ID="FileUpload1" runat="server" />
+<asp:Button ID="btnUpload" runat="server" Text="Upload" />
+<hr />
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
+    <Columns>
+        <asp:BoundField DataField="File Name" HeaderText="File Name" />
+        <asp:BoundField DataField="Taille" HeaderText="Taille" />
+        <asp:TemplateField>
+            <ItemTemplate>
+               <%-- <asp:LinkButton ID="lnkDownload" Text = "Download" CommandArgument = '<%# Eval("Value") %>' runat="server" />--%>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField>
+            <ItemTemplate>
+               <%-- <asp:LinkButton ID = "lnkDelete" Text = "Delete" CommandArgument = '<%# Eval("Value") %>' runat = "server"  />--%>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
+                    </div>
                 </form>
 			</div>
 		</div>  
