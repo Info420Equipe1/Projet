@@ -535,8 +535,14 @@ namespace Texcel.Interfaces
             {
                 cmbFiltre.Items.Add("Système d'exploitation");
             }
-            cmbFiltre.Items.Add("Projet");
-            cmbFiltre.Items.Add("Cas de test");
+            if (lstDroits.Contains(19))
+            {
+                cmbFiltre.Items.Add("Projet"); 
+            }
+            if (lstDroits.Contains(20))
+            {
+                cmbFiltre.Items.Add("Cas de test"); 
+            }
             if(cmbFiltre.Items.Count == 0)
             {
                 messageDroits();
