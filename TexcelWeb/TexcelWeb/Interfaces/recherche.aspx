@@ -56,7 +56,7 @@ $(function(){
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
-                                <asp:DropDownList ID="ddlFiltre" runat="server">
+                                <asp:DropDownList ID="ddlFiltre" runat="server" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged">
                                     <asp:ListItem>Projet</asp:ListItem>
                                     <asp:ListItem>CasTest</asp:ListItem>
                                 </asp:DropDownList>

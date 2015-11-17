@@ -43,5 +43,10 @@ namespace TexcelWeb
             CtrlRecherche.VerifierChkBox(Chk);
             
         }
+
+        protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
