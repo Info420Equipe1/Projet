@@ -72,10 +72,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllCasTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllEquipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllPlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllSysExp.cs">

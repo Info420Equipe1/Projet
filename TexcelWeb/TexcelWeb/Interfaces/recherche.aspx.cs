@@ -24,8 +24,7 @@ namespace TexcelWeb
         private void ChargerPage()
         {
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);
-            
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);    
         }
 
         private void AfficherGV(string _filtre)
@@ -40,13 +39,12 @@ namespace TexcelWeb
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox Chk = (CheckBox)sender;
-            CtrlRecherche.VerifierChkBox(Chk);
-            
+            CtrlRecherche.VerifierChkBox(Chk);        
         }
 
         protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            System.Threading.Thread.Sleep(1000);
         }
     }
 }
