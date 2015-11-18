@@ -50,6 +50,7 @@ $(function(){
 		</div>
 	    <div id="main">					
 			<div class="full_w">
+<<<<<<< HEAD
                 <form id="FrmCasTest" runat="server">                         
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UPRecherche" runat="server" UpdateMode="Conditional">
@@ -65,35 +66,55 @@ $(function(){
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server" UpdateMode="Conditional">
+=======
+                <form id="FrmCasTest" runat="server">                          
+                    <div id="recherche">
+                        <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
+                        <asp:DropDownList ID="ddlFiltre" runat="server" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged">
+                            <asp:ListItem>Projet</asp:ListItem>
+                            <asp:ListItem>CasTest</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
+                    </div>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UPGridView" runat="server">        
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlFiltre" />
+                        </Triggers>
+>>>>>>> origin/sprint3
                         <ContentTemplate>              
                             <asp:GridView ID="gvRecherche" runat="server">
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
+<<<<<<< HEAD
                                             <asp:CheckBox ID="ChkBox" runat="server" OnCheckedChanged="ChkBox_CheckedChanged" AutoPostBack="true"/>
+=======
+                                            <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />                     
+>>>>>>> origin/sprint3
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-                            </asp:GridView> 
-                            <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
-                            <div class="pagination">
-					            <span>« Première</span>
-					            <span class="active">1</span>
-					            <a href="#">2</a>
-					            <a href="#">3</a>
-					            <a href="#">4</a>
-					            <span>...</span>
-					            <a href="#">23</a>
-					            <a href="#">24</a>
-					            <a href="#">Dernière »</a>
-				            </div>
-                            <div id="btnCopierEnregistrerAnnuler">
-                                <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>      
-                                <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                                <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />
-                            </div>
+                            </asp:GridView>
                         </ContentTemplate>
-                    </asp:UpdatePanel>       
+                    </asp:UpdatePanel>  
+                    <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
+                    <div class="pagination">
+					    <span>« Première</span>
+					    <span class="active">1</span>
+					    <a href="#">2</a>
+					    <a href="#">3</a>
+					    <a href="#">4</a>
+					    <span>...</span>
+					    <a href="#">23</a>
+					    <a href="#">24</a>
+					    <a href="#">Dernière »</a>
+				    </div>
+                    <div id="btnCopierEnregistrerAnnuler">
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>      
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />
+                    </div>                      
                 </form>    
 			</div>
 		</div>  

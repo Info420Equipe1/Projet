@@ -29,6 +29,7 @@ namespace TexcelWeb
         public Nullable<short> idTest { get; set; }
         public Nullable<short> idResult { get; set; }
         public Nullable<short> idNivPri { get; set; }
+        public string tagCasTest { get; set; }
     
         public virtual cProjet cProjet { get; set; }
         public virtual Difficulte Difficulte { get; set; }

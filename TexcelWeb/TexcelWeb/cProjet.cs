@@ -28,6 +28,7 @@ namespace TexcelWeb
         public string objProjet { get; set; }
         public string divProjet { get; set; }
         public Nullable<short> idVersion { get; set; }
+        public string tagProjet { get; set; }
     
         public virtual VersionJeu VersionJeu { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }

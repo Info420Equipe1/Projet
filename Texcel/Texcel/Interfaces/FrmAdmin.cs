@@ -227,7 +227,7 @@ namespace Texcel.Interfaces
                             dgvResultats.Rows[n].Cells[0].Value = projet.codeProjet;
                             dgvResultats.Rows[n].Cells[1].Value = projet.nomProjet;
                             dgvResultats.Rows[n].Cells[2].Value = projet.chefProjet;
-                            dgvResultats.Rows[n].Cells[3].Value = projet.cJeu;
+                            dgvResultats.Rows[n].Cells[3].Value = projet.nomJeu;
                             n++;
                         }
                     }
@@ -238,15 +238,15 @@ namespace Texcel.Interfaces
                     dgvResultats.Columns.Add("1", "Nom");
                     dgvResultats.Columns.Add("2", "Projet");
                     dgvResultats.Columns.Add("3", "Type de test");
-                    foreach (CasTest casTest in CtrlAdmin.GetAllCasTestView())
+                    foreach (AllCasTest casTest in CtrlAdmin.GetAllCasTestView())
                     {
                         if(cle == "" || casTest.tagCasTest.ToLower().Contains(cle))
                         {
                             dgvResultats.Rows.Add();
                             dgvResultats.Rows[n].Cells[0].Value = casTest.codeCasTest;
                             dgvResultats.Rows[n].Cells[1].Value = casTest.nomCasTest;
-                            dgvResultats.Rows[n].Cells[2].Value = casTest.cProjet;
-                            dgvResultats.Rows[n].Cells[3].Value = casTest.TypeTest;
+                            dgvResultats.Rows[n].Cells[2].Value = casTest.nomProjet;
+                            dgvResultats.Rows[n].Cells[3].Value = casTest.nomTest;
                             n++;
                         }
                     }
