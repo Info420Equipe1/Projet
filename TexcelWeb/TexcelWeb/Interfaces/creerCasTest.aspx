@@ -150,7 +150,7 @@ $(function(){
 					    <label for="attach">Attachments</label>
 					    <input type="file" name="attach" />
 				    </div> -->
-                    <table>
+                    <%--<table>
 					<thead>
 						<tr>
 							<th scope="col" style="width:200px">Fichier</th>
@@ -225,8 +225,8 @@ $(function(){
 							</td>
 						</tr>
 					</tbody>
-				</table>
-                <div class="pagination">
+				</table>--%>
+                <%--<div class="pagination">
 					<span>« Première</span>
 					<span class="active">1</span>
 					<a href="#">2</a>
@@ -236,7 +236,7 @@ $(function(){
 					<a href="#">23</a>
 					<a href="#">24</a>
 					<a href="#">Dernière »</a>
-				</div>
+				</div>--%>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click" OnClientClick="window.open('recherche.aspx', 'recherche');"/>      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
@@ -246,26 +246,30 @@ $(function(){
                     <br />
                 </div>
                     <div>
-                        
-<asp:FileUpload ID="FileUpload1" runat="server" />
-<asp:Button ID="btnUpload" runat="server" Text="Upload" />
+                       
+<asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
+<asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
 <hr />
+                     
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
     <Columns>
         <asp:BoundField DataField="File Name" HeaderText="File Name" />
+         <asp:BoundField DataField="Extansion" HeaderText="Extansion" />
         <asp:BoundField DataField="Taille" HeaderText="Taille" />
+        <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
         <asp:TemplateField>
             <ItemTemplate>
-               <%-- <asp:LinkButton ID="lnkDownload" Text = "Download" CommandArgument = '<%# Eval("Value") %>' runat="server" />--%>
+                <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-               <%-- <asp:LinkButton ID = "lnkDelete" Text = "Delete" CommandArgument = '<%# Eval("Value") %>' runat = "server"  />--%>
+                <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server"  />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+                            
 
                     </div>
                 </form>
