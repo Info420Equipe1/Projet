@@ -44,10 +44,6 @@ namespace TexcelWeb
 
         protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            System.Threading.Thread.Sleep(1000);
-=======
-           
             switch (ddlFiltre.SelectedIndex)
             {
                 case 1:
@@ -60,7 +56,6 @@ namespace TexcelWeb
                     Console.WriteLine("Default case");
                     break;
             }
->>>>>>> origin/sprint3
         }
     }
 }
