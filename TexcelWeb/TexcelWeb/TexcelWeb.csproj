@@ -158,6 +158,7 @@
     <Compile Include="Classes\Test\CtrlDifficulte.cs" />
     <Compile Include="Classes\Test\CtrlNivPriorite.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />
+    <Compile Include="Classes\Test\Fichier.cs" />
     <Compile Include="ClassificationJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

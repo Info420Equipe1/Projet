@@ -8,6 +8,7 @@ using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Test;
 using System.IO;
 using TexcelWeb.Classes;
+using System.Data;
 
 
 namespace TexcelWeb
@@ -20,8 +21,8 @@ namespace TexcelWeb
         {
             //Mode ajouter 
             modif = false;
-            Utilisateur currentUser = CtrlController.GetCurrentUser();
-            txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+            //Utilisateur currentUser = CtrlController.GetCurrentUser();
+            //txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             ChargerDropDownList();
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
             //Mode modifier
@@ -46,6 +47,34 @@ namespace TexcelWeb
                 txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
                 rtxtDescriptionCasTest.Text = casTest.descCasTest;
             }
+            
+            //Remplir la liste de fichier
+            DataTable dT = new DataTable();
+            dT.Columns.AddRange(new DataColumn[2] { new DataColumn("File Name", typeof(string)), new DataColumn("Taille", typeof(string)) });
+            //dT.Columns.Add("Nom du texte", typeof(string));
+            //dT.Columns.Add("Taille", typeof(string));
+            DataRow dR = null;
+
+            string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/Yo/" + casTest.nomCasTest));
+            List<Fichier> files = new List<Fichier>();
+            foreach (string filePath in filePaths)
+                {
+                    
+                    //files.Add(new ListItem(Path.GetFileName(filePath), filePath));
+                    FileInfo fi = new FileInfo(filePath);
+                    long fileSizeInBytes = fi.Length;
+                    Fichier fich = new Fichier(Path.GetFileName(filePath), fileSizeInBytes);
+                    files.Add(fich);
+                    dR = dT.NewRow();
+                    dR["File Name"] = fich.path;
+                    dR["Taille"] = fich.taille;
+                    dT.Rows.Add(dR);
+                }
+
+
+            GridView1.DataSource = dT;
+            int c = GridView1.Columns.Count;
+            GridView1.DataBind();
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
@@ -104,5 +133,7 @@ namespace TexcelWeb
         {
            
         }
+
+       
     }
 }
