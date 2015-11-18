@@ -29,11 +29,7 @@ namespace TexcelWeb
         private void ChargerPage()
         {      
             AfficherGV(ddlFiltre.Text);
-<<<<<<< HEAD
             CtrlRecherche.SauvegarderDonnees(gvRecherche);            
-=======
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);    
->>>>>>> origin/sprint3
         }
 
         private void AfficherGV(string _filtre)
@@ -47,15 +43,9 @@ namespace TexcelWeb
 
         protected void ChkBox_CheckedChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             // ca va etre un bouton ajouter les checkbox coché pas sur le changement
             CtrlRecherche.SauvegarderDonnees(gvRecherche);           
             CtrlRecherche.VerifierChkBox();
-            
-=======
-            CheckBox Chk = (CheckBox)sender;
-            CtrlRecherche.VerifierChkBox(Chk);        
->>>>>>> origin/sprint3
         }
      
 
