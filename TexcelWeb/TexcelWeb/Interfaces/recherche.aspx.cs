@@ -15,17 +15,21 @@ using System.Web.Services;
 namespace TexcelWeb
 {
     public partial class recherche : System.Web.UI.Page
-    {    
+    {
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-            ChargerPage();
+            if (Page.IsPostBack == false)
+            {
+                ChargerPage();
+            }
+            
         }
 
         private void ChargerPage()
-        {
+        {      
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);
-            
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);            
         }
 
         private void AfficherGV(string _filtre)
@@ -37,26 +41,30 @@ namespace TexcelWeb
             gvRecherche.HeaderRow.Cells[3].Text = "Chef de projet";
         }
 
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        protected void ChkBox_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox Chk = (CheckBox)sender;
-            CtrlRecherche.VerifierChkBox(Chk);
+            // ca va etre un bouton ajouter les checkbox coché pas sur le changement
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);           
+            CtrlRecherche.VerifierChkBox();
             
         }
+     
 
         protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
            
             switch (ddlFiltre.SelectedIndex)
             {
+                case 0:
+                    //caller le bon datasource
+                    break;
+
                 case 1:
-                    Console.WriteLine("Case 1");
+                    //caller le bon datasource
                     break;
-                case 2:
-                    Console.WriteLine("Case 2");
-                    break;
+
                 default:
-                    Console.WriteLine("Default case");
+                    //caller le bon datasource
                     break;
             }
         }

@@ -56,7 +56,7 @@ $(function(){
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
-                                <asp:DropDownList ID="ddlFiltre" runat="server" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged">
                                     <asp:ListItem>Projet</asp:ListItem>
                                     <asp:ListItem>CasTest</asp:ListItem>
                                 </asp:DropDownList>
@@ -70,7 +70,7 @@ $(function(){
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" AutoPostBack="true" />
+                                            <asp:CheckBox ID="ChkBox" runat="server" OnCheckedChanged="ChkBox_CheckedChanged" AutoPostBack="true"/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

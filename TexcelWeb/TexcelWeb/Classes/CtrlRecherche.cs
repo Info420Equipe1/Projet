@@ -25,13 +25,43 @@ namespace TexcelWeb.Classes
             monGV = _monGV;
         }
 
-        public static void VerifierChkBox(CheckBox _monCheckBox)
+        public static void VerifierChkBox()
         {
-            string index = _monCheckBox.ID;
+            lstLigneCocher.Clear();
+            // Iteration à travers le gridview
+            foreach (GridViewRow row in monGV.Rows)
+            {
+                // accès à mon checkbox
+                CheckBox cb = (CheckBox)row.FindControl("ChkBox");
+                if (cb != null && cb.Checked)
+                {
+                    if (lstLigneCocher.Contains(row) == false)
+                    {
+                        
+                        string cid = row.Cells[1].Text;                       
+                        lstLigneCocher.Add(row);
+                        afficher();
+                    }                  
+                        
+                }
+            }
+          
 
         }
 
+        private static void afficher()
+        {
+            foreach (object item in lstLigneCocher)
+	        {
+                GridViewRow gr = (GridViewRow)item;
+                for (int i = 0; i < gr.Cells.Count; i++)
+                {
+                    string cid = gr.Cells[i].Text;
+                }
+	        }
+        }
        
 
     }
 }
+
