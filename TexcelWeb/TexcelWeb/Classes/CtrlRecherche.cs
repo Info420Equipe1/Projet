@@ -14,8 +14,7 @@ namespace TexcelWeb.Classes
     public class CtrlRecherche
     {
         static GridView monGV;
-        static string monObject;
-        static List<GridViewRow> lstRowCocher = new List<GridViewRow>();
+        static object monObject;
         static List<object> lstMesSelection = new List<object>();
 
         public CtrlRecherche()
@@ -31,64 +30,42 @@ namespace TexcelWeb.Classes
 
         public static void CopierElement()
         {
-            lstRowCocher.Clear();
+            lstMesSelection.Clear();
             // Iteration à travers le gridview
             foreach (GridViewRow row in monGV.Rows)
             {
                 // accès à mon checkbox
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
                 if (cb != null && cb.Checked)
-                {
-                    if (lstRowCocher.Contains(row) == false)
-                    {
-                        DeterminerTypeObject(row.Cells[1].Text);                                         
-                        ConvertirDonneeLst();
-                    }                  
+                {                                           
+                        DetermineObject(row.Cells[1].Text);
+                        RemplirDonneeLst();
+                                     
                 }              
             }
             
         }
-        private static void ConvertirDonneeLst()
+        private static void RemplirDonneeLst()
         {
-            if (lstRowCocher.Count != 0 && lstRowCocher != null)
-            {
-                switch (monObject)
-                {
-                    case "Projet":
-                        foreach (GridViewRow o in lstRowCocher)
-                        {
-                            lstMesSelection.Add(CtrlProjet.getProjetByCode(o.Cells[1].Text));
-                        }
-                        break;
-
-                    case "CasTest":
-                       //...                      
-                        break;
-
-                    default:
-                        //...
-                        break;
-                }
-
-            }
+          lstMesSelection.Add(monObject);                                       
         }
 
-        private static string DeterminerTypeObject(string _idUnique)
+        private static void DetermineObject(string _idUnique)
         {           
            if(CtrlProjet.getProjetByCode(_idUnique) != null)
            {
-               monObject = "Projet";           
+               monObject = CtrlProjet.getProjetByCode(_idUnique);         
            }
            else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
 	       {
-               monObject = "CasTest";
+               monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
 	       }
 
            if (monObject == null)
            {
-               monObject = "bin ca marche pas hahahah";
+               monObject = null; // ca marche pas
            }
-           return monObject;
+         
         }
     }
 }
