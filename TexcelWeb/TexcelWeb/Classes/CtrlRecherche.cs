@@ -14,20 +14,24 @@ namespace TexcelWeb.Classes
     public class CtrlRecherche
     {
         static GridView monGV;
-        static List<object> lstLigneCocher = new List<object>();
+        static string monObject;
+        static List<GridViewRow> lstRowCocher = new List<GridViewRow>();
+        static List<object> lstMesSelection = new List<object>();
+
         public CtrlRecherche()
         {
            
         }
 
         public static void SauvegarderDonnees(GridView _monGV)
-        {
+        {            
             monGV = _monGV;
+           
         }
 
-        public static void VerifierChkBox()
+        public static void CopierElement()
         {
-            lstLigneCocher.Clear();
+            lstRowCocher.Clear();
             // Iteration à travers le gridview
             foreach (GridViewRow row in monGV.Rows)
             {
@@ -35,33 +39,57 @@ namespace TexcelWeb.Classes
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
                 if (cb != null && cb.Checked)
                 {
-                    if (lstLigneCocher.Contains(row) == false)
+                    if (lstRowCocher.Contains(row) == false)
                     {
-                        
-                        string cid = row.Cells[1].Text;                       
-                        lstLigneCocher.Add(row);
-                        afficher();
+                        DeterminerTypeObject(row.Cells[1].Text);                                         
+                        ConvertirDonneeLst();
                     }                  
-                        
-                }
+                }              
             }
-          
-
+            
         }
-
-        private static void afficher()
+        private static void ConvertirDonneeLst()
         {
-            foreach (object item in lstLigneCocher)
-	        {
-                GridViewRow gr = (GridViewRow)item;
-                for (int i = 0; i < gr.Cells.Count; i++)
+            if (lstRowCocher.Count != 0 && lstRowCocher != null)
+            {
+                switch (monObject)
                 {
-                    string cid = gr.Cells[i].Text;
-                }
-	        }
-        }
-       
+                    case "Projet":
+                        foreach (GridViewRow o in lstRowCocher)
+                        {
+                            lstMesSelection.Add(CtrlProjet.getProjetByCode(o.Cells[1].Text));
+                        }
+                        break;
 
+                    case "CasTest":
+                       //...                      
+                        break;
+
+                    default:
+                        //...
+                        break;
+                }
+
+            }
+        }
+
+        private static string DeterminerTypeObject(string _idUnique)
+        {           
+           if(CtrlProjet.getProjetByCode(_idUnique) != null)
+           {
+               monObject = "Projet";           
+           }
+           else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
+	       {
+               monObject = "CasTest";
+	       }
+
+           if (monObject == null)
+           {
+               monObject = "bin ca marche pas hahahah";
+           }
+           return monObject;
+        }
     }
 }
 
