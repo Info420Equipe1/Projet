@@ -75,6 +75,7 @@ namespace TexcelWeb
                     string codeProjet = (string)Session["modifCodeProjet"];
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
 
+                    //Emplissage des champs avec le projet
                     txtCodeProjet.Text = projet.codeProjet;
                     txtNomProjet.Text = projet.nomProjet;
 

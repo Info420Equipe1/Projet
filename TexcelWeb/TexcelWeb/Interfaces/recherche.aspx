@@ -38,13 +38,14 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>				
+					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
+                    <li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
 		</div>
@@ -61,7 +62,7 @@ $(function(){
                                     <asp:ListItem>Projet</asp:ListItem>
                                     <asp:ListItem>CasTest</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
+                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" />
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -82,21 +83,13 @@ $(function(){
                         </ContentTemplate>
                     </asp:UpdatePanel>  
                     <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
-                    <div class="pagination">
-					    <span>« Première</span>
-					    <span class="active">1</span>
-					    <a href="#">2</a>
-					    <a href="#">3</a>
-					    <a href="#">4</a>
-					    <span>...</span>
-					    <a href="#">23</a>
-					    <a href="#">24</a>
-					    <a href="#">Dernière »</a>
+                    <asp:EntityDataSource ID="EntityDataSourceCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
 				    </div>
                     <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btn_Copier" AutoPostBack="true" />      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Selectionner" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>                      
                 </form>    
 			</div>

@@ -34,11 +34,31 @@ namespace TexcelWeb
 
         private void AfficherGV(string _filtre)
         {
-            //DataTable data = CtrlProjet.GetListProjet()
-            gvRecherche.DataSourceID = "EntityDataSource";
-            gvRecherche.DataBind();
-            gvRecherche.HeaderRow.Cells[1].Text = "Code du projet";
-            gvRecherche.HeaderRow.Cells[3].Text = "Chef de projet";
+            switch (_filtre)
+            {
+                case "Projet":
+                    //DataTable data = CtrlProjet.GetListProjet()
+                    gvRecherche.DataSourceID = "EntityDataSource";
+                    gvRecherche.DataBind();
+                    gvRecherche.HeaderRow.Cells[1].Text = "Code du Projet";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du Projet";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Chef de Projet";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
+                    break;
+                case "CasTest":
+                    gvRecherche.DataSourceID = "EntityDataSourceCasTest";
+                    gvRecherche.DataBind();
+                    gvRecherche.HeaderRow.Cells[1].Text = "Code du CasTest";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du CasTest";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Code du Projet";
+                    break;
+                default:
+                    break;
+            }
+            
         }
        
         // copier tous les éléments de  la liste qui sont coché
@@ -80,6 +100,16 @@ namespace TexcelWeb
             {
                 //...throw
             }
+        }
+
+        protected void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRechercher_Click(object sender, EventArgs e)
+        {
+            AfficherGV(ddlFiltre.Text);
         }
 
 

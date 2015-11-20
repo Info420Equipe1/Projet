@@ -20,8 +20,15 @@ namespace TexcelWeb
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
-            casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
+            if (String.Format("{0}", Request.QueryString["codeCasTest"]) != "" || String.Format("{0}", Request.QueryString["codeCasTest"]) != null)
+            {
+                string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
+                casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
+            }
+            else
+            {
+                casTest = null;
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
