@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="creerProjet.aspx.cs" Inherits="TexcelWeb.creerProjet" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="creerProjet.aspx.cs" Inherits="TexcelWeb.creerProjetCopier" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Créer un projet</div>
                 <form id="FrmProjet" runat="server">
-                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="ProjetInfo">
                         <div id="lblColumn1">
                             <div class="info">
@@ -85,7 +85,7 @@ $(function(){
                                 <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateLivraisonProjet" Display="dynamic" Text="*" ForeColor="Red" />   
                             </div>
-                            <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server" UpdateMode="Conditional">
+                            <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
                                 <ContentTemplate>
                                     <div class="info">
                                         <asp:Label runat="server" Text="Jeu: " CssClass="lblColum1"/>
@@ -115,80 +115,39 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
-                    
+                            <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
+                                <Columns>
+                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
+                                    <ItemStyle CssClass="align-center" Width="85px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-Width="200px" DataField="NomCasTest" HeaderText="Nom Cas de Test" >
+                                    <ItemStyle Width="200px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DateLivraisonCasTest" HeaderText="Date livraison" >
+                                    <ItemStyle CssClass="align-center" Width="85px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="PrioriteCasTest" HeaderText="Priorité" >
+                                    <ItemStyle CssClass="align-center" Width="85px" />
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DifficulteCasTest" HeaderText="Difficulté" >
+                                    <ItemStyle CssClass="align-center" Width="85px" />
+                                    </asp:BoundField>
+                                    
+                                    <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px">
+                                        <ItemTemplate>
+                                            <a id="btnModifierGridView" runat="server" class="table-icon edit" title="Modifier" ></a>
+                                            
+                                        </ItemTemplate>
+                                        <ControlStyle Width="85px" />
+                                        <HeaderStyle Width="65px" />
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>	
 
-                    <table id="dataGridLstCasTest" runat="server" visible="False">
-					    <thead>
-						    <tr>
-							    <th scope="col">Code</th>
-							    <th scope="col">Nom</th>
-							    <th scope="col" style="width: 85px;">Date livraison</th>
-							    <th scope="col">Priorité</th>
-							    <th scope="col">Difficulté</th>
-							    <th scope="col" style="width: 65px;">Modifier</th>
-						    </tr>
-					    </thead>						
-					    <tbody>
-						    <tr>
-							    <td class="align-center">ASUEvPr</td>
-							    <td>AssassinsCreedUnity</td>
-							    <td class="align-center">2015-10-29</td>
-							    <td class="align-center">Modérée</td>
-							    <td class="align-center">Élevée</td>
-							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Modifier"></a>
-								    <a href="#" class="table-icon delete" title="Supprimer"></a>
-							    </td>
-						    </tr>
-                            <tr>
-							    <td class="align-center">CODAWChar</td>
-							    <td>CallofDutyAdvancedWarfare</td>
-							    <td class="align-center">2015-10-30</td>
-							    <td class="align-center">Faible</td>
-							    <td class="align-center">Modérée</td>
-							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Modifier"></a>
-								    <a href="#" class="table-icon delete" title="Supprimer"></a>
-							    </td>
-						    </tr>
-                            <tr>
-							    <td class="align-center">GHWTComp</td>
-							    <td>GuitarHeroWorldTour</td>
-							    <td class="align-center">2015-11-02</td>
-							    <td class="align-center">Modérée</td>
-							    <td class="align-center">Élevée</td>
-							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Modifier"></a>
-								    <a href="#" class="table-icon delete" title="Supprimer"></a>
-							    </td>
-						    </tr>
-                            <tr>
-							    <td class="align-center">GTA5ExJe</td>
-							    <td>GrandTheftAuto5</td>
-							    <td class="align-center">2015-11-03</td>
-							    <td class="align-center">Faible</td>
-							    <td class="align-center">Modérée</td>
-							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Modifier"></a>
-								    <a href="#" class="table-icon delete" title="Supprimer"></a>
-							    </td>
-						    </tr>
-                            <tr>
-							    <td class="align-center">LOLFonc</td>
-							    <td>LeagueOfLegends</td>
-							    <td class="align-center">2015-11-04</td>
-							    <td class="align-center">Faible</td>
-							    <td class="align-center">Modérée</td>
-							    <td class="align-center">
-								    <a href="#" class="table-icon edit" title="Modifier"></a>
-								    <a href="#" class="table-icon delete" title="Supprimer"></a>
-							    </td>
-						    </tr>
-					    </tbody>
-				    </table> 
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
-						
+					
 					</div> 
+
                     <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />

@@ -28,9 +28,7 @@ namespace TexcelWeb
                     {
                         //Connexion Réussi
                         this.Form.Dispose();
-                        Session["modifProjet"] = true;
-                        Session["modifCodeProjet"] = "GHWT";
-                        System.Web.HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
+                        System.Web.HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
                     }
                     else
                     {

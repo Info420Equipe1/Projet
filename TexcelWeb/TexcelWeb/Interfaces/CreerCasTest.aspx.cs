@@ -17,6 +17,12 @@ namespace TexcelWeb
     {
         bool modif;
         CasTest casTest;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
+            casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //Mode ajouter 
@@ -25,12 +31,13 @@ namespace TexcelWeb
             //txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             ChargerDropDownList();
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
+
             //Mode modifier
-            if (Session["casTest"] != null)
+            if (casTest != null)
             {
                 modif = true;
-                casTest = (CasTest)Session["casTest"];
-                Session["casTest"] = null;
+                //casTest = (CasTest)Session["casTest"];
+                //Session["casTest"] = null;
                 txtNomCasTest.Text = casTest.nomCasTest;
                 txtCodeCasTest.Text = casTest.codeCasTest;
                 dropDownProjet.Text = casTest.cProjet.nomProjet;
@@ -42,9 +49,15 @@ namespace TexcelWeb
                 }
                 catch(Exception)
                 { }
-                
-                txtDateCreationCasTest.Text = ((DateTime)(casTest.dateCreation)).ToShortDateString();
-                txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
+
+                if (casTest.dateCreation != null)
+                {
+                    txtDateCreationCasTest.Text = ((DateTime)(casTest.dateCreation)).ToShortDateString();
+                }
+                if (casTest.dateLivraison != null)
+                {
+                    txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
+                }
                 rtxtDescriptionCasTest.Text = casTest.descCasTest;
                 //Remplir la liste de fichier
                 RemplirListeFichiers();

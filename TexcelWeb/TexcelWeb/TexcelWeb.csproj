@@ -78,9 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\projetEquipe.css" />
-    <Content Include="Interfaces\creerProjetCopier.aspx" />
-    <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
+    <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\index.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\Test.aspx" />
@@ -190,12 +189,12 @@
     <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\creerProjetCopier.aspx.cs">
-      <DependentUpon>creerProjetCopier.aspx</DependentUpon>
+    <Compile Include="Interfaces\creerProjet.aspx.cs">
+      <DependentUpon>creerProjet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interfaces\creerProjetCopier.aspx.designer.cs">
-      <DependentUpon>creerProjetCopier.aspx</DependentUpon>
+    <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
+      <DependentUpon>creerProjet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\recherche.aspx.cs">
       <DependentUpon>recherche.aspx</DependentUpon>
@@ -210,13 +209,6 @@
     </Compile>
     <Compile Include="Interfaces\creerCasTest.aspx.designer.cs">
       <DependentUpon>creerCasTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\creerProjet.aspx.cs">
-      <DependentUpon>creerProjet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
-      <DependentUpon>creerProjet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
