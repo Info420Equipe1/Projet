@@ -72,8 +72,7 @@ namespace TexcelWeb
                 default:
                     break;
             }    
-        }
-       
+        }      
 
         // copier tous les éléments de  la liste qui sont coché
         protected void btn_Copier(object sender, EventArgs e)
