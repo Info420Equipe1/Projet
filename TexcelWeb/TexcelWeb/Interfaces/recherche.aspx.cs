@@ -19,6 +19,15 @@ namespace TexcelWeb
       
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (CtrlController.GetCurrentUser() == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            else
+            {
+                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+            }
             if (Page.IsPostBack == false)
             {
                 ChargerPage();
@@ -65,6 +74,7 @@ namespace TexcelWeb
             }    
         }
        
+
         // copier tous les éléments de  la liste qui sont coché
         protected void btn_Copier(object sender, EventArgs e)
         {
