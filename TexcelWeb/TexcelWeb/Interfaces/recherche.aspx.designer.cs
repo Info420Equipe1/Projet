@@ -22,7 +22,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
-<<<<<<< HEAD
         /// Contrôle txtDerniereConnexion.
         /// </summary>
         /// <remarks>
@@ -32,8 +31,6 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtDerniereConnexion;
         
         /// <summary>
-=======
->>>>>>> origin/sprint3
         /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>

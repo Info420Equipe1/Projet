@@ -24,11 +24,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-<<<<<<< HEAD
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server"></strong> [ <a href="#">deconnection</a> ]</p>
-=======
-				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
->>>>>>> origin/sprint3
 			</div>
 			<div class="right">
 				<div class="align-right">
@@ -88,7 +84,6 @@ $(function(){
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
-		
 	</div>
 </div>
 </body>
