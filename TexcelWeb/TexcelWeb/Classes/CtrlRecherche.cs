@@ -19,13 +19,13 @@ namespace TexcelWeb.Classes
 
         public CtrlRecherche()
         {
-           
+
         }
 
         public static void SauvegarderDonnees(GridView _monGV)
-        {            
+        {
             monGV = _monGV;
-           
+
         }
 
         public static void CopierElement()
@@ -37,36 +37,34 @@ namespace TexcelWeb.Classes
                 // accès à mon checkbox
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
                 if (cb != null && cb.Checked)
-                {                                           
-                        DetermineObject(row.Cells[1].Text);
-                        RemplirDonneeLst();
-                                     
-                }              
+                {
+                    DetermineObject(row.Cells[1].Text);
+                    RemplirDonneeLst();
+
+                }
             }
-            
+
         }
         private static void RemplirDonneeLst()
         {
-          lstMesSelection.Add(monObject);                                       
+            lstMesSelection.Add(monObject);
         }
 
-        private static void DetermineObject(string _idUnique)
-        {           
-           if(CtrlProjet.getProjetByCode(_idUnique) != null)
-           {
-               monObject = CtrlProjet.getProjetByCode(_idUnique);         
-           }
-           else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
-	       {
-               monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
-	       }
-
-           if (monObject == null)
-           {
-               monObject = null; // ca marche pas
-           }
-         
+        public static Object DetermineObject(string _idUnique)
+        {
+            if (CtrlProjet.getProjetByCode(_idUnique) != null)
+            {
+                monObject = CtrlProjet.getProjetByCode(_idUnique);
+            }
+            else if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
+            {
+                monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
+            }
+            if (monObject == null)
+            {
+                monObject = null; // ca marche pas
+            }
+            return monObject;
         }
     }
 }
-

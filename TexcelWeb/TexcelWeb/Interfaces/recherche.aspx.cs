@@ -27,7 +27,12 @@ namespace TexcelWeb
         }
 
         private void ChargerPage()
-        {      
+        {
+            Utilisateur currentUser = CtrlController.GetCurrentUser();
+            txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+            DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
+            txtDerniereConnexion.InnerText = date.ToString("d");
+            
             AfficherGV(ddlFiltre.Text);
             CtrlRecherche.SauvegarderDonnees(gvRecherche);            
         }
@@ -37,30 +42,27 @@ namespace TexcelWeb
             switch (_filtre)
             {
                 case "Projet":
-                    //DataTable data = CtrlProjet.GetListProjet()
                     gvRecherche.DataSourceID = "edsProjet";
+                    edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();                
-                    gvRecherche.HeaderRow.Cells[1].Text = "Code du Projet";
-                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du Projet";
-                    gvRecherche.HeaderRow.Cells[3].Text = "Chef de Projet";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
-                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
-                    break;
-                 
+                    gvRecherche.HeaderRow.Cells[0].Text = "Code du Projet";
+                    gvRecherche.HeaderRow.Cells[1].Text = "Nom du Projet";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Chef de Projet";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Livraison";
+                    break;              
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
                     gvRecherche.DataBind();
-                    gvRecherche.HeaderRow.Cells[1].Text = "Code du CasTest";
-                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du CasTest";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
-                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
-                    gvRecherche.HeaderRow.Cells[3].Text = "Code du Projet";
+                    gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
+                    gvRecherche.HeaderRow.Cells[1].Text = "Nom du CasTest";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Date de Livraison";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Code du Projet";
                     break;
-
                 default:
                     break;
-            }
-            
+            }    
         }
        
         // copier tous les éléments de  la liste qui sont coché
@@ -76,44 +78,31 @@ namespace TexcelWeb
             CtrlRecherche.SauvegarderDonnees(gvRecherche);
         }
 
-        protected void monGV_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            try
-            {
-                switch (e.Row.RowType)
-                {
-                    case DataControlRowType.Header:
-                        //...
-                        break;
-
-                    case DataControlRowType.DataRow:
-                        e.Row.Attributes.Add("onmouseover", "self.MouseOverOldColor=this.style.backgroundColor;this.style.backgroundColor='#C0C0C0'");
-                        e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=self.MouseOverOldColor");
-
-                        int nbCellules = e.Row.Cells.Count;
-                        for (int i = 1; i < nbCellules - 1; i++)
-                        {
-                            e.Row.Cells[i].Attributes["onclick"] = this.Page.ClientScript.GetPostBackEventReference(this.gvRecherche, "Select$" + e.Row.RowIndex);
-                        }
-                        break;
-                }
-            }
-            catch
-            {
-                //...throw
-            }
-        }
-
-        protected void btnEnregistrer_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
             AfficherGV(ddlFiltre.Text);
         }
 
+        protected void gvRecherche_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (ddlFiltre.Text)
+            {
+                case "Projet":
+                    Session["modifProjet"] = true;
+                    Session["modifCodeProjet"] = gvRecherche.SelectedRow.Cells[0].Text;
+                    HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
+                    break;
+                case "CasTest":
+                    break;
+            }
+        }
 
+        protected void gvRecherche_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
+            }
+        }
     }
 }
