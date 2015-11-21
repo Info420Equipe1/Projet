@@ -23,13 +23,23 @@ namespace TexcelWeb
             
             if (!IsPostBack)
             {
+                
+                string nomChefProjet = "";
                 //Premier loading de la page
-                //txtVersionJeuProjet.Enabled = false;
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                Utilisateur currentUser = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-                DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
-                txtDerniereConnexion.InnerText = date.ToString("d");
+                if (CtrlController.GetCurrentUser() == null)
+                {
+                    //Not logged in
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    Utilisateur currentUser = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                    nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
+                }
+               
+                
 
                 //DataGrid
 
@@ -53,8 +63,8 @@ namespace TexcelWeb
                 {
                     btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
+
                     //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
-                    string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
                     ListItem lst = new ListItem();
                     lst.Text = nomChefProjet;
                     txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);

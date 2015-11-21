@@ -20,6 +20,19 @@ namespace TexcelWeb
         CasTest casTest;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Premier loading de la page
+            if (CtrlController.GetCurrentUser() == null)
+            {
+                //Not logged in
+                Response.Redirect("login.aspx");
+            }
+            else
+            {
+                //Formatage Bienvenue, [NomUtilisateur] et la Date
+                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+            }
+
             modif = false;
             if (!Page.IsPostBack)
             {
@@ -33,8 +46,6 @@ namespace TexcelWeb
                 }
             }
             
-            //Utilisateur currentUser = CtrlController.GetCurrentUser();
-            //txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             ChargerDropDownList();
             btnEnregistrer.Text = "Enregistrer";
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
@@ -188,6 +199,7 @@ namespace TexcelWeb
                 if (CtrlCasTest.Modifier(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text, casTest))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
+                    Session["casTest"] = null;
                 }
                 else
                 {

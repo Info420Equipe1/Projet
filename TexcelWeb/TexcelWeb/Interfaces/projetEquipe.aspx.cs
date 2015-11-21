@@ -18,16 +18,24 @@ namespace TexcelWeb.Interfaces
         {
             if (!IsPostBack)
 	        {
+                
                 //Premier loading de la page
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                Utilisateur currentUser = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-                DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
-                txtDerniereConnexion.InnerText = date.ToString("d");
+                if (CtrlController.GetCurrentUser() == null)
+                {
+                    //Not logged in
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    Utilisateur currentUser = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                    lsbProjets.DataSource = CtrlProjet.GetListProjetChefProjet(currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye);
+                    lsbProjets.DataTextField = "nomProjet";
+                    lsbProjets.DataBind();
+                }
 
-                lsbProjets.DataSource = CtrlProjet.GetListProjetChefProjet(currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye);
-                lsbProjets.DataTextField = "nomProjet";
-                lsbProjets.DataBind();
+                
 	        }
         }
 

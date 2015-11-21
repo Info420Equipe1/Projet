@@ -80,8 +80,8 @@
     <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\copierCasTest.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
+    <Content Include="Interfaces\login.aspx" />
     <Content Include="Interfaces\recherche.aspx" />
-    <Content Include="Interfaces\index.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\Test.aspx" />
     <Content Include="packages.config" />
@@ -204,6 +204,13 @@
     <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\recherche.aspx.cs">
       <DependentUpon>recherche.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,13 +224,6 @@
     </Compile>
     <Compile Include="Interfaces\creerCasTest.aspx.designer.cs">
       <DependentUpon>creerCasTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Interfaces\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\projetEquipe.aspx.cs">
       <DependentUpon>projetEquipe.aspx</DependentUpon>
