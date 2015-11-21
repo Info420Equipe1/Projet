@@ -31,8 +31,7 @@ namespace TexcelWeb
             if (Page.IsPostBack == false)
             {
                 ChargerPage();
-            }
-            
+            }         
         }
 
         private void ChargerPage()
@@ -104,6 +103,9 @@ namespace TexcelWeb
                     HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
                     break;
                 case "CasTest":
+                    CasTest casTest = CtrlCasTest.GetCasTestByCode(gvRecherche.SelectedRow.Cells[0].Text);
+                    Session["casTest"] = casTest;
+                    HttpContext.Current.Response.Redirect("/Interfaces/creerCasTest.aspx");
                     break;
             }
         }

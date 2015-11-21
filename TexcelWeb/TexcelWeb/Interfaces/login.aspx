@@ -5,8 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
-<title>SimpleAdmin</title>
+<title>Texcel - Connexion</title>
 <link rel="stylesheet" type="text/css" href="../css/login.css" media="screen" />
 </head>
 <body>
@@ -20,10 +19,9 @@
 					<label for="pass">Password:</label>
 					<input id="txtMotPasse" name="txtMotPasse" type="password" class="text" />
 					<div class="sep"></div>
-                    <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button> <a class="button" href="#">Forgotten password?</a>
+                    <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button>
 				</form>
 			</div>
-			<div class="footer">&raquo; <a href="#">http://yourpage.com</a> | Admin Panel</div>
 		</div>
 	</div>
 </div>

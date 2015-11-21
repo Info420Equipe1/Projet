@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Texcel - Creer un cas de test</title>
+<title>Texcel - Recherche</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/casTest.css" media="screen" />
