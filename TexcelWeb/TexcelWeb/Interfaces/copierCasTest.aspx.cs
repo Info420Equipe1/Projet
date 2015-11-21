@@ -4,11 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//ceux ajoutés
+using System.Data;
+using TexcelWeb.Classes.Test;
+
 
 namespace TexcelWeb.Interfaces
 {
 	public partial class copierCasTest : System.Web.UI.Page
-	{
+    {
+        
+        public copierCasTest()
+        {
+
+        }
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
             if (Page.IsPostBack == false)
@@ -41,18 +51,29 @@ namespace TexcelWeb.Interfaces
                     gvCopierCasTest.DataBind();
                     gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du CasTest";
                     gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du CasTest";
+                    gvCopierCasTest.HeaderRow.Cells[3].Text = "Code du Projet";
                     gvCopierCasTest.HeaderRow.Cells[4].Text = "Date de Creation";
                     gvCopierCasTest.HeaderRow.Cells[5].Text = "Date de Livraison";
-                    gvCopierCasTest.HeaderRow.Cells[3].Text = "Code du Projet";
+                  
                     break;
 
                 default:
                     break;
             }
-
+            CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
         }
 
+        protected void btnRechercher_Click(object sender, EventArgs e)
+        {
+            AfficherGV(ddlFiltre.Text);            
+        }
+       
+        protected void btnCopier_Click(object sender, EventArgs e)
+        {
+            CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
+            CtrlCopier.CopierElement();
 
+        }
 
 
 

@@ -71,8 +71,16 @@ namespace TexcelWeb.Classes.Projet
         //Retourne un projet à l'aide d'un code de projet
         public static cProjet getProjetByCode(string _code)
         {
-            cProjet projet = context.tblProjet.Where(x => x.codeProjet == _code).First();
-            return projet;
+            try
+            {
+                cProjet projet = context.tblProjet.Where(x => x.codeProjet == _code).First();
+                return projet;
+            }
+            catch (Exception)
+            {
+                return null;                
+            }
+           
         } 
         public static List<cProjet> GetListProjet()
         {

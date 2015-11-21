@@ -24,8 +24,7 @@ namespace TexcelWeb.Classes
 
         public static void SauvegarderDonnees(GridView _monGV)
         {            
-            monGV = _monGV;
-           
+            monGV = _monGV;           
         }
 
         public static void CopierElement()
@@ -54,6 +53,7 @@ namespace TexcelWeb.Classes
         {           
            if(CtrlProjet.getProjetByCode(_idUnique) != null)
            {
+             
                monObject = CtrlProjet.getProjetByCode(_idUnique);         
            }
            else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
