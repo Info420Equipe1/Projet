@@ -53,22 +53,22 @@ $(function(){
 
                 <form id="FrmCasTest" runat="server">                         
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="UPRecherche" runat="server" UpdateMode="Conditional">
+                    <asp:UpdatePanel ID="UPRecherche" runat="server">
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
                                 <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true">
-                                    <asp:ListItem>Projet</asp:ListItem>
                                     <asp:ListItem>CasTest</asp:ListItem>
+                                    <asp:ListItem>Projet</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
+                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" onCLick="btnRechercher_Click"/>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    <asp:UpdatePanel ID="UPGridView" runat="server" UpdateMode="Conditional">
+                    <asp:UpdatePanel ID="UPGridView" runat="server">
 
                         <ContentTemplate>              
-                            <asp:GridView ID="gvCopierCasTest" runat="server">
+                            <asp:GridView ID="gvCopierCasTest" runat="server"  selectedindex="0" >
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
@@ -85,10 +85,13 @@ $(function(){
                     <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
 				    </div>
-                                 
+
+                       <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopier_Click"/>    
                 </form>    
 			</div>
-		</div>  	   
+           
+		</div> 
+         	   
 	</div>
 	<div id="footer">
 		<div class="left">

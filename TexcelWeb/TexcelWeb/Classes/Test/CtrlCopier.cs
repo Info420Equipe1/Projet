@@ -4,23 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TexcelWeb.Classes.Projet;
-using TexcelWeb.Classes.Test;
 using System.IO;
 using System.Data;
 
-namespace TexcelWeb.Classes
+using TexcelWeb.Classes.Projet;
+using TexcelWeb.Classes.Test;
+using TexcelWeb.Classes;
+
+namespace TexcelWeb.Classes.Test
 {
-    public class CtrlRecherche
+        
+    public class CtrlCopier
     {
         static GridView monGV;
         static object monObject;
-        static List<object> lstMesSelection = new List<object>();
-
-        public CtrlRecherche()
-        {
-
-        }
+        static List<object> lstObjectDelete = new List<object>();
 
         public static void SauvegarderDonnees(GridView _monGV)
         {
@@ -29,7 +27,7 @@ namespace TexcelWeb.Classes
 
         public static void CopierElement()
         {
-            lstMesSelection.Clear();
+            lstObjectDelete.Clear();
             // Iteration à travers le gridview
             foreach (GridViewRow row in monGV.Rows)
             {
@@ -46,26 +44,25 @@ namespace TexcelWeb.Classes
         }
         private static void RemplirDonneeLst()
         {
-            lstMesSelection.Add(monObject);
+            lstObjectDelete.Add(monObject);
         }
 
         private static void DetermineObject(string _idUnique)
-        {           
-           if(CtrlProjet.getProjetByCode(_idUnique) != null)
-           {
-             
-               monObject = CtrlProjet.getProjetByCode(_idUnique);         
-           }
-           else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
-	       {
-               monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
-	       }
+        {
+            if (CtrlProjet.getProjetByCode(_idUnique) != null)
+            {
+                monObject = CtrlProjet.getProjetByCode(_idUnique);
+            }
+            else if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
+            {
+                monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
+            }
 
-           if (monObject == null)
-           {
-               monObject = null; // ca marche pas
-           }
-         
+            if (monObject == null)
+            {
+                monObject = null; // ca marche pas
+            }
+
         }
     }
 }

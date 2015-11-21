@@ -10,7 +10,6 @@ namespace TexcelWeb.Classes.Test
     public class CtrlCasTest : CtrlController
     {
         
-
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
         {
@@ -65,7 +64,16 @@ namespace TexcelWeb.Classes.Test
         //Rechercher un Cas de test avec le CodeCasTest
         public static CasTest GetCasTestByCode(string codeCasTest)
         {
-            return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
+            try
+            {
+                return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+           
         }
 
         //Rechercher un Cas de test avec le NomCasTest
@@ -93,5 +101,10 @@ namespace TexcelWeb.Classes.Test
                 Directory.CreateDirectory(path);
             }
         }
+
+
+
+
+
     }
 }
