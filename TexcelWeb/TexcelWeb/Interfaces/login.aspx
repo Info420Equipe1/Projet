@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="TexcelWeb.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="TexcelWeb.login" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
 <title>SimpleAdmin</title>
-<link rel="stylesheet" type="text/css" href="../../css/login.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/login.css" media="screen" />
 </head>
 <body>
 <div class="wrap">

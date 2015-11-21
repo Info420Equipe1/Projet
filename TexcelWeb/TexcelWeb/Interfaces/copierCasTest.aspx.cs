@@ -27,7 +27,6 @@ namespace TexcelWeb.Interfaces
             switch (_filtre)
             {
                 case "Projet":
-                    //DataTable data = CtrlProjet.GetListProjet()
                     gvCopierCasTest.DataSourceID = "edsProjet";
                     gvCopierCasTest.DataBind();
                     gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du Projet";
@@ -52,6 +51,11 @@ namespace TexcelWeb.Interfaces
             }
 
         }
+
+
+
+
+
         
 	}
 }

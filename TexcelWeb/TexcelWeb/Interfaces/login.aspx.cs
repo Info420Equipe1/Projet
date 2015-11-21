@@ -28,7 +28,10 @@ namespace TexcelWeb
                     {
                         //Connexion Réussi
                         this.Form.Dispose();
-                        System.Web.HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
+                        Session["modifProjet"] = true;
+                        Session["modifCodeProjet"] = "GHWT";
+                        //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
+                        HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
                     }
                     else
                     {
