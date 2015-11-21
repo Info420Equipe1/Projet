@@ -24,11 +24,11 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>Marcel L.</strong> [ <a href="#">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server"></strong> [ <a href="#">deconnection</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
+					<p>Dernière connexion: <strong id="txtDerniereConnexion" runat="server">28-10-2015</strong></p>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@ $(function(){
 
                 <form id="FrmCasTest" runat="server">                         
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="UPRecherche" runat="server" UpdateMode="Conditional">
+                    <asp:UpdatePanel ID="UPRecherche" runat="server">
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
@@ -66,31 +66,16 @@ $(function(){
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    <asp:UpdatePanel ID="UPGridView" runat="server" UpdateMode="Conditional">
-
+                    <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="gvRecherche" runat="server" OnRowDataBound = "monGV_RowDataBound">
-                                <Columns>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-
-                                            <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
-
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
+                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated" >
                             </asp:GridView>
                         </ContentTemplate>
                     </asp:UpdatePanel>  
                     <asp:EntityDataSource ID="edsProjet" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
                     <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
-				    </div>
-                    <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btn_Copier" AutoPostBack="true" />      
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Selectionner" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
-                    </div>                      
+				    </div>                   
                 </form>    
 			</div>
 		</div>  
@@ -99,7 +84,6 @@ $(function(){
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
-		
 	</div>
 </div>
 </body>

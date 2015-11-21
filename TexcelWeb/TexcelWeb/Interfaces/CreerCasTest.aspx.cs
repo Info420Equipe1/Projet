@@ -9,6 +9,7 @@ using TexcelWeb.Classes.Test;
 using System.IO;
 using TexcelWeb.Classes;
 using System.Data;
+using System.Web.UI.HtmlControls;
 
 
 namespace TexcelWeb
@@ -17,34 +18,44 @@ namespace TexcelWeb
     {
         bool modif;
         CasTest casTest;
-
-        protected void Page_Init(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            if (String.Format("{0}", Request.QueryString["codeCasTest"]) != "" || String.Format("{0}", Request.QueryString["codeCasTest"]) != null)
+            //Premier loading de la page
+            if (CtrlController.GetCurrentUser() == null)
             {
-                string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
-                casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                //Not logged in
+                Response.Redirect("login.aspx");
             }
             else
             {
-                casTest = null;
+                //Formatage Bienvenue, [NomUtilisateur] et la Date
+                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             }
-        }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //Mode ajouter 
+
             modif = false;
-            //Utilisateur currentUser = CtrlController.GetCurrentUser();
-            //txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+            if (!Page.IsPostBack)
+            {
+                Session["modifProjet"] = false;
+                string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
+                if (codeCasTest != "")
+                {
+                    casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                    Session["casTest"] = casTest;
+                    modif = true;
+                }
+            }
+            
             ChargerDropDownList();
+            btnEnregistrer.Text = "Enregistrer";
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
 
             //Mode modifier
-            if (casTest != null)
+            if (Session["casTest"] != null)
             {
+                btnEnregistrer.Text = "Modifier";
                 modif = true;
-                //casTest = (CasTest)Session["casTest"];
-                //Session["casTest"] = null;
+                casTest = (CasTest)Session["casTest"];
                 txtNomCasTest.Text = casTest.nomCasTest;
                 txtCodeCasTest.Text = casTest.codeCasTest;
                 dropDownProjet.Text = casTest.cProjet.nomProjet;
@@ -66,37 +77,107 @@ namespace TexcelWeb
                     txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
                 }
                 rtxtDescriptionCasTest.Text = casTest.descCasTest;
-                //Remplir la liste de fichier
-                RemplirListeFichiers();
+
+
+                string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest));
+
+                /////
+                int indexTableCasTest;
+                if (filePaths.Count() != 0)
+                {
+                    //Nombre de page pour la table des cas de tests
+                    double page = (double)filePaths.Count() / 5;
+                    int nbPage = Convert.ToInt16(Math.Ceiling(page));
+
+                    //Savoir sil faut afficher plus d'une page dans la table
+                    if (nbPage < 2)
+                    {
+                        dataGridPagination.Visible = false;
+                        fillTableFichier(0, filePaths.ToList(), 1);
+                    }
+                    else
+                    {
+                        //Plus de 5 cas de test donc plusieur page de cas test
+                        //Index pour la liste des cas test
+                        indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
+
+                        //Pagination visible
+                        dataGridPagination.Visible = true;
+
+                        //Emplissage de la table
+                        fillTableFichier(indexTableCasTest, filePaths.ToList(), nbPage);
+                    }
+                }
             }
-            
-            
         }
 
-        public void RemplirListeFichiers()
+        private void fillTableFichier(int index, List<string> lstFichier, int nbPage)
         {
+            int nuCasTest;
+            if (index == 0 || index == 1)
+            {
+                index = 1;
+                nuCasTest = 0;
+            }
+            else
+            {
+                nuCasTest = index * 5 - 5;
+            }
+
+            if (nbPage != 1)
+            {
+                //Creation des bouton de navigation entre les pages
+                for (int i = 1; i <= nbPage; i++)
+                {
+                    HtmlGenericControl htmlGC = new HtmlGenericControl("a");
+                    if (i == index)
+                    {
+                        htmlGC.Attributes.Add("class", "active");
+                    }
+                    htmlGC.Attributes.Add("href", "/Interfaces/creerCasTest.aspx?index=" + i);
+                    htmlGC.InnerText = i.ToString();
+                    dataGridPagination.Controls.Add(htmlGC);
+                }
+            }
+
+            List<Fichier> lstFichierAfficher = new List<Fichier>();
+            //Emplissage des cas de test dans le gridView
+            for (int i = nuCasTest; i < nuCasTest + 5; i++)
+            {
+                if (i < lstFichier.Count)
+                {
+                    FileInfo fi = new FileInfo(lstFichier[i]);
+                    long fileSizeInBytes = fi.Length;
+
+                    Fichier fich = new Fichier(fi.Name, fileSizeInBytes, fi.Extension, fi.LastWriteTime);
+                    lstFichierAfficher.Add(fich);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            ajoutDonnesDataGrid(lstFichierAfficher);
+        }
+        private void ajoutDonnesDataGrid(List<Fichier> lstFichier)
+        {
+
             DataTable dT = new DataTable();
             dT.Columns.AddRange(new DataColumn[4] { new DataColumn("File Name", typeof(string)), new DataColumn("Taille", typeof(string)), new DataColumn("Extansion", typeof(string)), new DataColumn("Derniere modification", typeof(DateTime)) });
-            DataRow dR = null;
-            string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.nomCasTest));
-            List<Fichier> files = new List<Fichier>();
-            foreach (string filePath in filePaths)
+ 
+            int cpt = 0;
+            foreach (Fichier fichier in lstFichier)
             {
-                //files.Add(new ListItem(Path.GetFileName(filePath), filePath));
-                FileInfo fi = new FileInfo(filePath);
-                long fileSizeInBytes = fi.Length;
+                cpt++;
+                DataRow dR = dT.NewRow();
 
-                Fichier fich = new Fichier(fi.Name, fileSizeInBytes, fi.Extension, fi.LastWriteTime);
-                files.Add(fich);
-                dR = dT.NewRow();
-                dR["File Name"] = fich.path;
-                dR["Taille"] = fich.taille;
-                dR["Extansion"] = fich.extan;
-                dR["Derniere modification"] = fich.derModif;
+                dR["File Name"] = fichier.path;
+                dR["Taille"] = fichier.taille;
+                dR["Extansion"] = fichier.extan;
+                dR["Derniere modification"] = fichier.derModif;
                 dT.Rows.Add(dR);
             }
             GridView1.DataSource = dT;
-            int c = GridView1.Columns.Count;
             GridView1.DataBind();
         }
 
@@ -118,6 +199,7 @@ namespace TexcelWeb
                 if (CtrlCasTest.Modifier(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text, casTest))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
+                    Session["casTest"] = null;
                 }
                 else
                 {
@@ -161,10 +243,10 @@ namespace TexcelWeb
         {
             casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.nomCasTest + "/") + fileName);
+            FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
             //Response.Redirect(Request.Url.AbsoluteUri);
             Session["casTest"] = casTest;
-            Response.Redirect("creerCasTest.aspx");
+            Response.Redirect("creerCasTest.aspx?codeCasTest="+casTest.codeCasTest);
         }
 
        

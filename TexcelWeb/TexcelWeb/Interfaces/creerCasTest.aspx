@@ -269,6 +269,9 @@ $(function(){
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
+					
+					</div> 
                             
 
                     </div>

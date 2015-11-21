@@ -95,7 +95,7 @@ namespace TexcelWeb.Classes.Test
 
         public static void CreerDossier(CasTest _casTest)
         {
-            string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.nomCasTest);
+            string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest);
             if (!(Directory.Exists(path)))
             {
                 Directory.CreateDirectory(path);
