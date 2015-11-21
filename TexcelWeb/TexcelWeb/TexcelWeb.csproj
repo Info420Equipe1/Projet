@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\projetEquipe.css" />
+    <Content Include="Interfaces\copierCasTest.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\index.aspx" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\copierCasTest.aspx.cs">
+      <DependentUpon>copierCasTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\copierCasTest.aspx.designer.cs">
+      <DependentUpon>copierCasTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\creerProjet.aspx.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>

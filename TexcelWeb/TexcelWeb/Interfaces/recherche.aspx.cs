@@ -38,16 +38,17 @@ namespace TexcelWeb
             {
                 case "Projet":
                     //DataTable data = CtrlProjet.GetListProjet()
-                    gvRecherche.DataSourceID = "EntityDataSource";
-                    gvRecherche.DataBind();
+                    gvRecherche.DataSourceID = "edsProjet";
+                    gvRecherche.DataBind();                
                     gvRecherche.HeaderRow.Cells[1].Text = "Code du Projet";
                     gvRecherche.HeaderRow.Cells[2].Text = "Nom du Projet";
                     gvRecherche.HeaderRow.Cells[3].Text = "Chef de Projet";
                     gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
                     gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
                     break;
+                 
                 case "CasTest":
-                    gvRecherche.DataSourceID = "EntityDataSourceCasTest";
+                    gvRecherche.DataSourceID = "edsCasTest";
                     gvRecherche.DataBind();
                     gvRecherche.HeaderRow.Cells[1].Text = "Code du CasTest";
                     gvRecherche.HeaderRow.Cells[2].Text = "Nom du CasTest";
@@ -55,6 +56,7 @@ namespace TexcelWeb
                     gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
                     gvRecherche.HeaderRow.Cells[3].Text = "Code du Projet";
                     break;
+
                 default:
                     break;
             }

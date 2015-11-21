@@ -7,126 +7,99 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace TexcelWeb {
+namespace TexcelWeb.Interfaces {
     
     
     public partial class copierCasTest {
         
         /// <summary>
-        /// Contrôle form1.
+        /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FrmCasTest;
         
         /// <summary>
-        /// Contrôle txtRecherche.
+        /// Contrôle UPRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRecherche;
+        protected global::System.Web.UI.UpdatePanel UPRecherche;
         
         /// <summary>
-        /// Contrôle ImgBtn_Recherche.
+        /// Contrôle txtChampRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgBtn_Recherche;
+        protected global::System.Web.UI.WebControls.TextBox txtChampRecherche;
         
         /// <summary>
-        /// Contrôle tbl.
+        /// Contrôle ddlFiltre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFiltre;
         
         /// <summary>
-        /// Contrôle colonne1.
+        /// Contrôle btnRechercher.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne1;
+        protected global::System.Web.UI.WebControls.Button btnRechercher;
         
         /// <summary>
-        /// Contrôle colonne2.
+        /// Contrôle UPGridView.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne2;
+        protected global::System.Web.UI.UpdatePanel UPGridView;
         
         /// <summary>
-        /// Contrôle colonne3.
+        /// Contrôle gvCopierCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne3;
+        protected global::System.Web.UI.WebControls.GridView gvCopierCasTest;
         
         /// <summary>
-        /// Contrôle colonne4.
+        /// Contrôle edsProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne4;
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjet;
         
         /// <summary>
-        /// Contrôle colonne5.
+        /// Contrôle edsCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne5;
+        protected global::System.Web.UI.WebControls.EntityDataSource edsCasTest;
         
         /// <summary>
-        /// Contrôle colonne6.
+        /// Contrôle dataGridPagination.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell colonne6;
-        
-        /// <summary>
-        /// Contrôle btnCopier.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
-        
-        /// <summary>
-        /// Contrôle btnAnnuler.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAnnuler;
-        
-        /// <summary>
-        /// Contrôle btnEnregistrer.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dataGridPagination;
     }
 }

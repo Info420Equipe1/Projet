@@ -76,22 +76,22 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.GridView gvRecherche;
         
         /// <summary>
-        /// Contrôle EntityDataSource.
+        /// Contrôle edsProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjet;
         
         /// <summary>
-        /// Contrôle EntityDataSourceCasTest.
+        /// Contrôle edsCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSourceCasTest;
+        protected global::System.Web.UI.WebControls.EntityDataSource edsCasTest;
         
         /// <summary>
         /// Contrôle dataGridPagination.
