@@ -10,7 +10,7 @@
 namespace TexcelWeb {
     
     
-    public partial class creerProjet {
+    public partial class creerProjetCopier {
         
         /// <summary>
         /// Contrôle txtCurrentUserName.
@@ -94,13 +94,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonProjet;
         
         /// <summary>
-        /// Contrôle updatePanel1.
+        /// Contrôle updatePanelVersionJeu.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanel1;
+        protected global::System.Web.UI.UpdatePanel updatePanelVersionJeu;
         
         /// <summary>
         /// Contrôle txtJeuProjet.
@@ -154,7 +154,7 @@ namespace TexcelWeb {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable dataGridLstCasTest;
+        protected global::System.Web.UI.WebControls.GridView dataGridLstCasTest;
         
         /// <summary>
         /// Contrôle dataGridPagination.

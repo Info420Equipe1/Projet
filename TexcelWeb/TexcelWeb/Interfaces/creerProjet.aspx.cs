@@ -10,16 +10,20 @@ using TexcelWeb.Classes.Jeu;
 using TexcelWeb.Classes;
 using System.Web.UI.HtmlControls;
 using TexcelWeb.Classes.Projet;
+using System.Data;
 
 namespace TexcelWeb
 {
-    public partial class creerProjet : System.Web.UI.Page
+    public partial class creerProjetCopier : System.Web.UI.Page
     {
+        int indexTableCasTest;
         bool modifierProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
+                
                 //Premier loading de la page
                 //txtVersionJeuProjet.Enabled = false;
                 //Formatage Bienvenue, [NomUtilisateur] et la Date
@@ -27,6 +31,8 @@ namespace TexcelWeb
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
                 txtDerniereConnexion.InnerText = date.ToString("d");
+
+                //DataGrid
 
                 //Emplissage du DropDownList Chef de Projet
                 txtChefProjet.Items.Clear();
@@ -46,6 +52,7 @@ namespace TexcelWeb
                 bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                 if (!modifier)
                 {
+                    btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
                     //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
                     string nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
@@ -63,16 +70,26 @@ namespace TexcelWeb
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
                     dataGridLstCasTest.Visible = true;
-                    dataGridPagination.Visible = true;
+                    btnEnregistrer.Text = "Modifier";
 
                     string codeProjet = (string)Session["modifCodeProjet"];
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
 
+                    //Emplissage des champs avec le projet
                     txtCodeProjet.Text = projet.codeProjet;
                     txtNomProjet.Text = projet.nomProjet;
+
                     ListItem lst = new ListItem();
-                    lst.Text = projet.chefProjet;
-                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                    if (projet.chefProjet != null)
+                    {
+                        lst.Text = projet.chefProjet;
+                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                    }
+                    else
+                    {
+                        txtChefProjet.ClearSelection();
+                    }
+
                     if (projet.dateCreation != null)
                     {
                         txtDateCreationProjet.Text = ((DateTime)projet.dateCreation).ToShortDateString();
@@ -103,75 +120,148 @@ namespace TexcelWeb
                     rtxtDiversProjet.Text = projet.divProjet;
 
 
-                    for (int i = 0; i < dataGridLstCasTest.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < 5; j++)
-                        {
-                            if (i>0)
-                            {
-                                dataGridLstCasTest.Rows[i].Cells[j].InnerText = "";
-                            }
-                        }
-                    }
-
-
-                    //Emplissage de la tableHTML pour les cas de test
                     if (projet.CasTest.Count != 0)
                     {
-                        int cpt = 1;
-                        foreach (CasTest casTest in projet.CasTest)
+                        //Nombre de page pour la table des cas de tests
+                        double page = (double)projet.CasTest.Count / 5;
+                        int nbPage = Convert.ToInt16(Math.Ceiling(page));
+
+                        //Savoir sil faut afficher plus d'une page dans la table
+                        if (nbPage < 2)
                         {
-                            for (int i = 0; i < 5; i++)
-                            {
-                                if (cpt < 6)
-                                {
-                                    switch (i)
-                                    {
-                                        case 0:
-                                            dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.codeCasTest;
-                                            break;
-                                        case 1:
-                                            dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.nomCasTest;
-                                            break;
-                                        case 2:
-                                            if (casTest.dateLivraison != null)
-                                            {
-                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = ((DateTime)casTest.dateLivraison).ToShortDateString();
-                                            }
-                                            break;
-                                        case 3:
-                                            if (casTest.NiveauPriorite != null)
-                                            {
-                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.NiveauPriorite.nomNivPri;
-                                            }
-                                            else
-                                            {
-                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = "";
-                                            }
-                                            break;
-                                        case 4:
-                                            if (casTest.Difficulte != null)
-                                            {
-                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = casTest.Difficulte.nomDiff;
-                                            }
-                                            else
-                                            {
-                                                dataGridLstCasTest.Rows[cpt].Cells[i].InnerText = "";
-                                            }
-                                            break;
-                                        default:
-                                            break;
-                                    }
-                                }
-                            }
-                            cpt++;
+                            dataGridPagination.Visible = false;
+                            fillTableCasTest(0, projet.CasTest.ToList(), 1);
+                        }
+                        else
+                        {
+                            //Plus de 5 cas de test donc plusieur page de cas test
+                            //Index pour la liste des cas test
+                            indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
+
+                            //Pagination visible
+                            dataGridPagination.Visible = true;
+
+                            //Emplissage de la table
+                            fillTableCasTest(indexTableCasTest, projet.CasTest.ToList(), nbPage);
                         }
                     }
                 }
             }
-            
         }
 
+        private void fillTableCasTest(int index, List<CasTest> lstCasTest, int nbPage)
+        {
+            int nuCasTest;
+            if (index == 0 || index == 1)
+            {
+                index = 1;
+                nuCasTest = 0;
+            }
+            else
+            {
+                nuCasTest = index * 5 - 5;
+            }
+
+            if (nbPage != 1)
+            {
+                //Creation des bouton de navigation entre les pages
+                for (int i = 1; i <= nbPage; i++)
+                {
+                    HtmlGenericControl htmlGC = new HtmlGenericControl("a");
+                    if (i == index)
+                    {
+                        htmlGC.Attributes.Add("class", "active");
+                    }
+                    htmlGC.Attributes.Add("href", "/Interfaces/creerProjetCopier.aspx?index=" + i);
+                    htmlGC.InnerText = i.ToString();
+                    dataGridPagination.Controls.Add(htmlGC);
+                }
+            }
+
+            List<CasTest> lstCasTestAfficher = new List<CasTest>();
+            //Emplissage des cas de test dans le gridView
+            for (int i = nuCasTest; i < nuCasTest + 5; i++)
+            {
+                if (i < lstCasTest.Count)
+                {
+                    lstCasTestAfficher.Add(lstCasTest[i]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            ajoutDonnesDataGrid(lstCasTestAfficher);
+        }
+        private void ajoutDonnesDataGrid(List<CasTest> lstCasTest)
+        {
+            //Emplissage du gridView pour les cas de test
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CodeCasTest");
+            dt.Columns.Add("NomCasTest");
+            dt.Columns.Add("DateLivraisonCasTest");
+            dt.Columns.Add("PrioriteCasTest");
+            dt.Columns.Add("DifficulteCasTest");
+            dt.Columns.Add("OptionsCasTest");
+            int cpt = 0;
+            foreach (CasTest casTest in lstCasTest)
+            {
+                cpt++;
+                DataRow dr = dt.NewRow();
+                for (int i = 0; i < 5; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            dr.SetField("CodeCasTest", casTest.codeCasTest);
+                            break;
+                        case 1:
+                            dr.SetField("NomCasTest", casTest.nomCasTest);
+                            break;
+                        case 2:
+                            if (casTest.dateLivraison != null)
+                            {
+                                dr.SetField("DateLivraisonCasTest", ((DateTime)casTest.dateLivraison).ToShortDateString());
+                            }
+                            break;
+                        case 3:
+                            if (casTest.NiveauPriorite != null)
+                            {
+                                dr.SetField("PrioriteCasTest", casTest.NiveauPriorite.nomNivPri);
+                            }
+                            else
+                            {
+                                dr.SetField("PrioriteCasTest", "");
+                            }
+                            break;
+                        case 4:
+                            if (casTest.Difficulte != null)
+                            {
+                                dr.SetField("DifficulteCasTest", casTest.Difficulte.nomDiff);
+                            }
+                            else
+                            {
+                                dr.SetField("DifficulteCasTest", "");
+                            }
+                            break;
+                        
+                        default:
+                            break;
+                    }
+                }
+                dt.Rows.Add(dr);
+            }
+            ds.Tables.Add(dt);
+            dataGridLstCasTest.DataSource = ds;
+            dataGridLstCasTest.DataBind();
+            
+            foreach (GridViewRow gvr in dataGridLstCasTest.Rows)
+	        {
+                HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnModifierGridView");
+                hgc.Attributes["href"] = "/Interfaces/creerCasTest.aspx?codeCasTest="+gvr.Cells[0].Text;
+	        }
+        }
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             //Collecte de l'information pour un projet
@@ -184,13 +274,11 @@ namespace TexcelWeb
             string descProjet = String.Format("{0}", Request.Form["rtxtDescriptionProjet"]);
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
             string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
-
+            
             if (!modifierProjet)
             {
                 //Ajout du projet dans la Base de Données
                 string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-                //string alert = "alert('"+message+"');";
-                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", alert, true);
                 Response.Write("<script type=\"text/javascript\">alert('"+message+"');</script>");
             }
             else
@@ -199,24 +287,6 @@ namespace TexcelWeb
                 string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
                 Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
             }
-            
-
-
-
-            ////Rechercher de l'information dans le gridview
-            //List<CasTest> lstCasTestProjet = new List<CasTest>();
-            
-            //Table dataGridLstCasTest = CtrlController.FindControlRecursive(Page, "dataGridLstCasTest") as Table;
-            //Table dataGridLstCasTest = (Table)Page.FindControl("dataGridLstCasTest");
-            //DataGrid data = CtrlController.FindControlRecursive(Page, "dataGridLstCasTest") as DataGrid;
-            
-            //foreach (HtmlTableRow rowItem in dataGridLstCasTest.Rows)
-            //{
-            //    if (rowItem.Cells[0].InnerText.ToString() != "Code")
-            //    {
-            //        lstCasTestProjet.Add(CtrlCasTest.GetCasTestByCode(rowItem.Cells[0].InnerText.ToString()));
-            //    }
-            //}
         }
 
         protected void txtJeuProjet_SelectedIndexChanged(object sender, EventArgs e)
@@ -243,6 +313,9 @@ namespace TexcelWeb
         {
 
         }
+
+
+
 
  
     }

@@ -15,47 +15,103 @@ using System.Web.Services;
 namespace TexcelWeb
 {
     public partial class recherche : System.Web.UI.Page
-    {    
+    {
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-            ChargerPage();
+            if (Page.IsPostBack == false)
+            {
+                ChargerPage();
+            }
+            
         }
 
         private void ChargerPage()
-        {
+        {      
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);    
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);            
         }
 
         private void AfficherGV(string _filtre)
         {
-            //DataTable data = CtrlProjet.GetListProjet()
-            gvRecherche.DataSourceID = "EntityDataSource";
-            gvRecherche.DataBind();
-            gvRecherche.HeaderRow.Cells[1].Text = "Code du projet";
-            gvRecherche.HeaderRow.Cells[3].Text = "Chef de projet";
-        }
-
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckBox Chk = (CheckBox)sender;
-            CtrlRecherche.VerifierChkBox(Chk);        
-        }
-
-        protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (ddlFiltre.SelectedIndex)
+            switch (_filtre)
             {
-                case 1:
-                    Console.WriteLine("Case 1");
+                case "Projet":
+                    //DataTable data = CtrlProjet.GetListProjet()
+                    gvRecherche.DataSourceID = "EntityDataSource";
+                    gvRecherche.DataBind();
+                    gvRecherche.HeaderRow.Cells[1].Text = "Code du Projet";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du Projet";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Chef de Projet";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
                     break;
-                case 2:
-                    Console.WriteLine("Case 2");
+                case "CasTest":
+                    gvRecherche.DataSourceID = "EntityDataSourceCasTest";
+                    gvRecherche.DataBind();
+                    gvRecherche.HeaderRow.Cells[1].Text = "Code du CasTest";
+                    gvRecherche.HeaderRow.Cells[2].Text = "Nom du CasTest";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Creation";
+                    gvRecherche.HeaderRow.Cells[5].Text = "Date de Livraison";
+                    gvRecherche.HeaderRow.Cells[3].Text = "Code du Projet";
                     break;
                 default:
-                    Console.WriteLine("Default case");
                     break;
             }
+            
         }
+       
+        // copier tous les éléments de  la liste qui sont coché
+        protected void btn_Copier(object sender, EventArgs e)
+        {
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);
+            CtrlRecherche.CopierElement();
+        }
+   
+        protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //qqchose avant??
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);
+        }
+
+        protected void monGV_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                switch (e.Row.RowType)
+                {
+                    case DataControlRowType.Header:
+                        //...
+                        break;
+
+                    case DataControlRowType.DataRow:
+                        e.Row.Attributes.Add("onmouseover", "self.MouseOverOldColor=this.style.backgroundColor;this.style.backgroundColor='#C0C0C0'");
+                        e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=self.MouseOverOldColor");
+
+                        int nbCellules = e.Row.Cells.Count;
+                        for (int i = 1; i < nbCellules - 1; i++)
+                        {
+                            e.Row.Cells[i].Attributes["onclick"] = this.Page.ClientScript.GetPostBackEventReference(this.gvRecherche, "Select$" + e.Row.RowIndex);
+                        }
+                        break;
+                }
+            }
+            catch
+            {
+                //...throw
+            }
+        }
+
+        protected void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRechercher_Click(object sender, EventArgs e)
+        {
+            AfficherGV(ddlFiltre.Text);
+        }
+
+
     }
 }

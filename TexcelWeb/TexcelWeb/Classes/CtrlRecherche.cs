@@ -14,24 +14,59 @@ namespace TexcelWeb.Classes
     public class CtrlRecherche
     {
         static GridView monGV;
-        static List<object> lstLigneCocher = new List<object>();
+        static object monObject;
+        static List<object> lstMesSelection = new List<object>();
+
         public CtrlRecherche()
         {
            
         }
 
         public static void SauvegarderDonnees(GridView _monGV)
-        {
+        {            
             monGV = _monGV;
+           
         }
 
-        public static void VerifierChkBox(CheckBox _monCheckBox)
+        public static void CopierElement()
         {
-            string index = _monCheckBox.ID;
-
+            lstMesSelection.Clear();
+            // Iteration à travers le gridview
+            foreach (GridViewRow row in monGV.Rows)
+            {
+                // accès à mon checkbox
+                CheckBox cb = (CheckBox)row.FindControl("ChkBox");
+                if (cb != null && cb.Checked)
+                {                                           
+                        DetermineObject(row.Cells[1].Text);
+                        RemplirDonneeLst();
+                                     
+                }              
+            }
+            
+        }
+        private static void RemplirDonneeLst()
+        {
+          lstMesSelection.Add(monObject);                                       
         }
 
-       
+        private static void DetermineObject(string _idUnique)
+        {           
+           if(CtrlProjet.getProjetByCode(_idUnique) != null)
+           {
+               monObject = CtrlProjet.getProjetByCode(_idUnique);         
+           }
+           else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)
+	       {
+               monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
+	       }
 
+           if (monObject == null)
+           {
+               monObject = null; // ca marche pas
+           }
+         
+        }
     }
 }
+
