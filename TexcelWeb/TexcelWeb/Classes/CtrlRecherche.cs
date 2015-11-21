@@ -23,14 +23,8 @@ namespace TexcelWeb.Classes
         }
 
         public static void SauvegarderDonnees(GridView _monGV)
-<<<<<<< HEAD
-        {            
-            monGV = _monGV;           
-=======
         {
             monGV = _monGV;
-
->>>>>>> origin/sprint3
         }
 
         public static void CopierElement()
@@ -55,7 +49,6 @@ namespace TexcelWeb.Classes
             lstMesSelection.Add(monObject);
         }
 
-<<<<<<< HEAD
         private static void DetermineObject(string _idUnique)
         {           
            if(CtrlProjet.getProjetByCode(_idUnique) != null)
@@ -73,23 +66,6 @@ namespace TexcelWeb.Classes
                monObject = null; // ca marche pas
            }
          
-=======
-        public static Object DetermineObject(string _idUnique)
-        {
-            if (CtrlProjet.getProjetByCode(_idUnique) != null)
-            {
-                monObject = CtrlProjet.getProjetByCode(_idUnique);
-            }
-            else if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
-            {
-                monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
-            }
-            if (monObject == null)
-            {
-                monObject = null; // ca marche pas
-            }
-            return monObject;
->>>>>>> origin/sprint3
         }
     }
 }
