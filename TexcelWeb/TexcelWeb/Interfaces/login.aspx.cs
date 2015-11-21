@@ -30,8 +30,8 @@ namespace TexcelWeb
                         this.Form.Dispose();
                         Session["modifProjet"] = true;
                         Session["modifCodeProjet"] = "GHWT";
-                        if ()
-                        HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
+                        //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
+                        HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
                     }
                     else
                     {
