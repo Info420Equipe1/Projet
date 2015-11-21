@@ -17,13 +17,12 @@ namespace TexcelWeb
     public partial class creerProjetCopier : System.Web.UI.Page
     {
         int indexTableCasTest;
-        bool modifierProjet;
+        static bool modifierProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
             
             if (!IsPostBack)
             {
-                
                 //Premier loading de la page
                 //txtVersionJeuProjet.Enabled = false;
                 //Formatage Bienvenue, [NomUtilisateur] et la Date
@@ -172,7 +171,7 @@ namespace TexcelWeb
                     {
                         htmlGC.Attributes.Add("class", "active");
                     }
-                    htmlGC.Attributes.Add("href", "/Interfaces/creerProjetCopier.aspx?index=" + i);
+                    htmlGC.Attributes.Add("href", "/Interfaces/creerProjet.aspx?index=" + i);
                     htmlGC.InnerText = i.ToString();
                     dataGridPagination.Controls.Add(htmlGC);
                 }

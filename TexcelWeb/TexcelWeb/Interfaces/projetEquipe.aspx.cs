@@ -157,7 +157,7 @@ namespace TexcelWeb.Interfaces
                         string message = CtrlEquipe.lierEquipeCasTest(equipe, lstCasTest);
 
                         //Alert ne saffiche pas.... 
-                        Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
+                        Response.Write("<script type=\"text/javascript\">alert('Liaison des cas de test à une équipe réussi');</script>");
                     }
                     else
                     {
