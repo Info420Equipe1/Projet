@@ -17,6 +17,7 @@ namespace TexcelWeb
         public Employe()
         {
             this.Equipe = new HashSet<Equipe>();
+            this.cProjet = new HashSet<cProjet>();
             this.Utilisateur = new HashSet<Utilisateur>();
             this.Equipe1 = new HashSet<Equipe>();
             this.TypeTest = new HashSet<TypeTest>();
@@ -33,6 +34,7 @@ namespace TexcelWeb
         public string tagEmploye { get; set; }
     
         public virtual ICollection<Equipe> Equipe { get; set; }
+        public virtual ICollection<cProjet> cProjet { get; set; }
         public virtual ICollection<Utilisateur> Utilisateur { get; set; }
         public virtual ICollection<Equipe> Equipe1 { get; set; }
         public virtual ICollection<TypeTest> TypeTest { get; set; }

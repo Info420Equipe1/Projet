@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssociationJeu">
           <Key>
             <PropertyRef Name="idJeu" />
@@ -272,7 +272,7 @@
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="varchar" MaxLength="42" />
+          <Property Name="chefProjet" Type="int" />
           <Property Name="descProjet" Type="text" />
           <Property Name="dateCreation" Type="date" />
           <Property Name="dateLivraison" Type="date" />
@@ -293,7 +293,6 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
@@ -307,7 +306,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
             <PropertyRef Name="nomSysExp" />
             <PropertyRef Name="nomEdition" />
             <PropertyRef Name="noVersion" />
-            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -321,8 +319,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            
-            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
@@ -360,7 +356,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="varchar" MaxLength="42" />
+          <Property Name="chefProjet" Type="int" />
           <Property Name="nomJeu" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tagProjet" Type="varchar" MaxLength="142" />
         </EntityType>
@@ -700,6 +696,18 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="P_FK_noEmploye">
+          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="Self.tblProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="chefProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="SEP_FK_idPlateforme">
           <End Role="tblPlateforme" Type="Self.tblPlateforme" Multiplicity="1" />
           <End Role="tblSysExpPlateforme" Type="Self.tblSysExpPlateforme" Multiplicity="*" />
@@ -954,6 +962,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             <End Role="tblVersionJeu" EntitySet="tblVersionJeu" />
             <End Role="tblProjet" EntitySet="tblProjet" />
           </AssociationSet>
+          <AssociationSet Name="P_FK_noEmploye" Association="Self.P_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
+          </AssociationSet>
           <AssociationSet Name="SEP_FK_idPlateforme" Association="Self.SEP_FK_idPlateforme">
             <End Role="tblPlateforme" EntitySet="tblPlateforme" />
             <End Role="tblSysExpPlateforme" EntitySet="tblSysExpPlateforme" />
@@ -975,7 +987,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1104,6 +1117,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="competenceParticuliere" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Equipe" Relationship="Self.E_FK_idChefEquipe" FromRole="tblEmploye" ToRole="tblEquipe" />
+          <NavigationProperty Name="cProjet" Relationship="Self.P_FK_noEmploye" FromRole="tblEmploye" ToRole="tblProjet" />
           <NavigationProperty Name="Utilisateur" Relationship="Self.U_FK_noEmploye" FromRole="tblEmploye" ToRole="tblUtilisateur" />
           <NavigationProperty Name="Equipe1" Relationship="Self.tblEmployeEquipe" FromRole="tblEmploye" ToRole="tblEquipe" />
           <NavigationProperty Name="TypeTest" Relationship="Self.tblEmployeTypeTest" FromRole="tblEmploye" ToRole="tblTypeTest" />
@@ -1208,7 +1222,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="chefProjet" Type="Int32" />
           <Property Name="descProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="dateCreation" Type="DateTime" Precision="0" />
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
@@ -1217,6 +1231,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="idVersion" Type="Int16" />
           <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.P_FK_idVersion" FromRole="tblProjet" ToRole="tblVersionJeu" />
+          <NavigationProperty Name="Employe" Relationship="Self.P_FK_noEmploye" FromRole="tblProjet" ToRole="tblEmploye" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_codeProjet" FromRole="tblProjet" ToRole="tblCasTest" />
         </EntityType>
         <EntityType Name="TypeTest">
@@ -1267,6 +1282,26 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllCasTest">
+          <Key>
+            <PropertyRef Name="codeCasTest" />
+          </Key>
+          <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllProjet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="chefProjet" Type="Int32" />
+          <Property Name="nomJeu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="tblClassificationJeu" Type="dbProjetE1Model.ClassificationJeu" Multiplicity="1" />
@@ -1349,6 +1384,18 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             </Principal>
             <Dependent Role="tblEquipe">
               <PropertyRef Name="noChefEquipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="P_FK_noEmploye">
+          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="dbProjetE1Model.cProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="chefProjet" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1490,6 +1537,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySet Name="AllSysExp" EntityType="Self.AllSysExp" />
           <EntitySet Name="AllEquipe" EntityType="Self.AllEquipe" />
           <EntitySet Name="AllTesteurs" EntityType="Self.AllTesteurs" />
+          <EntitySet Name="AllCasTest" EntityType="Self.AllCasTest" />
+          <EntitySet Name="AllProjet" EntityType="Self.AllProjet" />
           <AssociationSet Name="J_FK_codeClassification" Association="Self.J_FK_codeClassification">
             <End Role="tblClassificationJeu" EntitySet="tblClassificationJeu" />
             <End Role="tblJeu" EntitySet="tblJeu" />
@@ -1517,6 +1566,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <AssociationSet Name="E_FK_idChefEquipe" Association="Self.E_FK_idChefEquipe">
             <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
+          </AssociationSet>
+          <AssociationSet Name="P_FK_noEmploye" Association="Self.P_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
           </AssociationSet>
           <AssociationSet Name="U_FK_noEmploye" Association="Self.U_FK_noEmploye">
             <End Role="tblEmploye" EntitySet="tblEmploye" />
@@ -1582,29 +1635,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             <End Role="tblCasTest" EntitySet="tblCasTest" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
-          <EntitySet Name="AllCasTest" EntityType="dbProjetE1Model.AllCasTest" />
-          <EntitySet Name="AllProjet" EntityType="dbProjetE1Model.AllProjet" />
         </EntityContainer>
-        <EntityType Name="AllCasTest">
-          <Key>
-            <PropertyRef Name="codeCasTest" />
-          </Key>
-          <Property Name="codeCasTest" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="nomCasTest" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nomProjet" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="nomTest" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="AllProjet">
-          <Key>
-            <PropertyRef Name="codeProjet" />
-          </Key>
-          <Property Name="codeProjet" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="nomProjet" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
-          <Property Name="nomJeu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1876,6 +1907,28 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AllCasTest">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllCasTest">
+              <MappingFragment StoreEntitySet="AllCasTest">
+                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
+                <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
+                <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllProjet">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllProjet">
+              <MappingFragment StoreEntitySet="AllProjet">
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
+                <ScalarProperty Name="nomJeu" ColumnName="nomJeu" />
+                <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="tblAssociationJeu" TypeName="dbProjetE1Model.tblAssociationJeu" StoreEntitySet="tblAssociationJeu">
             <EndProperty Name="tblJeu">
               <ScalarProperty Name="idJeu" ColumnName="idJeu" />
@@ -1956,28 +2009,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
               <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="AllCasTest">
-            <EntityTypeMapping TypeName="dbProjetE1Model.AllCasTest">
-              <MappingFragment StoreEntitySet="AllCasTest">
-                <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
-                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
-                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
-                <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
-                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AllProjet">
-            <EntityTypeMapping TypeName="dbProjetE1Model.AllProjet">
-              <MappingFragment StoreEntitySet="AllProjet">
-                <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
-                <ScalarProperty Name="nomJeu" ColumnName="nomJeu" />
-                <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
-                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
-                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

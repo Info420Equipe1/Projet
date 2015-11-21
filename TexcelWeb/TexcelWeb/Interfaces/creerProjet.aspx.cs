@@ -91,7 +91,8 @@ namespace TexcelWeb
                     ListItem lst = new ListItem();
                     if (projet.chefProjet != null)
                     {
-                        lst.Text = projet.chefProjet;
+                        Employe chefProjet = CtrlEmploye.getEmployeById(projet.chefProjet);
+                        lst.Text = chefProjet.nomEmploye + ", " + chefProjet.prenomEmploye;
                         txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
                     }
                     else
@@ -287,13 +288,13 @@ namespace TexcelWeb
             if (!modifierProjet)
             {
                 //Ajout du projet dans la Base de Données
-                string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, Convert.ToInt32(chefProjet), dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
                 Response.Write("<script type=\"text/javascript\">alert('"+message+"');</script>");
             }
             else
             {
                 //Modification du Projet
-                string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, chefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, Convert.ToInt32(chefProjet), dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
                 Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
             }
         }

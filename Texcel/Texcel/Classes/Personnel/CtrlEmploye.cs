@@ -121,5 +121,11 @@ namespace Texcel.Classes.Personnel
             return listEmp;
         }
 
+        public static Employe getEmployeByNo(int _numEmploye)
+        {
+            Employe emp = context.tblEmploye.Where(x => x.noEmploye == _numEmploye).First();
+            return emp;
+        }
+
     }
 }

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Jeu;
-
+using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
         //Ajouter un projet
-        public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
+        public static string AjouterProjet(string codeProjet, string nomProjet, int chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = new cProjet();
             projet.codeProjet = codeProjet;
@@ -42,9 +42,9 @@ namespace TexcelWeb.Classes.Projet
             context.tblProjet.Add(_projet);
             context.SaveChanges();
         }
-        
+
         //Modifier un Projet
-        public static string ModifierProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
+        public static string ModifierProjet(string codeProjet, string nomProjet, int chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = getProjetByCode(codeProjet);
             projet.nomProjet = nomProjet;
@@ -73,7 +73,7 @@ namespace TexcelWeb.Classes.Projet
         {
             cProjet projet = context.tblProjet.Where(x => x.codeProjet == _code).First();
             return projet;
-        } 
+        }
         public static List<cProjet> GetListProjet()
         {
             List<cProjet> lstProjet = new List<cProjet>();
@@ -92,7 +92,8 @@ namespace TexcelWeb.Classes.Projet
 
             foreach (cProjet proj in context.tblProjet)
             {
-                if (proj.chefProjet == nomChefProjet)
+                Employe chefProjet = CtrlEmploye.getEmployeById(proj.chefProjet);
+                if ((chefProjet.prenomEmploye + " " + chefProjet.nomEmploye) == nomChefProjet)
                 {
                     lstProjet.Add(proj);
                 }
@@ -106,7 +107,5 @@ namespace TexcelWeb.Classes.Projet
             cProjet proj = context.tblProjet.Where(x => x.nomProjet == _nomProjet).First();
             return proj;
         }
-
-        
     }
 }

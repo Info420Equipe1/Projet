@@ -21,7 +21,7 @@ namespace Texcel
     
         public string codeProjet { get; set; }
         public string nomProjet { get; set; }
-        public string chefProjet { get; set; }
+        public int chefProjet { get; set; }
         public string descProjet { get; set; }
         public Nullable<System.DateTime> dateCreation { get; set; }
         public Nullable<System.DateTime> dateLivraison { get; set; }
@@ -31,6 +31,7 @@ namespace Texcel
         public string tagProjet { get; set; }
     
         public virtual VersionJeu VersionJeu { get; set; }
+        public virtual Employe Employe { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

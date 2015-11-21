@@ -62,6 +62,7 @@ namespace TexcelWeb
                     break;              
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
+                    edsProjet.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
                     gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
                     gvRecherche.HeaderRow.Cells[1].Text = "Nom du CasTest";

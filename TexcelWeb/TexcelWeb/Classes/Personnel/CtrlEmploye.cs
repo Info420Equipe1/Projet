@@ -34,9 +34,10 @@ namespace TexcelWeb.Classes.Personnel
             {
                 if (projet.chefProjet != null)
                 {
-                    if (!lstNomChefProjet.Contains(projet.chefProjet))
+                    Employe chefEquipe = CtrlEmploye.getEmployeById(projet.chefProjet);
+                    if (!lstNomChefProjet.Contains(chefEquipe.nomEmploye + ", " + chefEquipe.prenomEmploye))
                     {
-                        lstNomChefProjet.Add(projet.chefProjet);
+                        lstNomChefProjet.Add(chefEquipe.nomEmploye + ", " + chefEquipe.prenomEmploye);
                     }
                 }
             }

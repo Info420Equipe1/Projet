@@ -481,7 +481,8 @@ namespace Texcel.Interfaces
 
                     txtCode.Text = projet.codeProjet;
                     txtNom.Text = projet.nomProjet;
-                    txtChefProjet.Text = projet.chefProjet;
+                    Employe chefProjet = CtrlEmploye.getEmployeByNo(projet.chefProjet);
+                    txtChefProjet.Text = chefProjet.nomEmploye + ", " + chefProjet.prenomEmploye;
                     txtDateCreation.Text = Convert.ToString(projet.dateCreation);
                     txtDateLivraison.Text = Convert.ToString(projet.dateLivraison);
                     txtJeu.Text = projet.VersionJeu.cJeu.nomJeu;
