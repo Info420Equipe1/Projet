@@ -78,6 +78,12 @@ namespace TexcelWeb
                 }
                 rtxtDescriptionCasTest.Text = casTest.descCasTest;
 
+                //Si ya pas de dossier, création d'un dossier
+                string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
+                if (!(Directory.Exists(path)))
+                {
+                    Directory.CreateDirectory(path);
+                }
 
                 string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest));
 

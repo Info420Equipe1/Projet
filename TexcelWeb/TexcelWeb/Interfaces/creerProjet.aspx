@@ -37,6 +37,7 @@ $(function(){
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
+                <div class="h_title" ><a href="/Interfaces/recherche.aspx">&#8250;Recherche</a></div>
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
 					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
@@ -138,7 +139,7 @@ $(function(){
                                     <ItemStyle CssClass="align-center" Width="85px" />
                                     </asp:BoundField>
                                     
-                                    <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px">
+                                    <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ItemStyle-CssClass="align-center">
                                         <ItemTemplate>
                                             <a id="btnModifierGridView" runat="server" class="table-icon edit" title="Modifier" ></a>
                                             

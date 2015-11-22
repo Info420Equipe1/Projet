@@ -35,6 +35,7 @@ $(function(){
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
+                <div class="h_title" ><a href="/Interfaces/recherche.aspx">&#8250;Recherche</a></div>
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
 					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
