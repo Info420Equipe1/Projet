@@ -21,7 +21,7 @@
 					<input id="txtMotPasse" name="txtMotPasse" type="password" onpaste="return false;" oncopy="return false" oncut="return false" class="text" runat="server"/>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Mot de passe manquant*" ForeColor="Red" ControlToValidate="txtMotPasse"></asp:RequiredFieldValidator>
 					<div class="sep"></div>
-                    <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button>
+                    <asp:Button ID="btnConnexion" Text="Connexion" CssClass="btnDroit button add" runat="server"></asp:Button>
 				</form>
 			</div>
 		</div>
