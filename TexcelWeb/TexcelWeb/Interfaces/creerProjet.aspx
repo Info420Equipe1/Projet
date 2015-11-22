@@ -82,8 +82,7 @@ $(function(){
                                 <asp:TextBox runat="server" ID="txtDateCreationProjet" CssClass="txtColum1 txtDate" type="date" />     
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationProjet" Display="dynamic" Text="*" ForeColor="Red" />                                                                                                          
                                 <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1 lblDate" />
-                                <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateLivraisonProjet" Display="dynamic" Text="*" ForeColor="Red" />   
+                                <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />   
                             </div>
                             <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
                                 <ContentTemplate>
@@ -115,6 +114,12 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
+                    <div id="btnCopierEnregistrerAnnuler">
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
+                    </div>
+
                             <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
                                 <Columns>
                                     <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
@@ -148,11 +153,7 @@ $(function(){
 					
 					</div> 
 
-                    <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button"/>
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
-                    </div>
+                    
                 </form>
 			</div>
 		</div>  

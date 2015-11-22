@@ -49,13 +49,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
         
         /// <summary>
-        /// Contrôle updatePanelVersionJeu.
+        /// Contrôle updatePanelProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanelVersionJeu;
+        protected global::System.Web.UI.UpdatePanel updatePanelProjet;
         
         /// <summary>
         /// Contrôle lsbProjets.
@@ -67,13 +67,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.ListBox lsbProjets;
         
         /// <summary>
-        /// Contrôle updatePanel1.
+        /// Contrôle updatePanelEquipe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanel1;
+        protected global::System.Web.UI.UpdatePanel updatePanelEquipe;
         
         /// <summary>
         /// Contrôle lsbEquipes.
@@ -128,6 +128,15 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNbTesteurs;
+        
+        /// <summary>
+        /// Contrôle updatePanelCasTestProjet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelCasTestProjet;
         
         /// <summary>
         /// Contrôle lsbCasTestProjet.

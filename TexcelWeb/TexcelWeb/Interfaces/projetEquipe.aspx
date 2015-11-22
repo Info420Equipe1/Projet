@@ -56,7 +56,7 @@ $(function(){
                 <form id="frmProjetEquipe" runat="server">
                     <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="projetEquipe">
-                        <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
+                        <asp:UpdatePanel ID="updatePanelProjet" runat="server">
                             <ContentTemplate>
                                 <div>
                                     <asp:Label runat="server" Text="Mes projets" /><br />
@@ -66,46 +66,52 @@ $(function(){
                         </asp:UpdatePanel>
                         <br />
                         <div>
-                            <asp:UpdatePanel ID="updatePanel1" runat="server">
+                            <asp:UpdatePanel ID="updatePanelEquipe" runat="server">
                                 <ContentTemplate>
                                     <div style="float:left;height:185px">
                                         <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
                                         <asp:ListBox runat="server" ID="lsbEquipes" OnSelectedIndexChanged="lsbEquipes_SelectedIndexChanged" AutoPostBack="true" />
                                     </div>
-                                </ContentTemplate>
+                                
+                                    <div id="infoEquipe" style="float:left">
+                                        <div class="lblInfo">
+                                            <asp:Label runat="server" Text="Nom de l'équipe:" />
+                                            <asp:TextBox runat="server" ID="txtNomEquipe" CssClass="textBox" Enabled="false" /><br /><br />
+                                        </div>
+                                        <div class="lblInfo">
+                                            <asp:Label ID="lblChefEquipe" runat="server" Text="Chef d'équipe:" />
+                                            <asp:TextBox runat="server" ID="txtChefEquipe" CssClass="textBox" Enabled="false" /><br /><br />
+                                        </div>
+                                        <div class="lblInfo">
+                                            <asp:Label ID="lblNbTesteurs" runat="server" Text="Nb. Testeurs:" />
+                                            <asp:TextBox runat="server" ID="txtNbTesteurs" CssClass="textBox" Enabled="false" />
+                                        </div>
+                                    </div>
+                                    </ContentTemplate>
                             </asp:UpdatePanel>
-                            <div id="infoEquipe" style="float:left">
-                                <div class="lblInfo">
-                                    <asp:Label runat="server" Text="Nom de l'équipe:" />
-                                    <asp:TextBox runat="server" ID="txtNomEquipe" CssClass="textBox" Enabled="false" /><br /><br />
-                                </div>
-                                <div class="lblInfo">
-                                    <asp:Label ID="lblChefEquipe" runat="server" Text="Chef d'équipe:" />
-                                    <asp:TextBox runat="server" ID="txtChefEquipe" CssClass="textBox" Enabled="false" /><br /><br />
-                                </div>
-                                <div class="lblInfo">
-                                    <asp:Label ID="lblNbTesteurs" runat="server" Text="Nb. Testeurs:" />
-                                    <asp:TextBox runat="server" ID="txtNbTesteurs" CssClass="textBox" Enabled="false" />
-                                </div>
-                            </div>
                         </div>
                         <br />
-                        <div> 
-                            <div class="tableCell">
-                                <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
-                            </div>
-                            <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button btnFleches" OnClick="btnAllRight_Click" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnRight" Text=">" CssClass="button btnFleches" OnClick="btnRight_Click" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnLeft" Text="<" CssClass="button btnFleches" OnClick="btnLeft_Click" /><br /><br />
-                                <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button btnFleches" OnClick="btnAllLeft_Click" /> 
-                            </div>
-                            <div class="tableCell">
-                                <asp:Label runat="server" Text="Cas de test de l'équipe (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbCasTestEquipe" SelectionMode="Multiple" />
-                            </div>
-                        </div>
+                        <asp:UpdatePanel ID="updatePanelCasTestProjet" runat="server">
+                            <ContentTemplate>
+                                <div> 
+                                    <div class="tableCell">
+                                        <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
+                                        <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
+                                    </div>
+                                    <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
+                                        <asp:LinkButton runat="server" ID="btnAllRight" Text=">>" CssClass="button btnFleches" OnClick="btnAllRight_Click" /><br /><br />
+                                        <asp:LinkButton runat="server" ID="btnRight" Text=">" CssClass="button btnFleches" OnClick="btnRight_Click" /><br /><br />
+                                        <asp:LinkButton runat="server" ID="btnLeft" Text="<" CssClass="button btnFleches" OnClick="btnLeft_Click" /><br /><br />
+                                        <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button btnFleches" OnClick="btnAllLeft_Click" /> 
+                                    </div>
+                                    <div class="tableCell">
+                                        <asp:Label runat="server" Text="Cas de test de l'équipe (untel)" /><br />
+                                        <asp:ListBox runat="server" ID="lsbCasTestEquipe" SelectionMode="Multiple" />
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        
                     </div>
                     <br />
                     <div id="btnEnregistrerAnnuler">  

@@ -13,10 +13,14 @@ namespace TexcelWeb.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.noEmploye == id).First();
             return emp;
         }
+        public static int getIdEmploye(string _nomEmp)
+        {
+            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            return emp.noEmploye;
+        }
         public static List<Employe> getLstChefProjet()
         {
             List<Employe> lstChefProjet = new List<Employe>();
-            List<string> lstNomChefProjet = new List<string>();
 
             //Ajout dans la liste de tous les Employe qui ont comme groupe chef de Projet dans la BD
             foreach (Utilisateur user in context.tblUtilisateur)
@@ -25,32 +29,11 @@ namespace TexcelWeb.Classes.Personnel
 	            {
 		            if (groupe.idGroupe == 2)
                     {
-                        lstNomChefProjet.Add(user.noEmploye.ToString());
+                        Employe chefProjet = CtrlEmploye.getEmployeById(user.noEmploye);
+                        lstChefProjet.Add(chefProjet);
                     }
 	            }
                 
-            }
-            foreach (cProjet projet in context.tblProjet)
-            {
-                if (projet.chefProjet != null)
-                {
-                    Employe chefEquipe = CtrlEmploye.getEmployeById(projet.chefProjet);
-                    if (!lstNomChefProjet.Contains(chefEquipe.nomEmploye + ", " + chefEquipe.prenomEmploye))
-                    {
-                        lstNomChefProjet.Add(chefEquipe.nomEmploye + ", " + chefEquipe.prenomEmploye);
-                    }
-                }
-            }
-            foreach (Employe emp in context.tblEmploye)
-            {
-                foreach (string NomEmp in lstNomChefProjet)
-                {
-                    if (emp.noEmploye.ToString() == NomEmp)
-                    {
-                        lstChefProjet.Add(emp);
-                    }
-                }
-
             }
             return lstChefProjet;
         }

@@ -38,24 +38,10 @@ namespace TexcelWeb
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                     nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
                 }
-               
+
+                //Emplissage des DropDownList
+                fillDropDownBox();
                 
-
-                //DataGrid
-
-                //Emplissage du DropDownList Chef de Projet
-                txtChefProjet.Items.Clear();
-                foreach (Employe emp in CtrlEmploye.getLstChefProjet())
-                {
-                    txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
-                }
-
-                //Emplissage du DropDownList Jeux
-                txtJeuProjet.Items.Clear();
-                foreach (cJeu jeu in CtrlJeu.LstJeu())
-                {
-                    txtJeuProjet.Items.Add(jeu.nomJeu);
-                }
 
                 //Variable qui laisse savoir si on modifie ou on ajoute un projet
                 bool modifier = Convert.ToBoolean(Session["modifProjet"]);
@@ -75,6 +61,7 @@ namespace TexcelWeb
                 }
                 else
                 {
+                    
                     //Setup de la page pour la modification
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
@@ -85,80 +72,106 @@ namespace TexcelWeb
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
 
                     //Emplissage des champs avec le projet
-                    txtCodeProjet.Text = projet.codeProjet;
-                    txtNomProjet.Text = projet.nomProjet;
+                    fillFieldsWithProjet(projet);
 
-                    ListItem lst = new ListItem();
-                    if (projet.chefProjet != null)
-                    {
-                        Employe chefProjet = CtrlEmploye.getEmployeById(projet.chefProjet);
-                        lst.Text = chefProjet.nomEmploye + ", " + chefProjet.prenomEmploye;
-                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
-                    }
-                    else
-                    {
-                        txtChefProjet.ClearSelection();
-                    }
+                    //Emplissage du GridView pour les cas de test
+                    fillDataGridViewCasTest(projet);
 
-                    if (projet.dateCreation != null)
-                    {
-                        txtDateCreationProjet.Text = ((DateTime)projet.dateCreation).ToShortDateString();
-                    }
-                    if (projet.dateLivraison != null)
-                    {
-                        txtDateLivraisonProjet.Text = ((DateTime)projet.dateLivraison).ToShortDateString();
-                    }
 
-                    if (projet.VersionJeu != null)
-                    {
-                        lst = new ListItem();
-                        lst.Text = projet.VersionJeu.cJeu.nomJeu;
-                        txtJeuProjet.SelectedIndex = txtJeuProjet.Items.IndexOf(lst);
-
-                        lst = new ListItem();
-                        lst.Text = projet.VersionJeu.nomVersionJeu;
-                        txtVersionJeuProjet.Items.Add(lst);
-                        txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
-                    }
-                    else
-                    {
-                        txtJeuProjet.ClearSelection();
-                    }
                     
-                    rtxtDescriptionProjet.Text = projet.descProjet;
-                    rtxtObjectifProjet.Text = projet.objProjet;
-                    rtxtDiversProjet.Text = projet.divProjet;
-
-
-                    if (projet.CasTest.Count != 0)
-                    {
-                        //Nombre de page pour la table des cas de tests
-                        double page = (double)projet.CasTest.Count / 5;
-                        int nbPage = Convert.ToInt16(Math.Ceiling(page));
-
-                        //Savoir sil faut afficher plus d'une page dans la table
-                        if (nbPage < 2)
-                        {
-                            dataGridPagination.Visible = false;
-                            fillTableCasTest(0, projet.CasTest.ToList(), 1);
-                        }
-                        else
-                        {
-                            //Plus de 5 cas de test donc plusieur page de cas test
-                            //Index pour la liste des cas test
-                            indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
-
-                            //Pagination visible
-                            dataGridPagination.Visible = true;
-
-                            //Emplissage de la table
-                            fillTableCasTest(indexTableCasTest, projet.CasTest.ToList(), nbPage);
-                        }
-                    }
                 }
             }
         }
+        private void fillDataGridViewCasTest(cProjet projet)
+        {
+            if (projet.CasTest.Count != 0)
+            {
+                //Nombre de page pour la table des cas de tests
+                double page = (double)projet.CasTest.Count / 5;
+                int nbPage = Convert.ToInt16(Math.Ceiling(page));
 
+                //Savoir sil faut afficher plus d'une page dans la table
+                if (nbPage < 2)
+                {
+                    dataGridPagination.Visible = false;
+                    fillTableCasTest(0, projet.CasTest.ToList(), 1);
+                }
+                else
+                {
+                    //Plus de 5 cas de test donc plusieur page de cas test
+                    //Index pour la liste des cas test
+                    indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
+
+                    //Pagination visible
+                    dataGridPagination.Visible = true;
+
+                    //Emplissage de la table
+                    fillTableCasTest(indexTableCasTest, projet.CasTest.ToList(), nbPage);
+                }
+            }
+        }
+        private void fillFieldsWithProjet(cProjet projet)
+        {
+            txtCodeProjet.Text = projet.codeProjet;
+            txtNomProjet.Text = projet.nomProjet;
+
+            ListItem lst = new ListItem();
+            if (projet.chefProjet != null)
+            {
+                Employe chefProjet = CtrlEmploye.getEmployeById(projet.chefProjet);
+                lst.Text = chefProjet.prenomEmploye + " " + chefProjet.nomEmploye;
+                txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+            }
+            else
+            {
+                txtChefProjet.ClearSelection();
+            }
+
+            if (projet.dateCreation != null)
+            {
+                txtDateCreationProjet.Text = ((DateTime)projet.dateCreation).ToShortDateString();
+            }
+            if (projet.dateLivraison != null)
+            {
+                txtDateLivraisonProjet.Text = ((DateTime)projet.dateLivraison).ToShortDateString();
+            }
+
+            if (projet.VersionJeu != null)
+            {
+                lst = new ListItem();
+                lst.Text = projet.VersionJeu.cJeu.nomJeu;
+                txtJeuProjet.SelectedIndex = txtJeuProjet.Items.IndexOf(lst);
+
+                lst = new ListItem();
+                lst.Text = projet.VersionJeu.nomVersionJeu;
+                txtVersionJeuProjet.Items.Add(lst);
+                txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
+            }
+            else
+            {
+                txtJeuProjet.ClearSelection();
+            }
+
+            rtxtDescriptionProjet.Text = projet.descProjet;
+            rtxtObjectifProjet.Text = projet.objProjet;
+            rtxtDiversProjet.Text = projet.divProjet;
+        }
+        private void fillDropDownBox()
+        {
+            //Emplissage du DropDownList Chef de Projet
+            txtChefProjet.Items.Clear();
+            foreach (Employe emp in CtrlEmploye.getLstChefProjet())
+            {
+                txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
+            }
+
+            //Emplissage du DropDownList Jeux
+            txtJeuProjet.Items.Clear();
+            foreach (cJeu jeu in CtrlJeu.LstJeu())
+            {
+                txtJeuProjet.Items.Add(jeu.nomJeu);
+            }
+        }
         private void fillTableCasTest(int index, List<CasTest> lstCasTest, int nbPage)
         {
             int nuCasTest;
@@ -214,51 +227,32 @@ namespace TexcelWeb
             dt.Columns.Add("PrioriteCasTest");
             dt.Columns.Add("DifficulteCasTest");
             dt.Columns.Add("OptionsCasTest");
-            int cpt = 0;
+
             foreach (CasTest casTest in lstCasTest)
             {
-                cpt++;
                 DataRow dr = dt.NewRow();
-                for (int i = 0; i < 5; i++)
+
+                dr.SetField("CodeCasTest", casTest.codeCasTest);
+                dr.SetField("NomCasTest", casTest.nomCasTest);
+                if (casTest.dateLivraison != null)
                 {
-                    switch (i)
-                    {
-                        case 0:
-                            dr.SetField("CodeCasTest", casTest.codeCasTest);
-                            break;
-                        case 1:
-                            dr.SetField("NomCasTest", casTest.nomCasTest);
-                            break;
-                        case 2:
-                            if (casTest.dateLivraison != null)
-                            {
-                                dr.SetField("DateLivraisonCasTest", ((DateTime)casTest.dateLivraison).ToShortDateString());
-                            }
-                            break;
-                        case 3:
-                            if (casTest.NiveauPriorite != null)
-                            {
-                                dr.SetField("PrioriteCasTest", casTest.NiveauPriorite.nomNivPri);
-                            }
-                            else
-                            {
-                                dr.SetField("PrioriteCasTest", "");
-                            }
-                            break;
-                        case 4:
-                            if (casTest.Difficulte != null)
-                            {
-                                dr.SetField("DifficulteCasTest", casTest.Difficulte.nomDiff);
-                            }
-                            else
-                            {
-                                dr.SetField("DifficulteCasTest", "");
-                            }
-                            break;
-                        
-                        default:
-                            break;
-                    }
+                    dr.SetField("DateLivraisonCasTest", ((DateTime)casTest.dateLivraison).ToShortDateString());
+                }
+                if (casTest.NiveauPriorite != null)
+                {
+                    dr.SetField("PrioriteCasTest", casTest.NiveauPriorite.nomNivPri);
+                }
+                else
+                {
+                    dr.SetField("PrioriteCasTest", "");
+                }
+                if (casTest.Difficulte != null)
+                {
+                    dr.SetField("DifficulteCasTest", casTest.Difficulte.nomDiff);
+                }
+                else
+                {
+                    dr.SetField("DifficulteCasTest", "");
                 }
                 dt.Rows.Add(dr);
             }
@@ -284,17 +278,19 @@ namespace TexcelWeb
             string descProjet = String.Format("{0}", Request.Form["rtxtDescriptionProjet"]);
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
             string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
+
+            int idChefProjet = CtrlEmploye.getIdEmploye(chefProjet);
             
             if (!modifierProjet)
             {
                 //Ajout du projet dans la Base de Données
-                string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, Convert.ToInt32(chefProjet), dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, idChefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
                 Response.Write("<script type=\"text/javascript\">alert('"+message+"');</script>");
             }
             else
             {
                 //Modification du Projet
-                string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, Convert.ToInt32(chefProjet), dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
+                string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, idChefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
                 Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
             }
         }
