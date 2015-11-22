@@ -93,8 +93,7 @@ $(function(){
                                     </div>
                                     <div class="info">
                                         <asp:Label runat="server" Text="Version du jeu: " CssClass="lblColum1"/>
-                                        <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" />
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtVersionJeuProjet" Display="dynamic" Text="*" ForeColor="Red" />   
+                                        <asp:DropDownList runat="server" ID="txtVersionJeuProjet" CssClass="txtColum1 txtDate1" style="width:71.5%" /> 
                                     </div>
                                 </ContentTemplate>
                                 <Triggers>

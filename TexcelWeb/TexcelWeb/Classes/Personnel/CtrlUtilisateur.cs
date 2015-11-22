@@ -48,6 +48,7 @@ namespace TexcelWeb.Classes.Personnel
             return uti;
         }
 
+        //Retourne la longueur d'un champs
         public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
            where TEntity : Utilisateur
         {

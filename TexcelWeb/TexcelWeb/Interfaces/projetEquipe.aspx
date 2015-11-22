@@ -47,7 +47,7 @@ $(function(){
 			<div class="box">
 				<div class="h_title">&#8250; Cas de tests</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="#">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
         </div>

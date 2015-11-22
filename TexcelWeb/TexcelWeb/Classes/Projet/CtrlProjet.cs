@@ -22,22 +22,29 @@ namespace TexcelWeb.Classes.Projet
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
             projet.dateCreation = (Convert.ToDateTime(dateCreationProjet)).Date;
-            projet.dateLivraison = (Convert.ToDateTime(dateLivraisonProjet)).Date;
-            VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
-            projet.VersionJeu = version;
+            if (dateLivraisonProjet != "")
+            {
+                projet.dateLivraison = (Convert.ToDateTime(dateLivraisonProjet)).Date;
+            }
+            if (versionJeuProjet != "")
+            {
+                VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
+                projet.VersionJeu = version;
+                projet.idVersion = version.idVersionJeu;
+            }
             projet.descProjet = descProjet;
             projet.objProjet = objProjet;
             projet.divProjet = DiversProjet;
-            projet.idVersion = version.idVersionJeu;
+            
 
             try
             {
                 Enregistrer(projet);
-                return "Le projet a été ajouté avec succès!";
+                return "projetajoute";
             }
             catch (Exception)
             {
-                return "Une erreur est survenue lors de la création du Projet. Les données n'ont pas été enregistrées.";
+                return "erreur";
             }
         }
         private static void Enregistrer(cProjet _projet)
@@ -64,11 +71,11 @@ namespace TexcelWeb.Classes.Projet
             try
             {
                 context.SaveChanges();
-                return "Le projet a été modifié avec succès!";
+                return "projetmodifier";
             }
             catch (Exception)
             {
-                return "Une erreur est survenue lors de la modification du Projet. Les données n'ont pas été enregistrées.";
+                return "erreur";
             }
         }
 
@@ -119,6 +126,8 @@ namespace TexcelWeb.Classes.Projet
             return proj;
         }
 
+
+        //Retourne la longueur d'un champs
         public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
            where TEntity : cProjet
         {

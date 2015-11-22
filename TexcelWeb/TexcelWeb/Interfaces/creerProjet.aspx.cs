@@ -288,13 +288,35 @@ namespace TexcelWeb
             {
                 //Ajout du projet dans la Base de Données
                 string message = CtrlProjet.AjouterProjet(codeProjet, nomProjet, idChefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-                Response.Write("<script type=\"text/javascript\">alert('"+message+"');</script>");
+                switch (message)
+                {
+                    case "projetajoute":
+                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été ajouté avec succès.');</script>");
+                        Session["modifProjet"] = false;
+                        break;
+                    case "erreur":
+                        Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la création du projet.');</script>");
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
                 //Modification du Projet
                 string message = CtrlProjet.ModifierProjet(codeProjet, nomProjet, idChefProjet, dateCreationProjet, dateLivraisonProjet, versionJeuProjet, descProjet, objProjet, DiversProjet);
-                Response.Write("<script type=\"text/javascript\">alert('" + message + "');</script>");
+                switch (message)
+                {
+                    case "projetmodifier":
+                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été modifié avec succès.');</script>");
+                        Session["modifProjet"] = false;
+                        break;
+                    case "erreur":
+                        Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la modification du projet.');</script>");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
