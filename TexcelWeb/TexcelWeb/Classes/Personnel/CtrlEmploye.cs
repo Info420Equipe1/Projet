@@ -25,7 +25,7 @@ namespace TexcelWeb.Classes.Personnel
 	            {
 		            if (groupe.idGroupe == 2)
                     {
-                        lstNomChefProjet.Add(user.Employe.prenomEmploye + " " + user.Employe.nomEmploye);
+                        lstNomChefProjet.Add(user.noEmploye.ToString());
                     }
 	            }
                 
@@ -45,7 +45,7 @@ namespace TexcelWeb.Classes.Personnel
             {
                 foreach (string NomEmp in lstNomChefProjet)
                 {
-                    if (emp.prenomEmploye + " " + emp.nomEmploye == NomEmp)
+                    if (emp.noEmploye.ToString() == NomEmp)
                     {
                         lstChefProjet.Add(emp);
                     }

@@ -54,17 +54,26 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title">Gérer les équipes des projets</div>
                 <form id="frmProjetEquipe" runat="server">
+                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="projetEquipe">
-                        <div>
-                            <asp:Label runat="server" Text="Mes projets" /><br />
-                            <asp:ListBox runat="server" ID="lsbProjets" OnSelectedIndexChanged="lsbProjets_SelectedIndexChanged" AutoPostBack="true" />
-                        </div>
+                        <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
+                            <ContentTemplate>
+                                <div>
+                                    <asp:Label runat="server" Text="Mes projets" /><br />
+                                    <asp:ListBox runat="server" ID="lsbProjets" OnSelectedIndexChanged="lsbProjets_SelectedIndexChanged" AutoPostBack="true" />
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                         <br />
                         <div>
-                            <div style="float:left;height:185px">
-                                <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
-                                <asp:ListBox runat="server" ID="lsbEquipes" OnSelectedIndexChanged="lsbEquipes_SelectedIndexChanged" AutoPostBack="true" />
-                            </div>
+                            <asp:UpdatePanel ID="updatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <div style="float:left;height:185px">
+                                        <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
+                                        <asp:ListBox runat="server" ID="lsbEquipes" OnSelectedIndexChanged="lsbEquipes_SelectedIndexChanged" AutoPostBack="true" />
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                             <div id="infoEquipe" style="float:left">
                                 <div class="lblInfo">
                                     <asp:Label runat="server" Text="Nom de l'équipe:" />

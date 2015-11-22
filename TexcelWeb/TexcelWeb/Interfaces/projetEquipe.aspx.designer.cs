@@ -40,6 +40,24 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmProjetEquipe;
         
         /// <summary>
+        /// Contrôle ToolkitScriptManager.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
+        
+        /// <summary>
+        /// Contrôle updatePanelVersionJeu.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelVersionJeu;
+        
+        /// <summary>
         /// Contrôle lsbProjets.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lsbProjets;
+        
+        /// <summary>
+        /// Contrôle updatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanel1;
         
         /// <summary>
         /// Contrôle lsbEquipes.
