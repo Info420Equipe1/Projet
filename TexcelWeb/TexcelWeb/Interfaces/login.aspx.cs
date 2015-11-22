@@ -14,6 +14,7 @@ namespace TexcelWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             btnConnexion.Click += btnConnexion_Click;
+            setFieldLength();
         }
 
         void btnConnexion_Click(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace TexcelWeb
                 case "changermotdepasse":
                     Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
                     this.Form.Dispose();
-                    Response.Redirect("renouvPassword.aspx");
+                    Response.Redirect("/Interfaces/renouvPassword.aspx");
                     break;
 
                 case "motdepasseincorrect":
@@ -48,6 +49,14 @@ namespace TexcelWeb
                     Response.Write("<script type=\"text/javascript\">alert('Error 404, File not found');</script>");
                     break;
             }
+        }
+
+        private void setFieldLength()
+        {
+            int maxLengthNomUtilisateur = CtrlUtilisateur.GetMaxLength<Utilisateur>(user => user.nomUtilisateur);
+            int maxLengthMotPasse = CtrlUtilisateur.GetMaxLength<Utilisateur>(user => user.motPasse);
+            txtNomUtilisateur.MaxLength = maxLengthNomUtilisateur;
+            txtMotPasse.MaxLength = maxLengthMotPasse;
         }
     }
 }

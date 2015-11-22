@@ -12,7 +12,7 @@ namespace TexcelWeb.Interfaces
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            setFieldLength();
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
@@ -23,12 +23,19 @@ namespace TexcelWeb.Interfaces
             {
                 CtrlUtilisateur.ModifMotDePasse(uti, txtMotPasse.Text);
                 this.Form.Dispose();
-                Response.Redirect("login.aspx");
+                CtrlUtilisateur.SetCurrentUser(uti);
+                Response.Redirect("/Interfaces/recherche.aspx");
             }
             catch(Exception)
             {
                 Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
             }
+        }
+        private void setFieldLength()
+        {
+            int maxLengthPassword = CtrlUtilisateur.GetMaxLength<Utilisateur>(user => user.motPasse);
+            txtMotPasse.MaxLength = maxLengthPassword;
+            txtMotPasse2.MaxLength = maxLengthPassword;
         }
     }
 }

@@ -18,7 +18,7 @@
                     <input id="txtNomUtilisateur" name="txtNomUtilisateur" class="text" runat="server"/>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Nom d'utilisateur manquant*" ForeColor="Red" ControlToValidate="txtNomUtilisateur"></asp:RequiredFieldValidator>
 					<label for="pass">Password:</label>
-					<input id="txtMotPasse" name="txtMotPasse" type="password" class="text" runat="server"/>
+					<input id="txtMotPasse" name="txtMotPasse" type="password" onpaste="return false;" oncopy="return false" oncut="return false" class="text" runat="server"/>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Mot de passe manquant*" ForeColor="Red" ControlToValidate="txtMotPasse"></asp:RequiredFieldValidator>
 					<div class="sep"></div>
                     <asp:Button ID="btnConnexion" Text="Connexion" runat="server"></asp:Button>
