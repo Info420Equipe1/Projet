@@ -7,19 +7,19 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace TexcelWeb {
+namespace TexcelWeb.Interfaces {
     
     
-    public partial class login {
+    public partial class renouvPassword {
         
         /// <summary>
-        /// Contrôle txtNomUtilisateur.
+        /// Contrôle txtMotPasse.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomUtilisateur;
+        protected global::System.Web.UI.WebControls.TextBox txtMotPasse;
         
         /// <summary>
         /// Contrôle RequiredFieldValidator1.
@@ -31,13 +31,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Contrôle txtMotPasse.
+        /// Contrôle txtMotPasse2.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtMotPasse;
+        protected global::System.Web.UI.WebControls.TextBox txtMotPasse2;
         
         /// <summary>
         /// Contrôle RequiredFieldValidator2.
@@ -49,12 +49,21 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Contrôle btnConnexion.
+        /// Contrôle CompareValidator1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConnexion;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// Contrôle btnEnregistrer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEnregistrer;
     }
 }

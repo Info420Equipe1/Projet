@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes
 {
@@ -14,8 +15,16 @@ namespace TexcelWeb.Classes
                 Utilisateur user = context.tblUtilisateur.Where(x => x.nomUtilisateur == _username).First();
                 if (user.motPasse == _password)
                 {
-                    CtrlController.SetCurrentUser(user);
-                    return "Connexion réussie!";
+                    if ((CtrlUtilisateur.VerifPremiereConn(user)) || (CtrlUtilisateur.VerifApres6Mois(user)))
+                    {
+                        return "Vous devez changer de mot de passe";
+                    }
+                    else
+                    {
+                        CtrlController.SetCurrentUser(user);
+                        return "Connexion réussie";
+
+                    }
                 }
                 else
                 {

@@ -12,41 +12,36 @@ namespace TexcelWeb
     public partial class login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {    
+        {
             btnConnexion.Click += btnConnexion_Click;
         }
 
         void btnConnexion_Click(object sender, EventArgs e)
         {
-            if (String.Format("{0}", Request.Form["txtNomUtilisateur"]) != null)
+            string nomUtilisateur = String.Format("{0}", Request.Form["txtNomUtilisateur"]);
+            string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
+            string mess = CtrlLogin.VerifierLogin(nomUtilisateur, motPasse);
+            if (mess.Contains("Connexion réussie"))
             {
-                if (String.Format("{0}", Request.Form["txtMotPasse"]) != null)
-                {
-                    string nomUtilisateur = String.Format("{0}", Request.Form["txtNomUtilisateur"]);
-                    string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
-                    if (CtrlLogin.VerifierLogin(nomUtilisateur, motPasse).Contains("Connexion réussie!"))
-                    {
-                        //Connexion Réussi
-                        this.Form.Dispose();
-                        Session["modifProjet"] = true;
-                        Session["modifCodeProjet"] = "GHWT";
-                        //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
-                        HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
-                    }
-                    else
-                    {
-                        //Connexion Échouée
-                    }
-                }
-                else
-                {
-                    //Aucun texte dans le mot de passe
-                }
+                //Connexion Réussi
+                this.Form.Dispose();
+                Session["modifProjet"] = true;
+                Session["modifCodeProjet"] = "GHWT";
+                //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
+                HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
+            }
+            else if (mess.Contains("Vous devez changer de mot de passe"))
+            {
+                Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
+                this.Form.Dispose();
+                Response.Redirect("renouvPassword.aspx");
             }
             else
             {
-                //Aucun texte dans le nom utilisateur
+                Response.Write("<script type=\"text/javascript\">alert('Connection échoué');</script>");
             }
+
+
         }
     }
 }
