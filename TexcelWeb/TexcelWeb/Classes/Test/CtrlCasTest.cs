@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using TexcelWeb.Classes.Test;
 using System.IO;
+using System.Linq.Expressions;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace TexcelWeb.Classes.Test
 {
@@ -102,7 +106,44 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
+        public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
+           where TEntity : CasTest
+        {
+            var adapter = (IObjectContextAdapter)context;
+            ObjectContext objectContext = adapter.ObjectContext;
 
+            var test = objectContext.MetadataWorkspace.GetItems(DataSpace.CSpace);
+
+            if (test == null)
+                return -1;
+
+            Type entType = typeof(TEntity);
+            string propertyName = ((MemberExpression)property.Body).Member.Name;
+
+            var q = test
+                .Where(m => m.BuiltInTypeKind == BuiltInTypeKind.EntityType)
+                .SelectMany(meta => ((EntityType)meta).Properties
+                .Where(p => p.Name == propertyName && p.TypeUsage.EdmType.Name == "String"));
+
+            var queryResult = q.Where(p =>
+            {
+                var match = p.DeclaringType.Name == entType.Name;
+                if (!match)
+                    match = entType.Name == p.DeclaringType.Name;
+
+                return match;
+
+            })
+                .Select(sel => sel.TypeUsage.Facets["MaxLength"].Value)
+                .ToList();
+
+            if (queryResult.Any())
+            {
+                int result = Convert.ToInt32(queryResult.First());
+                return result;
+            }
+            return -1;
+        }
 
 
 

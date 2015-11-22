@@ -11,6 +11,7 @@ using TexcelWeb.Classes;
 using System.Web.UI.HtmlControls;
 using TexcelWeb.Classes.Projet;
 using System.Data;
+using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace TexcelWeb
 {
@@ -23,8 +24,10 @@ namespace TexcelWeb
             
             if (!IsPostBack)
             {
-                
+                //Longueur des champs
+                setFieldLength();
                 string nomChefProjet = "";
+
                 //Premier loading de la page
                 if (CtrlController.GetCurrentUser() == null)
                 {
@@ -315,9 +318,16 @@ namespace TexcelWeb
             }
         }
 
+        private void setFieldLength()
+        {
+            int maxLengthCodeProjet = CtrlProjet.GetMaxLength<cProjet>(cProjet => cProjet.codeProjet);
+            int maxLengthNomProjet = CtrlProjet.GetMaxLength<cProjet>(cProjet => cProjet.nomProjet);
+            txtCodeProjet.MaxLength = maxLengthCodeProjet;
+            txtNomProjet.MaxLength = maxLengthNomProjet;
+        }
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Interface/recherche.aspx");
         }
 
 

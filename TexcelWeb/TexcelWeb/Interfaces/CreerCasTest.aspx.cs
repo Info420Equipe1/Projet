@@ -33,6 +33,9 @@ namespace TexcelWeb
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             }
 
+            //Longueur des champs
+            setFieldLength();
+
             modif = false;
             if (!Page.IsPostBack)
             {
@@ -214,6 +217,13 @@ namespace TexcelWeb
             }
            
            
+        }
+        private void setFieldLength()
+        {
+            int maxLengthCodeCasTest = CtrlCasTest.GetMaxLength<CasTest>(CasTest => CasTest.codeCasTest);
+            int maxLengthNomCasTest = CtrlCasTest.GetMaxLength<CasTest>(CasTest => CasTest.nomCasTest);
+            txtCodeCasTest.MaxLength = maxLengthCodeCasTest;
+            txtNomCasTest.MaxLength = maxLengthNomCasTest;
         }
         protected void ChargerDropDownList()
         {
