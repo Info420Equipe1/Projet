@@ -21,25 +21,33 @@ namespace TexcelWeb
             string nomUtilisateur = String.Format("{0}", Request.Form["txtNomUtilisateur"]);
             string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
             string mess = CtrlLogin.VerifierLogin(nomUtilisateur, motPasse);
-            if (mess.Contains("Connexion réussie"))
+            switch (mess)
             {
-                //Connexion Réussi
-                this.Form.Dispose();
-                //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
-                HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
-            }
-            else if (mess.Contains("Vous devez changer de mot de passe"))
-            {
-                Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
-                this.Form.Dispose();
-                Response.Redirect("renouvPassword.aspx");
-            }
-            else
-            {
-                Response.Write("<script type=\"text/javascript\">alert('Connection échoué');</script>");
-            }
+                case "connexionreussie":
+                    //Connexion Réussi
+                    this.Form.Dispose();
+                    //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
+                    HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
+                    break;
 
+                case "changermotdepasse":
+                    Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
+                    this.Form.Dispose();
+                    Response.Redirect("renouvPassword.aspx");
+                    break;
 
+                case "motdepasseincorrect":
+                    Response.Write("<script type=\"text/javascript\">alert('Le mot de passe ne correspond pas');</script>");
+                    break;
+
+                case "utilisateurinexistant":
+                    Response.Write("<script type=\"text/javascript\">alert('L'utilisateur n'existe pas');</script>");
+                    break;
+
+                default:
+                    Response.Write("<script type=\"text/javascript\">alert('Error 404, File not found');</script>");
+                    break;
+            }
         }
     }
 }

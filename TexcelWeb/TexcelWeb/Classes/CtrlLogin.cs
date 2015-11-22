@@ -17,23 +17,23 @@ namespace TexcelWeb.Classes
                 {
                     if ((CtrlUtilisateur.VerifPremiereConn(user)) || (CtrlUtilisateur.VerifApres6Mois(user)))
                     {
-                        return "Vous devez changer de mot de passe";
+                        return "changermotdepasse";
                     }
                     else
                     {
                         CtrlController.SetCurrentUser(user);
-                        return "Connexion réussie";
+                        return "connexionreussie";
 
                     }
                 }
                 else
                 {
-                    return "Connexion échouée! Le mot de passe ne correspond pas.";
+                    return "motdepasseincorrect";
                 }
             }
             catch (Exception)
             {
-                return "Connexion échouée! L'utilisateur n'existe pas.";
+                return "utilisateurinexistant";
             }
         }
     }
