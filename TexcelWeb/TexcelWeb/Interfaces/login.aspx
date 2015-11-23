@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Texcel - Connexion</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/login.css" media="screen" />
 </head>
 <body>
@@ -13,6 +14,7 @@
 	<div id="content">
 		<div id="main">
 			<div class="full_w">
+                <img id="logo" src="../img/logo_texcel.png" />
 				<form runat="server" action="#" method="post">
 					<label for="login">Nom d'utilisateur:</label>
                     <input id="txtNomUtilisateur" name="txtNomUtilisateur" class="text" runat="server"/>
@@ -20,8 +22,7 @@
 					<label for="pass">Mot de passe:</label>
 					<input id="txtMotPasse" name="txtMotPasse" type="password" onpaste="return false;" oncopy="return false" oncut="return false" class="text" runat="server"/>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Mot de passe manquant*" ForeColor="Red" ControlToValidate="txtMotPasse"></asp:RequiredFieldValidator>
-					<div class="sep"></div>
-                    <asp:Button ID="btnConnexion" Text="Connexion" CssClass="btnDroit button add" runat="server"></asp:Button>
+                    <asp:Button ID="btnConnexion" Text="Connexion" CssClass="btnDroit button" runat="server"></asp:Button>
 				</form>
 			</div>
 		</div>
