@@ -11,10 +11,11 @@
     display:inline-block;
     vertical-align:top;
     margin-top:5px;
+    height: 236px;
 }
 
 #CasTestDesc{
-    width: 75%;
+    width: 45%;
     display:inline-block;
     vertical-align:top;
 }
@@ -22,10 +23,11 @@
 #CasTestDiv{
     width:49%;
     display:inline-block;
+    height: 178px;
 }
 
 #lblColumn1{
-    width: 73%;
+    width: 42%;
     display:inline-block;
 }
 
@@ -61,11 +63,11 @@
 .info{
     margin-top:5px;
     margin-bottom:5px;
+    width: 423px;
 }
 
 .richtextbox{
-    width: 505px;
-    }
+}
 
 .button{
     width:100px;

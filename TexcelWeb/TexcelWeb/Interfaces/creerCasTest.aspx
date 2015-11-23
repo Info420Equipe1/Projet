@@ -141,10 +141,16 @@ $(function(){
                             </div>
                         </div>  
                         <div id="CasTestObj">
+                             <asp:Label runat="server" Text="Objectif: " />
+                            <asp:TextBox runat="server" ID="rtxtObjectifProjet" TextMode="MultiLine" CssClass="richtextbox" Height="201px" Width="430px"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="156px" Width="763px"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="156px" Width="439px"/>
+                        </div>
+                        <div id="CasTestDiv">
+                            <asp:Label runat="server" Text="Divers: "/>
+                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox" Height="146px" Width="428px"/>
                         </div>
                     </div>
                     <!-- <div class="element">
@@ -260,12 +266,12 @@ $(function(){
         <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
         <asp:TemplateField>
             <ItemTemplate>
-                <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" />
+                <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server"  />
+                <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

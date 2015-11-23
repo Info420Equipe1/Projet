@@ -260,9 +260,26 @@ namespace TexcelWeb
             casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
-            //Response.Redirect(Request.Url.AbsoluteUri);
-            Session["casTest"] = casTest;
-            Response.Redirect("creerCasTest.aspx?codeCasTest="+casTest.codeCasTest);
+            Response.Redirect(Request.Url.AbsoluteUri);
+
+        }
+
+        protected void lnkDelete_Click(object sender, EventArgs e)
+        {
+            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
+            File.Delete(filePath);
+            Response.Redirect(Request.Url.AbsoluteUri);
+        }
+
+        protected void lnkDownload_Click(object sender, EventArgs e)
+        {
+            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
+            Response.ContentType = ContentType;
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
+            Response.WriteFile(filePath);
+            Response.End();
         }
 
        
