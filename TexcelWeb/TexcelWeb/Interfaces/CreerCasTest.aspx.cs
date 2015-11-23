@@ -64,7 +64,7 @@ namespace TexcelWeb
                     RemplirChamps(casTest);
                     Titre.InnerText = "Modifier un cas de test";
                     Fichiers(casTest);
-
+                    Session["casTest"] = null;
                 }
                 else
                 {
@@ -189,7 +189,7 @@ namespace TexcelWeb
             cProjet proj = CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"]));
             Difficulte diff = null;
             NiveauPriorite nivPri = null;
-            TypeTest typTest = null;
+            TypeTest typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
 
           
             if (String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]) != "Aucun")
@@ -202,10 +202,10 @@ namespace TexcelWeb
                 nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
             }
 
-            if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
-            {
-                typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
-            }
+            //if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
+            //{
+            //    typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
+            //}
             if (!modif)
             {
                 if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
@@ -223,7 +223,7 @@ namespace TexcelWeb
                 if (CtrlCasTest.Modifier(txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text, casTest))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
-                    Session["casTest"] = null;
+                    
                     RemplirChamps(casTest);
                 }
                 else
@@ -245,7 +245,7 @@ namespace TexcelWeb
         {
             dropDownProjet.Items.Clear();
             dropDownTypeTestCasTest.Items.Clear();
-            dropDownTypeTestCasTest.Items.Add("Aucun");
+            //dropDownTypeTestCasTest.Items.Add("Aucun");
             dropDownDifficulteCasTest.Items.Clear();
             dropDownDifficulteCasTest.Items.Add("Aucun");
             dropDownPrioritéCasTest.Items.Clear();
@@ -297,8 +297,9 @@ namespace TexcelWeb
             CasTest casTest = (CasTest)Session["CasTestFichier"];
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
+            Session["casTest"] = casTest;
             Response.Redirect(Request.Url.AbsoluteUri);
-
+            
         }
 
         protected void lnkDelete_Click(object sender, EventArgs e)
@@ -306,6 +307,7 @@ namespace TexcelWeb
             CasTest casTest = (CasTest)Session["CasTestFichier"];
             string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             File.Delete(filePath);
+            Session["casTest"] = casTest;
             Response.Redirect(Request.Url.AbsoluteUri);
         }
 
@@ -327,7 +329,6 @@ namespace TexcelWeb
             dropDownPrioritéCasTest.Text = "Aucun";
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
             txtDateLivraisonCasTest.Text = "";
-            dropDownTypeTestCasTest.Text = "Aucun";
             rtxtDescriptionCasTest.Text = "";
 
         }
