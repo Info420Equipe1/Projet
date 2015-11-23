@@ -21,7 +21,7 @@ namespace Texcel.Classes.Personnel
             emp.numTelSecondaire = _TelSecEmp;
             emp.dateEmbauche = _dateEmbEmp;
             emp.competenceParticuliere = _compPart;
-      try
+            try
             {
                 context.tblEmploye.Add(emp);
                 context.SaveChanges();
