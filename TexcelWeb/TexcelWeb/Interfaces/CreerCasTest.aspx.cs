@@ -16,70 +16,16 @@ namespace TexcelWeb
 {
     public partial class CreerCasTest : System.Web.UI.Page
     {
-<<<<<<< HEAD
-        bool modif;
-        CasTest casTest;
-      
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //Premier loading de la page
-            if (CtrlController.GetCurrentUser() == null)
-            {
-                //Not logged in
-                Response.Redirect("login.aspx");
-            }
-            else
-            {
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                Utilisateur currentUser = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-            }
-
-            //Longueur des champs
-            setFieldLength();
-
-            modif = false;
-=======
         static bool modif;
 
         protected void Page_Load(object sender, EventArgs e)
         {
->>>>>>> origin/sprint3
             if (!Page.IsPostBack)
             {
                 CasTest casTest;
                 //Premier loading de la page
                 if (CtrlController.GetCurrentUser() == null)
                 {
-<<<<<<< HEAD
-                    casTest = CtrlCasTest.GetCasTestByCode(codeCasTest);
-                    Session["casTest"] = casTest;
-                    modif = true;
-                }
-            }
-            
-            ChargerDropDownList();
-            btnEnregistrer.Text = "Enregistrer";
-            txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
-
-            //Mode modifier
-            if (Session["casTest"] != null)
-            {
-                btnEnregistrer.Text = "Modifier";
-                modif = true;
-                casTest = (CasTest)Session["casTest"];
-                txtNomCasTest.Text = casTest.nomCasTest;
-                txtCodeCasTest.Text = casTest.codeCasTest;
-                dropDownProjet.Text = casTest.cProjet.nomProjet;
-                try
-                {
-                    dropDownDifficulteCasTest.Text = casTest.Difficulte.nomDiff;
-                    dropDownPrioritéCasTest.Text = casTest.NiveauPriorite.nomNivPri;
-                    dropDownTypeTestCasTest.Text = casTest.TypeTest.nomTest;
-                }
-                catch(Exception)
-                { }
-=======
                     //Not logged in
                     Response.Redirect("login.aspx");
                 }
@@ -92,10 +38,6 @@ namespace TexcelWeb
 
                 //Longueur des champs
                 setFieldLength();
-
-
->>>>>>> origin/sprint3
-
                 Session["modifProjet"] = false;
                 string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
                 if (codeCasTest != "")
@@ -252,11 +194,8 @@ namespace TexcelWeb
             }
             else
             {
-<<<<<<< HEAD
                 if (CtrlCasTest.Modifier(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text, casTest))
-=======
                 if (CtrlCasTest.Modifier(txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, casTest))
->>>>>>> origin/sprint3
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
                     Session["casTest"] = null;
@@ -352,9 +291,6 @@ namespace TexcelWeb
             Response.End();
         }
 
-<<<<<<< HEAD
-       
-=======
         public void ViderChamps()
         {
             txtCodeCasTest.Text = "";
@@ -420,6 +356,5 @@ namespace TexcelWeb
             }
             rtxtDescriptionCasTest.Text = casTest.descCasTest;
         }
->>>>>>> origin/sprint3
     }
 }
