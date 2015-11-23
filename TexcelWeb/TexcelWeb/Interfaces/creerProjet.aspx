@@ -57,7 +57,7 @@ $(function(){
 		</div>
 	    <div id="main">
 			<div class="full_w">
-				<div class="h_title">Créer un projet</div>
+				<div id="txtForm" runat="server" class="h_title">Créer un projet</div>
                 <form id="FrmProjet" runat="server">
                     <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="ProjetInfo">
@@ -115,7 +115,7 @@ $(function(){
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click"/>
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CausesValidation="false" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>
                     <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">

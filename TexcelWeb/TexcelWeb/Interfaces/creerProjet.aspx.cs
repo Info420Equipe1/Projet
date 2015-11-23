@@ -49,6 +49,7 @@ namespace TexcelWeb
                 bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                 if (!modifier)
                 {
+                    txtForm.InnerText = "Créer un projet";
                     ListItem lst;
                     btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
@@ -70,7 +71,7 @@ namespace TexcelWeb
                 }
                 else
                 {
-                    
+                    txtForm.InnerText = "Modifier un projet";
                     //Setup de la page pour la modification
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
@@ -387,6 +388,7 @@ namespace TexcelWeb
         }
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
+            Session["modifProjet"] = false;
             Response.Redirect("/Interfaces/recherche.aspx");
         }
 
