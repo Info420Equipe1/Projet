@@ -69,6 +69,9 @@ namespace TexcelWeb
                 else
                 {
                     modif = false;
+                    btnCopier.Visible = false;
+                    FileUpload1.Visible = false;
+                    btnUpload.Visible = false;
                 }
             }
         }
@@ -82,8 +85,8 @@ namespace TexcelWeb
                 Directory.CreateDirectory(path);
             }
 
-            string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
-
+            string[] filePaths = CtrlCasTest.GetPaths(_casTest);
+            
             /////
             int indexTableCasTest;
             if (filePaths.Count() != 0)
@@ -212,6 +215,7 @@ namespace TexcelWeb
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test créé');</script>");
                     ViderChamps();
+                    
                 }
                 else
                 {
@@ -385,6 +389,12 @@ namespace TexcelWeb
             rtxtDescriptionCasTest.Text = casTest.descCasTest;
             rtxtObjectifCastest.Text = casTest.objCasTest;
             rtxtDiversCasTest.Text = casTest.divCasTest;
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            Session["casTest"] = null;
+            Response.Redirect("recherche.aspx");
         }
     }
 }

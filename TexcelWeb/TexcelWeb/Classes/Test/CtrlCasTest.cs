@@ -9,6 +9,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Core.Metadata.Edm;
 
+
 namespace TexcelWeb.Classes.Test
 {
     public class CtrlCasTest : CtrlController
@@ -213,7 +214,24 @@ namespace TexcelWeb.Classes.Test
         }
         public static void SauvegarderLstCasTest(List<CasTest> _lstCasTest)
         {
+            lstCasTest.Clear();
             lstCasTest = _lstCasTest;
+        }
+
+        public static string[] GetPaths(CasTest _casTest)
+        {
+            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+            return filePaths;
+        }
+
+        public static List<string[]> CreerTableau()
+        {
+            List<string[]> lst = new List<string[]>();
+            foreach (CasTest ct in lstCasTest)
+            {
+                lst.Add(GetPaths(ct));
+            }
+            return lst;
         }
       
     }

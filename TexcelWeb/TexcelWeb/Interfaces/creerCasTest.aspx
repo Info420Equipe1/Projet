@@ -117,7 +117,7 @@ $(function(){
                     </div>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click" AutoPostBack="true"/>      
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" CausesValidation="false"/>
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />                       
                     <br />
                     <br />

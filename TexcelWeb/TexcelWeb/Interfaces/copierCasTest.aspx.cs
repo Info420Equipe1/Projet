@@ -85,7 +85,11 @@ namespace TexcelWeb.Interfaces
         protected void btnCopier_Click(object sender, EventArgs e)
         {
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
-            CtrlCopier.CopierElement();  
+            CtrlCopier.CopierElement();
+            foreach (string[] yo in CtrlCasTest.CreerTableau())
+            {
+                
+            }
          
         }
 
