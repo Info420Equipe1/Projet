@@ -22,6 +22,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
+        /// Contrôle Titre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Titre;
+        
+        /// <summary>
         /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>
@@ -112,13 +121,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.DropDownList dropDownTypeTestCasTest;
         
         /// <summary>
-        /// Contrôle rtxtObjectifProjet.
+        /// Contrôle rtxtObjectifCastest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtObjectifProjet;
+        protected global::System.Web.UI.WebControls.TextBox rtxtObjectifCastest;
         
         /// <summary>
         /// Contrôle rtxtDescriptionCasTest.
@@ -130,13 +139,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionCasTest;
         
         /// <summary>
-        /// Contrôle rtxtDiversProjet.
+        /// Contrôle rtxtDiversCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtDiversProjet;
+        protected global::System.Web.UI.WebControls.TextBox rtxtDiversCasTest;
         
         /// <summary>
         /// Contrôle btnCopier.

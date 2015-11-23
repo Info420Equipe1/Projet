@@ -16,7 +16,7 @@ namespace TexcelWeb.Classes.Test
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
         //Ajouter lorsque il faut lier avec un projet et un type test
-        public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc)
+        public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, string _obj, string _divers)
         {
             CasTest casTest = new CasTest();
             casTest.codeCasTest = _code;
@@ -45,6 +45,8 @@ namespace TexcelWeb.Classes.Test
             }
             
             casTest.descCasTest = _desc;
+            casTest.objCasTest = _obj;
+            casTest.divCasTest = _divers;
             CreerDossier(casTest);
 
             try
@@ -59,7 +61,7 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
-        public static bool Modifier(string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, CasTest _casTest)
+        public static bool Modifier(string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, string _obj, string _divers, CasTest _casTest)
         {
            
             _casTest.nomCasTest = _nom;

@@ -58,7 +58,7 @@ $(function(){
         </div>
 	    <div id="main">
 			<div class="full_w">
-				<div class="h_title">Créer un cas de test</div>
+				<div class="h_title" id="Titre" runat="server">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">      
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
@@ -104,7 +104,7 @@ $(function(){
                         </div>  
                         <div id="CasTestObj">
                              <asp:Label runat="server" Text="Objectif: " />
-                            <asp:TextBox runat="server" ID="rtxtObjectifProjet" TextMode="MultiLine" CssClass="richtextbox" Height="201px" Width="430px"/>
+                            <asp:TextBox runat="server" ID="rtxtObjectifCastest" TextMode="MultiLine" CssClass="richtextbox" Height="201px" Width="430px"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
@@ -112,7 +112,7 @@ $(function(){
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/>
-                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox" Height="146px" Width="428px"/>
+                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="146px" Width="428px"/>
                         </div>
                     </div>
                 <div id="btnCopierEnregistrerAnnuler">
@@ -134,12 +134,12 @@ $(function(){
                             <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
+                                    <asp:LinkButton ID="lnkDownload" Text = "Telecharger"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
+                                    <asp:LinkButton ID = "lnkDelete" Text = "Supprimer"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
