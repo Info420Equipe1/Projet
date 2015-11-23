@@ -15,7 +15,7 @@ using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace TexcelWeb
 {
-    public partial class creerProjetCopier : System.Web.UI.Page
+    public partial class creerProjet : System.Web.UI.Page
     {
         int indexTableCasTest;
         static bool modifierProjet;

@@ -10,7 +10,7 @@
 namespace TexcelWeb {
     
     
-    public partial class creerProjetCopier {
+    public partial class creerProjet {
         
         /// <summary>
         /// Contrôle txtCurrentUserName.

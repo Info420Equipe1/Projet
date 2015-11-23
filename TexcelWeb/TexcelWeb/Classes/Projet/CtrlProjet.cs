@@ -61,9 +61,17 @@ namespace TexcelWeb.Classes.Projet
             projet.nomProjet = nomProjet;
             projet.chefProjet = chefProjet;
             projet.dateCreation = Convert.ToDateTime(dateCreationProjet);
-            projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
-            VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
-            projet.VersionJeu = version;
+            if (dateLivraisonProjet != "")
+            {
+                projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
+            }
+            if (versionJeuProjet != "")
+            {
+                VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
+                projet.VersionJeu = version;
+                projet.idVersion = version.idVersionJeu;
+            }
+            
             projet.descProjet = descProjet;
             projet.objProjet = objProjet;
             projet.divProjet = DiversProjet;

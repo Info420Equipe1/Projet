@@ -14,7 +14,7 @@
 		<div id="main">
             <div>
                 <p style="font-size : 12px; color: #575757; font-weight:bold">Vous avez été redirigé vers cette page car le mot de passe de votre compte utilisateur est expiré.</p><br />
-                <p style="font-size : 12px; color: #575757; font-weight:bold">Pour des raison de sécurité, veuillez inscrire un nouveau mot de passe dans l'espace réservée à cette effet.</p><br />
+                <p style="font-size : 12px; color: #575757; font-weight:bold">Pour des raisons de sécurité, veuillez inscrire un nouveau mot de passe dans l'espace réservé à cet effet.</p><br />
             </div>
 			<div class="full_w">
 				<form runat="server" action="#" method="post">
