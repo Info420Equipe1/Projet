@@ -63,47 +63,52 @@ namespace TexcelWeb
                     Session["ModifCasTest"] = casTest;
                     RemplirChamps(casTest);
 
-                    //Si ya pas de dossier, création d'un dossier
-                    string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
-                    if (!(Directory.Exists(path)))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-
-                    string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest));
-
-                    /////
-                    int indexTableCasTest;
-                    if (filePaths.Count() != 0)
-                    {
-                        //Nombre de page pour la table des cas de tests
-                        double page = (double)filePaths.Count() / 5;
-                        int nbPage = Convert.ToInt16(Math.Ceiling(page));
-
-                        //Savoir sil faut afficher plus d'une page dans la table
-                        if (nbPage < 2)
-                        {
-                            dataGridPagination.Visible = false;
-                            fillTableFichier(0, filePaths.ToList(), 1);
-                        }
-                        else
-                        {
-                            //Plus de 5 cas de test donc plusieur page de cas test
-                            //Index pour la liste des cas test
-                            indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
-
-                            //Pagination visible
-                            dataGridPagination.Visible = true;
-
-                            //Emplissage de la table
-                            fillTableFichier(indexTableCasTest, filePaths.ToList(), nbPage);
-                        }
-                    }
+                    Fichiers(casTest);
 
                 }
                 else
                 {
                     modif = false;
+                }
+            }
+        }
+
+        public void Fichiers(CasTest _casTest)
+        {
+            //Si ya pas de dossier, création d'un dossier
+            string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest);
+            if (!(Directory.Exists(path)))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+
+            /////
+            int indexTableCasTest;
+            if (filePaths.Count() != 0)
+            {
+                //Nombre de page pour la table des cas de tests
+                double page = (double)filePaths.Count() / 5;
+                int nbPage = Convert.ToInt16(Math.Ceiling(page));
+
+                //Savoir sil faut afficher plus d'une page dans la table
+                if (nbPage < 2)
+                {
+                    dataGridPagination.Visible = false;
+                    fillTableFichier(0, filePaths.ToList(), 1);
+                }
+                else
+                {
+                    //Plus de 5 cas de test donc plusieur page de cas test
+                    //Index pour la liste des cas test
+                    indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
+
+                    //Pagination visible
+                    dataGridPagination.Visible = true;
+
+                    //Emplissage de la table
+                    fillTableFichier(indexTableCasTest, filePaths.ToList(), nbPage);
                 }
             }
         }
