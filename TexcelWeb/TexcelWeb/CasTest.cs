@@ -22,19 +22,19 @@ namespace TexcelWeb
         public string codeCasTest { get; set; }
         public string nomCasTest { get; set; }
         public string descCasTest { get; set; }
+        public string objCasTest { get; set; }
+        public string divCasTest { get; set; }
         public Nullable<System.DateTime> dateCreation { get; set; }
         public Nullable<System.DateTime> dateLivraison { get; set; }
         public string codeProjet { get; set; }
         public Nullable<short> idDiff { get; set; }
         public Nullable<short> idTest { get; set; }
-        public Nullable<short> idResult { get; set; }
         public Nullable<short> idNivPri { get; set; }
         public string tagCasTest { get; set; }
     
         public virtual cProjet cProjet { get; set; }
         public virtual Difficulte Difficulte { get; set; }
         public virtual NiveauPriorite NiveauPriorite { get; set; }
-        public virtual FicheResultat FicheResultat { get; set; }
         public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
     }

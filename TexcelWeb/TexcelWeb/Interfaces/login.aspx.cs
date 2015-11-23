@@ -27,14 +27,13 @@ namespace TexcelWeb
                 case "connexionreussie":
                     //Connexion Réussi
                     this.Form.Dispose();
-                    //HttpContext.Current.Response.Redirect("http://deptinfo420/Projet2015/Equipe1/Interfaces/recherche.aspx");
-                    HttpContext.Current.Response.Redirect("/Interfaces/recherche.aspx");
+                    Response.Redirect("recherche.aspx");
                     break;
 
                 case "changermotdepasse":
                     Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
                     this.Form.Dispose();
-                    Response.Redirect("/Interfaces/renouvPassword.aspx");
+                    Response.Redirect("renouvPassword.aspx");
                     break;
 
                 case "motdepasseincorrect":

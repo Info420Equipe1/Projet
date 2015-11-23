@@ -16,17 +16,34 @@ namespace TexcelWeb.Classes.Test
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
         //Ajouter lorsque il faut lier avec un projet et un type test
-        public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
+        public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc)
         {
             CasTest casTest = new CasTest();
             casTest.codeCasTest = _code;
             casTest.nomCasTest = _nom;
-            casTest.codeProjet = _proj.codeProjet;
-            casTest.idDiff = _diff.idDiff;
-            casTest.idNivPri = _prio.idNivPri;
+            if (_proj != null)
+            {
+                casTest.codeProjet = _proj.codeProjet;
+            }
+            if (_diff != null)
+            {
+                casTest.idDiff = _diff.idDiff;
+            }
+            if (_prio != null)
+            {
+                casTest.idNivPri = _prio.idNivPri;
+            }
+            
             casTest.dateCreation = _crea;
-            casTest.dateLivraison = _livr;
-            casTest.idTest = _tT.idTest;
+            if (_livr != "")
+            {
+                casTest.dateLivraison = Convert.ToDateTime(_livr);
+            }
+            if (_tT != null)
+            {
+                casTest.idTest = _tT.idTest;
+            }
+            
             casTest.descCasTest = _desc;
             CreerDossier(casTest);
 
