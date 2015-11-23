@@ -307,7 +307,16 @@ namespace TexcelWeb
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
             string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
 
-            int idChefProjet = CtrlEmploye.getIdEmploye(chefProjet);
+            int idChefProjet;
+            if (chefProjet != "Aucun")
+            {
+                 idChefProjet = CtrlEmploye.getIdEmploye(chefProjet);
+            }
+            else
+            {
+                idChefProjet = -1;
+            }
+            
             
             if (!modifierProjet)
             {
@@ -350,18 +359,23 @@ namespace TexcelWeb
             //Active textbox Version de Jeu lorsqu'un Jeu est sélectionné
             if (txtJeuProjet.SelectedIndex != -1)
             {
-                cJeu jeu = CtrlJeu.GetJeu(txtJeuProjet.SelectedItem.Text);
-                txtVersionJeuProjet.Enabled = true;
-                txtVersionJeuProjet.Items.Clear();
-                foreach (VersionJeu versionJeu in jeu.VersionJeu)
+                if (txtJeuProjet.SelectedItem.Text != "Aucun")
                 {
-                    txtVersionJeuProjet.Items.Add(versionJeu.nomVersionJeu);
+                    cJeu jeu = CtrlJeu.GetJeu(txtJeuProjet.SelectedItem.Text);
+                    txtVersionJeuProjet.Enabled = true;
+                    txtVersionJeuProjet.Items.Clear();
+                    foreach (VersionJeu versionJeu in jeu.VersionJeu)
+                    {
+                        txtVersionJeuProjet.Items.Add(versionJeu.nomVersionJeu);
+                    }
                 }
-            }
-            else
-            {
-                txtVersionJeuProjet.SelectedIndex = -1;
-                txtVersionJeuProjet.Enabled = false;
+                else
+                {
+                    ListItem lst = new ListItem();
+                    lst.Text = "Aucun";
+                    txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
+                    txtVersionJeuProjet.Enabled = false;
+                }
             }
         }
 
@@ -374,7 +388,7 @@ namespace TexcelWeb
         }
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Interface/recherche.aspx");
+            Response.Redirect("/Interfaces/recherche.aspx");
         }
 
 

@@ -20,22 +20,32 @@ namespace TexcelWeb.Classes.Projet
             cProjet projet = new cProjet();
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
-            projet.chefProjet = chefProjet;
+            if (chefProjet != -1)
+            {
+                projet.chefProjet = chefProjet;
+            }
+            
             projet.dateCreation = (Convert.ToDateTime(dateCreationProjet)).Date;
             if (dateLivraisonProjet != "")
             {
                 projet.dateLivraison = (Convert.ToDateTime(dateLivraisonProjet)).Date;
             }
-            if ((versionJeuProjet != "Aucun") || (versionJeuProjet != ""))
+            if ((versionJeuProjet != "Aucun") && (versionJeuProjet != ""))
             {
                 VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
                 projet.VersionJeu = version;
                 projet.idVersion = version.idVersionJeu;
             }
+            else
+            {
+                projet.idVersion = null;
+                projet.VersionJeu = null;
+            }
             projet.descProjet = descProjet;
             projet.objProjet = objProjet;
             projet.divProjet = DiversProjet;
             
+
 
             try
             {
@@ -58,18 +68,38 @@ namespace TexcelWeb.Classes.Projet
         public static string ModifierProjet(string codeProjet, string nomProjet, int chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = getProjetByCode(codeProjet);
+
             projet.nomProjet = nomProjet;
-            projet.chefProjet = chefProjet;
+            if (chefProjet != -1)
+            {
+                projet.chefProjet = chefProjet;
+            }
+            else
+            {
+                //projet.Employe = null;
+                //projet.chefProjet = null;
+            }
+
             projet.dateCreation = Convert.ToDateTime(dateCreationProjet);
+
             if (dateLivraisonProjet != "")
             {
                 projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
             }
-            if (versionJeuProjet != "Aucun")
+            else
+            {
+                projet.dateLivraison = null;
+            }
+            if ((versionJeuProjet != "Aucun") && (versionJeuProjet != ""))
             {
                 VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
                 projet.VersionJeu = version;
                 projet.idVersion = version.idVersionJeu;
+            }
+            else
+            {
+                projet.idVersion = null;
+                projet.VersionJeu = null;
             }
             
             projet.descProjet = descProjet;
