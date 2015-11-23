@@ -61,7 +61,7 @@ namespace TexcelWeb
                     break;              
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
-                    edsProjet.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
+                    edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
                     gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
                     gvRecherche.HeaderRow.Cells[1].Text = "Nom du CasTest";
@@ -99,12 +99,12 @@ namespace TexcelWeb
                 case "Projet":
                     Session["modifProjet"] = true;
                     Session["modifCodeProjet"] = gvRecherche.SelectedRow.Cells[0].Text;
-                    HttpContext.Current.Response.Redirect("/Interfaces/creerProjet.aspx");
+                    HttpContext.Current.Response.Redirect("creerProjet.aspx");
                     break;
                 case "CasTest":
                     CasTest casTest = CtrlCasTest.GetCasTestByCode(gvRecherche.SelectedRow.Cells[0].Text);
                     Session["casTest"] = casTest;
-                    HttpContext.Current.Response.Redirect("/Interfaces/creerCasTest.aspx");
+                    HttpContext.Current.Response.Redirect("creerCasTest.aspx");
                     break;
             }
         }

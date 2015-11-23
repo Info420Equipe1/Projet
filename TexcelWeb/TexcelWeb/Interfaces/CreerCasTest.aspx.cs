@@ -16,30 +16,28 @@ namespace TexcelWeb
 {
     public partial class CreerCasTest : System.Web.UI.Page
     {
-        bool modif;
-        
+        static bool modif;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            CasTest casTest;
-            //Premier loading de la page
-            if (CtrlController.GetCurrentUser() == null)
-            {
-                //Not logged in
-                Response.Redirect("login.aspx");
-            }
-            else
-            {
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                Utilisateur currentUser = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-            }
-
-            //Longueur des champs
-            setFieldLength();
-
-            modif = false;
             if (!Page.IsPostBack)
             {
+                CasTest casTest;
+                //Premier loading de la page
+                if (CtrlController.GetCurrentUser() == null)
+                {
+                    //Not logged in
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    Utilisateur currentUser = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                }
+
+                //Longueur des champs
+                setFieldLength();
                 Session["modifProjet"] = false;
                 string codeCasTest = String.Format("{0}", Request.QueryString["codeCasTest"]);
                 if (codeCasTest != "")
@@ -48,104 +46,64 @@ namespace TexcelWeb
                     Session["casTest"] = casTest;
                     modif = true;
                 }
-            }
 
-            ChargerDropDownList();
-            btnEnregistrer.Text = "Enregistrer";
-            txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
 
-            //Mode modifier
-            if (Session["casTest"] != null)
-            {
-                
-                btnEnregistrer.Text = "Modifier";
-                modif = true;
-                casTest = (CasTest)Session["casTest"];
-                Session["CasTestFichier"] = Session["casTest"];
-                Session["casTest"] = null;
-                txtNomCasTest.Text = casTest.nomCasTest;
-                txtCodeCasTest.Text = casTest.codeCasTest;
-                if (casTest.cProjet != null)
-                {
-                    dropDownProjet.Text = casTest.cProjet.nomProjet;
-                }
-                else
-                {
-                    dropDownProjet.Text = "Aucun";
-                }
+                ChargerDropDownList();
+                btnEnregistrer.Text = "Enregistrer";
+                txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
 
-                if (casTest.Difficulte != null)
+                //Mode modifier
+                if (Session["casTest"] != null)
                 {
-                    dropDownDifficulteCasTest.Text = casTest.Difficulte.nomDiff;
-                }
-                else
-                {
-                    dropDownDifficulteCasTest.Text = "Aucun";
-                }
+                    txtCodeCasTest.Enabled = false;
+                    btnEnregistrer.Text = "Modifier";
+                    modif = true;
+                    casTest = (CasTest)Session["casTest"];
+                    Session["CasTestFichier"] = Session["casTest"];
 
-                if (casTest.NiveauPriorite != null)
-                {
-                    dropDownPrioritéCasTest.Text = casTest.NiveauPriorite.nomNivPri;
-                }
-                else
-                {
-                    dropDownPrioritéCasTest.Text = "Aucun";
-                }
+                    RemplirChamps(casTest);
 
-                if (casTest.TypeTest != null)
-                {
-                    dropDownTypeTestCasTest.Text = casTest.TypeTest.nomTest;
-                }
-                else
-                {
-                    dropDownTypeTestCasTest.Text = "Aucun";
-                }
-
-                if (casTest.dateCreation != null)
-                {
-                    txtDateCreationCasTest.Text = ((DateTime)(casTest.dateCreation)).ToShortDateString();
-                }
-                if (casTest.dateLivraison != null)
-                {
-                    txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
-                }
-                rtxtDescriptionCasTest.Text = casTest.descCasTest;
-
-                //Si ya pas de dossier, création d'un dossier
-                string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
-                if (!(Directory.Exists(path)))
-                {
-                    Directory.CreateDirectory(path);
-                }
-
-                string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest));
-
-                /////
-                int indexTableCasTest;
-                if (filePaths.Count() != 0)
-                {
-                    //Nombre de page pour la table des cas de tests
-                    double page = (double)filePaths.Count() / 5;
-                    int nbPage = Convert.ToInt16(Math.Ceiling(page));
-
-                    //Savoir sil faut afficher plus d'une page dans la table
-                    if (nbPage < 2)
+                    //Si ya pas de dossier, création d'un dossier
+                    string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
+                    if (!(Directory.Exists(path)))
                     {
-                        dataGridPagination.Visible = false;
-                        fillTableFichier(0, filePaths.ToList(), 1);
+                        Directory.CreateDirectory(path);
                     }
-                    else
+
+                    string[] filePaths = Directory.GetFiles(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest));
+
+                    /////
+                    int indexTableCasTest;
+                    if (filePaths.Count() != 0)
                     {
-                        //Plus de 5 cas de test donc plusieur page de cas test
-                        //Index pour la liste des cas test
-                        indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
+                        //Nombre de page pour la table des cas de tests
+                        double page = (double)filePaths.Count() / 5;
+                        int nbPage = Convert.ToInt16(Math.Ceiling(page));
 
-                        //Pagination visible
-                        dataGridPagination.Visible = true;
+                        //Savoir sil faut afficher plus d'une page dans la table
+                        if (nbPage < 2)
+                        {
+                            dataGridPagination.Visible = false;
+                            fillTableFichier(0, filePaths.ToList(), 1);
+                        }
+                        else
+                        {
+                            //Plus de 5 cas de test donc plusieur page de cas test
+                            //Index pour la liste des cas test
+                            indexTableCasTest = Convert.ToInt16(Request.QueryString["index"]);
 
-                        //Emplissage de la table
-                        fillTableFichier(indexTableCasTest, filePaths.ToList(), nbPage);
+                            //Pagination visible
+                            dataGridPagination.Visible = true;
+
+                            //Emplissage de la table
+                            fillTableFichier(indexTableCasTest, filePaths.ToList(), nbPage);
+                        }
                     }
+
+                }
+                else
+                {
+                    modif = false;
                 }
             }
         }
@@ -203,7 +161,7 @@ namespace TexcelWeb
 
             DataTable dT = new DataTable();
             dT.Columns.AddRange(new DataColumn[4] { new DataColumn("File Name", typeof(string)), new DataColumn("Taille", typeof(string)), new DataColumn("Extansion", typeof(string)), new DataColumn("Derniere modification", typeof(DateTime)) });
-
+ 
             int cpt = 0;
             foreach (Fichier fichier in lstFichier)
             {
@@ -222,37 +180,12 @@ namespace TexcelWeb
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["CasTestFichier"];
-            cProjet proj = null;
-            Difficulte diff = null;
-            NiveauPriorite nivPri = null;
-            TypeTest typTest = null;
-
-            if (String.Format("{0}", Request.Form["DropDownProjet"]) != "Aucun")
-            {
-                proj = CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"]));
-            }
-
-            if (String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]) != "Aucun")
-            {
-                diff = CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]));
-            }
-
-            if (String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]) != "Aucun")
-            {
-                nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
-            }
-
-            if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
-            {
-                typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
-            }
-
             if (!modif)
             {
-                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text))
+                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test créé');</script>");
+                    ViderChamps();
                 }
                 else
                 {
@@ -261,18 +194,20 @@ namespace TexcelWeb
             }
             else
             {
-                if (CtrlCasTest.Modifier(String.Format("{0}", Request.Form["txtCodeCasTest"]), String.Format("{0}", Request.Form["txtNomCasTest"]), CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), String.Format("{0}", Request.Form["rtxtDescriptionCasTest"]), casTest))
+                if (CtrlCasTest.Modifier(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text, casTest))
+                if (CtrlCasTest.Modifier(txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, casTest))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
                     Session["casTest"] = null;
+                    RemplirChamps(casTest);
                 }
                 else
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
                 }
             }
-
-
+           
+           
         }
         private void setFieldLength()
         {
@@ -284,13 +219,9 @@ namespace TexcelWeb
         protected void ChargerDropDownList()
         {
             dropDownProjet.Items.Clear();
-            dropDownProjet.Items.Add("Aucun");
             dropDownTypeTestCasTest.Items.Clear();
-            dropDownTypeTestCasTest.Items.Add("Aucun");
             dropDownDifficulteCasTest.Items.Clear();
-            dropDownDifficulteCasTest.Items.Add("Aucun");
             dropDownPrioritéCasTest.Items.Clear();
-            dropDownPrioritéCasTest.Items.Add("Aucun");
 
             foreach (cProjet proj in CtrlProjet.GetListProjet())
             {
@@ -312,13 +243,30 @@ namespace TexcelWeb
 
         protected void btnCopier_Click(object sender, EventArgs e)
         {
+            string Param = "CasTest";
+            DateTime? dt = new DateTime?();
 
+            if (txtDateLivraisonCasTest.Text == "")
+            {
+                dt = null;              
+            }
+            else
+            {
+               dt =  Convert.ToDateTime(txtDateLivraisonCasTest.Text);
+            }
+
+            CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
+                CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
+                Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
+                rtxtDescriptionCasTest.Text);    
+                        
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
+           
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["CasTestFichier"];
-            //casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -327,8 +275,7 @@ namespace TexcelWeb
 
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["CasTestFichier"];
-            //casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
             string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             File.Delete(filePath);
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -336,8 +283,7 @@ namespace TexcelWeb
 
         protected void lnkDownload_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["CasTestFichier"];
-            //casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
             string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             Response.ContentType = ContentType;
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
@@ -345,6 +291,70 @@ namespace TexcelWeb
             Response.End();
         }
 
+        public void ViderChamps()
+        {
+            txtCodeCasTest.Text = "";
+            txtNomCasTest.Text = "";
+            dropDownProjet.Text = "Aucun";
+            dropDownDifficulteCasTest.Text = "Aucun";
+            dropDownPrioritéCasTest.Text = "Aucun";
+            txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
+            txtDateLivraisonCasTest.Text = "";
+            dropDownTypeTestCasTest.Text = "Aucun";
+            rtxtDescriptionCasTest.Text = "";
 
+        }
+
+        public void RemplirChamps(CasTest casTest)
+        {
+
+            txtNomCasTest.Text = casTest.nomCasTest;
+            txtCodeCasTest.Text = casTest.codeCasTest;
+            if (casTest.cProjet != null)
+            {
+                dropDownProjet.Text = casTest.cProjet.nomProjet;
+            }
+            else
+            {
+                dropDownProjet.Text = "Aucun";
+            }
+
+            if (casTest.Difficulte != null)
+            {
+                dropDownDifficulteCasTest.Text = casTest.Difficulte.nomDiff;
+            }
+            else
+            {
+                dropDownDifficulteCasTest.Text = "Aucun";
+            }
+
+            if (casTest.NiveauPriorite != null)
+            {
+                dropDownPrioritéCasTest.Text = casTest.NiveauPriorite.nomNivPri;
+            }
+            else
+            {
+                dropDownPrioritéCasTest.Text = "Aucun";
+            }
+
+            if (casTest.TypeTest != null)
+            {
+                dropDownTypeTestCasTest.Text = casTest.TypeTest.nomTest;
+            }
+            else
+            {
+                dropDownTypeTestCasTest.Text = "Aucun";
+            }
+
+            if (casTest.dateCreation != null)
+            {
+                txtDateCreationCasTest.Text = ((DateTime)(casTest.dateCreation)).ToShortDateString();
+            }
+            if (casTest.dateLivraison != null)
+            {
+                txtDateLivraisonCasTest.Text = ((DateTime)(casTest.dateLivraison)).ToShortDateString();
+            }
+            rtxtDescriptionCasTest.Text = casTest.descCasTest;
+        }
     }
 }

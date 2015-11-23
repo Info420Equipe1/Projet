@@ -13,22 +13,34 @@ namespace TexcelWeb.Interfaces
 {
 	public partial class copierCasTest : System.Web.UI.Page
     {
-        
+
+        string TypeCopie;
         public copierCasTest()
         {
-
+            
         }
 
 		protected void Page_Load(object sender, EventArgs e)
-		{
+        {
             if (Page.IsPostBack == false)
             {
+                TypeCopie = Request.QueryString["Param"];
                 ChargerPage();
             }
 		}
         private void ChargerPage()
         {
-            AfficherGV(ddlFiltre.Text);
+            if (TypeCopie != null)
+            {
+                AfficherGV(TypeCopie);
+             
+            }
+            else
+            {
+                AfficherGV(ddlFiltre.Text);
+            }
+
+            ddlFiltre.Enabled = false;
         
         }
 
@@ -38,6 +50,7 @@ namespace TexcelWeb.Interfaces
             {
                 case "Projet":
                     gvCopierCasTest.DataSourceID = "edsProjet";
+                    edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvCopierCasTest.DataBind();
                     gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du Projet";
                     gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du Projet";
@@ -48,6 +61,7 @@ namespace TexcelWeb.Interfaces
 
                 case "CasTest":
                     gvCopierCasTest.DataSourceID = "edsCasTest";
+                    edsProjet.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvCopierCasTest.DataBind();
                     gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du CasTest";
                     gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du CasTest";
@@ -71,8 +85,8 @@ namespace TexcelWeb.Interfaces
         protected void btnCopier_Click(object sender, EventArgs e)
         {
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
-            CtrlCopier.CopierElement();
-
+            CtrlCopier.CopierElement();  
+         
         }
 
 

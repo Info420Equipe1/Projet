@@ -13,7 +13,8 @@ namespace TexcelWeb.Classes.Test
 {
     public class CtrlCasTest : CtrlController
     {
-        
+        static CasTest casTestEnCours;
+        static List<CasTest> lstCasTest = new List<CasTest>();
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc)
         {
@@ -58,16 +59,47 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
-        public static bool Modifier(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, DateTime _livr, TypeTest _tT, string _desc, CasTest _casTest)
+        public static bool Modifier(string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, CasTest _casTest)
         {
-            _casTest.codeCasTest = _code;
+           
             _casTest.nomCasTest = _nom;
-            _casTest.codeProjet = _proj.codeProjet;
-            _casTest.idDiff = _diff.idDiff;
-            _casTest.idNivPri = _prio.idNivPri;
+            if (_proj != null)
+            {
+                _casTest.codeProjet = _proj.codeProjet;
+            }
+            else
+            {
+                _casTest.cProjet = null;
+            }
+            if (_diff != null)
+            {
+                _casTest.idDiff = _diff.idDiff;
+            }
+            else
+            {
+                _casTest.Difficulte = null;
+            }
+            if (_prio != null)
+            {
+                _casTest.idNivPri = _prio.idNivPri;
+            }
+            else
+            {
+                _casTest.NiveauPriorite = null;
+            }
             _casTest.dateCreation = _crea;
-            _casTest.dateLivraison = _livr;
-            _casTest.idTest = _tT.idTest;
+            if (_livr != "")
+            {
+                _casTest.dateLivraison = Convert.ToDateTime(_livr);
+            }
+            if (_tT != null)
+            {
+                _casTest.idTest = _tT.idTest;
+            }
+            else
+            {
+                _casTest.TypeTest = null;
+            }
             _casTest.descCasTest = _desc;
 
             try
@@ -162,7 +194,22 @@ namespace TexcelWeb.Classes.Test
             return -1;
         }
 
+        public static void CopierCasTestEnCours(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, 
+            DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
+        {
+            casTestEnCours = new CasTest();
+            casTestEnCours.codeCasTest = _code;
+            casTestEnCours.nomCasTest = _nom;
+            casTestEnCours.cProjet = _proj;
+            casTestEnCours.Difficulte = _diff;
+            casTestEnCours.NiveauPriorite = _prio;
+            casTestEnCours.dateCreation = _crea;
+            casTestEnCours.dateLivraison = _livr;
+            casTestEnCours.TypeTest = _tT;
+            casTestEnCours.descCasTest = _desc; 
 
 
+        }
+      
     }
 }

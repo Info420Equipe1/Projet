@@ -17,8 +17,10 @@ namespace TexcelWeb.Classes.Test
     public class CtrlCopier
     {
         static GridView monGV;
-        static object monObject;
-        static List<object> lstObjectDelete = new List<object>();
+        static List<cProjet> lstProjet = new List<cProjet>();
+        static List<CasTest> lstCasTest = new List<CasTest>();
+        static cProjet monProj;
+        static CasTest monCT;
 
         public static void SauvegarderDonnees(GridView _monGV)
         {
@@ -27,7 +29,8 @@ namespace TexcelWeb.Classes.Test
 
         public static void CopierElement()
         {
-            lstObjectDelete.Clear();
+            lstCasTest.Clear();
+            lstProjet.Clear();
             // Iteration à travers le gridview
             foreach (GridViewRow row in monGV.Rows)
             {
@@ -35,34 +38,38 @@ namespace TexcelWeb.Classes.Test
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
                 if (cb != null && cb.Checked)
                 {
-                    DetermineObject(row.Cells[1].Text);
-                    RemplirDonneeLst();
-
+                    DetermineObject(row.Cells[1].Text);               
                 }
             }
 
-        }
-        private static void RemplirDonneeLst()
-        {
-            lstObjectDelete.Add(monObject);
-        }
 
+        }
+   
         private static void DetermineObject(string _idUnique)
         {
             if (CtrlProjet.getProjetByCode(_idUnique) != null)
             {
-                monObject = CtrlProjet.getProjetByCode(_idUnique);
+                monProj = CtrlProjet.getProjetByCode(_idUnique);
+                lstProjet.Add(monProj);                
             }
             else if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
             {
-                monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
+                monCT = CtrlCasTest.GetCasTestByCode(_idUnique);
+                lstCasTest.Add(monCT);
             }
 
-            if (monObject == null)
+            if (monProj == null && monCT == null)
             {
-                monObject = null; // ca marche pas
+                //ERREUR! 
             }
+        }
 
+        private static void EnvoyerLstObjetCopier()
+        {
+            if (lstProjet.Count == 0 )
+            {
+                
+            }
         }
     }
 }

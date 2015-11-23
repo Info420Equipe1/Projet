@@ -391,6 +391,11 @@ namespace TexcelWeb
             Response.Redirect("/Interfaces/recherche.aspx");
         }
 
+        protected void btnCopier_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("copierCasTest.aspx?Parameter=" + Server.UrlEncode("Projet"));
+        }
+
 
 
 

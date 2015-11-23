@@ -35,16 +35,21 @@ $(function(){
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
-                <div class="h_title" ><a href="/Interfaces/recherche.aspx">&#8250;Recherche</a></div>
+                <div class="h_title">&#8250; Recherche</div>
+                <ul>
+                    <li class="b1"><a class="icon page" href="/Interfaces/recherche.aspx">Recherche</a></li>
+                </ul>   
+			</div>
+            <div class="box">
 				<div class="h_title">&#8250; Projets</div>
-				<ul>
+				<ul id="home">
 					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
-                    <li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
+                    <li class="b1"><a class="icon page" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
-				<div class="h_title">&#8250; Cas de tests</div>
-				<ul id="home">
+				<div class="h_title">&#8250; Cas de test</div>
+				<ul>
 					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
