@@ -60,7 +60,7 @@ namespace TexcelWeb
                     modif = true;
                     casTest = (CasTest)Session["casTest"];
                     Session["CasTestFichier"] = Session["casTest"];
-
+                    Session["ModifCasTest"] = casTest;
                     RemplirChamps(casTest);
 
                     //Si ya pas de dossier, création d'un dossier
@@ -180,9 +180,34 @@ namespace TexcelWeb
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
+            CasTest casTest = (CasTest)Session["ModifCasTest"];
+            cProjet proj = null;
+            Difficulte diff = null;
+            NiveauPriorite nivPri = null;
+            TypeTest typTest = null;
+
+            if (String.Format("{0}", Request.Form["DropDownProjet"]) != "Aucun")
+            {
+                proj = CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"]));
+            }
+
+            if (String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]) != "Aucun")
+            {
+                diff = CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]));
+            }
+
+            if (String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]) != "Aucun")
+            {
+                nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
+            }
+
+            if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
+            {
+                typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
+            }
             if (!modif)
             {
-                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text))
+                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test créé');</script>");
                     ViderChamps();
@@ -194,7 +219,6 @@ namespace TexcelWeb
             }
             else
             {
-                if (CtrlCasTest.Modifier(txtCodeCasTest.Text, txtNomCasTest.Text, CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"])), CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"])), CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"])), Convert.ToDateTime(txtDateCreationCasTest.Text), Convert.ToDateTime(txtDateLivraisonCasTest.Text), CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"])), rtxtDescriptionCasTest.Text, casTest))
                 if (CtrlCasTest.Modifier(txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, casTest))
                 {
                     Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
@@ -219,9 +243,13 @@ namespace TexcelWeb
         protected void ChargerDropDownList()
         {
             dropDownProjet.Items.Clear();
+            dropDownProjet.Items.Add("Aucun");
             dropDownTypeTestCasTest.Items.Clear();
+            dropDownTypeTestCasTest.Items.Add("Aucun");
             dropDownDifficulteCasTest.Items.Clear();
+            dropDownDifficulteCasTest.Items.Add("Aucun");
             dropDownPrioritéCasTest.Items.Clear();
+            dropDownPrioritéCasTest.Items.Add("Aucun");
 
             foreach (cProjet proj in CtrlProjet.GetListProjet())
             {
@@ -266,7 +294,7 @@ namespace TexcelWeb
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -275,7 +303,7 @@ namespace TexcelWeb
 
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
-            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
             string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             File.Delete(filePath);
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -283,7 +311,7 @@ namespace TexcelWeb
 
         protected void lnkDownload_Click(object sender, EventArgs e)
         {
-            casTest = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
             string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             Response.ContentType = ContentType;
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
