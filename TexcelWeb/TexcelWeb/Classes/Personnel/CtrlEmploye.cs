@@ -13,7 +13,7 @@ namespace TexcelWeb.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.noEmploye == id).First();
             return emp;
         }
-        public static int getIdEmploye(string _nomEmp)
+        public static string getIdEmploye(string _nomEmp)
         {
             Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp.noEmploye;

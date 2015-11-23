@@ -307,14 +307,14 @@ namespace TexcelWeb
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
             string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
 
-            int idChefProjet;
+            string idChefProjet;
             if (chefProjet != "Aucun")
             {
                  idChefProjet = CtrlEmploye.getIdEmploye(chefProjet);
             }
             else
             {
-                idChefProjet = -1;
+                idChefProjet = "-1";
             }
             
             

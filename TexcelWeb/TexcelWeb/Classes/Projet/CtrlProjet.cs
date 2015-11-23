@@ -15,12 +15,12 @@ namespace TexcelWeb.Classes.Projet
     public class CtrlProjet : CtrlController
     {
         //Ajouter un projet
-        public static string AjouterProjet(string codeProjet, string nomProjet, int chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
+        public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = new cProjet();
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
-            if (chefProjet != -1)
+            if (chefProjet != "-1")
             {
                 projet.chefProjet = chefProjet;
             }
@@ -65,19 +65,19 @@ namespace TexcelWeb.Classes.Projet
         }
 
         //Modifier un Projet
-        public static string ModifierProjet(string codeProjet, string nomProjet, int chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
+        public static string ModifierProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
             cProjet projet = getProjetByCode(codeProjet);
 
             projet.nomProjet = nomProjet;
-            if (chefProjet != -1)
+            if (chefProjet != "-1")
             {
                 projet.chefProjet = chefProjet;
             }
             else
             {
-                //projet.Employe = null;
-                //projet.chefProjet = null;
+                projet.Employe = null;
+                projet.chefProjet = null;
             }
 
             projet.dateCreation = Convert.ToDateTime(dateCreationProjet);
@@ -148,10 +148,13 @@ namespace TexcelWeb.Classes.Projet
 
             foreach (cProjet proj in context.tblProjet)
             {
-                Employe chefProjet = CtrlEmploye.getEmployeById(proj.chefProjet);
-                if ((chefProjet.prenomEmploye + " " + chefProjet.nomEmploye) == nomChefProjet)
+                if (proj.chefProjet != null)
                 {
-                    lstProjet.Add(proj);
+                    Employe chefProjet = CtrlEmploye.getEmployeById(proj.chefProjet);
+                    if ((chefProjet.prenomEmploye + " " + chefProjet.nomEmploye) == nomChefProjet)
+                    {
+                        lstProjet.Add(proj);
+                    }
                 }
             }
             return lstProjet;
