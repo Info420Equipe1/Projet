@@ -26,7 +26,7 @@ namespace TexcelWeb.Classes.Projet
             {
                 projet.dateLivraison = (Convert.ToDateTime(dateLivraisonProjet)).Date;
             }
-            if (versionJeuProjet != "")
+            if ((versionJeuProjet != "Aucun") || (versionJeuProjet != ""))
             {
                 VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
                 projet.VersionJeu = version;
@@ -65,7 +65,7 @@ namespace TexcelWeb.Classes.Projet
             {
                 projet.dateLivraison = Convert.ToDateTime(dateLivraisonProjet);
             }
-            if (versionJeuProjet != "")
+            if (versionJeuProjet != "Aucun")
             {
                 VersionJeu version = CtrlVersionJeu.GetVersionJeu(versionJeuProjet);
                 projet.VersionJeu = version;

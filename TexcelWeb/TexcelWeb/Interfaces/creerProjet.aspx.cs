@@ -50,15 +50,22 @@ namespace TexcelWeb
                 bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                 if (!modifier)
                 {
+                    ListItem lst;
                     btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
 
                     //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
-                    ListItem lst = new ListItem();
+                    lst = new ListItem();
                     lst.Text = nomChefProjet;
-                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
-
-
+                    if (txtChefProjet.Items.Contains(lst))
+                    {
+                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                    }
+                    else
+                    {
+                        lst.Text = "Aucun";
+                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                    }
                     //Date de création Aujourd'hui par défaut
                     txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
                 }
@@ -127,7 +134,9 @@ namespace TexcelWeb
             }
             else
             {
-                txtChefProjet.ClearSelection();
+                lst = new ListItem();
+                lst.Text = "Aucun";
+                txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
             }
 
             if (projet.dateCreation != null)
@@ -145,6 +154,7 @@ namespace TexcelWeb
                 lst.Text = projet.VersionJeu.cJeu.nomJeu;
                 txtJeuProjet.SelectedIndex = txtJeuProjet.Items.IndexOf(lst);
 
+                
                 lst = new ListItem();
                 lst.Text = projet.VersionJeu.nomVersionJeu;
                 txtVersionJeuProjet.Items.Add(lst);
@@ -152,7 +162,9 @@ namespace TexcelWeb
             }
             else
             {
-                txtJeuProjet.ClearSelection();
+                lst = new ListItem();
+                lst.Text = "Aucun";
+                txtJeuProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
             }
 
             rtxtDescriptionProjet.Text = projet.descProjet;
@@ -161,12 +173,17 @@ namespace TexcelWeb
         }
         private void fillDropDownBox()
         {
+            ListItem lst;
             //Emplissage du DropDownList Chef de Projet
             txtChefProjet.Items.Clear();
             foreach (Employe emp in CtrlEmploye.getLstChefProjet())
             {
                 txtChefProjet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
             }
+            lst = new ListItem();
+            lst.Text = "Aucun";
+            txtChefProjet.Items.Add(lst);
+            txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
 
             //Emplissage du DropDownList Jeux
             txtJeuProjet.Items.Clear();
@@ -174,6 +191,14 @@ namespace TexcelWeb
             {
                 txtJeuProjet.Items.Add(jeu.nomJeu);
             }
+            lst = new ListItem();
+            lst.Text = "Aucun";
+            txtJeuProjet.Items.Add(lst);
+            txtJeuProjet.SelectedIndex = txtJeuProjet.Items.IndexOf(lst);
+            lst = new ListItem();
+            lst.Text = "Aucun";
+            txtVersionJeuProjet.Items.Add(lst);
+            txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
         }
         private void fillTableCasTest(int index, List<CasTest> lstCasTest, int nbPage)
         {
