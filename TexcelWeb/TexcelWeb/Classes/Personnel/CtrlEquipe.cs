@@ -41,6 +41,20 @@ namespace TexcelWeb.Classes.Personnel
             }
         }
 
+        public static string removeCasTestEquipe(Equipe equipe)
+        {
+            equipe.CasTest = null;
+            try
+            {
+                context.SaveChanges();
+                return "La liaison des cas de test pour l'équipe " + equipe.nomEquipe + " a été effectué avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la liaison des cas de test pour l'équipe " + equipe.nomEquipe + ". Les données n'ont pas été enregistrées.";
+            }
+        }
+
         //Retourne la liste des equipes pour un Projet en utilisant le codeProjet
         public static List<Equipe> lstEquipeByCodeProjet(string codeProjet)
         {

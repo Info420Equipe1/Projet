@@ -77,10 +77,17 @@ namespace TexcelWeb.Interfaces
                 Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, actualSelectedCodeProjet);
 
                 //DataSource de la liste des cas de test pour une equipe
-                List<CasTest> lstCasTest = CtrlEquipe.lstCasTestByEquipe(equipe);
-                lsbCasTestEquipe.DataSource = lstCasTest;
-                lsbCasTestEquipe.DataTextField = "nomCasTest";
-                lsbCasTestEquipe.DataBind();
+                //List<CasTest> lstCasTest = CtrlEquipe.lstCasTestByEquipe(equipe);
+                if (equipe.CasTest != null)
+                {
+                    lsbCasTestEquipe.DataSource = equipe.CasTest;
+                    lsbCasTestEquipe.DataTextField = "nomCasTest";
+                    lsbCasTestEquipe.DataBind();
+                }
+                else
+                {
+                    lsbCasTestEquipe.Items.Clear();
+                }
 
                 //Emplissage des information à propos de l'équipe
                 txtNomEquipe.Text = equipe.nomEquipe;
@@ -151,10 +158,10 @@ namespace TexcelWeb.Interfaces
             {
                 if (lsbEquipes.SelectedIndex != -1)
                 {
+                    string nomEquipe = lsbEquipes.SelectedItem.Text;
+                    Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, actualSelectedCodeProjet);
                     if (lsbCasTestEquipe.Items.Count != 0)
                     {
-                        string nomEquipe = lsbEquipes.SelectedItem.Text;
-                        Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, actualSelectedCodeProjet);
                         List<string> lstCasTest = new List<string>();
 
                         for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
@@ -165,13 +172,14 @@ namespace TexcelWeb.Interfaces
                         string message = CtrlEquipe.lierEquipeCasTest(equipe, lstCasTest);
 
                         //Alert ne saffiche pas.... 
-                        Response.Write("<script type=\"text/javascript\">alert('Liaison des cas de test à une équipe réussi');</script>");
+                        Response.Write("<script type=\"text/javascript\">alert('Liaison des cas de test à une équipe avec succès');</script>");
                     }
                     else
                     {
-                        //Aucun cas de test à lier avec l'équipe
-                        //L'alert n'apparait pas à l'écran contrairement à tous les autre.......????
-                        Response.Write("<script type=\"text/javascript\">alert('Veuillez ajouter un ou des cas de test afin de les lier à l'équipe sélectionnée');</script>");
+                        CtrlEquipe.removeCasTestEquipe(equipe);
+
+                        //
+                        Response.Write("<script type=\"text/javascript\">alert('Cas de test supprimés de l'équipe avec succès');</script>");
                     }
                 }
                 else
