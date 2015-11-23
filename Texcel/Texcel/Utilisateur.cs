@@ -23,7 +23,7 @@ namespace Texcel
         public string motPasse { get; set; }
         public int premierLogin { get; set; }
         public Nullable<System.DateTime> dateDernModif { get; set; }
-        public int noEmploye { get; set; }
+        public string noEmploye { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual ICollection<Groupe> Groupe { get; set; }

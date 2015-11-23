@@ -147,7 +147,7 @@
           <Key>
             <PropertyRef Name="noEmploye" />
           </Key>
-          <Property Name="noEmploye" Type="int" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="numTelPrincipal" Type="char" MaxLength="12" />
@@ -162,7 +162,7 @@
             <PropertyRef Name="noEmploye" />
             <PropertyRef Name="idEquipe" />
           </Key>
-          <Property Name="noEmploye" Type="int" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="tblEquipe">
@@ -171,7 +171,7 @@
           </Key>
           <Property Name="idEquipe" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="noChefEquipe" Type="int" Nullable="false" />
+          <Property Name="noChefEquipe" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="nbTesteur" Type="smallint" />
           <Property Name="descEquipe" Type="text" />
           <Property Name="codeProjet" Type="varchar" MaxLength="10" />
@@ -207,7 +207,7 @@
           <Property Name="motPasse" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="premierLogin" Type="int" Nullable="false" />
           <Property Name="dateDernModif" Type="date" />
-          <Property Name="noEmploye" Type="int" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCasTest">
           <Key>
@@ -216,12 +216,13 @@
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descCasTest" Type="text" />
+          <Property Name="objCasTest" Type="text" />
+          <Property Name="divCasTest" Type="text" />
           <Property Name="dateCreation" Type="date" />
           <Property Name="dateLivraison" Type="date" />
           <Property Name="codeProjet" Type="varchar" MaxLength="10" />
           <Property Name="idDiff" Type="smallint" />
           <Property Name="idTest" Type="smallint" />
-          <Property Name="idResult" Type="smallint" />
           <Property Name="idNivPri" Type="smallint" />
           <Property Name="tagCasTest" Type="varchar" MaxLength="140" StoreGeneratedPattern="Computed" />
         </EntityType>
@@ -239,7 +240,7 @@
             <PropertyRef Name="noEmploye" />
           </Key>
           <Property Name="idTest" Type="smallint" Nullable="false" />
-          <Property Name="noEmploye" Type="int" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <EntityType Name="tblEquipeCasTest">
           <Key>
@@ -248,14 +249,6 @@
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tblFicheResultat">
-          <Key>
-            <PropertyRef Name="idResult" />
-          </Key>
-          <Property Name="idResult" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titreFicheRes" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="dateCloture" Type="date" />
         </EntityType>
         <EntityType Name="tblNiveauPriorite">
           <Key>
@@ -272,7 +265,7 @@
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="int" />
+          <Property Name="chefProjet" Type="varchar" MaxLength="6" />
           <Property Name="descProjet" Type="text" />
           <Property Name="dateCreation" Type="date" />
           <Property Name="dateLivraison" Type="date" />
@@ -356,7 +349,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="int" />
+          <Property Name="chefProjet" Type="varchar" MaxLength="6" />
           <Property Name="nomJeu" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tagProjet" Type="varchar" MaxLength="142" />
         </EntityType>
@@ -417,18 +410,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             </Principal>
             <Dependent Role="tblCasTest">
               <PropertyRef Name="idNivPri" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CT_FK_idResult">
-          <End Role="tblFicheResultat" Type="Self.tblFicheResultat" Multiplicity="0..1" />
-          <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblFicheResultat">
-              <PropertyRef Name="idResult" />
-            </Principal>
-            <Dependent Role="tblCasTest">
-              <PropertyRef Name="idResult" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -796,7 +777,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySet Name="tblDifficulte" EntityType="Self.tblDifficulte" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblEmployeTypeTest" EntityType="Self.tblEmployeTypeTest" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblEquipeCasTest" EntityType="Self.tblEquipeCasTest" Schema="Test" store:Type="Tables" />
-          <EntitySet Name="tblFicheResultat" EntityType="Self.tblFicheResultat" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblNiveauPriorite" EntityType="Self.tblNiveauPriorite" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblProjet" EntityType="Self.tblProjet" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblTypeTest" EntityType="Self.tblTypeTest" Schema="Test" store:Type="Tables" />
@@ -868,10 +848,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </AssociationSet>
           <AssociationSet Name="CT_FK_idNivPri" Association="Self.CT_FK_idNivPri">
             <End Role="tblNiveauPriorite" EntitySet="tblNiveauPriorite" />
-            <End Role="tblCasTest" EntitySet="tblCasTest" />
-          </AssociationSet>
-          <AssociationSet Name="CT_FK_idResult" Association="Self.CT_FK_idResult">
-            <End Role="tblFicheResultat" EntitySet="tblFicheResultat" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
           <AssociationSet Name="CT_FK_idTest" Association="Self.CT_FK_idTest">
@@ -1107,7 +1083,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Key>
             <PropertyRef Name="noEmploye" />
           </Key>
-          <Property Name="noEmploye" Type="Int32" Nullable="false" />
+          <Property Name="noEmploye" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="numTelPrincipal" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
@@ -1128,7 +1104,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="idEquipe" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="noChefEquipe" Type="Int32" Nullable="false" />
+          <Property Name="noChefEquipe" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nbTesteur" Type="Int16" />
           <Property Name="descEquipe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1162,7 +1138,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="motPasse" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="premierLogin" Type="Int32" Nullable="false" />
           <Property Name="dateDernModif" Type="DateTime" Precision="0" />
-          <Property Name="noEmploye" Type="Int32" Nullable="false" />
+          <Property Name="noEmploye" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employe" Relationship="Self.U_FK_noEmploye" FromRole="tblUtilisateur" ToRole="tblEmploye" />
           <NavigationProperty Name="Groupe" Relationship="Self.tblGroupeUtilisateur" FromRole="tblUtilisateur" ToRole="tblGroupe" />
         </EntityType>
@@ -1173,18 +1149,18 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="objCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="divCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="dateCreation" Type="DateTime" Precision="0" />
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="idDiff" Type="Int16" />
           <Property Name="idTest" Type="Int16" />
-          <Property Name="idResult" Type="Int16" />
           <Property Name="idNivPri" Type="Int16" />
           <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="cProjet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
           <NavigationProperty Name="Difficulte" Relationship="Self.CT_FK_idDiff" FromRole="tblCasTest" ToRole="tblDifficulte" />
           <NavigationProperty Name="NiveauPriorite" Relationship="Self.CT_FK_idNivPri" FromRole="tblCasTest" ToRole="tblNiveauPriorite" />
-          <NavigationProperty Name="FicheResultat" Relationship="Self.CT_FK_idResult" FromRole="tblCasTest" ToRole="tblFicheResultat" />
           <NavigationProperty Name="TypeTest" Relationship="Self.CT_FK_idTest" FromRole="tblCasTest" ToRole="tblTypeTest" />
           <NavigationProperty Name="Equipe" Relationship="Self.tblEquipeCasTest" FromRole="tblCasTest" ToRole="tblEquipe" />
         </EntityType>
@@ -1196,15 +1172,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="nomDiff" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descDiff" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idDiff" FromRole="tblDifficulte" ToRole="tblCasTest" />
-        </EntityType>
-        <EntityType Name="FicheResultat">
-          <Key>
-            <PropertyRef Name="idResult" />
-          </Key>
-          <Property Name="idResult" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titreFicheRes" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dateCloture" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idResult" FromRole="tblFicheResultat" ToRole="tblCasTest" />
         </EntityType>
         <EntityType Name="NiveauPriorite">
           <Key>
@@ -1222,7 +1189,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="chefProjet" Type="Int32" />
+          <Property Name="chefProjet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="descProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="dateCreation" Type="DateTime" Precision="0" />
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
@@ -1270,7 +1237,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             <PropertyRef Name="idEquipe" />
           </Key>
           <Property Name="idEquipe" Type="Int16" Nullable="false" />
-          <Property Name="nomEquipe" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChefEquipe" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEquipe" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -1299,7 +1266,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="chefProjet" Type="Int32" />
+          <Property Name="chefProjet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="nomJeu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -1447,18 +1414,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CT_FK_idResult">
-          <End Role="tblFicheResultat" Type="dbProjetE1Model.FicheResultat" Multiplicity="0..1" />
-          <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblFicheResultat">
-              <PropertyRef Name="idResult" />
-            </Principal>
-            <Dependent Role="tblCasTest">
-              <PropertyRef Name="idResult" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="CT_FK_idTest">
           <End Role="tblTypeTest" Type="dbProjetE1Model.TypeTest" Multiplicity="0..1" />
           <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
@@ -1529,7 +1484,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySet Name="tblUtilisateur" EntityType="dbProjetE1Model.Utilisateur" />
           <EntitySet Name="tblCasTest" EntityType="dbProjetE1Model.CasTest" />
           <EntitySet Name="tblDifficulte" EntityType="dbProjetE1Model.Difficulte" />
-          <EntitySet Name="tblFicheResultat" EntityType="dbProjetE1Model.FicheResultat" />
           <EntitySet Name="tblNiveauPriorite" EntityType="dbProjetE1Model.NiveauPriorite" />
           <EntitySet Name="tblProjet" EntityType="dbProjetE1Model.cProjet" />
           <EntitySet Name="tblTypeTest" EntityType="dbProjetE1Model.TypeTest" />
@@ -1585,10 +1539,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </AssociationSet>
           <AssociationSet Name="CT_FK_idNivPri" Association="Self.CT_FK_idNivPri">
             <End Role="tblNiveauPriorite" EntitySet="tblNiveauPriorite" />
-            <End Role="tblCasTest" EntitySet="tblCasTest" />
-          </AssociationSet>
-          <AssociationSet Name="CT_FK_idResult" Association="Self.CT_FK_idResult">
-            <End Role="tblFicheResultat" EntitySet="tblFicheResultat" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
           <AssociationSet Name="CT_FK_idTest" Association="Self.CT_FK_idTest">
@@ -1803,12 +1753,13 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
                 <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
                 <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
                 <ScalarProperty Name="descCasTest" ColumnName="descCasTest" />
+                <ScalarProperty Name="objCasTest" ColumnName="objCasTest" />
+                <ScalarProperty Name="divCasTest" ColumnName="divCasTest" />
                 <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
                 <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
                 <ScalarProperty Name="idDiff" ColumnName="idDiff" />
                 <ScalarProperty Name="idTest" ColumnName="idTest" />
-                <ScalarProperty Name="idResult" ColumnName="idResult" />
                 <ScalarProperty Name="idNivPri" ColumnName="idNivPri" />
                 <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
               </MappingFragment>
@@ -1820,15 +1771,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
                 <ScalarProperty Name="idDiff" ColumnName="idDiff" />
                 <ScalarProperty Name="nomDiff" ColumnName="nomDiff" />
                 <ScalarProperty Name="descDiff" ColumnName="descDiff" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblFicheResultat">
-            <EntityTypeMapping TypeName="dbProjetE1Model.FicheResultat">
-              <MappingFragment StoreEntitySet="tblFicheResultat">
-                <ScalarProperty Name="idResult" ColumnName="idResult" />
-                <ScalarProperty Name="titreFicheRes" ColumnName="titreFicheRes" />
-                <ScalarProperty Name="dateCloture" ColumnName="dateCloture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

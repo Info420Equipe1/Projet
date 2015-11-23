@@ -42,7 +42,6 @@ namespace Texcel
         public virtual DbSet<Utilisateur> tblUtilisateur { get; set; }
         public virtual DbSet<CasTest> tblCasTest { get; set; }
         public virtual DbSet<Difficulte> tblDifficulte { get; set; }
-        public virtual DbSet<FicheResultat> tblFicheResultat { get; set; }
         public virtual DbSet<NiveauPriorite> tblNiveauPriorite { get; set; }
         public virtual DbSet<cProjet> tblProjet { get; set; }
         public virtual DbSet<TypeTest> tblTypeTest { get; set; }

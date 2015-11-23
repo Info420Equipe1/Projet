@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="83629ab44cab48198df9f6db4e697715" Name="Diagram1">
+      <Diagram DiagramId="13df56b1fc2f47bdbf944f0b49d5c4df" Name="Diagram1">
         <EntityTypeShape EntityType="dbProjetE1Model.ClassificationJeu" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.EditionSysExp" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.GenreJeu" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
@@ -21,11 +21,10 @@
         <EntityTypeShape EntityType="dbProjetE1Model.Groupe" Width="1.5" PointX="14.25" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Utilisateur" Width="1.5" PointX="16.5" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.CasTest" Width="1.5" PointX="9.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.Difficulte" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.FicheResultat" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.NiveauPriorite" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.Difficulte" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.NiveauPriorite" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.cProjet" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.TypeTest" Width="1.5" PointX="7.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.TypeTest" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.AllPlateforme" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.AllSysExp" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.AllEquipe" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
@@ -44,7 +43,6 @@
         <AssociationConnector Association="dbProjetE1Model.CT_FK_codeProjet" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.CT_FK_idDiff" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.CT_FK_idNivPri" ManuallyRouted="false" />
-        <AssociationConnector Association="dbProjetE1Model.CT_FK_idResult" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.CT_FK_idTest" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblAssociationJeu" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblJeuGenre" ManuallyRouted="false" />

@@ -32,8 +32,7 @@ namespace TexcelWeb.Classes.Personnel
                         Employe chefProjet = CtrlEmploye.getEmployeById(user.noEmploye);
                         lstChefProjet.Add(chefProjet);
                     }
-	            }
-                
+	            }             
             }
             return lstChefProjet;
         }

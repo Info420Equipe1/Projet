@@ -136,9 +136,6 @@
     <Compile Include="Equipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FicheResultat.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

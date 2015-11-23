@@ -23,7 +23,7 @@ namespace Texcel
             this.TypeTest = new HashSet<TypeTest>();
         }
     
-        public int noEmploye { get; set; }
+        public string noEmploye { get; set; }
         public string prenomEmploye { get; set; }
         public string nomEmploye { get; set; }
         public string numTelPrincipal { get; set; }
