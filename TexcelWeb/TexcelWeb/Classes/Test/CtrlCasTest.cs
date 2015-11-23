@@ -13,7 +13,8 @@ namespace TexcelWeb.Classes.Test
 {
     public class CtrlCasTest : CtrlController
     {
-        
+        static CasTest casTestEnCours;
+        static List<CasTest> lstCasTest = new List<CasTest>();
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
         {
@@ -145,7 +146,22 @@ namespace TexcelWeb.Classes.Test
             return -1;
         }
 
+        public static void CopierCasTestEnCours(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, 
+            DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
+        {
+            casTestEnCours = new CasTest();
+            casTestEnCours.codeCasTest = _code;
+            casTestEnCours.nomCasTest = _nom;
+            casTestEnCours.cProjet = _proj;
+            casTestEnCours.Difficulte = _diff;
+            casTestEnCours.NiveauPriorite = _prio;
+            casTestEnCours.dateCreation = _crea;
+            casTestEnCours.dateLivraison = _livr;
+            casTestEnCours.TypeTest = _tT;
+            casTestEnCours.descCasTest = _desc; 
 
 
+        }
+      
     }
 }

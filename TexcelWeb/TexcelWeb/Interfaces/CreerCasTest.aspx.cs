@@ -18,6 +18,7 @@ namespace TexcelWeb
     {
         bool modif;
         CasTest casTest;
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             //Premier loading de la page
@@ -252,6 +253,24 @@ namespace TexcelWeb
 
         protected void btnCopier_Click(object sender, EventArgs e)
         {
+            string Param = "CasTest";
+            DateTime? dt = new DateTime?();
+
+            if (txtDateLivraisonCasTest.Text == "")
+            {
+                dt = null;              
+            }
+            else
+            {
+               dt =  Convert.ToDateTime(txtDateLivraisonCasTest.Text);
+            }
+
+            CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
+                CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
+                Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
+                rtxtDescriptionCasTest.Text);    
+                        
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
            
         }
 
