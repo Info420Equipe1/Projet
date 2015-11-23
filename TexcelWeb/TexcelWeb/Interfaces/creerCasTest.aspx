@@ -27,77 +27,39 @@ $(function(){
 			<div class="left">
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="/Interfaces/login.aspx">deconnection</a> ]</p>
 			</div>
-			<div class="right">
+			<!-- <div class="right">
 				<div class="align-right">
 					<p>Dernière connexion: <strong>28-10-2015</strong></p>
 				</div>
-			</div>
-		</div>
-	</div>
-	
+			</div> -->
+        </div>
+	</div>	
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
-                <div class="h_title" ><a href="/Interfaces/recherche.aspx">&#8250;Recherche</a></div>
+                <div class="h_title">&#8250; Recherche</div>
+                <ul>
+                    <li class="b1"><a class="icon page" href="/Interfaces/recherche.aspx">Recherche</a></li>
+                </ul>   
+			</div>
+            <div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul>
 					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
-                    <li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>
-					<!-- <li class="b2"><a class="icon report" href="">Reports</a></li>
-					<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
-					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
+                    <li class="b1"><a class="icon page" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
-				<div class="h_title">&#8250; Cas de tests</div>
+				<div class="h_title">&#8250; Cas de test</div>
 				<ul id="home">
 					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
-					<!-- <li class="b1"><a class="icon photo" href="">Add new gallery</a></li>
-					<li class="b2"><a class="icon category" href="">Categories</a></li> -->
 				</ul>
 			</div>
-		</div>
+        </div>
 	    <div id="main">
-			<!-- <div class="half_w half_left">
-				<div class="h_title">Visits statistics</div>
-					<script src="js/highcharts_init.js"></script>
-					<div id="container" style="min-width: 300px; height: 180px; margin: 0 auto"></div>
-					<script src="js/highcharts.js"></script>
-			</div>
-			<div class="half_w half_right">
-				<div class="h_title">Site statistics</div>
-				<div class="stats">
-					<div class="today">
-						<h3>Today</h3>
-						<p class="count">2 349</p>
-						<p class="type">Visits</p>
-						<p class="count">96</p>
-						<p class="type">Comments</p>
-						<p class="count">9</p>
-						<p class="type">Articles</p>
-					</div>
-					<div class="week">
-						<h3>Last week</h3>
-						<p class="count">12 931</p>
-						<p class="type">Visits</p>
-						<p class="count">521</p>
-						<p class="type">Comments</p>
-						<p class="count">38</p>
-						<p class="type">Articles</p>
-					</div>
-				</div>
-			</div> 
-			
-			<div class="clear"></div> -->
-			
-            <!-- <div class="n_warning"><p>Attention notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
-			<div class="n_ok"><p>Success notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div>
-			<div class="n_error"><p>Error notification. Lorem ipsum dolor sit amet, consetetur, sed diam nonumyeirmod tempor.</p></div> -->
-			
 			<div class="full_w">
 				<div class="h_title">Créer un cas de test</div>
-                <form id="FrmCasTest" runat="server">
-                    
+                <form id="FrmCasTest" runat="server">      
                     <div id="CasTestInfo">
                         <div id="lblColumn1">
                             <div class="info">
@@ -153,134 +115,36 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox" Height="146px" Width="428px"/>
                         </div>
                     </div>
-                    <!-- <div class="element">
-					    <label for="attach">Attachments</label>
-					    <input type="file" name="attach" />
-				    </div> -->
-                    <%--<table>
-					<thead>
-						<tr>
-							<th scope="col" style="width:200px">Fichier</th>
-							<th scope="col" style="width:40px;text-align:center">Type</th>
-							<th scope="col" style="width:40px;text-align:center">Taille</th>
-							<th scope="col" style="width:150px">Auteur</th>
-							<th scope="col" style="width:90px">Dernière Modif</th>
-							<th scope="col" style="width:65px;">Modifier</th>
-						</tr>
-					</thead>					
-					<tbody>
-						<tr>
-							<td>Documentation</td>
-							<td>.txt</td>
-							<td>180 mb</td>
-							<td>Marcel Leblond</td>
-							<td>22-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-							
-						<tr>
-							<td>VisualParadigmDoc</td>
-							<td>.vpp</td>
-							<td>150 mb</td>
-							<td>Louis-Alexandre Munger</td>
-							<td>23-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>					
-						<tr>
-							<td>Documentation2</td>
-							<td>.txt</td>
-							<td>160 mb</td>
-							<td>Jérémie Tremblay</td>
-							<td>22-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-						
-						<tr>
-							<td>ReadME</td>
-							<td>.txt</td>
-							<td>170 mb</td>
-							<td>Benoit Simard</td>
-							<td>25-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-                        <tr>
-							<td>ReadME</td>
-							<td>.txt</td>
-							<td>170 mb</td>
-							<td>Benoit Simard</td>
-							<td>25-03-2012</td>
-							<td class="align-center">
-								<a href="#" class="table-icon edit" title="Modifier"></a>
-								<a href="#" class="table-icon archive" title="Emplacement du document"></a>
-								<a href="#" class="table-icon delete" title="Supprimer"></a>
-							</td>
-						</tr>
-					</tbody>
-				</table>--%>
-                <%--<div class="pagination">
-					<span>« Première</span>
-					<span class="active">1</span>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<span>...</span>
-					<a href="#">23</a>
-					<a href="#">24</a>
-					<a href="#">Dernière »</a>
-				</div>--%>
                 <div id="btnCopierEnregistrerAnnuler">
                         <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click" OnClientClick="window.open('recherche.aspx', 'recherche');"/>      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />
-                       
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />                       
                     <br />
                     <br />
                 </div>
-                    <div>
-                       
-<asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
-<asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
-<hr />
-                     
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
-    <Columns>
-        <asp:BoundField DataField="File Name" HeaderText="File Name" />
-         <asp:BoundField DataField="Extansion" HeaderText="Extansion" />
-        <asp:BoundField DataField="Taille" HeaderText="Taille" />
-        <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
-        <asp:TemplateField>
-            <ItemTemplate>
-                <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:TemplateField>
-            <ItemTemplate>
-                <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
-                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
-					
-					</div> 
-                            
-
+                <div>         
+                    <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                    <hr />
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
+                        <Columns>
+                            <asp:BoundField DataField="File Name" HeaderText="File Name" />
+                            <asp:BoundField DataField="Extansion" HeaderText="Extansion" />
+                            <asp:BoundField DataField="Taille" HeaderText="Taille" />
+                            <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkDownload" Text = "Download"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID = "lnkDelete" Text = "Delete"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>
                     </div>
                 </form>
 			</div>
@@ -291,9 +155,6 @@ $(function(){
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
-		<!-- <div class="right">
-			<p><a href="">Example link 1</a> | <a href="">Example link 2</a></p>
-		</div> -->
 	</div>
 </div>
 </body>
