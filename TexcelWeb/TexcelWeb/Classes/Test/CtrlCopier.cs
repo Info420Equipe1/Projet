@@ -41,10 +41,9 @@ namespace TexcelWeb.Classes.Test
                     DetermineObject(row.Cells[1].Text);               
                 }
             }
-
-
         }
    
+        // Chercher l'objet et le mettre dans la liste correspondante
         private static void DetermineObject(string _idUnique)
         {
             if (CtrlProjet.getProjetByCode(_idUnique) != null)
@@ -64,11 +63,16 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
+        // Envoyer la liste d'élément cocher au bon controlleur
         private static void EnvoyerLstObjetCopier()
         {
             if (lstProjet.Count == 0 )
             {
-                
+                CtrlCasTest.SauvegarderLstCasTest(lstCasTest);
+            }
+            else
+            {
+               // on sauvegarde liste de projet
             }
         }
     }

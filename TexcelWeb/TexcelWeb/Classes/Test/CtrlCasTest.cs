@@ -208,7 +208,10 @@ namespace TexcelWeb.Classes.Test
             casTestEnCours.TypeTest = _tT;
             casTestEnCours.descCasTest = _desc; 
 
-
+        }
+        public static void SauvegarderLstCasTest(List<CasTest> _lstCasTest)
+        {
+            lstCasTest = _lstCasTest;
         }
       
     }
