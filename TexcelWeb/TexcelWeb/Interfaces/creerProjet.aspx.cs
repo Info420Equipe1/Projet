@@ -21,7 +21,6 @@ namespace TexcelWeb
         static bool modifierProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (!IsPostBack)
             {
                 //Longueur des champs
@@ -325,8 +324,8 @@ namespace TexcelWeb
                 switch (message)
                 {
                     case "projetajoute":
-                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été ajouté avec succès.');</script>");
                         Session["modifProjet"] = false;
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "<script type='text/javascript'>alert('Le projet a été ajouté avec succès.');window.location='/Interfaces/creerProjet.aspx';</script>'");
                         break;
                     case "erreur":
                         Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la création du projet.');</script>");
@@ -342,8 +341,8 @@ namespace TexcelWeb
                 switch (message)
                 {
                     case "projetmodifier":
-                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été modifié avec succès.');</script>");
                         Session["modifProjet"] = false;
+                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été modifié avec succès.');</script>");
                         break;
                     case "erreur":
                         Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la modification du projet.');</script>");

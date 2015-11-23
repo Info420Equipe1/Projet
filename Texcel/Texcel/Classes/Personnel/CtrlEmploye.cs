@@ -94,7 +94,7 @@ namespace Texcel.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
             return emp;
         }
-        public static int getIdEmploye(string _nomEmp)
+        public static string getIdEmploye(string _nomEmp)
         {
             Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp.noEmploye;
@@ -121,7 +121,7 @@ namespace Texcel.Classes.Personnel
             return listEmp;
         }
 
-        public static Employe getEmployeByNo(int _numEmploye)
+        public static Employe getEmployeByNo(string _numEmploye)
         {
             Employe emp = context.tblEmploye.Where(x => x.noEmploye == _numEmploye).First();
             return emp;
