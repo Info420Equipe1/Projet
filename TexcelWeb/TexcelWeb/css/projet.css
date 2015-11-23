@@ -10,7 +10,6 @@
     width: 49%;
     display:inline-block;
     vertical-align:top;
-    margin-top:5px;
 }
 
 #CasTestDesc{
@@ -67,7 +66,7 @@
 
 .richtextbox{
     width: 505px;
-    height: 155px;
+    height: 215px;
 }
 
 .button{

@@ -26,33 +26,32 @@ $(function(){
 			<div class="left">
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="/Interfaces/login.aspx">deconnection</a> ]</p>
 			</div>
-			<div class="right">
+			<!-- <div class="right">
 				<div class="align-right">
 					<p>Dernière connexion: <strong id="txtDerniereConnexion" runat="server">28-10-2015</strong></p>
 				</div>
-			</div>
+			</div> -->
 		</div>
-	</div>
-	
+    </div>
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
-                <div class="h_title" ><a href="/Interfaces/recherche.aspx">&#8250;Recherche</a></div>
+                <div class="h_title">&#8250; Recherche</div>
+                <ul>
+                    <li class="b1"><a class="icon page" href="/Interfaces/recherche.aspx">Recherche</a></li>
+                </ul>   
+			</div>
+            <div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
 					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
-					<li class="b2"><a class="icon report" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>
-					<!--<li class="b1"><a class="icon add_page" href="">Add new page</a></li>
-					<li class="b2"><a class="icon config" href="">Site config</a></li> -->
+                    <li class="b1"><a class="icon page" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
-				<div class="h_title">&#8250; Cas de tests</div>
+				<div class="h_title">&#8250; Cas de test</div>
 				<ul>
 					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
-					<!-- <li class="b2"><a class="icon add_page" href="">Add new page</a></li>
-					<li class="b1"><a class="icon photo" href="">Add new gallery</a></li>
-					<li class="b2"><a class="icon category" href="">Categories</a></li> -->
 				</ul>
 			</div>
 		</div>
@@ -102,15 +101,15 @@ $(function(){
                             </asp:UpdatePanel>
                         </div>  
                         <div id="CasTestObj">
-                            <asp:Label runat="server" Text="Objectif: " /><br />
+                            <asp:Label runat="server" Text="Objectif: " />
                             <asp:TextBox runat="server" ID="rtxtObjectifProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
-                            <asp:Label runat="server" Text="Description: "/><br />
+                            <asp:Label runat="server" Text="Description: "/>
                             <asp:TextBox runat="server" ID="rtxtDescriptionProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
-                            <asp:Label runat="server" Text="Divers: "/><br />
+                            <asp:Label runat="server" Text="Divers: "/>
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
@@ -119,46 +118,37 @@ $(function(){
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>
-
-                            <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
-                                <Columns>
-                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
-                                    <ItemStyle CssClass="align-center" Width="85px" />
-                                    </asp:BoundField>
-                                    <asp:BoundField ItemStyle-Width="200px" DataField="NomCasTest" HeaderText="Nom Cas de Test" >
-                                    <ItemStyle Width="200px" />
-                                    </asp:BoundField>
-                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DateLivraisonCasTest" HeaderText="Date livraison" >
-                                    <ItemStyle CssClass="align-center" Width="85px" />
-                                    </asp:BoundField>
-                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="PrioriteCasTest" HeaderText="Priorité" >
-                                    <ItemStyle CssClass="align-center" Width="85px" />
-                                    </asp:BoundField>
-                                    <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DifficulteCasTest" HeaderText="Difficulté" >
-                                    <ItemStyle CssClass="align-center" Width="85px" />
-                                    </asp:BoundField>
-                                    
-                                    <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ItemStyle-CssClass="align-center">
-                                        <ItemTemplate>
-                                            <a id="btnModifierGridView" runat="server" class="table-icon edit" title="Modifier" ></a>
-                                            
-                                        </ItemTemplate>
-                                        <ControlStyle Width="85px" />
-                                        <HeaderStyle Width="65px" />
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>	
-
-                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
-					
-					</div> 
-
-                    
+                    <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
+                        <Columns>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="200px" DataField="NomCasTest" HeaderText="Nom Cas de Test" >
+                            <ItemStyle Width="200px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DateLivraisonCasTest" HeaderText="Date livraison" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="PrioriteCasTest" HeaderText="Priorité" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DifficulteCasTest" HeaderText="Difficulté" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>  
+                            <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ItemStyle-CssClass="align-center">
+                                <ItemTemplate>
+                                    <a id="btnModifierGridView" runat="server" class="table-icon edit" title="Modifier" ></a>                                      
+                                </ItemTemplate>
+                                <ControlStyle Width="85px" />
+                                <HeaderStyle Width="65px" />
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>	
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div> 
                 </form>
 			</div>
 		</div>  
 	</div>
-
 	<div id="footer">
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
