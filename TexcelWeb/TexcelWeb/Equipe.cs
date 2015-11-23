@@ -22,7 +22,7 @@ namespace TexcelWeb
     
         public short idEquipe { get; set; }
         public string nomEquipe { get; set; }
-        public int noChefEquipe { get; set; }
+        public string noChefEquipe { get; set; }
         public Nullable<short> nbTesteur { get; set; }
         public string descEquipe { get; set; }
         public string codeProjet { get; set; }

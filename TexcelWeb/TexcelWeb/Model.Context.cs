@@ -31,7 +31,7 @@ namespace TexcelWeb
         public virtual DbSet<cJeu> tblJeu { get; set; }
         public virtual DbSet<Plateforme> tblPlateforme { get; set; }
         public virtual DbSet<SysExp> tblSysExp { get; set; }
-        public virtual DbSet<ThemeJeu> tblThemeJeu { get; set; }
+        public virtual DbSet<tblThemeJeu> tblThemeJeu { get; set; }
         public virtual DbSet<TypePlateforme> tblTypePlateforme { get; set; }
         public virtual DbSet<VersionJeu> tblVersionJeu { get; set; }
         public virtual DbSet<VersionSysExp> tblVersionSysExp { get; set; }
