@@ -178,7 +178,7 @@ namespace TexcelWeb
 
             rtxtDescriptionProjet.Text = projet.descProjet;
             rtxtObjectifProjet.Text = projet.objProjet;
-            //rtxtDiversProjet.Text = projet.divProjet;
+            rtxtDiversProjet.Text = projet.divProjet;
         }
         private void fillDropDownBox()
         {

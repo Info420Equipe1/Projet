@@ -117,7 +117,7 @@ $(function(){
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/>
-                            <ml:RichTextBox runat="server" ID="rtxtDiversProjet" mlWidth="505px" mlHeight="215px" EnableTheming="false" />
+                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
