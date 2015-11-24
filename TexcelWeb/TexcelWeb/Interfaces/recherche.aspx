@@ -18,6 +18,9 @@ $(function(){
 	$(".box").children(".h_title").click( function() { $(this).next("ul").slideToggle(); });
 });
 </script>
+<style>
+a {color:white; text-decoration:none}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -73,7 +76,7 @@ $(function(){
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated">
+                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated" AllowSorting="true">
                             </asp:GridView>
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  

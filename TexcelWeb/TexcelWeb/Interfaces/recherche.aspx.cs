@@ -54,21 +54,21 @@ namespace TexcelWeb
                     gvRecherche.DataSourceID = "edsProjet";
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();                
-                    gvRecherche.HeaderRow.Cells[0].Text = "Code du Projet";
+                    /*gvRecherche.HeaderRow.Cells[0].Text = "Code du Projet";
                     gvRecherche.HeaderRow.Cells[1].Text = "Nom du Projet";
                     gvRecherche.HeaderRow.Cells[2].Text = "Chef de Projet";
                     gvRecherche.HeaderRow.Cells[3].Text = "Date de Creation";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Livraison";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Livraison";*/
                     break;              
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
                     edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
-                    gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
+                    /*gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
                     gvRecherche.HeaderRow.Cells[1].Text = "Nom du CasTest";
                     gvRecherche.HeaderRow.Cells[2].Text = "Date de Creation";
                     gvRecherche.HeaderRow.Cells[3].Text = "Date de Livraison";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Code du Projet";
+                    gvRecherche.HeaderRow.Cells[4].Text = "Code du Projet";*/
                     break;
                 default:
                     break;
