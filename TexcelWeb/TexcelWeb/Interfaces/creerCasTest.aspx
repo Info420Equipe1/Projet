@@ -137,12 +137,12 @@ $(function(){
                             <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkDownload" Text = "Telecharger"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
+                                    <asp:LinkButton ID = "lnkDownload"   runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click" CssClass="add"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID = "lnkDelete" Text = "Supprimer"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
+                                    <asp:LinkButton ID = "lnkDelete"   runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click" CssClass="delete"/>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
