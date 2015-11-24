@@ -16,18 +16,40 @@ namespace TexcelWeb.Classes
                 Utilisateur user = context.tblUtilisateur.Where(x => x.nomUtilisateur == _username).First();
                 if (user.motPasse == _password)
                 {
-                    if ((CtrlUtilisateur.VerifPremiereConn(user)) || (CtrlUtilisateur.VerifApres6Mois(user)))
+                    if (user.Groupe.Count == 1)
                     {
-                        return "changermotdepasse";
+                        Groupe g = user.Groupe.First();
+                        if (g.idGroupe == 4)
+                        {
+                            return "testeur";
+                        }
+                        else
+                        {
+                            if ((CtrlUtilisateur.VerifPremiereConn(user)) || (CtrlUtilisateur.VerifApres6Mois(user)))
+                            {
+                                return "changermotdepasse";
+                            }
+                            else
+                            {
+                                CtrlController.SetCurrentUser(user);
+                                return "connexionreussie";
+                            }
+                        }
                     }
                     else
                     {
-                        CtrlController.SetCurrentUser(user);
-                        return "connexionreussie";
-
+                        if ((CtrlUtilisateur.VerifPremiereConn(user)) || (CtrlUtilisateur.VerifApres6Mois(user)))
+                        {
+                            return "changermotdepasse";
+                        }
+                        else
+                        {
+                            CtrlController.SetCurrentUser(user);
+                            return "connexionreussie";
+                        }
                     }
                 }
-                else
+                else 
                 {
                     return "motdepasseincorrect";
                 }
