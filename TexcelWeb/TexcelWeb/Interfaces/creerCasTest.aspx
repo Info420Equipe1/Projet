@@ -137,7 +137,7 @@ $(function(){
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDownload" runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click" CssClass="addonly"/>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click" CssClass="cancelonly" />
-                                    <asp:LinkButton ID="lnkFile" runat="server" CommandArgument='<%# Eval("File Name") %>' CssClass="file" />
+                                    <asp:LinkButton ID="lnkFile" runat="server" CommandArgument='<%# Eval("File Name") %>' CssClass="file" OnClick="lnkOpen_Click" />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
