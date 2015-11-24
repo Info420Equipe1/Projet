@@ -19,6 +19,7 @@ namespace TexcelWeb
     {
         int indexTableCasTest;
         static bool modifierProjet;
+        Utilisateur currentUser;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -36,7 +37,7 @@ namespace TexcelWeb
                 else
                 {
                     //Formatage Bienvenue, [NomUtilisateur] et la Date
-                    Utilisateur currentUser = CtrlController.GetCurrentUser();
+                    currentUser = CtrlController.GetCurrentUser();
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                     nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
                 }
@@ -87,7 +88,14 @@ namespace TexcelWeb
                     //Emplissage du GridView pour les cas de test
                     fillDataGridViewCasTest(projet);
 
-
+                    foreach (Groupe groupe in currentUser.Groupe)
+                    {
+                        List<int> lstDroits = CtrlController.GetDroits(groupe);
+                        if (!lstDroits.Contains(20))
+                        {
+                            btnEnregistrer.Visible = false;
+                        }
+                    }
                     
                 }
             }

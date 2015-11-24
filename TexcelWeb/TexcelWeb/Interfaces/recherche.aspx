@@ -38,23 +38,23 @@ a {color:white; text-decoration:none}
 	</div>
 	<div id="content">
 		<div id="sidebar">
-			<div class="box">
+			<div id="boxRecherche" runat="server" class="box">
                 <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
                 <ul id="home">
-                    <li class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
+                    <li id="lienRecherche" runat="server" class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
                 </ul>   
 			</div>
-            <div class="box">
-				<div class="h_title">&#8250; Projets</div>
+            <div id="boxProjet" runat="server" class="box">
+				<div id="menuProjet" runat="server" class="h_title">&#8250; Projets</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
-                    <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des equipes</a></li>			
+					<li id="lienAjouterProjet" runat="server" class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
+                    <li id="lienProjetEquipe" runat="server" class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
-			<div class="box">
-				<div class="h_title">&#8250; Cas de test</div>
+			<div id="boxCasTest" runat="server" class="box">
+				<div id="menuCasTest" runat="server" class="h_title">&#8250; Cas de test</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
+					<li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
 		</div>
