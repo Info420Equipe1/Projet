@@ -23,8 +23,6 @@ namespace TexcelWeb
         {
             if (!IsPostBack)
             {
-                Response.Write("<script type=\"text/javascript\">JavaScript1.js</script>");
-                //this.ClientScript.RegisterStartupScript(this.GetType(), "JavaScript1.js", "", true);
                 //Longueur des champs
                 setFieldLength();
                 string nomChefProjet = "";

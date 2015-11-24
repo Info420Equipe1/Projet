@@ -84,7 +84,7 @@
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\renouvPassword.aspx" />
-    <Content Include="js\JavaScript1.js" />
+    <Content Include="js\btnLoading.js" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
