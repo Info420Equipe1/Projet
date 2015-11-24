@@ -117,6 +117,8 @@ namespace TexcelWeb.Classes.Test
                 _casTest.TypeTest = null;
             }
             _casTest.descCasTest = _desc;
+            _casTest.objCasTest = _obj;
+            _casTest.divCasTest = _divers;
 
             try
             {
