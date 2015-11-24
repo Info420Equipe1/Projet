@@ -213,12 +213,12 @@ namespace TexcelWeb
             {
                 if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Cas de test créé');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Cas de test ajouté!', 'Le cas de test a été ajouté avec succès.', 'success');", true);
                     ViderChamps();
-                    
                 }
                 else
                 {
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du cas de test.', 'error');", true);
                     Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
                 }
             }
@@ -226,13 +226,13 @@ namespace TexcelWeb
             {
                 if (CtrlCasTest.Modifier(txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text, casTest))
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Cas de test modifié');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Cas de test modifié!', 'Le cas de test a été modifié avec succès.', 'success');", true);
                     
                     RemplirChamps(casTest);
                 }
                 else
                 {
-                    Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la modification du cas de test', 'error');", true);
                 }
             }
            
