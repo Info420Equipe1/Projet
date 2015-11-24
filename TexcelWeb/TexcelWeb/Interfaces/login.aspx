@@ -7,7 +7,12 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Texcel - Connexion</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+
 <link rel="stylesheet" type="text/css" href="../css/login.css" media="screen" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+        
 </head>
 <body>
 <div class="wrap">

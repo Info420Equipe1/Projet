@@ -24,7 +24,7 @@
 					<label for="pass">Ressaisir mot de passe:</label>
                     <asp:TextBox ID="txtMotPasse2" onpaste="return false;" oncopy="return false" oncut="return false" runat="server" Width="294px" TextMode="Password"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Champ vide" ForeColor="Red" ControlToValidate="txtMotPasse2"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Le mot de passe n'est pas identique" ControlToValidate="txtMotPasse" ControlToCompare="txtMotPasse2" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Le mot de passe n'est pas identique" ControlToValidate="txtMotPasse2" ControlToCompare="txtMotPasse" ForeColor="Red"></asp:CompareValidator>
 					<div class="sep"></div>
                     <asp:Button ID="btnEnregistrer" Text="Enregistrer" runat="server" OnClick="btnEnregistrer_Click" CssClass="btnDroit button add"></asp:Button>
 				</form>
