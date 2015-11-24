@@ -426,6 +426,6 @@ table .chb{
 .align-right{ text-align: right; }
 .align-center{ text-align: center; }
 
-.addonly{ background: url(../img/down.png) no-repeat center; padding-left: 20px}
-.cancelonly{ background: url(../img/x.png) no-repeat center; padding-left: 20px}
-.file{ background: url(../img/icone_dossier.png) no-repeat center; padding-left: 20px}
+.addonly{ background: url(../img/down.png) no-repeat center; padding-left: 25px}
+.cancelonly{ background: url(../img/delete.png) no-repeat center; padding-left: 25px}
+.file{ background: url(../img/icone_dossier.png) no-repeat center; padding-left: 25px}
