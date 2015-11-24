@@ -23,6 +23,8 @@ namespace TexcelWeb
         {
             if (!IsPostBack)
             {
+                Response.Write("<script type=\"text/javascript\">JavaScript1.js</script>");
+                //this.ClientScript.RegisterStartupScript(this.GetType(), "JavaScript1.js", "", true);
                 //Longueur des champs
                 setFieldLength();
                 string nomChefProjet = "";
@@ -326,10 +328,13 @@ namespace TexcelWeb
                 {
                     case "projetajoute":
                         Session["modifProjet"] = false;
-                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "<script type='text/javascript'>alert('Le projet a été ajouté avec succès.');window.location='/Interfaces/creerProjet.aspx';</script>'");
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
                         break;
                     case "erreur":
-                        Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la création du projet.');</script>");
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du projet.', 'error');", true);
+                        break;
+                    case "projetExiste":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Un projet avec le même code existe déjà.', 'warning');", true);
                         break;
                     default:
                         break;
@@ -343,10 +348,11 @@ namespace TexcelWeb
                 {
                     case "projetmodifier":
                         Session["modifProjet"] = false;
-                        Response.Write("<script type=\"text/javascript\">alert('Le projet a été modifié avec succès.');</script>");
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet modifié!', 'Le projet a été modifié avec succès.', 'success');", true);
                         break;
                     case "erreur":
-                        Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue lors de la modification du projet.');</script>");
+                        
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la modification du projet.', 'error');", true);
                         break;
                     default:
                         break;

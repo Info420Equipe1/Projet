@@ -84,6 +84,7 @@
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\renouvPassword.aspx" />
+    <Content Include="js\JavaScript1.js" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -290,9 +291,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="js\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

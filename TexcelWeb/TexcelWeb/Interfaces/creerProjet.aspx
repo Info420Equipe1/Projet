@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/projet.css" media="screen" />
+
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -20,6 +21,11 @@ $(function(){
 </script>
 </head>
 <body>
+    <div>
+        <script type="text/javascript" src='<%= ResolveUrl("~/js/JavaScript1.js") %>'></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
+    </div>
 <div class="wrap">
 	<div id="header">
 		<div id="top">

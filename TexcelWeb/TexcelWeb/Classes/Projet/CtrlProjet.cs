@@ -17,6 +17,10 @@ namespace TexcelWeb.Classes.Projet
         //Ajouter un projet
         public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
+            if (projetExist(codeProjet))
+            {
+                return "projetExiste";
+            }
             cProjet projet = new cProjet();
             projet.codeProjet = codeProjet;
             projet.nomProjet = nomProjet;
@@ -167,6 +171,17 @@ namespace TexcelWeb.Classes.Projet
             return proj;
         }
 
+        private static bool projetExist(string codeProjet)
+        {
+            foreach (cProjet projet in context.tblProjet)
+            {
+                if (projet.codeProjet == codeProjet)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         //Retourne la longueur d'un champs
         public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
