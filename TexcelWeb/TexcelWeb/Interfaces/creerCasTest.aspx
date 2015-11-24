@@ -125,7 +125,7 @@ $(function(){
                 </div>
                 <div>         
                     <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Envoyez" OnClick="btnUpload_Click" />
                     <hr />
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded">
                         <Columns>
