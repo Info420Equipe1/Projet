@@ -16,7 +16,7 @@
                 <p style="font-size : 12px; color: #575757; font-weight:bold">Vous avez été redirigé vers cette page car le mot de passe de votre compte utilisateur est expiré.</p><br />
                 <p style="font-size : 12px; color: #575757; font-weight:bold">Pour des raisons de sécurité, veuillez inscrire un nouveau mot de passe dans l'espace réservé à cet effet.</p><br />
             </div>
-			<div class="full_w">
+			<div class="full_w" style="height:180px">
 				<form runat="server" action="#" method="post">
 					<label for="login">Mot de passe:</label>
                     <asp:TextBox ID="txtMotPasse" onpaste="return false;" oncopy="return false" oncut="return false" runat="server" Width="294px" TextMode="Password"></asp:TextBox>
