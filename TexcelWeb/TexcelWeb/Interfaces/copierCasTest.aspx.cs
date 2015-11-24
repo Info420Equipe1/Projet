@@ -27,6 +27,7 @@ namespace TexcelWeb.Interfaces
             if (Page.IsPostBack == false)
             {
                 TypeCopie = Request.QueryString["Param"];
+                Session["TypeCopie"] = TypeCopie;
                 ChargerPage();
             }
 		}
@@ -34,7 +35,7 @@ namespace TexcelWeb.Interfaces
         {
             if (TypeCopie != null)
             {
-                AfficherGV(TypeCopie);
+                AfficherGV(Session["TypeCopie"].ToString());
              
             }
             else
@@ -84,8 +85,9 @@ namespace TexcelWeb.Interfaces
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            TypeCopie = Request.QueryString["Param"];           
-            AfficherGV(TypeCopie);            
+            TypeCopie = Request.QueryString["Param"];
+            Session["TypeCopie"] = TypeCopie;
+            AfficherGV(Session["TypeCopie"].ToString());            
         }
        
         protected void btnCopierMesSelections_Click(object sender, EventArgs e)
@@ -93,7 +95,7 @@ namespace TexcelWeb.Interfaces
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
             CtrlCopier.CopierElement();
 
-            if (TypeCopie =="CasTest")
+            if (Session["TypeCopie"].ToString() == "CasTest")
             {
                 CasTest casTest = (CasTest)Session["casTest"];                               
                 foreach (FileInfo file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
@@ -110,9 +112,15 @@ namespace TexcelWeb.Interfaces
 
                 List<CasTest> lstCtTemp = CtrlProjet.CreerLstCasTest(CtrlProjet.getLstProjetCopie);
                 CtrlProjet.CreerLstFichier(lstCtTemp);
-                CtrlProjet.ClonerLstCt(lstCtTemp,proj);              
-                CtrlProjet.CreationFichierPhysique();
+                CtrlProjet.ClonerLstCt(lstCtTemp,proj);
 
+                foreach (CasTest cT in CtrlProjet.getLstCasTestClone)
+                {
+                    CtrlProjet.CreationDossier(proj, cT);
+                }
+
+                this.Form.Dispose();
+                Response.Redirect("creerProjet.aspx");
 
             }
             

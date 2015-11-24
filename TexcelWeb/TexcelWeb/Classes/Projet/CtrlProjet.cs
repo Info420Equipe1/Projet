@@ -20,6 +20,8 @@ namespace TexcelWeb.Classes.Projet
         static List<FileInfo> lstFichier = new List<FileInfo>();
         static List<CasTest> lstCasTest = new List<CasTest>();
         static List<CasTest> lstCasTestClone = new List<CasTest>();
+        static bool dossierParent = false;
+        static bool dossierParentcT = false;
 
         public static List<cProjet> getLstProjetCopie
         {
@@ -274,6 +276,7 @@ namespace TexcelWeb.Classes.Projet
             {
                 CasTest temp = new CasTest();
                 temp.codeCasTest = _projetEnCours.codeProjet + 1;
+                temp.codeProjet = _projetEnCours.codeProjet;
                 temp.nomCasTest = cT.nomCasTest;
                 temp.cProjet = _projetEnCours;
                 temp.Difficulte = cT.Difficulte;
@@ -303,11 +306,60 @@ namespace TexcelWeb.Classes.Projet
           lstFichier = CtrlCasTest.PopulateLstPathsFile(_lstCt);
         }
 
-        public static void CreationFichierPhysique()
+        public static void CreationDossierParentProjet(cProjet _proj,string _path)
         {
+            if (!(Directory.Exists(_path)))
+            {
+                Directory.CreateDirectory(_path);
+            }
 
+        }
+        public static void CreationDossierParentCasTest(CasTest _cT,string _path)
+        {
+            if (!(Directory.Exists(_path)))
+            {
+                Directory.CreateDirectory(_path);
+            }
 
+        }
+        public static void CreationDossier(cProjet _proj,CasTest _cT)
+        {         
+            string pathDossierProjet = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _proj.codeProjet);
+            if (!(Directory.Exists(pathDossierProjet)) || dossierParent == true)
+            {
+                CreationDossierParentProjet(_proj,pathDossierProjet);
+                dossierParent = true;
+            }
 
+            string pathDossierCasTest = HttpContext.Current.Server.MapPath(@"~/cProjets/" +_proj.codeProjet+ "/" + _cT.codeCasTest);
+            if (!(Directory.Exists(pathDossierCasTest)) || dossierParentcT == true)
+            {
+                CreationDossierParentCasTest(_cT, pathDossierCasTest);
+                dossierParentcT = true;
+            }
+
+            string comp1 = "";
+            string comp2 = "";
+            bool firstTime = true;
+            foreach (FileInfo fi in lstFichier)
+            {
+                comp1 = fi.Directory.ToString(); 
+                if (firstTime == true)
+                {
+                    comp2 = comp1;
+                    firstTime = false;
+                }
+               
+                if (comp1 == comp2)
+                {
+                    CtrlCasTest.SaveFileToFolder(_cT, fi);
+                    comp2 = fi.Directory.ToString();
+                }
+                 
+            }
+
+             dossierParent = false;
+             dossierParentcT = false;
         }
 
 

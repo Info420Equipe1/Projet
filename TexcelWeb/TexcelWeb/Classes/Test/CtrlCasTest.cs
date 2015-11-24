@@ -11,6 +11,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using TexcelWeb.Classes;
 using System.Data;
 using System.Web.UI.HtmlControls;
+using TexcelWeb.Classes.Projet;
 
 namespace TexcelWeb.Classes.Test
 {
@@ -166,7 +167,7 @@ namespace TexcelWeb.Classes.Test
 
         public static void CreerDossier(CasTest _casTest)
         {
-            string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest);
+            string path = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest);
             if (!(Directory.Exists(path)))
             {
                 Directory.CreateDirectory(path);
@@ -235,21 +236,26 @@ namespace TexcelWeb.Classes.Test
 
         public static string[] GetPaths(CasTest _casTest)
         {
-            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
 
             return filePaths;
         }
 
         public static List<FileInfo> GetFileName(CasTest _casTest)
         {
-            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+            string path = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest);
+            CtrlProjet.CreationDossierParentCasTest(_casTest, path);
+
+            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
+             
             List<FileInfo> file = new List<FileInfo>();
 
             for (int i = 0; i < filePaths.GetLength(0); i++)
-			{
-                file.Add(new FileInfo(filePaths[i]));              
-			}           
+            {
+                file.Add(new FileInfo(filePaths[i]));
+            }
             return file;
+           
         }
            
         // Remplir une liste de tous les fichiers des cas de test cochés préalablement
@@ -273,8 +279,9 @@ namespace TexcelWeb.Classes.Test
         }  
   
         public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
-        {                   
-            File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest + "/") + _file.Name));
+        {
+            // _casTest.codeProjet = null ????
+            File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest + "/") + _file.Name),true);
         }
        
     }

@@ -57,11 +57,13 @@ namespace TexcelWeb
                 if (Session["casTest"] != null)
                 {
                     txtCodeCasTest.Enabled = false;
+                    dropDownProjet.Enabled = false;
                     btnEnregistrer.Text = "Modifier";
                     modif = true;
                     casTest = (CasTest)Session["casTest"];
                     Session["CasTestFichier"] = Session["casTest"];
                     Session["ModifCasTest"] = casTest;
+                    
                     RemplirChamps(casTest);
                     Titre.InnerText = "Modifier un cas de test";
                     Fichiers(casTest);
@@ -89,7 +91,7 @@ namespace TexcelWeb
         public void Fichiers(CasTest _casTest)
         {
             //Si ya pas de dossier, création d'un dossier
-            string path = HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest);
+            string path = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest);
             if (!(Directory.Exists(path)))
             {
                 Directory.CreateDirectory(path);
@@ -312,7 +314,7 @@ namespace TexcelWeb
         {
             CasTest casTest = (CasTest)Session["CasTestFichier"];         
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
+            FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest + "/") + fileName);
             Session["casTest"] = casTest;
             Response.Redirect(Request.Url.AbsoluteUri);
             
@@ -321,7 +323,7 @@ namespace TexcelWeb
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
             CasTest casTest = (CasTest)Session["CasTestFichier"];
-            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
+            string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             File.Delete(filePath);
             Session["casTest"] = casTest;
             Response.Redirect(Request.Url.AbsoluteUri);
@@ -330,7 +332,7 @@ namespace TexcelWeb
         protected void lnkDownload_Click(object sender, EventArgs e)
         {
             CasTest casTest = (CasTest)Session["CasTestFichier"];
-            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
+            string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest + "/" + (sender as LinkButton).CommandArgument);
             Response.ContentType = ContentType;
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
             Response.WriteFile(filePath);
@@ -412,7 +414,7 @@ namespace TexcelWeb
         protected void lnkOpen_Click(object sender, EventArgs e)
         {
             CasTest casTest = (CasTest)Session["CasTestFichier"];
-            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
+            string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest);
             System.Diagnostics.Process.Start(filePath);
         }
     }
