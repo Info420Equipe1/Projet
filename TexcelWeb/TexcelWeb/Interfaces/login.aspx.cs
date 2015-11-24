@@ -37,11 +37,15 @@ namespace TexcelWeb
                     break;
 
                 case "motdepasseincorrect":
-                    Response.Write("<script type=\"text/javascript\">alert('Le mot de passe ne correspond pas');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Le mot de passe ne correspond pas.\", \"error\");", true);
+                    break;
+
+                case "testeur":
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Vous n'avez pas les droits requis pour accéder à ces données. Contactez votre administrateur.\", \"error\");", true);
                     break;
 
                 case "utilisateurinexistant":
-                    Response.Write("<script type=\"text/javascript\">alert('L'utilisateur n'existe pas');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"L'utilisateur n'existe pas.\", \"error\");", true);
                     break;
 
                 default:
