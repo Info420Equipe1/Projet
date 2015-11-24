@@ -18,7 +18,7 @@ namespace TexcelWeb.Classes.Test
     {
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
-        static List<string> lst = new List<string>();
+        static List<FileInfo> lst = new List<FileInfo>();
         
         public static List<CasTest> getLstCasTest
         {
@@ -237,18 +237,32 @@ namespace TexcelWeb.Classes.Test
 
             return filePaths;
         }
+
+        public static List<FileInfo> GetFileName(CasTest _casTest)
+        {
+            string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+            List<FileInfo> file = new List<FileInfo>();
+
+            for (int i = 0; i < filePaths.GetLength(0); i++)
+			{
+                file.Add(new FileInfo(filePaths[i]));
+              
+			}
+            
+            return file;
+        }
            
         // Remplir une liste de tous les fichiers des cas de test cochés préalablement
-        public static List<string> PopulateLstPathsFile(List<CasTest> _lstCasTest)
+        public static List<FileInfo> PopulateLstPathsFile(List<CasTest> _lstCasTest)
         {
             lst.Clear();
             foreach (CasTest ct in _lstCasTest)
             {
-                string[] mesfichiers = GetPaths(ct);
+                List<FileInfo>  mesfichiers = GetFileName(ct);
 
-                if (mesfichiers.Length != 0)
+                if (mesfichiers.Count != 0)
                 {
-                    for (int i = 0; i < mesfichiers.GetLength(0); i++)
+                    for (int i = 0; i < mesfichiers.Count; i++)
                     {
                         lst.Add(mesfichiers[i]);
                     }  
@@ -258,10 +272,10 @@ namespace TexcelWeb.Classes.Test
             return lst;
         }  
   
-        public static void SaveFileToFolder(CasTest _casTest,string _filename)
+        public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
         {         
             // À revoir
-              File.Copy(_filename, (HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest + "/") + _filename));
+            File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest + "/") + _file.Name));
         }
        
     }

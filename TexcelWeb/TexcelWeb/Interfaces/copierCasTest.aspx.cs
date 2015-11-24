@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 //ceux ajoutés
 using System.Data;
 using TexcelWeb.Classes.Test;
+using System.IO;
 
 
 namespace TexcelWeb.Interfaces
@@ -84,14 +85,16 @@ namespace TexcelWeb.Interfaces
        
         protected void btnCopier_Click(object sender, EventArgs e)
         {
+            CasTest casTest = (CasTest)Session["casTest"];
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
             CtrlCopier.CopierElement();                                             
 
-            foreach (string file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
+            foreach (FileInfo file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
             {
-                CtrlCasTest.SaveFileToFolder(CtrlCasTest.getCasTestEnCours, file);
+                CtrlCasTest.SaveFileToFolder(casTest, file);
             }
-         
+            this.Form.Dispose();
+            Response.Redirect("CreerCasTest.aspx");
         }
 
 

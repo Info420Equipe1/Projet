@@ -275,6 +275,7 @@ namespace TexcelWeb
 
         protected void btnCopier_Click(object sender, EventArgs e)
         {
+            Session["casTest"] = Session["ModifCasTest"];
             string Param = "CasTest";
             DateTime? dt = new DateTime?();
 
@@ -288,10 +289,10 @@ namespace TexcelWeb
             }
                     
             // Envoie de param 
-            CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
-                CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
-                Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
-                rtxtDescriptionCasTest.Text);    
+            //CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
+            //    CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
+            //    Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
+            //    rtxtDescriptionCasTest.Text);    
                         
             ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
            
