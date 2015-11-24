@@ -6,7 +6,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
 <title>Texcel - Creer un cas de test</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
@@ -64,7 +63,7 @@ $(function(){
                         <div id="lblColumn1">
                             <div class="info">
                                 <asp:Label runat="server" Text="Code: " CssClass="lblColum1"/>
-                                <asp:TextBox runat="server" ID="txtCodeCasTest" CssClass="txtColum1"/>
+                                <asp:TextBox runat="server" ID="txtCodeCasTest"/>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCodeCasTest" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
@@ -103,16 +102,16 @@ $(function(){
                             </div>
                         </div>  
                         <div id="CasTestObj">
-                             <asp:Label runat="server" Text="Objectif: " />
-                            <asp:TextBox runat="server" ID="rtxtObjectifCastest" TextMode="MultiLine" CssClass="richtextbox" Height="201px" Width="430px"/>
+                             <asp:Label runat="server" Text="Objectif: " /><br />
+                            <asp:TextBox runat="server" ID="rtxtObjectifCastest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="156px" Width="439px"/>
+                            <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
-                            <asp:Label runat="server" Text="Divers: "/>
-                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox" Height="146px" Width="428px"/>
+                            <asp:Label runat="server" Text="Divers: "/><br />
+                            <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                 <div id="btnCopierEnregistrerAnnuler">
