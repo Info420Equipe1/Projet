@@ -41,6 +41,7 @@ namespace TexcelWeb.Classes.Test
                     DetermineObject(row.Cells[1].Text);               
                 }
             }
+            EnvoyerLstObjetCopier();
         }
    
         // Chercher l'objet et le mettre dans la liste correspondante

@@ -16,6 +16,11 @@ namespace TexcelWeb.Classes.Test
     {
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
+        public static List<CasTest> getLstCasTest
+        {
+            get { return lstCasTest; }
+        }
+        
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, string _obj, string _divers)
         {
@@ -223,16 +228,29 @@ namespace TexcelWeb.Classes.Test
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
             return filePaths;
         }
-
-        public static List<string[]> CreerTableau()
+           
+        // Remplir une liste de tous les fichiers des cas de test cochés préalablement
+        public static List<string> PopulateLstFichierPaths(List<CasTest> _lstCasTest)
         {
-            List<string[]> lst = new List<string[]>();
-            foreach (CasTest ct in lstCasTest)
+            List<string> lst = new List<string>();
+
+            foreach (CasTest ct in _lstCasTest)
             {
-                lst.Add(GetPaths(ct));
+                string[] mesfichiers = GetPaths(ct);
+
+                if (mesfichiers.Length != 0)
+                {
+                    for (int i = 0; i < mesfichiers.GetLength(0); i++)
+                    {
+                        lst.Add(mesfichiers[i]);
+                    }  
+                }
+                
+                              
             }
+
             return lst;
-        }
-      
+        }     
+       
     }
 }

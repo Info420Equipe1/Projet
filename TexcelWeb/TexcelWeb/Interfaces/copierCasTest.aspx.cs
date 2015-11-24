@@ -86,10 +86,8 @@ namespace TexcelWeb.Interfaces
         {
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
             CtrlCopier.CopierElement();
-            foreach (string[] yo in CtrlCasTest.CreerTableau())
-            {
-                
-            }
+            CtrlCasTest.PopulateLstFichierPaths(CtrlCasTest.getLstCasTest);
+            
          
         }
 
