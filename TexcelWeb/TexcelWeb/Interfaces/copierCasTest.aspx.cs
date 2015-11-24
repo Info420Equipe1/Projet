@@ -85,9 +85,12 @@ namespace TexcelWeb.Interfaces
         protected void btnCopier_Click(object sender, EventArgs e)
         {
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
-            CtrlCopier.CopierElement();
-            CtrlCasTest.PopulateLstFichierPaths(CtrlCasTest.getLstCasTest);
-            
+            CtrlCopier.CopierElement();                                             
+
+            foreach (string file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
+            {
+                CtrlCasTest.SaveFileToFolder(CtrlCasTest.getCasTestEnCours, file);
+            }
          
         }
 

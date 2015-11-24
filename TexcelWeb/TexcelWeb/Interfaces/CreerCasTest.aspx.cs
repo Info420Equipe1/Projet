@@ -286,7 +286,8 @@ namespace TexcelWeb
             {
                dt =  Convert.ToDateTime(txtDateLivraisonCasTest.Text);
             }
-
+                    
+            // Envoie de param 
             CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
                 CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
                 Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
@@ -298,7 +299,7 @@ namespace TexcelWeb
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["CasTestFichier"];
+            CasTest casTest = (CasTest)Session["CasTestFichier"];         
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.PostedFile.SaveAs(Server.MapPath(@"~/CasDeTest/" + casTest.codeCasTest + "/") + fileName);
             Session["casTest"] = casTest;

@@ -8,7 +8,9 @@ using System.Linq.Expressions;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Core.Metadata.Edm;
-
+using TexcelWeb.Classes;
+using System.Data;
+using System.Web.UI.HtmlControls;
 
 namespace TexcelWeb.Classes.Test
 {
@@ -16,9 +18,15 @@ namespace TexcelWeb.Classes.Test
     {
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
+        static List<string> lst = new List<string>();
+        
         public static List<CasTest> getLstCasTest
         {
             get { return lstCasTest; }
+        }       
+        public static CasTest getCasTestEnCours
+        {
+            get { return casTestEnCours; }
         }
         
         //Ajouter lorsque il faut lier avec un projet et un type test
@@ -226,14 +234,14 @@ namespace TexcelWeb.Classes.Test
         public static string[] GetPaths(CasTest _casTest)
         {
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest));
+
             return filePaths;
         }
            
         // Remplir une liste de tous les fichiers des cas de test cochés préalablement
-        public static List<string> PopulateLstFichierPaths(List<CasTest> _lstCasTest)
+        public static List<string> PopulateLstPathsFile(List<CasTest> _lstCasTest)
         {
-            List<string> lst = new List<string>();
-
+            lst.Clear();
             foreach (CasTest ct in _lstCasTest)
             {
                 string[] mesfichiers = GetPaths(ct);
@@ -244,13 +252,17 @@ namespace TexcelWeb.Classes.Test
                     {
                         lst.Add(mesfichiers[i]);
                     }  
-                }
-                
-                              
+                }                                              
             }
 
             return lst;
-        }     
+        }  
+  
+        public static void SaveFileToFolder(CasTest _casTest,string _filename)
+        {         
+            // À revoir
+              File.Copy(_filename, (HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest + "/") + _filename));
+        }
        
     }
 }
