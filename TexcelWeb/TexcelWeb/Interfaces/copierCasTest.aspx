@@ -86,7 +86,7 @@ $(function(){
                     <asp:EntityDataSource ID="edsProjet" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
                     <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>
-                    <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopier_Click"/>    
+                    <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopierMesSelections_Click"/>    
                 </form>    
 			</div>   
 		</div>    

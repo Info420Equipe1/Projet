@@ -41,9 +41,28 @@ namespace TexcelWeb
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
             txtDerniereConnexion.InnerText = date.ToString("d");
-            
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if(!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                    ddlFiltre.Items.Remove("Projet");
+                }
+                if(!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                {
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                    ddlFiltre.Items.Remove("CasTest");
+                }
+            }
+
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);            
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);
         }
 
         private void AfficherGV(string _filtre)

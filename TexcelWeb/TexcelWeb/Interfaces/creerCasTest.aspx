@@ -18,12 +18,10 @@ $(function(){
 	$(".box").children(".h_title").click( function() { $(this).next("ul").slideToggle(); });
 });
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
-    </div>
 <div class="wrap">
 	<div id="header">
 		<div id="top">
@@ -127,9 +125,9 @@ $(function(){
                 </div>
                 <div>         
                     <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Envoyez" OnClick="btnUpload_Click" />
                     <hr />
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" EmptyDataText = "No files uploaded">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded">
                         <Columns>
                             <asp:BoundField DataField="File Name" HeaderText="File Name" />
                             <asp:BoundField DataField="Extansion" HeaderText="Extansion" />
@@ -137,13 +135,11 @@ $(function(){
                             <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkDownload" Text = "Telecharger"  runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click"/>
+                                    <asp:LinkButton ID="lnkDownload" runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDownload_Click" CssClass="addonly"/>
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click" CssClass="cancelonly" />
+                                    <asp:LinkButton ID="lnkFile" runat="server" CommandArgument='<%# Eval("File Name") %>' CssClass="file" OnClick="lnkOpen_Click" />
                                 </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID = "lnkDelete" Text = "Supprimer"  runat = "server" CommandArgument='<%# Eval("File Name") %>' OnClick="lnkDelete_Click"/>
-                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
@@ -161,3 +157,4 @@ $(function(){
 </div>
 </body>
 </html>
+e

@@ -17,6 +17,7 @@ namespace TexcelWeb
     public partial class CreerCasTest : System.Web.UI.Page
     {
         static bool modif;
+        Utilisateur currentUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +33,7 @@ namespace TexcelWeb
                 else
                 {
                     //Formatage Bienvenue, [NomUtilisateur] et la Date
-                    Utilisateur currentUser = CtrlController.GetCurrentUser();
+                    currentUser = CtrlController.GetCurrentUser();
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
 
@@ -72,6 +73,15 @@ namespace TexcelWeb
                     btnCopier.Visible = false;
                     FileUpload1.Visible = false;
                     btnUpload.Visible = false;
+                }
+
+                foreach (Groupe groupe in currentUser.Groupe)
+                {
+                    List<int> lstDroits = CtrlController.GetDroits(groupe);
+                    if (!lstDroits.Contains(22))
+                    {
+                        btnEnregistrer.Visible = false;
+                    }
                 }
             }
         }
@@ -397,6 +407,13 @@ namespace TexcelWeb
         {
             Session["casTest"] = null;
             Response.Redirect("recherche.aspx");
+        }
+
+        protected void lnkOpen_Click(object sender, EventArgs e)
+        {
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
+            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
+            System.Diagnostics.Process.Start(filePath);
         }
     }
 }
