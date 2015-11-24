@@ -398,5 +398,12 @@ namespace TexcelWeb
             Session["casTest"] = null;
             Response.Redirect("recherche.aspx");
         }
+
+        protected void lnkOpen_Click(object sender, EventArgs e)
+        {
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
+            string filePath = Request.MapPath(@"~/CasDeTest/" + casTest.codeCasTest);
+            System.Diagnostics.Process.Start(filePath);
+        }
     }
 }
