@@ -349,7 +349,6 @@ namespace TexcelWeb
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet modifié!', 'Le projet a été modifié avec succès.', 'success');", true);
                         break;
                     case "erreur":
-                        
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la modification du projet.', 'error');", true);
                         break;
                     default:

@@ -171,28 +171,57 @@ namespace TexcelWeb.Interfaces
 
                         string message = CtrlEquipe.lierEquipeCasTest(equipe, lstCasTest);
 
-                        //Alert ne saffiche pas.... 
-                        Response.Write("<script type=\"text/javascript\">alert('Liaison des cas de test à une équipe avec succès');</script>");
+                        
+                        switch (message)
+                        {
+                            case "liaisonCasTestReussi":
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Liaison réussi!', 'Liaison d'une équipe à des cas de test avec succès', 'success');", true);
+                                break;
+                            case "liaisonCasTestEchoue":
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la liaison des cas test à l'équipe.', 'error');", true);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else if(equipe.CasTest.Count != 0)
+                    {
+                        string message = CtrlEquipe.removeCasTestEquipe(equipe);
+
+                        switch (message)
+                        {
+                            case "liaisonCasTestNullReussi":
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Suppression réussi!', 'Cas de test supprimés de l'équipe avec succès.', 'success');", true);
+                                break;
+                            case "liaisonCasTestNullEchoue": 
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la suppression des cas test de l'équipe.', 'error');", true);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     else
                     {
-                        CtrlEquipe.removeCasTestEquipe(equipe);
-
-                        //
-                        Response.Write("<script type=\"text/javascript\">alert('Cas de test supprimés de l'équipe avec succès');</script>");
+                        //Aucun cas de test à ajouter à une equipe qui ne possède aucun cas de test
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez ajouter des cas de test pour l'équipe car l'équipe ne possède aucun cas de test.', 'warning');", true);
                     }
                 }
                 else
                 {
                     //Pas d'équipe de selectionné
-                    Response.Write("<script type=\"text/javascript\">alert('Veuillez selectionner une équipe dans la liste');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez selectionner une équipe dans la liste afin de lui lier des cas de test.', 'warning');", true);
                 }
             }
             else
             {
                 //Pas de projet de selectionné
-                Response.Write("<script type=\"text/javascript\">alert('Veuillez selectionner un projet dans la liste');</script>");
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez selectionner un projet dans la liste afin de choisir une équipe.', 'warning');", true);
             }
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("recherche.aspx");
         }
 
         
