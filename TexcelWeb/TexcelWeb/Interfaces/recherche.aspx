@@ -73,7 +73,7 @@ $(function(){
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated" OnDataBound="gvRecherche_DataBound" AllowSorting="true">
+                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated">
                             </asp:GridView>
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  
