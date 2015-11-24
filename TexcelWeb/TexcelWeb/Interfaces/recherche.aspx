@@ -39,7 +39,7 @@ a {color:white; text-decoration:none}
 	<div id="content">
 		<div id="sidebar">
 			<div class="box">
-                <div class="h_title">&#8250; Recherche</div>
+                <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
                 <ul id="home">
                     <li class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
                 </ul>   

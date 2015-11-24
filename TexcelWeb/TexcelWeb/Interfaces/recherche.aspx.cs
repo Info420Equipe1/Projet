@@ -43,7 +43,7 @@ namespace TexcelWeb
             txtDerniereConnexion.InnerText = date.ToString("d");
             
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);            
+            CtrlRecherche.SauvegarderDonnees(gvRecherche);
         }
 
         private void AfficherGV(string _filtre)
