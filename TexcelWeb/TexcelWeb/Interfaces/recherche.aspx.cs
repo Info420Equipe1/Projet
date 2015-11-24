@@ -53,22 +53,12 @@ namespace TexcelWeb
                 case "Projet":
                     gvRecherche.DataSourceID = "edsProjet";
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
-                    gvRecherche.DataBind();                
-                    /*gvRecherche.HeaderRow.Cells[0].Text = "Code du Projet";
-                    gvRecherche.HeaderRow.Cells[1].Text = "Nom du Projet";
-                    gvRecherche.HeaderRow.Cells[2].Text = "Chef de Projet";
-                    gvRecherche.HeaderRow.Cells[3].Text = "Date de Creation";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Date de Livraison";*/
+                    gvRecherche.DataBind();
                     break;              
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
                     edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
-                    /*gvRecherche.HeaderRow.Cells[0].Text = "Code du CasTest";
-                    gvRecherche.HeaderRow.Cells[1].Text = "Nom du CasTest";
-                    gvRecherche.HeaderRow.Cells[2].Text = "Date de Creation";
-                    gvRecherche.HeaderRow.Cells[3].Text = "Date de Livraison";
-                    gvRecherche.HeaderRow.Cells[4].Text = "Code du Projet";*/
                     break;
                 default:
                     break;
@@ -116,6 +106,29 @@ namespace TexcelWeb
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
             }
+        }
+
+        protected void gvRecherche_DataBound(object sender, EventArgs e)
+        {
+            switch (ddlFiltre.SelectedItem.Text)
+            {
+                case "Projet":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Code du Projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du Projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Chef de Projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[3].Controls[0])).Text = "Date de Creation";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[4].Controls[0])).Text = "Date de Livraison";
+                    break;
+                case "CasTest":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Code du CasTest";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du CasTest";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Date de Creation";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Date de Livraison";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Code du Projet";
+                    break;
+                default:
+                    break;
+            }   
         }
     }
 }

@@ -76,7 +76,7 @@ a {color:white; text-decoration:none}
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated" AllowSorting="true">
+                            <asp:GridView ID="gvRecherche" runat="server" OnSelectedIndexChanged="gvRecherche_SelectedIndexChanged" OnRowCreated="gvRecherche_RowCreated" AllowSorting="true" OnDataBound="gvRecherche_DataBound">
                             </asp:GridView>
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  
