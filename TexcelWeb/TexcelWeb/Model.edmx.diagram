@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6dc51a6e66824e3d8095dc278bc05b9c" Name="Diagram1">
+      <Diagram DiagramId="16912d483bf44d44bf7457c21f418a43" Name="Diagram1">
         <EntityTypeShape EntityType="dbProjetE1Model.ClassificationJeu" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.EditionSysExp" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.GenreJeu" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.cJeu" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Plateforme" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.SysExp" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.tblThemeJeu" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.ThemeJeu" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.TypePlateforme" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.VersionJeu" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.VersionSysExp" Width="1.5" PointX="12" PointY="4.375" IsExpanded="true" />

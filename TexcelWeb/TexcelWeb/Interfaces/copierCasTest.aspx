@@ -23,13 +23,13 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>BASS</strong> [ <a href="/Interfaces/login.aspx">deconnection</a> ]</p>
+				<p>Bienvenue, <strong>BASS</strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			</div>
-			<div class="right">
+			<!-- <div class="right">
 				<div class="align-right">
 					<p>Dernière connexion: <strong>28-10-2015</strong></p>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div id="content">
@@ -37,26 +37,25 @@ $(function(){
 			<div class="box">
                 <div class="h_title">&#8250; Recherche</div>
                 <ul>
-                    <li class="b1"><a class="icon page" href="/Interfaces/recherche.aspx">Recherche</a></li>
+                    <li class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
                 </ul>   
 			</div>
             <div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="/Interfaces/creerProjet.aspx">Ajouter</a></li>
-                    <li class="b1"><a class="icon page" href="/Interfaces/projetEquipe.aspx">Gestion des equipes</a></li>			
+					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
+                    <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des equipes</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
 				<div class="h_title">&#8250; Cas de test</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="/Interfaces/creerCasTest.aspx">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
 		</div>
 	    <div id="main">					
 			<div class="full_w">
-
                 <form id="FrmCasTest" runat="server">                         
                     <asp:ScriptManager runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UPRecherche" runat="server">
@@ -72,15 +71,12 @@ $(function(){
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
-
                         <ContentTemplate>              
                             <asp:GridView ID="gvCopierCasTest" runat="server"  selectedindex="0" >
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-
                                             <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
-
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -89,21 +85,16 @@ $(function(){
                     </asp:UpdatePanel>  
                     <asp:EntityDataSource ID="edsProjet" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
                     <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
-                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false">
-				    </div>
-
-                       <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopier_Click"/>    
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>
+                    <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopier_Click"/>    
                 </form>    
-			</div>
-           
-		</div> 
-         	   
+			</div>   
+		</div>    
 	</div>
 	<div id="footer">
 		<div class="left">
 			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
-		</div>
-		
+		</div>	
 	</div>
 </div>
 </body>

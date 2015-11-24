@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Test;
+using TexcelWeb.Classes.Personnel;
 using TexcelWeb.Classes;
 using System.IO;
 using System.Data;
@@ -115,6 +116,14 @@ namespace TexcelWeb
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
             }
+        }
+
+        protected void gvRecherche_DataBound(object sender, EventArgs e)
+        {
+            /*foreach (GridViewRow row in gvRecherche.Rows)
+            {
+                row.Cells[3].Text = row.Cells[3].Text.ToString("MMMM dd, yyyy"); 
+            }*/
         }
     }
 }

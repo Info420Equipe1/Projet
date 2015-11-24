@@ -139,7 +139,7 @@ namespace TexcelWeb
                     {
                         htmlGC.Attributes.Add("class", "active");
                     }
-                    htmlGC.Attributes.Add("href", "/Interfaces/creerCasTest.aspx?index=" + i);
+                    htmlGC.Attributes.Add("href", "creerCasTest.aspx?index=" + i);
                     htmlGC.InnerText = i.ToString();
                     dataGridPagination.Controls.Add(htmlGC);
                 }

@@ -271,7 +271,7 @@
     <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblThemeJeu.cs">
+    <Compile Include="ThemeJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TypePlateforme.cs">

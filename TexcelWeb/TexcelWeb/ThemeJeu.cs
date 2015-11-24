@@ -12,9 +12,9 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class tblThemeJeu
+    public partial class ThemeJeu
     {
-        public tblThemeJeu()
+        public ThemeJeu()
         {
             this.cJeu = new HashSet<cJeu>();
         }

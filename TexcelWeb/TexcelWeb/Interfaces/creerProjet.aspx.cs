@@ -223,7 +223,7 @@ namespace TexcelWeb
                     {
                         htmlGC.Attributes.Add("class", "active");
                     }
-                    htmlGC.Attributes.Add("href", "/Interfaces/creerProjet.aspx?index=" + i);
+                    htmlGC.Attributes.Add("href", "creerProjet.aspx?index=" + i);
                     htmlGC.InnerText = i.ToString();
                     dataGridPagination.Controls.Add(htmlGC);
                 }
@@ -291,7 +291,7 @@ namespace TexcelWeb
             foreach (GridViewRow gvr in dataGridLstCasTest.Rows)
 	        {
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnModifierGridView");
-                hgc.Attributes["href"] = "/Interfaces/creerCasTest.aspx?codeCasTest="+gvr.Cells[0].Text;
+                hgc.Attributes["href"] = "creerCasTest.aspx?codeCasTest="+gvr.Cells[0].Text;
 	        }
         }
         protected void btnEnregistrer_Click(object sender, EventArgs e)
@@ -389,7 +389,7 @@ namespace TexcelWeb
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
             Session["modifProjet"] = false;
-            Response.Redirect("/Interfaces/recherche.aspx");
+            Response.Redirect("recherche.aspx");
         }
 
         protected void btnCopier_Click(object sender, EventArgs e)

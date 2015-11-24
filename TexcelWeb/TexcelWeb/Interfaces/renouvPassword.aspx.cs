@@ -24,7 +24,7 @@ namespace TexcelWeb.Interfaces
                 CtrlUtilisateur.ModifMotDePasse(uti, txtMotPasse.Text);
                 this.Form.Dispose();
                 //CtrlUtilisateur.SetCurrentUser(uti);
-                Response.Redirect("/Interfaces/login.aspx");
+                Response.Redirect("login.aspx");
             }
             catch(Exception)
             {
