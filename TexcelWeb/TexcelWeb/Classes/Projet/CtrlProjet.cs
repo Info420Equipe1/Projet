@@ -9,11 +9,31 @@ using System.Linq.Expressions;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Core.Metadata.Edm;
+using System.IO;
+using TexcelWeb.Classes.Test;
 
 namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
+        static List<cProjet> lstProjetCopie = new List<cProjet>();
+        static List<FileInfo> lstFichier = new List<FileInfo>();
+        static List<CasTest> lstCasTest = new List<CasTest>();
+        static List<CasTest> lstCasTestClone = new List<CasTest>();
+
+        public static List<cProjet> getLstProjetCopie
+        {
+            get { return lstProjetCopie; }
+           
+        }
+
+        public static List<CasTest> getLstCasTestClone
+        {
+            get { return lstCasTestClone; }
+
+        }
+        
+
         //Ajouter un projet
         public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
@@ -222,5 +242,75 @@ namespace TexcelWeb.Classes.Projet
             }
             return -1;
         }
+
+        // avoir la liste de projet à copier
+        public static void SauvegarderLstProjet(List<cProjet> _lstProjet)
+        {
+            lstProjetCopie.Clear();
+            lstProjetCopie = _lstProjet;
+        }
+
+        //Remplir une liste de tous les cas de test des projets sélectionnés
+        public static List<CasTest> CreerLstCasTest(List<cProjet> _lstProjet)
+        {
+            lstCasTest.Clear();
+
+            foreach (cProjet cProj in _lstProjet)
+            {
+                foreach (CasTest cT in cProj.CasTest)
+                {
+                    lstCasTest.Add(cT);
+                }
+
+            }
+            return lstCasTest;
+        }  
+
+        public static void ClonerLstCt(List<CasTest> _lstClone,cProjet _projetEnCours)
+        {
+            lstCasTestClone.Clear();
+
+            foreach (CasTest cT in _lstClone)
+            {
+                CasTest temp = new CasTest();
+                temp.codeCasTest = _projetEnCours.codeProjet + 1;
+                temp.nomCasTest = cT.nomCasTest;
+                temp.cProjet = _projetEnCours;
+                temp.Difficulte = cT.Difficulte;
+                temp.NiveauPriorite = cT.NiveauPriorite;
+                temp.dateCreation = cT.dateCreation;
+                temp.dateLivraison = cT.dateLivraison;
+                temp.TypeTest = cT.TypeTest;
+                temp.descCasTest = cT.descCasTest;
+                temp.objCasTest = cT.objCasTest;
+                temp.divCasTest = cT.divCasTest;
+
+                lstCasTestClone.Add(temp);
+            }
+            // ajouter les nouveau cas de test plus tard lorsque le client enregistre le projet
+         
+        }
+
+        //inutile pour l'instant
+        //public static void LierProjetCasTest(cProjet _monProjet, CasTest _cT)
+        //{
+        //    _monProjet.CasTest.Add(_cT);
+        //}
+
+        public static void CreerLstFichier(List<CasTest> _lstCt)
+        {
+          lstFichier.Clear();
+          lstFichier = CtrlCasTest.PopulateLstPathsFile(_lstCt);
+        }
+
+        public static void CreationFichierPhysique()
+        {
+
+
+
+        }
+
+
+
     }
 }

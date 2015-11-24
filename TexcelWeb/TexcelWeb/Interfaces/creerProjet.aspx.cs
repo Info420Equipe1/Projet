@@ -24,6 +24,7 @@ namespace TexcelWeb
         {
             if (!IsPostBack)
             {
+                
                 //Longueur des champs
                 setFieldLength();
                 string nomChefProjet = "";
@@ -81,7 +82,7 @@ namespace TexcelWeb
 
                     string codeProjet = (string)Session["modifCodeProjet"];
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
-
+                    Session["monProjet"] = projet;
                     //Emplissage des champs avec le projet
                     fillFieldsWithProjet(projet);
 
@@ -405,7 +406,8 @@ namespace TexcelWeb
 
         protected void btnCopier_Click(object sender, EventArgs e)
         {
-            Response.Redirect("copierCasTest.aspx?Parameter=" + Server.UrlEncode("Projet"));
+            string Param = "Projet";
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
         }
 
 

@@ -73,7 +73,7 @@ namespace TexcelWeb.Classes.Test
             }
             else
             {
-               // on sauvegarde liste de projet
+                CtrlProjet.SauvegarderLstProjet(lstProjet);
             }
         }
     }

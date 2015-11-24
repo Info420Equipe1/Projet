@@ -18,7 +18,7 @@ namespace TexcelWeb.Classes.Test
     {
         static CasTest casTestEnCours;
         static List<CasTest> lstCasTest = new List<CasTest>();
-        static List<FileInfo> lst = new List<FileInfo>();
+        static List<FileInfo> lstFichier = new List<FileInfo>();
         
         public static List<CasTest> getLstCasTest
         {
@@ -247,17 +247,15 @@ namespace TexcelWeb.Classes.Test
 
             for (int i = 0; i < filePaths.GetLength(0); i++)
 			{
-                file.Add(new FileInfo(filePaths[i]));
-              
-			}
-            
+                file.Add(new FileInfo(filePaths[i]));              
+			}           
             return file;
         }
            
         // Remplir une liste de tous les fichiers des cas de test cochés préalablement
         public static List<FileInfo> PopulateLstPathsFile(List<CasTest> _lstCasTest)
         {
-            lst.Clear();
+            lstFichier.Clear();
             foreach (CasTest ct in _lstCasTest)
             {
                 List<FileInfo>  mesfichiers = GetFileName(ct);
@@ -266,17 +264,16 @@ namespace TexcelWeb.Classes.Test
                 {
                     for (int i = 0; i < mesfichiers.Count; i++)
                     {
-                        lst.Add(mesfichiers[i]);
+                        lstFichier.Add(mesfichiers[i]);
                     }  
                 }                                              
             }
 
-            return lst;
+            return lstFichier;
         }  
   
         public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
-        {         
-            // À revoir
+        {                   
             File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/CasDeTest/" + _casTest.codeCasTest + "/") + _file.Name));
         }
        

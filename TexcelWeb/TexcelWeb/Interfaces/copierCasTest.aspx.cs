@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 //ceux ajoutés
 using System.Data;
 using TexcelWeb.Classes.Test;
+using TexcelWeb.Classes.Projet;
 using System.IO;
 
 
@@ -47,9 +48,11 @@ namespace TexcelWeb.Interfaces
 
         private void AfficherGV(string _filtre)
         {
+            
             switch (_filtre)
             {
                 case "Projet":
+                    ddlFiltre.SelectedValue = "Projet";
                     gvCopierCasTest.DataSourceID = "edsProjet";
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvCopierCasTest.DataBind();
@@ -61,6 +64,7 @@ namespace TexcelWeb.Interfaces
                     break;
 
                 case "CasTest":
+                    ddlFiltre.SelectedIndex = 1;
                     gvCopierCasTest.DataSourceID = "edsCasTest";
                     edsProjet.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvCopierCasTest.DataBind();
@@ -80,21 +84,38 @@ namespace TexcelWeb.Interfaces
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            AfficherGV(ddlFiltre.Text);            
+            TypeCopie = Request.QueryString["Param"];           
+            AfficherGV(TypeCopie);            
         }
        
-        protected void btnCopier_Click(object sender, EventArgs e)
+        protected void btnCopierMesSelections_Click(object sender, EventArgs e)
         {
-            CasTest casTest = (CasTest)Session["casTest"];
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
-            CtrlCopier.CopierElement();                                             
+            CtrlCopier.CopierElement();
 
-            foreach (FileInfo file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
+            if (TypeCopie =="CasTest")
             {
-                CtrlCasTest.SaveFileToFolder(casTest, file);
+                CasTest casTest = (CasTest)Session["casTest"];                               
+                foreach (FileInfo file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
+                {
+                    CtrlCasTest.SaveFileToFolder(casTest, file);
+                }
+                this.Form.Dispose();
+                Response.Redirect("CreerCasTest.aspx");
             }
-            this.Form.Dispose();
-            Response.Redirect("CreerCasTest.aspx");
+            else
+            {
+                //C'est un projet
+                cProjet proj = (cProjet)Session["monProjet"];
+
+                List<CasTest> lstCtTemp = CtrlProjet.CreerLstCasTest(CtrlProjet.getLstProjetCopie);
+                CtrlProjet.CreerLstFichier(lstCtTemp);
+                CtrlProjet.ClonerLstCt(lstCtTemp,proj);              
+                CtrlProjet.CreationFichierPhysique();
+
+
+            }
+            
         }
 
 
