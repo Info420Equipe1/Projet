@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="creerProjet.aspx.cs" Inherits="TexcelWeb.creerProjet" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="Menulab.RichTextBox" Namespace="Menulab" TagPrefix="ml" %>
 
 <!DOCTYPE html>
 
@@ -11,6 +12,10 @@
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/projet.css" media="screen" />
 
+    <!-- Sweet Alert references -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+    <!--/ Sweet Alert references -->
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -20,11 +25,8 @@ $(function(){
 });
 </script>
 </head>
+
 <body>
-    <div>        
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
-    </div>
 <div class="wrap">
 	<div id="header">
 		<div id="top">
@@ -107,7 +109,7 @@ $(function(){
                         </div>  
                         <div id="CasTestObj">
                             <asp:Label runat="server" Text="Objectif: " />
-                            <asp:TextBox runat="server" ID="rtxtObjectifProjet" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <asp:TextBox runat="server" ID="rtxtObjectifProjet"  TextMode="MultiLine" CssClass="richtextbox"/>
                         </div><br /><br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/>
@@ -115,7 +117,7 @@ $(function(){
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/>
-                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <ml:RichTextBox runat="server" ID="rtxtDiversProjet" mlWidth="505px" mlHeight="215px" EnableTheming="false" />
                         </div>
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
