@@ -20,6 +20,7 @@ namespace TexcelWeb.Interfaces
 	        {
                 
                 //Premier loading de la page
+                Session["modifProjet"] = false;
                 if (CtrlController.GetCurrentUser() == null)
                 {
                     //Not logged in

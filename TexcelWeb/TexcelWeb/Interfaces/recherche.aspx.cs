@@ -31,6 +31,7 @@ namespace TexcelWeb
             }
             if (Page.IsPostBack == false)
             {
+                Session["modifProjet"] = false;
                 ChargerPage();
             }         
         }
