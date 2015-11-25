@@ -47,7 +47,7 @@ $(function(){
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
 					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
-                    <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des equipes</a></li>			
+                    <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des cas de test</a></li>			
 				</ul>
 			</div>		
 			<div class="box">
@@ -59,7 +59,7 @@ $(function(){
 		</div>
 	    <div id="main">			
 			<div class="full_w">
-				<div class="h_title">Gérer les équipes des projets</div>
+				<div class="h_title">Gestion des cas de test d'une équipe</div>
                 <form id="frmProjetEquipe" runat="server">
                     <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="projetEquipe">
@@ -76,7 +76,7 @@ $(function(){
                             <asp:UpdatePanel ID="updatePanelEquipe" runat="server">
                                 <ContentTemplate>
                                     <div style="float:left;height:185px">
-                                        <asp:Label runat="server" Text="Équipes du projet (untel)" /><br />
+                                        <asp:Label runat="server" Text="Équipes du projet" /><br />
                                         <asp:ListBox runat="server" ID="lsbEquipes" OnSelectedIndexChanged="lsbEquipes_SelectedIndexChanged" AutoPostBack="true" />
                                     </div>
                                 
@@ -102,7 +102,7 @@ $(function(){
                             <ContentTemplate>
                                 <div> 
                                     <div class="tableCell">
-                                        <asp:Label runat="server" Text="Cas de test du projet (untel)" /><br />
+                                        <asp:Label runat="server" Text="Cas de test du projet" /><asp:CheckBox ID="chkCasTestNonAssocier" runat="server" style="padding-left:200px" Checked="false" AutoPostBack="true" OnCheckedChanged="chkCasTestNonAssocier_CheckedChanged" /><asp:Label runat="server" Text="Cas de test non-associer" style="padding-left:5px" /> <br />
                                         <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
                                     </div>
                                     <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
@@ -112,7 +112,7 @@ $(function(){
                                         <asp:LinkButton runat="server" ID="btnAllLeft" Text="<<" CssClass="button btnFleches" OnClick="btnAllLeft_Click" /> 
                                     </div>
                                     <div class="tableCell">
-                                        <asp:Label runat="server" Text="Cas de test de l'équipe (untel)" /><br />
+                                        <asp:Label runat="server" Text="Cas de test de l'équipe" /><br />
                                         <asp:ListBox runat="server" ID="lsbCasTestEquipe" SelectionMode="Multiple" />
                                     </div>
                                 </div>

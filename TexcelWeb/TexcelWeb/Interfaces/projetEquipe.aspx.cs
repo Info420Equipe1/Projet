@@ -134,12 +134,19 @@ namespace TexcelWeb.Interfaces
         {
             if (lsbCasTestEquipe.SelectedIndex != -1)
             {
+                List<int> lstIndex = new List<int>();
                 for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
                 {
                     if (lsbCasTestEquipe.Items[i].Selected == true)
                     {
-                        lsbCasTestEquipe.Items.RemoveAt(i);
+                        lstIndex.Add(i);
                     }
+                }
+                lstIndex.Sort();
+                lstIndex.Reverse();
+                foreach (int index in lstIndex)
+                {
+                    lsbCasTestEquipe.Items.RemoveAt(index);
                 }
             }
         }
@@ -175,10 +182,10 @@ namespace TexcelWeb.Interfaces
                         switch (message)
                         {
                             case "liaisonCasTestReussi":
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Liaison réussi!', 'Liaison d'une équipe à des cas de test avec succès', 'success');", true);
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Liaison réussi!\", \"Liaison d'une équipe à des cas de test avec succès\", \"success\");", true);
                                 break;
                             case "liaisonCasTestEchoue":
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la liaison des cas test à l'équipe.', 'error');", true);
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Une erreur est survenue lors de la liaison des cas test à l'équipe.\", \"error\");", true);
                                 break;
                             default:
                                 break;
@@ -191,10 +198,10 @@ namespace TexcelWeb.Interfaces
                         switch (message)
                         {
                             case "liaisonCasTestNullReussi":
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Suppression réussi!', 'Cas de test supprimés de l'équipe avec succès.', 'success');", true);
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Suppression réussi!\", \"Cas de test supprimés de l'équipe avec succès.\", \"success\");", true);
                                 break;
-                            case "liaisonCasTestNullEchoue": 
-                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la suppression des cas test de l'équipe.', 'error');", true);
+                            case "liaisonCasTestNullEchoue":
+                                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Une erreur est survenue lors de la suppression des cas test de l'équipe.\", \"error\");", true);
                                 break;
                             default:
                                 break;
@@ -203,7 +210,7 @@ namespace TexcelWeb.Interfaces
                     else
                     {
                         //Aucun cas de test à ajouter à une equipe qui ne possède aucun cas de test
-                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez ajouter des cas de test pour l'équipe car l'équipe ne possède aucun cas de test.', 'warning');", true);
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Veuillez ajouter des cas de test pour l'équipe car l'équipe ne possède aucun cas de test.\", \"warning\");", true);
                     }
                 }
                 else
@@ -222,6 +229,36 @@ namespace TexcelWeb.Interfaces
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
             Response.Redirect("recherche.aspx");
+        }
+
+        protected void chkCasTestNonAssocier_CheckedChanged(object sender, EventArgs e)
+        {
+            cProjet projet = CtrlProjet.getProjetByCode(actualSelectedCodeProjet);
+            List<CasTest> lstCasTest = new List<CasTest>();
+
+            lsbCasTestProjet.Items.Clear();
+
+            if (chkCasTestNonAssocier.Checked)
+            {
+                //Pour chaque cas test sans equipe, on l'affiche
+                foreach (CasTest castest in projet.CasTest)
+                {
+                    if (castest.Equipe.Count == 0)
+                    {
+                        lstCasTest.Add(castest);
+                    }
+                }
+                lsbCasTestProjet.DataSource = lstCasTest;
+                lsbCasTestProjet.DataTextField = "nomCasTest";
+                lsbCasTestProjet.DataBind();
+            }
+            else
+            {
+                lsbCasTestProjet.DataSource = projet.CasTest;
+                lsbCasTestProjet.DataTextField = "nomCasTest";
+                lsbCasTestProjet.DataBind();
+            }
+            
         }
 
         
