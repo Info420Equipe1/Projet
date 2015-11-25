@@ -75,6 +75,12 @@ namespace TexcelWeb
                     btnCopier.Visible = false;
                     FileUpload1.Visible = false;
                     btnUpload.Visible = false;
+                    if (Request.QueryString["nomProjet"] != null)
+                    {
+                        string nomProjet = String.Format("{0}", Request.QueryString["nomProjet"]);
+                        ListItem item = new ListItem(nomProjet);
+                        dropDownProjet.SelectedIndex = dropDownProjet.Items.IndexOf(item);
+                    }
                 }
 
                 foreach (Groupe groupe in currentUser.Groupe)
@@ -343,6 +349,16 @@ namespace TexcelWeb
         {
             txtCodeCasTest.Text = "";
             txtNomCasTest.Text = "";
+
+            //Salut Jay, Ne pas vider la box projet après un ajout car c'est plus facile
+            //d'ajouter plusieurs cas de test au projet.
+            //Moi, à partir de ma forme projet, je peux ajouter un cas de test et le projet
+            //se met par défaut dans ta box de creerCasTest.aspx et la fonctionnalité est parfaite!
+            //Merci, 
+            //Cordialement, Ti-Ben Simard
+            //
+            //Ce message devra être effacé donc fait le donc tu suite ^^
+
             dropDownDifficulteCasTest.Text = "Aucun";
             dropDownPrioritéCasTest.Text = "Aucun";
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));

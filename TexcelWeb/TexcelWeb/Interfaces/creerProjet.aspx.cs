@@ -52,6 +52,7 @@ namespace TexcelWeb
                 if (!modifier)
                 {
                     txtForm.InnerText = "Créer un projet";
+                    btnAjoutCasTest.Visible = false;
                     ListItem lst;
                     btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
@@ -73,6 +74,8 @@ namespace TexcelWeb
                 }
                 else
                 {
+                    btnAjoutCasTest.Visible = true;
+                    dataGridLstCasTest.Visible = true;
                     txtForm.InnerText = "Modifier un projet";
                     //Setup de la page pour la modification
                     modifierProjet = true;
@@ -99,6 +102,11 @@ namespace TexcelWeb
                     }
                     
                 }
+            }
+            else
+            {
+                btnAjoutCasTest.Visible = true;
+                showEmptyDataGrid();
             }
         }
         private void fillDataGridViewCasTest(cProjet projet)
@@ -127,6 +135,10 @@ namespace TexcelWeb
                     //Emplissage de la table
                     fillTableCasTest(indexTableCasTest, projet.CasTest.ToList(), nbPage);
                 }
+            }
+            else
+            {
+                showEmptyDataGrid();
             }
         }
         private void fillFieldsWithProjet(cProjet projet)
@@ -263,7 +275,7 @@ namespace TexcelWeb
             dt.Columns.Add("DateLivraisonCasTest");
             dt.Columns.Add("PrioriteCasTest");
             dt.Columns.Add("DifficulteCasTest");
-            dt.Columns.Add("OptionsCasTest");
+            dt.Columns.Add("Options");
 
             foreach (CasTest casTest in lstCasTest)
             {
@@ -303,6 +315,17 @@ namespace TexcelWeb
                 hgc.Attributes["href"] = "creerCasTest.aspx?codeCasTest="+gvr.Cells[0].Text;
 	        }
         }
+        private void showEmptyDataGrid()
+        {
+            DataTable dT = new DataTable();
+            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("CodeCasTest", typeof(string)), new DataColumn("NomCasTest", typeof(string)), new DataColumn("DateLivraisonCasTest", typeof(string)), new DataColumn("PrioriteCasTest", typeof(string)), new DataColumn("DifficulteCasTest", typeof(string)), new DataColumn("Options", typeof(string)) });
+            dT.Rows.Add(dT.NewRow());
+            dT.Rows[0].SetField("NomCasTest", "No Record Available");
+            dataGridLstCasTest.Visible = true;
+            dataGridLstCasTest.DataSource = dT;
+            dataGridLstCasTest.DataBind();
+            dataGridLstCasTest.HeaderRow.Visible = true;
+        }
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             //Collecte de l'information pour un projet
@@ -334,7 +357,8 @@ namespace TexcelWeb
                 switch (message)
                 {
                     case "projetajoute":
-                        Session["modifProjet"] = false;
+                        Session["modifProjet"] = true;
+                        Session["modifCodeProjet"] = codeProjet;
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
                         break;
                     case "erreur":
@@ -408,6 +432,13 @@ namespace TexcelWeb
         {
             string Param = "Projet";
             ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
+        }
+
+        protected void btnAjoutCasTest_Click(object sender, EventArgs e)
+        {
+            string nomProjet = String.Format("{0}", Request.Form["txtNomProjet"]);
+            Response.Redirect("creerCasTest.aspx?nomProjet=" + nomProjet);
+           
         }
 
 
