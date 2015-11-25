@@ -16,22 +16,13 @@ namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
-        static List<cProjet> lstProjetCopie = new List<cProjet>();
-        static List<FileInfo> lstFichier = new List<FileInfo>();
-        static List<CasTest> lstCasTest = new List<CasTest>();
-        static List<CasTest> lstCasTestClone = new List<CasTest>();
-        static bool dossierParent = false;
-        static bool dossierParentcT = false;
 
-        public static List<cProjet> getLstProjetCopie
-        {
-            get { return lstProjetCopie; }
-           
-        }
+        static Dictionary<CasTest, List<FileInfo>> dictCasTestClone = new Dictionary<CasTest, List<FileInfo>>();
 
-        public static List<CasTest> getLstCasTestClone
+
+        public static Dictionary<CasTest, List<FileInfo>> getDictCasTestClone
         {
-            get { return lstCasTestClone; }
+            get { return dictCasTestClone; }
 
         }
         
@@ -244,38 +235,16 @@ namespace TexcelWeb.Classes.Projet
             }
             return -1;
         }
-
-        // avoir la liste de projet à copier
-        public static void SauvegarderLstProjet(List<cProjet> _lstProjet)
+ 
+        public static Dictionary<CasTest,List<FileInfo> > ClonerLstCt(List<CasTest> _lstClone,cProjet _projetEnCours)
         {
-            lstProjetCopie.Clear();
-            lstProjetCopie = _lstProjet;
-        }
-
-        //Remplir une liste de tous les cas de test des projets sélectionnés
-        public static List<CasTest> CreerLstCasTest(List<cProjet> _lstProjet)
-        {
-            lstCasTest.Clear();
-
-            foreach (cProjet cProj in _lstProjet)
-            {
-                foreach (CasTest cT in cProj.CasTest)
-                {
-                    lstCasTest.Add(cT);
-                }
-
-            }
-            return lstCasTest;
-        }  
-
-        public static void ClonerLstCt(List<CasTest> _lstClone,cProjet _projetEnCours)
-        {
-            lstCasTestClone.Clear();
-
+            int CtNum = 1;
+            dictCasTestClone.Clear();
+            
             foreach (CasTest cT in _lstClone)
             {
                 CasTest temp = new CasTest();
-                temp.codeCasTest = _projetEnCours.codeProjet + 1;
+                temp.codeCasTest = "cT"+ _projetEnCours.codeProjet+"-" +CtNum;
                 temp.codeProjet = _projetEnCours.codeProjet;
                 temp.nomCasTest = cT.nomCasTest;
                 temp.cProjet = _projetEnCours;
@@ -287,81 +256,18 @@ namespace TexcelWeb.Classes.Projet
                 temp.descCasTest = cT.descCasTest;
                 temp.objCasTest = cT.objCasTest;
                 temp.divCasTest = cT.divCasTest;
-
-                lstCasTestClone.Add(temp);
+   
+                dictCasTestClone.Add(temp, CtrlCasTest.GetFile(cT));
+                CtNum++;
             }
             // ajouter les nouveau cas de test plus tard lorsque le client enregistre le projet
-         
+            return dictCasTestClone;
         }
+       
 
-        //inutile pour l'instant
-        //public static void LierProjetCasTest(cProjet _monProjet, CasTest _cT)
-        //{
-        //    _monProjet.CasTest.Add(_cT);
-        //}
+       
 
-        public static void CreerLstFichier(List<CasTest> _lstCt)
-        {
-          lstFichier.Clear();
-          lstFichier = CtrlCasTest.PopulateLstPathsFile(_lstCt);
-        }
-
-        public static void CreationDossierParentProjet(cProjet _proj,string _path)
-        {
-            if (!(Directory.Exists(_path)))
-            {
-                Directory.CreateDirectory(_path);
-            }
-
-        }
-        public static void CreationDossierParentCasTest(CasTest _cT,string _path)
-        {
-            if (!(Directory.Exists(_path)))
-            {
-                Directory.CreateDirectory(_path);
-            }
-
-        }
-        public static void CreationDossier(cProjet _proj,CasTest _cT)
-        {         
-            string pathDossierProjet = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _proj.codeProjet);
-            if (!(Directory.Exists(pathDossierProjet)) || dossierParent == true)
-            {
-                CreationDossierParentProjet(_proj,pathDossierProjet);
-                dossierParent = true;
-            }
-
-            string pathDossierCasTest = HttpContext.Current.Server.MapPath(@"~/cProjets/" +_proj.codeProjet+ "/" + _cT.codeCasTest);
-            if (!(Directory.Exists(pathDossierCasTest)) || dossierParentcT == true)
-            {
-                CreationDossierParentCasTest(_cT, pathDossierCasTest);
-                dossierParentcT = true;
-            }
-
-            string comp1 = "";
-            string comp2 = "";
-            bool firstTime = true;
-            foreach (FileInfo fi in lstFichier)
-            {
-                comp1 = fi.Directory.ToString(); 
-                if (firstTime == true)
-                {
-                    comp2 = comp1;
-                    firstTime = false;
-                }
-               
-                if (comp1 == comp2)
-                {
-                    CtrlCasTest.SaveFileToFolder(_cT, fi);
-                    comp2 = fi.Directory.ToString();
-                }
-                 
-            }
-
-             dossierParent = false;
-             dossierParentcT = false;
-        }
-
+       
 
 
     }

@@ -18,18 +18,27 @@ namespace TexcelWeb.Classes.Test
     public class CtrlCasTest : CtrlController
     {
         static CasTest casTestEnCours;
-        static List<CasTest> lstCasTest = new List<CasTest>();
         static List<FileInfo> lstFichier = new List<FileInfo>();
         
-        public static List<CasTest> getLstCasTest
-        {
-            get { return lstCasTest; }
-        }       
+           
         public static CasTest getCasTestEnCours
         {
             get { return casTestEnCours; }
         }
         
+        public static bool Ajouter(CasTest _cT)
+        {
+            try
+            {
+                context.tblCasTest.Add(_cT);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         //Ajouter lorsque il faut lier avec un projet et un type test
         public static bool Ajouter(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, string _obj, string _divers)
         {
@@ -228,12 +237,7 @@ namespace TexcelWeb.Classes.Test
             casTestEnCours.descCasTest = _desc; 
 
         }
-        public static void SauvegarderLstCasTest(List<CasTest> _lstCasTest)
-        {
-            lstCasTest.Clear();
-            lstCasTest = _lstCasTest;
-        }
-
+   
         public static string[] GetPaths(CasTest _casTest)
         {
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
@@ -241,10 +245,10 @@ namespace TexcelWeb.Classes.Test
             return filePaths;
         }
 
-        public static List<FileInfo> GetFileName(CasTest _casTest)
+        public static List<FileInfo> GetFile(CasTest _casTest)
         {
             string path = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest);
-            CtrlProjet.CreationDossierParentCasTest(_casTest, path);
+            CtrlCopier.CreationDossierParentCasTest(_casTest, path);
 
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
              
@@ -264,7 +268,7 @@ namespace TexcelWeb.Classes.Test
             lstFichier.Clear();
             foreach (CasTest ct in _lstCasTest)
             {
-                List<FileInfo>  mesfichiers = GetFileName(ct);
+                List<FileInfo>  mesfichiers = GetFile(ct);
 
                 if (mesfichiers.Count != 0)
                 {
@@ -278,11 +282,6 @@ namespace TexcelWeb.Classes.Test
             return lstFichier;
         }  
   
-        public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
-        {
-            // _casTest.codeProjet = null ????
-            File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest + "/") + _file.Name),true);
-        }
-       
+      
     }
 }

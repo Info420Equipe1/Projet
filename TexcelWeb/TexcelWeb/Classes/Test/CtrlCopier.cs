@@ -17,20 +17,21 @@ namespace TexcelWeb.Classes.Test
     public class CtrlCopier
     {
         static GridView monGV;
-        static List<cProjet> lstProjet = new List<cProjet>();
-        static List<CasTest> lstCasTest = new List<CasTest>();
-        static cProjet monProj;
+        static List<CasTest> lstCasTestCopie = new List<CasTest>();
         static CasTest monCT;
+        static List<FileInfo> lstFichier = new List<FileInfo>();
+
+        static bool dossierParent = false;
+        static bool dossierParentcT = false;
 
         public static void SauvegarderDonnees(GridView _monGV)
         {
             monGV = _monGV;
         }
 
-        public static void CopierElement()
+        public static List<CasTest> getLstCasTestCoche()
         {
-            lstCasTest.Clear();
-            lstProjet.Clear();
+            lstCasTestCopie.Clear();
             // Iteration à travers le gridview
             foreach (GridViewRow row in monGV.Rows)
             {
@@ -38,43 +39,68 @@ namespace TexcelWeb.Classes.Test
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
                 if (cb != null && cb.Checked)
                 {
-                    DetermineObject(row.Cells[1].Text);               
+                    PopulateLstCasTestCoche(row.Cells[1].Text);               
                 }
             }
-            EnvoyerLstObjetCopier();
+            return lstCasTestCopie;
         }
    
         // Chercher l'objet et le mettre dans la liste correspondante
-        private static void DetermineObject(string _idUnique)
-        {
-            if (CtrlProjet.getProjetByCode(_idUnique) != null)
-            {
-                monProj = CtrlProjet.getProjetByCode(_idUnique);
-                lstProjet.Add(monProj);                
-            }
-            else if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
+        private static void PopulateLstCasTestCoche(string _idUnique)
+        {          
+           
+            if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
             {
                 monCT = CtrlCasTest.GetCasTestByCode(_idUnique);
-                lstCasTest.Add(monCT);
-            }
-
-            if (monProj == null && monCT == null)
-            {
-                //ERREUR! 
-            }
+                lstCasTestCopie.Add(monCT);
+            }                       
         }
-
-        // Envoyer la liste d'élément cocher au bon controlleur
-        private static void EnvoyerLstObjetCopier()
+        public static void CreerLstFichier(List<CasTest> _lstCt)
         {
-            if (lstProjet.Count == 0 )
-            {
-                CtrlCasTest.SauvegarderLstCasTest(lstCasTest);
-            }
-            else
-            {
-                CtrlProjet.SauvegarderLstProjet(lstProjet);
-            }
+            lstFichier.Clear();
+            lstFichier = CtrlCasTest.PopulateLstPathsFile(_lstCt);
         }
+
+        public static void CreationDossierParentProjet(cProjet _proj, string _path)
+        {
+            if (!(Directory.Exists(_path)))
+            {
+                Directory.CreateDirectory(_path);
+            }
+
+        }
+        public static void CreationDossierParentCasTest(CasTest _cT, string _path)
+        {
+            if (!(Directory.Exists(_path)))
+            {
+                Directory.CreateDirectory(_path);
+            }
+
+        }
+        public static void CreationDossier(cProjet _proj, CasTest _cT)
+        {
+            string pathDossierProjet = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _proj.codeProjet);
+            if (!(Directory.Exists(pathDossierProjet)) || dossierParent == true)
+            {
+                CreationDossierParentProjet(_proj, pathDossierProjet);
+                dossierParent = true;
+            }
+
+            string pathDossierCasTest = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _proj.codeProjet + "/" + _cT.codeCasTest);
+            if (!(Directory.Exists(pathDossierCasTest)) || dossierParentcT == true)
+            {
+                CreationDossierParentCasTest(_cT, pathDossierCasTest);
+                dossierParentcT = true;
+            }
+
+            dossierParent = false;
+            dossierParentcT = false;
+        }
+        public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
+        {
+            // _casTest.codeProjet = null ????
+            File.Copy(_file.FullName, (HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest + "/") + _file.Name), true);
+        }
+       
     }
 }

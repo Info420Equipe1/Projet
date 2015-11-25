@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using TexcelWeb.Classes.Test;
 using TexcelWeb.Classes.Projet;
+using TexcelWeb.Classes;
 using System.IO;
 
 
@@ -16,7 +17,7 @@ namespace TexcelWeb.Interfaces
 	public partial class copierCasTest : System.Web.UI.Page
     {
 
-        string TypeCopie;
+        Utilisateur currentUser;
         public copierCasTest()
         {
             
@@ -26,98 +27,125 @@ namespace TexcelWeb.Interfaces
         {
             if (Page.IsPostBack == false)
             {
-                TypeCopie = Request.QueryString["Param"];
-                Session["TypeCopie"] = TypeCopie;
+                //Premier loading de la page
+                if (CtrlController.GetCurrentUser() == null)
+                {
+                    //Not logged in
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    currentUser = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;    
+                }
                 ChargerPage();
             }
 		}
         private void ChargerPage()
-        {
-            if (TypeCopie != null)
+        {            
+            Session["TypeCopie"] = Request.QueryString["Param"];
+
+            //Copier des fichiers dans un casTest
+            if (Session["TypeCopie"] != null && Session["TypeCopie"].ToString() == "CasTest")
             {
                 AfficherGV(Session["TypeCopie"].ToString());
-             
+                ddlFiltre.Enabled = false;
             }
             else
             {
+                // on veut copier des casTest pour un projet donc on affiche tous les cas de test 
+                //,mais le filtre n'est pas disabled
                 AfficherGV(ddlFiltre.Text);
+                ddlFiltre.Enabled = true;
             }
-
-            ddlFiltre.Enabled = false;
+            
+            
         
         }
 
         private void AfficherGV(string _filtre)
-        {
-            
+        {           
+
             switch (_filtre)
             {
                 case "Projet":
-                    ddlFiltre.SelectedValue = "Projet";
-                    gvCopierCasTest.DataSourceID = "edsProjet";
-                    edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
+                    gvCopierCasTest.DataSourceID = "edsCasTest";
+                    if (txtChampRecherche.Text =="")
+                    {
+                         edsCasTest.Where = "it.[codeProjet] like '%" + txtChampRecherche.Text.Trim() + "%'";
+                    }
+                    else
+                    {
+                        edsCasTest.Where = "it.[codeProjet] like '" + txtChampRecherche.Text.Trim() + "'";
+                    }                   
                     gvCopierCasTest.DataBind();
-                    gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du Projet";
-                    gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du Projet";
-                    gvCopierCasTest.HeaderRow.Cells[3].Text = "Chef de Projet";
-                    gvCopierCasTest.HeaderRow.Cells[4].Text = "Date de Creation";
-                    gvCopierCasTest.HeaderRow.Cells[5].Text = "Date de Livraison";
                     break;
 
                 case "CasTest":
-                    ddlFiltre.SelectedIndex = 1;
                     gvCopierCasTest.DataSourceID = "edsCasTest";
-                    edsProjet.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
+                    edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvCopierCasTest.DataBind();
-                    gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du CasTest";
-                    gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du CasTest";
-                    gvCopierCasTest.HeaderRow.Cells[3].Text = "Code du Projet";
-                    gvCopierCasTest.HeaderRow.Cells[4].Text = "Date de Creation";
-                    gvCopierCasTest.HeaderRow.Cells[5].Text = "Date de Livraison";
-                  
                     break;
-
                 default:
                     break;
             }
+            try
+            {
+                gvCopierCasTest.HeaderRow.Cells[1].Text = "Code du CasTest";
+                gvCopierCasTest.HeaderRow.Cells[2].Text = "Nom du CasTest";
+                gvCopierCasTest.HeaderRow.Cells[3].Text = "Code du Projet";
+                gvCopierCasTest.HeaderRow.Cells[4].Text = "Date de Creation";
+                gvCopierCasTest.HeaderRow.Cells[5].Text = "Date de Livraison";
+            }
+            catch (Exception)
+            {                
+               
+            }
+            
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
         }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            TypeCopie = Request.QueryString["Param"];
-            Session["TypeCopie"] = TypeCopie;
-            AfficherGV(Session["TypeCopie"].ToString());            
+            ChargerPage();          
         }
        
         protected void btnCopierMesSelections_Click(object sender, EventArgs e)
         {
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
-            CtrlCopier.CopierElement();
+            List<CasTest> lstCTCopier = CtrlCopier.getLstCasTestCoche();
+            List<FileInfo> lstFile = CtrlCasTest.PopulateLstPathsFile(lstCTCopier);
 
             if (Session["TypeCopie"].ToString() == "CasTest")
             {
-                CasTest casTest = (CasTest)Session["casTest"];                               
-                foreach (FileInfo file in CtrlCasTest.PopulateLstPathsFile(CtrlCasTest.getLstCasTest))
+
+                CasTest casTest = (CasTest)Session["casTest"];                              
+                foreach (FileInfo file in lstFile)
                 {
-                    CtrlCasTest.SaveFileToFolder(casTest, file);
+                    CtrlCopier.SaveFileToFolder(casTest, file);
                 }
                 this.Form.Dispose();
                 Response.Redirect("CreerCasTest.aspx");
+
             }
             else
             {
-                //C'est un projet
+                //On copie des casTests dans un projet 
                 cProjet proj = (cProjet)Session["monProjet"];
+                Dictionary<CasTest, List<FileInfo>> dictCtClone = CtrlProjet.ClonerLstCt(lstCTCopier, proj);
 
-                List<CasTest> lstCtTemp = CtrlProjet.CreerLstCasTest(CtrlProjet.getLstProjetCopie);
-                CtrlProjet.CreerLstFichier(lstCtTemp);
-                CtrlProjet.ClonerLstCt(lstCtTemp,proj);
-
-                foreach (CasTest cT in CtrlProjet.getLstCasTestClone)
+                foreach (KeyValuePair<CasTest, List<FileInfo>> maPair in dictCtClone)
                 {
-                    CtrlProjet.CreationDossier(proj, cT);
+                    CtrlCopier.CreationDossier(proj, maPair.Key);
+                    foreach (FileInfo fi in maPair.Value)
+                    {
+                        CtrlCopier.SaveFileToFolder(maPair.Key, fi);
+                    }
+                    CtrlCasTest.Ajouter(maPair.Key);
                 }
+
+
 
                 this.Form.Dispose();
                 Response.Redirect("creerProjet.aspx");

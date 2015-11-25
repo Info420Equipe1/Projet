@@ -23,7 +23,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong>BASS</strong> [ <a href="login.aspx">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server"></strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			</div>
 			<!-- <div class="right">
 				<div class="align-right">
@@ -84,7 +84,7 @@ $(function(){
                         </ContentTemplate>
                     </asp:UpdatePanel>  
                     <asp:EntityDataSource ID="edsProjet" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
-                    <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
+                    <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest],it.[codeProjet], it.[dateCreation],it.[dateLivraison]"></asp:EntityDataSource>
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>
                     <asp:Button ID="btnCopier" runat="server" Text="Copier mes sélections" onCLick="btnCopierMesSelections_Click"/>    
                 </form>    
