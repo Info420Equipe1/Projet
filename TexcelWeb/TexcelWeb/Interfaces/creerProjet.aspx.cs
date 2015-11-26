@@ -54,7 +54,6 @@ namespace TexcelWeb
                     txtForm.InnerText = "Créer un projet";
                     btnAjoutCasTest.Visible = false;
                     ListItem lst;
-                    btnEnregistrer.Text = "Enregistrer";
                     modifierProjet = false;
 
                     //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
@@ -81,7 +80,6 @@ namespace TexcelWeb
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
                     dataGridLstCasTest.Visible = true;
-                    btnEnregistrer.Text = "Modifier";
 
                     string codeProjet = (string)Session["modifCodeProjet"];
                     cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
