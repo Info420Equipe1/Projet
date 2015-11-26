@@ -364,7 +364,8 @@ namespace TexcelWeb
             txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
             txtDateLivraisonCasTest.Text = "";
             rtxtDescriptionCasTest.Text = "";
-
+            rtxtDiversCasTest.Text = "";
+            rtxtObjectifCastest.Text = "";
         }
 
         public void RemplirChamps(CasTest casTest)
