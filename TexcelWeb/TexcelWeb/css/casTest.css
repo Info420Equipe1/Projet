@@ -105,6 +105,7 @@
 .richtextbox{
     height:210px;
     width:490px;
+    resize:none;
 }
 
 .txtCodeCasTest{
