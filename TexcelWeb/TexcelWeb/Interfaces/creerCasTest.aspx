@@ -25,14 +25,9 @@ $(function(){
 <div class="wrap">
 	<div id="header">
 		<div id="top">
-			c<div class="left">
-				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a> ]</p>
+			<div class="left">
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a></p>
 			</div>
-			<!-- <div class="right">
-				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
-				</div>
-			</div> -->
         </div>
 	</div>	
 	<div id="content">
@@ -117,7 +112,7 @@ $(function(){
                         </div>
                     </div>
                 <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des fichiers" CssClass="button" OnClick="btnCopier_Click" AutoPostBack="true"/>      
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des fichiers existants" CssClass="button" OnClick="btnCopier_Click" AutoPostBack="true"/>      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" CausesValidation="false"/>
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />                       
                         <asp:LinkButton runat="server" ID="btnAjouter" Text="Ajouter fichiers" CssClass="btnDroit button add" PostBackUrl="~/Interfaces/creerCasTest.aspx" OnClick="btnAjouter_Click"/>                       
