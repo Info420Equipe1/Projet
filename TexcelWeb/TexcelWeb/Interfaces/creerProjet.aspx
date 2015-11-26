@@ -121,14 +121,14 @@ $(function(){
                         </div>
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click"/>
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des cas de test existants" CssClass="button" OnClick="btnCopier_Click"/>
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CausesValidation="false" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>
                     <br />
                     <br />
                     <div>
-                        <asp:LinkButton runat="server" ID="btnAjoutCasTest" Text="Ajouter un Cas de test" Width="150px" CssClass="btnGauche button add" OnClick="btnAjoutCasTest_Click" />
+                        <asp:LinkButton runat="server" ID="btnAjoutCasTest" Text="Ajouter un nouveau cas de test" CssClass="btnGauche button add" OnClick="btnAjoutCasTest_Click" />
                     </div>
                     <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
                         <Columns>
