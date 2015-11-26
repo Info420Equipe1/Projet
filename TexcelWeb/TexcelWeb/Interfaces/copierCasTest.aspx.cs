@@ -106,6 +106,16 @@ namespace TexcelWeb.Interfaces
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
         }
 
+        protected void btnCocher_Click(object sender, EventArgs e)
+        {
+            CtrlCopier.Coche_Dechoche(true, gvCopierCasTest);
+        }
+
+        protected void btnDechocher_Click(object sender, EventArgs e)
+        {
+            CtrlCopier.Coche_Dechoche(false, gvCopierCasTest);
+        }
+
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
             ChargerPage();          
