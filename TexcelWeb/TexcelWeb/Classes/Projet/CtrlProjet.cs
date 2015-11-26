@@ -86,6 +86,10 @@ namespace TexcelWeb.Classes.Projet
         {
             cProjet projet = getProjetByCode(codeProjet);
 
+            //if ((context.tblProjet.Contains(projet)) == true)
+            //{
+            //    return "AucuneModifProjet";
+            //}
             projet.nomProjet = nomProjet;
             if (chefProjet != "-1")
             {
@@ -235,6 +239,7 @@ namespace TexcelWeb.Classes.Projet
             }
             return -1;
         }
+
  
         public static Dictionary<CasTest,List<FileInfo> > ClonerLstCt(List<CasTest> _lstClone,cProjet _projetEnCours)
         {

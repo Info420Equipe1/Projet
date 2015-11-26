@@ -120,11 +120,15 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
-                    <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click"/>
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CausesValidation="false" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
-                    </div>
+                    <asp:UpdatePanel ID="updatePanelBtn" runat="server">
+                        <ContentTemplate>
+                            <div id="btnCopierEnregistrerAnnuler">
+                                <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click"/>
+                                <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CausesValidation="false" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
+                                <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                     <br />
                     <br />
                     <div>

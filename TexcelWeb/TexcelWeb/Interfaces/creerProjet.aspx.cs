@@ -51,6 +51,9 @@ namespace TexcelWeb
                 bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                 if (!modifier)
                 {
+                    btnEnregistrer.Text = "Enregistrer";
+                    txtCodeProjet.Enabled = true;
+                    txtNomProjet.Enabled = true;
                     txtForm.InnerText = "Créer un projet";
                     btnAjoutCasTest.Visible = false;
                     ListItem lst;
@@ -76,6 +79,8 @@ namespace TexcelWeb
                     btnAjoutCasTest.Visible = true;
                     dataGridLstCasTest.Visible = true;
                     txtForm.InnerText = "Modifier un projet";
+                    txtCodeProjet.Enabled = false;
+                    txtNomProjet.Enabled = false;
                     //Setup de la page pour la modification
                     modifierProjet = true;
                     txtVersionJeuProjet.Enabled = true;
@@ -105,6 +110,8 @@ namespace TexcelWeb
             {
                 btnAjoutCasTest.Visible = true;
                 showEmptyDataGrid();
+                txtCodeProjet.Enabled = false;
+                txtNomProjet.Enabled = false;
             }
         }
         private void fillDataGridViewCasTest(cProjet projet)
@@ -327,15 +334,15 @@ namespace TexcelWeb
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             //Collecte de l'information pour un projet
-            string codeProjet = String.Format("{0}", Request.Form["txtCodeProjet"]);
-            string nomProjet = String.Format("{0}", Request.Form["txtNomProjet"]);
+            string codeProjet = (String.Format("{0}", Request.Form["txtCodeProjet"])).Trim();
+            string nomProjet = (String.Format("{0}", Request.Form["txtNomProjet"])).Trim();
             string chefProjet = String.Format("{0}", Request.Form["txtChefProjet"]);
             string dateCreationProjet = String.Format("{0}", Request.Form["txtDateCreationProjet"]);
             string dateLivraisonProjet = String.Format("{0}", Request.Form["txtDateLivraisonProjet"]);
             string versionJeuProjet = String.Format("{0}", Request.Form["txtVersionJeuProjet"]);
-            string descProjet = String.Format("{0}", Request.Form["rtxtDescriptionProjet"]);
-            string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
-            string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
+            string descProjet = (String.Format("{0}", Request.Form["rtxtDescriptionProjet"])).Trim();
+            string objProjet = (String.Format("{0}", Request.Form["rtxtObjectifProjet"])).Trim();
+            string DiversProjet = (String.Format("{0}", Request.Form["rtxtDiversProjet"])).Trim();
 
             string idChefProjet;
             if (chefProjet != "Aucun")
@@ -378,6 +385,9 @@ namespace TexcelWeb
                     case "projetmodifier":
                         Session["modifProjet"] = false;
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet modifié!', 'Le projet a été modifié avec succès.', 'success');", true);
+                        break;
+                    case "AucuneModifProjet":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Aucune modification n'a été fait sur ce projet.\", \"warning\");", true);
                         break;
                     case "erreur":
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la modification du projet.', 'error');", true);

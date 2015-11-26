@@ -157,6 +157,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox rtxtDiversProjet;
         
         /// <summary>
+        /// Contrôle updatePanelBtn.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelBtn;
+        
+        /// <summary>
         /// Contrôle btnCopier.
         /// </summary>
         /// <remarks>
