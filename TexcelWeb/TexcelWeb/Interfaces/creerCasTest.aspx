@@ -26,7 +26,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a></p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a>]</p>
 			</div>
         </div>
 	</div>	
