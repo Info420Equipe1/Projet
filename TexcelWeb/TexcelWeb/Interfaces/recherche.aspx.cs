@@ -138,13 +138,39 @@ namespace TexcelWeb
                     ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Chef de Projet";
                     ((LinkButton)(gvRecherche.HeaderRow.Cells[3].Controls[0])).Text = "Date de Creation";
                     ((LinkButton)(gvRecherche.HeaderRow.Cells[4].Controls[0])).Text = "Date de Livraison";
+                    foreach (GridViewRow row in gvRecherche.Rows)
+                    {
+                        if (row.Cells[3].Text != "&nbsp;")
+                        {
+                            row.Cells[3].Text = Convert.ToDateTime(row.Cells[3].Text).ToString("yyyy-MM-dd");
+                            row.Cells[3].HorizontalAlign = HorizontalAlign.Center;
+                        }
+                        if (row.Cells[4].Text != "&nbsp;")
+                        {
+                            row.Cells[4].Text = Convert.ToDateTime(row.Cells[4].Text).ToString("yyyy-MM-dd");
+                            row.Cells[4].HorizontalAlign = HorizontalAlign.Center;
+                        }
+                    }
                     break;
                 case "CasTest":
                     ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Code du CasTest";
-                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du CasTest";
-                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Date de Creation";
-                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Date de Livraison";
-                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Code du Projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du CasTest";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Date de Creation";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[3].Controls[0])).Text = "Date de Livraison";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[4].Controls[0])).Text = "Code du Projet";
+                    foreach (GridViewRow row in gvRecherche.Rows)
+                    {
+                        if (row.Cells[2].Text != "&nbsp;")
+                        {
+                            row.Cells[2].Text = Convert.ToDateTime(row.Cells[2].Text).ToString("yyyy-MM-dd");
+                            row.Cells[2].HorizontalAlign = HorizontalAlign.Center;
+                        }
+                        if (row.Cells[3].Text != "&nbsp;")
+                        {
+                            row.Cells[3].Text = Convert.ToDateTime(row.Cells[3].Text).ToString("yyyy-MM-dd");
+                            row.Cells[3].HorizontalAlign = HorizontalAlign.Center;
+                        }
+                    }
                     break;
                 default:
                     break;
