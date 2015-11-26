@@ -64,7 +64,25 @@ namespace TexcelWeb.Interfaces {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRechercher;
+        protected global::System.Web.UI.WebControls.LinkButton btnRechercher;
+        
+        /// <summary>
+        /// Contrôle btnCocher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCocher;
+        
+        /// <summary>
+        /// Contrôle btnDecocher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDecocher;
         
         /// <summary>
         /// Contrôle UPGridView.
@@ -118,6 +136,6 @@ namespace TexcelWeb.Interfaces {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCopier;
+        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
     }
 }
