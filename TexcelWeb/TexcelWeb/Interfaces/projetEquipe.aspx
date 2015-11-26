@@ -59,7 +59,7 @@ $(function(){
 		</div>
 	    <div id="main">			
 			<div class="full_w">
-				<div class="h_title">Gestion des cas de test d'une équipe</div>
+				<div class="h_title">Associer des cas de test à une équipe</div>
                 <form id="frmProjetEquipe" runat="server">
                     <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <div id="projetEquipe">
