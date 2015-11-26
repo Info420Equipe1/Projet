@@ -63,7 +63,6 @@ namespace TexcelWeb
             }
 
             AfficherGV(ddlFiltre.Text);
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);
         }
 
         private void AfficherGV(string _filtre)
@@ -74,7 +73,7 @@ namespace TexcelWeb
                     gvRecherche.DataSourceID = "edsProjet";
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
-                    break;              
+                    break;
                 case "CasTest":
                     gvRecherche.DataSourceID = "edsCasTest";
                     edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
@@ -82,7 +81,7 @@ namespace TexcelWeb
                     break;
                 default:
                     break;
-            }    
+            }
         }      
 
         // copier tous les éléments de  la liste qui sont coché
@@ -124,7 +123,18 @@ namespace TexcelWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["ondblclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
+                /*TableCell tc = new TableCell();
+                tc.HorizontalAlign = HorizontalAlign.Center;
+                tc.VerticalAlign = VerticalAlign.Middle;
+                e.Row.Cells.Add(tc);
+
+                LinkButton lnkDetails = new LinkButton();
+                lnkDetails.Height = 10;
+                lnkDetails.Width = 10;
+                lnkDetails.Controls.Add(new Image { ImageUrl = "../img/loupe.png" });
+                lnkDetails.Click += new EventHandler(lnkDetails_Click);
+                e.Row.Cells[5].Controls.Add(lnkDetails);*/
             }
         }
 
