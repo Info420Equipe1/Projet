@@ -175,6 +175,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
         
         /// <summary>
+        /// Contrôle btnAjouter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAjouter;
+        
+        /// <summary>
         /// Contrôle FileUpload1.
         /// </summary>
         /// <remarks>
