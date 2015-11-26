@@ -63,7 +63,7 @@ namespace TexcelWeb
                     casTest = (CasTest)Session["casTest"];
                     Session["CasTestFichier"] = Session["casTest"];
                     Session["ModifCasTest"] = casTest;
-                    
+                    btnAjouter.Visible = false;
                     RemplirChamps(casTest);
                     Titre.InnerText = "Modifier un cas de test";
                     Fichiers(casTest);
@@ -207,7 +207,7 @@ namespace TexcelWeb
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             CasTest casTest = (CasTest)Session["ModifCasTest"];
-            cProjet proj = CtrlProjet.GetProjet(String.Format("{0}", Request.Form["DropDownProjet"]));
+            cProjet proj = CtrlProjet.GetProjet(dropDownProjet.Text);
             Difficulte diff = null;
             NiveauPriorite nivPri = null;
             TypeTest typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
@@ -434,5 +434,45 @@ namespace TexcelWeb
             string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest);
             System.Diagnostics.Process.Start(filePath);
         }
+
+        protected void btnAjouter_Click(object sender, EventArgs e)
+        {
+            CasTest casTest = (CasTest)Session["ModifCasTest"];
+            cProjet proj = CtrlProjet.GetProjet(dropDownProjet.Text);
+            Difficulte diff = null;
+            NiveauPriorite nivPri = null;
+            TypeTest typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
+
+
+            if (String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]) != "Aucun")
+            {
+                diff = CtrlDifficulte.GetDiff(String.Format("{0}", Request.Form["dropDownDifficulteCasTest"]));
+            }
+
+            if (String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]) != "Aucun")
+            {
+                nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
+            }
+
+            //if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
+            //{
+            //    typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
+            //}
+            if (!modif)
+            {
+                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
+                {
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Cas de test ajouté!', 'Le cas de test a été ajouté avec succès.', 'success');", true);
+                    Session["casTest"] = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+                    Response.Redirect(Request.RawUrl);
+                }
+                else
+                {
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du cas de test.', 'error');", true);
+                    Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
+                }
+            }
+        }
+
     }
 }

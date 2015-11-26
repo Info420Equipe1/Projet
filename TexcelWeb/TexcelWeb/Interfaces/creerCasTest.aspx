@@ -26,13 +26,8 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a> ]</p>
+				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a>]</p>
 			</div>
-			<!-- <div class="right">
-				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
-				</div>
-			</div> -->
         </div>
 	</div>	
 	<div id="content">
@@ -71,7 +66,7 @@ $(function(){
                             <div class="info">
                                 <asp:Label runat="server" Text="Nom: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtNomCasTest" CssClass="txtColum1"/>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCodeCasTest" Display="dynamic" Text="*" ForeColor="Red" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNomCasTest" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Projet: " CssClass="lblColum1" />
@@ -117,9 +112,10 @@ $(function(){
                         </div>
                     </div>
                 <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Copier" CssClass="button" OnClick="btnCopier_Click" AutoPostBack="true"/>      
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des fichiers existants" CssClass="button" OnClick="btnCopier_Click" AutoPostBack="true"/>      
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" CausesValidation="false"/>
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" PostBackUrl="~/Interfaces/creerCasTest.aspx" />                       
+                        <asp:LinkButton runat="server" ID="btnAjouter" Text="Ajouter fichiers" CssClass="btnDroit button add" PostBackUrl="~/Interfaces/creerCasTest.aspx" OnClick="btnAjouter_Click"/>                       
                     <br />
                     <br />
                 </div>

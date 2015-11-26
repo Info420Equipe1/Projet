@@ -29,6 +29,26 @@ namespace TexcelWeb.Classes.Test
             monGV = _monGV;
         }
 
+        public static void Coche_Dechoche(bool _SiCocher, GridView _monGV)
+        {           
+            foreach (GridViewRow row in _monGV.Rows)
+            {
+                CheckBox cb = (CheckBox)row.FindControl("ChkBox");
+                if (_SiCocher == true)
+                {
+                    // on coche tout
+                    cb.Checked = true;
+                }
+                else
+                {
+                    //on décoche tout
+                    cb.Checked = false;
+                }
+                
+            }
+            SauvegarderDonnees(_monGV);
+        }
+
         public static List<CasTest> getLstCasTestCoche()
         {
             lstCasTestCopie.Clear();
@@ -47,8 +67,7 @@ namespace TexcelWeb.Classes.Test
    
         // Chercher l'objet et le mettre dans la liste correspondante
         private static void PopulateLstCasTestCoche(string _idUnique)
-        {          
-           
+        {                     
             if (CtrlCasTest.GetCasTestByCode(_idUnique) != null)
             {
                 monCT = CtrlCasTest.GetCasTestByCode(_idUnique);
