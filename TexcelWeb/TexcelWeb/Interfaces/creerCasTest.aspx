@@ -51,6 +51,12 @@ $(function(){
 					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
+            <div class="box">
+				<div class="h_title">&#8250; Billet de travail</div>
+				<ul>
+					<li class="b1"><a class="icon page" href="creerBilletTravail.aspx">Ajouter</a></li>
+				</ul>
+			</div>
         </div>
 	    <div id="main">
 			<div class="full_w">
