@@ -80,11 +80,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="css\billetTravail.css" />
-=======
     <Content Include="css\gestionBillet.css" />
->>>>>>> origin/sprint3
     <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\copierCasTest.aspx" />
     <Content Include="Interfaces\creerBilletTravail.aspx" />
