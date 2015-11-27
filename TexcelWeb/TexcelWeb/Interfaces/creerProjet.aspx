@@ -90,6 +90,7 @@ $(function(){
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationProjet" Display="dynamic" Text="*" ForeColor="Red" />                                                                                                          
                                 <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1 lblDate" />
                                 <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />   
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonProjet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
                                 <ContentTemplate>

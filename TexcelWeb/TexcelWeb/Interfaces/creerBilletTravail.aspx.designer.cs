@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace TexcelWeb {
+namespace TexcelWeb.Interfaces {
     
     
-    public partial class creerProjet {
+    public partial class creerBilletTravail {
         
         /// <summary>
         /// Contrôle txtCurrentUserName.
@@ -22,85 +22,94 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
-        /// Contrôle txtDerniereConnexion.
+        /// Contrôle Titre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtDerniereConnexion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Titre;
         
         /// <summary>
-        /// Contrôle txtForm.
+        /// Contrôle FrmBilletTravail.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FrmBilletTravail;
         
         /// <summary>
-        /// Contrôle FrmProjet.
+        /// Contrôle txtNomCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FrmProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtNomCasTest;
         
         /// <summary>
-        /// Contrôle ToolkitScriptManager.
+        /// Contrôle txtNomTypeTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
+        protected global::System.Web.UI.WebControls.TextBox txtNomTypeTest;
         
         /// <summary>
-        /// Contrôle txtCodeProjet.
+        /// Contrôle txtDateLivraisonCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodeProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
         
         /// <summary>
-        /// Contrôle txtNomProjet.
+        /// Contrôle txtProjetCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtProjetCasTest;
         
         /// <summary>
-        /// Contrôle txtChefProjet.
+        /// Contrôle txtTitreBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtChefProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtTitreBillet;
         
         /// <summary>
-        /// Contrôle txtDateCreationProjet.
+        /// Contrôle txtDureeBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateCreationProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtDureeBillet;
         
         /// <summary>
-        /// Contrôle txtDateLivraisonProjet.
+        /// Contrôle txtDateCreationBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtDateCreationBillet;
+        
+        /// <summary>
+        /// Contrôle txtDateLivraisonBillet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonBillet;
         
         /// <summary>
         /// Contrôle CompareValidator1.
@@ -112,67 +121,40 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
-        /// Contrôle updatePanelVersionJeu.
+        /// Contrôle cmbStatusBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanelVersionJeu;
+        protected global::System.Web.UI.WebControls.DropDownList cmbStatusBillet;
         
         /// <summary>
-        /// Contrôle txtJeuProjet.
+        /// Contrôle cmbPrioriteBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtJeuProjet;
+        protected global::System.Web.UI.WebControls.DropDownList cmbPrioriteBillet;
         
         /// <summary>
-        /// Contrôle txtVersionJeuProjet.
+        /// Contrôle cmbTesteurBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtVersionJeuProjet;
+        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
         
         /// <summary>
-        /// Contrôle rtxtObjectifProjet.
+        /// Contrôle rtxtDescriptionBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtObjectifProjet;
-        
-        /// <summary>
-        /// Contrôle rtxtDescriptionProjet.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionProjet;
-        
-        /// <summary>
-        /// Contrôle rtxtDiversProjet.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtDiversProjet;
-        
-        /// <summary>
-        /// Contrôle btnCopier.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
+        protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionBillet;
         
         /// <summary>
         /// Contrôle btnAnnuler.
@@ -191,32 +173,5 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
-        
-        /// <summary>
-        /// Contrôle btnAjoutCasTest.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAjoutCasTest;
-        
-        /// <summary>
-        /// Contrôle dataGridLstCasTest.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dataGridLstCasTest;
-        
-        /// <summary>
-        /// Contrôle dataGridPagination.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dataGridPagination;
     }
 }

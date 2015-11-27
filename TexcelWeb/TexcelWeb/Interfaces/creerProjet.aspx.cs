@@ -20,101 +20,104 @@ namespace TexcelWeb
         int indexTableCasTest;
         static bool modifierProjet;
         Utilisateur currentUser;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            bool modifier = Convert.ToBoolean(Session["modifProjet"]);
+            modifierProjet = modifier;
+            Session["modifProjet"] = false;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                
-                //Longueur des champs
-                setFieldLength();
-                string nomChefProjet = "";
+                initializeComponent(modifierProjet);
 
-                //Premier loading de la page
-                if (CtrlController.GetCurrentUser() == null)
+                bool ajoutProjetReussi = Convert.ToBoolean(Request.QueryString["AjoutProjet"]);
+                if (ajoutProjetReussi)
                 {
-                    //Not logged in
-                    Response.Redirect("login.aspx");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
                 }
-                else
-                {
-                    //Formatage Bienvenue, [NomUtilisateur] et la Date
-                    currentUser = CtrlController.GetCurrentUser();
-                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-                    nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
-                }
+            }
+        }
+        private void initializeComponent(bool modif)
+        {
+            //Longueur des champs
+            setFieldLength();
+            //Emplissage des DropDownList
+            fillDropDownBox();
 
-                //Emplissage des DropDownList
-                fillDropDownBox();
-                
+            string nomChefProjet = "";
 
-                //Variable qui laisse savoir si on modifie ou on ajoute un projet
-                bool modifier = Convert.ToBoolean(Session["modifProjet"]);
-                if (!modifier)
-                {
-                    btnEnregistrer.Text = "Enregistrer";
-                    txtCodeProjet.Enabled = true;
-                    txtNomProjet.Enabled = true;
-                    txtForm.InnerText = "Créer un projet";
-                    btnAjoutCasTest.Visible = false;
-                    btnCopier.Visible = false;
-                    ListItem lst;
-                    modifierProjet = false;
-
-                    //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
-                    lst = new ListItem();
-                    lst.Text = nomChefProjet;
-                    if (txtChefProjet.Items.Contains(lst))
-                    {
-                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
-                    }
-                    else
-                    {
-                        lst.Text = "Aucun";
-                        txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
-                    }
-                    //Date de création Aujourd'hui par défaut
-                    txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
-                }
-                else
-                {
-                    btnAjoutCasTest.Visible = true;
-                    btnCopier.Visible = true;
-                    dataGridLstCasTest.Visible = true;
-                    txtForm.InnerText = "Modifier un projet";
-                    txtCodeProjet.Enabled = false;
-                    txtNomProjet.Enabled = false;
-                    //Setup de la page pour la modification
-                    modifierProjet = true;
-                    txtVersionJeuProjet.Enabled = true;
-                    dataGridLstCasTest.Visible = true;
-
-                    string codeProjet = (string)Session["modifCodeProjet"];
-                    cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
-                    Session["monProjet"] = projet;
-                    //Emplissage des champs avec le projet
-                    fillFieldsWithProjet(projet);
-
-                    //Emplissage du GridView pour les cas de test
-                    fillDataGridViewCasTest(projet);
-
-                    foreach (Groupe groupe in currentUser.Groupe)
-                    {
-                        List<int> lstDroits = CtrlController.GetDroits(groupe);
-                        if (!lstDroits.Contains(20))
-                        {
-                            btnEnregistrer.Visible = false;
-                        }
-                    }
-                    
-                }
+            //Premier loading de la page
+            if (CtrlController.GetCurrentUser() == null)
+            {
+                //Not logged in
+                Response.Redirect("login.aspx");
             }
             else
             {
+                //Formatage Bienvenue, [NomUtilisateur] et la Date
+                currentUser = CtrlController.GetCurrentUser();
+                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
+            }
+
+            //Ajout d'un projet
+            if (!modif)
+            {
+                txtForm.InnerText = "Créer un projet";
+                txtCodeProjet.Enabled = true;
+                txtNomProjet.Enabled = true;
+                btnAjoutCasTest.Visible = false;
+                btnCopier.Visible = false;
+
+                ListItem lst;
+
+                //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
+                lst = new ListItem();
+                lst.Text = nomChefProjet;
+                if (txtChefProjet.Items.Contains(lst))
+                {
+                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                }
+                else
+                {
+                    lst.Text = "Aucun";
+                    txtChefProjet.SelectedIndex = txtChefProjet.Items.IndexOf(lst);
+                }
+                //Date de création Aujourd'hui par défaut
+                txtDateCreationProjet.Text = Convert.ToString(DateTime.Today.ToString("d"));
+            }
+            else
+            {
+                //Setup de la page pour la modification
+                txtForm.InnerText = "Modifier un projet";
                 btnAjoutCasTest.Visible = true;
-                showEmptyDataGrid();
+                btnCopier.Visible = true;
+                dataGridLstCasTest.Visible = true;
                 txtCodeProjet.Enabled = false;
                 txtNomProjet.Enabled = false;
-                btnCopier.Visible = true;
+                txtVersionJeuProjet.Enabled = true;
+                dataGridLstCasTest.Visible = true;
+
+                string codeProjet = (string)Session["modifCodeProjet"];
+                cProjet projet = CtrlProjet.getProjetByCode(codeProjet);
+                Session["monProjet"] = projet;
+                //Emplissage des champs avec le projet
+                fillFieldsWithProjet(projet);
+
+                //Emplissage du GridView pour les cas de test
+                fillDataGridViewCasTest(projet);
+
+                foreach (Groupe groupe in currentUser.Groupe)
+                {
+                    List<int> lstDroits = CtrlController.GetDroits(groupe);
+                    if (!lstDroits.Contains(20))
+                    {
+                        btnEnregistrer.Visible = false;
+                    }
+                }
             }
         }
         private void fillDataGridViewCasTest(cProjet projet)
@@ -367,7 +370,8 @@ namespace TexcelWeb
                     case "projetajoute":
                         Session["modifProjet"] = true;
                         Session["modifCodeProjet"] = codeProjet;
-                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
+                        //ScriptManager.RegisterStartupScript(this,this.GetType(),"SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success'); window.location='/creerProjet.aspx';",true);
+                        Response.Redirect("creerProjet.aspx?AjoutProjet=true");
                         break;
                     case "erreur":
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du projet.', 'error');", true);
