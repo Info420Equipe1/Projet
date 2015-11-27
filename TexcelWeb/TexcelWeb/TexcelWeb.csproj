@@ -80,9 +80,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\gestionBillet.css" />
     <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\copierCasTest.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
+    <Content Include="Interfaces\gestionBillets.aspx" />
     <Content Include="Interfaces\login.aspx" />
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
@@ -209,6 +211,13 @@
     </Compile>
     <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\gestionBillets.aspx.cs">
+      <DependentUpon>gestionBillets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\gestionBillets.aspx.designer.cs">
+      <DependentUpon>gestionBillets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
