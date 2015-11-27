@@ -96,16 +96,20 @@ $(function(){
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <div class="info">
+                                <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
+                                <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
+                            </div>
+                            <div class="info">
                                 <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
                                 <asp:DropDownList runat="server" ID="cmbStatusBillet" CssClass="txtColum1 txtDate1"/>
                                 <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
                                 <asp:DropDownList runat="server" ID="cmbPrioriteBillet" CssClass="txtColum1 txtDate1" />
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
+                            <div id="dateTerminaisonBillet" runat="server" class="info">
+                                <asp:Label runat="server" Text="Terminé le: " CssClass="lblColum1"/>
+                                <asp:TextBox type="date" runat="server" ID="TextBox1" CssClass="txtColum1 txtDate2" />
                             </div>
-                        </div> <br /><br />
+                        </div> <br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
                             <asp:TextBox runat="server" ID="rtxtDescriptionBillet" TextMode="MultiLine" CssClass="richtextbox"/>

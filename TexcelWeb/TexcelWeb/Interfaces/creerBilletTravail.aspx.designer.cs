@@ -121,6 +121,15 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
+        /// Contrôle cmbTesteurBillet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
+        
+        /// <summary>
         /// Contrôle cmbStatusBillet.
         /// </summary>
         /// <remarks>
@@ -139,13 +148,22 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.DropDownList cmbPrioriteBillet;
         
         /// <summary>
-        /// Contrôle cmbTesteurBillet.
+        /// Contrôle dateTerminaisonBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateTerminaisonBillet;
+        
+        /// <summary>
+        /// Contrôle TextBox1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// Contrôle rtxtDescriptionBillet.
