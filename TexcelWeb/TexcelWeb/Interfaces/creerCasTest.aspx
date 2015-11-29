@@ -128,10 +128,18 @@ $(function(){
                 <div>         
                     <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="True" />
                     <asp:Button ID="btnUpload" runat="server" Text="Envoyez" OnClick="btnUpload_Click" />
+                    <div style="height: 32px">
+                        <asp:LinkButton runat="server" ID="btnSupprimer" Text="Supprimer fichiers" CssClass="btnDroit button cancel" CausesValidation="false"  OnClick="btnSupprimer_Click"/>
+                        </div>
                     <hr />
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded" >
                         <Columns>
-                            <asp:BoundField DataField="File Name" HeaderText="File Name" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="File Name" HeaderText="File Name" HtmlEncode="false"/>
                             <asp:BoundField DataField="Extansion" HeaderText="Extansion" />
                             <asp:BoundField DataField="Taille" HeaderText="Taille" />
                             <asp:BoundField DataField="Derniere modification" HeaderText="Derniere modification" />

@@ -202,6 +202,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.Button btnUpload;
         
         /// <summary>
+        /// Contrôle btnSupprimer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSupprimer;
+        
+        /// <summary>
         /// Contrôle GridView1.
         /// </summary>
         /// <remarks>

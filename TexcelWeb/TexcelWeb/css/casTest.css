@@ -67,20 +67,17 @@
 }
 
 .button{
-<<<<<<< HEAD
-    width:123px;
-    text-align:center;
-<<<<<<< HEAD
+
     top: -12px;
-=======
+
     top: 8px;
->>>>>>> origin/sprint3
+
     left: 0px;
-=======
+
     width:175px;
     text-align:center;
     top: 0px;
->>>>>>> origin/sprint3
+
 }
 
 .txtDate1{
@@ -115,3 +112,7 @@
 .dropDownTypeTestCasTest{
     width:530px;
 }
+
+
+
+

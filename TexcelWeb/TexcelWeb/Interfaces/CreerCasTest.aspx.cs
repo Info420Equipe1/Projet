@@ -474,5 +474,26 @@ namespace TexcelWeb
             }
         }
 
+        protected void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            CasTest casTest = (CasTest)Session["CasTestFichier"];
+            foreach (GridViewRow gVRow in GridView1.Rows)
+            {
+                if (gVRow.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox checkBox = (gVRow.Cells[0].FindControl("CheckBox1") as CheckBox);
+                    if (checkBox.Checked)
+                    {
+                        //Parfois, je recois
+                        string fileName = gVRow.Cells[1].Text;
+                        string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest + "/" + fileName);
+                        File.Delete(filePath);
+                    }
+                }
+            }
+            Session["casTest"] = casTest;
+            Response.Redirect(Request.Url.AbsoluteUri);
+        }
+
     }
 }
