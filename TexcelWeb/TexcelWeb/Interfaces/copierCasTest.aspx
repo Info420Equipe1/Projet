@@ -53,6 +53,12 @@ $(function(){
 					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
+            <div class="box">
+				<div class="h_title">&#8250; Billet de travail</div>
+				<ul>
+					<li class="b1"><a class="icon page" href="creerBilletTravail.aspx">Ajouter</a></li>
+				</ul>
+			</div>
 		</div>
 	    <div id="main">					
 			<div class="full_w">
@@ -67,6 +73,7 @@ $(function(){
                                     <asp:ListItem>Projet</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:LinkButton runat="server" ID="btnRechercher"  Text="Rechercher" CssClass="button" onCLick="btnRechercher_Click"/>
+                                <br />
                                 <asp:LinkButton runat="server" ID="btnCocher" Text="Sélectionner tout" CssClass="button" onClick="btnCocher_Click" autopostback="true"/> 
                                 <asp:LinkButton runat="server" ID="btnDecocher" Text="Déselectionner tout" CssClass="button" onClick="btnDechocher_Click" autopostback="true"/> 
                             </div>
@@ -88,7 +95,10 @@ $(function(){
                     <asp:EntityDataSource ID="edsProjet" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblProjet" EntityTypeFilter="cProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
                     <asp:EntityDataSource ID="edsCasTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest],it.[codeProjet], it.[dateCreation],it.[dateLivraison]"></asp:EntityDataSource>
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>
-                    <asp:LinkButton ID="btnCopier" runat="server" Text="Copier mes sélections" CssClass="button" onCLick="btnCopierMesSelections_Click"/>    
+                    <div style="height: 42px">
+                        <asp:LinkButton ID="btnCopier" runat="server" Text="Copier mes sélections" CssClass="button" Width="200px" OnClick ="btnCopierMesSelections_Click" /> 
+                    </div>
+                       
                 </form>    
 			</div>   
 		</div>    

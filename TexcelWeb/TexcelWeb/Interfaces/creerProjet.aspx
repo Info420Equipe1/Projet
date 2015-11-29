@@ -61,6 +61,12 @@ $(function(){
 					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter</a></li>
 				</ul>
 			</div>
+            <div class="box">
+				<div class="h_title">&#8250; Billet de travail</div>
+				<ul>
+					<li class="b1"><a class="icon page" href="creerBilletTravail.aspx">Ajouter</a></li>
+				</ul>
+			</div>
 		</div>
 	    <div id="main">
 			<div class="full_w">
@@ -90,6 +96,7 @@ $(function(){
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationProjet" Display="dynamic" Text="*" ForeColor="Red" />                                                                                                          
                                 <asp:Label runat="server" Text="Date livraison: " CssClass="lblColum1 lblDate" />
                                 <asp:TextBox runat="server" ID="txtDateLivraisonProjet" CssClass="txtColum1 txtDate" type="date" />   
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonProjet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <asp:UpdatePanel ID="updatePanelVersionJeu" runat="server">
                                 <ContentTemplate>
@@ -121,14 +128,14 @@ $(function(){
                         </div>
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
-                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des cas de test existants" CssClass="button" OnClick="btnCopier_Click"/>
+                        <asp:LinkButton runat="server" ID="btnCopier" Text="Ajouter des cas de test existants" Width="200" CssClass="button" OnClick="btnCopier_Click"/>
                         <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CausesValidation="false" CssClass="btnDroit button cancel" OnClick="btnAnnuler_Click" />
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />
                     </div>
                     <br />
                     <br />
                     <div>
-                        <asp:LinkButton runat="server" ID="btnAjoutCasTest" Text="Ajouter un nouveau cas de test" CssClass="btnGauche button add" OnClick="btnAjoutCasTest_Click" />
+                        <asp:LinkButton runat="server" ID="btnAjoutCasTest" Text="Ajouter un nouveau cas de test" Width="200" CssClass="btnGauche button add" OnClick="btnAjoutCasTest_Click" />
                     </div>
                     <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
                         <Columns>

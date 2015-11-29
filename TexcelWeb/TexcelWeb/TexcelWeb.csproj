@@ -80,14 +80,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\billetTravail.css" />
+    <Content Include="css\gestionBillet.css" />
     <Content Include="css\projetEquipe.css" />
     <Content Include="Interfaces\copierCasTest.aspx" />
+    <Content Include="Interfaces\creerBilletTravail.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
+    <Content Include="Interfaces\gestionBillets.aspx" />
     <Content Include="Interfaces\login.aspx" />
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\renouvPassword.aspx" />
     <Content Include="js\btnLoading.js" />
+    <Content Include="js\MessageAjouterProjet.js" />
     <Content Include="packages.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -203,12 +208,26 @@
     <Compile Include="Interfaces\copierCasTest.aspx.designer.cs">
       <DependentUpon>copierCasTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\creerBilletTravail.aspx.cs">
+      <DependentUpon>creerBilletTravail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\creerBilletTravail.aspx.designer.cs">
+      <DependentUpon>creerBilletTravail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\creerProjet.aspx.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Interfaces\creerProjet.aspx.designer.cs">
       <DependentUpon>creerProjet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\gestionBillets.aspx.cs">
+      <DependentUpon>gestionBillets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\gestionBillets.aspx.designer.cs">
+      <DependentUpon>gestionBillets.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -4,27 +4,52 @@
 #CasTestInfo {
     width: 100%;
     display:inline-block;
+    border:double;
+    height:50px;
 }
-
-#CasTestObj{
-    width: 50%;
+#lblTop{
+     width: 75%;
+     display:inline-block;
+     text-align:right;
+ }
+#CenterLbl{
+    margin-left:75px;
+    margin-top:15px;
+}
+#BilletInfo{
+    width: 100%;
     display:inline-block;
-    vertical-align:top;
-    margin-top:5px;
-    height: 236px;
+    margin-left:25%;
 }
-
+#txtTitreBillet{
+    width:220px;
+}
+#txtDureeBillet{
+    width:75px;
+}
+#lblAjouterBillet{
+    font-family:'Microsoft Sans Serif';
+    font-size:25px;
+    text-align:center;
+    padding-top:25px;
+}
 #CasTestDesc{
-    width: 49%;
+    width: 75%;
     display:inline-block;
-    vertical-align:top;
+}
+.info{
+    margin-top:5px;
+    margin-bottom:5px;
+    width: 510px;
+}
+.richtextbox{
+    height:210px;
+    width:600px;
+    resize:none;
 }
 
-#CasTestDiv{
-    width:49%;
-    display:inline-block;
-    height: 178px;
-}
+
+
 
 #lblColumn1{
     width: 49%;
@@ -51,40 +76,22 @@
     display:inline-block;
 }
 
-.lblColum2{
-    display:block;
-}
 
 .txtColum1{
     display:inline;
     width:356px;
 }
 
-.info{
-    margin-top:5px;
-    margin-bottom:5px;
-    width: 510px;
-}
+
 
 .button{
-<<<<<<< HEAD
-    width:123px;
-    text-align:center;
-<<<<<<< HEAD
-    top: -12px;
-=======
-    top: 8px;
->>>>>>> origin/sprint3
-    left: 0px;
-=======
     width:175px;
     text-align:center;
     top: 0px;
->>>>>>> origin/sprint3
 }
 
 .txtDate1{
-    width:25.5%;
+    width:25%;
 }
 
 .lblDate1{
@@ -98,20 +105,14 @@
 }
 
 .lblDate2{
-    margin-right:-12px;
+    margin-left:-15px;
     width:21%;
 }
 
-.richtextbox{
-    height:210px;
-    width:490px;
-    resize:none;
-}
 
-.txtCodeCasTest{
-    width:175px;
-}
 
-.dropDownTypeTestCasTest{
-    width:530px;
+
+
+#cmbTesteurBillet{
+    width:360px;
 }

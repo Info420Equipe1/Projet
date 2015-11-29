@@ -29,8 +29,10 @@ namespace TexcelWeb.Classes.Test
             monGV = _monGV;
         }
 
+        // Quand on veut décocher et/ou coche  tout
         public static void Coche_Dechoche(bool _SiCocher, GridView _monGV)
         {           
+            // Si true on coche tout, si false on décoche tout
             foreach (GridViewRow row in _monGV.Rows)
             {
                 CheckBox cb = (CheckBox)row.FindControl("ChkBox");
@@ -80,6 +82,7 @@ namespace TexcelWeb.Classes.Test
             lstFichier = CtrlCasTest.PopulateLstPathsFile(_lstCt);
         }
 
+        // Créer les dossiers  parent du projet en param avec le  chemin
         public static void CreationDossierParentProjet(cProjet _proj, string _path)
         {
             if (!(Directory.Exists(_path)))
@@ -88,14 +91,19 @@ namespace TexcelWeb.Classes.Test
             }
 
         }
+
+        // Créer les dossiers  parent de cas test en param avec le  chemin
         public static void CreationDossierParentCasTest(CasTest _cT, string _path)
         {
+            
             if (!(Directory.Exists(_path)))
             {
                 Directory.CreateDirectory(_path);
             }
 
         }
+
+        // On vérifie si les dossiers existent du projet et du casTest 
         public static void CreationDossier(cProjet _proj, CasTest _cT)
         {
             string pathDossierProjet = HttpContext.Current.Server.MapPath(@"~/cProjets/" + _proj.codeProjet);
@@ -115,6 +123,8 @@ namespace TexcelWeb.Classes.Test
             dossierParent = false;
             dossierParentcT = false;
         }
+
+        // Sauvegarder les  fichiers texte  du casTest
         public static void SaveFileToFolder(CasTest _casTest, FileInfo _file)
         {
             // _casTest.codeProjet = null ????
