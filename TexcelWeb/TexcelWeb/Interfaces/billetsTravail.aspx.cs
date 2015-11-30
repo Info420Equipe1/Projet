@@ -13,13 +13,15 @@ namespace TexcelWeb.Interfaces
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dT = new DataTable();
-            dT.Columns.AddRange(new DataColumn[4] { new DataColumn("File Name", typeof(string)), new DataColumn("Extansion", typeof(string)), new DataColumn("Taille", typeof(string)), new DataColumn("Derniere modification", typeof(string)) });
+            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateFin", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
             dT.Rows.Add(dT.NewRow());
-            dT.Rows[0].SetField("File Name", "No Record Available");
+            dT.Rows[0].SetField("Titre", "No Record Available");
             GridView1.Visible = true;
             GridView1.DataSource = dT;
             GridView1.DataBind();
             GridView1.HeaderRow.Visible = true;
+            lblNbrBillet.Text = "yo";
+            lblNbrBilletPersonnel.Text = "yo";
         }
     }
 }

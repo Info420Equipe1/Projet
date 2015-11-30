@@ -23,11 +23,13 @@ namespace TexcelWeb.Classes
                     else
                     {
                         Groupe g = user.Groupe.First();
+                        CtrlController.SetCurrentUser(user);
                         if (g.idGroupe == 4)
                         {
+
                             return "testeur";
                         }
-                        CtrlController.SetCurrentUser(user);
+                        
                         return "connexionreussie";
                     }
                 }

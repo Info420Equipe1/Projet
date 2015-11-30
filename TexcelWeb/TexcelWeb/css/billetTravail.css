@@ -109,10 +109,24 @@
     width:21%;
 }
 
+#lblNbrBilletPersonnel{
+    float:right;
+}
 
 
+#Label2{
+    float:right;
+    display:inline;
+}
 
+#pnlStats{
+    margin-left:20px;
+}
 
 #cmbTesteurBillet{
     width:360px;
+}
+
+#btnCopier{
+    float:right;
 }

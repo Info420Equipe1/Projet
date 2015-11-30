@@ -41,7 +41,8 @@ namespace TexcelWeb
                     break;
 
                 case "testeur":
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Vous n'avez pas les droits requis pour accéder à ces données. Contactez votre administrateur.\", \"error\");", true);
+                    this.Form.Dispose();
+                    Response.Redirect("billetsTravail.aspx");
                     break;
 
                 case "utilisateurinexistant":
