@@ -84,6 +84,7 @@
     <Content Include="css\gestionBillet.css" />
     <Content Include="css\projetEquipe.css" />
     <Content Include="css\statistiques.css" />
+    <Content Include="Interfaces\billetsTravail.aspx" />
     <Content Include="Interfaces\copierCasTest.aspx" />
     <Content Include="Interfaces\creerBilletTravail.aspx" />
     <Content Include="Interfaces\creerProjet.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\billetsTravail.aspx.cs">
+      <DependentUpon>billetsTravail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\billetsTravail.aspx.designer.cs">
+      <DependentUpon>billetsTravail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\copierCasTest.aspx.cs">
       <DependentUpon>copierCasTest.aspx</DependentUpon>
