@@ -40,6 +40,15 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlForm FrmBilletTravail;
         
         /// <summary>
+        /// Contrôle ToolkitScriptManager.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
+        
+        /// <summary>
         /// Contrôle txtNomCasTest.
         /// </summary>
         /// <remarks>

@@ -17,6 +17,18 @@ namespace TexcelWeb.Classes.Test
             }
             return lst;
         }
+        public static NiveauPriorite getNiveauPrioriteByName(string _nomPriorite)
+        {
+            try
+            {
+                NiveauPriorite priorite = context.tblNiveauPriorite.Where(x => x.nomNivPri == _nomPriorite).First();
+                return priorite;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public static NiveauPriorite GetNivPrio(string _nom)
         {

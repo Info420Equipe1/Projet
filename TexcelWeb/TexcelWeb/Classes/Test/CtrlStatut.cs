@@ -17,5 +17,18 @@ namespace TexcelWeb.Classes.Test
             }
             return lstStatut;
         }
+        //retourne un statut a l'aide de son Nom.
+        public static Statut getStatutByName(string _nomStatut)
+        {
+            try
+            {
+                Statut statut = context.tblStatut.Where(x => x.nomStatut == _nomStatut).First();
+                return statut;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

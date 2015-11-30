@@ -6,46 +6,54 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
+using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes.Test
 {
     public class CtrlBilletTravail : CtrlController
     {
         //Ajouter un billet de travail
-        public static string AjouterBillet(string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string descBillet)
+        public static string AjouterBillet(string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet)
         {
             if (billetExist(titreBillet))
             {
                 return "billetExiste";
             }
+
+            //Creation du billet
             BilletTravail billet = new BilletTravail();
 
-            //billet.titreBillet = titreBillet;
-
-            DateTime date = DateTime.ParseExact(dureeBillet, "hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-            //billet.dureeBilletTravail = date.ToString();
-
+            //Ajout de l'Information
+            billet.titreBilletTravail = titreBillet;
+            billet.dureeBilletTravail = Convert.ToDouble(dureeBillet);
             billet.dateCreation = (Convert.ToDateTime(dateCreationBillet)).Date;
-
+            
             if (dateLivraisonBillet != "")
             {
                 billet.dateLivraison = (Convert.ToDateTime(dateLivraisonBillet)).Date;
             }
-            if (testeurAssigneBillet != "")
+            if (testeurAssigneBillet != "Aucun")
 	        {
-                //Repair
-		        //billet.noEmploye = thuglife
+                Employe emp = CtrlEmploye.getEmployeByName(testeurAssigneBillet);
+                billet.Employe = emp;
 	        }
             if (statutBillet != "")
 	        {
-		        //+ DATE DE FIN SI STATUT = TERMINER
+                Statut statut = CtrlStatut.getStatutByName(statutBillet);
+                billet.Statut = statut;
+                if (statut.nomStatut == "Terminé")
+                {
+                    billet.dateFin = (Convert.ToDateTime(dateTerminaisonBillet)).Date;
+                }
 	        }
+            if (prioriteBillet != "")
+            {
+                NiveauPriorite priorite = CtrlNivPriorite.getNiveauPrioriteByName(prioriteBillet);
+                billet.NiveauPriorite = priorite;
+            }
 
-            //if (prioriteBillet)
-            //{
-            //    //Recherche Priorité
-            //}
-
+            CasTest casTestBillet = CtrlCasTest.GetCasTestByNom(nomCasTest);
+            billet.CasTest = casTestBillet;
             billet.descBilletTravail = descBillet;
 
 

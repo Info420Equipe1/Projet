@@ -13,11 +13,20 @@ namespace TexcelWeb.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.noEmploye == id).First();
             return emp;
         }
+
+        //Retourne un employe a l'aide de son nom complet
+        public static Employe getEmployeByName(string _nomEmp)
+        {
+            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            return emp;
+        }
+        //Retourne un id d'employe a l'aide de son nom complet
         public static string getIdEmploye(string _nomEmp)
         {
             Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp.noEmploye;
         }
+
         public static List<Employe> getLstChefProjet()
         {
             List<Employe> lstChefProjet = new List<Employe>();

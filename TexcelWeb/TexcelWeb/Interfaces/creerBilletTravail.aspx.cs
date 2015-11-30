@@ -24,6 +24,7 @@ namespace TexcelWeb.Interfaces
         {
             if (!IsPostBack)
             {
+                txtNomCasTest.Text = "AssassinsCreedEvaluationduProduit";
                 initializeComponent(modifierBillet);
             }
         }
@@ -72,7 +73,37 @@ namespace TexcelWeb.Interfaces
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
+            //Collecte de l'information pour un billet
+            string titreBillet = txtTitreBillet.Text;
+            string dureeBillet = txtDureeBillet.Text;
+            string dateCreationBillet = String.Format("{0}", Request.Form["txtDateCreationBillet"]);
+            string dateLivraisonBillet = String.Format("{0}", Request.Form["txtDateLivraisonBillet"]);
+            string employeAssigneBillet = String.Format("{0}", Request.Form["cmbTesteurBillet"]);
+            string statutBillet = String.Format("{0}", Request.Form["cmbStatutBillet"]);
+            string prioriteBillet = String.Format("{0}", Request.Form["cmbPrioriteBillet"]);
+            string dateTerminaisonBillet = String.Format("{0}", Request.Form["txtDateTerminaison"]);
+            string nomCasTest = txtNomCasTest.Text;
+            string descBillet= rtxtDescriptionBillet.Text;
 
+            if (!modifierBillet)
+	        {
+		        //Ajout d'un billet de travail
+                string message = CtrlBilletTravail.AjouterBillet(titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet);
+                switch (message)
+                {
+                    case "billetajoute":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Billet ajouté!', 'Le billet a été ajouté avec succès.', 'success');", true);
+                        break;
+                    case "erreur":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du billet.', 'error');", true);
+                        break;
+                    case "billetExiste":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Un billet avec le même titre existe déjà.', 'warning');", true);
+                        break;
+                    default:
+                        break;
+                }
+	        }
         }
 
         private void setFieldLength()

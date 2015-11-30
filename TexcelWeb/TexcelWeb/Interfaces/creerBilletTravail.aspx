@@ -62,6 +62,7 @@ $(function(){
 			<div class="full_w">
 				<div class="h_title" id="txtForm" runat="server">Créer un billet de travail</div>
                 <form id="FrmBilletTravail" runat="server">     
+                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <p>Informations sur le Cas de test</p>
                     <div id="CasTestInfo" >
                         <div id="CenterLbl">
