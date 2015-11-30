@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="billetsTravail.aspx.cs" Inherits="TexcelWeb.Interfaces.billetsTravail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="billetsTravail.aspx.cs" Inherits="TexcelWeb.Interfaces.billetsTravail"  EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -73,10 +73,10 @@ $(function(){
                         <div>
                             <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
                         </div>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
                                
-                                <asp:BoundField DataField="Titre" HeaderText="Titre" />
+                                <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false"/>
                                 <asp:BoundField DataField="Priorite" HeaderText="Priorité" />
                                 <asp:BoundField DataField="DateFin" HeaderText="Date de fin" />
                                 <asp:BoundField DataField="TypeTest" HeaderText="Type de test" />
@@ -85,7 +85,7 @@ $(function(){
                             </Columns>
                         </asp:GridView>
                         <div>
-                            <asp:LinkButton runat="server" ID="btnCopier" Text="Visualiser" CssClass="button"/>
+                            <asp:LinkButton runat="server" ID="btnCopier" Text="Visualiser" CssClass="button" OnClick="btnCopier_Click"/>
                         </div>
                     </div>
                     <div id="dataGridPagination" class="pagination" runat="server"></div>

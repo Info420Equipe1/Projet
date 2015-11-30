@@ -153,5 +153,34 @@ namespace TexcelWeb.Classes.Test
             }
             return -1;
         }
+
+        public static List<BilletTravail> GetLstBilletTravail(Employe _emp)
+        {
+            List<BilletTravail> lst = new List<BilletTravail>();
+
+            foreach (BilletTravail bT in context.tblBilletTravail)
+            {
+                if (bT.noEmploye == _emp.noEmploye)
+                {
+                    lst.Add(bT);
+                }
+            }
+
+            return lst;
+	
+        }
+
+        public static BilletTravail GetBillet(string _nom)
+        {
+            try
+            {
+                BilletTravail billet = context.tblBilletTravail.Where(x => x.titreBilletTravail == _nom).First();
+                return billet;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
