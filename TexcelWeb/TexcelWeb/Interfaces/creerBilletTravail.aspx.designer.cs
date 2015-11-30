@@ -22,13 +22,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
-        /// Contrôle Titre.
+        /// Contrôle txtForm.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Titre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtForm;
         
         /// <summary>
         /// Contrôle FrmBilletTravail.
@@ -130,13 +130,22 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
         
         /// <summary>
-        /// Contrôle cmbStatusBillet.
+        /// Contrôle updatePanelStatutDateTerminaison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbStatusBillet;
+        protected global::System.Web.UI.UpdatePanel updatePanelStatutDateTerminaison;
+        
+        /// <summary>
+        /// Contrôle cmbStatutBillet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbStatutBillet;
         
         /// <summary>
         /// Contrôle cmbPrioriteBillet.
@@ -157,13 +166,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateTerminaisonBillet;
         
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle txtDateTerminaison.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtDateTerminaison;
         
         /// <summary>
         /// Contrôle rtxtDescriptionBillet.

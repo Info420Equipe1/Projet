@@ -60,7 +60,7 @@ $(function(){
         </div>
 	    <div id="main">
 			<div class="full_w">
-				<div class="h_title" id="Titre" runat="server">Créer un billet de travail</div>
+				<div class="h_title" id="txtForm" runat="server">Créer un billet de travail</div>
                 <form id="FrmBilletTravail" runat="server">     
                     <p>Informations sur le Cas de test</p>
                     <div id="CasTestInfo" >
@@ -99,16 +99,20 @@ $(function(){
                                 <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
                                 <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
-                                <asp:DropDownList runat="server" ID="cmbStatusBillet" CssClass="txtColum1 txtDate1"/>
-                                <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
-                                <asp:DropDownList runat="server" ID="cmbPrioriteBillet" CssClass="txtColum1 txtDate1" />
-                            </div>
-                            <div id="dateTerminaisonBillet" runat="server" class="info">
-                                <asp:Label runat="server" Text="Terminé le: " CssClass="lblColum1"/>
-                                <asp:TextBox type="date" runat="server" ID="TextBox1" CssClass="txtColum1 txtDate2" />
-                            </div>
+                            <asp:UpdatePanel ID="updatePanelStatutDateTerminaison" runat="server">
+                                <ContentTemplate>
+                                    <div class="info">
+                                        <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
+                                        <asp:DropDownList runat="server" ID="cmbStatutBillet" CssClass="txtColum1 txtDate1" AutoPostBack="true" OnSelectedIndexChanged="cmbStatutBillet_SelectedIndexChanged"/>
+                                        <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
+                                        <asp:DropDownList runat="server" ID="cmbPrioriteBillet" CssClass="txtColum1 txtDate1" />
+                                    </div>
+                                    <div id="dateTerminaisonBillet" runat="server" class="info">
+                                        <asp:Label runat="server" Text="Terminé le: " CssClass="lblColum1"/>
+                                        <asp:TextBox type="date" runat="server" ID="txtDateTerminaison" CssClass="txtColum1 txtDate2" />
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div> <br />
                         <div id="CasTestDesc">
                             <asp:Label runat="server" Text="Description: "/><br />
@@ -116,8 +120,8 @@ $(function(){
                         </div>
                     </div>
                 <div id="btnEnregistrerAnnuler">    
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" CausesValidation="false"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" />                  
+                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
+                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />                  
                     <br />
                     <br />
                 </div>

@@ -36,5 +36,23 @@ namespace TexcelWeb.Classes.Personnel
             }
             return lstChefProjet;
         }
+        public static List<Employe> getLstTesteur()
+        {
+            List<Employe> lstTesteur = new List<Employe>();
+
+            //Ajout dans la liste de tous les Employe qui ont comme groupe chef de Projet dans la BD
+            foreach (Utilisateur user in context.tblUtilisateur)
+            {
+                foreach (Groupe groupe in user.Groupe)
+                {
+                    if (groupe.idGroupe == 4)
+                    {
+                        Employe testeur = CtrlEmploye.getEmployeById(user.noEmploye);
+                        lstTesteur.Add(testeur);
+                    }
+                }
+            }
+            return lstTesteur;
+        }
     }
 }
