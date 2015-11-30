@@ -16,6 +16,7 @@ namespace TexcelWeb
     {
         public NiveauPriorite()
         {
+            this.BilletTravail = new HashSet<BilletTravail>();
             this.CasTest = new HashSet<CasTest>();
         }
     
@@ -24,6 +25,7 @@ namespace TexcelWeb
         public string descNivPri { get; set; }
         public string couleurNivPri { get; set; }
     
+        public virtual ICollection<BilletTravail> BilletTravail { get; set; }
         public virtual ICollection<CasTest> CasTest { get; set; }
     }
 }

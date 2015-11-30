@@ -20,10 +20,10 @@ namespace TexcelWeb.Classes.Test
             }
             BilletTravail billet = new BilletTravail();
 
-            billet.titreBillet = titreBillet;
+            //billet.titreBillet = titreBillet;
 
             DateTime date = DateTime.ParseExact(dureeBillet, "hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-            billet.dureeBilletTravail = date.ToString();
+            //billet.dureeBilletTravail = date.ToString();
 
             billet.dateCreation = (Convert.ToDateTime(dateCreationBillet)).Date;
 
@@ -34,17 +34,17 @@ namespace TexcelWeb.Classes.Test
             if (testeurAssigneBillet != "")
 	        {
                 //Repair
-		        billet.noEmploye = thuglife
+		        //billet.noEmploye = thuglife
 	        }
             if (statutBillet != "")
 	        {
 		        //+ DATE DE FIN SI STATUT = TERMINER
 	        }
 
-            if (prioriteBillet)
-	        {
-		        //Recherche Priorité
-	        }
+            //if (prioriteBillet)
+            //{
+            //    //Recherche Priorité
+            //}
 
             billet.descBilletTravail = descBillet;
 
@@ -73,7 +73,7 @@ namespace TexcelWeb.Classes.Test
             try
             {
                 BilletTravail billet = context.tblBilletTravail.Where(x => x.idBilletTravail == _id).First();
-                return BilletTravail;
+                return billet;
             }
             catch (Exception)
             {
@@ -88,7 +88,7 @@ namespace TexcelWeb.Classes.Test
 
             foreach (BilletTravail billet in context.tblBilletTravail)
             {
-                lstbilletTravail.Add(billet);
+                lstBilletTravail.Add(billet);
             }
             return lstBilletTravail;
         }

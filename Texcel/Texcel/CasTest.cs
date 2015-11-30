@@ -16,6 +16,7 @@ namespace Texcel
     {
         public CasTest()
         {
+            this.BilletTravail = new HashSet<BilletTravail>();
             this.Equipe = new HashSet<Equipe>();
         }
     
@@ -32,6 +33,7 @@ namespace Texcel
         public Nullable<short> idNivPri { get; set; }
         public string tagCasTest { get; set; }
     
+        public virtual ICollection<BilletTravail> BilletTravail { get; set; }
         public virtual cProjet cProjet { get; set; }
         public virtual Difficulte Difficulte { get; set; }
         public virtual NiveauPriorite NiveauPriorite { get; set; }

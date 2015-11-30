@@ -156,6 +156,9 @@
     <Compile Include="AllTesteurs.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="BilletTravail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="CasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -309,6 +312,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Statut.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>

@@ -7,19 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Texcel
+namespace TexcelWeb
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AllProjet
+    public partial class sysdiagrams
     {
-        public string codeProjet { get; set; }
-        public string nomProjet { get; set; }
-        public string chefProjet { get; set; }
-        public string nomJeu { get; set; }
-        public Nullable<System.DateTime> dateCreation { get; set; }
-        public Nullable<System.DateTime> dateLivraison { get; set; }
-        public string tagProjet { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace TexcelWeb
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<ClassificationJeu> tblClassificationJeu { get; set; }
         public virtual DbSet<EditionSysExp> tblEditionSysExp { get; set; }
         public virtual DbSet<GenreJeu> tblGenreJeu { get; set; }
@@ -40,10 +41,12 @@ namespace TexcelWeb
         public virtual DbSet<Forms> tblForms { get; set; }
         public virtual DbSet<Groupe> tblGroupe { get; set; }
         public virtual DbSet<Utilisateur> tblUtilisateur { get; set; }
+        public virtual DbSet<BilletTravail> tblBilletTravail { get; set; }
         public virtual DbSet<CasTest> tblCasTest { get; set; }
         public virtual DbSet<Difficulte> tblDifficulte { get; set; }
         public virtual DbSet<NiveauPriorite> tblNiveauPriorite { get; set; }
         public virtual DbSet<cProjet> tblProjet { get; set; }
+        public virtual DbSet<Statut> tblStatut { get; set; }
         public virtual DbSet<TypeTest> tblTypeTest { get; set; }
         public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
         public virtual DbSet<AllSysExp> AllSysExp { get; set; }
