@@ -13,5 +13,25 @@ namespace TexcelWeb.Interfaces
         {
 
         }
+
+        protected void ddlPriorite_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlStatut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlTypeTest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
