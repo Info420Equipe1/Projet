@@ -54,15 +54,22 @@ namespace TexcelWeb
                 txtDateCreationCasTest.Text = Convert.ToString(DateTime.Today.ToString("d"));
 
                 //Mode modifier
-                if (Session["casTest"] != null)
+                if ((Session["casTest"] != null)||(Request.QueryString["index"] != null))
                 {
                     txtCodeCasTest.Enabled = false;
                     dropDownProjet.Enabled = false;
                     btnEnregistrer.Text = "Modifier";
                     modif = true;
-                    casTest = (CasTest)Session["casTest"];
-                    Session["CasTestFichier"] = Session["casTest"];
-                    Session["ModifCasTest"] = casTest;
+                    if (Request.QueryString["index"] != null)
+                    {
+                        casTest = (CasTest)Session["ModifCasTest"];
+                    }
+                    else
+                    {
+                        casTest = (CasTest)Session["casTest"];
+                        Session["CasTestFichier"] = Session["casTest"];
+                        Session["ModifCasTest"] = casTest;
+                    }
                     btnAjouter.Visible = false;
                     RemplirChamps(casTest);
                     Titre.InnerText = "Modifier un cas de test";
@@ -157,6 +164,7 @@ namespace TexcelWeb
                     {
                         htmlGC.Attributes.Add("class", "active");
                     }
+
                     htmlGC.Attributes.Add("href", "creerCasTest.aspx?index=" + i);
                     htmlGC.InnerText = i.ToString();
                     dataGridPagination.Controls.Add(htmlGC);
