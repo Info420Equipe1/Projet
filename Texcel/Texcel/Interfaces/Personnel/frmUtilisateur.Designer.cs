@@ -32,16 +32,16 @@
             this.lblNomUtil = new System.Windows.Forms.Label();
             this.txtMotPasse = new System.Windows.Forms.TextBox();
             this.txtNomUtil = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPtiteFlecheGauche = new System.Windows.Forms.Button();
+            this.btnPtiteFlecheDroite = new System.Windows.Forms.Button();
             this.lblGroupes = new System.Windows.Forms.Label();
             this.lsbGroupes2 = new System.Windows.Forms.ListBox();
             this.lsbGroupes = new System.Windows.Forms.ListBox();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn2FlecheDroite = new System.Windows.Forms.Button();
+            this.btn2FlecheGauche = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMotPasse
@@ -82,27 +82,27 @@
             this.txtNomUtil.Size = new System.Drawing.Size(185, 27);
             this.txtNomUtil.TabIndex = 0;
             // 
-            // button2
+            // btnPtiteFlecheGauche
             // 
-            this.button2.Location = new System.Drawing.Point(278, 257);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(37, 23);
-            this.button2.TabIndex = 29;
-            this.button2.TabStop = false;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnPtiteFlecheGauche.Location = new System.Drawing.Point(278, 226);
+            this.btnPtiteFlecheGauche.Name = "btnPtiteFlecheGauche";
+            this.btnPtiteFlecheGauche.Size = new System.Drawing.Size(37, 23);
+            this.btnPtiteFlecheGauche.TabIndex = 29;
+            this.btnPtiteFlecheGauche.TabStop = false;
+            this.btnPtiteFlecheGauche.Text = "<";
+            this.btnPtiteFlecheGauche.UseVisualStyleBackColor = true;
+            this.btnPtiteFlecheGauche.Click += new System.EventHandler(this.btnPtiteFlecheGauche_Click);
             // 
-            // button1
+            // btnPtiteFlecheDroite
             // 
-            this.button1.Location = new System.Drawing.Point(278, 156);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 25);
-            this.button1.TabIndex = 28;
-            this.button1.TabStop = false;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPtiteFlecheDroite.Location = new System.Drawing.Point(278, 187);
+            this.btnPtiteFlecheDroite.Name = "btnPtiteFlecheDroite";
+            this.btnPtiteFlecheDroite.Size = new System.Drawing.Size(37, 25);
+            this.btnPtiteFlecheDroite.TabIndex = 28;
+            this.btnPtiteFlecheDroite.TabStop = false;
+            this.btnPtiteFlecheDroite.Text = ">";
+            this.btnPtiteFlecheDroite.UseVisualStyleBackColor = true;
+            this.btnPtiteFlecheDroite.Click += new System.EventHandler(this.btnPtiteFlecheDroite_Click);
             // 
             // lblGroupes
             // 
@@ -184,40 +184,40 @@
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // button3
+            // btn2FlecheDroite
             // 
-            this.button3.Location = new System.Drawing.Point(278, 187);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 25);
-            this.button3.TabIndex = 30;
-            this.button3.TabStop = false;
-            this.button3.Text = ">>";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn2FlecheDroite.Location = new System.Drawing.Point(278, 156);
+            this.btn2FlecheDroite.Name = "btn2FlecheDroite";
+            this.btn2FlecheDroite.Size = new System.Drawing.Size(37, 25);
+            this.btn2FlecheDroite.TabIndex = 30;
+            this.btn2FlecheDroite.TabStop = false;
+            this.btn2FlecheDroite.Text = ">>";
+            this.btn2FlecheDroite.UseVisualStyleBackColor = true;
+            this.btn2FlecheDroite.Click += new System.EventHandler(this.btn2FlecheDroite_Click);
             // 
-            // button4
+            // btn2FlecheGauche
             // 
-            this.button4.Location = new System.Drawing.Point(278, 226);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(37, 25);
-            this.button4.TabIndex = 31;
-            this.button4.TabStop = false;
-            this.button4.Text = "<<";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn2FlecheGauche.Location = new System.Drawing.Point(278, 255);
+            this.btn2FlecheGauche.Name = "btn2FlecheGauche";
+            this.btn2FlecheGauche.Size = new System.Drawing.Size(37, 25);
+            this.btn2FlecheGauche.TabIndex = 31;
+            this.btn2FlecheGauche.TabStop = false;
+            this.btn2FlecheGauche.Text = "<<";
+            this.btn2FlecheGauche.UseVisualStyleBackColor = true;
+            this.btn2FlecheGauche.Click += new System.EventHandler(this.btn2FlecheGauche_Click);
             // 
             // frmUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 345);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn2FlecheGauche);
+            this.Controls.Add(this.btn2FlecheDroite);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPtiteFlecheGauche);
+            this.Controls.Add(this.btnPtiteFlecheDroite);
             this.Controls.Add(this.lblGroupes);
             this.Controls.Add(this.lsbGroupes2);
             this.Controls.Add(this.lsbGroupes);
@@ -227,6 +227,8 @@
             this.Controls.Add(this.txtNomUtil);
             this.Name = "frmUtilisateur";
             this.Text = "frmUtilisateur";
+            this.Load += new System.EventHandler(this.frmUtilisateur_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUtilisateur_FormClosed);
             this.Load += new System.EventHandler(this.frmUtilisateur_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,15 +241,15 @@
         private System.Windows.Forms.Label lblNomUtil;
         private System.Windows.Forms.TextBox txtMotPasse;
         private System.Windows.Forms.TextBox txtNomUtil;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPtiteFlecheGauche;
+        private System.Windows.Forms.Button btnPtiteFlecheDroite;
         private System.Windows.Forms.Label lblGroupes;
         private System.Windows.Forms.ListBox lsbGroupes2;
         private System.Windows.Forms.ListBox lsbGroupes;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn2FlecheDroite;
+        private System.Windows.Forms.Button btn2FlecheGauche;
     }
 }

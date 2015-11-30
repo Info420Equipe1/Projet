@@ -11,21 +11,31 @@ namespace Texcel.Classes
     class CtrlController
     {
         protected static dbProjetE1Entities context = new dbProjetE1Entities();
-        protected static Utilisateur CurrentUtilisateur;
+        protected static Utilisateur currentUtilisateur;
 
 
-        public static void MessageWarnng(string _monWarning)
+        public static void MessageErreur(string _monWarning)
         {
             MessageBox.Show(_monWarning, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public static void MessageSucces(string _monSucces)
+        {
+            MessageBox.Show(_monSucces, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public static DialogResult getDR(string _monMessage)
+        {
+            DialogResult monDR;
+            monDR = MessageBox.Show(_monMessage, "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return monDR;
         }
 
         public static void SetCurrentUser(Utilisateur user)
         {
-            CurrentUtilisateur = user;
+            currentUtilisateur = user;
         }
         public static Utilisateur GetCurrentUser()
         {
-            return CurrentUtilisateur;
+            return currentUtilisateur;
         }
 
         public static string GetNomUtilisateur()
@@ -34,7 +44,7 @@ namespace Texcel.Classes
             using (context)
             {
                 var query = (from s in context.tblEmploye
-                             where s.idEmploye == CurrentUtilisateur.idEmploye
+                             where s.noEmploye == currentUtilisateur.noEmploye
                              select s);
 
                 foreach (var r in query)

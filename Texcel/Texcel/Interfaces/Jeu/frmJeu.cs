@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Texcel.Classes.Jeu;
+using Texcel.Classes;
 
 namespace Texcel.Interfaces.Jeu
 {
@@ -221,30 +222,30 @@ namespace Texcel.Interfaces.Jeu
 
             if (cmbNom.Text == "")
             {
-                MessageBox.Show("Veuillez ajouter un nom!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez ajouter un nom!");
                 return;
             }
             if ((cmbClassification.Text == null)||(cmbClassification.Text == ""))
             {
-                MessageBox.Show("Veuillez ajouter une classification!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez ajouter une classification!");
                 return;
             }
 
             //Validation
             if (CtrlJeu.VerifierJeu(cmbNom.Text.Trim()))
             {
-                DR = MessageBox.Show("Vous ètes en train de modifier un Jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DR = CtrlController.getDR("Vous ètes en train de modifier un Jeu, voulez-vous continuer?");
                 if (DR == DialogResult.Yes)
                 {
                     message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
                     if (message.Contains("erreur"))
                     {
-                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CtrlController.MessageErreur(message);
                         return;
                     }
                     else
                     {
-                        MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CtrlController.MessageSucces(message);
                         if (modif)
                         {
                             this.Close();
@@ -257,11 +258,11 @@ namespace Texcel.Interfaces.Jeu
                 message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
-                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CtrlController.MessageErreur(message);
                 }
                 else
                 {
-                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CtrlController.MessageSucces(message);
                     txtID.Text = (CtrlJeu.GetCount()).ToString();
                 }
             }
@@ -293,7 +294,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner une plateforme à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner une plateforme à ajouter.");
                 return;
             }
 
@@ -307,7 +308,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs plateformes à ajouter", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs plateformes à ajouter");
                 return;
             }
             ListBox.SelectedObjectCollection lstBoxSOC = lstBoxPlat2.SelectedItems;
@@ -326,7 +327,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner un thème à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner un thème à ajouter.");
                 return;
             }
 
@@ -340,7 +341,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs thèmes à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs thèmes à ajouter.");
                 return;
             }
             ListBox.SelectedObjectCollection lstBoxSOC = lstBoxTheme2.SelectedItems;
@@ -359,7 +360,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner un genre à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner un genre à ajouter.");
                 return;
             }
 
@@ -373,7 +374,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs genres à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs genres à ajouter.");
                 return;
             }
 
@@ -393,7 +394,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1)||(lstBoxPlat1.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner une plateforme à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner une plateforme à enlever.");
                 return;
             }
 
@@ -407,7 +408,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1) || (lstBoxPlat1.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs plateformes à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs plateformes à enlever.");
                 return;
             }
             ListBox.SelectedObjectCollection lstBoxSOC = lstBoxPlat1.SelectedItems;
@@ -426,7 +427,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner un thème à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner un thème à enlever.");
                 return;
             }
 
@@ -440,7 +441,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs thèmes à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs thèmes à enlever.");
                 return;
             }
 
@@ -460,7 +461,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1)|| (lstBoxGenre1.SelectedItems.Count > 1))
             {
-                MessageBox.Show("Veuillez selectionner un genre à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner un genre à enlever.");
                 return;
             }
 
@@ -474,7 +475,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1) || (lstBoxGenre1.SelectedItems.Count < 2))
             {
-                MessageBox.Show("Veuillez selectionner plusieurs genres à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CtrlController.MessageErreur("Veuillez selectionner plusieurs genres à enlever.");
                 return;
             }
 
@@ -528,11 +529,11 @@ namespace Texcel.Interfaces.Jeu
             }
             else if (!CtrlJeu.VerifierJeu(cmbNom.Text))
             {
-                CtrlVersionJeu.MessageWarnng("Veuillez enregistrer le jeu avant de lui ajouter une version.");
+                CtrlController.MessageErreur("Veuillez enregistrer le jeu avant de lui ajouter une version.");
             }         
             else
             {
-                CtrlVersionJeu.MessageWarnng("Veuillez choisir un jeu afin de pouvoir lui associer une version de test.");
+                CtrlController.MessageErreur("Veuillez choisir un jeu afin de pouvoir lui associer une version de test.");
             }
         }
 
@@ -551,12 +552,12 @@ namespace Texcel.Interfaces.Jeu
                 message = CtrlVersionJeu.Supprimer(lstBoxVersion.SelectedItem.ToString());
                 if (message.Contains("erreur"))
                 {
-                    MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CtrlController.MessageErreur(message);
                     return;
                 }
                 else
                 {
-                    MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CtrlController.MessageSucces(message);
                     List<VersionJeu> lstVersionJeu = CtrlVersionJeu.LstVersionJeu(cmbNom.Text);
                     lstBoxVersion.Items.Clear();
                     foreach (VersionJeu version in lstVersionJeu)

@@ -42,9 +42,10 @@
             // pcbLogo
             // 
             this.pcbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcbLogo.Image")));
-            this.pcbLogo.Location = new System.Drawing.Point(2, 12);
+            this.pcbLogo.Location = new System.Drawing.Point(3, 12);
+            this.pcbLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbLogo.Name = "pcbLogo";
-            this.pcbLogo.Size = new System.Drawing.Size(506, 130);
+            this.pcbLogo.Size = new System.Drawing.Size(507, 130);
             this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbLogo.TabIndex = 0;
             this.pcbLogo.TabStop = false;
@@ -52,6 +53,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(176, 155);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.MaxLength = 20;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(275, 22);
@@ -60,17 +62,20 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(176, 183);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(275, 22);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(30, 155);
+            this.lblUsername.Location = new System.Drawing.Point(15, 155);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(140, 20);
             this.lblUsername.TabIndex = 3;
@@ -80,7 +85,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(55, 183);
+            this.lblPassword.Location = new System.Drawing.Point(41, 183);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(115, 20);
             this.lblPassword.TabIndex = 4;
@@ -94,8 +99,9 @@
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConnect.ForeColor = System.Drawing.Color.Black;
             this.btnConnect.Location = new System.Drawing.Point(176, 223);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(134, 42);
+            this.btnConnect.Size = new System.Drawing.Size(133, 42);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "&Connexion";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -109,8 +115,9 @@
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
             this.btnAnnuler.Location = new System.Drawing.Point(317, 223);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(134, 42);
+            this.btnAnnuler.Size = new System.Drawing.Size(133, 42);
             this.btnAnnuler.TabIndex = 3;
             this.btnAnnuler.Text = "&Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -118,9 +125,10 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 287);
+            this.ClientSize = new System.Drawing.Size(507, 287);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblPassword);
@@ -128,6 +136,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pcbLogo);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.Text = "Connexion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);

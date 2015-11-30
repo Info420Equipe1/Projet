@@ -30,6 +30,18 @@ namespace Texcel.Classes
         {
             return context.tblEmploye;
         }
+        public static System.Data.Entity.DbSet<AllTesteurs> GetAllTesteursView()
+        {
+            return context.AllTesteurs;
+        }
+        public static System.Data.Entity.DbSet<AllProjet> GetAllProjetView()
+        {
+            return context.AllProjet;
+        }
+        public static System.Data.Entity.DbSet<AllCasTest> GetAllCasTestView()
+        {
+            return context.AllCasTest;
+        }
         public static void refreshEntity()
         {
             foreach (var entity in context.ChangeTracker.Entries())

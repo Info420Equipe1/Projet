@@ -35,7 +35,7 @@
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.bntFlecheRetirer = new System.Windows.Forms.Button();
             this.btnFlecheAjouter = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbCompParticuliere = new System.Windows.Forms.RichTextBox();
             this.lblCompetences = new System.Windows.Forms.Label();
             this.lblTypeTest = new System.Windows.Forms.Label();
             this.lstBoxTypeTestEmp = new System.Windows.Forms.ListBox();
@@ -52,10 +52,12 @@
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtNumeroEmp = new System.Windows.Forms.TextBox();
             this.dateTPEmp = new System.Windows.Forms.DateTimePicker();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstBoxCompteUti = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCreerUti = new System.Windows.Forms.Button();
             this.btnModifUti = new System.Windows.Forms.Button();
+            this.btnFlecheAjouterMultiple = new System.Windows.Forms.Button();
+            this.bntFlecheRetirerMultiple = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -84,7 +86,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(541, 603);
+            this.btnSupprimer.Location = new System.Drawing.Point(526, 761);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 11;
@@ -100,7 +102,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(803, 603);
+            this.btnCancel.Location = new System.Drawing.Point(788, 761);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
             this.btnCancel.TabIndex = 13;
@@ -116,7 +118,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(672, 603);
+            this.btnEnregistrer.Location = new System.Drawing.Point(657, 761);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 12;
@@ -126,40 +128,40 @@
             // 
             // bntFlecheRetirer
             // 
-            this.bntFlecheRetirer.Location = new System.Drawing.Point(459, 398);
+            this.bntFlecheRetirer.Location = new System.Drawing.Point(443, 458);
             this.bntFlecheRetirer.Name = "bntFlecheRetirer";
-            this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 32);
+            this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 34);
             this.bntFlecheRetirer.TabIndex = 23;
             this.bntFlecheRetirer.TabStop = false;
-            this.bntFlecheRetirer.Text = "<<";
+            this.bntFlecheRetirer.Text = "<";
             this.bntFlecheRetirer.UseVisualStyleBackColor = true;
             this.bntFlecheRetirer.Click += new System.EventHandler(this.bntFlecheRetirer_Click);
             // 
             // btnFlecheAjouter
             // 
-            this.btnFlecheAjouter.Location = new System.Drawing.Point(459, 360);
+            this.btnFlecheAjouter.Location = new System.Drawing.Point(443, 418);
             this.btnFlecheAjouter.Name = "btnFlecheAjouter";
-            this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 32);
+            this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 34);
             this.btnFlecheAjouter.TabIndex = 22;
             this.btnFlecheAjouter.TabStop = false;
-            this.btnFlecheAjouter.Text = ">>";
+            this.btnFlecheAjouter.Text = ">";
             this.btnFlecheAjouter.UseVisualStyleBackColor = true;
             this.btnFlecheAjouter.Click += new System.EventHandler(this.btnFlecheAjouter_Click);
             // 
-            // richTextBox1
+            // rtbCompParticuliere
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(27, 476);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(902, 121);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.rtbCompParticuliere.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbCompParticuliere.Location = new System.Drawing.Point(27, 609);
+            this.rtbCompParticuliere.Name = "rtbCompParticuliere";
+            this.rtbCompParticuliere.Size = new System.Drawing.Size(886, 146);
+            this.rtbCompParticuliere.TabIndex = 10;
+            this.rtbCompParticuliere.Text = "";
             // 
             // lblCompetences
             // 
             this.lblCompetences.AutoSize = true;
             this.lblCompetences.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompetences.Location = new System.Drawing.Point(23, 453);
+            this.lblCompetences.Location = new System.Drawing.Point(23, 586);
             this.lblCompetences.Name = "lblCompetences";
             this.lblCompetences.Size = new System.Drawing.Size(209, 20);
             this.lblCompetences.TabIndex = 20;
@@ -180,9 +182,12 @@
             this.lstBoxTypeTestEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxTypeTestEmp.FormattingEnabled = true;
             this.lstBoxTypeTestEmp.ItemHeight = 20;
-            this.lstBoxTypeTestEmp.Location = new System.Drawing.Point(502, 346);
+            this.lstBoxTypeTestEmp.Location = new System.Drawing.Point(486, 346);
+            this.lstBoxTypeTestEmp.MultiColumn = true;
             this.lstBoxTypeTestEmp.Name = "lstBoxTypeTestEmp";
-            this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(427, 104);
+            this.lstBoxTypeTestEmp.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(427, 224);
+            this.lstBoxTypeTestEmp.Sorted = true;
             this.lstBoxTypeTestEmp.TabIndex = 9;
             // 
             // lstBoxTypeTest
@@ -192,14 +197,16 @@
             this.lstBoxTypeTest.ItemHeight = 20;
             this.lstBoxTypeTest.Location = new System.Drawing.Point(27, 346);
             this.lstBoxTypeTest.Name = "lstBoxTypeTest";
-            this.lstBoxTypeTest.Size = new System.Drawing.Size(426, 104);
+            this.lstBoxTypeTest.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lstBoxTypeTest.Size = new System.Drawing.Size(410, 224);
+            this.lstBoxTypeTest.Sorted = true;
             this.lstBoxTypeTest.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(478, 165);
+            this.label1.Location = new System.Drawing.Point(23, 281);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 20);
             this.label1.TabIndex = 15;
@@ -209,7 +216,7 @@
             // 
             this.lblTelPrimaire.AutoSize = true;
             this.lblTelPrimaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelPrimaire.Location = new System.Drawing.Point(478, 91);
+            this.lblTelPrimaire.Location = new System.Drawing.Point(23, 207);
             this.lblTelPrimaire.Name = "lblTelPrimaire";
             this.lblTelPrimaire.Size = new System.Drawing.Size(114, 20);
             this.lblTelPrimaire.TabIndex = 14;
@@ -219,7 +226,7 @@
             // 
             this.lblTelSec.AutoSize = true;
             this.lblTelSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelSec.Location = new System.Drawing.Point(478, 129);
+            this.lblTelSec.Location = new System.Drawing.Point(23, 245);
             this.lblTelSec.Name = "lblTelSec";
             this.lblTelSec.Size = new System.Drawing.Size(135, 20);
             this.lblTelSec.TabIndex = 13;
@@ -261,13 +268,13 @@
             this.txtAdresse.Location = new System.Drawing.Point(107, 160);
             this.txtAdresse.MaxLength = 50;
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(360, 27);
+            this.txtAdresse.Size = new System.Drawing.Size(330, 27);
             this.txtAdresse.TabIndex = 4;
             // 
             // txtTelSec
             // 
             this.txtTelSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelSec.Location = new System.Drawing.Point(623, 126);
+            this.txtTelSec.Location = new System.Drawing.Point(168, 242);
             this.txtTelSec.MaxLength = 12;
             this.txtTelSec.Name = "txtTelSec";
             this.txtTelSec.Size = new System.Drawing.Size(117, 27);
@@ -276,7 +283,7 @@
             // txtTelPrim
             // 
             this.txtTelPrim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelPrim.Location = new System.Drawing.Point(623, 88);
+            this.txtTelPrim.Location = new System.Drawing.Point(168, 204);
             this.txtTelPrim.MaxLength = 12;
             this.txtTelPrim.Name = "txtTelPrim";
             this.txtTelPrim.Size = new System.Drawing.Size(117, 27);
@@ -302,27 +309,28 @@
             // 
             // dateTPEmp
             // 
-            this.dateTPEmp.Location = new System.Drawing.Point(623, 165);
+            this.dateTPEmp.Location = new System.Drawing.Point(168, 281);
             this.dateTPEmp.Name = "dateTPEmp";
             this.dateTPEmp.Size = new System.Drawing.Size(150, 22);
             this.dateTPEmp.TabIndex = 7;
             // 
-            // listBox1
+            // lstBoxCompteUti
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(27, 225);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(332, 84);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lstBoxCompteUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBoxCompteUti.FormattingEnabled = true;
+            this.lstBoxCompteUti.ItemHeight = 20;
+            this.lstBoxCompteUti.Location = new System.Drawing.Point(502, 101);
+            this.lstBoxCompteUti.Name = "lstBoxCompteUti";
+            this.lstBoxCompteUti.Size = new System.Drawing.Size(411, 84);
+            this.lstBoxCompteUti.Sorted = true;
+            this.lstBoxCompteUti.TabIndex = 8;
+            this.lstBoxCompteUti.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 202);
+            this.label2.Location = new System.Drawing.Point(498, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 20);
             this.label2.TabIndex = 32;
@@ -331,9 +339,9 @@
             // btnCreerUti
             // 
             this.btnCreerUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnCreerUti.Location = new System.Drawing.Point(365, 225);
+            this.btnCreerUti.Location = new System.Drawing.Point(731, 194);
             this.btnCreerUti.Name = "btnCreerUti";
-            this.btnCreerUti.Size = new System.Drawing.Size(88, 31);
+            this.btnCreerUti.Size = new System.Drawing.Size(88, 33);
             this.btnCreerUti.TabIndex = 9;
             this.btnCreerUti.Text = "Créer";
             this.btnCreerUti.UseVisualStyleBackColor = true;
@@ -342,7 +350,7 @@
             // btnModifUti
             // 
             this.btnModifUti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnModifUti.Location = new System.Drawing.Point(365, 276);
+            this.btnModifUti.Location = new System.Drawing.Point(825, 194);
             this.btnModifUti.Name = "btnModifUti";
             this.btnModifUti.Size = new System.Drawing.Size(88, 33);
             this.btnModifUti.TabIndex = 10;
@@ -351,15 +359,39 @@
             this.btnModifUti.Visible = false;
             this.btnModifUti.Click += new System.EventHandler(this.btnModifUti_Click);
             // 
+            // btnFlecheAjouterMultiple
+            // 
+            this.btnFlecheAjouterMultiple.Location = new System.Drawing.Point(443, 346);
+            this.btnFlecheAjouterMultiple.Name = "btnFlecheAjouterMultiple";
+            this.btnFlecheAjouterMultiple.Size = new System.Drawing.Size(37, 34);
+            this.btnFlecheAjouterMultiple.TabIndex = 33;
+            this.btnFlecheAjouterMultiple.TabStop = false;
+            this.btnFlecheAjouterMultiple.Text = ">>";
+            this.btnFlecheAjouterMultiple.UseVisualStyleBackColor = true;
+            this.btnFlecheAjouterMultiple.Click += new System.EventHandler(this.btnFlecheAjouterMultiple_Click);
+            // 
+            // bntFlecheRetirerMultiple
+            // 
+            this.bntFlecheRetirerMultiple.Location = new System.Drawing.Point(443, 536);
+            this.bntFlecheRetirerMultiple.Name = "bntFlecheRetirerMultiple";
+            this.bntFlecheRetirerMultiple.Size = new System.Drawing.Size(37, 34);
+            this.bntFlecheRetirerMultiple.TabIndex = 34;
+            this.bntFlecheRetirerMultiple.TabStop = false;
+            this.bntFlecheRetirerMultiple.Text = "<<";
+            this.bntFlecheRetirerMultiple.UseVisualStyleBackColor = true;
+            this.bntFlecheRetirerMultiple.Click += new System.EventHandler(this.bntFlecheRetirerMultiple_Click);
+            // 
             // frmAjouterEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 661);
+            this.ClientSize = new System.Drawing.Size(938, 823);
+            this.Controls.Add(this.bntFlecheRetirerMultiple);
+            this.Controls.Add(this.btnFlecheAjouterMultiple);
             this.Controls.Add(this.btnModifUti);
             this.Controls.Add(this.btnCreerUti);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstBoxCompteUti);
             this.Controls.Add(this.dateTPEmp);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.txtPrenom);
@@ -368,7 +400,7 @@
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.bntFlecheRetirer);
             this.Controls.Add(this.btnFlecheAjouter);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbCompParticuliere);
             this.Controls.Add(this.lblCompetences);
             this.Controls.Add(this.lblTypeTest);
             this.Controls.Add(this.lstBoxTypeTestEmp);
@@ -408,7 +440,7 @@
         private System.Windows.Forms.ListBox lstBoxTypeTestEmp;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.Label lblCompetences;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbCompParticuliere;
         private System.Windows.Forms.Button btnFlecheAjouter;
         private System.Windows.Forms.Button bntFlecheRetirer;
         private System.Windows.Forms.Button btnSupprimer;
@@ -417,9 +449,11 @@
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.DateTimePicker dateTPEmp;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstBoxCompteUti;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCreerUti;
         private System.Windows.Forms.Button btnModifUti;
+        private System.Windows.Forms.Button btnFlecheAjouterMultiple;
+        private System.Windows.Forms.Button bntFlecheRetirerMultiple;
     }
 }

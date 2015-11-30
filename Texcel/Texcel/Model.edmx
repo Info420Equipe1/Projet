@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAssociationJeu">
           <Key>
             <PropertyRef Name="idJeu" />
@@ -47,6 +47,7 @@
           <Property Name="descJeu" Type="text" />
           <Property Name="configMinimal" Type="text" />
           <Property Name="codeClassification" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="tagJeu" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblJeuGenre">
           <Key>
@@ -81,6 +82,7 @@
           <Property Name="configPlateforme" Type="text" />
           <Property Name="commPlateforme" Type="text" />
           <Property Name="idTypePlateforme" Type="smallint" Nullable="false" />
+          <Property Name="tagPlateforme" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblSysExp">
           <Key>
@@ -131,6 +133,7 @@
           <Property Name="noVersion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="idEdition" Type="smallint" Nullable="false" />
           <Property Name="commSysExp" Type="text" />
+          <Property Name="tagSysExp" Type="varchar" MaxLength="130" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblDroit">
           <Key>
@@ -142,9 +145,9 @@
         </EntityType>
         <EntityType Name="tblEmploye">
           <Key>
-            <PropertyRef Name="idEmploye" />
+            <PropertyRef Name="noEmploye" />
           </Key>
-          <Property Name="idEmploye" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="numTelPrincipal" Type="char" MaxLength="12" />
@@ -152,13 +155,14 @@
           <Property Name="adressePostale" Type="varchar" MaxLength="50" />
           <Property Name="dateEmbauche" Type="date" Nullable="false" />
           <Property Name="competenceParticuliere" Type="text" />
+          <Property Name="tagEmploye" Type="varchar" MaxLength="40" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblEmployeEquipe">
           <Key>
-            <PropertyRef Name="idEmploye" />
+            <PropertyRef Name="noEmploye" />
             <PropertyRef Name="idEquipe" />
           </Key>
-          <Property Name="idEmploye" Type="smallint" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
         </EntityType>
         <EntityType Name="tblEquipe">
@@ -167,9 +171,11 @@
           </Key>
           <Property Name="idEquipe" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="idChefEquipe" Type="smallint" Nullable="false" />
+          <Property Name="noChefEquipe" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="nbTesteur" Type="smallint" />
           <Property Name="descEquipe" Type="text" />
+          <Property Name="codeProjet" Type="varchar" MaxLength="10" />
+          <Property Name="tagEquipe" Type="varchar" MaxLength="60" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblForms">
           <Key>
@@ -199,9 +205,9 @@
           </Key>
           <Property Name="nomUtilisateur" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="motPasse" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="premierLogin" Type="bit" Nullable="false" />
+          <Property Name="premierLogin" Type="int" Nullable="false" />
           <Property Name="dateDernModif" Type="date" />
-          <Property Name="idEmploye" Type="smallint" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCasTest">
           <Key>
@@ -210,19 +216,31 @@
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descCasTest" Type="text" />
-          <Property Name="priorite" Type="varchar" MaxLength="10" />
-          <Property Name="difficulte" Type="varchar" MaxLength="10" />
+          <Property Name="objCasTest" Type="text" />
+          <Property Name="divCasTest" Type="text" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
           <Property Name="codeProjet" Type="varchar" MaxLength="10" />
-          <Property Name="idTypeTest" Type="smallint" />
-          <Property Name="idJeu" Type="smallint" />
+          <Property Name="idDiff" Type="smallint" />
+          <Property Name="idTest" Type="smallint" />
+          <Property Name="idNivPri" Type="smallint" />
+          <Property Name="tagCasTest" Type="varchar" MaxLength="140" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tblDifficulte">
+          <Key>
+            <PropertyRef Name="idDiff" />
+          </Key>
+          <Property Name="idDiff" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomDiff" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descDiff" Type="text" />
         </EntityType>
         <EntityType Name="tblEmployeTypeTest">
           <Key>
-            <PropertyRef Name="idTypeTest" />
-            <PropertyRef Name="idEmploye" />
+            <PropertyRef Name="idTest" />
+            <PropertyRef Name="noEmploye" />
           </Key>
-          <Property Name="idTypeTest" Type="smallint" Nullable="false" />
-          <Property Name="idEmploye" Type="smallint" Nullable="false" />
+          <Property Name="idTest" Type="smallint" Nullable="false" />
+          <Property Name="noEmploye" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <EntityType Name="tblEquipeCasTest">
           <Key>
@@ -232,14 +250,14 @@
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="tblFicheResultat">
+        <EntityType Name="tblNiveauPriorite">
           <Key>
-            <PropertyRef Name="idResult" />
+            <PropertyRef Name="idNivPri" />
           </Key>
-          <Property Name="idResult" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titreFicheRes" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="dateCloture" Type="date" />
-          <Property Name="codeCasTest" Type="varchar" MaxLength="20" />
+          <Property Name="idNivPri" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomNivPri" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descNivPri" Type="text" />
+          <Property Name="couleurNivPri" Type="varchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="tblProjet">
           <Key>
@@ -247,26 +265,32 @@
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="varchar" MaxLength="42" />
+          <Property Name="chefProjet" Type="varchar" MaxLength="6" />
           <Property Name="descProjet" Type="text" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
+          <Property Name="objProjet" Type="text" />
+          <Property Name="divProjet" Type="text" />
+          <Property Name="idVersion" Type="smallint" />
+          <Property Name="tagProjet" Type="varchar" MaxLength="142" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tblTypeTest">
           <Key>
-            <PropertyRef Name="idTypeTest" />
+            <PropertyRef Name="idTest" />
           </Key>
-          <Property Name="idTypeTest" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nomTypeTest" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="descTypeTest" Type="text" />
+          <Property Name="idTest" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomTest" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descTest" Type="text" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="tagPlateforme" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
@@ -275,35 +299,59 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
             <PropertyRef Name="nomSysExp" />
             <PropertyRef Name="nomEdition" />
             <PropertyRef Name="noVersion" />
-            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomEdition" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="noVersion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="commSysExp" Type="text" />
+          <Property Name="tagSysExp" Type="varchar" MaxLength="130" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            
-            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ChefEquipe" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="tagEquipe" Type="varchar" MaxLength="60" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllTesteurs">
           <Key>
-            <PropertyRef Name="prenomEmploye" />
             <PropertyRef Name="nomEmploye" />
+            <PropertyRef Name="prenomEmploye" />
           </Key>
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tagEmploye" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AllCasTest">
+          <Key>
+            <PropertyRef Name="codeCasTest" />
+          </Key>
+          <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="nomTest" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="tagCasTest" Type="varchar" MaxLength="140" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AllProjet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="chefProjet" Type="varchar" MaxLength="6" />
+          <Property Name="nomJeu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tagProjet" Type="varchar" MaxLength="142" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="1" />
@@ -341,27 +389,39 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CT_FK_idJeu">
-          <End Role="tblJeu" Type="Self.tblJeu" Multiplicity="0..1" />
+        <Association Name="CT_FK_idDiff">
+          <End Role="tblDifficulte" Type="Self.tblDifficulte" Multiplicity="0..1" />
           <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tblJeu">
-              <PropertyRef Name="idJeu" />
+            <Principal Role="tblDifficulte">
+              <PropertyRef Name="idDiff" />
             </Principal>
             <Dependent Role="tblCasTest">
-              <PropertyRef Name="idJeu" />
+              <PropertyRef Name="idDiff" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CT_FK_idTypeTest">
+        <Association Name="CT_FK_idNivPri">
+          <End Role="tblNiveauPriorite" Type="Self.tblNiveauPriorite" Multiplicity="0..1" />
+          <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblNiveauPriorite">
+              <PropertyRef Name="idNivPri" />
+            </Principal>
+            <Dependent Role="tblCasTest">
+              <PropertyRef Name="idNivPri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CT_FK_idTest">
           <End Role="tblTypeTest" Type="Self.tblTypeTest" Multiplicity="0..1" />
           <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblTypeTest">
-              <PropertyRef Name="idTypeTest" />
+              <PropertyRef Name="idTest" />
             </Principal>
             <Dependent Role="tblCasTest">
-              <PropertyRef Name="idTypeTest" />
+              <PropertyRef Name="idTest" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -394,46 +454,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <End Role="tblEquipe" Type="Self.tblEquipe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Principal>
             <Dependent Role="tblEquipe">
-              <PropertyRef Name="idChefEquipe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ECT_FK_codeCasTest">
-          <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="1" />
-          <End Role="tblEquipeCasTest" Type="Self.tblEquipeCasTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCasTest">
-              <PropertyRef Name="codeCasTest" />
-            </Principal>
-            <Dependent Role="tblEquipeCasTest">
-              <PropertyRef Name="codeCasTest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ECT_FK_idEquipe">
-          <End Role="tblEquipe" Type="Self.tblEquipe" Multiplicity="1" />
-          <End Role="tblEquipeCasTest" Type="Self.tblEquipeCasTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEquipe">
-              <PropertyRef Name="idEquipe" />
-            </Principal>
-            <Dependent Role="tblEquipeCasTest">
-              <PropertyRef Name="idEquipe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EE_FK_idEmploye">
-          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="1" />
-          <End Role="tblEmployeEquipe" Type="Self.tblEmployeEquipe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
-            </Principal>
-            <Dependent Role="tblEmployeEquipe">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noChefEquipe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -449,6 +473,18 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EE_FK_noEmploye">
+          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="1" />
+          <End Role="tblEmployeEquipe" Type="Self.tblEmployeEquipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblEmployeEquipe">
+              <PropertyRef Name="noEmploye" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ESE_FK_idSysExp">
           <End Role="tblSysExp" Type="Self.tblSysExp" Multiplicity="1" />
           <End Role="tblEditionSysExp" Type="Self.tblEditionSysExp" Multiplicity="*" />
@@ -461,39 +497,51 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ETT_FK_idEmploye">
-          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="1" />
-          <End Role="tblEmployeTypeTest" Type="Self.tblEmployeTypeTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
-            </Principal>
-            <Dependent Role="tblEmployeTypeTest">
-              <PropertyRef Name="idEmploye" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ETT_FK_idTypeTest">
-          <End Role="tblTypeTest" Type="Self.tblTypeTest" Multiplicity="1" />
-          <End Role="tblEmployeTypeTest" Type="Self.tblEmployeTypeTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblTypeTest">
-              <PropertyRef Name="idTypeTest" />
-            </Principal>
-            <Dependent Role="tblEmployeTypeTest">
-              <PropertyRef Name="idTypeTest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FR_FK_codeCasTest">
-          <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="0..1" />
-          <End Role="tblFicheResultat" Type="Self.tblFicheResultat" Multiplicity="*" />
+        <Association Name="ETT_FK_codeCasTest">
+          <End Role="tblCasTest" Type="Self.tblCasTest" Multiplicity="1" />
+          <End Role="tblEquipeCasTest" Type="Self.tblEquipeCasTest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCasTest">
               <PropertyRef Name="codeCasTest" />
             </Principal>
-            <Dependent Role="tblFicheResultat">
+            <Dependent Role="tblEquipeCasTest">
               <PropertyRef Name="codeCasTest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ETT_FK_idEquipe">
+          <End Role="tblEquipe" Type="Self.tblEquipe" Multiplicity="1" />
+          <End Role="tblEquipeCasTest" Type="Self.tblEquipeCasTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEquipe">
+              <PropertyRef Name="idEquipe" />
+            </Principal>
+            <Dependent Role="tblEquipeCasTest">
+              <PropertyRef Name="idEquipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ETT_FK_idTest">
+          <End Role="tblTypeTest" Type="Self.tblTypeTest" Multiplicity="1" />
+          <End Role="tblEmployeTypeTest" Type="Self.tblEmployeTypeTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTypeTest">
+              <PropertyRef Name="idTest" />
+            </Principal>
+            <Dependent Role="tblEmployeTypeTest">
+              <PropertyRef Name="idTest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ETT_FK_noEmploye">
+          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="1" />
+          <End Role="tblEmployeTypeTest" Type="Self.tblEmployeTypeTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblEmployeTypeTest">
+              <PropertyRef Name="noEmploye" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -617,6 +665,30 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="P_FK_idVersion">
+          <End Role="tblVersionJeu" Type="Self.tblVersionJeu" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="Self.tblProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVersionJeu">
+              <PropertyRef Name="idVersionJeu" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="idVersion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="P_FK_noEmploye">
+          <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="Self.tblProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="chefProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="SEP_FK_idPlateforme">
           <End Role="tblPlateforme" Type="Self.tblPlateforme" Multiplicity="1" />
           <End Role="tblSysExpPlateforme" Type="Self.tblSysExpPlateforme" Multiplicity="*" />
@@ -641,15 +713,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="U_FK_idEmploye">
+        <Association Name="U_FK_noEmploye">
           <End Role="tblEmploye" Type="Self.tblEmploye" Multiplicity="1" />
           <End Role="tblUtilisateur" Type="Self.tblUtilisateur" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Principal>
             <Dependent Role="tblUtilisateur">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -702,15 +774,17 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <EntitySet Name="tblGroupeUtilisateur" EntityType="Self.tblGroupeUtilisateur" Schema="Personnel" store:Type="Tables" />
           <EntitySet Name="tblUtilisateur" EntityType="Self.tblUtilisateur" Schema="Personnel" store:Type="Tables" />
           <EntitySet Name="tblCasTest" EntityType="Self.tblCasTest" Schema="Test" store:Type="Tables" />
+          <EntitySet Name="tblDifficulte" EntityType="Self.tblDifficulte" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblEmployeTypeTest" EntityType="Self.tblEmployeTypeTest" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblEquipeCasTest" EntityType="Self.tblEquipeCasTest" Schema="Test" store:Type="Tables" />
-          <EntitySet Name="tblFicheResultat" EntityType="Self.tblFicheResultat" Schema="Test" store:Type="Tables" />
+          <EntitySet Name="tblNiveauPriorite" EntityType="Self.tblNiveauPriorite" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblProjet" EntityType="Self.tblProjet" Schema="Test" store:Type="Tables" />
           <EntitySet Name="tblTypeTest" EntityType="Self.tblTypeTest" Schema="Test" store:Type="Tables" />
           <EntitySet Name="AllPlateforme" EntityType="Self.AllPlateforme" store:Type="Views" store:Schema="Jeu">
             <DefiningQuery>SELECT 
     [AllPlateforme].[nomPlateforme] AS [nomPlateforme], 
-    [AllPlateforme].[nomTypePlateforme] AS [nomTypePlateforme]
+    [AllPlateforme].[nomTypePlateforme] AS [nomTypePlateforme], 
+    [AllPlateforme].[tagPlateforme] AS [tagPlateforme]
     FROM [Jeu].[AllPlateforme] AS [AllPlateforme]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllSysExp" EntityType="Self.AllSysExp" store:Type="Views" store:Schema="Jeu">
@@ -719,21 +793,42 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
     [AllSysExp].[codeSysExp] AS [codeSysExp], 
     [AllSysExp].[nomEdition] AS [nomEdition], 
     [AllSysExp].[noVersion] AS [noVersion], 
-    [AllSysExp].[commSysExp] AS [commSysExp]
+    [AllSysExp].[commSysExp] AS [commSysExp], 
+    [AllSysExp].[tagSysExp] AS [tagSysExp]
     FROM [Jeu].[AllSysExp] AS [AllSysExp]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllEquipe" EntityType="Self.AllEquipe" store:Type="Views" store:Schema="Personnel">
             <DefiningQuery>SELECT 
     [AllEquipe].[idEquipe] AS [idEquipe], 
     [AllEquipe].[nomEquipe] AS [nomEquipe], 
-    [AllEquipe].[ChefEquipe] AS [ChefEquipe]
+    [AllEquipe].[ChefEquipe] AS [ChefEquipe], 
+    [AllEquipe].[tagEquipe] AS [tagEquipe]
     FROM [Personnel].[AllEquipe] AS [AllEquipe]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllTesteurs" EntityType="Self.AllTesteurs" store:Type="Views" store:Schema="Personnel">
             <DefiningQuery>SELECT 
     [AllTesteurs].[nomEmploye] AS [nomEmploye], 
-    [AllTesteurs].[prenomEmploye] AS [prenomEmploye]
+    [AllTesteurs].[prenomEmploye] AS [prenomEmploye], 
+    [AllTesteurs].[tagEmploye] AS [tagEmploye]
     FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllCasTest" EntityType="Self.AllCasTest" store:Type="Views" store:Schema="Test">
+            <DefiningQuery>SELECT 
+    [AllCasTest].[codeCasTest] AS [codeCasTest], 
+    [AllCasTest].[nomCasTest] AS [nomCasTest], 
+    [AllCasTest].[nomProjet] AS [nomProjet], 
+    [AllCasTest].[nomTest] AS [nomTest], 
+    [AllCasTest].[tagCasTest] AS [tagCasTest]
+    FROM [Test].[AllCasTest] AS [AllCasTest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllProjet" EntityType="Self.AllProjet" store:Type="Views" store:Schema="Test">
+            <DefiningQuery>SELECT 
+    [AllProjet].[codeProjet] AS [codeProjet], 
+    [AllProjet].[nomProjet] AS [nomProjet], 
+    [AllProjet].[chefProjet] AS [chefProjet], 
+    [AllProjet].[nomJeu] AS [nomJeu], 
+    [AllProjet].[tagProjet] AS [tagProjet]
+    FROM [Test].[AllProjet] AS [AllProjet]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
             <End Role="tblJeu" EntitySet="tblJeu" />
@@ -747,11 +842,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblProjet" EntitySet="tblProjet" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
-          <AssociationSet Name="CT_FK_idJeu" Association="Self.CT_FK_idJeu">
-            <End Role="tblJeu" EntitySet="tblJeu" />
+          <AssociationSet Name="CT_FK_idDiff" Association="Self.CT_FK_idDiff">
+            <End Role="tblDifficulte" EntitySet="tblDifficulte" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
-          <AssociationSet Name="CT_FK_idTypeTest" Association="Self.CT_FK_idTypeTest">
+          <AssociationSet Name="CT_FK_idNivPri" Association="Self.CT_FK_idNivPri">
+            <End Role="tblNiveauPriorite" EntitySet="tblNiveauPriorite" />
+            <End Role="tblCasTest" EntitySet="tblCasTest" />
+          </AssociationSet>
+          <AssociationSet Name="CT_FK_idTest" Association="Self.CT_FK_idTest">
             <End Role="tblTypeTest" EntitySet="tblTypeTest" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
@@ -767,37 +866,33 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
-          <AssociationSet Name="ECT_FK_codeCasTest" Association="Self.ECT_FK_codeCasTest">
-            <End Role="tblCasTest" EntitySet="tblCasTest" />
-            <End Role="tblEquipeCasTest" EntitySet="tblEquipeCasTest" />
-          </AssociationSet>
-          <AssociationSet Name="ECT_FK_idEquipe" Association="Self.ECT_FK_idEquipe">
-            <End Role="tblEquipe" EntitySet="tblEquipe" />
-            <End Role="tblEquipeCasTest" EntitySet="tblEquipeCasTest" />
-          </AssociationSet>
-          <AssociationSet Name="EE_FK_idEmploye" Association="Self.EE_FK_idEmploye">
-            <End Role="tblEmploye" EntitySet="tblEmploye" />
-            <End Role="tblEmployeEquipe" EntitySet="tblEmployeEquipe" />
-          </AssociationSet>
           <AssociationSet Name="EE_FK_idEquipe" Association="Self.EE_FK_idEquipe">
             <End Role="tblEquipe" EntitySet="tblEquipe" />
+            <End Role="tblEmployeEquipe" EntitySet="tblEmployeEquipe" />
+          </AssociationSet>
+          <AssociationSet Name="EE_FK_noEmploye" Association="Self.EE_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblEmployeEquipe" EntitySet="tblEmployeEquipe" />
           </AssociationSet>
           <AssociationSet Name="ESE_FK_idSysExp" Association="Self.ESE_FK_idSysExp">
             <End Role="tblSysExp" EntitySet="tblSysExp" />
             <End Role="tblEditionSysExp" EntitySet="tblEditionSysExp" />
           </AssociationSet>
-          <AssociationSet Name="ETT_FK_idEmploye" Association="Self.ETT_FK_idEmploye">
-            <End Role="tblEmploye" EntitySet="tblEmploye" />
-            <End Role="tblEmployeTypeTest" EntitySet="tblEmployeTypeTest" />
+          <AssociationSet Name="ETT_FK_codeCasTest" Association="Self.ETT_FK_codeCasTest">
+            <End Role="tblCasTest" EntitySet="tblCasTest" />
+            <End Role="tblEquipeCasTest" EntitySet="tblEquipeCasTest" />
           </AssociationSet>
-          <AssociationSet Name="ETT_FK_idTypeTest" Association="Self.ETT_FK_idTypeTest">
+          <AssociationSet Name="ETT_FK_idEquipe" Association="Self.ETT_FK_idEquipe">
+            <End Role="tblEquipe" EntitySet="tblEquipe" />
+            <End Role="tblEquipeCasTest" EntitySet="tblEquipeCasTest" />
+          </AssociationSet>
+          <AssociationSet Name="ETT_FK_idTest" Association="Self.ETT_FK_idTest">
             <End Role="tblTypeTest" EntitySet="tblTypeTest" />
             <End Role="tblEmployeTypeTest" EntitySet="tblEmployeTypeTest" />
           </AssociationSet>
-          <AssociationSet Name="FR_FK_codeCasTest" Association="Self.FR_FK_codeCasTest">
-            <End Role="tblCasTest" EntitySet="tblCasTest" />
-            <End Role="tblFicheResultat" EntitySet="tblFicheResultat" />
+          <AssociationSet Name="ETT_FK_noEmploye" Association="Self.ETT_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
+            <End Role="tblEmployeTypeTest" EntitySet="tblEmployeTypeTest" />
           </AssociationSet>
           <AssociationSet Name="GU_FK_idGroupe" Association="Self.GU_FK_idGroupe">
             <End Role="tblGroupe" EntitySet="tblGroupe" />
@@ -839,6 +934,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblTypePlateforme" EntitySet="tblTypePlateforme" />
             <End Role="tblPlateforme" EntitySet="tblPlateforme" />
           </AssociationSet>
+          <AssociationSet Name="P_FK_idVersion" Association="Self.P_FK_idVersion">
+            <End Role="tblVersionJeu" EntitySet="tblVersionJeu" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
+          </AssociationSet>
+          <AssociationSet Name="P_FK_noEmploye" Association="Self.P_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
+          </AssociationSet>
           <AssociationSet Name="SEP_FK_idPlateforme" Association="Self.SEP_FK_idPlateforme">
             <End Role="tblPlateforme" EntitySet="tblPlateforme" />
             <End Role="tblSysExpPlateforme" EntitySet="tblSysExpPlateforme" />
@@ -847,7 +950,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblSysExp" EntitySet="tblSysExp" />
             <End Role="tblSysExpPlateforme" EntitySet="tblSysExpPlateforme" />
           </AssociationSet>
-          <AssociationSet Name="U_FK_idEmploye" Association="Self.U_FK_idEmploye">
+          <AssociationSet Name="U_FK_noEmploye" Association="Self.U_FK_noEmploye">
             <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblUtilisateur" EntitySet="tblUtilisateur" />
           </AssociationSet>
@@ -860,7 +963,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -902,8 +1006,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="descJeu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="configMinimal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="codeClassification" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagJeu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="ClassificationJeu" Relationship="Self.J_FK_codeClassification" FromRole="tblJeu" ToRole="tblClassificationJeu" />
-          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idJeu" FromRole="tblJeu" ToRole="tblCasTest" />
           <NavigationProperty Name="VersionJeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblJeu" ToRole="tblVersionJeu" />
           <NavigationProperty Name="cJeu1" Relationship="Self.tblAssociationJeu" FromRole="tblJeu" ToRole="tblJeu1" />
           <NavigationProperty Name="cJeu2" Relationship="Self.tblAssociationJeu" FromRole="tblJeu1" ToRole="tblJeu" />
@@ -920,6 +1024,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="configPlateforme" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="commPlateforme" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="idTypePlateforme" Type="Int16" Nullable="false" />
+          <Property Name="tagPlateforme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="TypePlateforme" Relationship="Self.P_FK_idTypePlateforme" FromRole="tblPlateforme" ToRole="tblTypePlateforme" />
           <NavigationProperty Name="cJeu" Relationship="Self.tblJeuPlateforme" FromRole="tblPlateforme" ToRole="tblJeu" />
           <NavigationProperty Name="SysExp" Relationship="Self.tblSysExpPlateforme" FromRole="tblPlateforme" ToRole="tblSysExp" />
@@ -961,6 +1066,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="commVersionJeu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="idJeu" Type="Int16" />
           <NavigationProperty Name="cJeu" Relationship="Self.VJ_FK_idJeu" FromRole="tblVersionJeu" ToRole="tblJeu" />
+          <NavigationProperty Name="cProjet" Relationship="Self.P_FK_idVersion" FromRole="tblVersionJeu" ToRole="tblProjet" />
         </EntityType>
         <EntityType Name="VersionSysExp">
           <Key>
@@ -970,13 +1076,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idEdition" Type="Int16" Nullable="false" />
           <Property Name="commSysExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tagSysExp" Type="String" MaxLength="130" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="EditionSysExp" Relationship="Self.VSE_FK_idEdition" FromRole="tblVersionSysExp" ToRole="tblEditionSysExp" />
         </EntityType>
         <EntityType Name="Employe">
           <Key>
-            <PropertyRef Name="idEmploye" />
+            <PropertyRef Name="noEmploye" />
           </Key>
-          <Property Name="idEmploye" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="noEmploye" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="numTelPrincipal" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
@@ -984,8 +1091,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="adressePostale" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dateEmbauche" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="competenceParticuliere" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Equipe" Relationship="Self.E_FK_idChefEquipe" FromRole="tblEmploye" ToRole="tblEquipe" />
-          <NavigationProperty Name="Utilisateur" Relationship="Self.U_FK_idEmploye" FromRole="tblEmploye" ToRole="tblUtilisateur" />
+          <NavigationProperty Name="cProjet" Relationship="Self.P_FK_noEmploye" FromRole="tblEmploye" ToRole="tblProjet" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.U_FK_noEmploye" FromRole="tblEmploye" ToRole="tblUtilisateur" />
           <NavigationProperty Name="Equipe1" Relationship="Self.tblEmployeEquipe" FromRole="tblEmploye" ToRole="tblEquipe" />
           <NavigationProperty Name="TypeTest" Relationship="Self.tblEmployeTypeTest" FromRole="tblEmploye" ToRole="tblTypeTest" />
         </EntityType>
@@ -995,9 +1104,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="idEquipe" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idChefEquipe" Type="Int16" Nullable="false" />
+          <Property Name="noChefEquipe" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nbTesteur" Type="Int16" />
           <Property Name="descEquipe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tagEquipe" Type="String" MaxLength="60" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Employe" Relationship="Self.E_FK_idChefEquipe" FromRole="tblEquipe" ToRole="tblEmploye" />
           <NavigationProperty Name="Employe1" Relationship="Self.tblEmployeEquipe" FromRole="tblEquipe" ToRole="tblEmploye" />
           <NavigationProperty Name="CasTest" Relationship="Self.tblEquipeCasTest" FromRole="tblEquipe" ToRole="tblCasTest" />
@@ -1025,10 +1136,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="nomUtilisateur" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="motPasse" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="premierLogin" Type="Boolean" Nullable="false" />
+          <Property Name="premierLogin" Type="Int32" Nullable="false" />
           <Property Name="dateDernModif" Type="DateTime" Precision="0" />
-          <Property Name="idEmploye" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Employe" Relationship="Self.U_FK_idEmploye" FromRole="tblUtilisateur" ToRole="tblEmploye" />
+          <Property Name="noEmploye" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employe" Relationship="Self.U_FK_noEmploye" FromRole="tblUtilisateur" ToRole="tblEmploye" />
           <NavigationProperty Name="Groupe" Relationship="Self.tblGroupeUtilisateur" FromRole="tblUtilisateur" ToRole="tblGroupe" />
         </EntityType>
         <EntityType Name="CasTest">
@@ -1038,26 +1149,39 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="priorite" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="difficulte" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="objCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="divCasTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="idTypeTest" Type="Int16" />
-          <Property Name="idJeu" Type="Int16" />
-          <NavigationProperty Name="cJeu" Relationship="Self.CT_FK_idJeu" FromRole="tblCasTest" ToRole="tblJeu" />
+          <Property Name="idDiff" Type="Int16" />
+          <Property Name="idTest" Type="Int16" />
+          <Property Name="idNivPri" Type="Int16" />
+          <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="cProjet" Relationship="Self.CT_FK_codeProjet" FromRole="tblCasTest" ToRole="tblProjet" />
-          <NavigationProperty Name="TypeTest" Relationship="Self.CT_FK_idTypeTest" FromRole="tblCasTest" ToRole="tblTypeTest" />
-          <NavigationProperty Name="FicheResultat" Relationship="Self.FR_FK_codeCasTest" FromRole="tblCasTest" ToRole="tblFicheResultat" />
+          <NavigationProperty Name="Difficulte" Relationship="Self.CT_FK_idDiff" FromRole="tblCasTest" ToRole="tblDifficulte" />
+          <NavigationProperty Name="NiveauPriorite" Relationship="Self.CT_FK_idNivPri" FromRole="tblCasTest" ToRole="tblNiveauPriorite" />
+          <NavigationProperty Name="TypeTest" Relationship="Self.CT_FK_idTest" FromRole="tblCasTest" ToRole="tblTypeTest" />
           <NavigationProperty Name="Equipe" Relationship="Self.tblEquipeCasTest" FromRole="tblCasTest" ToRole="tblEquipe" />
         </EntityType>
-        <EntityType Name="FicheResultat">
+        <EntityType Name="Difficulte">
           <Key>
-            <PropertyRef Name="idResult" />
+            <PropertyRef Name="idDiff" />
           </Key>
-          <Property Name="idResult" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titreFicheRes" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dateCloture" Type="DateTime" Precision="0" />
-          <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CasTest" Relationship="Self.FR_FK_codeCasTest" FromRole="tblFicheResultat" ToRole="tblCasTest" />
+          <Property Name="idDiff" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomDiff" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descDiff" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idDiff" FromRole="tblDifficulte" ToRole="tblCasTest" />
+        </EntityType>
+        <EntityType Name="NiveauPriorite">
+          <Key>
+            <PropertyRef Name="idNivPri" />
+          </Key>
+          <Property Name="idNivPri" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomNivPri" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descNivPri" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="couleurNivPri" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idNivPri" FromRole="tblNiveauPriorite" ToRole="tblCasTest" />
         </EntityType>
         <EntityType Name="cProjet">
           <Key>
@@ -1065,18 +1189,26 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="chefProjet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="descProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
+          <Property Name="objProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="divProjet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idVersion" Type="Int16" />
+          <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="VersionJeu" Relationship="Self.P_FK_idVersion" FromRole="tblProjet" ToRole="tblVersionJeu" />
+          <NavigationProperty Name="Employe" Relationship="Self.P_FK_noEmploye" FromRole="tblProjet" ToRole="tblEmploye" />
           <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_codeProjet" FromRole="tblProjet" ToRole="tblCasTest" />
         </EntityType>
         <EntityType Name="TypeTest">
           <Key>
-            <PropertyRef Name="idTypeTest" />
+            <PropertyRef Name="idTest" />
           </Key>
-          <Property Name="idTypeTest" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nomTypeTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descTypeTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idTypeTest" FromRole="tblTypeTest" ToRole="tblCasTest" />
+          <Property Name="idTest" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CasTest" Relationship="Self.CT_FK_idTest" FromRole="tblTypeTest" ToRole="tblCasTest" />
           <NavigationProperty Name="Employe" Relationship="Self.tblEmployeTypeTest" FromRole="tblTypeTest" ToRole="tblEmploye" />
         </EntityType>
         <EntityType Name="AllPlateforme">
@@ -1085,26 +1217,58 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagPlateforme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="noVersion" />
             <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
           </Key>
           <Property Name="nomSysExp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codeSysExp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomEdition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commSysExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tagSysExp" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
           </Key>
+          <Property Name="idEquipe" Type="Int16" Nullable="false" />
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ChefEquipe" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idEquipe" Type="Int16" Nullable="false" />
+          <Property Name="tagEquipe" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllTesteurs">
+          <Key>
+            <PropertyRef Name="nomEmploye" />
+            <PropertyRef Name="prenomEmploye" />
+          </Key>
+          <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllCasTest">
+          <Key>
+            <PropertyRef Name="codeCasTest" />
+          </Key>
+          <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllProjet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="chefProjet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="nomJeu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tagProjet" Type="String" MaxLength="142" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="tblClassificationJeu" Type="dbProjetE1Model.ClassificationJeu" Multiplicity="1" />
@@ -1142,18 +1306,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CT_FK_idJeu">
-          <End Role="tblJeu" Type="dbProjetE1Model.cJeu" Multiplicity="0..1" />
-          <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblJeu">
-              <PropertyRef Name="idJeu" />
-            </Principal>
-            <Dependent Role="tblCasTest">
-              <PropertyRef Name="idJeu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="VJ_FK_idJeu">
           <End Role="tblJeu" Type="dbProjetE1Model.cJeu" Multiplicity="0..1" />
           <End Role="tblVersionJeu" Type="dbProjetE1Model.VersionJeu" Multiplicity="*" />
@@ -1178,27 +1330,51 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="P_FK_idVersion">
+          <End Role="tblVersionJeu" Type="dbProjetE1Model.VersionJeu" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="dbProjetE1Model.cProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVersionJeu">
+              <PropertyRef Name="idVersionJeu" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="idVersion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="E_FK_idChefEquipe">
           <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="1" />
           <End Role="tblEquipe" Type="dbProjetE1Model.Equipe" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Principal>
             <Dependent Role="tblEquipe">
-              <PropertyRef Name="idChefEquipe" />
+              <PropertyRef Name="noChefEquipe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="U_FK_idEmploye">
+        <Association Name="P_FK_noEmploye">
+          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="0..1" />
+          <End Role="tblProjet" Type="dbProjetE1Model.cProjet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmploye">
+              <PropertyRef Name="noEmploye" />
+            </Principal>
+            <Dependent Role="tblProjet">
+              <PropertyRef Name="chefProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="U_FK_noEmploye">
           <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="1" />
           <End Role="tblUtilisateur" Type="dbProjetE1Model.Utilisateur" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblEmploye">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Principal>
             <Dependent Role="tblUtilisateur">
-              <PropertyRef Name="idEmploye" />
+              <PropertyRef Name="noEmploye" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1214,27 +1390,39 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CT_FK_idTypeTest">
+        <Association Name="CT_FK_idDiff">
+          <End Role="tblDifficulte" Type="dbProjetE1Model.Difficulte" Multiplicity="0..1" />
+          <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDifficulte">
+              <PropertyRef Name="idDiff" />
+            </Principal>
+            <Dependent Role="tblCasTest">
+              <PropertyRef Name="idDiff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CT_FK_idNivPri">
+          <End Role="tblNiveauPriorite" Type="dbProjetE1Model.NiveauPriorite" Multiplicity="0..1" />
+          <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblNiveauPriorite">
+              <PropertyRef Name="idNivPri" />
+            </Principal>
+            <Dependent Role="tblCasTest">
+              <PropertyRef Name="idNivPri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CT_FK_idTest">
           <End Role="tblTypeTest" Type="dbProjetE1Model.TypeTest" Multiplicity="0..1" />
           <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblTypeTest">
-              <PropertyRef Name="idTypeTest" />
+              <PropertyRef Name="idTest" />
             </Principal>
             <Dependent Role="tblCasTest">
-              <PropertyRef Name="idTypeTest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FR_FK_codeCasTest">
-          <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="0..1" />
-          <End Role="tblFicheResultat" Type="dbProjetE1Model.FicheResultat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCasTest">
-              <PropertyRef Name="codeCasTest" />
-            </Principal>
-            <Dependent Role="tblFicheResultat">
-              <PropertyRef Name="codeCasTest" />
+              <PropertyRef Name="idTest" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1263,16 +1451,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <End Role="tblGroupe" Type="dbProjetE1Model.Groupe" Multiplicity="*" />
         </Association>
         <Association Name="tblEmployeEquipe">
-          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="*" />
           <End Role="tblEquipe" Type="dbProjetE1Model.Equipe" Multiplicity="*" />
+          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="*" />
         </Association>
         <Association Name="tblGroupeUtilisateur">
           <End Role="tblGroupe" Type="dbProjetE1Model.Groupe" Multiplicity="*" />
           <End Role="tblUtilisateur" Type="dbProjetE1Model.Utilisateur" Multiplicity="*" />
         </Association>
         <Association Name="tblEmployeTypeTest">
-          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="*" />
           <End Role="tblTypeTest" Type="dbProjetE1Model.TypeTest" Multiplicity="*" />
+          <End Role="tblEmploye" Type="dbProjetE1Model.Employe" Multiplicity="*" />
         </Association>
         <Association Name="tblEquipeCasTest">
           <End Role="tblCasTest" Type="dbProjetE1Model.CasTest" Multiplicity="*" />
@@ -1295,12 +1483,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <EntitySet Name="tblGroupe" EntityType="dbProjetE1Model.Groupe" />
           <EntitySet Name="tblUtilisateur" EntityType="dbProjetE1Model.Utilisateur" />
           <EntitySet Name="tblCasTest" EntityType="dbProjetE1Model.CasTest" />
-          <EntitySet Name="tblFicheResultat" EntityType="dbProjetE1Model.FicheResultat" />
+          <EntitySet Name="tblDifficulte" EntityType="dbProjetE1Model.Difficulte" />
+          <EntitySet Name="tblNiveauPriorite" EntityType="dbProjetE1Model.NiveauPriorite" />
           <EntitySet Name="tblProjet" EntityType="dbProjetE1Model.cProjet" />
           <EntitySet Name="tblTypeTest" EntityType="dbProjetE1Model.TypeTest" />
           <EntitySet Name="AllPlateforme" EntityType="Self.AllPlateforme" />
           <EntitySet Name="AllSysExp" EntityType="Self.AllSysExp" />
           <EntitySet Name="AllEquipe" EntityType="Self.AllEquipe" />
+          <EntitySet Name="AllTesteurs" EntityType="Self.AllTesteurs" />
+          <EntitySet Name="AllCasTest" EntityType="Self.AllCasTest" />
+          <EntitySet Name="AllProjet" EntityType="Self.AllProjet" />
           <AssociationSet Name="J_FK_codeClassification" Association="Self.J_FK_codeClassification">
             <End Role="tblClassificationJeu" EntitySet="tblClassificationJeu" />
             <End Role="tblJeu" EntitySet="tblJeu" />
@@ -1313,10 +1505,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblEditionSysExp" EntitySet="tblEditionSysExp" />
             <End Role="tblVersionSysExp" EntitySet="tblVersionSysExp" />
           </AssociationSet>
-          <AssociationSet Name="CT_FK_idJeu" Association="Self.CT_FK_idJeu">
-            <End Role="tblJeu" EntitySet="tblJeu" />
-            <End Role="tblCasTest" EntitySet="tblCasTest" />
-          </AssociationSet>
           <AssociationSet Name="VJ_FK_idJeu" Association="Self.VJ_FK_idJeu">
             <End Role="tblJeu" EntitySet="tblJeu" />
             <End Role="tblVersionJeu" EntitySet="tblVersionJeu" />
@@ -1325,11 +1513,19 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblTypePlateforme" EntitySet="tblTypePlateforme" />
             <End Role="tblPlateforme" EntitySet="tblPlateforme" />
           </AssociationSet>
+          <AssociationSet Name="P_FK_idVersion" Association="Self.P_FK_idVersion">
+            <End Role="tblVersionJeu" EntitySet="tblVersionJeu" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
+          </AssociationSet>
           <AssociationSet Name="E_FK_idChefEquipe" Association="Self.E_FK_idChefEquipe">
             <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
-          <AssociationSet Name="U_FK_idEmploye" Association="Self.U_FK_idEmploye">
+          <AssociationSet Name="P_FK_noEmploye" Association="Self.P_FK_noEmploye">
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
+            <End Role="tblProjet" EntitySet="tblProjet" />
+          </AssociationSet>
+          <AssociationSet Name="U_FK_noEmploye" Association="Self.U_FK_noEmploye">
             <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblUtilisateur" EntitySet="tblUtilisateur" />
           </AssociationSet>
@@ -1337,13 +1533,17 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblProjet" EntitySet="tblProjet" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
-          <AssociationSet Name="CT_FK_idTypeTest" Association="Self.CT_FK_idTypeTest">
-            <End Role="tblTypeTest" EntitySet="tblTypeTest" />
+          <AssociationSet Name="CT_FK_idDiff" Association="Self.CT_FK_idDiff">
+            <End Role="tblDifficulte" EntitySet="tblDifficulte" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
-          <AssociationSet Name="FR_FK_codeCasTest" Association="Self.FR_FK_codeCasTest">
+          <AssociationSet Name="CT_FK_idNivPri" Association="Self.CT_FK_idNivPri">
+            <End Role="tblNiveauPriorite" EntitySet="tblNiveauPriorite" />
             <End Role="tblCasTest" EntitySet="tblCasTest" />
-            <End Role="tblFicheResultat" EntitySet="tblFicheResultat" />
+          </AssociationSet>
+          <AssociationSet Name="CT_FK_idTest" Association="Self.CT_FK_idTest">
+            <End Role="tblTypeTest" EntitySet="tblTypeTest" />
+            <End Role="tblCasTest" EntitySet="tblCasTest" />
           </AssociationSet>
           <AssociationSet Name="tblAssociationJeu" Association="Self.tblAssociationJeu">
             <End Role="tblJeu" EntitySet="tblJeu" />
@@ -1370,31 +1570,22 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             <End Role="tblGroupe" EntitySet="tblGroupe" />
           </AssociationSet>
           <AssociationSet Name="tblEmployeEquipe" Association="Self.tblEmployeEquipe">
-            <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
           </AssociationSet>
           <AssociationSet Name="tblGroupeUtilisateur" Association="Self.tblGroupeUtilisateur">
             <End Role="tblGroupe" EntitySet="tblGroupe" />
             <End Role="tblUtilisateur" EntitySet="tblUtilisateur" />
           </AssociationSet>
           <AssociationSet Name="tblEmployeTypeTest" Association="Self.tblEmployeTypeTest">
-            <End Role="tblEmploye" EntitySet="tblEmploye" />
             <End Role="tblTypeTest" EntitySet="tblTypeTest" />
+            <End Role="tblEmploye" EntitySet="tblEmploye" />
           </AssociationSet>
           <AssociationSet Name="tblEquipeCasTest" Association="Self.tblEquipeCasTest">
             <End Role="tblCasTest" EntitySet="tblCasTest" />
             <End Role="tblEquipe" EntitySet="tblEquipe" />
           </AssociationSet>
-          <EntitySet Name="AllTesteurs" EntityType="dbProjetE1Model.AllTesteurs" />
         </EntityContainer>
-        <EntityType Name="AllTesteurs">
-          <Key>
-            <PropertyRef Name="prenomEmploye" />
-            <PropertyRef Name="nomEmploye" />
-          </Key>
-          <Property Name="nomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="prenomEmploye" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1437,6 +1628,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="descJeu" ColumnName="descJeu" />
                 <ScalarProperty Name="configMinimal" ColumnName="configMinimal" />
                 <ScalarProperty Name="codeClassification" ColumnName="codeClassification" />
+                <ScalarProperty Name="tagJeu" ColumnName="tagJeu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1448,6 +1640,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="configPlateforme" ColumnName="configPlateforme" />
                 <ScalarProperty Name="commPlateforme" ColumnName="commPlateforme" />
                 <ScalarProperty Name="idTypePlateforme" ColumnName="idTypePlateforme" />
+                <ScalarProperty Name="tagPlateforme" ColumnName="tagPlateforme" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1495,13 +1688,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="noVersion" ColumnName="noVersion" />
                 <ScalarProperty Name="idEdition" ColumnName="idEdition" />
                 <ScalarProperty Name="commSysExp" ColumnName="commSysExp" />
+                <ScalarProperty Name="tagSysExp" ColumnName="tagSysExp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblEmploye">
             <EntityTypeMapping TypeName="dbProjetE1Model.Employe">
               <MappingFragment StoreEntitySet="tblEmploye">
-                <ScalarProperty Name="idEmploye" ColumnName="idEmploye" />
+                <ScalarProperty Name="noEmploye" ColumnName="noEmploye" />
                 <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
                 <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
                 <ScalarProperty Name="numTelPrincipal" ColumnName="numTelPrincipal" />
@@ -1509,6 +1703,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="adressePostale" ColumnName="adressePostale" />
                 <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
                 <ScalarProperty Name="competenceParticuliere" ColumnName="competenceParticuliere" />
+                <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1517,9 +1712,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
               <MappingFragment StoreEntitySet="tblEquipe">
                 <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
                 <ScalarProperty Name="nomEquipe" ColumnName="nomEquipe" />
-                <ScalarProperty Name="idChefEquipe" ColumnName="idChefEquipe" />
+                <ScalarProperty Name="noChefEquipe" ColumnName="noChefEquipe" />
                 <ScalarProperty Name="nbTesteur" ColumnName="nbTesteur" />
                 <ScalarProperty Name="descEquipe" ColumnName="descEquipe" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="tagEquipe" ColumnName="tagEquipe" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1546,7 +1743,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="motPasse" ColumnName="motPasse" />
                 <ScalarProperty Name="premierLogin" ColumnName="premierLogin" />
                 <ScalarProperty Name="dateDernModif" ColumnName="dateDernModif" />
-                <ScalarProperty Name="idEmploye" ColumnName="idEmploye" />
+                <ScalarProperty Name="noEmploye" ColumnName="noEmploye" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1556,21 +1753,34 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
                 <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
                 <ScalarProperty Name="descCasTest" ColumnName="descCasTest" />
-                <ScalarProperty Name="priorite" ColumnName="priorite" />
-                <ScalarProperty Name="difficulte" ColumnName="difficulte" />
+                <ScalarProperty Name="objCasTest" ColumnName="objCasTest" />
+                <ScalarProperty Name="divCasTest" ColumnName="divCasTest" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
-                <ScalarProperty Name="idTypeTest" ColumnName="idTypeTest" />
-                <ScalarProperty Name="idJeu" ColumnName="idJeu" />
+                <ScalarProperty Name="idDiff" ColumnName="idDiff" />
+                <ScalarProperty Name="idTest" ColumnName="idTest" />
+                <ScalarProperty Name="idNivPri" ColumnName="idNivPri" />
+                <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblFicheResultat">
-            <EntityTypeMapping TypeName="dbProjetE1Model.FicheResultat">
-              <MappingFragment StoreEntitySet="tblFicheResultat">
-                <ScalarProperty Name="idResult" ColumnName="idResult" />
-                <ScalarProperty Name="titreFicheRes" ColumnName="titreFicheRes" />
-                <ScalarProperty Name="dateCloture" ColumnName="dateCloture" />
-                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
+          <EntitySetMapping Name="tblDifficulte">
+            <EntityTypeMapping TypeName="dbProjetE1Model.Difficulte">
+              <MappingFragment StoreEntitySet="tblDifficulte">
+                <ScalarProperty Name="idDiff" ColumnName="idDiff" />
+                <ScalarProperty Name="nomDiff" ColumnName="nomDiff" />
+                <ScalarProperty Name="descDiff" ColumnName="descDiff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNiveauPriorite">
+            <EntityTypeMapping TypeName="dbProjetE1Model.NiveauPriorite">
+              <MappingFragment StoreEntitySet="tblNiveauPriorite">
+                <ScalarProperty Name="idNivPri" ColumnName="idNivPri" />
+                <ScalarProperty Name="nomNivPri" ColumnName="nomNivPri" />
+                <ScalarProperty Name="descNivPri" ColumnName="descNivPri" />
+                <ScalarProperty Name="couleurNivPri" ColumnName="couleurNivPri" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1581,15 +1791,21 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
                 <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
                 <ScalarProperty Name="descProjet" ColumnName="descProjet" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+                <ScalarProperty Name="objProjet" ColumnName="objProjet" />
+                <ScalarProperty Name="divProjet" ColumnName="divProjet" />
+                <ScalarProperty Name="idVersion" ColumnName="idVersion" />
+                <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTypeTest">
             <EntityTypeMapping TypeName="dbProjetE1Model.TypeTest">
               <MappingFragment StoreEntitySet="tblTypeTest">
-                <ScalarProperty Name="idTypeTest" ColumnName="idTypeTest" />
-                <ScalarProperty Name="nomTypeTest" ColumnName="nomTypeTest" />
-                <ScalarProperty Name="descTypeTest" ColumnName="descTypeTest" />
+                <ScalarProperty Name="idTest" ColumnName="idTest" />
+                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
+                <ScalarProperty Name="descTest" ColumnName="descTest" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1598,6 +1814,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
               <MappingFragment StoreEntitySet="AllPlateforme">
                 <ScalarProperty Name="nomPlateforme" ColumnName="nomPlateforme" />
                 <ScalarProperty Name="nomTypePlateforme" ColumnName="nomTypePlateforme" />
+                <ScalarProperty Name="tagPlateforme" ColumnName="tagPlateforme" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1609,6 +1826,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="nomEdition" ColumnName="nomEdition" />
                 <ScalarProperty Name="noVersion" ColumnName="noVersion" />
                 <ScalarProperty Name="commSysExp" ColumnName="commSysExp" />
+                <ScalarProperty Name="tagSysExp" ColumnName="tagSysExp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1618,6 +1836,38 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
                 <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
                 <ScalarProperty Name="nomEquipe" ColumnName="nomEquipe" />
                 <ScalarProperty Name="ChefEquipe" ColumnName="ChefEquipe" />
+                <ScalarProperty Name="tagEquipe" ColumnName="tagEquipe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllTesteurs">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
+              <MappingFragment StoreEntitySet="AllTesteurs">
+                <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
+                <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
+                <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllCasTest">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllCasTest">
+              <MappingFragment StoreEntitySet="AllCasTest">
+                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
+                <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
+                <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllProjet">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllProjet">
+              <MappingFragment StoreEntitySet="AllProjet">
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
+                <ScalarProperty Name="nomJeu" ColumnName="nomJeu" />
+                <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1670,11 +1920,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="tblEmployeEquipe" TypeName="dbProjetE1Model.tblEmployeEquipe" StoreEntitySet="tblEmployeEquipe">
-            <EndProperty Name="tblEmploye">
-              <ScalarProperty Name="idEmploye" ColumnName="idEmploye" />
-            </EndProperty>
             <EndProperty Name="tblEquipe">
               <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
+            </EndProperty>
+            <EndProperty Name="tblEmploye">
+              <ScalarProperty Name="noEmploye" ColumnName="noEmploye" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="tblGroupeUtilisateur" TypeName="dbProjetE1Model.tblGroupeUtilisateur" StoreEntitySet="tblGroupeUtilisateur">
@@ -1686,11 +1936,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="tblEmployeTypeTest" TypeName="dbProjetE1Model.tblEmployeTypeTest" StoreEntitySet="tblEmployeTypeTest">
-            <EndProperty Name="tblEmploye">
-              <ScalarProperty Name="idEmploye" ColumnName="idEmploye" />
-            </EndProperty>
             <EndProperty Name="tblTypeTest">
-              <ScalarProperty Name="idTypeTest" ColumnName="idTypeTest" />
+              <ScalarProperty Name="idTest" ColumnName="idTest" />
+            </EndProperty>
+            <EndProperty Name="tblEmploye">
+              <ScalarProperty Name="noEmploye" ColumnName="noEmploye" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="tblEquipeCasTest" TypeName="dbProjetE1Model.tblEquipeCasTest" StoreEntitySet="tblEquipeCasTest">
@@ -1701,14 +1951,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
               <ScalarProperty Name="idEquipe" ColumnName="idEquipe" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="AllTesteurs">
-            <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
-              <MappingFragment StoreEntitySet="AllTesteurs">
-                <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
-                <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

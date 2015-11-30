@@ -1,0 +1,118 @@
+﻿body {
+}
+
+#CasTestInfo {
+    width: 100%;
+    display:inline-block;
+}
+
+#CasTestObj{
+    width: 50%;
+    display:inline-block;
+    vertical-align:top;
+    margin-top:5px;
+    height: 236px;
+}
+
+#CasTestDesc{
+    width: 49%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+#CasTestDiv{
+    width:49%;
+    display:inline-block;
+    height: 178px;
+}
+
+#lblColumn1{
+    width: 49%;
+    display:inline-block;
+}
+
+.btnDroit{
+    display:inline-block;
+    float:right;
+    margin-right:5px;
+}
+
+#btnCopier{
+    float:left;
+}
+
+#btnCentre{ 
+    display:inline-block;
+}
+
+.lblColum1{
+    width:25%;
+    text-align:right;
+    display:inline-block;
+}
+
+.lblColum2{
+    display:block;
+}
+
+.txtColum1{
+    display:inline;
+    width:356px;
+}
+
+.info{
+    margin-top:5px;
+    margin-bottom:5px;
+    width: 510px;
+}
+
+.button{
+
+    top: -12px;
+
+    top: 8px;
+
+    left: 0px;
+
+    width:175px;
+    text-align:center;
+    top: 0px;
+
+}
+
+.txtDate1{
+    width:25.5%;
+}
+
+.lblDate1{
+    width:10%;
+    margin-left:45px;
+}
+
+.txtDate2{
+    width:24%;
+    font-size:20px;
+}
+
+.lblDate2{
+    margin-right:-12px;
+    width:21%;
+}
+
+.richtextbox{
+    height:210px;
+    width:490px;
+    resize:none;
+}
+
+.txtCodeCasTest{
+    width:175px;
+}
+
+.dropDownTypeTestCasTest{
+    width:530px;
+}
+
+
+
+

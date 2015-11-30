@@ -20,9 +20,9 @@ namespace Texcel
             this.Employe = new HashSet<Employe>();
         }
     
-        public short idTypeTest { get; set; }
-        public string nomTypeTest { get; set; }
-        public string descTypeTest { get; set; }
+        public short idTest { get; set; }
+        public string nomTest { get; set; }
+        public string descTest { get; set; }
     
         public virtual ICollection<CasTest> CasTest { get; set; }
         public virtual ICollection<Employe> Employe { get; set; }

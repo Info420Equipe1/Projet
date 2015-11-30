@@ -25,6 +25,7 @@ namespace Texcel
         public string configPlateforme { get; set; }
         public string commPlateforme { get; set; }
         public short idTypePlateforme { get; set; }
+        public string tagPlateforme { get; set; }
     
         public virtual TypePlateforme TypePlateforme { get; set; }
         public virtual ICollection<cJeu> cJeu { get; set; }

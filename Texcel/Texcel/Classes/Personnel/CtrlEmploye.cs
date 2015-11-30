@@ -21,7 +21,7 @@ namespace Texcel.Classes.Personnel
             emp.numTelSecondaire = _TelSecEmp;
             emp.dateEmbauche = _dateEmbEmp;
             emp.competenceParticuliere = _compPart;
-      try
+            try
             {
                 context.tblEmploye.Add(emp);
                 context.SaveChanges();
@@ -94,10 +94,10 @@ namespace Texcel.Classes.Personnel
             Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
             return emp;
         }
-        public static int getIdEmploye(string _nomEmp)
+        public static string getIdEmploye(string _nomEmp)
         {
             Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
-            return emp.idEmploye;
+            return emp.noEmploye;
         }
 
         //Employés qui sont chef d'équipe
@@ -110,7 +110,7 @@ namespace Texcel.Classes.Personnel
                 {
                     foreach (Employe emp in listEmploye())
                     {
-                        if (emp.idEmploye == uti.idEmploye)
+                        if (emp.noEmploye == uti.noEmploye)
                         {
                             listEmp.Add(emp);
                         }
@@ -119,6 +119,12 @@ namespace Texcel.Classes.Personnel
             }
 
             return listEmp;
+        }
+
+        public static Employe getEmployeByNo(string _numEmploye)
+        {
+            Employe emp = context.tblEmploye.Where(x => x.noEmploye == _numEmploye).First();
+            return emp;
         }
 
     }

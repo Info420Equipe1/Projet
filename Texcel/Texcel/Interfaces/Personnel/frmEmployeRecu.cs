@@ -26,7 +26,7 @@ namespace Texcel.Interfaces.Personnel
             employes = CtrlFileEmployes.GetEmployesFromFile();
             foreach (Employe employe in employes)
             {
-                dgvNouveauxEmployes.Rows.Add(employe.nomEmploye, employe.prenomEmploye, employe.adressePostale, employe.numTelPrincipal, employe.numTelSecondaire, employe.dateEmbauche.Date.ToString("yyyy-MM-dd"));
+                dgvNouveauxEmployes.Rows.Add(employe.noEmploye, employe.nomEmploye, employe.prenomEmploye, employe.adressePostale, employe.numTelPrincipal, employe.numTelSecondaire, employe.dateEmbauche.Date.ToString("yyyy-MM-dd"));
             }
         }
 
@@ -36,6 +36,7 @@ namespace Texcel.Interfaces.Personnel
             if (dr == DialogResult.OK)
             {
                 CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
+                employes.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
                 dgvNouveauxEmployes.Rows.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
             } 
         }
@@ -49,6 +50,7 @@ namespace Texcel.Interfaces.Personnel
                 if (dr == DialogResult.OK)
                 {
                     CtrlFileEmployes.DeleteEmployeFromFile(employes[dgvNouveauxEmployes.SelectedRows[0].Index], dgvNouveauxEmployes.SelectedRows[0].Index);
+                    employes.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
                     dgvNouveauxEmployes.Rows.RemoveAt(dgvNouveauxEmployes.SelectedRows[0].Index);
                 }
             }

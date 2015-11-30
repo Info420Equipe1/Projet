@@ -14,8 +14,9 @@ namespace Texcel
     
     public partial class AllEquipe
     {
+        public short idEquipe { get; set; }
         public string nomEquipe { get; set; }
         public string ChefEquipe { get; set; }
-        public short idEquipe { get; set; }
+        public string tagEquipe { get; set; }
     }
 }

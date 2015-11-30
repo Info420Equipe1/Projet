@@ -34,6 +34,7 @@ namespace Texcel.Classes.Personnel
             foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
             {
                 Employe employe = new Employe();
+                employe.noEmploye = node["Numero"].InnerText;
                 employe.nomEmploye = node["Nom"].InnerText;
                 employe.prenomEmploye = node["Prenom"].InnerText;
                 employe.adressePostale = node["Adresse"].InnerText;

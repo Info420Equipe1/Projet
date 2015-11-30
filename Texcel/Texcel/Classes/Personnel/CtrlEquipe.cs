@@ -10,20 +10,21 @@ namespace Texcel.Classes.Personnel
     {
 
         //Enregistré équipe
-        public static string Ajouter(string _nom, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
+        public static string Ajouter(string _nom, string _codeProjet, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp, cProjet _proj)
         {
             Equipe equipe = new Equipe();
             
             equipe.nomEquipe = _nom;
+            equipe.codeProjet = _codeProjet;
             equipe.nbTesteur = _nbEmp;
-            equipe.idChefEquipe = _empChefEquipe.idEmploye;
+            equipe.noChefEquipe = _empChefEquipe.noEmploye;
             equipe.descEquipe = _desc;
 
             try
             {
                 context.tblEquipe.Add(equipe);
                 context.SaveChanges();
-                LierEmploye(_listEmp, equipe);
+                LierEmploye(_listEmp, equipe, _proj);
                 return "L'équipe a été ajoutée avec succès!";
             }
             catch (Exception)
@@ -31,10 +32,11 @@ namespace Texcel.Classes.Personnel
                 return "Une erreur est survenue lors de l'ajout de l'Équipe. Les données n'ont pas été enregistrées.";
             }
         }
-        public static string Modifier(int idEquipe, string nomEquipe, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
+        public static string Modifier(int idEquipe, string nomEquipe, string codeProjet, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
         {
-            Equipe equipe = getSelectedEquipe(idEquipe);
+            Equipe equipe = getEquipeById(idEquipe);
             equipe.nomEquipe = nomEquipe;
+            equipe.codeProjet = codeProjet;
             equipe.nbTesteur = nbTesteur;
             equipe.descEquipe = commEquipe;
             equipe.Employe = chefEquipe;
@@ -52,15 +54,16 @@ namespace Texcel.Classes.Personnel
         }
 
         //Lier les employés à l'équipe
-        private static void LierEmploye(List<Employe> _emp, Equipe _equipe)
+        private static void LierEmploye(List<Employe> _emp, Equipe _equipe, cProjet _proj)
         {
+            
             foreach (Employe emp in _emp)
             {
                 _equipe.Employe1.Add(emp);
                 context.SaveChanges();
-            }
+            }           
         }
-        public static Equipe getSelectedEquipe(int _id)
+        public static Equipe getEquipeById(int _id)
         {
             Equipe selectedEquipe = context.tblEquipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;

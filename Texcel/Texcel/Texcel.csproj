@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -58,6 +61,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,10 +72,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllCasTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllEquipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllPlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllSysExp.cs">
@@ -106,11 +116,15 @@
     <Compile Include="Classes\Personnel\CtrlGroupe.cs" />
     <Compile Include="Classes\Personnel\CtrlUtilisateur.cs" />
     <Compile Include="Classes\Projet\CtrlProjet.cs" />
+    <Compile Include="Classes\Test\CtrlCasTest.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />
     <Compile Include="ClassificationJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="cProjet.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Difficulte.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="EditionSysExp.cs">
@@ -122,9 +136,6 @@
     <Compile Include="Equipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FicheResultat.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -133,6 +144,12 @@
     </Compile>
     <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\frmPassRenew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\frmPassRenew.Designer.cs">
+      <DependentUpon>frmPassRenew.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\frmLogin.cs">
       <SubType>Form</SubType>
@@ -230,6 +247,12 @@
     <Compile Include="Interfaces\Jeu\frmGenre.Designer.cs">
       <DependentUpon>frmGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Test\frmTypeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Test\frmTypeTest.Designer.cs">
+      <DependentUpon>frmTypeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,6 +267,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NiveauPriorite.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Plateforme.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -271,6 +297,9 @@
     <Compile Include="VersionSysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Interfaces\frmPassRenew.resx">
+      <DependentUpon>frmPassRenew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +348,9 @@
     <EmbeddedResource Include="Interfaces\Personnel\frmUtilisateur.resx">
       <DependentUpon>frmUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\Test\frmTypeTest.resx">
+      <DependentUpon>frmTypeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -357,11 +389,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\Projet\" />
-    <Folder Include="Interfaces\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

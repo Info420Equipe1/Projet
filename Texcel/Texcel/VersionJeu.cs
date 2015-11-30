@@ -14,11 +14,17 @@ namespace Texcel
     
     public partial class VersionJeu
     {
+        public VersionJeu()
+        {
+            this.cProjet = new HashSet<cProjet>();
+        }
+    
         public short idVersionJeu { get; set; }
         public string nomVersionJeu { get; set; }
         public string commVersionJeu { get; set; }
         public Nullable<short> idJeu { get; set; }
     
         public virtual cJeu cJeu { get; set; }
+        public virtual ICollection<cProjet> cProjet { get; set; }
     }
 }

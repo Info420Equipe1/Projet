@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Texcel.Classes.Personnel;
 
 using Texcel.Classes;
 
@@ -29,7 +30,24 @@ namespace Texcel.Interfaces
                     string message = CtrlLogin.VerifierLogin(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                     if (message == "Connexion réussie")
                     {
+                     
                         this.Close();
+                        List<Form> lstForm = new List<Form>();
+
+                        foreach (Form f in Application.OpenForms)
+                        {
+                            lstForm.Add(f);
+                        }
+
+                        foreach (Form fo in lstForm)
+                        {
+                            fo.Visible = true;
+                        }              
+                    }
+                    else if (message == "Vous devez changer de mot de passe")
+                    {
+                        frmPassRenew frmPassRenew = new frmPassRenew(CtrlUtilisateur.getUtilisateur(txtUsername.Text));
+                        frmPassRenew.Visible = true;
                     }
                     else
                     {
@@ -62,6 +80,19 @@ namespace Texcel.Interfaces
             {
                 Application.Exit();
             }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

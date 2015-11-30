@@ -69,7 +69,7 @@ namespace Texcel.Classes.Test
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTypeTest == _nomTypeTest).First();
+            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
 
             return monTT;      
         }
@@ -98,6 +98,52 @@ namespace Texcel.Classes.Test
                 lstTypTest.Add(typTest);
             }
             return lstTypTest;
+        }
+
+        public static bool Verifier(string _nom)
+        {
+            foreach (TypeTest tT in context.tblTypeTest)
+            {
+                if (tT.nomTest == _nom)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static string Ajouter(string _nom, string _com)
+        {
+            TypeTest typeTest = new TypeTest();
+            typeTest.nomTest = _nom;
+            typeTest.descTest = _com;
+
+            try
+            {
+                context.tblTypeTest.Add(typeTest);
+                context.SaveChanges();
+                return "Le type test a été créé";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de l'ajout du Type de test. Les données n'ont pas été enregistrées.";
+            }
+        }
+
+        public static string Modifier(string _nom, string _com)
+        {
+            TypeTest typeTest = GetTypeTest(_nom);
+            typeTest.descTest = _com;
+
+            try
+            {
+                context.SaveChanges();
+                return "Le type de test a été modifié avec succès!";
+            }
+            catch (Exception)
+            {
+                return "Une erreur est survenue lors de la modification du Type de test. Les données n'ont pas été enregistrées.";
+            }
         }
     }
 }

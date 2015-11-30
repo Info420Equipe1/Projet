@@ -1,0 +1,74 @@
+﻿body {
+}
+
+#lsbProjets{
+    width:100%;
+    height:150px;
+}
+
+#lsbEquipes{
+    width:495px;
+    height:150px;
+}
+
+#lsbCasTestProjet{
+    height:300px;
+    width:495px;
+}
+
+#lsbCasTestEquipe{
+    height:300px;
+    width:495px;
+}
+
+#colButton{
+    padding-left:10px;
+}
+
+#infoEquipe{
+    padding-left:60px;
+    margin-top:30px;
+}
+
+#lblChefEquipe{
+    margin-left:15px
+}
+
+#lblNbTesteurs{
+    margin-left:20px;
+}
+
+#btnEnregistrerAnnuler{
+    height:30px;
+}
+
+.lblInfo{
+    width:150px;
+    text-align:right;
+    display:inline;
+    padding-top:5px;
+}
+
+.tableCell{
+    display:table-cell;
+}
+
+.btnFleches{
+    width:15px;
+    padding-left:10px;
+}
+
+.button{
+    text-align:center;
+}
+
+.btnDroit{
+    display:inline-block;
+    float:right;
+    margin-right:5px;
+    width:100px;
+}
+
+.textBox{
+    width:340px;
+}
