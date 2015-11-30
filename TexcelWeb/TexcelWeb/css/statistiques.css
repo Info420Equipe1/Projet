@@ -1,0 +1,25 @@
+﻿body {
+}
+
+#pnlGeneral{
+    width:49.5%;
+    float:left;
+}
+
+#pnlBillets{
+    display:inline-block;
+    width:49.5%;
+    margin-left:5px;
+}
+
+#general{
+    margin:10px;
+}
+
+#billets{
+    margin:10px;
+}
+
+.panel{
+    height:200px;
+}
