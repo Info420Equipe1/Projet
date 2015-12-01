@@ -22,10 +22,14 @@
     margin-left:25%;
 }
 #txtTitreBillet{
-    width:220px;
+    width:325px;
 }
-#txtDureeBillet{
-    width:75px;
+#DureeTexte{
+    float:right;
+    padding-right:26%;
+}
+#cmbDureeBillet{
+    width:65px;
 }
 #lblAjouterBillet{
     font-family:'Microsoft Sans Serif';

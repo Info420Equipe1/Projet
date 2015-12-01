@@ -86,8 +86,11 @@ $(function(){
                                 <asp:Label runat="server" Text="Titre du Billet: " CssClass="lblColum1"/>
                                 <asp:TextBox runat="server" ID="txtTitreBillet"/>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTitreBillet" Display="dynamic" Text="*" ForeColor="Red" />
-                                <asp:Label runat="server" Text="Durée: " />
-                                <asp:TextBox type="" runat="server" ID="txtDureeBillet" />
+                            </div>
+                            <div class="info">
+                                <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
+                                <asp:TextBox type="number" runat="server" ID="cmbDureeBillet" MaxLength="3"/>
+                                <p id="DureeTexte">(Durée approximative.)</p>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Création: " CssClass="lblColum1"/>

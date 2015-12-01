@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace TexcelWeb.Interfaces {
+namespace TexcelWeb {
     
     
-    public partial class creerBilletTravail {
+    public partial class creerBilletChefEquipe {
         
         /// <summary>
         /// Contrôle txtCurrentUserName.
@@ -22,192 +22,183 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
-        /// Contrôle txtForm.
+        /// Contrôle txtDerniereConnexion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtForm;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtDerniereConnexion;
         
         /// <summary>
-        /// Contrôle FrmBilletTravail.
+        /// Contrôle boxRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FrmBilletTravail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxRecherche;
         
         /// <summary>
-        /// Contrôle ToolkitScriptManager.
+        /// Contrôle menuRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuRecherche;
         
         /// <summary>
-        /// Contrôle txtNomCasTest.
+        /// Contrôle lienRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomCasTest;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienRecherche;
         
         /// <summary>
-        /// Contrôle txtNomTypeTest.
+        /// Contrôle boxProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomTypeTest;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxProjet;
         
         /// <summary>
-        /// Contrôle txtDateLivraisonCasTest.
+        /// Contrôle menuProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuProjet;
         
         /// <summary>
-        /// Contrôle txtProjetCasTest.
+        /// Contrôle lienAjouterProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProjetCasTest;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienAjouterProjet;
         
         /// <summary>
-        /// Contrôle txtTitreBillet.
+        /// Contrôle lienProjetEquipe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitreBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienProjetEquipe;
         
         /// <summary>
-        /// Contrôle cmbDureeBillet.
+        /// Contrôle boxCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cmbDureeBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxCasTest;
         
         /// <summary>
-        /// Contrôle txtDateCreationBillet.
+        /// Contrôle menuCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateCreationBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuCasTest;
         
         /// <summary>
-        /// Contrôle txtDateLivraisonBillet.
+        /// Contrôle lienCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienCasTest;
         
         /// <summary>
-        /// Contrôle CompareValidator1.
+        /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FrmCasTest;
         
         /// <summary>
-        /// Contrôle cmbTesteurBillet.
+        /// Contrôle UPRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
+        protected global::System.Web.UI.UpdatePanel UPRecherche;
         
         /// <summary>
-        /// Contrôle updatePanelStatutDateTerminaison.
+        /// Contrôle cmbProjet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanelStatutDateTerminaison;
+        protected global::System.Web.UI.WebControls.DropDownList cmbProjet;
         
         /// <summary>
-        /// Contrôle cmbStatutBillet.
+        /// Contrôle cmbEquipe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbStatutBillet;
+        protected global::System.Web.UI.WebControls.DropDownList cmbEquipe;
         
         /// <summary>
-        /// Contrôle cmbPrioriteBillet.
+        /// Contrôle btnRechercher.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbPrioriteBillet;
+        protected global::System.Web.UI.WebControls.Button btnRechercher;
         
         /// <summary>
-        /// Contrôle dateTerminaisonBillet.
+        /// Contrôle UPGridView.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateTerminaisonBillet;
+        protected global::System.Web.UI.UpdatePanel UPGridView;
         
         /// <summary>
-        /// Contrôle txtDateTerminaison.
+        /// Contrôle gvRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateTerminaison;
+        protected global::System.Web.UI.WebControls.GridView gvRecherche;
         
         /// <summary>
-        /// Contrôle rtxtDescriptionBillet.
+        /// Contrôle dataGridPagination.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionBillet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dataGridPagination;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle btnCreerBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAnnuler;
-        
-        /// <summary>
-        /// Contrôle btnEnregistrer.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEnregistrer;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreerBillet;
     }
 }

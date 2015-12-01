@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TexcelWeb.Classes.Projet;
 using TexcelWeb.Classes.Test;
 
 namespace TexcelWeb.Classes.Personnel
@@ -82,6 +83,30 @@ namespace TexcelWeb.Classes.Personnel
                 }
             }
             return lstCasTest;
+        }
+
+        //Retourne une liste de projet pour un chef d'équipe
+        public static List<cProjet> lstProjetByChefEquipe(string _nomChefEquipe)
+        {
+            List<cProjet> lstProjet = new List<cProjet>();
+
+            foreach (cProjet projet in CtrlProjet.GetListProjet())
+            {
+                foreach (CasTest castest in projet.CasTest)
+                {
+                    foreach (Equipe equipe in castest.Equipe)
+                    {
+                        if ((equipe.Employe.prenomEmploye+" "+equipe.Employe.nomEmploye) == _nomChefEquipe)
+                        {
+                            if (!lstProjet.Contains(projet))
+                            {
+                                lstProjet.Add(projet);
+                            }
+                        }
+                    }
+                }
+            }
+            return lstProjet;
         }
     }
 }

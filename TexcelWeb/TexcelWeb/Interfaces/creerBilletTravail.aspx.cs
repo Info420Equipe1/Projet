@@ -75,7 +75,7 @@ namespace TexcelWeb.Interfaces
         {
             //Collecte de l'information pour un billet
             string titreBillet = txtTitreBillet.Text;
-            string dureeBillet = txtDureeBillet.Text;
+            string dureeBillet = cmbDureeBillet.Text;
             string dateCreationBillet = String.Format("{0}", Request.Form["txtDateCreationBillet"]);
             string dateLivraisonBillet = String.Format("{0}", Request.Form["txtDateLivraisonBillet"]);
             string employeAssigneBillet = String.Format("{0}", Request.Form["cmbTesteurBillet"]);
@@ -104,6 +104,10 @@ namespace TexcelWeb.Interfaces
                         break;
                 }
 	        }
+            else
+            {
+
+            }
         }
 
         private void setFieldLength()
