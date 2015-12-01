@@ -27,142 +27,109 @@ $(function(){
 </head>
 
 <body>
-     <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="wrap">
 	        <div id="header">
 		        <div id="top">
 			        <div class="left">
-				    <p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a> ]</p>
+				        <p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			        </div>
-		
 		        </div>
-	        </div>	
-
-    <div id="div_1">
-
-             <div id="div_1a">
-
-                 <div class="lblInfo">
+	        </div>
+        </div>	
+        <div id="div_1">
+            <div id="div_1a">
+                <div class="lblInfo">
                     <asp:Label runat="server" Text="Projet : " />
                     <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" style="width:250px"/> <br /><br />               
-                 </div>
-
-                 <div class="lblInfo">
-                     <asp:Label  runat="server" Text="Équipe :" />
-                     <asp:DropDownList runat="server" ID="ddlEquipe" CssClass="txtColum1" style="width:250px"/> <br /><br />
-                 </div>
-
-                 <div class="lblInfo">
+                </div>
+                <div class="lblInfo">
+                    <asp:Label  runat="server" Text="Équipe :" />
+                    <asp:DropDownList runat="server" ID="ddlEquipe" CssClass="txtColum1" style="width:250px"/> <br /><br />
+                </div>
+                <div class="lblInfo">
                     <asp:Label  runat="server" Text="Testeur :" />
                     <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" style="width:250px" />
-                 </div>
-
-             </div>
-
-            
-             <div class="div_1b">
-
-                 <div class="info">
-                    <asp:Label class="lblinfo" runat="server" Text="Nb cas Test : " />
-                    <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
-                 </div>
-
-                 <div class="info">
-                    <asp:Label  class="lblinfo" runat="server" Text="Nb billet: " />
-                    `#<asp:TextBox runat="server" ID="TextBox1" CssClass="txtColum1"/>
-                 </div>
-
-                 <div class="info">
-                    <asp:Label class="lblinfo" runat="server" Text="Nb billet(en cours): " />
-                    <asp:TextBox runat="server" ID="TextBox2" CssClass="txtColum1"/>
-                 </div>
-                            
-                 <div class="info">
-                    <asp:Label class="lblinfo" runat="server" Text="Nb billet(terminé) : " />
-                     <asp:TextBox runat="server" ID="TextBox3" CssClass="txtColum1"/>
-                 </div>
-                           
-             </div>
-
-             <div class="div_1b">
-
-                 <div class="info">
+                </div>
+                <div class="div_1b">
+                    <div class="info">
+                        <asp:Label class="lblinfo" runat="server" Text="Nb cas Test : " />
+                        <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
+                    </div>
+                    <div class="info">
+                        <asp:Label  class="lblinfo" runat="server" Text="Nb billet: " />
+                        <asp:TextBox runat="server" ID="TextBox1" CssClass="txtColum1"/>
+                    </div>
+                    <div class="info">
+                        <asp:Label class="lblinfo" runat="server" Text="Nb billet(en cours): " />
+                        <asp:TextBox runat="server" ID="TextBox2" CssClass="txtColum1"/>
+                    </div>                      
+                    <div class="info">
+                        <asp:Label class="lblinfo" runat="server" Text="Nb billet(terminé) : " />
+                        <asp:TextBox runat="server" ID="TextBox3" CssClass="txtColum1"/>
+                    </div>            
+                </div>
+            </div>
+            <div class="div_1b">
+                <div class="info">
                     <asp:Label class="lblinfo" runat="server" Text="Nb billet(urgent): " CssClass="lblColum1"/>
-                      <asp:TextBox runat="server" ID="TextBox4" CssClass="txtColum1"/>
-                 </div>
-
-                 <div class="info">
+                    <asp:TextBox runat="server" ID="TextBox4" CssClass="txtColum1"/>
+                </div>
+                <div class="info">
                     <asp:Label class="lblinfo" runat="server" Text="Temps estimé: " CssClass="lblColum1"/>
                     <asp:TextBox runat="server" ID="TextBox5" CssClass="txtColum1"/>           
-                 </div>
-
-                 <div class="info">
+                </div>
+                <div class="info">
                     <asp:Label class="lblinfo" runat="server" Text="Temps estimé(globale): " CssClass="lblColum1"/>
                     <asp:TextBox runat="server" ID="TextBox6" CssClass="txtColum1"/>      
-                 </div>
-                            
-                 <div class="info">
+                </div>              
+                <div class="info">
                     <asp:Label class="lblinfo" runat="server" Text="Temps investie : " CssClass="lblColum1"/>
                     <asp:TextBox runat="server" ID="TextBox7" CssClass="txtColum1"/>
-                 </div>
-                           
-             </div>
-    </div>
-
-             <div id="div_1c">
+                </div>                         
+            </div>
+            <div id="div_1c">
                 <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False" Width="1261px">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Cocher" >
-                                <ItemTemplate>
-                                     <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                             <asp:BoundField ItemStyle-Width="200px" DataField="TitreBillet" HeaderText="Titre" >
+                    <Columns>
+                        <asp:TemplateField HeaderText="Cocher" >
+                            <ItemTemplate>
+                                <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField ItemStyle-Width="200px" DataField="TitreBillet" HeaderText="Titre" >
                             <ItemStyle CssClass="boundfieldElement"  />
-                            </asp:BoundField>
-
-                            <asp:TemplateField HeaderText="Priorité">
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="ddlPriorite" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPriorite_SelectedIndexChanged"></asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="Statut" >
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="ddlStatut" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatut_SelectedIndexChanged"></asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                             <asp:TemplateField HeaderText="Type de Test">
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="ddlTypeTest" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged"></asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            
-                             <asp:TemplateField HeaderText="Durée">
-                                <ItemTemplate>
-                                    
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                             <asp:TemplateField HeaderText="Testeur">
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="ddlTesteur" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged"></asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CasTest" HeaderText="Cas de Test" >
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Priorité">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlPriorite" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPriorite_SelectedIndexChanged"></asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Statut" >
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlStatut" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlStatut_SelectedIndexChanged"></asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Type de Test">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlTypeTest" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged"></asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>      
+                        <asp:TemplateField HeaderText="Durée">
+                            <ItemTemplate>             
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Testeur">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlTesteur" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged"></asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CasTest" HeaderText="Cas de Test" >
                             <ItemStyle CssClass="boundfieldElement"/>
-                            </asp:BoundField>  
-
-                           
-                        </Columns>
-                    </asp:GridView>	
-                           
-             </div>
-
-
+                        </asp:BoundField>            
+                    </Columns>
+                </asp:GridView>	                   
+            </div>
+        </div>
      </form>
 
 </body>
