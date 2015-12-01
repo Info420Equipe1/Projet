@@ -321,9 +321,9 @@
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" />
+          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="tagPlateforme" Type="varchar" MaxLength="100" />
         </EntityType>
@@ -332,12 +332,13 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="codeSysExp" />
+            <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="nomEdition" Type="varchar" MaxLength="50" />
-          <Property Name="noVersion" Type="varchar" MaxLength="30" />
+          <Property Name="nomEdition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="noVersion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="commSysExp" Type="text" />
           <Property Name="tagSysExp" Type="varchar" MaxLength="130" />
         </EntityType>
@@ -346,8 +347,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            <PropertyRef Name="nomEquipe" />
-            <PropertyRef Name="ChefEquipe" />
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
@@ -385,9 +384,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
         <EntityType Name="AllProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
@@ -1387,29 +1383,28 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
         </EntityType>
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagPlateforme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="codeSysExp" />
+            <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
           </Key>
           <Property Name="nomSysExp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codeSysExp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomEdition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nomEdition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commSysExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="tagSysExp" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            <PropertyRef Name="nomEquipe" />
-            <PropertyRef Name="ChefEquipe" />
           </Key>
           <Property Name="idEquipe" Type="Int16" Nullable="false" />
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1441,9 +1436,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
         <EntityType Name="AllProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
