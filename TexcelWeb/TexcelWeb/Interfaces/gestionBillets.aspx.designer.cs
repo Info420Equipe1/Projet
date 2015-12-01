@@ -67,67 +67,67 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtCodeProjet;
         
         /// <summary>
-        /// Contrôle TextBox1.
+        /// Contrôle txtNbBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtNbBillet;
         
         /// <summary>
-        /// Contrôle TextBox2.
+        /// Contrôle txtNbBilletEnCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtNbBilletEnCours;
         
         /// <summary>
-        /// Contrôle TextBox3.
+        /// Contrôle txtNbBilletTermine.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtNbBilletTermine;
         
         /// <summary>
-        /// Contrôle TextBox4.
+        /// Contrôle txtNbBilletUrgent.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtNbBilletUrgent;
         
         /// <summary>
-        /// Contrôle TextBox5.
+        /// Contrôle txtTempsEstime.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtTempsEstime;
         
         /// <summary>
-        /// Contrôle TextBox6.
+        /// Contrôle txtTempsTotal.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox txtTempsTotal;
         
         /// <summary>
-        /// Contrôle TextBox7.
+        /// Contrôle txtTempInvestie.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox txtTempInvestie;
         
         /// <summary>
         /// Contrôle dgvBillets.
