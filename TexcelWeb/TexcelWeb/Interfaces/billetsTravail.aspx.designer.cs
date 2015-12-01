@@ -94,13 +94,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Contrôle btnCopier.
+        /// Contrôle btnVisualiser.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCopier;
+        protected global::System.Web.UI.WebControls.LinkButton btnVisualiser;
         
         /// <summary>
         /// Contrôle dataGridPagination.

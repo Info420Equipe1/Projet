@@ -30,21 +30,14 @@ namespace TexcelWeb.Interfaces
                 txtCurrentUserName.InnerText = user.nomUtilisateur;
                 RemplirChamps();
             }
-            //DataTable dT = new DataTable();
-            //dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateFin", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
-            //dT.Rows.Add(dT.NewRow());
-            //dT.Rows[0].SetField("Titre", "No Record Available");
-            //GridView1.Visible = true;
-            //GridView1.DataSource = dT;
-            //GridView1.DataBind();
-            //GridView1.HeaderRow.Visible = true;
-            //lblNbrBillet.Text = "yo";
-            //lblNbrBilletPersonnel.Text = "yo";
+          
         }
 
         public void RemplirChamps()
         {
             List<BilletTravail> lstBilletTravail = CtrlBilletTravail.GetLstBilletTravail(CtrlEmploye.getEmployeById(user.noEmploye.ToString()));
+            int cpt = new int();
+            cpt = 0;
             DataTable dT = new DataTable();
             dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateLivraison", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
 
@@ -55,22 +48,41 @@ namespace TexcelWeb.Interfaces
                     DataRow dR = dT.NewRow();
                     dR["Titre"] = bT.titreBilletTravail;
                     dR["Priorite"] = bT.NiveauPriorite.nomNivPri;
-                    dR["DateLivraison"] = bT.dateFin;
+                    
+                    if (bT.dateLivraison != null)
+                    {
+                        dR["DateLivraison"] = ((DateTime)bT.dateLivraison).ToShortDateString();
+                    }
+                    else
+                    {
+                        dR["DateLivraison"] = "YO";
+                    }
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
+                    
                     dR["Duree"] = bT.dureeBilletTravail;
                     dR["Projet"] = bT.CasTest.cProjet.nomProjet;
                     dT.Rows.Add(dR);
+                    if (bT.idNivPri == 1)
+                    {
+                        cpt++;
+                    }
                 }
+                lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
+                lblNbrBillet.Text = cpt.ToString();
 	           
             }
             else
             {
                 dT.Rows.Add(dT.NewRow());
                 dT.Rows[0].SetField("Titre", "No Record Available");
+                lblNbrBillet.Text = "0";
+                lblNbrBilletPersonnel.Text = "0";
             }
 
             GridView1.DataSource = dT;
             GridView1.DataBind();
+
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,7 +111,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
-        protected void btnCopier_Click(object sender, EventArgs e)
+        protected void btnVisualiser_Click(object sender, EventArgs e)
         {
             Session["BilletTravail"] = CtrlBilletTravail.GetBillet(GridView1.SelectedRow.Cells[0].Text);
         }

@@ -85,7 +85,7 @@ $(function(){
                             </Columns>
                         </asp:GridView>
                         <div>
-                            <asp:LinkButton runat="server" ID="btnCopier" Text="Visualiser" CssClass="button" OnClick="btnCopier_Click"/>
+                            <asp:LinkButton runat="server" ID="btnVisualiser" Text="Visualiser" CssClass="button" OnClick="btnVisualiser_Click"/>
                         </div>
                     </div>
                     <div id="dataGridPagination" class="pagination" runat="server"></div>
