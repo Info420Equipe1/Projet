@@ -46,7 +46,7 @@ namespace TexcelWeb.Interfaces
         {
             List<BilletTravail> lstBilletTravail = CtrlBilletTravail.GetLstBilletTravail(CtrlEmploye.getEmployeById(user.noEmploye.ToString()));
             DataTable dT = new DataTable();
-            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateFin", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
+            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateLivraison", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
 
             if (lstBilletTravail.Count() != 0)
             {
@@ -55,7 +55,7 @@ namespace TexcelWeb.Interfaces
                     DataRow dR = dT.NewRow();
                     dR["Titre"] = bT.titreBilletTravail;
                     dR["Priorite"] = bT.NiveauPriorite.nomNivPri;
-                    dR["DateFin"] = bT.dateFin;
+                    dR["DateLivraison"] = bT.dateFin;
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
                     dR["Duree"] = bT.dureeBilletTravail;
                     dR["Projet"] = bT.CasTest.cProjet.nomProjet;

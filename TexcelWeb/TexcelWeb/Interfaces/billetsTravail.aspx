@@ -78,7 +78,7 @@ $(function(){
                                
                                 <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false"/>
                                 <asp:BoundField DataField="Priorite" HeaderText="Priorité" />
-                                <asp:BoundField DataField="DateFin" HeaderText="Date de fin" />
+                                <asp:BoundField DataField="DateLivraison" HeaderText="Date de livraison" />
                                 <asp:BoundField DataField="TypeTest" HeaderText="Type de test" />
                                 <asp:BoundField DataField="Duree" HeaderText="Durée" />
                                 <asp:BoundField DataField="Projet" HeaderText="Projet" />
