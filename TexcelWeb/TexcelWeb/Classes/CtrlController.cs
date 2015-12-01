@@ -14,8 +14,6 @@ namespace TexcelWeb.Classes
         protected static dbProjetE1Entities context = new dbProjetE1Entities();
         protected static Utilisateur currentUtilisateur;
 
-
-
         public static void SetCurrentUser(Utilisateur user)
         {
             currentUtilisateur = user;

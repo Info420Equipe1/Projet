@@ -54,5 +54,6 @@ namespace TexcelWeb
         public virtual DbSet<AllTesteurs> AllTesteurs { get; set; }
         public virtual DbSet<AllCasTest> AllCasTest { get; set; }
         public virtual DbSet<AllProjet> AllProjet { get; set; }
+        public virtual DbSet<FiltreDataSource> tblFiltreDataSource { get; set; }
     }
 }

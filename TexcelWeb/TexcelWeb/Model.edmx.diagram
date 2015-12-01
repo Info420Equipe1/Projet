@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0deeb523d06b488eb4b683c5effe86e8" Name="Diagram1" ZoomLevel="62">
+      <Diagram DiagramId="0deeb523d06b488eb4b683c5effe86e8" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="dbProjetE1Model.ClassificationJeu" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.EditionSysExp" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.GenreJeu" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
@@ -61,6 +61,7 @@
         <AssociationConnector Association="dbProjetE1Model.tblGroupeUtilisateur" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblEmployeTypeTest" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.tblEquipeCasTest" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbProjetE1Model.FiltreDataSource" Width="1.5" PointX="0.75" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -61,7 +61,10 @@ namespace TexcelWeb
                     ddlFiltre.Items.Remove("CasTest");
                 }
             }
-
+            foreach (string nom in CtrlFiltreDataSource.GetAllNomFiltre())
+            {
+                ddlFiltre.Items.Add(nom);
+            }
             AfficherGV(ddlFiltre.Text);
         }
 
@@ -70,12 +73,12 @@ namespace TexcelWeb
             switch (_filtre)
             {
                 case "Projet":
-                    gvRecherche.DataSourceID = "edsProjet";
+                    gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
                     break;
                 case "CasTest":
-                    gvRecherche.DataSourceID = "edsCasTest";
+                    gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
                     edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
                     gvRecherche.DataBind();
                     break;

@@ -166,6 +166,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\CtrlController.cs" />
+    <Compile Include="Classes\CtrlFiltreDataSource.cs" />
     <Compile Include="Classes\CtrlLogin.cs" />
     <Compile Include="Classes\CtrlRecherche.cs" />
     <Compile Include="Classes\Jeu\CtrlJeu.cs" />
@@ -198,6 +199,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Equipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FiltreDataSource.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms.cs">

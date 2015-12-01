@@ -72,10 +72,7 @@ a {color:white; text-decoration:none}
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="210px" />
-                                <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged">
-                                    <asp:ListItem>Projet</asp:ListItem>
-                                    <asp:ListItem>CasTest</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged"></asp:DropDownList>
                                 <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" />
                             </div>
                         </ContentTemplate>
