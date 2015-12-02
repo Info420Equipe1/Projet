@@ -11,6 +11,7 @@ namespace TexcelWeb
 {
     public partial class creerBilletChefEquipe : System.Web.UI.Page
     {
+        List<cProjet> lstProjetChefEquipeActuel;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,10 +31,28 @@ namespace TexcelWeb
         private void fillDropDownList()
         {
             Employe employe = (CtrlController.GetCurrentUser()).Employe;
-            foreach (cProjet projet in CtrlEquipe.lstProjetByChefEquipe(employe.prenomEmploye+" "+employe.nomEmploye))
+            lstProjetChefEquipeActuel = CtrlEquipe.lstProjetByChefEquipe(employe.prenomEmploye + " " + employe.nomEmploye);
+            foreach (cProjet projet in lstProjetChefEquipeActuel)
             {
                 cmbProjet.Items.Add(projet.nomProjet);
             }
+        }
+
+        protected void cmbProjet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cProjet projet;
+            foreach (cProjet pro in lstProjetChefEquipeActuel)
+	        {
+		        if (pro.nomProjet == cmbProjet.SelectedItem.Text)
+	            {
+                    projet = pro;
+	            }
+	        }
+            
+            //foreach (Equipe equipe in projet.)
+            //{
+                
+            //}
         }
     }
 }

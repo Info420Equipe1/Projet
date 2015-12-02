@@ -70,7 +70,7 @@ $(function(){
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:Label runat="server" Text="Projet: " />
-                                <asp:DropDownList ID="cmbProjet" runat="server" Width="210px" AutoPostBack="true" /><br />
+                                <asp:DropDownList ID="cmbProjet" runat="server" Width="210px" AutoPostBack="true" OnSelectedIndexChanged="cmbProjet_SelectedIndexChanged" /><br />
                                 <asp:Label runat="server" Text="Équipe: " />
                                 <asp:DropDownList ID="cmbEquipe" runat="server" Width="210px" />
                                 <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />

@@ -1,20 +1,22 @@
 ﻿.div_1 {
 
  padding:20px;
- display: inline-block;     
+ display: inline-block; 
+ float:left;    
 }
 
 #div_1a {
  padding:20px;
     height: 177px;
-    width: 343px;
+    width: 290px;
   display: inline-block;
+  
 }
 
 .div_1b {
  height: 166px;
- padding:15px;
- width: 318px;
+ padding-top:60px;
+ width: 250px;
  display: inline-block;
 }
 
@@ -29,6 +31,13 @@
 }
 
 .ddlGV{
-   Width:150px;
+   Width:125px;
    text-align:center;
+}
+
+.txtColum1{
+    width:45px;
+}
+.div_1bb{
+    
 }
