@@ -60,9 +60,9 @@ a {color:white; text-decoration:none}
             <div class="box">
 				<div class="h_title">&#8250; Billet de travail</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="creerBilletTravail.aspx">Ajouter</a></li>
+                    <li class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des billets</a></li>
 				</ul>
-			</div>
+			</div>     
 		</div>
 	    <div id="main">					
 			<div class="full_w">
