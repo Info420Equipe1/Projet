@@ -43,7 +43,7 @@ $(function(){
             <div class="box">
 				<div class="h_title">&#8250; Projets</div>
 				<ul id="home">
-					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter</a></li>
+					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
                     <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
 				</ul>
 			</div>		
