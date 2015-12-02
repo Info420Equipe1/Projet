@@ -36,7 +36,7 @@ $(function(){
 			        </div>
 		        </div>
 	        </div>
-       	
+       	</div>
 
     <div id="content">       
 		<div id="sidebar">
@@ -68,7 +68,7 @@ $(function(){
 			</div>           
         </div>
 
-        <div id="div_1">
+        <div class="div_1">
             <div id="div_1a">
                 <div class="lblInfo">
                     <asp:Label runat="server" Text="Projet : " />
@@ -82,7 +82,9 @@ $(function(){
                     <asp:Label  runat="server" Text="Testeur :" />
                     <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" style="width:250px" />
                 </div>
-                <div class="div_1b">
+            </div>
+                
+            <div class="div_1b">
                     <div class="info">
                         <asp:Label class="lblinfo" runat="server" Text="Nb cas Test : " />
                         <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
@@ -98,10 +100,9 @@ $(function(){
                     <div class="info">
                         <asp:Label class="lblinfo" runat="server" Text="Nb billet(terminé) : " />
                         <asp:TextBox runat="server" ID="txtNbBilletTermine" CssClass="txtColum1"/>
-                    </div>            
-                </div>
+                    </div>                          
             </div>
-            <div class="div_1b">
+           <div class="div_1b">
                 <div class="info">
                     <asp:Label class="lblinfo" runat="server" Text="Nb billet(urgent): " CssClass="lblColum1"/>
                     <asp:TextBox runat="server" ID="txtNbBilletUrgent" CssClass="txtColum1"/>
@@ -118,7 +119,7 @@ $(function(){
                     <asp:Label class="lblinfo" runat="server" Text="Temps investie : " CssClass="lblColum1"/>
                     <asp:TextBox runat="server" ID="txtTempInvestie" CssClass="txtColum1"/>
                 </div>                         
-            </div>
+          </div>
 
             <div id="div_1c">
                 <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" Width="1261px" OnRowDataBound="dgvBillets_RowDataBound">
@@ -165,7 +166,7 @@ $(function(){
                 </asp:GridView>	                   
             </div>
         </div>
-     </div>
+    
    </form>
 
     <div id="footer">

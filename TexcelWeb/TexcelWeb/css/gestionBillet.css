@@ -1,15 +1,26 @@
-﻿#div_1a {
- float:left;
- padding-left:20px;
-    height: 282px;
+﻿.div_1 {
+
+ padding:20px;
+ display: inline-block;     
 }
+
+#div_1a {
+ padding:20px;
+    height: 177px;
+    width: 343px;
+  display: inline-block;
+}
+
 .div_1b {
- float:left;
  height: 166px;
  padding:15px;
+ width: 318px;
+ display: inline-block;
 }
+
+
 #div_1c {
- clear:both;
+    display: inline-block;
 }
 
 .boundfieldElement{
