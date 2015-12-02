@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,6 +27,7 @@ namespace TexcelWeb
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
                 fillDropDownList();
+                showEmptyDataGrid();
             }
         }
         private void fillDropDownList()
@@ -53,6 +55,22 @@ namespace TexcelWeb
             //{
                 
             //}
+        }
+        private void showEmptyDataGrid()
+        {
+            DataTable dT = new DataTable();
+            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("CodeCasTest", typeof(string)), new DataColumn("NomCasTest", typeof(string)), new DataColumn("DateLivraisonCasTest", typeof(string)), new DataColumn("PrioriteCasTest", typeof(string)), new DataColumn("DifficulteCasTest", typeof(string)), new DataColumn("Options", typeof(string)) });
+            dT.Rows.Add(dT.NewRow());
+            dT.Rows[0].SetField("NomCasTest", "No Record Available");
+            dataGridCasTest.Visible = true;
+            dataGridCasTest.DataSource = dT;
+            dataGridCasTest.DataBind();
+            dataGridCasTest.HeaderRow.Visible = true;
+        }
+
+        protected void btnCreerBillet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("creerBilletTravail.aspx");
         }
     }
 }

@@ -79,13 +79,13 @@ $(function(){
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="gvRecherche" runat="server" AllowSorting="true">
+                            <asp:GridView ID="dataGridCasTest" runat="server">
                             </asp:GridView>
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>          
                     <div>
-                        <asp:LinkButton runat="server" ID="btnCreerBillet" Text="Creer un billet de travail" CssClass="btnDroit button add" />
+                        <asp:LinkButton runat="server" ID="btnCreerBillet" Text="Creer un billet de travail" CssClass="btnDroit button add" OnClick="btnCreerBillet_Click" />
                     </div><br /><br />
                 </form>
 			</div>

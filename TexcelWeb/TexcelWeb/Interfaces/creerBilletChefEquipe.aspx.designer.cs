@@ -175,13 +175,13 @@ namespace TexcelWeb {
         protected global::System.Web.UI.UpdatePanel UPGridView;
         
         /// <summary>
-        /// Contrôle gvRecherche.
+        /// Contrôle dataGridCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRecherche;
+        protected global::System.Web.UI.WebControls.GridView dataGridCasTest;
         
         /// <summary>
         /// Contrôle dataGridPagination.
