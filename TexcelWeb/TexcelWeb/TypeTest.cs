@@ -12,10 +12,19 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class tblFiltreDataSource
+    public partial class TypeTest
     {
-        public short idFiltre { get; set; }
-        public string nomFiltre { get; set; }
-        public string nomDataSource { get; set; }
+        public TypeTest()
+        {
+            this.CasTest = new HashSet<CasTest>();
+            this.Employe = new HashSet<Employe>();
+        }
+    
+        public short idTest { get; set; }
+        public string nomTest { get; set; }
+        public string descTest { get; set; }
+    
+        public virtual ICollection<CasTest> CasTest { get; set; }
+        public virtual ICollection<Employe> Employe { get; set; }
     }
 }

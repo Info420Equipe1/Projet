@@ -71,7 +71,7 @@ namespace TexcelWeb.Classes.Test
         private static void Enregistrer(BilletTravail _billet)
         {
             //Ajouter un billet dans la BD
-            context.tblBilletTravail.Add(_billet);
+            context.BilletTravail.Add(_billet);
             context.SaveChanges();
         }
 
@@ -80,7 +80,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                BilletTravail billet = context.tblBilletTravail.Where(x => x.idBilletTravail == _id).First();
+                BilletTravail billet = context.BilletTravail.Where(x => x.idBilletTravail == _id).First();
                 return billet;
             }
             catch (Exception)
@@ -94,7 +94,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<BilletTravail> lstBilletTravail = new List<BilletTravail>();
 
-            foreach (BilletTravail billet in context.tblBilletTravail)
+            foreach (BilletTravail billet in context.BilletTravail)
             {
                 lstBilletTravail.Add(billet);
             }
@@ -104,7 +104,7 @@ namespace TexcelWeb.Classes.Test
         //Verifier si le billet exist
         private static bool billetExist(string titreBillet)
         {
-            foreach (BilletTravail billet in context.tblBilletTravail)
+            foreach (BilletTravail billet in context.BilletTravail)
             {
                 if (billet.titreBilletTravail == titreBillet)
                 {
@@ -158,7 +158,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<BilletTravail> lst = new List<BilletTravail>();
 
-            foreach (BilletTravail bT in context.tblBilletTravail)
+            foreach (BilletTravail bT in context.BilletTravail)
             {
                 if (bT.noEmploye == _emp.noEmploye)
                 {
@@ -174,7 +174,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                BilletTravail billet = context.tblBilletTravail.Where(x => x.titreBilletTravail == _nom).First();
+                BilletTravail billet = context.BilletTravail.Where(x => x.titreBilletTravail == _nom).First();
                 return billet;
             }
             catch (Exception)

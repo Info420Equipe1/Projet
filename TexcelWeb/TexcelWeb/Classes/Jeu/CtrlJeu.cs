@@ -11,7 +11,7 @@ namespace TexcelWeb.Classes.Jeu
         {
             List<cJeu> lstJeu = new List<cJeu>();
 
-            foreach (cJeu jeu in context.tblJeu)
+            foreach (cJeu jeu in context.Jeu)
             {
                 lstJeu.Add(jeu);
             }
@@ -19,7 +19,7 @@ namespace TexcelWeb.Classes.Jeu
         }
         public static cJeu GetJeu(string _nomJeu)
         {
-            cJeu Jeu = context.tblJeu.Where(x => x.nomJeu == _nomJeu).First();
+            cJeu Jeu = context.Jeu.Where(x => x.nomJeu == _nomJeu).First();
 
             return Jeu;
         }

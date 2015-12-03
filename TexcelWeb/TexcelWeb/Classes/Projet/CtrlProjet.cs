@@ -77,7 +77,7 @@ namespace TexcelWeb.Classes.Projet
         private static void Enregistrer(cProjet _projet)
         {
             //Ajouter un projet dans la BD
-            context.tblProjet.Add(_projet);
+            context.Projet.Add(_projet);
             context.SaveChanges();
         }
 
@@ -143,7 +143,7 @@ namespace TexcelWeb.Classes.Projet
         {
             try
             {
-                cProjet projet = context.tblProjet.Where(x => x.codeProjet == _code).First();
+                cProjet projet = context.Projet.Where(x => x.codeProjet == _code).First();
                 return projet;
             }
             catch (Exception)
@@ -155,7 +155,7 @@ namespace TexcelWeb.Classes.Projet
         {
             List<cProjet> lstProjet = new List<cProjet>();
 
-            foreach (cProjet proj in context.tblProjet)
+            foreach (cProjet proj in context.Projet)
             {
                 lstProjet.Add(proj);
             }
@@ -167,7 +167,7 @@ namespace TexcelWeb.Classes.Projet
         {
             List<cProjet> lstProjet = new List<cProjet>();
 
-            foreach (cProjet proj in context.tblProjet)
+            foreach (cProjet proj in context.Projet)
             {
                 if (proj.chefProjet != null)
                 {
@@ -184,13 +184,13 @@ namespace TexcelWeb.Classes.Projet
         //Retourne un projet à l'aide d'un nom de projet
         public static cProjet GetProjet(string _nomProjet)
         {
-            cProjet proj = context.tblProjet.Where(x => x.nomProjet == _nomProjet).First();
+            cProjet proj = context.Projet.Where(x => x.nomProjet == _nomProjet).First();
             return proj;
         }
 
         private static bool projetExist(string codeProjet)
         {
-            foreach (cProjet projet in context.tblProjet)
+            foreach (cProjet projet in context.Projet)
             {
                 if (projet.codeProjet == codeProjet)
                 {

@@ -14,6 +14,11 @@ namespace TexcelWeb
     
     public partial class BilletTravail
     {
+        public BilletTravail()
+        {
+            this.Employe1 = new HashSet<Employe>();
+        }
+    
         public short idBilletTravail { get; set; }
         public string titreBilletTravail { get; set; }
         public Nullable<double> dureeBilletTravail { get; set; }
@@ -34,5 +39,6 @@ namespace TexcelWeb
         public virtual CasTest CasTest { get; set; }
         public virtual NiveauPriorite NiveauPriorite { get; set; }
         public virtual Statut Statut { get; set; }
+        public virtual ICollection<Employe> Employe1 { get; set; }
     }
 }

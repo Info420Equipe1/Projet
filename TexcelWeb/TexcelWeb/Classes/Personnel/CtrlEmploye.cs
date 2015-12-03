@@ -10,20 +10,20 @@ namespace TexcelWeb.Classes.Personnel
         
         public static Employe getEmployeById(string id)
         {
-            Employe emp = context.tblEmploye.Where(x => x.noEmploye == id).First();
+            Employe emp = context.Employe.Where(x => x.noEmploye == id).First();
             return emp;
         }
 
         //Retourne un employe a l'aide de son nom complet
         public static Employe getEmployeByName(string _nomEmp)
         {
-            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            Employe emp = context.Employe.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp;
         }
         //Retourne un id d'employe a l'aide de son nom complet
         public static string getIdEmploye(string _nomEmp)
         {
-            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            Employe emp = context.Employe.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp.noEmploye;
         }
 
@@ -32,7 +32,7 @@ namespace TexcelWeb.Classes.Personnel
             List<Employe> lstChefProjet = new List<Employe>();
 
             //Ajout dans la liste de tous les Employe qui ont comme groupe chef de Projet dans la BD
-            foreach (Utilisateur user in context.tblUtilisateur)
+            foreach (Utilisateur user in context.Utilisateur)
             {
                 foreach (Groupe groupe in user.Groupe)
 	            {
@@ -50,7 +50,7 @@ namespace TexcelWeb.Classes.Personnel
             List<Employe> lstTesteur = new List<Employe>();
 
             //Ajout dans la liste de tous les Employe qui ont comme groupe chef de Projet dans la BD
-            foreach (Utilisateur user in context.tblUtilisateur)
+            foreach (Utilisateur user in context.Utilisateur)
             {
                 foreach (Groupe groupe in user.Groupe)
                 {

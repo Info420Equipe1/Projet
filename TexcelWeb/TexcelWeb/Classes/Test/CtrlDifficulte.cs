@@ -11,7 +11,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<Difficulte> lst = new List<Difficulte>();
 
-            foreach (Difficulte nivPrio in context.tblDifficulte)
+            foreach (Difficulte nivPrio in context.Difficulte)
             {
                 lst.Add(nivPrio);
             }
@@ -20,14 +20,14 @@ namespace TexcelWeb.Classes.Test
 
         public static Difficulte GetDiff(string _nom)
         {
-            Difficulte diff = context.tblDifficulte.Where(x => x.nomDiff == _nom).First();
+            Difficulte diff = context.Difficulte.Where(x => x.nomDiff == _nom).First();
 
             return diff;
         }
 
         public static Difficulte GetDiff(int _id)
         {
-            Difficulte diff = context.tblDifficulte.Where(x => x.idDiff == _id).First();
+            Difficulte diff = context.Difficulte.Where(x => x.idDiff == _id).First();
 
             return diff;
         }

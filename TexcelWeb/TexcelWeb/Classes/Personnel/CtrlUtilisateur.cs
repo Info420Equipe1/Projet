@@ -43,7 +43,7 @@ namespace TexcelWeb.Classes.Personnel
 
         public static Utilisateur getUtilisateur(string _nomUti)
         {
-            Utilisateur uti = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
+            Utilisateur uti = context.Utilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
 
             return uti;
         }

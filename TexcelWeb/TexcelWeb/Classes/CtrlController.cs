@@ -24,7 +24,7 @@ namespace TexcelWeb.Classes
         }
         public static Utilisateur getUtilisateurByName(string nomUtilisateur)
         {
-            foreach (Utilisateur user in context.tblUtilisateur)
+            foreach (Utilisateur user in context.Utilisateur)
             {
                 if (user.nomUtilisateur == nomUtilisateur)
                 {

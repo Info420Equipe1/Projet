@@ -10,7 +10,7 @@ namespace TexcelWeb.Classes
         public static List<string> GetAllNomFiltre()
         {
             List<string> nomFiltres = new List<string>();
-            foreach (FiltreDataSource filtreVue in context.tblFiltreDataSource)
+            foreach (FiltreDataSource filtreVue in context.FiltreDataSource)
             {
                 nomFiltres.Add(filtreVue.nomFiltre);
             }
@@ -19,7 +19,7 @@ namespace TexcelWeb.Classes
 
         public static string GetDataSourceName(string _filterName)
         {
-            return context.tblFiltreDataSource.Where(x => x.nomFiltre == _filterName).First().nomDataSource;
+            return context.FiltreDataSource.Where(x => x.nomFiltre == _filterName).First().nomDataSource;
         }
     }
 }

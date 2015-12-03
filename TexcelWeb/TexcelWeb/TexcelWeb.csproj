@@ -148,6 +148,9 @@
     <Compile Include="AllCasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AllCasTest1.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllCasTestBilletTravail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -170,6 +173,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllProjet.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjet1.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllProjetCasTest.cs">
@@ -238,7 +244,16 @@
     <Compile Include="Equipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FiltreDataSource.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="GenreJeu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groupe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\creerBilletChefEquipe.aspx.cs">
@@ -358,22 +373,13 @@
     <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblFiltreDataSource.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblForms.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblGroupe.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblTypeTest.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="ThemeJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TypePlateforme.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilisateur.cs">

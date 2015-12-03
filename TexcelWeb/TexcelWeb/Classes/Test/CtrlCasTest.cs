@@ -30,7 +30,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                context.tblCasTest.Add(_cT);
+                context.CasTest.Add(_cT);
                 context.SaveChanges();
                 return true;
             }
@@ -75,7 +75,7 @@ namespace TexcelWeb.Classes.Test
 
             try
             {
-                context.tblCasTest.Add(casTest);
+                context.CasTest.Add(casTest);
                 context.SaveChanges();
                 return true;
             }
@@ -147,7 +147,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                return context.tblCasTest.Where(x => x.codeCasTest == codeCasTest).First();
+                return context.CasTest.Where(x => x.codeCasTest == codeCasTest).First();
             }
             catch (Exception)
             {
@@ -160,14 +160,14 @@ namespace TexcelWeb.Classes.Test
         //Rechercher un Cas de test avec le NomCasTest
         public static CasTest GetCasTestByNom(string nomCasTest)
         {
-            return context.tblCasTest.Where(x => x.nomCasTest == nomCasTest).First();
+            return context.CasTest.Where(x => x.nomCasTest == nomCasTest).First();
         }
 
         public static List<CasTest> GetLstCasTest()
         {
             List<CasTest> lst = new List<CasTest>();
 
-            foreach (CasTest casTest in context.tblCasTest)
+            foreach (CasTest casTest in context.CasTest)
             {
                 lst.Add(casTest);
             }

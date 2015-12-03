@@ -11,13 +11,13 @@ namespace TexcelWeb.Classes.Personnel
     {
         public static Equipe getEquipeById(int _id)
         {
-            Equipe selectedEquipe = context.tblEquipe.Where(x => x.idEquipe == _id).First();
+            Equipe selectedEquipe = context.Equipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;
         }
 
         public static Equipe getEquipeByNomAndCodeProjet(string nomEquipe, string codeProjet)
         {
-            Equipe selectedEquipe = context.tblEquipe.Where(x => x.nomEquipe == nomEquipe && x.codeProjet == codeProjet).First();
+            Equipe selectedEquipe = context.Equipe.Where(x => x.nomEquipe == nomEquipe && x.codeProjet == codeProjet).First();
             return selectedEquipe;
         }
 
@@ -60,7 +60,7 @@ namespace TexcelWeb.Classes.Personnel
         {
             List<Equipe> lstEquipe = new List<Equipe>();
 
-            foreach (Equipe equipe in context.tblEquipe)
+            foreach (Equipe equipe in context.Equipe)
             {
                 if (equipe.codeProjet == codeProjet)
                 {

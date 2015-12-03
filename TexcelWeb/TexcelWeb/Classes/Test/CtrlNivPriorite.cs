@@ -11,7 +11,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<NiveauPriorite> lst = new List<NiveauPriorite>();
 
-            foreach (NiveauPriorite nivPrio in context.tblNiveauPriorite)
+            foreach (NiveauPriorite nivPrio in context.NiveauPriorite)
             {
                 lst.Add(nivPrio);
             }
@@ -21,7 +21,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                NiveauPriorite priorite = context.tblNiveauPriorite.Where(x => x.nomNivPri == _nomPriorite).First();
+                NiveauPriorite priorite = context.NiveauPriorite.Where(x => x.nomNivPri == _nomPriorite).First();
                 return priorite;
             }
             catch (Exception)
@@ -32,14 +32,14 @@ namespace TexcelWeb.Classes.Test
 
         public static NiveauPriorite GetNivPrio(string _nom)
         {
-            NiveauPriorite nivPrio = context.tblNiveauPriorite.Where(x => x.nomNivPri == _nom).First();
+            NiveauPriorite nivPrio = context.NiveauPriorite.Where(x => x.nomNivPri == _nom).First();
 
             return nivPrio;
         }
 
         public static NiveauPriorite GetNivPrio(int _id)
         {
-            NiveauPriorite nivPrio = context.tblNiveauPriorite.Where(x => x.idNivPri == _id).First();
+            NiveauPriorite nivPrio = context.NiveauPriorite.Where(x => x.idNivPri == _id).First();
 
             return nivPrio;
         }

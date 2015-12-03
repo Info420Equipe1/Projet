@@ -38,7 +38,7 @@ namespace TexcelWeb
         public virtual cProjet cProjet { get; set; }
         public virtual Difficulte Difficulte { get; set; }
         public virtual NiveauPriorite NiveauPriorite { get; set; }
-        public virtual tblTypeTest TypeTest { get; set; }
+        public virtual TypeTest TypeTest { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
     }
 }

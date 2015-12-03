@@ -9,7 +9,7 @@ namespace TexcelWeb.Classes.Jeu
     {
         public static VersionJeu GetVersionJeu(string _nomVersion)
         {
-            VersionJeu Version = context.tblVersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
+            VersionJeu Version = context.VersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
             return Version;
         }
     }

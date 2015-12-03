@@ -11,7 +11,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<Statut> lstStatut = new List<Statut>();
 
-            foreach (Statut statut in context.tblStatut)
+            foreach (Statut statut in context.Statut)
             {
                 lstStatut.Add(statut);
             }
@@ -22,7 +22,7 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                Statut statut = context.tblStatut.Where(x => x.nomStatut == _nomStatut).First();
+                Statut statut = context.Statut.Where(x => x.nomStatut == _nomStatut).First();
                 return statut;
             }
             catch (Exception)

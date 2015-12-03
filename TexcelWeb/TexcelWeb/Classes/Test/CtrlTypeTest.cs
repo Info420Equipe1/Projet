@@ -11,7 +11,7 @@ namespace TexcelWeb.Classes.Test
         {
             List<TypeTest> lstTypeTest = new List<TypeTest>();
 
-            foreach (TypeTest tT in context.tblTypeTest)
+            foreach (TypeTest tT in context.TypeTest)
             {
                 lstTypeTest.Add(tT);
             }
@@ -20,7 +20,7 @@ namespace TexcelWeb.Classes.Test
 
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest tT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
+            TypeTest tT = context.TypeTest.Where(x => x.nomTest == _nomTypeTest).First();
             return tT;
         }
     }

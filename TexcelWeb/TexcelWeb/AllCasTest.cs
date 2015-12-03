@@ -14,10 +14,11 @@ namespace TexcelWeb
     
     public partial class AllCasTest
     {
-        public string codeCasTest { get; set; }
-        public string nomCasTest { get; set; }
-        public string nomProjet { get; set; }
-        public string nomTest { get; set; }
+        public string Code_du_cas_de_test { get; set; }
+        public string Nom_du_cas_de_test { get; set; }
+        public Nullable<System.DateTime> Date_de_création { get; set; }
+        public Nullable<System.DateTime> Date_de_livraison { get; set; }
+        public string Code_du_projet { get; set; }
         public string tagCasTest { get; set; }
     }
 }

@@ -25,46 +25,48 @@ namespace TexcelWeb
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ClassificationJeu> tblClassificationJeu { get; set; }
-        public virtual DbSet<EditionSysExp> tblEditionSysExp { get; set; }
-        public virtual DbSet<GenreJeu> tblGenreJeu { get; set; }
-        public virtual DbSet<cJeu> tblJeu { get; set; }
-        public virtual DbSet<Plateforme> tblPlateforme { get; set; }
-        public virtual DbSet<SysExp> tblSysExp { get; set; }
-        public virtual DbSet<ThemeJeu> tblThemeJeu { get; set; }
-        public virtual DbSet<TypePlateforme> tblTypePlateforme { get; set; }
-        public virtual DbSet<VersionJeu> tblVersionJeu { get; set; }
-        public virtual DbSet<VersionSysExp> tblVersionSysExp { get; set; }
-        public virtual DbSet<Employe> tblEmploye { get; set; }
-        public virtual DbSet<Equipe> tblEquipe { get; set; }
-        public virtual DbSet<tblForms> tblForms { get; set; }
-        public virtual DbSet<tblGroupe> tblGroupe { get; set; }
-        public virtual DbSet<Utilisateur> tblUtilisateur { get; set; }
-        public virtual DbSet<BilletTravail> tblBilletTravail { get; set; }
-        public virtual DbSet<CasTest> tblCasTest { get; set; }
-        public virtual DbSet<Difficulte> tblDifficulte { get; set; }
-        public virtual DbSet<NiveauPriorite> tblNiveauPriorite { get; set; }
-        public virtual DbSet<cProjet> tblProjet { get; set; }
-        public virtual DbSet<Statut> tblStatut { get; set; }
-        public virtual DbSet<tblTypeTest> tblTypeTest { get; set; }
-        public virtual DbSet<tblFiltreDataSource> tblFiltreDataSource { get; set; }
+        public virtual DbSet<ClassificationJeu> ClassificationJeu { get; set; }
+        public virtual DbSet<EditionSysExp> EditionSysExp { get; set; }
+        public virtual DbSet<GenreJeu> GenreJeu { get; set; }
+        public virtual DbSet<cJeu> Jeu { get; set; }
+        public virtual DbSet<Plateforme> Plateforme { get; set; }
+        public virtual DbSet<SysExp> SysExp { get; set; }
+        public virtual DbSet<ThemeJeu> ThemeJeu { get; set; }
+        public virtual DbSet<TypePlateforme> TypePlateforme { get; set; }
+        public virtual DbSet<VersionJeu> VersionJeu { get; set; }
+        public virtual DbSet<VersionSysExp> VersionSysExp { get; set; }
+        public virtual DbSet<Employe> Employe { get; set; }
+        public virtual DbSet<Equipe> Equipe { get; set; }
+        public virtual DbSet<Forms> Forms { get; set; }
+        public virtual DbSet<Groupe> Groupe { get; set; }
+        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
+        public virtual DbSet<BilletTravail> BilletTravail { get; set; }
+        public virtual DbSet<CasTest> CasTest { get; set; }
+        public virtual DbSet<Difficulte> Difficulte { get; set; }
+        public virtual DbSet<NiveauPriorite> NiveauPriorite { get; set; }
+        public virtual DbSet<cProjet> Projet { get; set; }
+        public virtual DbSet<Statut> Statut { get; set; }
+        public virtual DbSet<TypeTest> TypeTest { get; set; }
+        public virtual DbSet<FiltreDataSource> FiltreDataSource { get; set; }
+        public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
+        public virtual DbSet<AllSysExp> AllSysExp { get; set; }
+        public virtual DbSet<AllEquipe> AllEquipe { get; set; }
+        public virtual DbSet<AllTesteurs> AllTesteurs { get; set; }
         public virtual DbSet<AllBilletTravailPriorite> AllBilletTravailPriorite { get; set; }
         public virtual DbSet<AllBilletTravailStatut> AllBilletTravailStatut { get; set; }
+        public virtual DbSet<AllCasTest> AllCasTest { get; set; }
         public virtual DbSet<AllCasTestBilletTravail> AllCasTestBilletTravail { get; set; }
         public virtual DbSet<AllEmployeBilletTravail> AllEmployeBilletTravail { get; set; }
         public virtual DbSet<AllEmployeEquipe> AllEmployeEquipe { get; set; }
         public virtual DbSet<AllEmployeTypeTest> AllEmployeTypeTest { get; set; }
         public virtual DbSet<AllJeuProjet> AllJeuProjet { get; set; }
+        public virtual DbSet<AllProjet> AllProjet { get; set; }
         public virtual DbSet<AllProjetCasTest> AllProjetCasTest { get; set; }
         public virtual DbSet<AllProjetClassification> AllProjetClassification { get; set; }
         public virtual DbSet<AllProjetEquipe> AllProjetEquipe { get; set; }
         public virtual DbSet<AllProjetGenre> AllProjetGenre { get; set; }
         public virtual DbSet<AllProjetTheme> AllProjetTheme { get; set; }
-        public virtual DbSet<AllPlateforme> AllPlateforme { get; set; }
-        public virtual DbSet<AllSysExp> AllSysExp { get; set; }
-        public virtual DbSet<AllEquipe> AllEquipe { get; set; }
-        public virtual DbSet<AllTesteurs> AllTesteurs { get; set; }
-        public virtual DbSet<AllCasTest> AllCasTest { get; set; }
-        public virtual DbSet<AllProjet> AllProjet { get; set; }
+        public virtual DbSet<AllCasTest1> AllCasTest1 { get; set; }
+        public virtual DbSet<AllProjet1> AllProjet1 { get; set; }
     }
 }
