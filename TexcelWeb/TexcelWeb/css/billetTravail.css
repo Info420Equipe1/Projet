@@ -13,22 +13,22 @@
      text-align:right;
  }
 #CenterLbl{
-    margin-left:75px;
+    margin-left:25px;
     margin-top:15px;
 }
 #BilletInfo{
     width: 100%;
     display:inline-block;
-    margin-left:25%;
+    margin-left:20%;
 }
 #txtTitreBillet{
     width:325px;
 }
 #DureeTexte{
     float:right;
-    padding-right:26%;
+    padding-right:33%;
 }
-#cmbDureeBillet{
+#txtDureeBillet{
     width:65px;
 }
 #lblAjouterBillet{
@@ -48,14 +48,14 @@
 }
 .richtextbox{
     height:210px;
-    width:600px;
+    width:550px;
     resize:none;
 }
 
 
 
 
-#lblColumn1{
+lblColum1{
     width: 49%;
     display:inline-block;
 }

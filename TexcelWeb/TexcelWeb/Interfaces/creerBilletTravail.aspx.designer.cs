@@ -49,6 +49,24 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.ScriptManager ToolkitScriptManager;
         
         /// <summary>
+        /// Contrôle txtProjetCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProjetCasTest;
+        
+        /// <summary>
+        /// Contrôle txtEquipe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEquipe;
+        
+        /// <summary>
         /// Contrôle txtNomCasTest.
         /// </summary>
         /// <remarks>
@@ -67,22 +85,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtNomTypeTest;
         
         /// <summary>
-        /// Contrôle txtDateLivraisonCasTest.
+        /// Contrôle txtDifficulte.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonCasTest;
-        
-        /// <summary>
-        /// Contrôle txtProjetCasTest.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProjetCasTest;
+        protected global::System.Web.UI.WebControls.TextBox txtDifficulte;
         
         /// <summary>
         /// Contrôle txtTitreBillet.
@@ -94,22 +103,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtTitreBillet;
         
         /// <summary>
-        /// Contrôle cmbDureeBillet.
+        /// Contrôle txtDureeBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cmbDureeBillet;
-        
-        /// <summary>
-        /// Contrôle txtDateCreationBillet.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateCreationBillet;
+        protected global::System.Web.UI.WebControls.TextBox txtDureeBillet;
         
         /// <summary>
         /// Contrôle txtDateLivraisonBillet.
@@ -119,6 +119,24 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateLivraisonBillet;
+        
+        /// <summary>
+        /// Contrôle lblDateCreation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateCreation;
+        
+        /// <summary>
+        /// Contrôle txtDateCreationBillet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateCreationBillet;
         
         /// <summary>
         /// Contrôle CompareValidator1.
@@ -193,13 +211,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionBillet;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle btnFermer.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAnnuler;
+        protected global::System.Web.UI.WebControls.LinkButton btnFermer;
         
         /// <summary>
         /// Contrôle btnEnregistrer.

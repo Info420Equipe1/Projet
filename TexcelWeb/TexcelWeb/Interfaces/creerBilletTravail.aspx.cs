@@ -13,31 +13,45 @@ namespace TexcelWeb.Interfaces
     public partial class creerBilletTravail : System.Web.UI.Page
     {
         static bool modifierBillet;
+        static bool consulterBillet;
         Utilisateur currentUser;
+        BilletTravail billetActuel;
+        CasTest casTestCreationBillet;
+        Equipe equipeActuelle;
         protected void Page_Init(object sender, EventArgs e)
         {
             bool modifier = Convert.ToBoolean(Session["modifBillet"]);
+            bool consulter = Convert.ToBoolean(Session["consultBillet"]);
+            
             modifierBillet = modifier;
             Session["modifBillet"] = false;
+            
+            consulterBillet = consulter;
+            Session["consultBillet"] = false;
+            //
+            consulterBillet = true;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                txtNomCasTest.Text = "AssassinsCreedEvaluationduProduit";
-                initializeComponent(modifierBillet);
-            }
+            //if (!IsPostBack)
+            //{
+            //    initializeComponent();
+
+            //    casTestCreationBillet = (CasTest)Session["CasTestCreationBillet"];
+            //    equipeActuelle = (Equipe)Session["EquipeCreationBillet"];
+            //    //
+            //    casTestCreationBillet = CtrlCasTest.GetCasTestByCode("ASUEvPr");
+            //    equipeActuelle = CtrlEquipe.getEquipeById(16);
+            //    //
+            //    if (modifierBillet || consulterBillet)
+            //    {
+            //         billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
+            //    }
+            //}
         }
 
-        private void initializeComponent(bool modif)
+        private void initializeComponent()
         {
-            //Longueur des champs
-            setFieldLength();
-            //Emplissage des DropDownList
-            fillDropDownBox();
-
-            
-
             //Premier loading de la page
             if (CtrlController.GetCurrentUser() == null)
             {
@@ -51,31 +65,80 @@ namespace TexcelWeb.Interfaces
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             }
 
-            if (!modif)
+            //Longueur des champs
+            setFieldLength();
+
+            //Emplissage des DropDownList
+            fillDropDownBox();
+
+            //Date de terminaison cachée
+            dateTerminaisonBillet.Visible = false;
+
+            //Information du cas de test en haut de la page
+            fillInformationCasTest();
+
+
+            if (!modifierBillet && !consulterBillet)
             {
                 //Mode creation Billet
                 txtForm.InnerText = "Créer un billet";
-                dateTerminaisonBillet.Visible = false;
+                //Control actifs
+                txtDateCreationBillet.Visible = true;
+                lblDateCreation.Visible = true;
+                btnEnregistrer.Visible = true;
+                txtTitreBillet.Enabled = true;
+                txtDureeBillet.Enabled = true;
+                txtDateLivraisonBillet.Enabled = true;
+                cmbTesteurBillet.Enabled = true;
+                cmbPrioriteBillet.Enabled = true;
+                cmbStatutBillet.Enabled = true;
+                rtxtDescriptionBillet.Enabled = true;
+                //Date Creation par défaut
                 txtDateCreationBillet.Text = Convert.ToString(DateTime.Today.ToString("d"));
             }
-            else
+            else if (modifierBillet)
             {
                 //Mode modifier Billet
                 txtForm.InnerText = "Modifier un billet";
+                //Control actifs
+                txtDateCreationBillet.Visible = true;
+                lblDateCreation.Visible = true;
+                btnEnregistrer.Visible = true;
+                txtTitreBillet.Enabled = true;
+                txtDureeBillet.Enabled = true;
+                txtDateLivraisonBillet.Enabled = true;
+                cmbTesteurBillet.Enabled = true;
+                cmbPrioriteBillet.Enabled = true;
+                cmbStatutBillet.Enabled = true;
+                rtxtDescriptionBillet.Enabled = true;
+
+                //Emplissage des champs avec le billet
+                fillInformationBillet();
+            }
+            else
+            {
+                //Mode consulter billet
+                txtForm.InnerText = "Consulter un billet";
+                //Control actifs
+                txtDateCreationBillet.Visible = false;
+                lblDateCreation.Visible = false;
+                btnEnregistrer.Visible = false;
+                txtTitreBillet.Enabled = false;
+                txtDureeBillet.Enabled = false;
+                txtDateLivraisonBillet.Enabled = false;
+                cmbTesteurBillet.Enabled = false;
+                cmbPrioriteBillet.Enabled = false;
+                cmbStatutBillet.Enabled = false;
+                rtxtDescriptionBillet.Enabled = false;
             }
         }
 
-        protected void btnAnnuler_Click(object sender, EventArgs e)
-        {
-            Session["modifBillet"] = false;
-            Response.Redirect("recherche.aspx");
-        }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             //Collecte de l'information pour un billet
             string titreBillet = txtTitreBillet.Text;
-            string dureeBillet = cmbDureeBillet.Text;
+            string dureeBillet = txtDureeBillet.Text;
             string dateCreationBillet = String.Format("{0}", Request.Form["txtDateCreationBillet"]);
             string dateLivraisonBillet = String.Format("{0}", Request.Form["txtDateLivraisonBillet"]);
             string employeAssigneBillet = String.Format("{0}", Request.Form["cmbTesteurBillet"]);
@@ -89,6 +152,8 @@ namespace TexcelWeb.Interfaces
 	        {
 		        //Ajout d'un billet de travail
                 string message = CtrlBilletTravail.AjouterBillet(titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet);
+
+                //Reception du message
                 switch (message)
                 {
                     case "billetajoute":
@@ -112,15 +177,53 @@ namespace TexcelWeb.Interfaces
 
         private void setFieldLength()
         {
+            //Longueur des champs
             int maxLengthTitreBillet = CtrlBilletTravail.GetMaxLength<BilletTravail>(BilletTravail => BilletTravail.titreBilletTravail);
             txtTitreBillet.MaxLength = maxLengthTitreBillet;
+        }
+        private void fillInformationCasTest()
+        {
+            //Information pour le cas de test
+            txtProjetCasTest.Text = casTestCreationBillet.cProjet.nomProjet;
+            txtEquipe.Text = equipeActuelle.nomEquipe;
+            txtNomCasTest.Text = casTestCreationBillet.nomCasTest;
+            txtNomTypeTest.Text = casTestCreationBillet.TypeTest.nomTest;
+            txtDifficulte.Text = casTestCreationBillet.Difficulte.nomDiff;
+        }
+        private void fillInformationBillet()
+        {
+            ListItem lstitem;
+            txtTitreBillet.Text = billetActuel.titreBilletTravail;
+            txtDureeBillet.Text = billetActuel.dureeBilletTravail.ToString();
+            txtDateCreationBillet.Text = ((DateTime)billetActuel.dateCreation).ToShortDateString();
+            if (billetActuel.dateLivraison != null)
+            {
+                txtDateLivraisonBillet.Text = ((DateTime)billetActuel.dateLivraison).ToShortDateString();
+            }
+            if (billetActuel.Employe != null)
+	        {
+		        lstitem = new ListItem();
+                lstitem.Text = billetActuel.Employe.prenomEmploye+" "+billetActuel.Employe.nomEmploye;
+                cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lstitem);
+	        }
+            lstitem = new ListItem();
+            lstitem.Text = billetActuel.Statut.nomStatut;
+            cmbStatutBillet.SelectedIndex = cmbStatutBillet.Items.IndexOf(lstitem);
+            if (billetActuel.Statut.nomStatut == "Terminé")
+            {
+                txtDateTerminaison.Text = ((DateTime)billetActuel.dateFin).ToShortDateString();
+            }
+            lstitem = new ListItem();
+            lstitem.Text = billetActuel.NiveauPriorite.nomNivPri;
+            cmbPrioriteBillet.SelectedIndex = cmbPrioriteBillet.Items.IndexOf(lstitem);
+            rtxtDescriptionBillet.Text = billetActuel.descBilletTravail;
         }
         private void fillDropDownBox()
         {
             ListItem lst;
             //Emplissage du DropDownList Chef de Projet
             cmbTesteurBillet.Items.Clear();
-            foreach (Employe emp in CtrlEmploye.getLstTesteur())
+            foreach (Employe emp in equipeActuelle.Employe1)
             {
                 cmbTesteurBillet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
             }
@@ -158,6 +261,27 @@ namespace TexcelWeb.Interfaces
             else
             {
                 dateTerminaisonBillet.Visible = false;
+            }
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            if (modifierBillet)
+            {
+                Session["modifBillet"] = false;
+                Response.Redirect("recherche.aspx");
+            }
+            else if (consulterBillet)
+            {
+                Session["consultBillet"] = false;
+                Response.Redirect("recherche.aspx");
+                //Dla marde sa marche pas. Post back pi revien sur la meme page a cause du post back
+                //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
+            }
+            else
+            {
+                Response.Redirect("recherche.aspx");
+                //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
             }
         }
     }

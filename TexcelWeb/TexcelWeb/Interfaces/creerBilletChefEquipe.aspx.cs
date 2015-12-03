@@ -59,7 +59,7 @@ namespace TexcelWeb
         private void showEmptyDataGrid()
         {
             DataTable dT = new DataTable();
-            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("CodeCasTest", typeof(string)), new DataColumn("NomCasTest", typeof(string)), new DataColumn("DateLivraisonCasTest", typeof(string)), new DataColumn("PrioriteCasTest", typeof(string)), new DataColumn("DifficulteCasTest", typeof(string)), new DataColumn("Options", typeof(string)) });
+            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("CodeCasTest", typeof(string)), new DataColumn("NomCasTest", typeof(string)), new DataColumn("PrioriteCasTest", typeof(string)), new DataColumn("DifficulteCasTest", typeof(string)), new DataColumn("DateLivraisonCasTest", typeof(string)), new DataColumn("Options", typeof(TemplateField)) });
             dT.Rows.Add(dT.NewRow());
             dT.Rows[0].SetField("NomCasTest", "No Record Available");
             dataGridCasTest.Visible = true;

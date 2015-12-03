@@ -67,14 +67,16 @@ $(function(){
                     <p>Informations sur le Cas de test</p>
                     <div id="CasTestInfo" >
                         <div id="CenterLbl">
+                            <asp:Label runat="server" Text="Projet: " CssClass="lblTop"/>
+                            <asp:TextBox runat="server" ID="txtProjetCasTest" Enabled="false"/>
+                            <asp:Label runat="server" Text="Équipe: " CssClass="lblTop"/>
+                            <asp:TextBox runat="server" ID="txtEquipe" Enabled="false"/>
                             <asp:Label runat="server" Text="Cas de test: " CssClass="lblTop"/>
                             <asp:TextBox runat="server" ID="txtNomCasTest" Enabled="false"/>
                             <asp:Label runat="server" Text="Type de test: " CssClass="lblTop"/>
                             <asp:TextBox runat="server" ID="txtNomTypeTest" Enabled="false"/>
-                            <asp:Label runat="server" Text="Date Livraison: " CssClass="lblTop" />
-                            <asp:TextBox runat="server" ID="txtDateLivraisonCasTest" Enabled="false"/>
-                            <asp:Label runat="server" Text="Projet: " CssClass="lblTop"/>
-                            <asp:TextBox runat="server" ID="txtProjetCasTest" Enabled="false"/>
+                            <asp:Label runat="server" Text="Difficulté: " CssClass="lblTop"/>
+                            <asp:TextBox runat="server" ID="txtDifficulte" Enabled="false"/>
                         </div>
                     </div>
                     <div id="pAjouterBillet">
@@ -84,21 +86,23 @@ $(function(){
                     <div id="BilletInfo">
                         <div >
                             <div class="info">
-                                <asp:Label runat="server" Text="Titre du Billet: " CssClass="lblColum1"/>
+                                <div class="lblColum1" >
+                                    <asp:Label runat="server" Text="Titre du Billet: "/>
+                                </div>
                                 <asp:TextBox runat="server" ID="txtTitreBillet"/>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTitreBillet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
-                                <asp:TextBox type="number" runat="server" ID="cmbDureeBillet" MaxLength="3"/>
-                                <p id="DureeTexte">(Durée approximative.)</p>
+                                <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0"/>
+                                <p id="DureeTexte">(Approximative)</p>
                             </div>
                             <div class="info">
-                                <asp:Label runat="server" Text="Date Création: " CssClass="lblColum1"/>
-                                <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
-                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1 lblDate2" />
+                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1" />
                                 <asp:TextBox type="date" runat="server" ID="txtDateLivraisonBillet" CssClass="txtColum1 txtDate2" />
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
+                                <asp:Label ID="lblDateCreation" runat="server" Text="Date Création: " CssClass="lblColum1 lblDate2"/>
+                                <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
@@ -125,7 +129,7 @@ $(function(){
                         </div>
                     </div>
                 <div id="btnEnregistrerAnnuler">    
-                        <asp:LinkButton runat="server" ID="btnAnnuler" Text="Annuler" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
+                        <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
                         <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />                  
                     <br />
                     <br />
