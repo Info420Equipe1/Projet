@@ -39,7 +39,7 @@ namespace TexcelWeb.Interfaces
             int cpt = new int();
             cpt = 0;
             DataTable dT = new DataTable();
-            dT.Columns.AddRange(new DataColumn[6] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("DateLivraison", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
+            dT.Columns.AddRange(new DataColumn[7] { new DataColumn("Titre", typeof(string)), new DataColumn("Priorite", typeof(string)), new DataColumn("Difficulte", typeof(string)), new DataColumn("DateLivraison", typeof(string)), new DataColumn("TypeTest", typeof(string)), new DataColumn("Duree", typeof(string)), new DataColumn("Projet", typeof(string)) });
 
             if (lstBilletTravail.Count() != 0)
             {
@@ -48,7 +48,7 @@ namespace TexcelWeb.Interfaces
                     DataRow dR = dT.NewRow();
                     dR["Titre"] = bT.titreBilletTravail;
                     dR["Priorite"] = bT.NiveauPriorite.nomNivPri;
-                    
+                    dR["Difficulte"] = bT.CasTest.Difficulte.nomDiff;
                     if (bT.dateLivraison != null)
                     {
                         dR["DateLivraison"] = ((DateTime)bT.dateLivraison).ToShortDateString();
@@ -85,35 +85,48 @@ namespace TexcelWeb.Interfaces
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void CBSelec_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                if (row.RowIndex == GridView1.SelectedIndex)
-                {
-                    row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
-                    row.ToolTip = string.Empty;
-                }
-                else
-                {
-                    row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-                    row.ToolTip = "Cliquez pour selectionner cette colonne";
-                }
-            }
+            Response.Write("<script>alert('Fire');</script>");
+            //CheckBox chk = (CheckBox)sender;
+            //GridViewRow gr = (GridViewRow)chk.Parent.Parent;
+            //lblNbrBillet.Text = GridView1.DataKeys[gr.RowIndex].Value.ToString();
         }
 
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView1, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Cliquez pour selectionner cette colonne";
-            }
+
         }
 
-        protected void btnVisualiser_Click(object sender, EventArgs e)
-        {
-            Session["BilletTravail"] = CtrlBilletTravail.GetBillet(GridView1.SelectedRow.Cells[0].Text);
-        }
+        //protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    foreach (GridViewRow row in GridView1.Rows)
+        //    {
+        //        if (row.RowIndex == GridView1.SelectedIndex)
+        //        {
+        //            row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
+        //            row.ToolTip = string.Empty;
+        //        }
+        //        else
+        //        {
+        //            row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+        //            row.ToolTip = "Cliquez pour selectionner cette colonne";
+        //        }
+        //    }
+        //}
+
+        //protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView1, "Select$" + e.Row.RowIndex);
+        //        e.Row.ToolTip = "Cliquez pour selectionner cette colonne";
+        //    }
+        //}
+
+        //protected void btnVisualiser_Click(object sender, EventArgs e)
+        //{
+        //    Session["BilletTravail"] = CtrlBilletTravail.GetBillet(GridView1.SelectedRow.Cells[0].Text);
+        //}
     }
 }

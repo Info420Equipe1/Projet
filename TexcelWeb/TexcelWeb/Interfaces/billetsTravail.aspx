@@ -73,19 +73,44 @@ $(function(){
                         <div>
                             <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
                         </div>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" >
                             <Columns>
-                               
                                 <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false"/>
                                 <asp:BoundField DataField="Priorite" HeaderText="Priorité" />
+                                <asp:BoundField DataField="Difficulte" HeaderText="Difficulté" />
                                 <asp:BoundField DataField="DateLivraison" HeaderText="Date de livraison" />
                                 <asp:BoundField DataField="TypeTest" HeaderText="Type de test" />
                                 <asp:BoundField DataField="Duree" HeaderText="Durée" />
                                 <asp:BoundField DataField="Projet" HeaderText="Projet" />
+                               
+                                
+                                <asp:TemplateField HeaderText="Sélectionné">
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="CBSelec" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBSelec_CheckedChanged" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Terminé">
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="CBTer" runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Détail">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkDownload" runat="server" Text="Cas de test"/>
+                                    <asp:LinkButton ID="lnkDelete" runat="server" Text="Billet de travail" />
+                                    
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
+                            
                         </asp:GridView>
                         <div>
-                            <asp:LinkButton runat="server" ID="btnVisualiser" Text="Visualiser" CssClass="button" OnClick="btnVisualiser_Click"/>
                         </div>
                     </div>
                     <div id="dataGridPagination" class="pagination" runat="server"></div>
