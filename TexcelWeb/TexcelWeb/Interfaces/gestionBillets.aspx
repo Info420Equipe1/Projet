@@ -66,15 +66,15 @@ $(function(){
                             <div id="div_1a">
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Projet : " />
-                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" style="width:250px"/> <br /><br />               
+                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged" style="width:250px"/> <br /><br />               
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Équipe :" />
-                                    <asp:DropDownList runat="server" ID="ddlEquipe" CssClass="txtColum1" style="width:250px"/> <br /><br />
+                                    <asp:DropDownList runat="server" ID="ddlEquipe" CssClass="txtColum1" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" style="width:250px"/> <br /><br />
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Testeur :" />
-                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" style="width:250px" />
+                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" style="width:250px" />
                                 </div>
                             </div>
                         </div>     
@@ -117,7 +117,7 @@ $(function(){
                             </div>
                         </div> 
                         <div id="div_1c">
-                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" OnRowDataBound="dgvBillets_RowDataBound">
+                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" OnRowDataBound="dgvBillets_RowDataBound"  >
                                 <Columns>
                                     <asp:TemplateField HeaderText="" >
                                         <ItemTemplate>
