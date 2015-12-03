@@ -12,16 +12,10 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class Forms
+    public partial class AllProjetCasTest
     {
-        public Forms()
-        {
-            this.Groupe = new HashSet<Groupe>();
-        }
-    
-        public short idForm { get; set; }
-        public string nomForm { get; set; }
-    
-        public virtual ICollection<Groupe> Groupe { get; set; }
+        public string nomProjet { get; set; }
+        public string nomCasTest { get; set; }
+        public string tagProjetCasTest { get; set; }
     }
 }

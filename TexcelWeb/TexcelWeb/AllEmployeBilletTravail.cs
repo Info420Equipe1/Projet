@@ -12,10 +12,10 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class FiltreDataSource
+    public partial class AllEmployeBilletTravail
     {
-        public short idFiltre { get; set; }
-        public string nomFiltre { get; set; }
-        public string nomDataSource { get; set; }
+        public string nomEmploye { get; set; }
+        public string titreBilletTravail { get; set; }
+        public string tagEmployeBilletTravail { get; set; }
     }
 }

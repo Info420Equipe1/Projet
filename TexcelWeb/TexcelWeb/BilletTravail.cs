@@ -26,6 +26,8 @@ namespace TexcelWeb
         public string noEmploye { get; set; }
         public Nullable<short> idEquipe { get; set; }
         public string codeCasTest { get; set; }
+        public string tagBilletTravailPriorite { get; set; }
+        public string tagBilletTravailStatut { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual Equipe Equipe { get; set; }

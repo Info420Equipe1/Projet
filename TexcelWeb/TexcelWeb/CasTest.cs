@@ -32,12 +32,13 @@ namespace TexcelWeb
         public Nullable<short> idTest { get; set; }
         public Nullable<short> idNivPri { get; set; }
         public string tagCasTest { get; set; }
+        public string tagCasTestBilletTravail { get; set; }
     
         public virtual ICollection<BilletTravail> BilletTravail { get; set; }
         public virtual cProjet cProjet { get; set; }
         public virtual Difficulte Difficulte { get; set; }
         public virtual NiveauPriorite NiveauPriorite { get; set; }
-        public virtual TypeTest TypeTest { get; set; }
+        public virtual tblTypeTest TypeTest { get; set; }
         public virtual ICollection<Equipe> Equipe { get; set; }
     }
 }

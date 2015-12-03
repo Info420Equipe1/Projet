@@ -12,20 +12,18 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class Utilisateur
+    public partial class tblGroupe
     {
-        public Utilisateur()
+        public tblGroupe()
         {
-            this.Groupe = new HashSet<tblGroupe>();
+            this.tblForms = new HashSet<tblForms>();
+            this.tblUtilisateur = new HashSet<Utilisateur>();
         }
     
-        public string nomUtilisateur { get; set; }
-        public string motPasse { get; set; }
-        public int premierLogin { get; set; }
-        public Nullable<System.DateTime> dateDernModif { get; set; }
-        public string noEmploye { get; set; }
+        public short idGroupe { get; set; }
+        public string nomGroupe { get; set; }
     
-        public virtual Employe Employe { get; set; }
-        public virtual ICollection<tblGroupe> Groupe { get; set; }
+        public virtual ICollection<tblForms> tblForms { get; set; }
+        public virtual ICollection<Utilisateur> tblUtilisateur { get; set; }
     }
 }

@@ -12,12 +12,11 @@ namespace TexcelWeb
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class AllProjetClassification
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string nomProjet { get; set; }
+        public string codeClassification { get; set; }
+        public string nomClassification { get; set; }
+        public string tagProjetClassification { get; set; }
     }
 }

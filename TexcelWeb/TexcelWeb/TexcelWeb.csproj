@@ -139,16 +139,52 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllBilletTravailPriorite.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllBilletTravailStatut.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllCasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AllCasTestBilletTravail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllEmployeBilletTravail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllEmployeEquipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllEmployeTypeTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllEquipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllJeuProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllPlateforme.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllProjet.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjetCasTest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjetClassification.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjetEquipe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjetGenre.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AllProjetTheme.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllSysExp.cs">
@@ -190,13 +226,6 @@
     <Compile Include="cProjet.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\creerBilletChefEquipe.aspx.cs">
-      <DependentUpon>creerBilletChefEquipe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Interfaces\creerBilletChefEquipe.aspx.designer.cs">
-      <DependentUpon>creerBilletChefEquipe.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Difficulte.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -209,17 +238,15 @@
     <Compile Include="Equipe.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FiltreDataSource.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Forms.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="GenreJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Groupe.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Interfaces\creerBilletChefEquipe.aspx.cs">
+      <DependentUpon>creerBilletChefEquipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\creerBilletChefEquipe.aspx.designer.cs">
+      <DependentUpon>creerBilletChefEquipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\billetsTravail.aspx.cs">
       <DependentUpon>billetsTravail.aspx</DependentUpon>
@@ -328,19 +355,25 @@
     <Compile Include="Statut.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="SysExp.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="SysExp.cs">
+    <Compile Include="tblFiltreDataSource.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblForms.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblGroupe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTypeTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ThemeJeu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="TypePlateforme.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TypeTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilisateur.cs">
