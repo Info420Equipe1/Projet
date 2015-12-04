@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace TexcelWeb.Interfaces
                 if (CtrlController.GetCurrentUser() == null)
                 {
                     //Not logged in
-                    Response.Redirect("login.aspx");
+                  Response.Redirect("login.aspx");
                 }
                 else
                 {
@@ -60,41 +61,53 @@ namespace TexcelWeb.Interfaces
         protected void AfficherDdlProjetItem()
         {
             ddlProjet.Items.Clear();           
-            CtrlGestionBillet.SaveLstProjetAffiche();
-
-            //foreach (cProjet projet in lstProjetchefEquipe)
-            //{
-            //    ddlProjet.Items.Add(projet.nomProjet);
-            //}
-
+            CtrlGestionBillet.SaveLstProjetAffiche();        
+            // .selectedvalue va etre le code du projet
             ddlProjet.DataTextField = "nomProjet";
             ddlProjet.DataValueField = "codeProjet";
-            ddlProjet.DataSource = CtrlGestionBillet.getLstProj;
+            ddlProjet.Items.Add(new ListItem(text="Choisissez un projet...");
+            ddlProjet.DataSource = CtrlGestionBillet.getLstProj;        
             ddlProjet.DataBind();
             
 
         }
-        protected void AfficherDdlEquipeItem(cProjet _projChoisi)
-        {           
-           
+        protected void AfficherDdlEquipeItem()
+        {
+            ddlEquipe.Items.Clear();
+            CtrlGestionBillet.SaveLstEquipeAffiche();
+            // .selectedvalue va etre l'id de l'equipe
+            ddlEquipe.DataTextField = "nomEquipe";
+            ddlEquipe.DataValueField = "idEquipe";
+            ddlEquipe.DataSource = CtrlGestionBillet.getLstEquipe;
+            ddlEquipe.DataBind();
+            ddlEquipe.Enabled = true;
 
         }
         protected void AfficherDdlTesteurItem()
         {
-            
+            ddlTesteur.Items.Clear();
+            CtrlGestionBillet.SaveLstTesteurAffiche();
+            // .selectedvalue va etre le no du testeur
+            ddlTesteur.DataTextField = "nomEmploye";
+            ddlTesteur.DataValueField = "noEmploye";
+            ddlTesteur.DataSource = CtrlGestionBillet.getLstTesteur;
+            ddlTesteur.DataBind();
+            ddlTesteur.Enabled = true;
 
         }
 
         //*****************************DROP_DOWN_LIST DU HAUT **********************************************//
         protected void ddlProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // enregistrer le projet qui a été sélectionné dans la classe controle
             CtrlGestionBillet.SaveProjetChoisi(ddlProjet.SelectedIndex);
-        
+            AfficherDdlEquipeItem();          
 
         }
         protected void ddlEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CtrlGestionBillet.SaveEquipeChoisi(ddlEquipe.SelectedIndex);
+            AfficherDdlTesteurItem();
         }
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -119,10 +132,6 @@ namespace TexcelWeb.Interfaces
 
         }
 
-        protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         //*************************************GRIDVIEW EVENT***************************************//
