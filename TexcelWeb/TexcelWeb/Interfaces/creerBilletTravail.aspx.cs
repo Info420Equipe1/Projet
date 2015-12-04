@@ -33,21 +33,21 @@ namespace TexcelWeb.Interfaces
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    initializeComponent();
+            if (!IsPostBack)
+            {
+                initializeComponent();
 
-            //    casTestCreationBillet = (CasTest)Session["CasTestCreationBillet"];
-            //    equipeActuelle = (Equipe)Session["EquipeCreationBillet"];
-            //    //
-            //    casTestCreationBillet = CtrlCasTest.GetCasTestByCode("ASUEvPr");
-            //    equipeActuelle = CtrlEquipe.getEquipeById(16);
-            //    //
-            //    if (modifierBillet || consulterBillet)
-            //    {
-            //         billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
-            //    }
-            //}
+                casTestCreationBillet = (CasTest)Session["CasTestCreationBillet"];
+                equipeActuelle = (Equipe)Session["EquipeCreationBillet"];
+                //
+                casTestCreationBillet = CtrlCasTest.GetCasTestByCode("ASUEvPr");
+                equipeActuelle = CtrlEquipe.getEquipeById(16);
+                //
+                if (modifierBillet || consulterBillet)
+                {
+                    billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
+                }
+            }
         }
 
         private void initializeComponent()
