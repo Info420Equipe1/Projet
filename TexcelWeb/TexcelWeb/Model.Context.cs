@@ -66,7 +66,5 @@ namespace TexcelWeb
         public virtual DbSet<AllProjetEquipe> AllProjetEquipe { get; set; }
         public virtual DbSet<AllProjetGenre> AllProjetGenre { get; set; }
         public virtual DbSet<AllProjetTheme> AllProjetTheme { get; set; }
-        public virtual DbSet<AllCasTest1> AllCasTest1 { get; set; }
-        public virtual DbSet<AllProjet1> AllProjet1 { get; set; }
     }
 }

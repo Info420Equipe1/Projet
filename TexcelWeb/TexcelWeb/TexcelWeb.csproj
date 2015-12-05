@@ -148,9 +148,6 @@
     <Compile Include="AllCasTest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="AllCasTest1.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="AllCasTestBilletTravail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -173,9 +170,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllProjet.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AllProjet1.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="AllProjetCasTest.cs">

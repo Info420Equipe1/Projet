@@ -413,15 +413,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllBilletTravailStatu
 avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllCasTest">
           <Key>
-            <PropertyRef Name="Code du cas de test" />
-            <PropertyRef Name="Nom du cas de test" />
-            <PropertyRef Name="Code du projet" />
+            <PropertyRef Name="codeCasTest" />
+            <PropertyRef Name="nomCasTest" />
+            <PropertyRef Name="codeProjet" />
           </Key>
-          <Property Name="Code du cas de test" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Nom du cas de test" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Date de création" Type="date" />
-          <Property Name="Date de livraison" Type="date" />
-          <Property Name="Code du projet" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
+          <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="tagCasTest" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -487,15 +487,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllJeuProjet' n'a pas
 avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjet">
           <Key>
-            <PropertyRef Name="Code du projet" />
-            <PropertyRef Name="Nom du projet" />
-            <PropertyRef Name="Chef de projet" />
+            <PropertyRef Name="codeProjet" />
+            <PropertyRef Name="nomProjet" />
+            <PropertyRef Name="chefProjet" />
           </Key>
-          <Property Name="Code du projet" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Nom du projet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="Chef de projet" Type="varchar" MaxLength="42" Nullable="false" />
-          <Property Name="Date de création" Type="date" />
-          <Property Name="Date de livraison" Type="date" />
+          <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="chefProjet" Type="varchar" MaxLength="42" Nullable="false" />
+          <Property Name="dateCreation" Type="date" />
+          <Property Name="dateLivraison" Type="date" />
           <Property Name="tagProjet" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -556,38 +556,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="nomTheme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tagProjetTheme" Type="varchar" MaxLength="90" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="AllCasTest1">
-          <Key>
-            <PropertyRef Name="codeCasTest" />
-            <PropertyRef Name="nomCasTest" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="nomTest" />
-          </Key>
-          <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="nomTest" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="tagCasTest" Type="varchar" MaxLength="140" />
-        </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
-        <EntityType Name="AllProjet1">
-          <Key>
-            <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
-          </Key>
-          <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="chefProjet" Type="varchar" MaxLength="42" Nullable="false" />
-          <Property Name="nomJeu" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="dateCreation" Type="date" />
-          <Property Name="dateLivraison" Type="date" />
-          <Property Name="tagProjet" Type="varchar" MaxLength="140" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="Jeu" Type="Self.Jeu" Multiplicity="1" />
@@ -1158,11 +1126,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </EntitySet>
           <EntitySet Name="AllCasTest" EntityType="Self.AllCasTest" store:Type="Views" store:Schema="Recherche">
             <DefiningQuery>SELECT 
-    [AllCasTest].[Code du cas de test] AS [Code du cas de test], 
-    [AllCasTest].[Nom du cas de test] AS [Nom du cas de test], 
-    [AllCasTest].[Date de création] AS [Date de création], 
-    [AllCasTest].[Date de livraison] AS [Date de livraison], 
-    [AllCasTest].[Code du projet] AS [Code du projet], 
+    [AllCasTest].[codeCasTest] AS [codeCasTest], 
+    [AllCasTest].[nomCasTest] AS [nomCasTest], 
+    [AllCasTest].[dateCreation] AS [dateCreation], 
+    [AllCasTest].[dateLivraison] AS [dateLivraison], 
+    [AllCasTest].[codeProjet] AS [codeProjet], 
     [AllCasTest].[tagCasTest] AS [tagCasTest]
     FROM [Recherche].[AllCasTest] AS [AllCasTest]</DefiningQuery>
           </EntitySet>
@@ -1205,11 +1173,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           </EntitySet>
           <EntitySet Name="AllProjet" EntityType="Self.AllProjet" store:Type="Views" store:Schema="Recherche">
             <DefiningQuery>SELECT 
-    [AllProjet].[Code du projet] AS [Code du projet], 
-    [AllProjet].[Nom du projet] AS [Nom du projet], 
-    [AllProjet].[Chef de projet] AS [Chef de projet], 
-    [AllProjet].[Date de création] AS [Date de création], 
-    [AllProjet].[Date de livraison] AS [Date de livraison], 
+    [AllProjet].[codeProjet] AS [codeProjet], 
+    [AllProjet].[nomProjet] AS [nomProjet], 
+    [AllProjet].[chefProjet] AS [chefProjet], 
+    [AllProjet].[dateCreation] AS [dateCreation], 
+    [AllProjet].[dateLivraison] AS [dateLivraison], 
     [AllProjet].[tagProjet] AS [tagProjet]
     FROM [Recherche].[AllProjet] AS [AllProjet]</DefiningQuery>
           </EntitySet>
@@ -1249,26 +1217,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
     [AllProjetTheme].[nomTheme] AS [nomTheme], 
     [AllProjetTheme].[tagProjetTheme] AS [tagProjetTheme]
     FROM [Recherche].[AllProjetTheme] AS [AllProjetTheme]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="AllCasTest1" EntityType="Self.AllCasTest1" store:Type="Views" store:Schema="Test" store:Name="AllCasTest">
-            <DefiningQuery>SELECT 
-    [AllCasTest1].[codeCasTest] AS [codeCasTest], 
-    [AllCasTest1].[nomCasTest] AS [nomCasTest], 
-    [AllCasTest1].[nomProjet] AS [nomProjet], 
-    [AllCasTest1].[nomTest] AS [nomTest], 
-    [AllCasTest1].[tagCasTest] AS [tagCasTest]
-    FROM [Test].[AllCasTest] AS [AllCasTest1]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="AllProjet1" EntityType="Self.AllProjet1" store:Type="Views" store:Schema="Test" store:Name="AllProjet">
-            <DefiningQuery>SELECT 
-    [AllProjet1].[codeProjet] AS [codeProjet], 
-    [AllProjet1].[nomProjet] AS [nomProjet], 
-    [AllProjet1].[chefProjet] AS [chefProjet], 
-    [AllProjet1].[nomJeu] AS [nomJeu], 
-    [AllProjet1].[dateCreation] AS [dateCreation], 
-    [AllProjet1].[dateLivraison] AS [dateLivraison], 
-    [AllProjet1].[tagProjet] AS [tagProjet]
-    FROM [Test].[AllProjet] AS [AllProjet1]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
             <End Role="Jeu" EntitySet="Jeu" />
@@ -1798,15 +1746,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
         </EntityType>
         <EntityType Name="AllCasTest">
           <Key>
-            <PropertyRef Name="Code_du_cas_de_test" />
-            <PropertyRef Name="Nom_du_cas_de_test" />
-            <PropertyRef Name="Code_du_projet" />
+            <PropertyRef Name="codeCasTest" />
+            <PropertyRef Name="nomCasTest" />
+            <PropertyRef Name="codeProjet" />
           </Key>
-          <Property Name="Code_du_cas_de_test" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nom_du_cas_de_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Date_de_création" Type="DateTime" Precision="0" />
-          <Property Name="Date_de_livraison" Type="DateTime" Precision="0" />
-          <Property Name="Code_du_projet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
+          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllCasTestBilletTravail">
@@ -1860,15 +1808,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
         </EntityType>
         <EntityType Name="AllProjet">
           <Key>
-            <PropertyRef Name="Code_du_projet" />
-            <PropertyRef Name="Nom_du_projet" />
-            <PropertyRef Name="Chef_de_projet" />
+            <PropertyRef Name="codeProjet" />
+            <PropertyRef Name="nomProjet" />
+            <PropertyRef Name="chefProjet" />
           </Key>
-          <Property Name="Code_du_projet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nom_du_projet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Chef_de_projet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Date_de_création" Type="DateTime" Precision="0" />
-          <Property Name="Date_de_livraison" Type="DateTime" Precision="0" />
+          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateCreation" Type="DateTime" Precision="0" />
+          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
           <Property Name="tagProjet" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllProjetCasTest">
@@ -1919,34 +1867,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTheme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagProjetTheme" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="AllCasTest1">
-          <Key>
-            <PropertyRef Name="codeCasTest" />
-            <PropertyRef Name="nomCasTest" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="nomTest" />
-          </Key>
-          <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="AllProjet1">
-          <Key>
-            <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
-          </Key>
-          <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomJeu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dateCreation" Type="DateTime" Precision="0" />
-          <Property Name="dateLivraison" Type="DateTime" Precision="0" />
-          <Property Name="tagProjet" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="ClassificationJeu" Type="Self.ClassificationJeu" Multiplicity="1" />
@@ -2250,8 +2170,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySet Name="AllProjetEquipe" EntityType="Self.AllProjetEquipe" />
           <EntitySet Name="AllProjetGenre" EntityType="Self.AllProjetGenre" />
           <EntitySet Name="AllProjetTheme" EntityType="Self.AllProjetTheme" />
-          <EntitySet Name="AllCasTest1" EntityType="Self.AllCasTest1" />
-          <EntitySet Name="AllProjet1" EntityType="Self.AllProjet1" />
           <AssociationSet Name="J_FK_codeClassification" Association="Self.J_FK_codeClassification">
             <End Role="ClassificationJeu" EntitySet="ClassificationJeu" />
             <End Role="Jeu" EntitySet="Jeu" />
@@ -2701,11 +2619,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySetMapping Name="AllCasTest">
             <EntityTypeMapping TypeName="dbProjetE1Model.AllCasTest">
               <MappingFragment StoreEntitySet="AllCasTest">
-                <ScalarProperty Name="Code_du_cas_de_test" ColumnName="Code du cas de test" />
-                <ScalarProperty Name="Nom_du_cas_de_test" ColumnName="Nom du cas de test" />
-                <ScalarProperty Name="Date_de_création" ColumnName="Date de création" />
-                <ScalarProperty Name="Date_de_livraison" ColumnName="Date de livraison" />
-                <ScalarProperty Name="Code_du_projet" ColumnName="Code du projet" />
+                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
+                <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
                 <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2760,11 +2678,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
           <EntitySetMapping Name="AllProjet">
             <EntityTypeMapping TypeName="dbProjetE1Model.AllProjet">
               <MappingFragment StoreEntitySet="AllProjet">
-                <ScalarProperty Name="Code_du_projet" ColumnName="Code du projet" />
-                <ScalarProperty Name="Nom_du_projet" ColumnName="Nom du projet" />
-                <ScalarProperty Name="Chef_de_projet" ColumnName="Chef de projet" />
-                <ScalarProperty Name="Date_de_création" ColumnName="Date de création" />
-                <ScalarProperty Name="Date_de_livraison" ColumnName="Date de livraison" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
                 <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2813,30 +2731,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllProjet' n'a pas de clé
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
                 <ScalarProperty Name="nomTheme" ColumnName="nomTheme" />
                 <ScalarProperty Name="tagProjetTheme" ColumnName="tagProjetTheme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AllCasTest1">
-            <EntityTypeMapping TypeName="dbProjetE1Model.AllCasTest1">
-              <MappingFragment StoreEntitySet="AllCasTest1">
-                <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
-                <ScalarProperty Name="nomCasTest" ColumnName="nomCasTest" />
-                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
-                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
-                <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AllProjet1">
-            <EntityTypeMapping TypeName="dbProjetE1Model.AllProjet1">
-              <MappingFragment StoreEntitySet="AllProjet1">
-                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
-                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
-                <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
-                <ScalarProperty Name="nomJeu" ColumnName="nomJeu" />
-                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
-                <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
-                <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

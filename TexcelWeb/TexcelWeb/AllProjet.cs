@@ -14,11 +14,11 @@ namespace TexcelWeb
     
     public partial class AllProjet
     {
-        public string Code_du_projet { get; set; }
-        public string Nom_du_projet { get; set; }
-        public string Chef_de_projet { get; set; }
-        public Nullable<System.DateTime> Date_de_création { get; set; }
-        public Nullable<System.DateTime> Date_de_livraison { get; set; }
+        public string codeProjet { get; set; }
+        public string nomProjet { get; set; }
+        public string chefProjet { get; set; }
+        public Nullable<System.DateTime> dateCreation { get; set; }
+        public Nullable<System.DateTime> dateLivraison { get; set; }
         public string tagProjet { get; set; }
     }
 }

@@ -65,7 +65,7 @@ namespace TexcelWeb.Interfaces
             // .selectedvalue va etre le code du projet
             ddlProjet.DataTextField = "nomProjet";
             ddlProjet.DataValueField = "codeProjet";
-            ddlProjet.Items.Add(new ListItem(text="Choisissez un projet...");
+            // ddlProjet.Items.Add(new ListItem(text="Choisissez un projet...");
             ddlProjet.DataSource = CtrlGestionBillet.getLstProj;        
             ddlProjet.DataBind();
             
