@@ -83,17 +83,48 @@ namespace TexcelWeb.Classes.Test
                 //erreur          
             }
         }
-        public static void SaveProjetChoisi(int _index)
+        public static bool SaveProjetChoisi(int _index)
         {
-            ProjChoisi = lstProjAfficher.ElementAt(_index);
+            if (_index < lstProjAfficher.Count && _index >= 0)
+            {
+                ProjChoisi = lstProjAfficher.ElementAt(_index);
+                return true;
+            }
+            else
+            {
+                ProjChoisi = null;
+                return false;
+            }
+           
+            
+           
         }
-        public static void SaveEquipeChoisi(int _index)
+        public static bool SaveEquipeChoisi(int _index)
         {
-            EquipChoisi = lstEquipeAfficher.ElementAt(_index);
+            if (_index < lstEquipeAfficher.Count && _index >= 0)
+            {
+                EquipChoisi = lstEquipeAfficher.ElementAt(_index);
+                return true;
+            }
+            else
+            {
+                EquipChoisi = null;
+                return false;
+            }
         }
-        public static void SaveEmployeChoisi()
+        public static bool SaveTesteurChoisi(int _index)
         {
-
+            if (_index < lstTesteurAfficher.Count && _index >= 0)
+            {
+                TesteurChoisi = lstTesteurAfficher.ElementAt(_index);
+                return true;
+            }
+            else
+            {
+                TesteurChoisi = null;
+                return false;
+            }
+            
         }
 
 

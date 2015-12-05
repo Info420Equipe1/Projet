@@ -64,11 +64,13 @@ namespace TexcelWeb.Interfaces
             CtrlGestionBillet.SaveLstProjetAffiche();        
             // .selectedvalue va etre le code du projet
             ddlProjet.DataTextField = "nomProjet";
-            ddlProjet.DataValueField = "codeProjet";
-            // ddlProjet.Items.Add(new ListItem(text="Choisissez un projet...");
-            ddlProjet.DataSource = CtrlGestionBillet.getLstProj;        
+            ddlProjet.DataValueField = "codeProjet";           
+            ddlProjet.DataSource = CtrlGestionBillet.getLstProj;
+           
             ddlProjet.DataBind();
-            
+            // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
+            ddlProjet.Items.Insert(ddlProjet.Items.Count,"Choisissez un projet");
+            ddlProjet.SelectedValue = "Choisissez un projet";
 
         }
         protected void AfficherDdlEquipeItem()
@@ -80,8 +82,10 @@ namespace TexcelWeb.Interfaces
             ddlEquipe.DataValueField = "idEquipe";
             ddlEquipe.DataSource = CtrlGestionBillet.getLstEquipe;
             ddlEquipe.DataBind();
-            ddlEquipe.Enabled = true;
-
+            ddlEquipe.Visible = true;
+            // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
+            ddlEquipe.Items.Insert(ddlEquipe.Items.Count, "Choisissez une équipe");
+            ddlEquipe.SelectedValue = "Choisissez une équipe";
         }
         protected void AfficherDdlTesteurItem()
         {
@@ -92,29 +96,66 @@ namespace TexcelWeb.Interfaces
             ddlTesteur.DataValueField = "noEmploye";
             ddlTesteur.DataSource = CtrlGestionBillet.getLstTesteur;
             ddlTesteur.DataBind();
-            ddlTesteur.Enabled = true;
+            ddlTesteur.Visible = true;
+
+            // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
+            ddlTesteur.Items.Insert(ddlTesteur.Items.Count, "Choisissez un testeur");
+            ddlTesteur.SelectedValue = "Choisissez un testeur";
 
         }
 
         //*****************************DROP_DOWN_LIST DU HAUT **********************************************//
         protected void ddlProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlTesteur.Visible = false;
             // enregistrer le projet qui a été sélectionné dans la classe controle
-            CtrlGestionBillet.SaveProjetChoisi(ddlProjet.SelectedIndex);
-            AfficherDdlEquipeItem();          
+            if (CtrlGestionBillet.SaveProjetChoisi(ddlProjet.SelectedIndex))
+            {
+                AfficherDdlEquipeItem();
+                // afficher qqchose dans le gridView
+            }
+            else
+            {
+                // ca veut  dire que  l'index choisi c'est "Choisissez.."
+                // Donc il faut remettre la variable Equipe et TEsteur a null
+                CtrlGestionBillet.SaveEquipeChoisi(-1);
+                CtrlGestionBillet.SaveTesteurChoisi(-1);
+                ddlEquipe.Visible = false;
+            }
+                
+                  
 
         }
         protected void ddlEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CtrlGestionBillet.SaveEquipeChoisi(ddlEquipe.SelectedIndex);
-            AfficherDdlTesteurItem();
+            // enregistrer l'équipe qui a été sélectionné dans la classe controle
+            if (CtrlGestionBillet.SaveEquipeChoisi(ddlEquipe.SelectedIndex))
+            {
+                AfficherDdlTesteurItem();
+                // afficher qqchose dans le gridView
+            }
+            else
+            {
+                // ca veut  dire que  l'index choisi c'est "Choisissez.."
+                // Donc il faut remettre la variable Testeur a null
+                CtrlGestionBillet.SaveTesteurChoisi(-1);
+                ddlTesteur.Visible = false;
+            }
+                
+            
         }
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex))
+            {
+                // afficher quelque chose
+            }
+            else
+            {
+                // affiche rien car l'index choisi c'est "Choisissez.."
+            }
         }
-
-
+   
 
         //*****************************DROP_DOWN_LIST DU GRIDVIEW **********************************************//
         protected void ddlPriorite_SelectedIndexChanged(object sender, EventArgs e)
