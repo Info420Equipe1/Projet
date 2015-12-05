@@ -157,13 +157,18 @@ namespace TexcelWeb.Classes.Test
         public static List<BilletTravail> GetLstBilletTravail(Employe _emp)
         {
             List<BilletTravail> lst = new List<BilletTravail>();
-
+            //Billet selectionné
             foreach (BilletTravail bT in context.BilletTravail)
             {
                 if (bT.noEmploye == _emp.noEmploye)
                 {
                     lst.Add(bT);
                 }
+            }
+            //Billets assigné
+            foreach (BilletTravail bT in _emp.BilletTravail)
+            {
+                lst.Add(bT);
             }
 
             return lst;
@@ -181,6 +186,21 @@ namespace TexcelWeb.Classes.Test
             {
                 return null;
             }
+        }
+
+        public static bool SelectionneBillet(BilletTravail _bT, bool _verifChecked)
+        {
+            if (_verifChecked == true)
+            {
+                //Le testeur a choissi ce billet
+                return true;
+            }
+            else
+            {
+                //Le testeur abandonne le billet
+                return false;
+            }
+           
         }
     }
 }

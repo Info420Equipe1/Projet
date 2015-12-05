@@ -222,6 +222,7 @@
     <Compile Include="Classes\Projet\CtrlProjet.cs" />
     <Compile Include="Classes\Test\CtrlCopier.cs" />
     <Compile Include="Classes\Test\CtrlDifficulte.cs" />
+    <Compile Include="Classes\Test\CtrlGestionBillet.cs" />
     <Compile Include="Classes\Test\CtrlNivPriorite.cs" />
     <Compile Include="Classes\Test\CtrlStatut.cs" />
     <Compile Include="Classes\Test\CtrlTypeTest.cs" />

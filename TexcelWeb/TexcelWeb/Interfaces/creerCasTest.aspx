@@ -31,7 +31,7 @@ $(function(){
         </div>
 	</div>	
 	<div id="content">
-		<div id="sidebar">
+		<div id="sidebar" runat="server">
 			<div class="box">
                 <div class="h_title">&#8250; Recherche</div>
                 <ul>
@@ -114,7 +114,7 @@ $(function(){
                             <asp:TextBox runat="server" ID="rtxtDescriptionCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                         <div id="CasTestDiv">
-                            <asp:Label runat="server" Text="Divers: "/><br />
+                            <asp:Label runat="server" Text="Divers: " ID="lblDivers"/><br />
                             <asp:TextBox runat="server" ID="rtxtDiversCasTest" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
@@ -131,6 +131,7 @@ $(function(){
                     <asp:Button ID="btnUpload" runat="server" Text="Envoyez" OnClick="btnUpload_Click" />
                     <div style="height: 32px">
                         <asp:LinkButton runat="server" ID="btnSupprimer" Text="Supprimer fichiers" CssClass="btnDroit button cancel" CausesValidation="false"  OnClick="btnSupprimer_Click"/>
+                        <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" OnClick="btnFermer_Click" CausesValidation="false" Visible="False"/>
                         </div>
                     <hr />
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded" >

@@ -76,6 +76,34 @@ namespace TexcelWeb
                     Fichiers(casTest);
                     Session["casTest"] = null;
                 }
+                else if (Session["CasTestConsulTesteur"] != null)
+                {
+                    CasTest casTestTesteur = (CasTest)Session["CasTestConsulTesteur"];
+                    Session["CasTestConsulTesteur"] = null;
+                    RemplirChamps(casTestTesteur);
+                    rtxtDiversCasTest.Visible = false;
+                    txtCodeCasTest.Enabled = false;
+                    txtNomCasTest.Enabled = false;
+                    dropDownProjet.Enabled = false;
+                    dropDownDifficulteCasTest.Enabled = false;
+                    dropDownPrioritéCasTest.Enabled = false;
+                    txtDateCreationCasTest.Enabled = false;
+                    txtDateLivraisonCasTest.Enabled = false;
+                    dropDownTypeTestCasTest.Enabled = false;
+                    rtxtDescriptionCasTest.Enabled = false;
+                    rtxtObjectifCastest.Enabled = false;
+                    btnAjouter.Visible = false;
+                    btnAnnuler.Visible = false;
+                    btnCopier.Visible = false;
+                    btnEnregistrer.Visible = false;
+                    btnUpload.Visible = false;
+                    GridView1.Visible = false;
+                    sidebar.Visible = false;
+                    btnSupprimer.Visible = false;
+                    FileUpload1.Visible = false;
+                    btnFermer.Visible = true;
+                    lblDivers.Visible = false;
+                }
                 else
                 {
                     modif = false;
@@ -501,6 +529,12 @@ namespace TexcelWeb
             }
             Session["casTest"] = casTest;
             Response.Redirect(Request.Url.AbsoluteUri);
+        }
+
+        protected void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Form.Dispose();
+            Response.Redirect("billetsTravail.aspx");
         }
 
     }

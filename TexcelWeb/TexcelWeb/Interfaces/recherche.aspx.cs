@@ -42,10 +42,14 @@ namespace TexcelWeb
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
             txtDerniereConnexion.InnerText = date.ToString("d");
+            foreach (string nom in CtrlFiltreDataSource.GetAllNomFiltre())
+            {
+                ddlFiltre.Items.Add(nom);
+            }
             foreach (Groupe groupe in currentUser.Groupe)
             {
                 List<int> lstDroits = CtrlController.GetDroits(groupe);
-                if(!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                if (!lstDroits.Contains(19) && !lstDroits.Contains(20))
                 {
                     boxProjet.Visible = false;
                     menuProjet.Visible = false;
@@ -53,17 +57,13 @@ namespace TexcelWeb
                     lienProjetEquipe.Visible = false;
                     ddlFiltre.Items.Remove("Projet");
                 }
-                if(!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
                 {
                     boxCasTest.Visible = false;
                     menuCasTest.Visible = false;
                     lienCasTest.Visible = false;
                     ddlFiltre.Items.Remove("CasTest");
                 }
-            }
-            foreach (string nom in CtrlFiltreDataSource.GetAllNomFiltre())
-            {
-                ddlFiltre.Items.Add(nom);
             }
             AfficherGV(ddlFiltre.Text);
         }

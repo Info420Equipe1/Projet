@@ -63,5 +63,23 @@ namespace TexcelWeb.Classes.Personnel
             }
             return lstTesteur;
         }
+
+        //public static List<Employe> getLstTesteurByEquipe(string _idEquipe)
+        //{
+        //    List<cProjet> lstProjet = new List<cProjet>();
+
+        //    Equipe monEquipe = CtrlEmploye.getEmployeById(_idEquipe);
+
+        //    foreach (cProjet proj in chefProjet.cProjet)
+        //    {
+        //        lstProjet.Add(proj);
+        //    }
+
+        //    return lstProjet;
+        //}
+
+
+
+
     }
 }

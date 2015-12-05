@@ -19,7 +19,6 @@ namespace TexcelWeb.Classes.Projet
 
         static Dictionary<CasTest, List<FileInfo>> dictCasTestClone = new Dictionary<CasTest, List<FileInfo>>();
 
-
         public static Dictionary<CasTest, List<FileInfo>> getDictCasTestClone
         {
             get { return dictCasTestClone; }
@@ -181,6 +180,19 @@ namespace TexcelWeb.Classes.Projet
             return lstProjet;
         }
 
+        public static List<cProjet> GetListProjetChefProjetByNoEmp(string _noEmp)
+        {
+            List<cProjet> lstProjet = new List<cProjet>();
+
+            Employe chefProjet = CtrlEmploye.getEmployeById(_noEmp);
+               
+            foreach (cProjet proj in chefProjet.cProjet)
+	        {
+                lstProjet.Add(proj);
+	        }                
+            
+            return lstProjet;
+        }
         //Retourne un projet à l'aide d'un nom de projet
         public static cProjet GetProjet(string _nomProjet)
         {

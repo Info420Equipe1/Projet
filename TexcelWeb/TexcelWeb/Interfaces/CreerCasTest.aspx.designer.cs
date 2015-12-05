@@ -22,6 +22,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
+        /// Contrôle sidebar.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sidebar;
+        
+        /// <summary>
         /// Contrôle Titre.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.TextBox rtxtDescriptionCasTest;
         
         /// <summary>
+        /// Contrôle lblDivers.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDivers;
+        
+        /// <summary>
         /// Contrôle rtxtDiversCasTest.
         /// </summary>
         /// <remarks>
@@ -209,6 +227,15 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSupprimer;
+        
+        /// <summary>
+        /// Contrôle btnFermer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnFermer;
         
         /// <summary>
         /// Contrôle GridView1.

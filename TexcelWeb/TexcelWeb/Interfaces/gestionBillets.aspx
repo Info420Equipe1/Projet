@@ -66,15 +66,18 @@ $(function(){
                             <div id="div_1a">
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Projet : " />
-                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" style="width:250px"/> <br /><br />               
+                                    
+                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged" style="width:250px">                                                                          
+                                   </asp:DropDownList> 
+                                    <br /><br />               
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Équipe :" />
-                                    <asp:DropDownList runat="server" ID="ddlEquipe" CssClass="txtColum1" style="width:250px"/> <br /><br />
+                                    <asp:DropDownList runat="server" Enabled="false" ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" style="width:250px"/> <br /><br />
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label class="lblinfo" runat="server" Text="Testeur :" />
-                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" style="width:250px" />
+                                    <asp:DropDownList runat="server" Enabled="false" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" style="width:250px" />
                                 </div>
                             </div>
                         </div>     
@@ -117,7 +120,7 @@ $(function(){
                             </div>
                         </div> 
                         <div id="div_1c">
-                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" OnRowDataBound="dgvBillets_RowDataBound">
+                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" OnRowDataBound="dgvBillets_RowDataBound"  >
                                 <Columns>
                                     <asp:TemplateField HeaderText="" >
                                         <ItemTemplate>
@@ -129,14 +132,14 @@ $(function(){
                                     </asp:BoundField>
                                     <asp:TemplateField HeaderText="Priorité">
                                         <ItemTemplate>
-                                            <asp:DropDownList ID="ddlPriorite" DataSourceID="dsPriorite" CssClass="ddlGV" runat="server" AutoPostBack="true" DataTextField="nomProjet" DataValueField="codeProjet" OnSelectedIndexChanged="ddlPriorite_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:EntityDataSource ID="dsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
+                                            <asp:DropDownList ID="ddlPriorite" DataSourceID="dsPriorite" CssClass="ddlGV" runat="server" AutoPostBack="true" DataTextField="nom_du_projet" DataValueField="code_du_Projet" OnSelectedIndexChanged="ddlPriorite_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:EntityDataSource ID="dsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllProjet" Select="it.[code_du_Projet], it.[nom_du_projet], it.[chef_de_projet], it.[date_de_création], it.[date_de_Livraison]"></asp:EntityDataSource>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Statut" >
                                         <ItemTemplate>
                                             <asp:DropDownList ID="ddlStatut" DataSourceID="dsStatut" CssClass="ddlGV" runat="server" AutoPostBack="true" DataTextField="nomCasTest" DataValueField="codeCasTest" OnSelectedIndexChanged="ddlStatut_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:EntityDataSource ID="dsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="tblCasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
+                                            <asp:EntityDataSource ID="dsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="CasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Type de Test" >
