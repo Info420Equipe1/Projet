@@ -14,6 +14,7 @@ namespace TexcelWeb.Interfaces
 {
     public partial class billetsTravail : System.Web.UI.Page
     {
+        static bool VerifSelec = false;
         static Utilisateur user;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace TexcelWeb.Interfaces
 
         public void RemplirChamps()
         {
+            
             List<BilletTravail> lstBilletTravail = CtrlBilletTravail.GetLstBilletTravail(CtrlEmploye.getEmployeById(user.noEmploye.ToString()));
             int cpt = new int();
             cpt = 0;
@@ -69,6 +71,14 @@ namespace TexcelWeb.Interfaces
                     {
                         cpt++;
                     }
+                    if (bT.noEmploye != null)
+                    {
+                        VerifSelec = true;
+                    }
+                    else
+                    {
+                        VerifSelec = false;
+                    }
                 }
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
                 lblNbrBillet.Text = cpt.ToString();
@@ -90,46 +100,47 @@ namespace TexcelWeb.Interfaces
 
         protected void CBSelec_CheckedChanged(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Fire');</script>");
-            //CheckBox chk = (CheckBox)sender;
-            //GridViewRow gr = (GridViewRow)chk.Parent.Parent;
-            //lblNbrBillet.Text = GridView1.DataKeys[gr.RowIndex].Value.ToString();
+            bool verifChecked = false;
+            CheckBox checkBox = (CheckBox)sender;
+            if (checkBox.Checked == true)
+            {
+                verifChecked = true;
+            }
+            GridViewRow row = ((GridViewRow)((CheckBox)sender).NamingContainer);
+            if (CtrlBilletTravail.SelectionneBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked))
+            {
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet selectionné.\", \"error\");", true);
+            }
+            else
+            {
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet déselectionné.\", \"error\");", true);
+            }
+            
+            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+      
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox checkBox = (e.Row.FindControl("CBSelec") as CheckBox);
+                if (VerifSelec == true)
+                {
+                    checkBox.Checked = true;
+                }
+            }
         }
 
-        //protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    foreach (GridViewRow row in GridView1.Rows)
-        //    {
-        //        if (row.RowIndex == GridView1.SelectedIndex)
-        //        {
-        //            row.BackColor = ColorTranslator.FromHtml("#A1DCF2");
-        //            row.ToolTip = string.Empty;
-        //        }
-        //        else
-        //        {
-        //            row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-        //            row.ToolTip = "Cliquez pour selectionner cette colonne";
-        //        }
-        //    }
-        //}
+        protected void lnkCasDeTest_Click(object sender, EventArgs e)
+        {
+            BilletTravail bT = CtrlBilletTravail.GetBillet((sender as LinkButton).CommandArgument);
+            CasTest casTest = CtrlCasTest.GetCasTestByCode(bT.codeCasTest);
+            Session["CasTestConsulTesteur"] = casTest;
+            this.Form.Dispose();
+            Response.Redirect("creerCasTest.aspx");
+        }
 
-        //protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView1, "Select$" + e.Row.RowIndex);
-        //        e.Row.ToolTip = "Cliquez pour selectionner cette colonne";
-        //    }
-        //}
-
-        //protected void btnVisualiser_Click(object sender, EventArgs e)
-        //{
-        //    Session["BilletTravail"] = CtrlBilletTravail.GetBillet(GridView1.SelectedRow.Cells[0].Text);
-        //}
     }
 }
