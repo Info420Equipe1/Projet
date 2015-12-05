@@ -14,10 +14,10 @@ namespace TexcelWeb.Interfaces
     {
         static bool modifierBillet;
         static bool consulterBillet;
-        Utilisateur currentUser;
-        BilletTravail billetActuel;
-        CasTest casTestCreationBillet;
-        Equipe equipeActuelle;
+        static Utilisateur currentUser;
+        static BilletTravail billetActuel;
+        static CasTest casTestCreationBillet;
+        static Equipe equipeActuelle;
         protected void Page_Init(object sender, EventArgs e)
         {
             bool modifier = Convert.ToBoolean(Session["modifBillet"]);
@@ -29,14 +29,12 @@ namespace TexcelWeb.Interfaces
             consulterBillet = consulter;
             Session["consultBillet"] = false;
             //
-            consulterBillet = true;
+            modifierBillet = true;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                initializeComponent();
-
                 casTestCreationBillet = (CasTest)Session["CasTestCreationBillet"];
                 equipeActuelle = (Equipe)Session["EquipeCreationBillet"];
                 //
@@ -47,6 +45,11 @@ namespace TexcelWeb.Interfaces
                 {
                     billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
                 }
+                //
+                billetActuel = CtrlBilletTravail.getBilletById(15);
+                //
+
+                initializeComponent();
             }
         }
 
@@ -130,6 +133,9 @@ namespace TexcelWeb.Interfaces
                 cmbPrioriteBillet.Enabled = false;
                 cmbStatutBillet.Enabled = false;
                 rtxtDescriptionBillet.Enabled = false;
+
+                //Emplissage des champs avec le billet
+                fillInformationBillet();
             }
         }
 
@@ -171,7 +177,22 @@ namespace TexcelWeb.Interfaces
 	        }
             else
             {
+                //Modification d'un billet de travail
+                string message = CtrlBilletTravail.ModifierBillet(billetActuel.idBilletTravail, titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet);
 
+                //Reception du message
+                switch (message)
+                {
+                    case "billetmodifier":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Billet ajouté!', 'Le billet a été ajouté avec succès.', 'success');", true);
+                        break;
+                    case "erreur":
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du billet.', 'error');", true);
+                        break;
+                    default:
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Error 404', 'error');", true);
+                        break;
+                }
             }
         }
 
@@ -194,7 +215,7 @@ namespace TexcelWeb.Interfaces
         {
             ListItem lstitem;
             txtTitreBillet.Text = billetActuel.titreBilletTravail;
-            txtDureeBillet.Text = billetActuel.dureeBilletTravail.ToString();
+            txtDureeBillet.Text = Convert.ToInt16(billetActuel.dureeBilletTravail).ToString();
             txtDateCreationBillet.Text = ((DateTime)billetActuel.dateCreation).ToShortDateString();
             if (billetActuel.dateLivraison != null)
             {
@@ -211,7 +232,12 @@ namespace TexcelWeb.Interfaces
             cmbStatutBillet.SelectedIndex = cmbStatutBillet.Items.IndexOf(lstitem);
             if (billetActuel.Statut.nomStatut == "Terminé")
             {
+                txtDateTerminaison.Visible = true;
                 txtDateTerminaison.Text = ((DateTime)billetActuel.dateFin).ToShortDateString();
+            }
+            else
+            {
+                txtDateTerminaison.Visible = false;
             }
             lstitem = new ListItem();
             lstitem.Text = billetActuel.NiveauPriorite.nomNivPri;

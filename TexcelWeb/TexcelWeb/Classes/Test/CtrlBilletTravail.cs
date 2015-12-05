@@ -43,7 +43,10 @@ namespace TexcelWeb.Classes.Test
                 billet.Statut = statut;
                 if (statut.nomStatut == "Terminé")
                 {
-                    billet.dateFin = (Convert.ToDateTime(dateTerminaisonBillet)).Date;
+                    if (dateTerminaisonBillet != "")
+                    {
+                        billet.dateFin = (Convert.ToDateTime(dateTerminaisonBillet)).Date;
+                    }
                 }
 	        }
             if (prioriteBillet != "")
@@ -61,6 +64,65 @@ namespace TexcelWeb.Classes.Test
             {
                 Enregistrer(billet);
                 return "billetajoute";
+            }
+            catch (Exception)
+            {
+                return "erreur";
+            }
+        }
+
+        //Modifier un billet de travail
+        public static string ModifierBillet(int idBillet, string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet)
+        {
+            //recherche du billet
+            BilletTravail billet = getBilletById(idBillet);
+
+            //Modification de l'Information
+            billet.titreBilletTravail = titreBillet;
+            billet.dureeBilletTravail = Convert.ToDouble(dureeBillet);
+            billet.dateCreation = (Convert.ToDateTime(dateCreationBillet)).Date;
+
+            if (dateLivraisonBillet != "")
+            {
+                billet.dateLivraison = (Convert.ToDateTime(dateLivraisonBillet)).Date;
+            }
+            else
+            {
+                billet.dateLivraison = null;
+            }
+            if (testeurAssigneBillet != "Aucun")
+            {
+                Employe emp = CtrlEmploye.getEmployeByName(testeurAssigneBillet);
+                billet.Employe = emp;
+            }
+            else
+            {
+                billet.Employe = null;
+            }
+            if (statutBillet != "")
+            {
+                Statut statut = CtrlStatut.getStatutByName(statutBillet);
+                billet.Statut = statut;
+                if (statut.nomStatut == "Terminé")
+                {
+                    if (dateTerminaisonBillet != "")
+                    {
+                        billet.dateFin = (Convert.ToDateTime(dateTerminaisonBillet)).Date;
+                    }
+                }
+            }
+            if (prioriteBillet != "")
+            {
+                NiveauPriorite priorite = CtrlNivPriorite.getNiveauPrioriteByName(prioriteBillet);
+                billet.NiveauPriorite = priorite;
+            }
+            billet.descBilletTravail = descBillet;
+
+
+            try
+            {
+                context.SaveChanges();
+                return "billetmodifier";
             }
             catch (Exception)
             {

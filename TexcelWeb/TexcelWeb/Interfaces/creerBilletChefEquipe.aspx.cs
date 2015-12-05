@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TexcelWeb.Classes;
 using TexcelWeb.Classes.Personnel;
+using TexcelWeb.Classes.Projet;
 
 namespace TexcelWeb
 {
@@ -42,19 +43,19 @@ namespace TexcelWeb
 
         protected void cmbProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cProjet projet;
-            foreach (cProjet pro in lstProjetChefEquipeActuel)
-	        {
-		        if (pro.nomProjet == cmbProjet.SelectedItem.Text)
-	            {
-                    projet = pro;
-	            }
-	        }
-            
-            //foreach (Equipe equipe in projet.)
-            //{
-                
-            //}
+            cProjet projet = CtrlProjet.GetProjet(cmbProjet.Text);
+            List<Equipe> lstEquipe = CtrlEquipe.lstEquipeByCodeProjet(projet.codeProjet);
+            List<CasTest> lstCasTest = new List<CasTest>();
+            foreach (Equipe equipe in lstEquipe)
+            {
+                cmbEquipe.Items.Add(equipe.nomEquipe);
+                foreach (CasTest casTest in equipe.CasTest)
+                {
+                    lstCasTest.Add(casTest);
+                }
+            }
+            dataGridCasTest.DataSource = lstCasTest;
+            dataGridCasTest.DataBind();
         }
         private void showEmptyDataGrid()
         {

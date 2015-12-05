@@ -96,12 +96,14 @@ $(function(){
                                 <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
                                 <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0"/>
                                 <p id="DureeTexte">(Approximative)</p>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDureeBillet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1" />
                                 <asp:TextBox type="date" runat="server" ID="txtDateLivraisonBillet" CssClass="txtColum1 txtDate2" />
                                 <asp:Label ID="lblDateCreation" runat="server" Text="Date Création: " CssClass="lblColum1 lblDate2"/>
                                 <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationBillet" Display="dynamic" Text="*" ForeColor="Red" />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <div class="info">
