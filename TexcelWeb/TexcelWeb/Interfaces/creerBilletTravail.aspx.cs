@@ -21,33 +21,29 @@ namespace TexcelWeb.Interfaces
         protected void Page_Init(object sender, EventArgs e)
         {
             bool modifier = Convert.ToBoolean(Session["modifBillet"]);
-            bool consulter = Convert.ToBoolean(Session["consultBillet"]);
+            bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
             
             modifierBillet = modifier;
             Session["modifBillet"] = false;
             
             consulterBillet = consulter;
-            Session["consultBillet"] = false;
-            //
-            modifierBillet = true;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                casTestCreationBillet = (CasTest)Session["CasTestCreationBillet"];
-                equipeActuelle = (Equipe)Session["EquipeCreationBillet"];
-                //
-                casTestCreationBillet = CtrlCasTest.GetCasTestByCode("ASUEvPr");
-                equipeActuelle = CtrlEquipe.getEquipeById(16);
-                //
+                string codeCasTest = Request.QueryString["codeCasTest"];
+                string nomEquipe = Request.QueryString["equipe"];
+
+                if (codeCasTest != null && nomEquipe != null)
+                {
+                    casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                    equipeActuelle = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestCreationBillet.cProjet.codeProjet);
+                }
                 if (modifierBillet || consulterBillet)
                 {
                     billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
                 }
-                //
-                billetActuel = CtrlBilletTravail.getBilletById(15);
-                //
 
                 initializeComponent();
             }

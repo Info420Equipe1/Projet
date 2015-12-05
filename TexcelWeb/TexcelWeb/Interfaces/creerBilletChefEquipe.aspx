@@ -73,14 +73,37 @@ $(function(){
                                 <asp:DropDownList ID="cmbProjet" runat="server" Width="210px" AutoPostBack="true" OnSelectedIndexChanged="cmbProjet_SelectedIndexChanged" /><br />
                                 <asp:Label runat="server" Text="Équipe: " />
                                 <asp:DropDownList ID="cmbEquipe" runat="server" Width="210px" />
-                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" />
+                                <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" />
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="dataGridCasTest" runat="server">
-                            </asp:GridView>
+                            <asp:GridView ID="dataGridCasTest" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnDataBound="dataGridCasTest_DataBound">
+                        <Columns>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="200px" DataField="NomCasTest" HeaderText="Nom Cas de Test" >
+                            <ItemStyle Width="200px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DateLivraisonCasTest" HeaderText="Date livraison" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="PrioriteCasTest" HeaderText="Priorité" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>
+                            <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="DifficulteCasTest" HeaderText="Difficulté" >
+                            <ItemStyle CssClass="align-center" Width="85px" />
+                            </asp:BoundField>  
+                            <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ControlStyle-CssClass="align-center">
+                                <ItemTemplate>
+                                    <a id="btnAjouterBilletCasTest" runat="server" class="table-icon add" title="Ajouter un Cas de test pour ce billet" ></a>
+                                    <a id="btnConsulterCasTest" runat="server" class="table-icon info" title="Consulter le Cas de test" ></a>  
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>	
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  
                     <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>          
