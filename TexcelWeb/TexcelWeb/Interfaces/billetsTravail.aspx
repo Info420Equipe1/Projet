@@ -102,11 +102,6 @@ $(function(){
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click"/>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
                             </Columns>
                             
                         </asp:GridView>

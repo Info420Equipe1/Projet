@@ -17,18 +17,21 @@ namespace TexcelWeb.Interfaces
         static Utilisateur user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Premier loading de la page
-            if (CtrlController.GetCurrentUser() == null)
+            if (!IsPostBack)
             {
-                //Not logged in
-                Response.Redirect("login.aspx");
-            }
-            else
-            {
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                user = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = user.nomUtilisateur;
-                RemplirChamps();
+                //Premier loading de la page
+                if (CtrlController.GetCurrentUser() == null)
+                {
+                    //Not logged in
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    user = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = user.nomUtilisateur;
+                    RemplirChamps();
+                }
             }
           
         }
