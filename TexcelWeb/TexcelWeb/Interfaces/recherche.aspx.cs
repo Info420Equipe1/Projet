@@ -42,7 +42,9 @@ namespace TexcelWeb
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
             txtDerniereConnexion.InnerText = date.ToString("d");
-            foreach (string nom in CtrlFiltreDataSource.GetAllNomFiltre())
+            List<string> filterNames = CtrlFiltreDataSource.GetAllNomFiltre();
+            filterNames.Sort();
+            foreach (string nom in filterNames)
             {
                 ddlFiltre.Items.Add(nom);
             }
@@ -70,21 +72,53 @@ namespace TexcelWeb
 
         private void AfficherGV(string _filtre)
         {
+            gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
             switch (_filtre)
             {
-                case "Projet":
-                    gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
+                case "Projet":              
                     edsProjet.Where = "it.[tagProjet] like '%" + txtChampRecherche.Text + "%'";
-                    gvRecherche.DataBind();
                     break;
                 case "CasTest":
-                    gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
                     edsCasTest.Where = "it.[tagCasTest] like '%" + txtChampRecherche.Text + "%'";
-                    gvRecherche.DataBind();
                     break;
-                default:
+                case "JeuProjet":
+                    edsCasTest.Where = "it.[tagJeuProjet] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "ProjetGenre":
+                    edsCasTest.Where = "it.[tagProjetGenre] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "ProjetTheme":
+                    edsCasTest.Where = "it.[tagProjetTheme] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "ProjetClassification":
+                    edsCasTest.Where = "it.[tagProjetClassification] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "ProjetEquipe":
+                    edsCasTest.Where = "it.[tagProjetEquipe] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "EmployeEquipe":
+                    edsCasTest.Where = "it.[tagEmployeEquipe] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "EmployeTypeTest":
+                    edsCasTest.Where = "it.[tagEmployeTypeTest] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "EmployeBilletTravail":
+                    edsCasTest.Where = "it.[tagEmployeBilletTravail] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "BilletTravailPriorite":
+                    edsCasTest.Where = "it.[tagBilletTravailPriorite] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "BilletTravailStatut":
+                    edsCasTest.Where = "it.[tagBilletTravailStatut] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "ProjetCasTest":
+                    edsCasTest.Where = "it.[tagProjetCasTest] like '%" + txtChampRecherche.Text + "%'";
+                    break;
+                case "CasTestBilletTravail":
+                    edsCasTest.Where = "it.[tagCasTestBilletTravail] like '%" + txtChampRecherche.Text + "%'";
                     break;
             }
+            gvRecherche.DataBind();
         }      
 
         // copier tous les éléments de  la liste qui sont coché
@@ -185,7 +219,57 @@ namespace TexcelWeb
                         }
                     }
                     break;
-                default:
+                case "JeuProjet":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du jeu";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Version du jeu";
+                    break;
+                case "ProjetGenre":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du genre";
+                    break;
+                case "ProjetTheme":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du thème";
+                    break;
+                case "ProjetClassification":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Code de classification";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Nom de la classification";
+                    break;
+                case "ProjetEquipe":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom de l'équipe";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Nom du chef de projet";
+                    break;
+                case "EmployeEquipe":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom de l'employé";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom de l'équipe";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[2].Controls[0])).Text = "Nom du chef d'équipe";
+                    break;
+                case "EmployeTypeTest":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom de l'employé";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du type de test";
+                    break;
+                case "EmployeBilletTravail":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom de l'employé";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Titre du billet de travail";
+                    break;
+                case "BilletTravailPriorite":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Titre du billet de travail";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Niveau de priorité";
+                    break;
+                case "BilletTravailStatut":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Titre du billet de travail";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Statut";
+                    break;
+                case "ProjetCasTest":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du projet";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Nom du cas de test";
+                    break;
+                case "CasTestBilletTravail":
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[0].Controls[0])).Text = "Nom du cas de test";
+                    ((LinkButton)(gvRecherche.HeaderRow.Cells[1].Controls[0])).Text = "Titre du billet de travail";
                     break;
             }   
         }

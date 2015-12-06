@@ -202,6 +202,114 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.EntityDataSource edsCasTest;
         
         /// <summary>
+        /// Contrôle edsJeuProjet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsJeuProjet;
+        
+        /// <summary>
+        /// Contrôle edsProjetGenre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjetGenre;
+        
+        /// <summary>
+        /// Contrôle edsProjetTheme.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjetTheme;
+        
+        /// <summary>
+        /// Contrôle edsProjetClassification.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjetClassification;
+        
+        /// <summary>
+        /// Contrôle edsProjetEquipe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjetEquipe;
+        
+        /// <summary>
+        /// Contrôle edsEmployeEquipe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsEmployeEquipe;
+        
+        /// <summary>
+        /// Contrôle edsEmployeTypeTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsEmployeTypeTest;
+        
+        /// <summary>
+        /// Contrôle edsEmployeBilletTravail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsEmployeBilletTravail;
+        
+        /// <summary>
+        /// Contrôle edsBilletTravailPriorite.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsBilletTravailPriorite;
+        
+        /// <summary>
+        /// Contrôle edsBilletTravailStatut.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsBilletTravailStatut;
+        
+        /// <summary>
+        /// Contrôle edsProjetCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsProjetCasTest;
+        
+        /// <summary>
+        /// Contrôle edsCasTestBilletTravail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource edsCasTestBilletTravail;
+        
+        /// <summary>
         /// Contrôle dataGridPagination.
         /// </summary>
         /// <remarks>
