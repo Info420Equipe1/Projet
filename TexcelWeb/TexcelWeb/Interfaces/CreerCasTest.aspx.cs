@@ -19,6 +19,12 @@ namespace TexcelWeb
         static bool modif;
         Utilisateur currentUser;
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            string codeCasTest = Request.QueryString["codeCasTestConsult"];
+            Session["CasTestConsulTesteur"] = CtrlCasTest.GetCasTestByCode(codeCasTest);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -534,7 +540,7 @@ namespace TexcelWeb
         protected void btnFermer_Click(object sender, EventArgs e)
         {
             this.Form.Dispose();
-            Response.Redirect("billetsTravail.aspx");
+            Response.Redirect("recherche.aspx");
         }
 
     }

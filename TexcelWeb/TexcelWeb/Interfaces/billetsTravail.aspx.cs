@@ -35,12 +35,10 @@ namespace TexcelWeb.Interfaces
                     RemplirChamps();
                 }
             }
-          
         }
 
         public void RemplirChamps()
         {
-            
             List<BilletTravail> lstBilletTravail = CtrlBilletTravail.GetLstBilletTravail(CtrlEmploye.getEmployeById(user.noEmploye.ToString()));
             int cpt = new int();
             cpt = 0;

@@ -202,10 +202,17 @@ namespace TexcelWeb.Interfaces
         {
             //Information pour le cas de test
             txtProjetCasTest.Text = casTestCreationBillet.cProjet.nomProjet;
-            txtEquipe.Text = equipeActuelle.nomEquipe;
             txtNomCasTest.Text = casTestCreationBillet.nomCasTest;
             txtNomTypeTest.Text = casTestCreationBillet.TypeTest.nomTest;
             txtDifficulte.Text = casTestCreationBillet.Difficulte.nomDiff;
+            if (equipeActuelle!=null)
+            {
+                txtEquipe.Text = equipeActuelle.nomEquipe;
+            }
+            else
+            {
+                txtEquipe.Text = "Aucune";
+            }
         }
         private void fillInformationBillet()
         {

@@ -57,6 +57,8 @@ namespace TexcelWeb
                     lstCasTest.Add(casTest);
                 }
             }
+            ListItem lst = new ListItem("Aucun");
+            cmbEquipe.SelectedIndex = cmbEquipe.Items.IndexOf(lst);
         }
         private void ajoutDonnesDataGrid(List<CasTest> lstCasTest)
         {
@@ -107,7 +109,7 @@ namespace TexcelWeb
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
                 hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text+"&equipe="+cmbEquipe.Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
-                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTest=" + gvr.Cells[0].Text;
+                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text;
             }
         }
         private void showEmptyDataGrid()
@@ -120,10 +122,6 @@ namespace TexcelWeb
             dataGridCasTest.DataSource = dT;
             dataGridCasTest.DataBind();
             dataGridCasTest.HeaderRow.Visible = true;
-        }
-        protected void btnCreerBillet_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("creerBilletTravail.aspx");
         }
 
         protected void dataGridCasTest_DataBound(object sender, EventArgs e)
@@ -144,7 +142,7 @@ namespace TexcelWeb
 
             if (nomProjet!= "")
             {
-                if (nomEquipe != "")
+                if (nomEquipe != "Aucun")
                 {
                     foreach (CasTest castest in lstCasTest)
                     {
@@ -155,10 +153,17 @@ namespace TexcelWeb
                                 lstCasTestAAfficher.Add(castest);
                             }
                         }
-                        
                     }
                     ajoutDonnesDataGrid(lstCasTestAAfficher);
                 }
+                else
+                {
+                    ajoutDonnesDataGrid(lstCasTest);
+                }
+            }
+            else
+            {
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez selectionner un Projet dans la liste', 'warning');", true);
             }
         }
     }
