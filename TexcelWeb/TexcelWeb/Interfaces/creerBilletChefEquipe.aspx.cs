@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using TexcelWeb.Classes;
 using TexcelWeb.Classes.Personnel;
 using TexcelWeb.Classes.Projet;
+using TexcelWeb.Classes.Test;
 
 namespace TexcelWeb
 {
@@ -106,7 +107,7 @@ namespace TexcelWeb
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
                 hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text+"&equipe="+cmbEquipe.Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
-                hgc2.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text + "&equipe=" + cmbEquipe.Text + "&consulteBillet=true";
+                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTest=" + gvr.Cells[0].Text;
             }
         }
         private void showEmptyDataGrid()
@@ -120,7 +121,6 @@ namespace TexcelWeb
             dataGridCasTest.DataBind();
             dataGridCasTest.HeaderRow.Visible = true;
         }
-
         protected void btnCreerBillet_Click(object sender, EventArgs e)
         {
             Response.Redirect("creerBilletTravail.aspx");

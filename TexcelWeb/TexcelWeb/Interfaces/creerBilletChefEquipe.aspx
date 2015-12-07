@@ -98,18 +98,15 @@ $(function(){
                             </asp:BoundField>  
                             <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ControlStyle-CssClass="align-center">
                                 <ItemTemplate>
-                                    <a id="btnAjouterBilletCasTest" runat="server" class="table-icon add" title="Ajouter un Cas de test pour ce billet" ></a>
-                                    <a id="btnConsulterCasTest" runat="server" class="table-icon info" title="Consulter le Cas de test" ></a>  
+                                    <a id="btnAjouterBilletCasTest" runat="server" class="table-icon addCasTest" title="Ajouter un Cas de test pour ce billet"></a>
+                                    <a id="btnConsulterCasTest" runat="server" class="table-icon consulteCasTest" title="Consulter le Cas de test" ></a>  
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>	
                         </ContentTemplate>                      
                     </asp:UpdatePanel>  
-                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div>          
-                    <div>
-                        <asp:LinkButton runat="server" ID="btnCreerBillet" Text="Creer un billet de travail" CssClass="btnDroit button add" OnClick="btnCreerBillet_Click" />
-                    </div><br /><br />
+                    <div id="dataGridPagination" class="pagination" runat="server"  visible="false"></div><br /><br />
                 </form>
 			</div>
 		</div>  

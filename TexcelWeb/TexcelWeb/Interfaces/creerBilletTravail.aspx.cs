@@ -291,11 +291,13 @@ namespace TexcelWeb.Interfaces
             if (modifierBillet)
             {
                 Session["modifBillet"] = false;
+                modifierBillet = false;
                 Response.Redirect("recherche.aspx");
             }
             else if (consulterBillet)
             {
                 Session["consultBillet"] = false;
+                consulterBillet = false;
                 Response.Redirect("recherche.aspx");
                 //Dla marde sa marche pas. Post back pi revien sur la meme page a cause du post back
                 //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);

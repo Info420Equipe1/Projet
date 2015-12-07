@@ -113,6 +113,9 @@
     width:530px;
 }
 
+.addCasTest{ background: #F3F3F3 url(../img/i_add.png) no-repeat 9px center; padding-left: 25px;}
+.consulteCasTest{ background: #F3F3F3 url(../img/loupe.png) no-repeat 9px center; padding-left: 25px;}
+
 
 
 
