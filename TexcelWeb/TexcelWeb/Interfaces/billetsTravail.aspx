@@ -73,7 +73,7 @@ $(function(){
                         <div>
                             <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
                         </div>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True">
                             <Columns>
                                 <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false"/>
                                 <asp:BoundField DataField="Priorite" HeaderText="Priorité" />

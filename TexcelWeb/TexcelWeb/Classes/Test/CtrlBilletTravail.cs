@@ -228,9 +228,12 @@ namespace TexcelWeb.Classes.Test
                 }
             }
             //Billets assigné
-            foreach (BilletTravail bT in _emp.BilletTravail)
+            foreach (BilletTravail bT in _emp.BilletTravail1)
             {
-                lst.Add(bT);
+                if (bT.noEmploye == null)
+                {
+                    lst.Add(bT);
+                }
             }
 
             return lst;
@@ -250,16 +253,20 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
-        public static bool SelectionneBillet(BilletTravail _bT, bool _verifChecked)
+        public static bool SelectionneBillet(BilletTravail _bT, bool _verifChecked, Employe _emp)
         {
             if (_verifChecked == true)
             {
                 //Le testeur a choissi ce billet
+                _bT.noEmploye = _emp.noEmploye;
+                context.SaveChanges();
                 return true;
             }
             else
             {
                 //Le testeur abandonne le billet
+                _bT.noEmploye = null;
+                context.SaveChanges();
                 return false;
             }
            

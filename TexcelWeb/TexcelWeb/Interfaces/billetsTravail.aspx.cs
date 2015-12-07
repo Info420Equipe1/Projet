@@ -14,8 +14,9 @@ namespace TexcelWeb.Interfaces
 {
     public partial class billetsTravail : System.Web.UI.Page
     {
-        static bool VerifSelec = false;
+        static List<bool> VerifSelec = new List<bool>();
         static Utilisateur user;
+        static int cpt = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -73,11 +74,11 @@ namespace TexcelWeb.Interfaces
                     }
                     if (bT.noEmploye != null)
                     {
-                        VerifSelec = true;
+                        VerifSelec.Add(true);
                     }
                     else
                     {
-                        VerifSelec = false;
+                        VerifSelec.Add(false);
                     }
                 }
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
@@ -107,7 +108,7 @@ namespace TexcelWeb.Interfaces
                 verifChecked = true;
             }
             GridViewRow row = ((GridViewRow)((CheckBox)sender).NamingContainer);
-            if (CtrlBilletTravail.SelectionneBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked))
+            if (CtrlBilletTravail.SelectionneBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked, CtrlEmploye.getEmployeById(user.noEmploye.ToString())))
             {
                 this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet selectionné.\", \"error\");", true);
             }
@@ -126,11 +127,13 @@ namespace TexcelWeb.Interfaces
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 CheckBox checkBox = (e.Row.FindControl("CBSelec") as CheckBox);
-                if (VerifSelec == true)
+                if (VerifSelec[cpt] == true)
                 {
                     checkBox.Checked = true;
                 }
+                cpt++;
             }
+            
         }
 
         protected void lnkCasDeTest_Click(object sender, EventArgs e)
