@@ -18,6 +18,8 @@ $(function(){
 	$(".box").children(".h_title").click( function() { $(this).next("ul").slideToggle(); });
 });
 </script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="wrap">
@@ -65,7 +67,7 @@ $(function(){
 	    <div id="main">					
 			<div class="full_w">
                 <form id="FrmCasTest" runat="server">                         
-                    <asp:ScriptManager runat="server"></asp:ScriptManager>
+                    <asp:ScriptManager ID="ToolkitScriptManager" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UPRecherche" runat="server">
                         <ContentTemplate>
                             <div id="recherche">

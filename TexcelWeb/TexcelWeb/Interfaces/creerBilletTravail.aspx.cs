@@ -32,14 +32,34 @@ namespace TexcelWeb.Interfaces
         {
             if (!IsPostBack)
             {
-                string codeCasTest = Request.QueryString["codeCasTest"];
-                string nomEquipe = Request.QueryString["equipe"];
-
-                if (codeCasTest != null && nomEquipe != null)
+                //Premier loading de la page
+                if (CtrlController.GetCurrentUser() == null)
                 {
-                    casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
-                    equipeActuelle = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestCreationBillet.cProjet.codeProjet);
+                    //Not logged in
+                    Response.Redirect("login.aspx");
                 }
+                else
+                {
+                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    currentUser = CtrlController.GetCurrentUser();
+                    txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
+                }
+
+
+                string codeCasTest = Request.QueryString["codeCasTest"];
+
+                //Cas de test pour info
+                casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
+
+                //if (nomEquipe != "Aucune")
+                //{
+                //    string nomEquipe = 
+                //    equipeActuelle = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestCreationBillet.cProjet.codeProjet);
+                //}
+                //else
+                //{
+                //    txtEquipe.Text = "Aucune";
+                //}
                 if (modifierBillet || consulterBillet)
                 {
                     billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
@@ -51,19 +71,6 @@ namespace TexcelWeb.Interfaces
 
         private void initializeComponent()
         {
-            //Premier loading de la page
-            if (CtrlController.GetCurrentUser() == null)
-            {
-                //Not logged in
-                Response.Redirect("login.aspx");
-            }
-            else
-            {
-                //Formatage Bienvenue, [NomUtilisateur] et la Date
-                currentUser = CtrlController.GetCurrentUser();
-                txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
-            }
-
             //Longueur des champs
             setFieldLength();
 

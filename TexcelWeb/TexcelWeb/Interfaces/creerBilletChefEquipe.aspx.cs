@@ -30,6 +30,11 @@ namespace TexcelWeb
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
                 fillDropDownList();
+                cmbEquipe.Enabled = false;
+                if (cmbProjet.Text !="Aucun")
+                {
+                    this.cmbProjet_SelectedIndexChanged(this, e);
+                }
                 showEmptyDataGrid();
             }
         }
@@ -37,27 +42,45 @@ namespace TexcelWeb
         {
             Employe employe = (CtrlController.GetCurrentUser()).Employe;
             List<cProjet> lstProjetChefEquipeActuel = CtrlEquipe.lstProjetByChefEquipe(employe.prenomEmploye + " " + employe.nomEmploye);
-            foreach (cProjet projet in lstProjetChefEquipeActuel)
+            if (lstProjetChefEquipeActuel.Count != 0)
             {
-                cmbProjet.Items.Add(projet.nomProjet);
+                foreach (cProjet projet in lstProjetChefEquipeActuel)
+                {
+                    cmbProjet.Items.Add(projet.nomProjet);
+                }
+            }
+            else
+            {
+                ListItem lst = new ListItem("Aucun");
+                cmbProjet.Items.Add(lst);
+                cmbProjet.SelectedIndex = cmbProjet.Items.IndexOf(lst);
             }
         }
 
         protected void cmbProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cProjet projet = CtrlProjet.GetProjet(cmbProjet.Text);
-            List<Equipe> lstEquipe = CtrlEquipe.lstEquipeByCodeProjet(projet.codeProjet);
-            lstCasTest = new List<CasTest>();
+            ListItem lst = new ListItem("Aucune");
             cmbEquipe.Items.Clear();
-            foreach (Equipe equipe in lstEquipe)
+            cmbEquipe.Items.Add(lst);
+            if (cmbProjet.Text != "Aucun")
             {
-                cmbEquipe.Items.Add(equipe.nomEquipe);
-                foreach (CasTest casTest in equipe.CasTest)
+                cProjet projet = CtrlProjet.GetProjet(cmbProjet.Text);
+                List<Equipe> lstEquipe = CtrlEquipe.lstEquipeByCodeProjet(projet.codeProjet);
+                lstCasTest = new List<CasTest>();
+                foreach (Equipe equipe in lstEquipe)
                 {
-                    lstCasTest.Add(casTest);
+                    cmbEquipe.Items.Add(equipe.nomEquipe);
+                    foreach (CasTest casTest in equipe.CasTest)
+                    {
+                        lstCasTest.Add(casTest);
+                    }
                 }
+                cmbEquipe.Enabled = true;
             }
-            ListItem lst = new ListItem("Aucun");
+            else
+            {
+                cmbEquipe.Enabled = false;
+            }
             cmbEquipe.SelectedIndex = cmbEquipe.Items.IndexOf(lst);
         }
         private void ajoutDonnesDataGrid(List<CasTest> lstCasTest)
@@ -140,9 +163,9 @@ namespace TexcelWeb
             string nomProjet = cmbProjet.Text;
             string nomEquipe = cmbEquipe.Text;
 
-            if (nomProjet!= "")
+            if (nomProjet!= "Aucun")
             {
-                if (nomEquipe != "Aucun")
+                if (nomEquipe != "Aucune")
                 {
                     foreach (CasTest castest in lstCasTest)
                     {
@@ -154,16 +177,31 @@ namespace TexcelWeb
                             }
                         }
                     }
-                    ajoutDonnesDataGrid(lstCasTestAAfficher);
+                    if (lstCasTestAAfficher.Count != 0)
+                    {
+                        ajoutDonnesDataGrid(lstCasTestAAfficher);
+                    }
+                    else
+                    {
+                        showEmptyDataGrid();
+                    }
                 }
                 else
                 {
-                    ajoutDonnesDataGrid(lstCasTest);
+                    if (lstCasTest.Count != 0)
+                    {
+                        ajoutDonnesDataGrid(lstCasTest);
+                    }
+                    else
+                    {
+                        showEmptyDataGrid();
+                    }
                 }
             }
             else
             {
-                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Attention!', 'Veuillez selectionner un Projet dans la liste', 'warning');", true);
+                //Caliss que jcomprends pas.. I saffiche pas
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Le chef d'équipe actuel ne travail sur aucun projet. Pour créer un billet de travail, le chef d'équipe doit obligatoirement être chef d'une ou plusieurs équipes au sein d'un projet.\", \"warning\");", true);
             }
         }
     }
