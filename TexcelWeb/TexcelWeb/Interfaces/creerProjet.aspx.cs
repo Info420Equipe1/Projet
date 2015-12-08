@@ -109,14 +109,13 @@ namespace TexcelWeb
 
                 //Emplissage du GridView pour les cas de test
                 fillDataGridViewCasTest(projet);
-
-                foreach (Groupe groupe in currentUser.Groupe)
+            }
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(20))
                 {
-                    List<int> lstDroits = CtrlController.GetDroits(groupe);
-                    if (!lstDroits.Contains(20))
-                    {
-                        btnEnregistrer.Visible = false;
-                    }
+                    btnEnregistrer.Visible = false;
                 }
             }
         }
