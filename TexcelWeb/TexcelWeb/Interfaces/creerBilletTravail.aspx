@@ -31,7 +31,7 @@ $(function(){
         </div>
 	</div>	
 	<div id="content">
-		<div id="sidebar">
+		<div id="sidebar" runat="server">
 			<div class="box">
                 <div class="h_title">&#8250; Recherche</div>
                 <ul>
@@ -59,7 +59,7 @@ $(function(){
 				</ul>
 			</div>     
         </div>
-	    <div id="main">
+	    <div id="main" runat="server">
 			<div class="full_w">
 				<div class="h_title" id="txtForm" runat="server">Créer un Billet de travail</div>
                 <form id="FrmBilletTravail" runat="server">     

@@ -98,7 +98,7 @@ $(function(){
                                 <asp:TextBox type="date" runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1 txtDate2" />
                                 <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1 lblDate2" />
                                 <asp:TextBox type="date" runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1 txtDate2" />
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonCasTest" ControlToCompare="txtDateCreationCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>
