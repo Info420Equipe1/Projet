@@ -121,6 +121,42 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienCasTest;
         
         /// <summary>
+        /// Contrôle boxBilletTravail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxBilletTravail;
+        
+        /// <summary>
+        /// Contrôle menuBilletTravail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuBilletTravail;
+        
+        /// <summary>
+        /// Contrôle lienBilletChefEquipe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienBilletChefEquipe;
+        
+        /// <summary>
+        /// Contrôle lienGestionBillets.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienGestionBillets;
+        
+        /// <summary>
         /// Contrôle FrmCasTest.
         /// </summary>
         /// <remarks>

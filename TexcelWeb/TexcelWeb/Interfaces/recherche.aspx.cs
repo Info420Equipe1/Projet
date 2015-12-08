@@ -66,6 +66,14 @@ namespace TexcelWeb
                     lienCasTest.Visible = false;
                     ddlFiltre.Items.Remove("CasTest");
                 }
+                if (!lstDroits.Contains(23) && !lstDroits.Contains(24))
+                {
+                    boxBilletTravail.Visible = false;
+                    menuBilletTravail.Visible = false;
+                    lienBilletChefEquipe.Visible = false;
+                    lienGestionBillets.Visible = false;
+                    ddlFiltre.Items.Remove("BilletTravail");
+                }
             }
             AfficherGV(ddlFiltre.Text);
         }

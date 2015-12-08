@@ -57,11 +57,11 @@ a {color:white; text-decoration:none}
 					<li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
 				</ul>
 			</div>
-            <div class="box">
-				<div class="h_title">&#8250; Billet de travail</div>
+            <div id="boxBilletTravail" runat="server" class="box">
+				<div id="menuBilletTravail" runat="server" class="h_title">&#8250; Billet de travail</div>
 				<ul>
-                    <li class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
-                    <li class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
+                    <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
+                    <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
 				</ul>
 			</div>     
 		</div>
