@@ -61,14 +61,16 @@ $(function(){
 	    <div id="main">
 			<div class="full_w">
 				<div class="h_title" id="Titre" runat="server">Billets de travail</div>
+                <div id="StatDiv">
                 <form runat="server">
-                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques">
+                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques" Width="1283px">
                         <asp:Label ID="Label1" runat="server" Text="nbr de billet urgent: "></asp:Label>
                         <asp:Label ID="lblNbrBillet" runat="server" Text=""></asp:Label>
                         <asp:Label ID="lblNbrBilletPersonnel" runat="server" Text="" ></asp:Label>
                         <asp:Label ID="Label2" runat="server" Text="Nbr de billet personnel: "></asp:Label>
                         
-                    </asp:Panel>      
+                    </asp:Panel>    
+                      </div>
                     <div id="billets">
                         <div>
                             <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
@@ -84,14 +86,14 @@ $(function(){
                                 <asp:BoundField DataField="Projet" HeaderText="Projet" SortExpression="Projet"/>
                                
                                 
-                                <asp:TemplateField HeaderText="Sélectionné" SortExpression="Sélectionné">
+                                <asp:TemplateField HeaderText="Sélectionné">
                                     <ItemTemplate>
                                         <asp:CheckBox ID="CBSelec" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBSelec_CheckedChanged"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Terminé">
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="CBTer" runat="server" />
+                                        <asp:CheckBox ID="CBTer" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBTer_CheckedChanged"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Détail">

@@ -213,5 +213,10 @@ namespace TexcelWeb.Interfaces
             this.Form.Dispose();
             Response.Redirect("creerBilletTravail.aspx");
         }
+
+        protected void CBTer_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
