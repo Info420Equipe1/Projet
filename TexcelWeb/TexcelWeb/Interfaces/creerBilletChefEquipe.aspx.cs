@@ -132,7 +132,7 @@ namespace TexcelWeb
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
                 hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
-                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text;
+                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTest=" + gvr.Cells[0].Text + "&consulteBillet=true";
             }
         }
         private void showEmptyDataGrid()
@@ -159,7 +159,7 @@ namespace TexcelWeb
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            List<CasTest> lstCasTestAAfficher = new List<CasTest>();
+            
             string nomProjet = cmbProjet.Text;
             string nomEquipe = cmbEquipe.Text;
 
@@ -167,6 +167,7 @@ namespace TexcelWeb
             {
                 if (nomEquipe != "Aucune")
                 {
+                    List<CasTest> lstCasTestAAfficher = new List<CasTest>();
                     foreach (CasTest castest in lstCasTest)
                     {
                         foreach (Equipe equipe in castest.Equipe)
@@ -188,9 +189,15 @@ namespace TexcelWeb
                 }
                 else
                 {
-                    if (lstCasTest.Count != 0)
+                    List<CasTest> lstCasTestAAfficher = new List<CasTest>();
+                    cProjet projet = CtrlProjet.GetProjet(nomProjet);
+                    foreach (CasTest casTest in projet.CasTest)
                     {
-                        ajoutDonnesDataGrid(lstCasTest);
+                        lstCasTestAAfficher.Add(casTest);
+                    }
+                    if (lstCasTestAAfficher.Count != 0)
+                    {
+                        ajoutDonnesDataGrid(lstCasTestAAfficher);
                     }
                     else
                     {

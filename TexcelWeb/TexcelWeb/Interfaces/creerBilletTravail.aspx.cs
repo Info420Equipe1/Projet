@@ -20,28 +20,31 @@ namespace TexcelWeb.Interfaces
         static Equipe equipeActuelle;
         protected void Page_Init(object sender, EventArgs e)
         {
-            bool modifier = Convert.ToBoolean(Session["modifBillet"]);
-            bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
-            if (consulter)
+            if (!IsPostBack)
             {
+                bool modifier = Convert.ToBoolean(Session["modifBillet"]);
+                bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
+
                 string codeCasTest = Request.QueryString["codeCasTest"];
-                //Cas de test pour info
                 casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                btnFermer.Text = "Fermer";
+                if (Session["BilletTravailConsulTesteur"] != null)
+                {
+                    BilletTravail billet = (BilletTravail)Session["BilletTravailConsulTesteur"];
+                    casTestCreationBillet = billet.CasTest;
+                    Session["BilletTravailCreationBillet"] = Session["BilletTravailConsulTesteur"];
+                    Session["BilletTravailConsulTesteur"] = null;
+                    consulter = true;
+                    sidebar.Visible = false;
+                    main.Style.Add(HtmlTextWriterStyle.Width, "1367px");
+                    btnFermer.Text = "Retour";
+                }
+
+                modifierBillet = modifier;
+                Session["modifBillet"] = false;
+
+                consulterBillet = consulter;
             }
-            if (Session["BilletTravailConsulTesteur"] != null)
-            {
-                BilletTravail billet = (BilletTravail)Session["BilletTravailConsulTesteur"];
-                casTestCreationBillet = billet.CasTest;
-                Session["BilletTravailCreationBillet"] = Session["BilletTravailConsulTesteur"];
-                consulter = true;
-                sidebar.Visible = false;
-                main.Style.Add(HtmlTextWriterStyle.Width, "1367px");
-            }
-            
-            modifierBillet = modifier;
-            Session["modifBillet"] = false; 
-            
-            consulterBillet = consulter;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -344,7 +347,14 @@ namespace TexcelWeb.Interfaces
             {
                 Session["consultBillet"] = false;
                 consulterBillet = false;
-                Response.Redirect("recherche.aspx");
+                if (btnFermer.Text !="Retour")
+                {
+                    Response.Redirect("recherche.aspx");
+                }
+                else
+                {
+                    Response.Redirect("billetsTravail.aspx");
+                }
                 //Dla marde sa marche pas. Post back pi revien sur la meme page a cause du post back
                 //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
             }

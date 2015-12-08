@@ -140,7 +140,6 @@ $(function(){
                     </div>
                 <div id="btnEnregistrerAnnuler">    
                     <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />        
-                    <asp:LinkButton runat="server" ID="btnFermerTesteur" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false"/>
                     <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
                                   
                     <br />

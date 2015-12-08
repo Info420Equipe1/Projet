@@ -22,7 +22,7 @@
 }
 #BilletContainer{
     position:relative;
-    align-content:center;
+    padding-left:33%;
 }
 #txtTitreBillet{
     width:325px;
