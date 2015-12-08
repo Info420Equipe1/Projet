@@ -58,15 +58,6 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtProjetCasTest;
         
         /// <summary>
-        /// Contrôle txtEquipe.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEquipe;
-        
-        /// <summary>
         /// Contrôle txtNomCasTest.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDifficulte;
+        
+        /// <summary>
+        /// Contrôle txtEquipe.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtEquipe;
         
         /// <summary>
         /// Contrôle txtTitreBillet.
@@ -148,15 +148,6 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
-        /// Contrôle cmbTesteurBillet.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
-        
-        /// <summary>
         /// Contrôle updatePanelStatutDateTerminaison.
         /// </summary>
         /// <remarks>
@@ -164,6 +155,15 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updatePanelStatutDateTerminaison;
+        
+        /// <summary>
+        /// Contrôle cmbTesteurBillet.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbTesteurBillet;
         
         /// <summary>
         /// Contrôle cmbStatutBillet.

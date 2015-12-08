@@ -13,7 +13,7 @@ namespace TexcelWeb.Classes.Test
     public class CtrlBilletTravail : CtrlController
     {
         //Ajouter un billet de travail
-        public static string AjouterBillet(string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet)
+        public static string AjouterBillet(string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet, string nomEquipe)
         {
             if (billetExist(titreBillet))
             {
@@ -58,7 +58,11 @@ namespace TexcelWeb.Classes.Test
             CasTest casTestBillet = CtrlCasTest.GetCasTestByNom(nomCasTest);
             billet.CasTest = casTestBillet;
             billet.descBilletTravail = descBillet;
-
+            if (nomEquipe!= "Aucune")
+            {
+                Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestBillet.cProjet.codeProjet);
+                billet.Equipe = equipe;
+            }
 
             try
             {
@@ -72,7 +76,7 @@ namespace TexcelWeb.Classes.Test
         }
 
         //Modifier un billet de travail
-        public static string ModifierBillet(int idBillet, string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet)
+        public static string ModifierBillet(int idBillet, string titreBillet, string dureeBillet, string dateCreationBillet, string dateLivraisonBillet, string testeurAssigneBillet, string statutBillet, string prioriteBillet, string dateTerminaisonBillet, string nomCasTest, string descBillet, string nomEquipe)
         {
             //recherche du billet
             BilletTravail billet = getBilletById(idBillet);
@@ -117,7 +121,15 @@ namespace TexcelWeb.Classes.Test
                 billet.NiveauPriorite = priorite;
             }
             billet.descBilletTravail = descBillet;
-
+            if (nomEquipe != "Aucune")
+            {
+                Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, billet.CasTest.cProjet.codeProjet);
+                billet.Equipe = equipe;
+            }
+            else
+            {
+                billet.Equipe = null;
+            }
 
             try
             {

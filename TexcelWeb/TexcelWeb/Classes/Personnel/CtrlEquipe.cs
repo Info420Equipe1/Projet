@@ -85,25 +85,17 @@ namespace TexcelWeb.Classes.Personnel
             return lstCasTest;
         }
 
-        //Retourne une liste de projet pour un chef d'équipe
-        public static List<cProjet> lstProjetByChefEquipe(string _nomChefEquipe)
+        //Retourne une liste de projet pour Numero d' un chef d'équipe
+        public static List<cProjet> lstProjetByChefEquipe(string _noChefEquipe)
         {
             List<cProjet> lstProjet = new List<cProjet>();
 
-            foreach (cProjet projet in CtrlProjet.GetListProjet())
+            foreach (Equipe equipe in context.Equipe)
             {
-                foreach (CasTest castest in projet.CasTest)
+                if (equipe.Employe.noEmploye == _noChefEquipe)
                 {
-                    foreach (Equipe equipe in castest.Equipe)
-                    {
-                        if ((equipe.Employe.prenomEmploye+" "+equipe.Employe.nomEmploye) == _nomChefEquipe)
-                        {
-                            if (!lstProjet.Contains(projet))
-                            {
-                                lstProjet.Add(projet);
-                            }
-                        }
-                    }
+                    cProjet projet = CtrlProjet.getProjetByCode(equipe.codeProjet);
+                    lstProjet.Add(projet);
                 }
             }
             return lstProjet;

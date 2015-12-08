@@ -69,8 +69,6 @@ $(function(){
                         <div id="CenterLbl">
                             <asp:Label runat="server" Text="Projet: " CssClass="lblTop"/>
                             <asp:TextBox runat="server" ID="txtProjetCasTest" Enabled="false"/>
-                            <asp:Label runat="server" Text="Équipe: " CssClass="lblTop"/>
-                            <asp:TextBox runat="server" ID="txtEquipe" Enabled="false"/>
                             <asp:Label runat="server" Text="Cas de test: " CssClass="lblTop"/>
                             <asp:TextBox runat="server" ID="txtNomCasTest" Enabled="false"/>
                             <asp:Label runat="server" Text="Type de test: " CssClass="lblTop"/>
@@ -86,6 +84,14 @@ $(function(){
                     <div id="BilletInfo">
                         <div >
                             <div class="info">
+                                <div class="lblColum1">
+                                    <asp:Label runat="server" Text="Équipe: "/>
+                                </div>
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
+                                        <asp:DropDownList runat="server" ID="txtEquipe" OnSelectedIndexChanged="txtEquipe_SelectedIndexChanged" AutoPostBack="true"/>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                                 <div class="lblColum1" >
                                     <asp:Label runat="server" Text="Titre du Billet: "/>
                                 </div>
@@ -94,7 +100,7 @@ $(function(){
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
-                                <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0"/>
+                                <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0" />
                                 <p id="DureeTexte">(Approximative)</p>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDureeBillet" Display="dynamic" Text="*" ForeColor="Red" />
                             </div>
@@ -106,12 +112,12 @@ $(function(){
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationBillet" Display="dynamic" Text="*" ForeColor="Red" />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
-                                <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
-                            </div>
                             <asp:UpdatePanel ID="updatePanelStatutDateTerminaison" runat="server">
                                 <ContentTemplate>
+                                    <div class="info">
+                                        <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
+                                        <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
+                                    </div>
                                     <div class="info">
                                         <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
                                         <asp:DropDownList runat="server" ID="cmbStatutBillet" CssClass="txtColum1 txtDate1" AutoPostBack="true" OnSelectedIndexChanged="cmbStatutBillet_SelectedIndexChanged"/>

@@ -41,7 +41,7 @@ namespace TexcelWeb
         private void fillDropDownList()
         {
             Employe employe = (CtrlController.GetCurrentUser()).Employe;
-            List<cProjet> lstProjetChefEquipeActuel = CtrlEquipe.lstProjetByChefEquipe(employe.prenomEmploye + " " + employe.nomEmploye);
+            List<cProjet> lstProjetChefEquipeActuel = CtrlEquipe.lstProjetByChefEquipe(employe.noEmploye);
             if (lstProjetChefEquipeActuel.Count != 0)
             {
                 foreach (cProjet projet in lstProjetChefEquipeActuel)
@@ -130,7 +130,7 @@ namespace TexcelWeb
             foreach (GridViewRow gvr in dataGridCasTest.Rows)
             {
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
-                hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text+"&equipe="+cmbEquipe.Text;
+                hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
                 hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text;
             }

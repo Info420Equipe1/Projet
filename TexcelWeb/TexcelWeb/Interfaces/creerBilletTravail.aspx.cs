@@ -47,19 +47,12 @@ namespace TexcelWeb.Interfaces
 
 
                 string codeCasTest = Request.QueryString["codeCasTest"];
-
                 //Cas de test pour info
                 casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
-
-                //if (nomEquipe != "Aucune")
-                //{
-                //    string nomEquipe = 
-                //    equipeActuelle = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestCreationBillet.cProjet.codeProjet);
-                //}
-                //else
-                //{
-                //    txtEquipe.Text = "Aucune";
-                //}
+                if (casTestCreationBillet.Equipe.Count == 1)
+	            {
+                    equipeActuelle = casTestCreationBillet.Equipe.First();
+	            }
                 if (modifierBillet || consulterBillet)
                 {
                     billetActuel = (BilletTravail)Session["BilletTravailCreationBillet"];
@@ -156,11 +149,12 @@ namespace TexcelWeb.Interfaces
             string dateTerminaisonBillet = String.Format("{0}", Request.Form["txtDateTerminaison"]);
             string nomCasTest = txtNomCasTest.Text;
             string descBillet= rtxtDescriptionBillet.Text;
+            string nomEquipe = txtEquipe.Text;
 
             if (!modifierBillet)
 	        {
 		        //Ajout d'un billet de travail
-                string message = CtrlBilletTravail.AjouterBillet(titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet);
+                string message = CtrlBilletTravail.AjouterBillet(titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet, nomEquipe);
 
                 //Reception du message
                 switch (message)
@@ -181,7 +175,7 @@ namespace TexcelWeb.Interfaces
             else
             {
                 //Modification d'un billet de travail
-                string message = CtrlBilletTravail.ModifierBillet(billetActuel.idBilletTravail, titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet);
+                string message = CtrlBilletTravail.ModifierBillet(billetActuel.idBilletTravail, titreBillet, dureeBillet, dateCreationBillet, dateLivraisonBillet, employeAssigneBillet, statutBillet, prioriteBillet, dateTerminaisonBillet, nomCasTest, descBillet, nomEquipe);
 
                 //Reception du message
                 switch (message)
@@ -212,14 +206,6 @@ namespace TexcelWeb.Interfaces
             txtNomCasTest.Text = casTestCreationBillet.nomCasTest;
             txtNomTypeTest.Text = casTestCreationBillet.TypeTest.nomTest;
             txtDifficulte.Text = casTestCreationBillet.Difficulte.nomDiff;
-            if (equipeActuelle!=null)
-            {
-                txtEquipe.Text = equipeActuelle.nomEquipe;
-            }
-            else
-            {
-                txtEquipe.Text = "Aucune";
-            }
         }
         private void fillInformationBillet()
         {
@@ -257,18 +243,47 @@ namespace TexcelWeb.Interfaces
         private void fillDropDownBox()
         {
             ListItem lst;
-            //Emplissage du DropDownList Chef de Projet
-            cmbTesteurBillet.Items.Clear();
-            foreach (Employe emp in equipeActuelle.Employe1)
-            {
-                cmbTesteurBillet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
-            }
-            lst = new ListItem();
-            lst.Text = "Aucun";
-            cmbTesteurBillet.Items.Add(lst);
-            cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
 
-            //Emplissage du DropDownList Jeux
+            //EquipeDropDown
+            txtEquipe.Items.Clear();
+            lst = new ListItem();
+            lst.Text = "Aucune";
+            txtEquipe.Items.Add(lst);
+            foreach (Equipe equipe in casTestCreationBillet.Equipe)
+            {
+                lst = new ListItem(equipe.nomEquipe);
+                txtEquipe.Items.Add(lst);
+            }
+
+            //Emplissage du DropDownList Testeur
+            if (equipeActuelle != null)
+            {
+                lst = new ListItem(equipeActuelle.nomEquipe);
+                txtEquipe.SelectedIndex = txtEquipe.Items.IndexOf(lst);
+                cmbTesteurBillet.Items.Clear();
+                foreach (Employe emp in equipeActuelle.Employe1)
+                {
+                    cmbTesteurBillet.Items.Add(emp.prenomEmploye + " " + emp.nomEmploye);
+                }
+                lst = new ListItem();
+                lst.Text = "Aucun";
+                cmbTesteurBillet.Items.Add(lst);
+                cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
+                cmbTesteurBillet.Enabled = true;
+            }
+            else
+            {
+                lst = new ListItem("Aucune");
+                txtEquipe.SelectedIndex = txtEquipe.Items.IndexOf(lst);
+                cmbTesteurBillet.Items.Clear();
+                lst = new ListItem();
+                lst.Text = "Aucun";
+                cmbTesteurBillet.Items.Add(lst);
+                cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
+                cmbTesteurBillet.Enabled = false;
+            }
+
+            //Emplissage du DropDownList Statut
             cmbStatutBillet.Items.Clear();
             foreach (Statut statut in CtrlStatut.getLstStatut())
             {
@@ -278,6 +293,7 @@ namespace TexcelWeb.Interfaces
             lst.Text = "En création";
             cmbStatutBillet.SelectedIndex = cmbStatutBillet.Items.IndexOf(lst);
 
+            //Emplissage du drop down priorité
             cmbPrioriteBillet.Items.Clear();
             foreach (NiveauPriorite niveauPrio in CtrlNivPriorite.GetLstNivPrio())
             {
@@ -320,6 +336,45 @@ namespace TexcelWeb.Interfaces
             {
                 Response.Redirect("recherche.aspx");
                 //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
+            }
+        }
+
+        protected void txtEquipe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtEquipe.SelectedItem.Text != "Aucune")
+            {
+                ListItem lst;
+                string nomEquipe = txtEquipe.Text;
+                foreach (Equipe equipe in casTestCreationBillet.Equipe)
+                {
+                    if (equipe.nomEquipe == nomEquipe)
+                    {
+                        equipeActuelle = equipe;
+                    }
+                }
+                cmbTesteurBillet.Enabled = true;
+                cmbTesteurBillet.Items.Clear();
+                foreach (Employe employe in equipeActuelle.Employe1)
+                {
+                    lst = new ListItem();
+                    lst.Text = employe.prenomEmploye+" "+employe.nomEmploye;
+                    cmbTesteurBillet.Items.Add(lst);
+                }
+                lst = new ListItem();
+                lst.Text = "Tous";
+                cmbTesteurBillet.Items.Add(lst);
+                lst = new ListItem();
+                lst.Text = "Aucun";
+                cmbTesteurBillet.Items.Add(lst);
+                cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
+            }
+            else
+            {
+                cmbTesteurBillet.Items.Clear();
+                ListItem lst = new ListItem();
+                lst.Text = "Aucun";
+                cmbTesteurBillet.Items.Add(lst);
+                cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
             }
         }
     }
