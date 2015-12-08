@@ -59,7 +59,7 @@ $(function(){
 				</ul>
 			</div>     
         </div>
-	    <div id="main">
+	    <div id="main" runat="server">
 			<div class="full_w">
 				<div class="h_title" id="Titre" runat="server">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">      

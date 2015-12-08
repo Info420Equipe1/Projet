@@ -242,7 +242,7 @@ namespace TexcelWeb.Classes.Test
             //Billets assigné
             foreach (BilletTravail bT in _emp.BilletTravail1)
             {
-                if (bT.noEmploye == null)
+                if ((bT.noEmploye == null) || (bT.termine == 0))
                 {
                     lst.Add(bT);
                 }
@@ -282,6 +282,24 @@ namespace TexcelWeb.Classes.Test
                 return false;
             }
            
+        }
+
+        public static bool TermineBillet(BilletTravail _bT, bool _verifChecked)
+        {
+            if (_verifChecked == true)
+            {
+                //Le testeur a terminé ce billet
+                _bT.termine = 1;
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                //Le testeur na pas terminé le billet
+                _bT.termine = 0;
+                context.SaveChanges();
+                return false;
+            }
         }
     }
 }

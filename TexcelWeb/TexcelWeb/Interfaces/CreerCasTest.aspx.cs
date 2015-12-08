@@ -113,6 +113,7 @@ namespace TexcelWeb
                     FileUpload1.Visible = false;
                     btnFermer.Visible = true;
                     lblDivers.Visible = false;
+                    main.Style.Add(HtmlTextWriterStyle.Width, "1367px");
                 }
                 else
                 {

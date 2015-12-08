@@ -15,6 +15,7 @@ namespace TexcelWeb.Interfaces
     public partial class billetsTravail : System.Web.UI.Page
     {
         static List<bool> VerifSelec = new List<bool>();
+        static List<bool> VerifTerm = new List<bool>();
         static Utilisateur user;
         static int cpt = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace TexcelWeb.Interfaces
                     }
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
 
-                    dR["Duree"] = bT.dateCreation;
+                    dR["Duree"] = bT.dureeBilletTravail;
                     dR["Projet"] = bT.CasTest.cProjet.nomProjet;
                     dT.Rows.Add(dR);
                     if (bT.idNivPri == 1)
@@ -77,6 +78,14 @@ namespace TexcelWeb.Interfaces
                     else
                     {
                         VerifSelec.Add(false);
+                    }
+                    if (bT.termine == 1)
+                    {
+                        VerifTerm.Add(true);
+                    }
+                    else
+                    {
+                        VerifTerm.Add(false);
                     }
                 }
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
@@ -124,12 +133,18 @@ namespace TexcelWeb.Interfaces
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                CheckBox checkBox = (e.Row.FindControl("CBSelec") as CheckBox);
+                CheckBox checkBoxSel = (e.Row.FindControl("CBSelec") as CheckBox);
+                CheckBox checkBoxTerm = (e.Row.FindControl("CBTer") as CheckBox);
                 if (VerifSelec.Count() != 0)
                 {
                     if (VerifSelec[cpt] == true)
                     {
-                        checkBox.Checked = true;
+                        checkBoxSel.Checked = true;
+                    }
+                    if (VerifTerm[cpt] == true)
+                    {
+                        checkBoxTerm.Checked = true;
+                        checkBoxSel.Enabled = false;
                     }
                     cpt++;
                 }
@@ -193,6 +208,7 @@ namespace TexcelWeb.Interfaces
         public void GarderEtatsCheckBoxSorting(DataView _dT)
         {
             VerifSelec.Clear();
+            VerifTerm.Clear();
             foreach (DataRowView dR in _dT)
             {
                 if (CtrlBilletTravail.GetBillet(dR[0].ToString()).noEmploye != null)
@@ -202,6 +218,14 @@ namespace TexcelWeb.Interfaces
                 else
                 {
                     VerifSelec.Add(false);
+                }
+                if (CtrlBilletTravail.GetBillet(dR[0].ToString()).termine == 1)
+                {
+                    VerifTerm.Add(true);
+                }
+                else
+                {
+                    VerifTerm.Add(false);
                 }
             }
         }
@@ -216,7 +240,31 @@ namespace TexcelWeb.Interfaces
 
         protected void CBTer_CheckedChanged(object sender, EventArgs e)
         {
-
+            bool verifChecked = false;
+            CheckBox checkBox = (CheckBox)sender;
+            if (checkBox.Checked == true)
+            {
+                verifChecked = true;
+            }
+            GridViewRow row = ((GridViewRow)((CheckBox)sender).NamingContainer);
+            CheckBox checkBoxSelec = (row.FindControl("CBSelec") as CheckBox);
+            if (checkBoxSelec.Checked == true)
+            {
+                if (CtrlBilletTravail.TermineBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked))
+                {
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet terminé.\", \"error\");", true);
+                    checkBoxSelec.Enabled = false;
+                }
+                else
+                {
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet non terminé.\", \"error\");", true);
+                    checkBoxSelec.Enabled = true;
+                }
+            }
+            else
+            {
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Vous devez sélectionné le billet.\", \"error\");", true);
+            }
         }
     }
 }
