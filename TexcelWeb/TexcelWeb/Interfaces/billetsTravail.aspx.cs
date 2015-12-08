@@ -62,7 +62,7 @@ namespace TexcelWeb.Interfaces
                         dR["DateLivraison"] = "YO";
                     }
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
-                    
+
                     dR["Duree"] = bT.dateCreation;
                     dR["Projet"] = bT.CasTest.cProjet.nomProjet;
                     dT.Rows.Add(dR);
@@ -81,7 +81,7 @@ namespace TexcelWeb.Interfaces
                 }
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
                 lblNbrBillet.Text = cpt.ToString();
-	           
+
             }
             else
             {
@@ -114,11 +114,11 @@ namespace TexcelWeb.Interfaces
             {
                 this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet déselectionné.\", \"error\");", true);
             }
-            
-            
+
+
         }
 
-      
+
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -130,9 +130,9 @@ namespace TexcelWeb.Interfaces
                     checkBox.Checked = true;
                 }
                 cpt++;
-                
+
             }
-            
+
         }
 
         protected void lnkCasDeTest_Click(object sender, EventArgs e)
@@ -149,7 +149,7 @@ namespace TexcelWeb.Interfaces
             cpt = 0;
             DataTable dataTable = ViewState["dtbl"] as DataTable;
 
-           
+
             string sortingDirection = string.Empty;
             if (dir == SortDirection.Ascending)
             {
@@ -164,11 +164,12 @@ namespace TexcelWeb.Interfaces
 
             DataView sortedView = new DataView(dataTable);
             sortedView.Sort = e.SortExpression + " " + sortingDirection;
+            GarderEtatsCheckBoxSorting(sortedView);
             GridView1.DataSource = sortedView;
             GridView1.DataBind();
         }
 
-        
+
 
         public SortDirection dir
         {
@@ -186,5 +187,28 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        public void GarderEtatsCheckBoxSorting(DataView _dT)
+        {
+            VerifSelec.Clear();
+            foreach (DataRowView dR in _dT)
+            {
+                if (CtrlBilletTravail.GetBillet(dR[0].ToString()).noEmploye != null)
+                {
+                    VerifSelec.Add(true);
+                }
+                else
+                {
+                    VerifSelec.Add(false);
+                }
+            }
+        }
+
+        protected void lnkBilletTravail_Click(object sender, EventArgs e)
+        {
+            BilletTravail bT = CtrlBilletTravail.GetBillet((sender as LinkButton).CommandArgument);
+            Session["BilletTravailConsulTesteur"] = bT;
+            this.Form.Dispose();
+            Response.Redirect("creerBilletTravail.aspx");
+        }
     }
 }
