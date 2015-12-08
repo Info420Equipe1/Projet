@@ -125,7 +125,7 @@ namespace TexcelWeb.Interfaces
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 CheckBox checkBox = (e.Row.FindControl("CBSelec") as CheckBox);
-                if (VerifSelec != null)
+                if (VerifSelec.Count() != 0)
                 {
                     if (VerifSelec[cpt] == true)
                     {
