@@ -75,7 +75,7 @@ namespace Texcel.Classes.Personnel
         {
             Utilisateur UtilisateurASupprimer = new Utilisateur();
 
-            foreach (Utilisateur user in context.tblUtilisateur)
+            foreach (Utilisateur user in context.Utilisateur)
             {
                 if (user.nomUtilisateur == _nomUtilisateurASupprimer)
                 {
@@ -83,7 +83,7 @@ namespace Texcel.Classes.Personnel
                 }
             }
 
-            context.tblUtilisateur.Remove(UtilisateurASupprimer);
+            context.Utilisateur.Remove(UtilisateurASupprimer);
 
             try
             {
@@ -97,7 +97,7 @@ namespace Texcel.Classes.Personnel
         }
         private static void Enregistrer(Utilisateur _newUtilisateur)
         {
-            context.tblUtilisateur.Add(_newUtilisateur);
+            context.Utilisateur.Add(_newUtilisateur);
             context.SaveChanges();
         }
 
@@ -117,7 +117,7 @@ namespace Texcel.Classes.Personnel
         //Trouver utilisateur par son nom d'utilisateur
         public static Utilisateur getUtilisateur(string _nomUti)
         {
-            Utilisateur uti = context.tblUtilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
+            Utilisateur uti = context.Utilisateur.Where(x => x.nomUtilisateur == _nomUti).First();
 
             return uti;
         }

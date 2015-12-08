@@ -15,7 +15,7 @@ namespace Texcel.Classes.Jeu
         {
             List<VersionJeu> lstVersionJeu = new List<VersionJeu>();
 
-            foreach (VersionJeu versionJeu in context.tblVersionJeu.Where(x => x.idJeu == IDJeu))
+            foreach (VersionJeu versionJeu in context.VersionJeu.Where(x => x.idJeu == IDJeu))
             {
                 lstVersionJeu.Add(versionJeu);
             }
@@ -26,7 +26,7 @@ namespace Texcel.Classes.Jeu
         {
             List<VersionJeu> lstVersionJeu = new List<VersionJeu>();
 
-            foreach (VersionJeu versionJeu in context.tblVersionJeu.Where(x => x.cJeu.nomJeu == nomJeu))
+            foreach (VersionJeu versionJeu in context.VersionJeu.Where(x => x.cJeu.nomJeu == nomJeu))
             {
                 lstVersionJeu.Add(versionJeu);
             }
@@ -70,8 +70,8 @@ namespace Texcel.Classes.Jeu
         }
         public static string Supprimer(string _nomVersion)
         {
-            VersionJeu versionJeu = context.tblVersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
-            context.tblVersionJeu.Remove(versionJeu);
+            VersionJeu versionJeu = context.VersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
+            context.VersionJeu.Remove(versionJeu);
             try
             {
                 context.SaveChanges();
@@ -85,12 +85,12 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(VersionJeu _versionJeu)
         {
             //Ajouter dans la BD
-            context.tblVersionJeu.Add(_versionJeu);
+            context.VersionJeu.Add(_versionJeu);
             context.SaveChanges();
         }
         public static bool VerifierVersionJeu(string _nomVersionJeu)
         {
-            foreach (VersionJeu versionJeu in context.tblVersionJeu)
+            foreach (VersionJeu versionJeu in context.VersionJeu)
             {
                 if (versionJeu.nomVersionJeu == _nomVersionJeu)
                 {
@@ -102,7 +102,7 @@ namespace Texcel.Classes.Jeu
 
         public static VersionJeu GetVersionJeu(string _nomVersion)
         {
-            VersionJeu Version = context.tblVersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
+            VersionJeu Version = context.VersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
             return Version;
         }
     }

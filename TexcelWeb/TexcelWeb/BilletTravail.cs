@@ -26,6 +26,7 @@ namespace TexcelWeb
         public Nullable<System.DateTime> dateLivraison { get; set; }
         public Nullable<System.DateTime> dateFin { get; set; }
         public string descBilletTravail { get; set; }
+        public Nullable<short> termine { get; set; }
         public Nullable<short> idNivPri { get; set; }
         public Nullable<short> idStatut { get; set; }
         public string noEmploye { get; set; }

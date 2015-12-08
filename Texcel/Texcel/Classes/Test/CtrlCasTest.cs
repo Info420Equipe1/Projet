@@ -10,7 +10,7 @@ namespace Texcel.Classes.Test
     {
         public static CasTest getCasTest(string _nom)
         {
-            CasTest casTest = context.tblCasTest.Where(x => x.nomCasTest == _nom).First();
+            CasTest casTest = context.CasTest.Where(x => x.nomCasTest == _nom).First();
             return casTest;
         }
     }

@@ -14,7 +14,7 @@ namespace Texcel.Classes.Jeu
         // Obtenir le nombre d'itération dans la table tblVersionSysExp
         public static int GetCount()
         {
-            return context.tblVersionSysExp.Count();
+            return context.VersionSysExp.Count();
         }
 
         // On ajoute une nouvelle version dans la table tblVersionSysExp
@@ -66,7 +66,7 @@ namespace Texcel.Classes.Jeu
         // On enregistre dans la table le nouveau GenreJeu nouvellement ajouté
         private static bool Enregistrer(VersionSysExp _versionSysExp)
         {
-            context.tblVersionSysExp.Add(_versionSysExp);
+            context.VersionSysExp.Add(_versionSysExp);
             try
             {
                 context.SaveChanges();
@@ -82,7 +82,7 @@ namespace Texcel.Classes.Jeu
         public static List<String> RechercherpourListe(string _nomEdSysExp)
         {
             List<String> lstVersion = new List<String>();
-            foreach (VersionSysExp ver in context.tblVersionSysExp.Where(x => x.EditionSysExp.nomEdition == _nomEdSysExp))
+            foreach (VersionSysExp ver in context.VersionSysExp.Where(x => x.EditionSysExp.nomEdition == _nomEdSysExp))
             {
                 lstVersion.Add(ver.noVersion);
             }
@@ -93,7 +93,7 @@ namespace Texcel.Classes.Jeu
 
         public static VersionSysExp GetVersionSysExp(int _idEdition,string _noVersion)
         {
-            VersionSysExp vSE = context.tblVersionSysExp.Where(x => x.idEdition == _idEdition && x.noVersion == _noVersion).First();
+            VersionSysExp vSE = context.VersionSysExp.Where(x => x.idEdition == _idEdition && x.noVersion == _noVersion).First();
             return vSE;
         }
     }

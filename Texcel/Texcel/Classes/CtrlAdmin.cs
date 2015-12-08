@@ -20,7 +20,7 @@ namespace Texcel.Classes
         }
         public static System.Data.Entity.DbSet<cJeu> GetAllJeuView()
         {
-            return context.tblJeu;
+            return context.Jeu;
         }
         public static System.Data.Entity.DbSet<AllEquipe> GetAllEquipeView()
         {
@@ -28,7 +28,7 @@ namespace Texcel.Classes
         }
         public static System.Data.Entity.DbSet<Employe> GetAllEmployeView()
         {
-            return context.tblEmploye;
+            return context.Employe;
         }
         public static System.Data.Entity.DbSet<AllTesteurs> GetAllTesteursView()
         {

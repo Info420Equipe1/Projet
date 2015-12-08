@@ -14,7 +14,7 @@ namespace Texcel.Classes.Jeu
         //Nombre d'itération
         public static int GetCount()
         {
-            return context.tblJeu.Count();
+            return context.Jeu.Count();
         }
 
         //ajout d'un Jeu
@@ -72,7 +72,7 @@ namespace Texcel.Classes.Jeu
         //verifier jeu a laide d'un string
         public static bool VerifierJeu(string _nomJeu)
         {
-            foreach (cJeu jeu in context.tblJeu)
+            foreach (cJeu jeu in context.Jeu)
             {
                 if (jeu.nomJeu == _nomJeu)
                 {
@@ -85,7 +85,7 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(cJeu _jeu)
         {
             //Ajouter dans la BD
-            context.tblJeu.Add(_jeu);
+            context.Jeu.Add(_jeu);
             context.SaveChanges();
         }
         
@@ -94,7 +94,7 @@ namespace Texcel.Classes.Jeu
         {
             List<cJeu> lstJeu = new List<cJeu>();
 
-            foreach (cJeu jeu in context.tblJeu)
+            foreach (cJeu jeu in context.Jeu)
             {
                 lstJeu.Add(jeu);
             }
@@ -103,7 +103,7 @@ namespace Texcel.Classes.Jeu
         //Trouver un jeu a l'aide d'une string
         public static cJeu GetJeu(string _nomJeu)
         {
-            cJeu Jeu = context.tblJeu.Where(x => x.nomJeu == _nomJeu).First();
+            cJeu Jeu = context.Jeu.Where(x => x.nomJeu == _nomJeu).First();
 
             return Jeu;
         }

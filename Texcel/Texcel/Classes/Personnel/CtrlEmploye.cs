@@ -23,7 +23,7 @@ namespace Texcel.Classes.Personnel
             emp.competenceParticuliere = _compPart;
             try
             {
-                context.tblEmploye.Add(emp);
+                context.Employe.Add(emp);
                 context.SaveChanges();
                 LierTypeTest(emp);
                 return "L'employée a été créé avec succès!";
@@ -80,7 +80,7 @@ namespace Texcel.Classes.Personnel
         {
             List<Employe> listEmploye = new List<Employe>();
 
-            foreach (Employe emp in context.tblEmploye)
+            foreach (Employe emp in context.Employe)
             {
                 listEmploye.Add(emp);
             }
@@ -91,12 +91,12 @@ namespace Texcel.Classes.Personnel
         //Trouver un employé a l'aide de son nom et prenom
         public static Employe emp(string _nomPren)
         {
-            Employe emp = context.tblEmploye.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
+            Employe emp = context.Employe.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
             return emp;
         }
         public static string getIdEmploye(string _nomEmp)
         {
-            Employe emp = context.tblEmploye.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
+            Employe emp = context.Employe.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
             return emp.noEmploye;
         }
 
@@ -104,7 +104,7 @@ namespace Texcel.Classes.Personnel
         public static List<Employe> listEmployeChefEquipe()
         {
             List<Employe> listEmp = new List<Employe>();
-            foreach (Groupe gr in context.tblGroupe.Where(x => x.nomGroupe == "Chef d'équipe"))
+            foreach (Groupe gr in context.Groupe.Where(x => x.nomGroupe == "Chef d'équipe"))
             {
                 foreach (Utilisateur uti in gr.Utilisateur)
                 {
@@ -123,7 +123,7 @@ namespace Texcel.Classes.Personnel
 
         public static Employe getEmployeByNo(string _numEmploye)
         {
-            Employe emp = context.tblEmploye.Where(x => x.noEmploye == _numEmploye).First();
+            Employe emp = context.Employe.Where(x => x.noEmploye == _numEmploye).First();
             return emp;
         }
 

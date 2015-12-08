@@ -13,7 +13,7 @@ namespace Texcel.Classes.Jeu
 
         public static int GetCount()
         {
-            return context.tblPlateforme.Count();
+            return context.Plateforme.Count();
         }
 
 
@@ -23,7 +23,7 @@ namespace Texcel.Classes.Jeu
         {
             List<Plateforme> lstPlateformeJeu = new List<Plateforme>();
 
-            foreach (Plateforme plateforme in context.tblPlateforme)
+            foreach (Plateforme plateforme in context.Plateforme)
             {
                 lstPlateformeJeu.Add(plateforme);
             }
@@ -45,7 +45,7 @@ namespace Texcel.Classes.Jeu
         public static List<Plateforme> Rechercher()
         {
             List<Plateforme> lstPlateforme = new List<Plateforme>();
-            foreach (Plateforme platforme in context.tblPlateforme)
+            foreach (Plateforme platforme in context.Plateforme)
             {
                 lstPlateforme.Add(platforme);
             }
@@ -55,7 +55,7 @@ namespace Texcel.Classes.Jeu
         public static List<Plateforme> Rechercher(string _nomTypePlateforme)
         {
             List<Plateforme> lstPlateforme = new List<Plateforme>();
-            foreach (Plateforme plat in context.tblPlateforme.Where(x => x.TypePlateforme.nomTypePlateforme == _nomTypePlateforme))
+            foreach (Plateforme plat in context.Plateforme.Where(x => x.TypePlateforme.nomTypePlateforme == _nomTypePlateforme))
             {
                 lstPlateforme.Add(plat);
             }
@@ -91,7 +91,7 @@ namespace Texcel.Classes.Jeu
             plateforme.commPlateforme = _descPlateforme;
             plateforme.idTypePlateforme = _typePlateforme.idTypePlateforme;
             
-            SysExp sysExp = context.tblSysExp.Where(x => x.nomSysExp == _sysExp).First(); // On va chercher le  SysExp 
+            SysExp sysExp = context.SysExp.Where(x => x.nomSysExp == _sysExp).First(); // On va chercher le  SysExp 
             sysExp.nomSysExp = _sysExp;
 
             try
@@ -110,7 +110,7 @@ namespace Texcel.Classes.Jeu
         public static string LierPlateformeSysExp(Plateforme _Plateforme, String _sysExp, string _nomPlateforme, string _configuration, string _comm)
         {
             Plateforme plat = _Plateforme;
-            SysExp sysExp = context.tblSysExp.Where(x => x.nomSysExp == _sysExp).First();
+            SysExp sysExp = context.SysExp.Where(x => x.nomSysExp == _sysExp).First();
             plat.SysExp.Add(sysExp);
             plat.nomPlateforme = _nomPlateforme;
             plat.commPlateforme = _comm;
@@ -130,7 +130,7 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(Plateforme _Plateforme, SysExp _sysExp)
         {
 
-            context.tblPlateforme.Add(_Plateforme); // on enregistre la plateforme 
+            context.Plateforme.Add(_Plateforme); // on enregistre la plateforme 
             context.SaveChanges();
 
             _Plateforme.SysExp.Add(_sysExp); // lier le SysExp avec la plateforme
@@ -141,7 +141,7 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(Plateforme _Plateforme)
         {
 
-            context.tblPlateforme.Add(_Plateforme);
+            context.Plateforme.Add(_Plateforme);
             context.SaveChanges();
 
 
@@ -150,7 +150,7 @@ namespace Texcel.Classes.Jeu
         // verifier si la plateforme avec le nom existe
         public static bool Verifier(string _nomPlateforme)
         {
-            foreach (Plateforme p in context.tblPlateforme)
+            foreach (Plateforme p in context.Plateforme)
             {
                 if (p.nomPlateforme == _nomPlateforme)
                 {
@@ -164,7 +164,7 @@ namespace Texcel.Classes.Jeu
 
         public static Plateforme GetPlateforme(string _pateforme)
         {
-            Plateforme plateforme = context.tblPlateforme.Where(x => x.nomPlateforme == _pateforme).First();
+            Plateforme plateforme = context.Plateforme.Where(x => x.nomPlateforme == _pateforme).First();
 
             return plateforme;
         }
@@ -192,7 +192,7 @@ namespace Texcel.Classes.Jeu
 
         public static string Supprimer(string _nomPlateforme)
         {
-            context.tblPlateforme.Remove(GetPlateforme(_nomPlateforme));
+            context.Plateforme.Remove(GetPlateforme(_nomPlateforme));
             try
             {
                 context.SaveChanges();
@@ -206,9 +206,9 @@ namespace Texcel.Classes.Jeu
 
         public static string SupprimerPlaSysExp(string _nomPlateforme, string _nomSysExp)
         {
-            SysExp sysExp = context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).First();
+            SysExp sysExp = context.SysExp.Where(x => x.nomSysExp == _nomSysExp).First();
             GetPlateforme(_nomPlateforme).SysExp.Remove(sysExp);
-            context.tblPlateforme.Remove(GetPlateforme(_nomPlateforme));
+            context.Plateforme.Remove(GetPlateforme(_nomPlateforme));
             try
             {
                 context.SaveChanges();

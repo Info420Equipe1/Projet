@@ -14,7 +14,7 @@ namespace Texcel.Classes.Jeu
         // Obtenir le nombre d'itération dans la table tblEditionSysExp
         public static int GetCount()
         {
-            return context.tblEditionSysExp.Count();
+            return context.EditionSysExp.Count();
         }
 
         // On ajoute une nouvelle edition dans la table tblEditionSysExp
@@ -44,7 +44,7 @@ namespace Texcel.Classes.Jeu
         {
             List<EditionSysExp> lstEditionSysExp = new List<EditionSysExp>();
             List<EditionSysExp> lstEditionSysExp2 = new List<EditionSysExp>();
-            foreach (EditionSysExp editionSysExp in context.tblEditionSysExp.Where(x => x.nomEdition == _nomEdition))
+            foreach (EditionSysExp editionSysExp in context.EditionSysExp.Where(x => x.nomEdition == _nomEdition))
             {
                 if (editionSysExp.idSysExp == sysExp.idSysExp)
                 {
@@ -57,7 +57,7 @@ namespace Texcel.Classes.Jeu
         // On enregistre dans la table la nouvelle edition
         private static bool Enregistrer(EditionSysExp _editionSysExp)
         {
-            context.tblEditionSysExp.Add(_editionSysExp);
+            context.EditionSysExp.Add(_editionSysExp);
             try
             {
                 context.SaveChanges();
@@ -73,7 +73,7 @@ namespace Texcel.Classes.Jeu
         public static List<EditionSysExp> RechercherpourListe(string _nomSysExp)
         {
             List<EditionSysExp> lstEdition = new List<EditionSysExp>();
-            foreach (EditionSysExp plat in context.tblEditionSysExp.Where(x => x.SysExp.nomSysExp == _nomSysExp))
+            foreach (EditionSysExp plat in context.EditionSysExp.Where(x => x.SysExp.nomSysExp == _nomSysExp))
             {
                 lstEdition.Add(plat);
             }
@@ -82,7 +82,7 @@ namespace Texcel.Classes.Jeu
         }
         public static EditionSysExp GetEditionSysExp(string _nomEdition, int _idSysExp)
         {
-            EditionSysExp monSe = context.tblEditionSysExp.Where(x => x.idSysExp == _idSysExp && x.nomEdition ==_nomEdition).First();
+            EditionSysExp monSe = context.EditionSysExp.Where(x => x.idSysExp == _idSysExp && x.nomEdition ==_nomEdition).First();
            return monSe;
  
         }

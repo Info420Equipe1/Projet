@@ -13,7 +13,7 @@ namespace Texcel.Classes
         {
             try
             {
-                Utilisateur user = context.tblUtilisateur.Where(x => x.nomUtilisateur == _username).First();
+                Utilisateur user = context.Utilisateur.Where(x => x.nomUtilisateur == _username).First();
                 if (user.motPasse == _password)
                 {
                     if ((CtrlUtilisateur.VerifPremiereConn(user))||(CtrlUtilisateur.VerifApres6Mois(user)))

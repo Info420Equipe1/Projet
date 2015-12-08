@@ -12,7 +12,7 @@ namespace Texcel.Classes.Jeu
 
         public static int GetCount()
         {
-            return context.tblThemeJeu.Count();
+            return context.ThemeJeu.Count();
         }
 
         public static string Ajouter(string _nomThemeJeu, string _commThemeJeu)
@@ -40,14 +40,14 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(ThemeJeu _themeJeu)
         {
             //Ajouter dans la BD
-            context.tblThemeJeu.Add(_themeJeu);
+            context.ThemeJeu.Add(_themeJeu);
             context.SaveChanges();
         }
 
         //Verifier theme a laide d'un theme
         private static bool VerifierThemeJeu(ThemeJeu _ThemeJeu)
         {
-            foreach (ThemeJeu theme in context.tblThemeJeu)
+            foreach (ThemeJeu theme in context.ThemeJeu)
             {
                 if (theme.nomTheme == _ThemeJeu.nomTheme)
                 {
@@ -60,7 +60,7 @@ namespace Texcel.Classes.Jeu
         //verifier theme a laide d'un string
         public static bool VerifierThemeJeu(string _ThemeJeu)
         {
-            foreach (ThemeJeu theme in context.tblThemeJeu)
+            foreach (ThemeJeu theme in context.ThemeJeu)
             {
                 if (theme.nomTheme == _ThemeJeu)
                 {
@@ -74,7 +74,7 @@ namespace Texcel.Classes.Jeu
         {
             List<ThemeJeu> lstThemeJeu = new List<ThemeJeu>();
 
-            foreach (ThemeJeu Theme in context.tblThemeJeu)
+            foreach (ThemeJeu Theme in context.ThemeJeu)
             {
                 lstThemeJeu.Add(Theme);
             }
@@ -96,15 +96,15 @@ namespace Texcel.Classes.Jeu
         //Trouver un theme a l'aide d'une string
         public static ThemeJeu GetTheme(string _nomTheme)
         {
-            ThemeJeu Theme = context.tblThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
+            ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
 
             return Theme;
         }
 
         public static string Supprimer(string _nomTheme)
         {
-            ThemeJeu Theme = context.tblThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
-            context.tblThemeJeu.Remove(Theme);
+            ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
+            context.ThemeJeu.Remove(Theme);
             try
             {
                 context.SaveChanges();
@@ -117,7 +117,7 @@ namespace Texcel.Classes.Jeu
         }
         public static string ModifierTheme(string _nomTheme, string _nouveauCommentaire)
         {
-            ThemeJeu Theme = context.tblThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
+            ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
             Theme.commTheme = _nouveauCommentaire;
             try
             {

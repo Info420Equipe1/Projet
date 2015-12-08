@@ -43,7 +43,7 @@ namespace Texcel.Classes
             List<Employe> lstEmploye = new List<Employe>();
             using (context)
             {
-                var query = (from s in context.tblEmploye
+                var query = (from s in context.Employe
                              where s.noEmploye == currentUtilisateur.noEmploye
                              select s);
 

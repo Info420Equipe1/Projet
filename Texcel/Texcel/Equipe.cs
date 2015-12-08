@@ -28,6 +28,7 @@ namespace Texcel
         public string descEquipe { get; set; }
         public string codeProjet { get; set; }
         public string tagEquipe { get; set; }
+        public string tagProjetEquipe { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual ICollection<BilletTravail> BilletTravail { get; set; }

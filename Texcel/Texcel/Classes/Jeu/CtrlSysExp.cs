@@ -14,13 +14,13 @@ namespace Texcel.Classes.Jeu
         
         public static int GetCount()
         {
-            return context.tblSysExp.Count();
+            return context.SysExp.Count();
         }
 
         public static List<SysExp> Rechercher()
         {
             List<SysExp> lstSysExp = new List<SysExp>();
-            foreach (SysExp sysExp in context.tblSysExp)
+            foreach (SysExp sysExp in context.SysExp)
             {
                 lstSysExp.Add(sysExp);
             }
@@ -29,7 +29,7 @@ namespace Texcel.Classes.Jeu
 
         public static SysExp GetSysExp(string _nomSysExp)
         {
-           SysExp monSe = context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).First();
+           SysExp monSe = context.SysExp.Where(x => x.nomSysExp == _nomSysExp).First();
 
            return monSe;
         }
@@ -53,7 +53,7 @@ namespace Texcel.Classes.Jeu
 
         public static bool Verifier(string _nomSysExp)
         {
-            if (context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp).Count() != 0)
+            if (context.SysExp.Where(x => x.nomSysExp == _nomSysExp).Count() != 0)
             {
                 return true;    //lorsque le système d'exploitation existe  
             }
@@ -64,7 +64,7 @@ namespace Texcel.Classes.Jeu
         public static List<SysExp> Rechercher(string _nomSysExp)
         {
             List<SysExp> lstSysExp = new List<SysExp>(); ;
-            foreach (SysExp sysExp in context.tblSysExp.Where(x => x.nomSysExp == _nomSysExp))
+            foreach (SysExp sysExp in context.SysExp.Where(x => x.nomSysExp == _nomSysExp))
             {
                 lstSysExp.Add(sysExp);
             }
@@ -74,7 +74,7 @@ namespace Texcel.Classes.Jeu
         // On enregistre dans la table le nouveau système d'exploitation
         private static bool Enregistrer(SysExp _sysExp)
         {
-            context.tblSysExp.Add(_sysExp);
+            context.SysExp.Add(_sysExp);
             try
             {
                 context.SaveChanges();

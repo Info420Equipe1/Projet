@@ -13,7 +13,7 @@ namespace Texcel.Classes.Personnel
         {
             List<Groupe> lstAllGroupe = new List<Groupe>();
 
-            foreach (Groupe groupe in context.tblGroupe)
+            foreach (Groupe groupe in context.Groupe)
             {
                 lstAllGroupe.Add(groupe);
             }

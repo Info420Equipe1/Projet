@@ -13,7 +13,7 @@ namespace Texcel.Classes.Jeu
 
         public static int GetCount()
         {
-            return context.tblClassificationJeu.Count();
+            return context.ClassificationJeu.Count();
         }
 
         public static string Ajouter(string _nomClassification, string _codeClassification, string _descClassification)
@@ -37,7 +37,7 @@ namespace Texcel.Classes.Jeu
         public static List<ClassificationJeu> Rechercher()
         {
             List<ClassificationJeu> lstClassificationJeu = new List<ClassificationJeu>();
-            foreach (ClassificationJeu classificationJeu in context.tblClassificationJeu)
+            foreach (ClassificationJeu classificationJeu in context.ClassificationJeu)
             {
                 lstClassificationJeu.Add(classificationJeu);
             }
@@ -47,7 +47,7 @@ namespace Texcel.Classes.Jeu
         public static List<ClassificationJeu> Rechercher(string _nomClassification)
         {
             List<ClassificationJeu> lstClassificationJeu = new List<ClassificationJeu>();
-            foreach (ClassificationJeu classificationJeu in context.tblClassificationJeu.Where(x => x.nomClassification == _nomClassification))
+            foreach (ClassificationJeu classificationJeu in context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification))
             {
                 lstClassificationJeu.Add(classificationJeu);
             }
@@ -58,13 +58,13 @@ namespace Texcel.Classes.Jeu
         {
             //Ajouter dans la BD
             ClassificationJeu temp = _classificationJeu;
-            context.tblClassificationJeu.Add(temp);
+            context.ClassificationJeu.Add(temp);
             context.SaveChanges();
         }
 
         public static bool VerifierClassificationJeu(string _nomClassificationJeu)
         {
-            foreach (ClassificationJeu classificationJeu in context.tblClassificationJeu)
+            foreach (ClassificationJeu classificationJeu in context.ClassificationJeu)
             {
                 if (classificationJeu.nomClassification == _nomClassificationJeu)
                 {
@@ -76,8 +76,8 @@ namespace Texcel.Classes.Jeu
 
         public static string Supprimer(string _nomClassification)
         {
-            ClassificationJeu classificationJeu = context.tblClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
-            context.tblClassificationJeu.Remove(classificationJeu);
+            ClassificationJeu classificationJeu = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
+            context.ClassificationJeu.Remove(classificationJeu);
             try
             {
                 context.SaveChanges();
@@ -91,7 +91,7 @@ namespace Texcel.Classes.Jeu
 
         public static string ModifierClassificationJeu(string _nomClassification, string _descClassification)
         {
-            ClassificationJeu classificationJeu = context.tblClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
+            ClassificationJeu classificationJeu = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
             classificationJeu.descClassification = _descClassification;
             //List<cJeu> lstClassJeu = classificationJeu.Jeu.Where(x => x.idClassification == classificationJeu.idClassification).ToList();
             //foreach (cJeu jeu in lstClassJeu)
@@ -113,7 +113,7 @@ namespace Texcel.Classes.Jeu
 
         public static ClassificationJeu GetClassification(string _nomClassification)
         {
-            ClassificationJeu classification = context.tblClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
+            ClassificationJeu classification = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
             return classification;
         }
 

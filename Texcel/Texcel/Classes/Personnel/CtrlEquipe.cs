@@ -22,7 +22,7 @@ namespace Texcel.Classes.Personnel
 
             try
             {
-                context.tblEquipe.Add(equipe);
+                context.Equipe.Add(equipe);
                 context.SaveChanges();
                 LierEmploye(_listEmp, equipe, _proj);
                 return "L'équipe a été ajoutée avec succès!";
@@ -65,7 +65,7 @@ namespace Texcel.Classes.Personnel
         }
         public static Equipe getEquipeById(int _id)
         {
-            Equipe selectedEquipe = context.tblEquipe.Where(x => x.idEquipe == _id).First();
+            Equipe selectedEquipe = context.Equipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;
         }
     }

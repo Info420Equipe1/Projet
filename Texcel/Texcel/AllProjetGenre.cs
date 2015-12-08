@@ -12,15 +12,10 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class AllCasTest
+    public partial class AllProjetGenre
     {
-        public string codeCasTest { get; set; }
-        public string nomCasTest { get; set; }
-        public Nullable<System.DateTime> dateCreation { get; set; }
-        public Nullable<System.DateTime> dateLivraison { get; set; }
-        public string codeProjet { get; set; }
         public string nomProjet { get; set; }
-        public string nomTest { get; set; }
-        public string tagCasTest { get; set; }
+        public string nomGenre { get; set; }
+        public string tagProjetGenre { get; set; }
     }
 }

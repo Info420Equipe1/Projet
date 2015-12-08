@@ -26,7 +26,7 @@ namespace Texcel.Classes.Jeu
         // Obtenir le nombre d'itération dans la  table GenreJeu
         public static int GetCount()
         {
-            return context.tblGenreJeu.Count();
+            return context.GenreJeu.Count();
         }
 
         // On ajoute un nouveau GenreJeu dans la table GenreJeu
@@ -49,7 +49,7 @@ namespace Texcel.Classes.Jeu
 
         private static bool VerifierGenreJeu(GenreJeu _GenreJeu)
         {
-            foreach (GenreJeu genre in context.tblGenreJeu)
+            foreach (GenreJeu genre in context.GenreJeu)
             {
                 if (genre.nomGenre == _GenreJeu.nomGenre)
                 {
@@ -60,7 +60,7 @@ namespace Texcel.Classes.Jeu
         }
         public static bool VerifierGenreJeu(string _GenreJeu)
         {
-            foreach (GenreJeu genre in context.tblGenreJeu)
+            foreach (GenreJeu genre in context.GenreJeu)
             {
                 if (genre.nomGenre == _GenreJeu)
                 {
@@ -75,9 +75,9 @@ namespace Texcel.Classes.Jeu
         {
             List<GenreJeu> lstGenreJeu = new List<GenreJeu>();;
 
-            foreach (GenreJeu gJ in context.tblGenreJeu.Where(x => x.nomGenre == _nomGenreJeu))
+            foreach (GenreJeu gJ in context.GenreJeu.Where(x => x.nomGenre == _nomGenreJeu))
             {
-                lstGenreJeu.Add(context.tblGenreJeu.Where(x => x.nomGenre == gJ.nomGenre).First());
+                lstGenreJeu.Add(context.GenreJeu.Where(x => x.nomGenre == gJ.nomGenre).First());
             }
 
             return lstGenreJeu;
@@ -86,7 +86,7 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(GenreJeu _genreJeu)
         {
             //Ajouter à la BD
-            context.tblGenreJeu.Add(_genreJeu);
+            context.GenreJeu.Add(_genreJeu);
             context.SaveChanges();
         }
 
@@ -95,7 +95,7 @@ namespace Texcel.Classes.Jeu
         {
             List<GenreJeu> lstGenreJeu = new List<GenreJeu>();
 
-            foreach (GenreJeu Genre in context.tblGenreJeu)
+            foreach (GenreJeu Genre in context.GenreJeu)
             {
                 lstGenreJeu.Add(Genre);
             }
@@ -116,7 +116,7 @@ namespace Texcel.Classes.Jeu
 
         public static GenreJeu GetGenre(string _nomGenre)
         {
-            GenreJeu Genre = context.tblGenreJeu.Where(x => x.nomGenre == _nomGenre).First();
+            GenreJeu Genre = context.GenreJeu.Where(x => x.nomGenre == _nomGenre).First();
 
             return Genre;
         }
@@ -124,8 +124,8 @@ namespace Texcel.Classes.Jeu
         public static string Supprimer(string _nomGenre)
         {
             //Supprimer un Genre
-            GenreJeu Genre = context.tblGenreJeu.Where(x => x.nomGenre == _nomGenre).First();
-            context.tblGenreJeu.Remove(Genre);
+            GenreJeu Genre = context.GenreJeu.Where(x => x.nomGenre == _nomGenre).First();
+            context.GenreJeu.Remove(Genre);
             try
             {
                 context.SaveChanges();
@@ -138,7 +138,7 @@ namespace Texcel.Classes.Jeu
         }
         public static string ModifierGenre(string _nomGenre, string _nouveauCommentaire)
         {
-            GenreJeu Genre = context.tblGenreJeu.Where(x => x.nomGenre == _nomGenre).First();
+            GenreJeu Genre = context.GenreJeu.Where(x => x.nomGenre == _nomGenre).First();
             Genre.descGenre = _nouveauCommentaire;
             try
             {

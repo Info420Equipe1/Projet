@@ -139,6 +139,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllBilletsTravail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="AllBilletTravailPriorite.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

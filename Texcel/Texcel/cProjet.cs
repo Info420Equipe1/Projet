@@ -29,6 +29,11 @@ namespace Texcel
         public string divProjet { get; set; }
         public Nullable<short> idVersion { get; set; }
         public string tagProjet { get; set; }
+        public string tagJeuProjet { get; set; }
+        public string tagProjetGenre { get; set; }
+        public string tagProjetTheme { get; set; }
+        public string tagProjetCasTest { get; set; }
+        public string tagProjetClassification { get; set; }
     
         public virtual VersionJeu VersionJeu { get; set; }
         public virtual Employe Employe { get; set; }

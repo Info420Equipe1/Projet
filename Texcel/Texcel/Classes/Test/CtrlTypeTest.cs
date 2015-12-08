@@ -20,7 +20,7 @@ namespace Texcel.Classes.Test
         public static void  PopulateLstTypeTest()
         {
             lstTypeTestLstBox.Clear();
-            foreach (TypeTest tT in context.tblTypeTest)
+            foreach (TypeTest tT in context.TypeTest)
             {
                 lstTypeTestLstBox.Add(tT, 0);
             }   
@@ -69,7 +69,7 @@ namespace Texcel.Classes.Test
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
-            TypeTest monTT = context.tblTypeTest.Where(x => x.nomTest == _nomTypeTest).First();
+            TypeTest monTT = context.TypeTest.Where(x => x.nomTest == _nomTypeTest).First();
 
             return monTT;      
         }
@@ -93,7 +93,7 @@ namespace Texcel.Classes.Test
         {
             List<TypeTest> lstTypTest = new List<TypeTest>();
 
-            foreach (TypeTest typTest in context.tblTypeTest)
+            foreach (TypeTest typTest in context.TypeTest)
             {
                 lstTypTest.Add(typTest);
             }
@@ -102,7 +102,7 @@ namespace Texcel.Classes.Test
 
         public static bool Verifier(string _nom)
         {
-            foreach (TypeTest tT in context.tblTypeTest)
+            foreach (TypeTest tT in context.TypeTest)
             {
                 if (tT.nomTest == _nom)
                 {
@@ -120,7 +120,7 @@ namespace Texcel.Classes.Test
 
             try
             {
-                context.tblTypeTest.Add(typeTest);
+                context.TypeTest.Add(typeTest);
                 context.SaveChanges();
                 return "Le type test a été créé";
             }

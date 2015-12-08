@@ -12,12 +12,10 @@ namespace Texcel
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class AllBilletTravailStatut
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string titreBilletTravail { get; set; }
+        public string nomStatut { get; set; }
+        public string tagBilletTravailStatut { get; set; }
     }
 }

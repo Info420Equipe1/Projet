@@ -13,7 +13,7 @@ namespace Texcel.Classes.Jeu
 
         public static int GetCount()
         {
-            return context.tblTypePlateforme.Count();
+            return context.TypePlateforme.Count();
         }
     
         public static string Ajouter(string _nomTypePlateforme, string _descTypePlateforme)
@@ -35,7 +35,7 @@ namespace Texcel.Classes.Jeu
         public static List<TypePlateforme> Rechercher()
         {
             List<TypePlateforme> lstPlateforme = new List<TypePlateforme>();
-            foreach (TypePlateforme typePlat in context.tblTypePlateforme)
+            foreach (TypePlateforme typePlat in context.TypePlateforme)
             {
                 lstPlateforme.Add(typePlat);
             }
@@ -45,7 +45,7 @@ namespace Texcel.Classes.Jeu
         public static List<TypePlateforme> Rechercher(string _NomTypePlat)
         {
             List<TypePlateforme> lstPlateforme = new List<TypePlateforme>();
-            foreach (TypePlateforme typePlat in context.tblTypePlateforme.Where(x => x.nomTypePlateforme == _NomTypePlat))
+            foreach (TypePlateforme typePlat in context.TypePlateforme.Where(x => x.nomTypePlateforme == _NomTypePlat))
             {
                 lstPlateforme.Add(typePlat);
             }
@@ -56,14 +56,14 @@ namespace Texcel.Classes.Jeu
         private static void Enregistrer(TypePlateforme _typePlateforme)
         {
             
-            context.tblTypePlateforme.Add(typePlateforme);
+            context.TypePlateforme.Add(typePlateforme);
             context.SaveChanges();
             
         }
 
         private static bool Verifier(TypePlateforme _typePlat)
         {
-            foreach (TypePlateforme typePlat in context.tblTypePlateforme)
+            foreach (TypePlateforme typePlat in context.TypePlateforme)
             {
                 if (typePlat.nomTypePlateforme == _typePlat.nomTypePlateforme)
                 {
@@ -74,7 +74,7 @@ namespace Texcel.Classes.Jeu
         }
         public static bool Verifier(string _nomPlat)
         {
-            foreach (TypePlateforme typePlat in context.tblTypePlateforme)
+            foreach (TypePlateforme typePlat in context.TypePlateforme)
             {
                 if (typePlat.nomTypePlateforme == _nomPlat)
                 {
@@ -101,14 +101,14 @@ namespace Texcel.Classes.Jeu
 
         public static TypePlateforme GetTypePlateforme(string _typePateforme)
         {
-            TypePlateforme typePlateforme = context.tblTypePlateforme.Where(x => x.nomTypePlateforme == _typePateforme).First();
+            TypePlateforme typePlateforme = context.TypePlateforme.Where(x => x.nomTypePlateforme == _typePateforme).First();
 
             return typePlateforme;
         }
 
         public static string Supprimer(string _nomTypePlateforme)
         {
-            context.tblTypePlateforme.Remove(GetTypePlateforme(_nomTypePlateforme));
+            context.TypePlateforme.Remove(GetTypePlateforme(_nomTypePlateforme));
             try
             {
                 context.SaveChanges();

@@ -244,6 +244,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas d
           <Property Name="dateLivraison" Type="date" />
           <Property Name="dateFin" Type="date" />
           <Property Name="descBilletTravail" Type="text" />
+          <Property Name="termine" Type="smallint" />
           <Property Name="idNivPri" Type="smallint" />
           <Property Name="idStatut" Type="smallint" />
           <Property Name="noEmploye" Type="varchar" MaxLength="6" />
@@ -416,12 +417,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTest' n'a pas d
             <PropertyRef Name="codeCasTest" />
             <PropertyRef Name="nomCasTest" />
             <PropertyRef Name="codeProjet" />
+            <PropertyRef Name="nomProjet" />
+            <PropertyRef Name="nomTest" />
           </Key>
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dateCreation" Type="date" />
           <Property Name="dateLivraison" Type="date" />
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="nomTest" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="tagCasTest" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -490,12 +495,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjet' n'a pas de
             <PropertyRef Name="codeProjet" />
             <PropertyRef Name="nomProjet" />
             <PropertyRef Name="chefProjet" />
+            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="chefProjet" Type="varchar" MaxLength="42" Nullable="false" />
           <Property Name="dateCreation" Type="date" />
           <Property Name="dateLivraison" Type="date" />
+          <Property Name="nomJeu" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tagProjet" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -556,6 +563,29 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="nomTheme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tagProjetTheme" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AllBilletsTravail">
+          <Key>
+            <PropertyRef Name="Titre" />
+            <PropertyRef Name="CasTest" />
+            <PropertyRef Name="Type de Test" />
+            <PropertyRef Name="Statut" />
+            <PropertyRef Name="Priorité" />
+            <PropertyRef Name="Difficulté" />
+            <PropertyRef Name="Testeur" />
+          </Key>
+          <Property Name="Titre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CasTest" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type de Test" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Statut" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Priorité" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Difficulté" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Durée" Type="float" />
+          <Property Name="Testeur" Type="varchar" MaxLength="42" Nullable="false" />
+          <Property Name="Date Livraison" Type="date" />
+          <Property Name="Jours Restant" Type="int" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="Jeu" Type="Self.Jeu" Multiplicity="1" />
@@ -1131,6 +1161,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
     [AllCasTest].[dateCreation] AS [dateCreation], 
     [AllCasTest].[dateLivraison] AS [dateLivraison], 
     [AllCasTest].[codeProjet] AS [codeProjet], 
+    [AllCasTest].[nomProjet] AS [nomProjet], 
+    [AllCasTest].[nomTest] AS [nomTest], 
     [AllCasTest].[tagCasTest] AS [tagCasTest]
     FROM [Recherche].[AllCasTest] AS [AllCasTest]</DefiningQuery>
           </EntitySet>
@@ -1178,6 +1210,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
     [AllProjet].[chefProjet] AS [chefProjet], 
     [AllProjet].[dateCreation] AS [dateCreation], 
     [AllProjet].[dateLivraison] AS [dateLivraison], 
+    [AllProjet].[nomJeu] AS [nomJeu], 
     [AllProjet].[tagProjet] AS [tagProjet]
     FROM [Recherche].[AllProjet] AS [AllProjet]</DefiningQuery>
           </EntitySet>
@@ -1217,6 +1250,20 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
     [AllProjetTheme].[nomTheme] AS [nomTheme], 
     [AllProjetTheme].[tagProjetTheme] AS [tagProjetTheme]
     FROM [Recherche].[AllProjetTheme] AS [AllProjetTheme]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllBilletsTravail" EntityType="Self.AllBilletsTravail" store:Type="Views" store:Schema="Test">
+            <DefiningQuery>SELECT 
+    [AllBilletsTravail].[Titre] AS [Titre], 
+    [AllBilletsTravail].[CasTest] AS [CasTest], 
+    [AllBilletsTravail].[Type de Test] AS [Type de Test], 
+    [AllBilletsTravail].[Statut] AS [Statut], 
+    [AllBilletsTravail].[Priorité] AS [Priorité], 
+    [AllBilletsTravail].[Difficulté] AS [Difficulté], 
+    [AllBilletsTravail].[Durée] AS [Durée], 
+    [AllBilletsTravail].[Testeur] AS [Testeur], 
+    [AllBilletsTravail].[Date Livraison] AS [Date Livraison], 
+    [AllBilletsTravail].[Jours Restant] AS [Jours Restant]
+    FROM [Test].[AllBilletsTravail] AS [AllBilletsTravail]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
             <End Role="Jeu" EntitySet="Jeu" />
@@ -1462,7 +1509,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="idTheme" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomTheme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commTheme" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="cJeu" Relationship="Self.JeuTheme" FromRole="ThemeJeu" ToRole="Jeu" />
+          <NavigationProperty Name="Jeu" Relationship="Self.JeuTheme" FromRole="ThemeJeu" ToRole="Jeu" />
         </EntityType>
         <EntityType Name="TypePlateforme">
           <Key>
@@ -1576,6 +1623,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
           <Property Name="dateFin" Type="DateTime" Precision="0" />
           <Property Name="descBilletTravail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="termine" Type="Int16" />
           <Property Name="idNivPri" Type="Int16" />
           <Property Name="idStatut" Type="Int16" />
           <Property Name="noEmploye" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
@@ -1749,12 +1797,16 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
             <PropertyRef Name="codeCasTest" />
             <PropertyRef Name="nomCasTest" />
             <PropertyRef Name="codeProjet" />
+            <PropertyRef Name="nomProjet" />
+            <PropertyRef Name="nomTest" />
           </Key>
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dateCreation" Type="DateTime" Precision="0" />
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomTest" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagCasTest" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllCasTestBilletTravail">
@@ -1811,12 +1863,14 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
             <PropertyRef Name="codeProjet" />
             <PropertyRef Name="nomProjet" />
             <PropertyRef Name="chefProjet" />
+            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="chefProjet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dateCreation" Type="DateTime" Precision="0" />
           <Property Name="dateLivraison" Type="DateTime" Precision="0" />
+          <Property Name="nomJeu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagProjet" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllProjetCasTest">
@@ -1867,6 +1921,27 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTheme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagProjetTheme" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllBilletsTravail">
+          <Key>
+            <PropertyRef Name="Titre" />
+            <PropertyRef Name="CasTest" />
+            <PropertyRef Name="Type_de_Test" />
+            <PropertyRef Name="Statut" />
+            <PropertyRef Name="Priorité" />
+            <PropertyRef Name="Difficulté" />
+            <PropertyRef Name="Testeur" />
+          </Key>
+          <Property Name="Titre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type_de_Test" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Statut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Priorité" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Difficulté" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Durée" Type="Double" />
+          <Property Name="Testeur" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_Livraison" Type="DateTime" Precision="0" />
+          <Property Name="Jours_Restant" Type="Int32" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="ClassificationJeu" Type="Self.ClassificationJeu" Multiplicity="1" />
@@ -2170,6 +2245,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <EntitySet Name="AllProjetEquipe" EntityType="Self.AllProjetEquipe" />
           <EntitySet Name="AllProjetGenre" EntityType="Self.AllProjetGenre" />
           <EntitySet Name="AllProjetTheme" EntityType="Self.AllProjetTheme" />
+          <EntitySet Name="AllBilletsTravail" EntityType="Self.AllBilletsTravail" />
           <AssociationSet Name="J_FK_codeClassification" Association="Self.J_FK_codeClassification">
             <End Role="ClassificationJeu" EntitySet="ClassificationJeu" />
             <End Role="Jeu" EntitySet="Jeu" />
@@ -2462,6 +2538,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
                 <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
                 <ScalarProperty Name="dateFin" ColumnName="dateFin" />
                 <ScalarProperty Name="descBilletTravail" ColumnName="descBilletTravail" />
+                <ScalarProperty Name="termine" ColumnName="termine" />
                 <ScalarProperty Name="idNivPri" ColumnName="idNivPri" />
                 <ScalarProperty Name="idStatut" ColumnName="idStatut" />
                 <ScalarProperty Name="noEmploye" ColumnName="noEmploye" />
@@ -2624,6 +2701,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
                 <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
                 <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
                 <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
+                <ScalarProperty Name="nomTest" ColumnName="nomTest" />
                 <ScalarProperty Name="tagCasTest" ColumnName="tagCasTest" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2683,6 +2762,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
                 <ScalarProperty Name="chefProjet" ColumnName="chefProjet" />
                 <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
                 <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+                <ScalarProperty Name="nomJeu" ColumnName="nomJeu" />
                 <ScalarProperty Name="tagProjet" ColumnName="tagProjet" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2731,6 +2811,22 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
                 <ScalarProperty Name="nomProjet" ColumnName="nomProjet" />
                 <ScalarProperty Name="nomTheme" ColumnName="nomTheme" />
                 <ScalarProperty Name="tagProjetTheme" ColumnName="tagProjetTheme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllBilletsTravail">
+            <EntityTypeMapping TypeName="dbProjetE1Model.AllBilletsTravail">
+              <MappingFragment StoreEntitySet="AllBilletsTravail">
+                <ScalarProperty Name="Titre" ColumnName="Titre" />
+                <ScalarProperty Name="CasTest" ColumnName="CasTest" />
+                <ScalarProperty Name="Type_de_Test" ColumnName="Type de Test" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="Priorité" ColumnName="Priorité" />
+                <ScalarProperty Name="Difficulté" ColumnName="Difficulté" />
+                <ScalarProperty Name="Durée" ColumnName="Durée" />
+                <ScalarProperty Name="Testeur" ColumnName="Testeur" />
+                <ScalarProperty Name="Date_Livraison" ColumnName="Date Livraison" />
+                <ScalarProperty Name="Jours_Restant" ColumnName="Jours Restant" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
