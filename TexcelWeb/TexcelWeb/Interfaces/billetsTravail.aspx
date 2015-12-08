@@ -73,20 +73,20 @@ $(function(){
                         <div>
                             <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
                         </div>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True" OnSorting="GridView1_Sorting">
                             <Columns>
-                                <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false"/>
-                                <asp:BoundField DataField="Priorite" HeaderText="Priorité" />
-                                <asp:BoundField DataField="Difficulte" HeaderText="Difficulté" />
-                                <asp:BoundField DataField="DateLivraison" HeaderText="Date de livraison" />
-                                <asp:BoundField DataField="TypeTest" HeaderText="Type de test" />
-                                <asp:BoundField DataField="Duree" HeaderText="Durée" />
-                                <asp:BoundField DataField="Projet" HeaderText="Projet" />
+                                <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false" SortExpression="Titre"/>
+                                <asp:BoundField DataField="Priorite" HeaderText="Priorité" SortExpression="Priorite"/>
+                                <asp:BoundField DataField="Difficulte" HeaderText="Difficulté" SortExpression="Difficulte"/>
+                                <asp:BoundField DataField="DateLivraison" HeaderText="Date de livraison" SortExpression="DateLivraison"/>
+                                <asp:BoundField DataField="TypeTest" HeaderText="Type de test" SortExpression="TypeTest"/>
+                                <asp:BoundField DataField="Duree" HeaderText="Durée" SortExpression="Duree"/>
+                                <asp:BoundField DataField="Projet" HeaderText="Projet" SortExpression="Projet"/>
                                
                                 
                                 <asp:TemplateField HeaderText="Sélectionné">
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="CBSelec" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBSelec_CheckedChanged" />
+                                        <asp:CheckBox ID="CBSelec" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBSelec_CheckedChanged"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Terminé">

@@ -134,3 +134,8 @@ lblColum1{
 #btnCopier{
     float:right;
 }
+
+a {
+    text-decoration:none;
+    color:white;
+}

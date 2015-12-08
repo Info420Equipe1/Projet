@@ -63,7 +63,7 @@ namespace TexcelWeb.Interfaces
                     }
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
                     
-                    dR["Duree"] = bT.dureeBilletTravail;
+                    dR["Duree"] = bT.dateCreation;
                     dR["Projet"] = bT.CasTest.cProjet.nomProjet;
                     dT.Rows.Add(dR);
                     if (bT.idNivPri == 1)
@@ -90,7 +90,7 @@ namespace TexcelWeb.Interfaces
                 lblNbrBillet.Text = "0";
                 lblNbrBilletPersonnel.Text = "0";
             }
-
+            ViewState["dtbl"] = dT;
             GridView1.DataSource = dT;
             GridView1.DataBind();
 
@@ -130,6 +130,7 @@ namespace TexcelWeb.Interfaces
                     checkBox.Checked = true;
                 }
                 cpt++;
+                
             }
             
         }
@@ -141,6 +142,48 @@ namespace TexcelWeb.Interfaces
             Session["CasTestConsulTesteur"] = casTest;
             this.Form.Dispose();
             Response.Redirect("creerCasTest.aspx");
+        }
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            cpt = 0;
+            DataTable dataTable = ViewState["dtbl"] as DataTable;
+
+           
+            string sortingDirection = string.Empty;
+            if (dir == SortDirection.Ascending)
+            {
+                dir = SortDirection.Descending;
+                sortingDirection = "Desc";
+            }
+            else
+            {
+                dir = SortDirection.Ascending;
+                sortingDirection = "Asc";
+            }
+
+            DataView sortedView = new DataView(dataTable);
+            sortedView.Sort = e.SortExpression + " " + sortingDirection;
+            GridView1.DataSource = sortedView;
+            GridView1.DataBind();
+        }
+
+        
+
+        public SortDirection dir
+        {
+            get
+            {
+                if (ViewState["dirState"] == null)
+                {
+                    ViewState["dirState"] = SortDirection.Ascending;
+                }
+                return (SortDirection)ViewState["dirState"];
+            }
+            set
+            {
+                ViewState["dirState"] = value;
+            }
         }
 
     }
