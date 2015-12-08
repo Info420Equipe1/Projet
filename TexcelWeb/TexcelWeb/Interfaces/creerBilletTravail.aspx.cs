@@ -22,6 +22,11 @@ namespace TexcelWeb.Interfaces
         {
             bool modifier = Convert.ToBoolean(Session["modifBillet"]);
             bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
+            if (Session["BilletTravailConsulTesteur"] != null)
+            {
+                Session["BilletTravailCreationBillet"] = Session["BilletTravailConsulTesteur"];
+                consulter = true;
+            }
             
             modifierBillet = modifier;
             Session["modifBillet"] = false;
@@ -45,7 +50,7 @@ namespace TexcelWeb.Interfaces
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
 
-
+                
                 string codeCasTest = Request.QueryString["codeCasTest"];
                 //Cas de test pour info
                 casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
