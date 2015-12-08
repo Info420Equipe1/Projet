@@ -37,7 +37,7 @@ a {color:white; text-decoration:none}
 		</div>
 	</div>
 	<div id="content">
-		<div id="sidebar">
+		<div id="sidebar" runat="server">
 			<div id="boxRecherche" runat="server" class="box">
                 <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
                 <ul id="home">

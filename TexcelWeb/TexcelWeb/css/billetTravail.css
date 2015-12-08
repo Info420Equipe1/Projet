@@ -17,9 +17,12 @@
     margin-top:15px;
 }
 #BilletInfo{
-    width: 100%;
+    width: 50%;
     display:inline-block;
-    margin-left:20%;
+}
+#BilletContainer{
+    position:relative;
+    align-content:center;
 }
 #txtTitreBillet{
     width:325px;

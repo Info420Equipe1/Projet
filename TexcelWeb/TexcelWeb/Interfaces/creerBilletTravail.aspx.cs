@@ -22,10 +22,20 @@ namespace TexcelWeb.Interfaces
         {
             bool modifier = Convert.ToBoolean(Session["modifBillet"]);
             bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
+            if (consulter)
+            {
+                string codeCasTest = Request.QueryString["codeCasTest"];
+                //Cas de test pour info
+                casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
+            }
             if (Session["BilletTravailConsulTesteur"] != null)
             {
+                BilletTravail billet = (BilletTravail)Session["BilletTravailConsulTesteur"];
+                casTestCreationBillet = billet.CasTest;
                 Session["BilletTravailCreationBillet"] = Session["BilletTravailConsulTesteur"];
                 consulter = true;
+                sidebar.Visible = false;
+                main.Style.Add(HtmlTextWriterStyle.Width, "1367px");
             }
             
             modifierBillet = modifier;
@@ -51,9 +61,7 @@ namespace TexcelWeb.Interfaces
                 }
 
                 
-                string codeCasTest = Request.QueryString["codeCasTest"];
-                //Cas de test pour info
-                casTestCreationBillet = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                
                 if (casTestCreationBillet.Equipe.Count == 1)
 	            {
                     equipeActuelle = casTestCreationBillet.Equipe.First();
@@ -87,6 +95,7 @@ namespace TexcelWeb.Interfaces
                 //Mode creation Billet
                 txtForm.InnerText = "Créer un billet";
                 //Control actifs
+                txtEquipe.Enabled = true;
                 txtDateCreationBillet.Visible = true;
                 lblDateCreation.Visible = true;
                 btnEnregistrer.Visible = true;
@@ -105,6 +114,7 @@ namespace TexcelWeb.Interfaces
                 //Mode modifier Billet
                 txtForm.InnerText = "Modifier un billet";
                 //Control actifs
+                txtEquipe.Enabled = true;
                 txtDateCreationBillet.Visible = true;
                 lblDateCreation.Visible = true;
                 btnEnregistrer.Visible = true;
@@ -124,6 +134,7 @@ namespace TexcelWeb.Interfaces
                 //Mode consulter billet
                 txtForm.InnerText = "Consulter un billet";
                 //Control actifs
+                txtEquipe.Enabled = false;
                 txtDateCreationBillet.Visible = false;
                 lblDateCreation.Visible = false;
                 btnEnregistrer.Visible = false;

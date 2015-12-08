@@ -81,66 +81,68 @@ $(function(){
                         <p id="lblAjouterBillet">Informations sur le Billet</p>
                         <br />
                     </div>
-                    <div id="BilletInfo">
-                        <div >
-                            <div class="info">
-                                <div class="lblColum1">
-                                    <asp:Label runat="server" Text="Équipe: "/>
+                    <div id="BilletContainer">
+                        <div id="BilletInfo">
+                            <div >
+                                <div class="info">
+                                    <asp:UpdatePanel runat="server">
+                                        <ContentTemplate>
+                                            <asp:Label runat="server" Text="Équipe: " CssClass="lblColum1"/>
+                                            <asp:DropDownList runat="server" ID="txtEquipe" CssClass="txtColum1" OnSelectedIndexChanged="txtEquipe_SelectedIndexChanged" AutoPostBack="true"/>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </div>
-                                <asp:UpdatePanel runat="server">
+                                <div class="info">
+                                    <div class="lblColum1" >
+                                        <asp:Label runat="server" Text="Titre du Billet: "/>
+                                    </div>
+                                    <asp:TextBox runat="server" ID="txtTitreBillet"/>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTitreBillet" Display="dynamic" Text="*" ForeColor="Red" />
+                                </div>
+                                <div class="info">
+                                    <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
+                                    <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0" />
+                                    <p id="DureeTexte">(Approximative)</p>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDureeBillet" Display="dynamic" Text="*" ForeColor="Red" />
+                                </div>
+                                <div class="info">
+                                    <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1" />
+                                    <asp:TextBox type="date" runat="server" ID="txtDateLivraisonBillet" CssClass="txtColum1 txtDate2" />
+                                    <asp:Label ID="lblDateCreation" runat="server" Text="Date Création: " CssClass="lblColum1 lblDate2"/>
+                                    <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationBillet" Display="dynamic" Text="*" ForeColor="Red" />
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonBillet" ControlToCompare="txtDateCreationBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
+                                </div>
+                                <asp:UpdatePanel ID="updatePanelStatutDateTerminaison" runat="server">
                                     <ContentTemplate>
-                                        <asp:DropDownList runat="server" ID="txtEquipe" CssClass="txtColum1" OnSelectedIndexChanged="txtEquipe_SelectedIndexChanged" AutoPostBack="true"/>
+                                        <div class="info">
+                                            <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
+                                            <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
+                                        </div>
+                                        <div class="info">
+                                            <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
+                                            <asp:DropDownList runat="server" ID="cmbStatutBillet" CssClass="txtColum1 txtDate1" AutoPostBack="true" OnSelectedIndexChanged="cmbStatutBillet_SelectedIndexChanged"/>
+                                            <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
+                                            <asp:DropDownList runat="server" ID="cmbPrioriteBillet" CssClass="txtColum1 txtDate1" />
+                                        </div>
+                                        <div id="dateTerminaisonBillet" runat="server" class="info">
+                                            <asp:Label runat="server" Text="Terminé le: " CssClass="lblColum1"/>
+                                            <asp:TextBox type="date" runat="server" ID="txtDateTerminaison" CssClass="txtColum1 txtDate2" />
+                                        </div>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
+                            </div> <br />
+                            <div id="CasTestDesc">
+                                <asp:Label runat="server" Text="Description: "/><br />
+                                <asp:TextBox runat="server" ID="rtxtDescriptionBillet" TextMode="MultiLine" CssClass="richtextbox"/>
                             </div>
-                            <div class="info">
-                                <div class="lblColum1" >
-                                    <asp:Label runat="server" Text="Titre du Billet: "/>
-                                </div>
-                                <asp:TextBox runat="server" ID="txtTitreBillet"/>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTitreBillet" Display="dynamic" Text="*" ForeColor="Red" />
-                            </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Durée(Min): " CssClass="lblColum1" />
-                                <asp:TextBox type="number" runat="server" ID="txtDureeBillet" MaxLength="3" Step="10.0" />
-                                <p id="DureeTexte">(Approximative)</p>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDureeBillet" Display="dynamic" Text="*" ForeColor="Red" />
-                            </div>
-                            <div class="info">
-                                <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1" />
-                                <asp:TextBox type="date" runat="server" ID="txtDateLivraisonBillet" CssClass="txtColum1 txtDate2" />
-                                <asp:Label ID="lblDateCreation" runat="server" Text="Date Création: " CssClass="lblColum1 lblDate2"/>
-                                <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationBillet" Display="dynamic" Text="*" ForeColor="Red" />
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonBillet" ControlToCompare="txtDateCreationBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
-                            </div>
-                            <asp:UpdatePanel ID="updatePanelStatutDateTerminaison" runat="server">
-                                <ContentTemplate>
-                                    <div class="info">
-                                        <asp:Label runat="server" Text="Testeur: " CssClass="lblColum1"/>
-                                        <asp:DropDownList runat="server" ID="cmbTesteurBillet" CssClass="txtColum1"/>
-                                    </div>
-                                    <div class="info">
-                                        <asp:Label runat="server" Text="Statut: " CssClass="lblColum1" />
-                                        <asp:DropDownList runat="server" ID="cmbStatutBillet" CssClass="txtColum1 txtDate1" AutoPostBack="true" OnSelectedIndexChanged="cmbStatutBillet_SelectedIndexChanged"/>
-                                        <asp:Label runat="server" Text="Priorité: " CssClass="lblColum1 lblDate1" />
-                                        <asp:DropDownList runat="server" ID="cmbPrioriteBillet" CssClass="txtColum1 txtDate1" />
-                                    </div>
-                                    <div id="dateTerminaisonBillet" runat="server" class="info">
-                                        <asp:Label runat="server" Text="Terminé le: " CssClass="lblColum1"/>
-                                        <asp:TextBox type="date" runat="server" ID="txtDateTerminaison" CssClass="txtColum1 txtDate2" />
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        </div> <br />
-                        <div id="CasTestDesc">
-                            <asp:Label runat="server" Text="Description: "/><br />
-                            <asp:TextBox runat="server" ID="rtxtDescriptionBillet" TextMode="MultiLine" CssClass="richtextbox"/>
                         </div>
                     </div>
                 <div id="btnEnregistrerAnnuler">    
-                        <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
-                        <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />                  
+                    <asp:LinkButton runat="server" ID="btnEnregistrer" Text="Enregistrer" CssClass="btnDroit button add" OnClick="btnEnregistrer_Click" />        
+                    <asp:LinkButton runat="server" ID="btnFermerTesteur" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false"/>
+                    <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" CausesValidation="false" OnClick="btnAnnuler_Click"/>
+                                  
                     <br />
                     <br />
                 </div>
