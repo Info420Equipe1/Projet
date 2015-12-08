@@ -29,7 +29,7 @@ namespace TexcelWeb.Interfaces
             }
             
             modifierBillet = modifier;
-            Session["modifBillet"] = false;
+            Session["modifBillet"] = false; 
             
             consulterBillet = consulter;
         }

@@ -89,9 +89,11 @@ $(function(){
                                 </div>
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
-                                        <asp:DropDownList runat="server" ID="txtEquipe" OnSelectedIndexChanged="txtEquipe_SelectedIndexChanged" AutoPostBack="true"/>
+                                        <asp:DropDownList runat="server" ID="txtEquipe" CssClass="txtColum1" OnSelectedIndexChanged="txtEquipe_SelectedIndexChanged" AutoPostBack="true"/>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
+                            </div>
+                            <div class="info">
                                 <div class="lblColum1" >
                                     <asp:Label runat="server" Text="Titre du Billet: "/>
                                 </div>
@@ -110,7 +112,7 @@ $(function(){
                                 <asp:Label ID="lblDateCreation" runat="server" Text="Date Création: " CssClass="lblColum1 lblDate2"/>
                                 <asp:TextBox type="date" runat="server" ID="txtDateCreationBillet" CssClass="txtColum1 txtDate2" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtDateCreationBillet" Display="dynamic" Text="*" ForeColor="Red" />
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="NotEqual" ControlToValidate="txtDateLivraisonBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonBillet" ControlToCompare="txtDateCreationBillet" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
                             </div>
                             <asp:UpdatePanel ID="updatePanelStatutDateTerminaison" runat="server">
                                 <ContentTemplate>

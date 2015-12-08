@@ -313,6 +313,7 @@ table{
 	border-collapse: collapse;
     margin-top: 11px;
     margin-bottom: 15px;
+    width: 1045px; 
 }
 
 table th{ 

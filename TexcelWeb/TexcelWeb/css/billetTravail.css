@@ -51,7 +51,10 @@
     width:550px;
     resize:none;
 }
-
+#txtEquipe{
+    display:inline-block;
+    width:200px;
+}
 
 
 
