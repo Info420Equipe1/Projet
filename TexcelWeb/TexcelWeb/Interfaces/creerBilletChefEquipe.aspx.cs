@@ -117,7 +117,10 @@ namespace TexcelWeb
                     cmbEquipe.Items.Add(equipe.nomEquipe);
                     foreach (CasTest casTest in equipe.CasTest)
                     {
-                        lstCasTest.Add(casTest);
+                        if (!lstCasTest.Contains(casTest))
+                        {
+                            lstCasTest.Add(casTest);
+                        }
                     }
                 }
                 cmbEquipe.Enabled = true;
@@ -177,7 +180,7 @@ namespace TexcelWeb
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
                 hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
-                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTest=" + gvr.Cells[0].Text + "&consulteBillet=true";
+                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text + "&consulteBillet=true";
             }
         }
         private void showEmptyDataGrid()
@@ -215,12 +218,17 @@ namespace TexcelWeb
                     List<CasTest> lstCasTestAAfficher = new List<CasTest>();
                     foreach (CasTest castest in lstCasTest)
                     {
-                        foreach (Equipe equipe in castest.Equipe)
+                        try
                         {
-                            if (nomEquipe == equipe.nomEquipe)
+                            Equipe equipe = castest.Equipe.Where(x => x.nomEquipe == nomEquipe).First();
+                            foreach (CasTest casdeTest in equipe.CasTest)
                             {
-                                lstCasTestAAfficher.Add(castest);
+                                lstCasTestAAfficher.Add(casdeTest);
                             }
+                        }
+                        catch (Exception)
+                        {
+                            //Aucune equipe dans le cas de test
                         }
                     }
                     if (lstCasTestAAfficher.Count != 0)

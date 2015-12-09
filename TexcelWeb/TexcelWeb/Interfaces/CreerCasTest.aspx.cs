@@ -16,7 +16,7 @@ namespace TexcelWeb
 {
     public partial class CreerCasTest : System.Web.UI.Page
     {
-        static bool modif;
+        static bool modif, consulteChefEquipe;
         Utilisateur currentUser;
 
         protected void Page_Init(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace TexcelWeb
             string codeCasTest = Request.QueryString["codeCasTestConsult"];
             if (codeCasTest != null)
             {
-                Session["CasTestConsulTesteur"] = CtrlCasTest.GetCasTestByCode(codeCasTest);
+                consulteChefEquipe = true;
             }
         }
 
@@ -90,6 +90,7 @@ namespace TexcelWeb
                 {
                     CasTest casTestTesteur = (CasTest)Session["CasTestConsulTesteur"];
                     Session["CasTestConsulTesteur"] = null;
+                    Titre.InnerText = "Consulter un cas de test";
                     RemplirChamps(casTestTesteur);
                     rtxtDiversCasTest.Visible = false;
                     txtCodeCasTest.Enabled = false;
@@ -109,6 +110,35 @@ namespace TexcelWeb
                     btnUpload.Visible = false;
                     GridView1.Visible = false;
                     sidebar.Visible = false;
+                    btnSupprimer.Visible = false;
+                    FileUpload1.Visible = false;
+                    btnFermer.Visible = true;
+                    lblDivers.Visible = false;
+                }
+                else if(Request.QueryString["codeCasTestConsult"]!=null)
+                {
+                    string code = (string)Request.QueryString["codeCasTestConsult"];
+                    CasTest casTestTesteur = CtrlCasTest.GetCasTestByCode(code);
+                    Titre.InnerText = "Consulter un cas de test";
+                    RemplirChamps(casTestTesteur);
+                    rtxtDiversCasTest.Visible = false;
+                    txtCodeCasTest.Enabled = false;
+                    txtNomCasTest.Enabled = false;
+                    dropDownProjet.Enabled = false;
+                    dropDownDifficulteCasTest.Enabled = false;
+                    dropDownPrioritéCasTest.Enabled = false;
+                    txtDateCreationCasTest.Enabled = false;
+                    txtDateLivraisonCasTest.Enabled = false;
+                    dropDownTypeTestCasTest.Enabled = false;
+                    rtxtDescriptionCasTest.Enabled = false;
+                    rtxtObjectifCastest.Enabled = false;
+                    btnAjouter.Visible = false;
+                    btnAnnuler.Visible = false;
+                    btnCopier.Visible = false;
+                    btnEnregistrer.Visible = false;
+                    btnUpload.Visible = false;
+                    GridView1.Visible = false;
+                    sidebar.Visible = true;
                     btnSupprimer.Visible = false;
                     FileUpload1.Visible = false;
                     btnFermer.Visible = true;
@@ -576,6 +606,7 @@ namespace TexcelWeb
                     if (checkBox.Checked)
                     {
                         //Parfois, je recois
+                        //Tu charge combien?
                         string fileName = gVRow.Cells[1].Text;
                         string filePath = Request.MapPath(@"~/cProjets/" + casTest.codeProjet + "/" + casTest.codeCasTest + "/" + fileName);
                         File.Delete(filePath);
@@ -588,8 +619,16 @@ namespace TexcelWeb
 
         protected void btnFermer_Click(object sender, EventArgs e)
         {
-            this.Form.Dispose();
-            Response.Redirect("recherche.aspx");
+            if (consulteChefEquipe)
+            {
+                this.Form.Dispose();
+                Response.Redirect("creerBilletChefEquipe.aspx");
+            }
+            else
+            {
+                this.Form.Dispose();
+                Response.Redirect("billetsTravail.aspx");
+            }
         }
 
     }

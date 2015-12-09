@@ -131,7 +131,7 @@ $(function(){
                     <asp:Button ID="btnUpload" runat="server" Text="Envoyez" OnClick="btnUpload_Click" />
                     <div style="height: 32px">
                         <asp:LinkButton runat="server" ID="btnSupprimer" Text="Supprimer fichiers" CssClass="btnDroit button cancel" CausesValidation="false"  OnClick="btnSupprimer_Click"/>
-                        <asp:LinkButton runat="server" ID="btnFermer" Text="Fermer" CssClass="btnDroit button cancel" OnClick="btnFermer_Click" CausesValidation="false" Visible="False"/>
+                        <asp:LinkButton runat="server" ID="btnFermer" Text="Retour" CssClass="btnDroit button cancel" OnClick="btnFermer_Click" CausesValidation="false" Visible="False"/>
                         </div>
                     <hr />
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded" >

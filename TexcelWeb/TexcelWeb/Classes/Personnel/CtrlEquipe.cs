@@ -25,9 +25,9 @@ namespace TexcelWeb.Classes.Personnel
         {
             List<CasTest> lstCasTestEquipe = new List<CasTest>();
 
-            foreach (string nomCasTest in casTest)
+            foreach (string codeCasTest in casTest)
             {
-                lstCasTestEquipe.Add(CtrlCasTest.GetCasTestByNom(nomCasTest));
+                lstCasTestEquipe.Add(CtrlCasTest.GetCasTestByCode(codeCasTest));
             }
 
             equipe.CasTest = lstCasTestEquipe;
@@ -95,7 +95,10 @@ namespace TexcelWeb.Classes.Personnel
                 if (equipe.Employe.noEmploye == _noChefEquipe)
                 {
                     cProjet projet = CtrlProjet.getProjetByCode(equipe.codeProjet);
-                    lstProjet.Add(projet);
+                    if (!lstProjet.Contains(projet))
+                    {
+                        lstProjet.Add(projet);
+                    }
                 }
             }
             return lstProjet;

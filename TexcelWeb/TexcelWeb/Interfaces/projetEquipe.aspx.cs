@@ -109,7 +109,7 @@ namespace TexcelWeb.Interfaces
 
             //DataSource de la liste des cas de test du projet
             lsbCasTestProjet.DataSource = projet.CasTest;
-            lsbCasTestProjet.DataTextField = "nomCasTest";
+            lsbCasTestProjet.DataTextField = "codeCasTest";
             lsbCasTestProjet.DataBind();
         }
 
@@ -125,7 +125,7 @@ namespace TexcelWeb.Interfaces
                 if (equipe.CasTest != null)
                 {
                     lsbCasTestEquipe.DataSource = equipe.CasTest;
-                    lsbCasTestEquipe.DataTextField = "nomCasTest";
+                    lsbCasTestEquipe.DataTextField = "codeCasTest";
                     lsbCasTestEquipe.DataBind();
                 }
                 else
