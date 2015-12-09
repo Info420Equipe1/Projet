@@ -31,3 +31,7 @@
 input, textarea, select, checkbox{
     margin-bottom:0px;
 }
+
+#dgvBillets{
+    background:white;
+}

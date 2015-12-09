@@ -30,38 +30,38 @@ $(function(){
 			    </div>
 		    </div>
 	    </div>
-        <div id="content">
-		<div id="sidebar" runat="server">
-			<div id="boxRecherche" runat="server" class="box">
-                <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
-                <ul id="home">
-                    <li id="lienRecherche" runat="server" class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
-                </ul>   
-			</div>
-            <div id="boxProjet" runat="server" class="box">
-				<div id="menuProjet" runat="server" class="h_title">&#8250; Projets</div>
-				<ul>
-					<li id="lienAjouterProjet" runat="server" class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
-                    <li id="lienProjetEquipe" runat="server" class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
-				</ul>
-			</div>		
-			<div id="boxCasTest" runat="server" class="box">
-				<div id="menuCasTest" runat="server" class="h_title">&#8250; Cas de test</div>
-				<ul>
-					<li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
-				</ul>
-			</div>
-            <div id="boxBilletTravail" runat="server" class="box">
-				<div id="menuBilletTravail" runat="server" class="h_title">&#8250; Billet de travail</div>
-				<ul>
-                    <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
-                    <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
-				</ul>
-			</div>     
-		</div>
-            <div id="main">					
-		        <div class="full_w">
-                    <form id="form1" runat="server">
+        <form id="form1" runat="server">
+            <div id="content">
+		        <div id="sidebar" runat="server">
+			        <div id="boxRecherche" runat="server" class="box">
+                        <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
+                        <ul id="home">
+                            <li id="lienRecherche" runat="server" class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
+                        </ul>   
+			        </div>
+                    <div id="boxProjet" runat="server" class="box">
+				        <div id="menuProjet" runat="server" class="h_title">&#8250; Projets</div>
+				        <ul>
+					        <li id="lienAjouterProjet" runat="server" class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
+                            <li id="lienProjetEquipe" runat="server" class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
+				        </ul>
+			        </div>		
+			        <div id="boxCasTest" runat="server" class="box">
+				        <div id="menuCasTest" runat="server" class="h_title">&#8250; Cas de test</div>
+				        <ul>
+					        <li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
+				        </ul>
+			        </div>
+                    <div id="boxBilletTravail" runat="server" class="box">
+				        <div id="menuBilletTravail" runat="server" class="h_title">&#8250; Billet de travail</div>
+				        <ul>
+                            <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
+                            <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
+				        </ul>
+			        </div>     
+		        </div>
+                <div id="main">					
+		            <div class="full_w">                  
                         <div class="div_1">
                             <div id="div_1a">
                                 <div class="lblInfo">
@@ -116,72 +116,76 @@ $(function(){
                                     <asp:TextBox runat="server" ID="txtTempInvestie" CssClass="txtColum1" />
                                 </div>                         
                             </div>
-                        </div> 
-                        <div id="div_1c">
-                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail">
-                                <Columns>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField HeaderText="Titre" DataField="Titre" ></asp:BoundField>
-                                    <asp:TemplateField HeaderText="Priorité">
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlPriorite" runat="server" DataSourceID="edsPriorite" DataTextField="nomNivPri" DataValueField="nomNivPri" SelectedValue='<%# Bind("Priorité") %>'>
-                                            </asp:DropDownList>
-                                            <asp:EntityDataSource ID="edsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="NiveauPriorite" EntityTypeFilter="NiveauPriorite" Select="it.[nomNivPri]">
-                                            </asp:EntityDataSource>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Difficulté" >
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlDifficulte" runat="server" DataSourceID="edsDifficulte" DataTextField="nomDiff" DataValueField="nomDiff" SelectedValue='<%# Bind("Difficulté") %>'>
-                                            </asp:DropDownList>
-                                            <asp:EntityDataSource ID="edsDifficulte" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="Difficulte" Select="it.[nomDiff]">
-                                            </asp:EntityDataSource>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Statut" >
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlStatut" runat="server" DataSourceID="edsStatut" DataTextField="nomStatut" DataValueField="nomStatut" SelectedValue='<%# Bind("Statut") %>'>
-                                            </asp:DropDownList>
-                                            <asp:EntityDataSource ID="edsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="Statut" Select="it.[nomStatut]">
-                                            </asp:EntityDataSource>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Type de Test" >
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlTypeTest" runat="server" DataSourceID="edsTypeTest" DataTextField="nomTest" DataValueField="nomTest" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged" SelectedValue='<%# Bind("Type_de_Test") %>'>
-                                            </asp:DropDownList>
-                                            <asp:EntityDataSource ID="edsTypeTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="TypeTest" EntityTypeFilter="TypeTest" Select="it.[nomTest]">
-                                            </asp:EntityDataSource>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>      
-                                    <asp:TemplateField HeaderText="Durée" ItemStyle-Width="35px">
-                                        <ItemTemplate>
-                                            <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>'></asp:TextBox>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Testeur">
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlTesteur" runat="server" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" SelectedValue='<%# Bind("Testeur") %>'>
-                                            </asp:DropDownList>
-                                            <asp:EntityDataSource ID="edsTesteurs" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllTesteurs" EntityTypeFilter="AllTesteurs" Select="it.[nomComplet]">
-                                            </asp:EntityDataSource>                                       
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField DataField="CasTest" HeaderText="Cas de Test" ></asp:BoundField>            
-                                    <asp:BoundField DataField="Date_Livraison" HeaderText="Date de livraison" />
-                                    <asp:BoundField DataField="Jours_Restant" HeaderText="Jours restants" />
-                                </Columns>
-                            </asp:GridView>
-                            <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail"></asp:EntityDataSource>       
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div id="content2">
+                <div id="main2">					
+		            <div class="gridView">
+                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="ChkBox" runat="server"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField HeaderText="Titre" DataField="Titre" ></asp:BoundField>
+                                <asp:TemplateField HeaderText="Priorité">
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlPriorite" runat="server" DataSourceID="edsPriorite" DataTextField="nomNivPri" DataValueField="nomNivPri" SelectedValue='<%# Bind("Priorité") %>'>
+                                        </asp:DropDownList>
+                                        <asp:EntityDataSource ID="edsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="NiveauPriorite" EntityTypeFilter="NiveauPriorite" Select="it.[nomNivPri]">
+                                        </asp:EntityDataSource>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Difficulté" >
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlDifficulte" runat="server" DataSourceID="edsDifficulte" DataTextField="nomDiff" DataValueField="nomDiff" SelectedValue='<%# Bind("Difficulté") %>'>
+                                        </asp:DropDownList>
+                                        <asp:EntityDataSource ID="edsDifficulte" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="Difficulte" Select="it.[nomDiff]">
+                                        </asp:EntityDataSource>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Statut" >
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlStatut" runat="server" DataSourceID="edsStatut" DataTextField="nomStatut" DataValueField="nomStatut" SelectedValue='<%# Bind("Statut") %>'>
+                                        </asp:DropDownList>
+                                        <asp:EntityDataSource ID="edsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="Statut" Select="it.[nomStatut]">
+                                        </asp:EntityDataSource>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Type de Test" >
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlTypeTest" runat="server" DataSourceID="edsTypeTest" DataTextField="nomTest" DataValueField="nomTest" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged" SelectedValue='<%# Bind("Type_de_Test") %>'>
+                                        </asp:DropDownList>
+                                        <asp:EntityDataSource ID="edsTypeTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="TypeTest" EntityTypeFilter="TypeTest" Select="it.[nomTest]">
+                                        </asp:EntityDataSource>
+                                    </ItemTemplate>
+                                </asp:TemplateField>      
+                                <asp:TemplateField HeaderText="Durée">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>'></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Testeur">
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlTesteur" runat="server" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" SelectedValue='<%# Bind("Testeur") %>'>
+                                        </asp:DropDownList>
+                                        <asp:EntityDataSource ID="edsTesteurs" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllTesteurs" EntityTypeFilter="AllTesteurs" Select="it.[nomComplet]">
+                                        </asp:EntityDataSource>                                       
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="CasTest" HeaderText="Cas de Test" ></asp:BoundField>            
+                                <asp:BoundField DataField="Date_Livraison" HeaderText="Date de livraison" />
+                                <asp:BoundField DataField="Jours_Restant" HeaderText="Jours restants" />
+                            </Columns>
+                        </asp:GridView>
+                        <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail"></asp:EntityDataSource>       
+                    </div>
+                </div>
+            </div>
+        </form>
         <div id="footer">
 		    <div class="left">
 			    <p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>

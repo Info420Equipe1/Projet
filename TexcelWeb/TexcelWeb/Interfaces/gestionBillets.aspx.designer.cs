@@ -22,6 +22,15 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
+        /// Contrôle form1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
         /// Contrôle sidebar.
         /// </summary>
         /// <remarks>
@@ -155,15 +164,6 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienGestionBillets;
-        
-        /// <summary>
-        /// Contrôle form1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// Contrôle ddlProjet.
