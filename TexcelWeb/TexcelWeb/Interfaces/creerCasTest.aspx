@@ -58,13 +58,13 @@ $(function(){
                     <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
 				</ul>
 			</div>     
-<<<<<<< HEAD
+
         </div>
 	    <div id="main" runat="server">
-=======
+
 		</div>
 	    <div id="main">
->>>>>>> origin/sprint4
+
 			<div class="full_w">
 				<div class="h_title" id="Titre" runat="server">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">      
@@ -103,7 +103,7 @@ $(function(){
                                 <asp:TextBox type="date" runat="server" ID="txtDateCreationCasTest" CssClass="txtColum1 txtDate2" />
                                 <asp:Label runat="server" Text="Date Livraison: " CssClass="lblColum1 lblDate2" />
                                 <asp:TextBox type="date" runat="server" ID="txtDateLivraisonCasTest" CssClass="txtColum1 txtDate2" />
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonCasTest" ControlToCompare="txtDateCreationCasTest" ValueToCompare="aaaa-mm-jj" Text="*"></asp:CompareValidator>
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="GreaterThan" ControlToValidate="txtDateLivraisonCasTest" ControlToCompare="txtDateCreationCasTest" ValueToCompare="aaaa-mm-jj" Text="*" ForeColor="Red"></asp:CompareValidator>
                             </div>
                             <div class="info">
                                 <asp:Label runat="server" Text="Type de test: " CssClass="lblColum1"/>

@@ -281,6 +281,24 @@ namespace TexcelWeb.Classes.Test
 
             return lstFichier;
         }  
+
+        public static void Supprimer(List<CasTest> _lst)
+        {
+            foreach (CasTest casTest in _lst)
+            {
+                
+                foreach (Equipe equ in casTest.Equipe)
+                {
+                    equ.CasTest.Remove(casTest);
+                }
+                foreach (BilletTravail bT in casTest.BilletTravail)
+                {
+                    bT.CasTest = null;
+                }
+                context.CasTest.Remove(casTest);
+            }
+            context.SaveChanges();
+        }
   
       
     }

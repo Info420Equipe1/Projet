@@ -79,7 +79,7 @@ namespace TexcelWeb.Interfaces
                     {
                         VerifSelec.Add(false);
                     }
-                    if (bT.termine == 1)
+                    if (bT.idStatut == 5)
                     {
                         VerifTerm.Add(true);
                     }
@@ -117,11 +117,11 @@ namespace TexcelWeb.Interfaces
             GridViewRow row = ((GridViewRow)((CheckBox)sender).NamingContainer);
             if (CtrlBilletTravail.SelectionneBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked, CtrlEmploye.getEmployeById(user.noEmploye.ToString())))
             {
-                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet selectionné.\", \"error\");", true);
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Billet selectionné.\", \"error\");", true);
             }
             else
             {
-                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet déselectionné.\", \"error\");", true);
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Billet déselectionné.\", \"error\");", true);
             }
 
 
@@ -135,6 +135,18 @@ namespace TexcelWeb.Interfaces
             {
                 CheckBox checkBoxSel = (e.Row.FindControl("CBSelec") as CheckBox);
                 CheckBox checkBoxTerm = (e.Row.FindControl("CBTer") as CheckBox);
+                if (e.Row.Cells[1].Text == "Basse")
+                {
+                    e.Row.Cells[1].BackColor = Color.Green;
+                }
+                else if (e.Row.Cells[1].Text == "Normale")
+                {
+                    e.Row.Cells[1].BackColor = Color.Yellow;
+                }
+                else if (e.Row.Cells[1].Text == "Elevee")
+                {
+                    e.Row.Cells[1].BackColor = Color.Red;
+                }
                 if (VerifSelec.Count() != 0)
                 {
                     if (VerifSelec[cpt] == true)
@@ -252,18 +264,19 @@ namespace TexcelWeb.Interfaces
             {
                 if (CtrlBilletTravail.TermineBillet(CtrlBilletTravail.GetBillet(row.Cells[0].Text), verifChecked))
                 {
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet terminé.\", \"error\");", true);
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Billet terminé.\", \"error\");", true);
                     checkBoxSelec.Enabled = false;
                 }
                 else
                 {
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Billet non terminé.\", \"error\");", true);
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Billet non terminé.\", \"error\");", true);
                     checkBoxSelec.Enabled = true;
                 }
             }
             else
             {
-                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Vous devez sélectionné le billet.\", \"error\");", true);
+                this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Vous devez sélectionné le billet.\", \"error\");", true);
+                checkBox.Checked = false;
             }
         }
     }

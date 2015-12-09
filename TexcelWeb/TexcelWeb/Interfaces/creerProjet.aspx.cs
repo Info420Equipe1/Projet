@@ -117,7 +117,7 @@ namespace TexcelWeb
                 txtNomProjet.Enabled = true;
                 btnAjoutCasTest.Visible = false;
                 btnCopier.Visible = false;
-
+                btnSupprimerCasTest.Visible = false;
                 ListItem lst;
 
                 //Nom du Chef de Projet actuelle par defaut dans le Dropdownlist
@@ -499,6 +499,24 @@ namespace TexcelWeb
             string nomProjet = String.Format("{0}", Request.Form["txtNomProjet"]);
             Response.Redirect("creerCasTest.aspx?nomProjet=" + nomProjet);
            
+        }
+
+        protected void btnSupprimerCasTest_Click(object sender, EventArgs e)
+        {
+            List<CasTest> lst = new List<CasTest>();
+            foreach (GridViewRow gVRow in dataGridLstCasTest.Rows)
+            {
+                if (gVRow.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox checkBox = (gVRow.Cells[0].FindControl("CheckBox1") as CheckBox);
+                    if (checkBox.Checked)
+                    {
+                        lst.Add(CtrlCasTest.GetCasTestByNom(gVRow.Cells[2].Text));
+                    }
+                }
+            }
+            CtrlCasTest.Supprimer(lst);
+            
         }
 
 

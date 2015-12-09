@@ -137,9 +137,15 @@ $(function(){
                     <br />
                     <div>
                         <asp:LinkButton runat="server" ID="btnAjoutCasTest" Text="Ajouter un nouveau cas de test" Width="200" CssClass="btnGauche button add" OnClick="btnAjoutCasTest_Click" />
+                        <asp:LinkButton runat="server" ID="btnSupprimerCasTest" Text="Supprimer des cas de tests" Width="200" CssClass="btnGauche button cancel" OnClick="btnSupprimerCasTest_Click" />
                     </div>
                     <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
                         <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
                             <ItemStyle CssClass="align-center" Width="85px" />
                             </asp:BoundField>
@@ -161,6 +167,8 @@ $(function(){
                                 </ItemTemplate>
                                 <ControlStyle Width="85px" />
                                 <HeaderStyle Width="65px" />
+
+<ItemStyle CssClass="align-center"></ItemStyle>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>	

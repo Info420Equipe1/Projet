@@ -234,7 +234,7 @@ namespace TexcelWeb.Classes.Test
             //Billet selectionné
             foreach (BilletTravail bT in context.BilletTravail)
             {
-                if (bT.noEmploye == _emp.noEmploye)
+                if ((bT.noEmploye == _emp.noEmploye) && (bT.idStatut >= 4))
                 {
                     lst.Add(bT);
                 }
@@ -242,7 +242,7 @@ namespace TexcelWeb.Classes.Test
             //Billets assigné
             foreach (BilletTravail bT in _emp.BilletTravail1)
             {
-                if ((bT.noEmploye == null) || (bT.termine == 0))
+                if ((bT.noEmploye == null) && (bT.idStatut == 3))
                 {
                     lst.Add(bT);
                 }
@@ -271,6 +271,7 @@ namespace TexcelWeb.Classes.Test
             {
                 //Le testeur a choissi ce billet
                 _bT.noEmploye = _emp.noEmploye;
+                _bT.idStatut = 4;
                 context.SaveChanges();
                 return true;
             }
@@ -278,6 +279,7 @@ namespace TexcelWeb.Classes.Test
             {
                 //Le testeur abandonne le billet
                 _bT.noEmploye = null;
+                _bT.idStatut = 3;
                 context.SaveChanges();
                 return false;
             }
@@ -289,14 +291,16 @@ namespace TexcelWeb.Classes.Test
             if (_verifChecked == true)
             {
                 //Le testeur a terminé ce billet
-                _bT.termine = 1;
+                
+                _bT.idStatut = 5;
                 context.SaveChanges();
                 return true;
             }
             else
             {
                 //Le testeur na pas terminé le billet
-                _bT.termine = 0;
+                
+                _bT.idStatut = 4;
                 context.SaveChanges();
                 return false;
             }

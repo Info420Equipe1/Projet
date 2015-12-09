@@ -337,6 +337,15 @@ namespace TexcelWeb {
         protected global::System.Web.UI.WebControls.LinkButton btnAjoutCasTest;
         
         /// <summary>
+        /// Contrôle btnSupprimerCasTest.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSupprimerCasTest;
+        
+        /// <summary>
         /// Contrôle dataGridLstCasTest.
         /// </summary>
         /// <remarks>
