@@ -16,7 +16,7 @@ namespace TexcelWeb.Interfaces
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Utilisateur currentUser = CtrlController.GetCurrentUser();
             if (Page.IsPostBack == false)
             {
                 //Premier loading de la page
@@ -27,14 +27,54 @@ namespace TexcelWeb.Interfaces
                 }
                 else
                 {
-
                     //Formatage Bienvenue, [NomUtilisateur] et la Date
-                    Utilisateur currentUser = CtrlController.GetCurrentUser();
                     CtrlController.SetCurrentUser(currentUser);
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
                 ChargerPage();
-            }              
+            }
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                }
+                else if (groupe.idGroupe == 1)
+                {
+                    lienProjetEquipe.Visible = false;
+                }
+                if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                {
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                else if (groupe.idGroupe == 2)
+                {
+                    lienAjouterProjet.Visible = false;
+                }
+                if (!lstDroits.Contains(24))
+                {
+                    boxBilletTravail.Visible = false;
+                    menuBilletTravail.Visible = false;
+                    lienBilletChefEquipe.Visible = false;
+                    lienGestionBillets.Visible = false;
+                }
+                else if (groupe.idGroupe == 3)
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+            }
 
         }
 

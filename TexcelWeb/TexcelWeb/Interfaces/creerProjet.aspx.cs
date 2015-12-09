@@ -49,13 +49,6 @@ namespace TexcelWeb
                     menuProjet.Visible = false;
                     lienAjouterProjet.Visible = false;
                     lienProjetEquipe.Visible = false;
-                    ddlFiltre.Items.Remove("Projet");
-                    ddlFiltre.Items.Remove("JeuProjet");
-                    ddlFiltre.Items.Remove("ProjetGenre");
-                    ddlFiltre.Items.Remove("ProjeTheme");
-                    ddlFiltre.Items.Remove("ProjetClassification");
-                    ddlFiltre.Items.Remove("ProjetEquipe");
-                    ddlFiltre.Items.Remove("ProjetCasTest");
                 }
                 else if (groupe.idGroupe == 1)
                 {
@@ -66,9 +59,6 @@ namespace TexcelWeb
                     boxCasTest.Visible = false;
                     menuCasTest.Visible = false;
                     lienCasTest.Visible = false;
-                    ddlFiltre.Items.Remove("CasTest");
-                    ddlFiltre.Items.Remove("ProjetCasTest");
-                    ddlFiltre.Items.Remove("CasTestBilletTravail");
                 }
                 else if (groupe.idGroupe == 2)
                 {
@@ -80,11 +70,6 @@ namespace TexcelWeb
                     menuBilletTravail.Visible = false;
                     lienBilletChefEquipe.Visible = false;
                     lienGestionBillets.Visible = false;
-                    ddlFiltre.Items.Remove("BilletTravail");
-                    ddlFiltre.Items.Remove("EmployeBilletTravail");
-                    ddlFiltre.Items.Remove("BilletTravailPriorite");
-                    ddlFiltre.Items.Remove("BilletTravailStatut");
-                    ddlFiltre.Items.Remove("CasTestBilletTravail");
                 }
                 else if (groupe.idGroupe == 3)
                 {

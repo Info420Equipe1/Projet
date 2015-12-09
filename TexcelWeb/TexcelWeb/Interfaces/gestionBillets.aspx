@@ -30,35 +30,35 @@ $(function(){
 			    </div>
 		    </div>
 	    </div>
-        <div id="content">       
-		    <div id="sidebar">
-			    <div class="box">
-                    <div class="h_title bottomMargin">&#8250; Recherche</div>
-                    <ul>
-                        <li class="b1 bottomMargin"><a class="icon page" href="recherche.aspx">Recherche</a></li>
-                    </ul>   
-			    </div>
-                <div class="box">
-				    <div class="h_title">&#8250; Projets</div>
-				    <ul>
-					    <li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
-                        <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
-				    </ul>
-			    </div>		
-			    <div class="box">
-				    <div class="h_title">&#8250; Cas de test</div>
-				    <ul>
-					    <li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
-				    </ul>
-			    </div>
-                <div class="box">
-				    <div class="h_title">&#8250; Billet de travail</div>
-				    <ul id="home">
-                        <li class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
-                        <li class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
-				    </ul>
-			    </div>           
-            </div>
+        <div id="content">
+		<div id="sidebar" runat="server">
+			<div id="boxRecherche" runat="server" class="box">
+                <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
+                <ul id="home">
+                    <li id="lienRecherche" runat="server" class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
+                </ul>   
+			</div>
+            <div id="boxProjet" runat="server" class="box">
+				<div id="menuProjet" runat="server" class="h_title">&#8250; Projets</div>
+				<ul>
+					<li id="lienAjouterProjet" runat="server" class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
+                    <li id="lienProjetEquipe" runat="server" class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
+				</ul>
+			</div>		
+			<div id="boxCasTest" runat="server" class="box">
+				<div id="menuCasTest" runat="server" class="h_title">&#8250; Cas de test</div>
+				<ul>
+					<li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
+				</ul>
+			</div>
+            <div id="boxBilletTravail" runat="server" class="box">
+				<div id="menuBilletTravail" runat="server" class="h_title">&#8250; Billet de travail</div>
+				<ul>
+                    <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
+                    <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
+				</ul>
+			</div>     
+		</div>
             <div id="main">					
 		        <div class="full_w">
                     <form id="form1" runat="server">
