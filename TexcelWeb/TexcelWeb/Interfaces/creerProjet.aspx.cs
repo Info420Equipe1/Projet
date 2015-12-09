@@ -39,6 +39,52 @@ namespace TexcelWeb
                     this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
                 }
             }
+            Utilisateur currentUser = CtrlController.GetCurrentUser();
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                }
+                else if (groupe.idGroupe == 1)
+                {
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                {
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                else if (groupe.idGroupe == 2)
+                {
+                    lienAjouterProjet.Visible = false;
+                }
+                if (!lstDroits.Contains(24))
+                {
+                    boxBilletTravail.Visible = false;
+                    menuBilletTravail.Visible = false;
+                    lienBilletChefEquipe.Visible = false;
+                    lienGestionBillets.Visible = false;
+                }
+                else if (groupe.idGroupe == 3)
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+            }
         }
         private void initializeComponent(bool modif)
         {

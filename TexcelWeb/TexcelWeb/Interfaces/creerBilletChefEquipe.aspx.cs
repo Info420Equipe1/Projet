@@ -18,6 +18,7 @@ namespace TexcelWeb
         static List<CasTest> lstCasTest;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Utilisateur currentUser = CtrlController.GetCurrentUser();
             if (!IsPostBack)
             {
                 if (CtrlController.GetCurrentUser() == null)
@@ -26,7 +27,6 @@ namespace TexcelWeb
                 }
                 else
                 {   
-                    Utilisateur currentUser = CtrlController.GetCurrentUser();
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 }
                 fillDropDownList();
@@ -36,6 +36,51 @@ namespace TexcelWeb
                     this.cmbProjet_SelectedIndexChanged(this, e);
                 }
                 showEmptyDataGrid();
+            }
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                }
+                else if (groupe.idGroupe == 1)
+                {
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                {
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                else if (groupe.idGroupe == 2)
+                {
+                    lienAjouterProjet.Visible = false;
+                }
+                if (!lstDroits.Contains(24))
+                {
+                    boxBilletTravail.Visible = false;
+                    menuBilletTravail.Visible = false;
+                    lienBilletChefEquipe.Visible = false;
+                    lienGestionBillets.Visible = false;
+                }
+                else if (groupe.idGroupe == 3)
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
             }
         }
         private void fillDropDownList()
@@ -72,7 +117,10 @@ namespace TexcelWeb
                     cmbEquipe.Items.Add(equipe.nomEquipe);
                     foreach (CasTest casTest in equipe.CasTest)
                     {
-                        lstCasTest.Add(casTest);
+                        if (!lstCasTest.Contains(casTest))
+                        {
+                            lstCasTest.Add(casTest);
+                        }
                     }
                 }
                 cmbEquipe.Enabled = true;
@@ -132,7 +180,7 @@ namespace TexcelWeb
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnAjouterBilletCasTest");
                 hgc.Attributes["href"] = "creerBilletTravail.aspx?codeCasTest=" + gvr.Cells[0].Text;
                 HtmlAnchor hgc2 = (HtmlAnchor)gvr.Cells[5].FindControl("btnConsulterCasTest");
-                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text;
+                hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text + "&consulteBillet=true";
             }
         }
         private void showEmptyDataGrid()
@@ -159,7 +207,7 @@ namespace TexcelWeb
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            List<CasTest> lstCasTestAAfficher = new List<CasTest>();
+            
             string nomProjet = cmbProjet.Text;
             string nomEquipe = cmbEquipe.Text;
 
@@ -167,14 +215,20 @@ namespace TexcelWeb
             {
                 if (nomEquipe != "Aucune")
                 {
+                    List<CasTest> lstCasTestAAfficher = new List<CasTest>();
                     foreach (CasTest castest in lstCasTest)
                     {
-                        foreach (Equipe equipe in castest.Equipe)
+                        try
                         {
-                            if (nomEquipe == equipe.nomEquipe)
+                            Equipe equipe = castest.Equipe.Where(x => x.nomEquipe == nomEquipe).First();
+                            foreach (CasTest casdeTest in equipe.CasTest)
                             {
-                                lstCasTestAAfficher.Add(castest);
+                                lstCasTestAAfficher.Add(casdeTest);
                             }
+                        }
+                        catch (Exception)
+                        {
+                            //Aucune equipe dans le cas de test
                         }
                     }
                     if (lstCasTestAAfficher.Count != 0)
@@ -188,9 +242,15 @@ namespace TexcelWeb
                 }
                 else
                 {
-                    if (lstCasTest.Count != 0)
+                    List<CasTest> lstCasTestAAfficher = new List<CasTest>();
+                    cProjet projet = CtrlProjet.GetProjet(nomProjet);
+                    foreach (CasTest casTest in projet.CasTest)
                     {
-                        ajoutDonnesDataGrid(lstCasTest);
+                        lstCasTestAAfficher.Add(casTest);
+                    }
+                    if (lstCasTestAAfficher.Count != 0)
+                    {
+                        ajoutDonnesDataGrid(lstCasTestAAfficher);
                     }
                     else
                     {
@@ -200,7 +260,6 @@ namespace TexcelWeb
             }
             else
             {
-                //Caliss que jcomprends pas.. I saffiche pas
                 this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Le chef d'équipe actuel ne travail sur aucun projet. Pour créer un billet de travail, le chef d'équipe doit obligatoirement être chef d'une ou plusieurs équipes au sein d'un projet.\", \"warning\");", true);
             }
         }

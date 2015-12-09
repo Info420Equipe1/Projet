@@ -72,6 +72,7 @@ namespace TexcelWeb.Classes.Test
             }
             
         }
+
         public static void SaveLstTesteurAffiche()
         {
             try
@@ -83,6 +84,7 @@ namespace TexcelWeb.Classes.Test
                 //erreur          
             }
         }
+
         public static bool SaveProjetChoisi(int _index)
         {
             if (_index < lstProjAfficher.Count && _index >= 0)

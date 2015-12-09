@@ -16,9 +16,9 @@ namespace TexcelWeb.Interfaces
         static string actualSelectedCodeProjet;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Utilisateur currentUser = CtrlController.GetCurrentUser();
             if (!IsPostBack)
 	        {
-                
                 //Premier loading de la page
                 Session["modifProjet"] = false;
                 if (CtrlController.GetCurrentUser() == null)
@@ -29,15 +29,58 @@ namespace TexcelWeb.Interfaces
                 else
                 {
                     //Formatage Bienvenue, [NomUtilisateur] et la Date
-                    Utilisateur currentUser = CtrlController.GetCurrentUser();
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                     lsbProjets.DataSource = CtrlProjet.GetListProjetChefProjet(currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye);
                     lsbProjets.DataTextField = "nomProjet";
                     lsbProjets.DataBind();
                 }
-
-                
 	        }
+            
+            foreach (Groupe groupe in currentUser.Groupe)
+            {
+                List<int> lstDroits = CtrlController.GetDroits(groupe);
+                if (!lstDroits.Contains(19) && !lstDroits.Contains(20))
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                }
+                else if (groupe.idGroupe == 1)
+                {
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
+                {
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+                else if (groupe.idGroupe == 2)
+                {
+                    lienAjouterProjet.Visible = false;
+                }
+                if (!lstDroits.Contains(24))
+                {
+                    boxBilletTravail.Visible = false;
+                    menuBilletTravail.Visible = false;
+                    lienBilletChefEquipe.Visible = false;
+                    lienGestionBillets.Visible = false;
+                }
+                else if (groupe.idGroupe == 3)
+                {
+                    boxProjet.Visible = false;
+                    menuProjet.Visible = false;
+                    lienAjouterProjet.Visible = false;
+                    lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
+                }
+            }
         }
 
         protected void lsbProjets_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,7 +109,7 @@ namespace TexcelWeb.Interfaces
 
             //DataSource de la liste des cas de test du projet
             lsbCasTestProjet.DataSource = projet.CasTest;
-            lsbCasTestProjet.DataTextField = "nomCasTest";
+            lsbCasTestProjet.DataTextField = "codeCasTest";
             lsbCasTestProjet.DataBind();
         }
 
@@ -82,7 +125,7 @@ namespace TexcelWeb.Interfaces
                 if (equipe.CasTest != null)
                 {
                     lsbCasTestEquipe.DataSource = equipe.CasTest;
-                    lsbCasTestEquipe.DataTextField = "nomCasTest";
+                    lsbCasTestEquipe.DataTextField = "codeCasTest";
                     lsbCasTestEquipe.DataBind();
                 }
                 else

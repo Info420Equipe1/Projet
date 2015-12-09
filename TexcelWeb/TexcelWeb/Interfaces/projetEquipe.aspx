@@ -36,31 +36,31 @@ $(function(){
 		</div>
 	</div>	
 	<div id="content">
-		<div id="sidebar">
-			<div class="box">
-                <div class="h_title">&#8250; Recherche</div>
-                <ul>
-                    <li class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
+		<div id="sidebar" runat="server">
+			<div id="boxRecherche" runat="server" class="box">
+                <div id="menuRecherche" runat="server" class="h_title">&#8250; Recherche</div>
+                <ul id="home">
+                    <li id="lienRecherche" runat="server" class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
                 </ul>   
 			</div>
-            <div class="box">
-				<div class="h_title">&#8250; Projets</div>
-				<ul id="home">
-					<li class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
-                    <li class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
+            <div id="boxProjet" runat="server" class="box">
+				<div id="menuProjet" runat="server" class="h_title">&#8250; Projets</div>
+				<ul>
+					<li id="lienAjouterProjet" runat="server" class="b1"><a class="icon page" href="creerProjet.aspx">Ajouter un Projet</a></li>
+                    <li id="lienProjetEquipe" runat="server" class="b1"><a class="icon page" href="projetEquipe.aspx">Gestion des Équipes</a></li>			
 				</ul>
 			</div>		
-			<div class="box">
-				<div class="h_title">&#8250; Cas de test</div>
+			<div id="boxCasTest" runat="server" class="box">
+				<div id="menuCasTest" runat="server" class="h_title">&#8250; Cas de test</div>
 				<ul>
-					<li class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
+					<li id="lienCasTest" runat="server" class="b1"><a class="icon page" href="creerCasTest.aspx">Ajouter un Cas de test</a></li>
 				</ul>
 			</div>
-            <div class="box">
-				<div class="h_title">&#8250; Billet de travail</div>
+            <div id="boxBilletTravail" runat="server" class="box">
+				<div id="menuBilletTravail" runat="server" class="h_title">&#8250; Billet de travail</div>
 				<ul>
-                    <li class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
-                    <li class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
+                    <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
+                    <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
 				</ul>
 			</div>     
 		</div>
@@ -109,7 +109,7 @@ $(function(){
                             <ContentTemplate>
                                 <div> 
                                     <div class="tableCell">
-                                        <asp:Label runat="server" Text="Cas de test du projet" /><asp:CheckBox ID="chkCasTestNonAssocier" runat="server" style="padding-left:200px" Checked="false" AutoPostBack="true" OnCheckedChanged="chkCasTestNonAssocier_CheckedChanged" /><asp:Label runat="server" Text="Cas de test non-associer" style="padding-left:5px" /> <br />
+                                        <asp:Label runat="server" Text="Cas de test du projet" /><asp:CheckBox ID="chkCasTestNonAssocier" runat="server" style="padding-left:200px" Checked="false" AutoPostBack="true" OnCheckedChanged="chkCasTestNonAssocier_CheckedChanged" /><asp:Label runat="server" Text="Cas de test non-associés" style="padding-left:5px" /> <br />
                                         <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
                                     </div>
                                     <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
