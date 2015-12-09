@@ -89,6 +89,9 @@ namespace TexcelWeb.Interfaces
                 else if (groupe.idGroupe == 1)
                 {
                     lienProjetEquipe.Visible = false;
+                    boxCasTest.Visible = false;
+                    menuCasTest.Visible = false;
+                    lienCasTest.Visible = false;
                 }
                 if (!lstDroits.Contains(21) && !lstDroits.Contains(22))
                 {
