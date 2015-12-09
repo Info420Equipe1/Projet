@@ -57,6 +57,7 @@ $(function(){
                     <li id="lienBilletChefEquipe" runat="server" class="b1"><a class="icon page" href="creerBilletChefEquipe.aspx">Ajouter des Billets de travail</a></li>
                     <li id="lienGestionBillets" runat="server" class="b1"><a class="icon page" href="gestionBillets.aspx">Gestion des Billets</a></li>
 				</ul>
+<<<<<<< HEAD
 			</div>     
 
         </div>
@@ -65,6 +66,11 @@ $(function(){
 		</div>
 	    <div id="main">
 
+=======
+			</div>
+        </div>
+	    <div id="main" runat="server">
+>>>>>>> origin/sprint4
 			<div class="full_w">
 				<div class="h_title" id="Titre" runat="server">Créer un cas de test</div>
                 <form id="FrmCasTest" runat="server">      
