@@ -265,7 +265,6 @@ namespace TexcelWeb
             }
             else
             {
-                //Caliss que jcomprends pas.. I saffiche pas
                 this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Le chef d'équipe actuel ne travail sur aucun projet. Pour créer un billet de travail, le chef d'équipe doit obligatoirement être chef d'une ou plusieurs équipes au sein d'un projet.\", \"warning\");", true);
             }
         }

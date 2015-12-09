@@ -16,14 +16,16 @@
     margin-left:25px;
     margin-top:15px;
 }
+/* Les deux block pour le centré marcel*/
 #BilletInfo{
     width: 50%;
     display:inline-block;
+    position:relative;
 }
 #BilletContainer{
-    position:relative;
-    padding-left:33%;
+    position:center;
 }
+/* Les deux la*/
 #txtTitreBillet{
     width:325px;
 }
