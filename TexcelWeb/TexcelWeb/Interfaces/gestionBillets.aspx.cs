@@ -23,7 +23,7 @@ namespace TexcelWeb.Interfaces
                 if (CtrlController.GetCurrentUser() == null)
                 {
                     //Not logged in
-                  Response.Redirect("login.aspx");
+                    Response.Redirect("login.aspx");
                 }
                 else
                 {
@@ -78,29 +78,13 @@ namespace TexcelWeb.Interfaces
                     lienCasTest.Visible = false;
                 }
             }
-
         }
 
         private void ChargerPage()
         {
-            /* DataTable dT = new DataTable();
-            dT.Columns.AddRange(new DataColumn[7] { 
-                new DataColumn("TitreBillet", typeof(string)),
-                new DataColumn("Priorité", typeof(DropDownList)),
-                new DataColumn("Statut", typeof(DropDownList)),
-                new DataColumn("Type de Test", typeof(DropDownList)),
-                new DataColumn("Durée", typeof(string)),
-                new DataColumn("Testeur", typeof(DropDownList)),
-                new DataColumn("CasTest", typeof(string))});
-            dT.Rows.Add(dT.NewRow());
-            dT.Rows[0].SetField("TitreBillet", "No Record Available");
-            dgvBillets.Visible = true;
-            dgvBillets.DataSource = dT;
-            dgvBillets.DataBind();
-            dgvBillets.HeaderRow.Visible = true; */
-
             AfficherDdlProjetItem();           
         }
+
         protected void AfficherDdlProjetItem()
         {
             ddlProjet.Items.Clear();           
@@ -114,8 +98,8 @@ namespace TexcelWeb.Interfaces
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlProjet.Items.Insert(ddlProjet.Items.Count,"Choisissez un projet");
             ddlProjet.SelectedValue = "Choisissez un projet";
-
         }
+
         protected void AfficherDdlEquipeItem()
         {
             ddlEquipe.Items.Clear();
@@ -130,6 +114,7 @@ namespace TexcelWeb.Interfaces
             ddlEquipe.Items.Insert(ddlEquipe.Items.Count, "Choisissez une équipe");
             ddlEquipe.SelectedValue = "Choisissez une équipe";
         }
+
         protected void AfficherDdlTesteurItem()
         {
             ddlTesteur.Items.Clear();
@@ -144,7 +129,6 @@ namespace TexcelWeb.Interfaces
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlTesteur.Items.Insert(ddlTesteur.Items.Count, "Choisissez un testeur");
             ddlTesteur.SelectedValue = "Choisissez un testeur";
-
         }
 
         //*****************************DROP_DOWN_LIST DU HAUT **********************************************//
@@ -165,10 +149,9 @@ namespace TexcelWeb.Interfaces
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlEquipe.Visible = false;
             }
-                
-                  
-
         }
+        
+
         protected void ddlEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             // enregistrer l'équipe qui a été sélectionné dans la classe controle
@@ -183,10 +166,9 @@ namespace TexcelWeb.Interfaces
                 // Donc il faut remettre la variable Testeur a null
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlTesteur.Visible = false;
-            }
-                
-            
+            }  
         }
+
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex))
@@ -198,32 +180,21 @@ namespace TexcelWeb.Interfaces
                 // affiche rien car l'index choisi c'est "Choisissez.."
             }
         }
-   
-
-        //*****************************DROP_DOWN_LIST DU GRIDVIEW **********************************************//
-        protected void ddlPriorite_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlStatut_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlTypeTest_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
+  
         //*************************************GRIDVIEW EVENT***************************************//
         protected void dgvBillets_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-           
-
+            if (dgvBillets.Rows.Count >= 0)
+            {
+                foreach (GridViewRow row in dgvBillets.Rows)
+                {
+                    if (row.Cells[9].Text != "&nbsp;")
+                    {
+                        row.Cells[9].Text = Convert.ToDateTime(row.Cells[9].Text).ToString("yyyy-MM-dd");
+                        row.Cells[9].HorizontalAlign = HorizontalAlign.Center;
+                    }
+                }
+            } 
         }
-
     }
 }
