@@ -94,6 +94,7 @@ namespace Texcel.Classes.Jeu
         public static VersionSysExp GetVersionSysExp(int _idEdition,string _noVersion)
         {
             VersionSysExp vSE = context.VersionSysExp.Where(x => x.idEdition == _idEdition && x.noVersion == _noVersion).First();
+            
             return vSE;
         }
     }

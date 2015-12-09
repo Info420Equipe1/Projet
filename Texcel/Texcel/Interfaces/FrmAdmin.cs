@@ -462,11 +462,22 @@ namespace Texcel.Interfaces
                 {
                     string nomSysExp = dgvResultats[0, num].Value.ToString();
                     string editionSysExp = dgvResultats[2, num].Value.ToString();
-                    string versionSysExp = dgvResultats[3, num].Value.ToString();
+                    string versionSysExp;
+                    if (dgvResultats[3, num].Value != null)
+                    {
+                        versionSysExp = dgvResultats[3, num].Value.ToString(); 
+                    }
+                    else
+                    {
+                        versionSysExp = null;
+                    }
                     SysExp sE = CtrlSysExp.GetSysExp(nomSysExp);
                     EditionSysExp eSE = CtrlEditionSysExp.GetEditionSysExp(editionSysExp, sE.idSysExp);
-                    VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
-
+                    VersionSysExp vSE = new VersionSysExp();
+                    if(versionSysExp != null)
+                    {
+                        vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
+                    }
                     noSE.Text = sE.idSysExp.ToString();
                     nomSE.Text = sE.nomSysExp;
                     edSE.Text = editionSysExp;
