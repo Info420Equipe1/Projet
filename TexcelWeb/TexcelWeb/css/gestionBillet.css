@@ -20,24 +20,14 @@
  display: inline-block;
 }
 
-
 #div_1c {
     display: inline-block;
-}
-
-.boundfieldElement{
-   Width:85px;
-   color:Blue;
-}
-
-.ddlGV{
-   Width:125px;
-   text-align:center;
 }
 
 .txtColum1{
     width:45px;
 }
-.div_1bb{
-    
+
+input, textarea, select, checkbox{
+    margin-bottom:0px;
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="FiltreDataSource">
@@ -383,9 +383,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Key>
             <PropertyRef Name="nomEmploye" />
             <PropertyRef Name="prenomEmploye" />
+            <PropertyRef Name="nomComplet" />
           </Key>
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nomComplet" Type="varchar" MaxLength="42" Nullable="false" />
           <Property Name="tagEmploye" Type="varchar" MaxLength="40" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -1137,6 +1139,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <DefiningQuery>SELECT 
     [AllTesteurs].[nomEmploye] AS [nomEmploye], 
     [AllTesteurs].[prenomEmploye] AS [prenomEmploye], 
+    [AllTesteurs].[nomComplet] AS [nomComplet], 
     [AllTesteurs].[tagEmploye] AS [tagEmploye]
     FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
           </EntitySet>
@@ -1426,8 +1429,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <End Role="VersionSysExp" EntitySet="VersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1769,10 +1771,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Key>
             <PropertyRef Name="nomEmploye" />
             <PropertyRef Name="prenomEmploye" />
+            <PropertyRef Name="nomComplet" />
           </Key>
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="nomComplet" Type="String" Nullable="false" MaxLength="42" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllBilletTravailPriorite">
           <Key>
@@ -2669,6 +2673,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <EntitySetMapping Name="AllTesteurs">
             <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
               <MappingFragment StoreEntitySet="AllTesteurs">
+                <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
                 <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
                 <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
                 <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />

@@ -33,9 +33,9 @@ $(function(){
         <div id="content">       
 		    <div id="sidebar">
 			    <div class="box">
-                    <div class="h_title">&#8250; Recherche</div>
+                    <div class="h_title bottomMargin">&#8250; Recherche</div>
                     <ul>
-                        <li class="b1"><a class="icon page" href="recherche.aspx">Recherche</a></li>
+                        <li class="b1 bottomMargin"><a class="icon page" href="recherche.aspx">Recherche</a></li>
                     </ul>   
 			    </div>
                 <div class="box">
@@ -65,18 +65,18 @@ $(function(){
                         <div class="div_1">
                             <div id="div_1a">
                                 <div class="lblInfo">
-                                    <asp:Label class="lblinfo" runat="server" Text="Projet : " />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Projet : " />
                                     
-                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged" style="width:250px">                                                                          
+                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="True" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged" style="width:250px">                                                                          
                                    </asp:DropDownList> 
                                     <br /><br />               
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label class="lblinfo" runat="server" Text="Équipe :" />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Équipe :" />
                                     <asp:DropDownList runat="server"  ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" style="width:250px" Visible="False"/> <br /><br />
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label class="lblinfo" runat="server" Text="Testeur :" />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Testeur :" />
                                     <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" style="width:250px" Visible="False" />
                                 </div>
                             </div>
@@ -84,84 +84,105 @@ $(function(){
                         <div class="div_1bb">
                             <div class="div_1b">
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Nb cas Test : " />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb cas Test : " />
                                     <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
                                 </div>
                                 <div class="info">
-                                    <asp:Label  class="lblinfo" runat="server" Text="Nb billet: " />
+                                    <asp:Label  CssClass="lblinfo" runat="server" Text="Nb billet: " />
                                     <asp:TextBox runat="server" ID="txtNbBillet" CssClass="txtColum1"/>
                                 </div>
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Nb billet(en cours): " />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb billet(en cours): " />
                                     <asp:TextBox runat="server" ID="txtNbBilletEnCours" CssClass="txtColum1"/>
                                 </div>                      
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Nb billet(terminé) : " />
+                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb billet(terminé) : " />
                                     <asp:TextBox runat="server" ID="txtNbBilletTermine" CssClass="txtColum1"/>
                                 </div>                          
                             </div> 
                             <div class="div_1b">
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Nb billet(urgent): " CssClass="lblColum1"/>
+                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb billet(urgent): " />
                                     <asp:TextBox runat="server" ID="txtNbBilletUrgent" CssClass="txtColum1"/>
                                 </div>
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Temps estimé: " CssClass="lblColum1"/>
+                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps estimé: " />
                                     <asp:TextBox runat="server" ID="txtTempsEstime" CssClass="txtColum1"/>           
                                 </div>
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Temps estimé(globale): " CssClass="lblColum1"/>
+                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps estimé(globale): " />
                                     <asp:TextBox runat="server" ID="txtTempsTotal" CssClass="txtColum1"/>      
                                 </div>              
                                 <div class="info">
-                                    <asp:Label class="lblinfo" runat="server" Text="Temps investie : " CssClass="lblColum1"/>
-                                    <asp:TextBox runat="server" ID="txtTempInvestie" CssClass="txtColum1"/>
+                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps investie : " />
+                                    <asp:TextBox runat="server" ID="txtTempInvestie" CssClass="txtColum1" />
                                 </div>                         
                             </div>
                         </div> 
                         <div id="div_1c">
-                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="true" OnRowDataBound="dgvBillets_RowDataBound"  >
+                            <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" PageSize="5" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail"  >
                                 <Columns>
-                                    <asp:TemplateField HeaderText="" >
-                                        <ItemTemplate>
+<asp:TemplateField><ItemTemplate>
                                             <asp:CheckBox ID="ChkBox" runat="server"  AutoPostBack="true"/>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:BoundField ItemStyle-Width="200px" DataField="TitreBillet" HeaderText="Titre" >
+                                        
+</ItemTemplate>
+    <ItemStyle CssClass="noMargin" />
+</asp:TemplateField>
+                                    <asp:BoundField ItemStyle-Width="200px" HeaderText="Titre" DataField="Titre" >
                                         <ItemStyle CssClass="boundfieldElement"  />
                                     </asp:BoundField>
                                     <asp:TemplateField HeaderText="Priorité">
                                         <ItemTemplate>
-                                            <asp:DropDownList ID="ddlPriorite" DataSourceID="dsPriorite" CssClass="ddlGV" runat="server" AutoPostBack="true" DataTextField="nomProjet" DataValueField="codeProjet" OnSelectedIndexChanged="ddlPriorite_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:EntityDataSource ID="dsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllProjet" Select="it.[codeProjet], it.[nomProjet], it.[chefProjet], it.[dateCreation], it.[dateLivraison]"></asp:EntityDataSource>
+                                            <asp:DropDownList ID="ddlPriorite" runat="server" DataSourceID="edsPriorite" DataTextField="nomNivPri" DataValueField="nomNivPri" SelectedValue='<%# Bind("Priorité") %>'>
+                                            </asp:DropDownList>
+                                            <asp:EntityDataSource ID="edsPriorite" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="NiveauPriorite" EntityTypeFilter="NiveauPriorite" Select="it.[nomNivPri]">
+                                            </asp:EntityDataSource>
                                         </ItemTemplate>
+                                        <ItemStyle CssClass="noMargin" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="" >
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Statut" >
-                                        <ItemTemplate>
-                                            <asp:DropDownList ID="ddlStatut" DataSourceID="dsStatut" CssClass="ddlGV" runat="server" AutoPostBack="true" DataTextField="nomCasTest" DataValueField="codeCasTest" OnSelectedIndexChanged="ddlStatut_SelectedIndexChanged"></asp:DropDownList>
-                                            <asp:EntityDataSource ID="dsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="CasTest" EntityTypeFilter="CasTest" Select="it.[codeCasTest], it.[nomCasTest], it.[dateCreation], it.[dateLivraison], it.[codeProjet]"></asp:EntityDataSource>
-                                        </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Type de Test" >
                                         <ItemTemplate>
-                                            <asp:DropDownList ID="ddlTypeTest" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlStatut" runat="server" DataSourceID="edsStatut" DataTextField="nomStatut" DataValueField="nomStatut" SelectedValue='<%# Bind("Statut") %>'></asp:DropDownList>
+                                            <asp:EntityDataSource ID="edsStatut" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="Statut" Select="it.[nomStatut]">
+                                            </asp:EntityDataSource>
                                         </ItemTemplate>
+                                        <ItemStyle CssClass="noMargin" />
                                     </asp:TemplateField>      
                                     <asp:TemplateField HeaderText="Durée">
                                         <ItemTemplate> 
-                                            <asp:TextBox ID="txtDuree" runat="server"  Type="Number" /> 
+                                            <asp:DropDownList ID="ddlTypeTest" runat="server" CssClass="ddlGV" DataSourceID="edsTypeTest" DataTextField="nomTest" DataValueField="nomTest" OnSelectedIndexChanged="ddlTypeTest_SelectedIndexChanged" SelectedValue='<%# Bind("Type_de_Test") %>'>
+                                            </asp:DropDownList>
+                                            <asp:EntityDataSource ID="edsTypeTest" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="TypeTest" EntityTypeFilter="TypeTest" Select="it.[nomTest]">
+                                            </asp:EntityDataSource>
                                         </ItemTemplate>
+                                        <ItemStyle CssClass="noMargin" />
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Testeur">
                                         <ItemTemplate>
-                                            <asp:DropDownList ID="ddlTesteur" CssClass="ddlGV" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>' Type="Number" Width="35px" />
                                         </ItemTemplate>
+                                        <ItemStyle CssClass="noMargin" />
+                                        <ItemTemplate>
+                                            <asp:DropDownList ID="ddlTesteur" runat="server" AutoPostBack="True" CssClass="ddlGV" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" SelectedValue='<%# Bind("Testeur") %>'>
+                                            </asp:DropDownList>
+                                            <asp:EntityDataSource ID="edsTesteurs" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllTesteurs" EntityTypeFilter="AllTesteurs" Select="it.[nomComplet]">
+                                            </asp:EntityDataSource>
+                                        </ItemTemplate>
+                                        <ItemStyle CssClass="noMargin" />
                                     </asp:TemplateField>
                                     <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CasTest" HeaderText="Cas de Test" >
                                         <ItemStyle CssClass="boundfieldElement"/>
                                     </asp:BoundField>            
+                                    <asp:BoundField DataField="Date_Livraison" HeaderText="Date_Livraison" SortExpression="Date_Livraison" />
+                                    <asp:BoundField DataField="Jours_Restant" HeaderText="Jours_Restant" SortExpression="Jours_Restant" />
                                 </Columns>
-                            </asp:GridView>	                   
+                                <RowStyle Wrap="True" CssClass="noMargin" />
+                            </asp:GridView>
+                            <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail"></asp:EntityDataSource>       
                         </div>
                     </form>
                 </div>

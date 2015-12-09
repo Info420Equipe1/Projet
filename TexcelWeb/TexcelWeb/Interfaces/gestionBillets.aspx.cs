@@ -40,7 +40,7 @@ namespace TexcelWeb.Interfaces
 
         private void ChargerPage()
         {
-            DataTable dT = new DataTable();
+            /* DataTable dT = new DataTable();
             dT.Columns.AddRange(new DataColumn[7] { 
                 new DataColumn("TitreBillet", typeof(string)),
                 new DataColumn("Priorité", typeof(DropDownList)),
@@ -54,7 +54,7 @@ namespace TexcelWeb.Interfaces
             dgvBillets.Visible = true;
             dgvBillets.DataSource = dT;
             dgvBillets.DataBind();
-            dgvBillets.HeaderRow.Visible = true;
+            dgvBillets.HeaderRow.Visible = true; */
 
             AfficherDdlProjetItem();           
         }
