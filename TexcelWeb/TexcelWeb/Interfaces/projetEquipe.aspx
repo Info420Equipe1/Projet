@@ -109,7 +109,7 @@ $(function(){
                             <ContentTemplate>
                                 <div> 
                                     <div class="tableCell">
-                                        <asp:Label runat="server" Text="Cas de test du projet" /><asp:CheckBox ID="chkCasTestNonAssocier" runat="server" style="padding-left:200px" Checked="false" AutoPostBack="true" OnCheckedChanged="chkCasTestNonAssocier_CheckedChanged" /><asp:Label runat="server" Text="Cas de test non-associer" style="padding-left:5px" /> <br />
+                                        <asp:Label runat="server" Text="Cas de test du projet" /><asp:CheckBox ID="chkCasTestNonAssocier" runat="server" style="padding-left:200px" Checked="false" AutoPostBack="true" OnCheckedChanged="chkCasTestNonAssocier_CheckedChanged" /><asp:Label runat="server" Text="Cas de test non-associés" style="padding-left:5px" /> <br />
                                         <asp:ListBox runat="server" ID="lsbCasTestProjet" SelectionMode="Multiple" />
                                     </div>
                                     <div id="colButton" class="tableCell"><br /><br /><br /><br /><br />
