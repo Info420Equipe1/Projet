@@ -31,19 +31,18 @@ namespace TexcelWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl sidebar;
         
         /// <summary>
-<<<<<<< HEAD
         /// Contrôle main.
-=======
+
         /// Contrôle boxRecherche.
->>>>>>> origin/sprint4
+
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-<<<<<<< HEAD
+
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl main;
-=======
+
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl boxRecherche;
         
         /// <summary>
@@ -162,7 +161,6 @@ namespace TexcelWeb {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lienGestionBillets;
->>>>>>> origin/sprint4
         
         /// <summary>
         /// Contrôle Titre.
