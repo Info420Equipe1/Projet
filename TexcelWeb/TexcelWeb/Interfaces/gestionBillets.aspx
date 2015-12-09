@@ -165,7 +165,7 @@ $(function(){
                                 </asp:TemplateField>      
                                 <asp:TemplateField HeaderText="Durée">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>' Width="35px"></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Testeur">

@@ -12,10 +12,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas d
             <PropertyRef Name="idFiltre" />
             <PropertyRef Name="nomFiltre" />
             <PropertyRef Name="nomDataSource" />
+            <PropertyRef Name="nomVue" />
           </Key>
           <Property Name="idFiltre" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomFiltre" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="nomDataSource" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nomVue" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="AssociationJeu">
           <Key>
@@ -355,12 +357,13 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="codeSysExp" />
+            <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="nomEdition" Type="varchar" MaxLength="50" />
-          <Property Name="noVersion" Type="varchar" MaxLength="30" />
+          <Property Name="nomEdition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="noVersion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="commSysExp" Type="text" />
           <Property Name="tagSysExp" Type="varchar" MaxLength="130" />
         </EntityType>
@@ -369,8 +372,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            <PropertyRef Name="nomEquipe" />
-            <PropertyRef Name="ChefEquipe" />
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
@@ -386,6 +387,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nomComplet" Type="varchar" MaxLength="42" Nullable="false" />
           <Property Name="tagEmploye" Type="varchar" MaxLength="40" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -415,10 +417,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTest' n'a pas d
         <EntityType Name="AllCasTest">
           <Key>
             <PropertyRef Name="codeCasTest" />
-            <PropertyRef Name="nomCasTest" />
-            <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="nomTest" />
           </Key>
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
@@ -493,9 +491,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjet' n'a pas de
         <EntityType Name="AllProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
@@ -1105,7 +1100,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <DefiningQuery>SELECT 
     [FiltreDataSource].[idFiltre] AS [idFiltre], 
     [FiltreDataSource].[nomFiltre] AS [nomFiltre], 
-    [FiltreDataSource].[nomDataSource] AS [nomDataSource]
+    [FiltreDataSource].[nomDataSource] AS [nomDataSource], 
+    [FiltreDataSource].[nomVue] AS [nomVue]
     FROM [dbo].[FiltreDataSource] AS [FiltreDataSource]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="AllPlateforme" EntityType="Self.AllPlateforme" store:Type="Views" store:Schema="Jeu">
@@ -1137,6 +1133,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <DefiningQuery>SELECT 
     [AllTesteurs].[nomEmploye] AS [nomEmploye], 
     [AllTesteurs].[prenomEmploye] AS [prenomEmploye], 
+    [AllTesteurs].[nomComplet] AS [nomComplet], 
     [AllTesteurs].[tagEmploye] AS [tagEmploye]
     FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
           </EntitySet>
@@ -1729,10 +1726,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <PropertyRef Name="idFiltre" />
             <PropertyRef Name="nomFiltre" />
             <PropertyRef Name="nomDataSource" />
+            <PropertyRef Name="nomVue" />
           </Key>
           <Property Name="idFiltre" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomFiltre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomDataSource" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomVue" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="AllPlateforme">
           <Key>
@@ -1745,20 +1744,19 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
-            <PropertyRef Name="codeSysExp" />
+            <PropertyRef Name="nomEdition" />
+            <PropertyRef Name="noVersion" />
           </Key>
           <Property Name="nomSysExp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codeSysExp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomEdition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nomEdition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="commSysExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="tagSysExp" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            <PropertyRef Name="nomEquipe" />
-            <PropertyRef Name="ChefEquipe" />
           </Key>
           <Property Name="idEquipe" Type="Int16" Nullable="false" />
           <Property Name="nomEquipe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1772,6 +1770,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           </Key>
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomComplet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllBilletTravailPriorite">
@@ -1795,10 +1794,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
         <EntityType Name="AllCasTest">
           <Key>
             <PropertyRef Name="codeCasTest" />
-            <PropertyRef Name="nomCasTest" />
-            <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="nomTest" />
           </Key>
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomCasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1861,9 +1856,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
         <EntityType Name="AllProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
-            <PropertyRef Name="nomProjet" />
-            <PropertyRef Name="chefProjet" />
-            <PropertyRef Name="nomJeu" />
           </Key>
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomProjet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -2632,6 +2624,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
                 <ScalarProperty Name="idFiltre" ColumnName="idFiltre" />
                 <ScalarProperty Name="nomFiltre" ColumnName="nomFiltre" />
                 <ScalarProperty Name="nomDataSource" ColumnName="nomDataSource" />
+                <ScalarProperty Name="nomVue" ColumnName="nomVue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2671,6 +2664,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
               <MappingFragment StoreEntitySet="AllTesteurs">
                 <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
                 <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
+                <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
                 <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />
               </MappingFragment>
             </EntityTypeMapping>
