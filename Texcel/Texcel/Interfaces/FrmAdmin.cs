@@ -754,5 +754,11 @@ namespace Texcel.Interfaces
         {
             txtRechercher.SelectAll();
         }
+
+        private void versionDeJeuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAjouterVersionJeu AjouterVersionJeu = new frmAjouterVersionJeu();
+            AjouterVersionJeu.ShowDialog();
+        }
     }
 }

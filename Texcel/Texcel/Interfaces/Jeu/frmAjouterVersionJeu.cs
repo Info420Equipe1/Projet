@@ -19,6 +19,7 @@ namespace Texcel.Interfaces.Jeu
         {
             InitializeComponent();
             fillDropDownJeu();
+            modif = false;
         }
         public frmAjouterVersionJeu(string _nomJeu)
         {

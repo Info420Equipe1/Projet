@@ -184,6 +184,7 @@
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionDeJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1722,7 +1723,7 @@
             // smiDeconnection
             // 
             this.smiDeconnection.Name = "smiDeconnection";
-            this.smiDeconnection.Size = new System.Drawing.Size(173, 24);
+            this.smiDeconnection.Size = new System.Drawing.Size(175, 24);
             this.smiDeconnection.Text = "&Déconnexion";
             this.smiDeconnection.Click += new System.EventHandler(this.smiDeconnection_Click);
             // 
@@ -1730,7 +1731,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -1746,7 +1747,8 @@
             this.smiGenre,
             this.smiClassification,
             this.toolStripMenuItem3,
-            this.smiJeu});
+            this.smiJeu,
+            this.versionDeJeuToolStripMenuItem});
             this.smiGestionJeu.Name = "smiGestionJeu";
             this.smiGestionJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.J)));
             this.smiGestionJeu.Size = new System.Drawing.Size(129, 24);
@@ -1864,6 +1866,14 @@
             this.typeDeTestToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.typeDeTestToolStripMenuItem.Text = "Type de test";
             this.typeDeTestToolStripMenuItem.Click += new System.EventHandler(this.smiTypeTest_Click);
+            // 
+            // versionDeJeuToolStripMenuItem
+            // 
+            this.versionDeJeuToolStripMenuItem.Name = "versionDeJeuToolStripMenuItem";
+            this.versionDeJeuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
+            this.versionDeJeuToolStripMenuItem.Size = new System.Drawing.Size(275, 24);
+            this.versionDeJeuToolStripMenuItem.Text = "&Version de jeu";
+            this.versionDeJeuToolStripMenuItem.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
             // 
             // frmAdmin
             // 
@@ -2068,6 +2078,7 @@
         private System.Windows.Forms.Label txtTypeTest;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.RichTextBox rtbDiv;
+        private System.Windows.Forms.ToolStripMenuItem versionDeJeuToolStripMenuItem;
 
     }
 }
