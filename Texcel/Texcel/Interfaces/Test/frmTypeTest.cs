@@ -53,7 +53,7 @@ namespace Texcel.Interfaces.Test
         {
             if (cmbNom.Text == "")
             {
-                CtrlController.MessageErreur("Veuillez ajouter un nom!");
+                CtrlController.MessageErreur("Veuillez ajouter un nom.");
                 return;
             }
             DialogResult DR;

@@ -29,12 +29,12 @@ namespace Texcel.Classes
                 }
                 else
                 {
-                    return "Connexion échouée! Le mot de passe ne correspond pas.";
+                    return "Connexion échouée. Le mot de passe ne correspond pas.";
                 }
             }
             catch (Exception)
             {
-                return "Connexion échouée! L'utilisateur n'existe pas.";
+                return "Connexion échouée. L'utilisateur n'existe pas.";
             }
         }
     }

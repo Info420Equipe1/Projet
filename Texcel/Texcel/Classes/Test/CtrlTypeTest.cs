@@ -122,7 +122,7 @@ namespace Texcel.Classes.Test
             {
                 context.TypeTest.Add(typeTest);
                 context.SaveChanges();
-                return "Le type test a été créé";
+                return "Le type de test a été créé.";
             }
             catch (Exception)
             {

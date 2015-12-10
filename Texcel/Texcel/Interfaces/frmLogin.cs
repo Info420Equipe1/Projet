@@ -51,7 +51,7 @@ namespace Texcel.Interfaces
                     }
                     else
                     {
-                        MessageBox.Show("Connexion échouée, " + message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
