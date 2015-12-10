@@ -17,5 +17,6 @@ namespace TexcelWeb
         public short idFiltre { get; set; }
         public string nomFiltre { get; set; }
         public string nomDataSource { get; set; }
+        public string nomVue { get; set; }
     }
 }

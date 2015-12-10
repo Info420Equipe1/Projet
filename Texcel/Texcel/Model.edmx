@@ -254,6 +254,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas d
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" />
           <Property Name="tagBilletTravailPriorite" Type="varchar" MaxLength="70" StoreGeneratedPattern="Computed" />
           <Property Name="tagBilletTravailStatut" Type="varchar" MaxLength="80" StoreGeneratedPattern="Computed" />
+          <Property Name="tagBilletTravail" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="CasTest">
           <Key>
@@ -346,9 +347,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas d
 avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" />
+          <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="tagPlateforme" Type="varchar" MaxLength="100" />
         </EntityType>
@@ -387,7 +388,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           </Key>
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="nomComplet" Type="varchar" MaxLength="42" Nullable="false" />
           <Property Name="tagEmploye" Type="varchar" MaxLength="40" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
@@ -581,6 +581,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Property Name="Testeur" Type="varchar" MaxLength="42" Nullable="false" />
           <Property Name="Date Livraison" Type="date" />
           <Property Name="Jours Restant" Type="int" />
+          <Property Name="tagBilletTravail" Type="varchar" MaxLength="100" />
         </EntityType>
         <Association Name="AJ_FK_idJeu">
           <End Role="Jeu" Type="Self.Jeu" Multiplicity="1" />
@@ -1133,7 +1134,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <DefiningQuery>SELECT 
     [AllTesteurs].[nomEmploye] AS [nomEmploye], 
     [AllTesteurs].[prenomEmploye] AS [prenomEmploye], 
-    [AllTesteurs].[nomComplet] AS [nomComplet], 
     [AllTesteurs].[tagEmploye] AS [tagEmploye]
     FROM [Personnel].[AllTesteurs] AS [AllTesteurs]</DefiningQuery>
           </EntitySet>
@@ -1259,7 +1259,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
     [AllBilletsTravail].[Durée] AS [Durée], 
     [AllBilletsTravail].[Testeur] AS [Testeur], 
     [AllBilletsTravail].[Date Livraison] AS [Date Livraison], 
-    [AllBilletsTravail].[Jours Restant] AS [Jours Restant]
+    [AllBilletsTravail].[Jours Restant] AS [Jours Restant], 
+    [AllBilletsTravail].[tagBilletTravail] AS [tagBilletTravail]
     FROM [Test].[AllBilletsTravail] AS [AllBilletsTravail]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AJ_FK_idJeu" Association="Self.AJ_FK_idJeu">
@@ -1628,6 +1629,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Property Name="codeCasTest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="tagBilletTravailPriorite" Type="String" MaxLength="70" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="tagBilletTravailStatut" Type="String" MaxLength="80" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="tagBilletTravail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Employe" Relationship="Self.BT_FK_noEmploye" FromRole="BilletTravail" ToRole="Employe" />
           <NavigationProperty Name="Equipe" Relationship="Self.BT_FK_idEquipe" FromRole="BilletTravail" ToRole="Equipe" />
           <NavigationProperty Name="CasTest" Relationship="Self.BT_FK_codeCasTest" FromRole="BilletTravail" ToRole="CasTest" />
@@ -1735,9 +1737,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
         </EntityType>
         <EntityType Name="AllPlateforme">
           <Key>
-            <PropertyRef Name="nomTypePlateforme" />
+            <PropertyRef Name="nomPlateforme" />
           </Key>
-          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomPlateforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nomTypePlateforme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagPlateforme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -1770,7 +1772,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           </Key>
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomComplet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllBilletTravailPriorite">
@@ -1934,6 +1935,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Property Name="Testeur" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Date_Livraison" Type="DateTime" Precision="0" />
           <Property Name="Jours_Restant" Type="Int32" />
+          <Property Name="tagBilletTravail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="J_FK_codeClassification">
           <End Role="ClassificationJeu" Type="Self.ClassificationJeu" Multiplicity="1" />
@@ -2538,6 +2540,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
                 <ScalarProperty Name="codeCasTest" ColumnName="codeCasTest" />
                 <ScalarProperty Name="tagBilletTravailPriorite" ColumnName="tagBilletTravailPriorite" />
                 <ScalarProperty Name="tagBilletTravailStatut" ColumnName="tagBilletTravailStatut" />
+                <ScalarProperty Name="tagBilletTravail" ColumnName="tagBilletTravail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2664,7 +2667,6 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
               <MappingFragment StoreEntitySet="AllTesteurs">
                 <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
                 <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
-                <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
                 <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2821,6 +2823,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
                 <ScalarProperty Name="Testeur" ColumnName="Testeur" />
                 <ScalarProperty Name="Date_Livraison" ColumnName="Date Livraison" />
                 <ScalarProperty Name="Jours_Restant" ColumnName="Jours Restant" />
+                <ScalarProperty Name="tagBilletTravail" ColumnName="tagBilletTravail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

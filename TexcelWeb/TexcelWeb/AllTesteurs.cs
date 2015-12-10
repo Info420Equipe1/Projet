@@ -17,6 +17,5 @@ namespace TexcelWeb
         public string nomEmploye { get; set; }
         public string prenomEmploye { get; set; }
         public string tagEmploye { get; set; }
-        public string nomComplet { get; set; }
     }
 }

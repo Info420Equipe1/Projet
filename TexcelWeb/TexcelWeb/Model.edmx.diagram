@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0238ebd36e004806954d72b23188214e" Name="Diagram1">
+      <Diagram DiagramId="311e731c2c52481292eb80192afbeb2b" Name="Diagram1">
         <EntityTypeShape EntityType="dbProjetE1Model.ClassificationJeu" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.EditionSysExp" Width="1.5" PointX="14.75" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.GenreJeu" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="dbProjetE1Model.Forms" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Groupe" Width="1.5" PointX="8.25" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Utilisateur" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbProjetE1Model.BilletTravail" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetE1Model.BilletTravail" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.CasTest" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.Difficulte" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.NiveauPriorite" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />

@@ -24,5 +24,6 @@ namespace TexcelWeb
         public string Testeur { get; set; }
         public Nullable<System.DateTime> Date_Livraison { get; set; }
         public Nullable<int> Jours_Restant { get; set; }
+        public string tagBilletTravail { get; set; }
     }
 }

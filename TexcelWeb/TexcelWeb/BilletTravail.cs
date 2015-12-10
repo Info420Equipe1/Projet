@@ -34,6 +34,7 @@ namespace TexcelWeb
         public string codeCasTest { get; set; }
         public string tagBilletTravailPriorite { get; set; }
         public string tagBilletTravailStatut { get; set; }
+        public string tagBilletTravail { get; set; }
     
         public virtual Employe Employe { get; set; }
         public virtual Equipe Equipe { get; set; }
