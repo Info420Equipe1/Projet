@@ -123,7 +123,7 @@ $(function(){
             <div id="content2">
                 <div id="main2">					
 		            <div class="gridView">
-                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail" AllowSorting="true">
+                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail" AllowSorting="True">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -183,7 +183,7 @@ $(function(){
                                 <asp:BoundField DataField="Jours_Restant" HeaderText="Nb.Jours" />
                             </Columns>
                         </asp:GridView>
-                        <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail"></asp:EntityDataSource>       
+                        <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail" Select="it.[Titre], it.[CasTest], it.[Type_de_Test], it.[Statut], it.[Priorité], it.[Difficulté], it.[Durée], it.[Testeur], it.[Date_Livraison], it.[Jours_Restant]"></asp:EntityDataSource>       
                     </div>
                 </div>
             </div>
