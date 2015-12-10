@@ -74,6 +74,10 @@ namespace Texcel.Interfaces
                         this.smiEquipe.Visible = false;
                         this.btnModifierEquipe.Visible = false;
                     }
+                    if (!lstDroits.Contains(26))
+                    {
+                        this.smiGestionTest.Visible = false;
+                    }
                     if (groupe.idGroupe == 1)
                     {
                         cmbFiltre.Text = "Employé";

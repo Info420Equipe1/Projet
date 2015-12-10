@@ -174,6 +174,8 @@ namespace TexcelWeb
         {
             //qqchose avant??
             CtrlRecherche.SauvegarderDonnees(gvRecherche);
+            gvRecherche.DataSourceID = "";
+            gvRecherche.DataBind();
         }
 
         protected void btnRechercher_Click(object sender, EventArgs e)

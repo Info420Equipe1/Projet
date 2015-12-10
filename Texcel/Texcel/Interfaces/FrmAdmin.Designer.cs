@@ -180,9 +180,8 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.smiJeu = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
-            this.smiEmploye = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDesTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smiGestionTest = new System.Windows.Forms.ToolStripMenuItem();
             this.typeDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionDeJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
@@ -1703,7 +1702,7 @@
             this.smiFichier,
             this.smiGestionJeu,
             this.smiGestionPersonnel,
-            this.gestionDesTestsToolStripMenuItem});
+            this.smiGestionTest});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
             this.mnsMain.Size = new System.Drawing.Size(1425, 28);
@@ -1828,36 +1827,27 @@
             // smiGestionPersonnel
             // 
             this.smiGestionPersonnel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.smiEmploye,
             this.smiEquipe});
             this.smiGestionPersonnel.Name = "smiGestionPersonnel";
             this.smiGestionPersonnel.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.smiGestionPersonnel.Size = new System.Drawing.Size(161, 24);
             this.smiGestionPersonnel.Text = "&Gestion du personnel";
             // 
-            // smiEmploye
-            // 
-            this.smiEmploye.Name = "smiEmploye";
-            this.smiEmploye.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
-            this.smiEmploye.Size = new System.Drawing.Size(187, 24);
-            this.smiEmploye.Text = "E&mployé";
-            this.smiEmploye.Click += new System.EventHandler(this.smiEmploye_Click);
-            // 
             // smiEquipe
             // 
             this.smiEquipe.Name = "smiEquipe";
             this.smiEquipe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiEquipe.Size = new System.Drawing.Size(187, 24);
+            this.smiEquipe.Size = new System.Drawing.Size(175, 24);
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
             // 
-            // gestionDesTestsToolStripMenuItem
+            // smiGestionTest
             // 
-            this.gestionDesTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.smiGestionTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.typeDeTestToolStripMenuItem});
-            this.gestionDesTestsToolStripMenuItem.Name = "gestionDesTestsToolStripMenuItem";
-            this.gestionDesTestsToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
-            this.gestionDesTestsToolStripMenuItem.Text = "&Gestion des tests";
+            this.smiGestionTest.Name = "smiGestionTest";
+            this.smiGestionTest.Size = new System.Drawing.Size(132, 24);
+            this.smiGestionTest.Text = "&Gestion des tests";
             // 
             // typeDeTestToolStripMenuItem
             // 
@@ -1944,7 +1934,6 @@
         private System.Windows.Forms.ToolStripMenuItem smiClassification;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem smiJeu;
-        private System.Windows.Forms.ToolStripMenuItem smiEmploye;
         private System.Windows.Forms.ToolStripMenuItem smiEquipe;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -2036,7 +2025,7 @@
         private System.Windows.Forms.ToolStripMenuItem smiDeconnection;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionDesTestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smiGestionTest;
         private System.Windows.Forms.ToolStripMenuItem typeDeTestToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
