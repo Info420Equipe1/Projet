@@ -149,7 +149,7 @@ namespace TexcelWeb.Interfaces
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlEquipe.Visible = false;
             }
-            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlProjet.Text + "%'";
+            edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlProjet.Text + "%'";
             if (ddlProjet.Text != "Choisissez un projet")
             {
                 AfficherStatistiques(CtrlProjet.getProjetByCode(ddlProjet.Text));
@@ -172,7 +172,7 @@ namespace TexcelWeb.Interfaces
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlTesteur.Visible = false;
             }
-            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlEquipe.Text + "%'";
+            edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlEquipe.Text + "%'";
         }
 
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace TexcelWeb.Interfaces
             {
                 // affiche rien car l'index choisi c'est "Choisissez.."
             }
-            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlTesteur.Text + "%'";
+            edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlTesteur.Text + "%'";
         }
   
         //*************************************GRIDVIEW EVENT***************************************//
@@ -218,7 +218,9 @@ namespace TexcelWeb.Interfaces
 
         protected void AfficherStatistiques(cProjet _projet)
         {
-            txtNbCasTest.Text = _projet.CasTest.Count().ToString();
+            txtNbCasTest.Text = CtrlProjet.nbCasTestduProjet(_projet).ToString();
+            txtNbBillet.Text = CtrlProjet.nbBilletsduProjet(_projet).ToString();
+            //txtNbBilletEnCours.Text = CtrlProjet.
         }
     }
 }

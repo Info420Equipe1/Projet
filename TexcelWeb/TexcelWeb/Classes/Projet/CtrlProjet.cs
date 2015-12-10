@@ -281,11 +281,19 @@ namespace TexcelWeb.Classes.Projet
             return dictCasTestClone;
         }
        
-
+        public static int nbCasTestduProjet(cProjet _projet)
+        {
+            return _projet.CasTest.Count();
+        }
        
-
-       
-
-
+        public static int nbBilletsduProjet(cProjet _projet)
+        {
+            int nbBillets = 0;
+            foreach (CasTest casTest in _projet.CasTest)
+            {
+                nbBillets += casTest.BilletTravail.Count();
+            }
+            return nbBillets;
+        }
     }
 }
