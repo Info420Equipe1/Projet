@@ -72,11 +72,15 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.cmbNom = new System.Windows.Forms.ComboBox();
             this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.pcbSuprimmerVersion = new System.Windows.Forms.PictureBox();
+            this.pcbModifVersion = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picJeu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterPlateforme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterGenre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterVerJeu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSuprimmerVersion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbModifVersion)).BeginInit();
             this.SuspendLayout();
             // 
             // picJeu
@@ -158,10 +162,10 @@
             // 
             this.pcbAjouterPlateforme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterPlateforme.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterPlateforme.Image")));
-            this.pcbAjouterPlateforme.Location = new System.Drawing.Point(916, 529);
+            this.pcbAjouterPlateforme.Location = new System.Drawing.Point(916, 528);
             this.pcbAjouterPlateforme.Name = "pcbAjouterPlateforme";
-            this.pcbAjouterPlateforme.Size = new System.Drawing.Size(25, 25);
-            this.pcbAjouterPlateforme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbAjouterPlateforme.Size = new System.Drawing.Size(30, 30);
+            this.pcbAjouterPlateforme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbAjouterPlateforme.TabIndex = 58;
             this.pcbAjouterPlateforme.TabStop = false;
             this.pcbAjouterPlateforme.Click += new System.EventHandler(this.pcbAjouterPlateforme_Click);
@@ -266,8 +270,8 @@
             this.pcbAjouterGenre.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterGenre.Image")));
             this.pcbAjouterGenre.Location = new System.Drawing.Point(916, 749);
             this.pcbAjouterGenre.Name = "pcbAjouterGenre";
-            this.pcbAjouterGenre.Size = new System.Drawing.Size(25, 25);
-            this.pcbAjouterGenre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbAjouterGenre.Size = new System.Drawing.Size(30, 30);
+            this.pcbAjouterGenre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbAjouterGenre.TabIndex = 49;
             this.pcbAjouterGenre.TabStop = false;
             this.pcbAjouterGenre.Click += new System.EventHandler(this.pcbAjouterGenre_Click);
@@ -278,8 +282,8 @@
             this.pcbAjouterTheme.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterTheme.Image")));
             this.pcbAjouterTheme.Location = new System.Drawing.Point(916, 639);
             this.pcbAjouterTheme.Name = "pcbAjouterTheme";
-            this.pcbAjouterTheme.Size = new System.Drawing.Size(25, 25);
-            this.pcbAjouterTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbAjouterTheme.Size = new System.Drawing.Size(30, 30);
+            this.pcbAjouterTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbAjouterTheme.TabIndex = 48;
             this.pcbAjouterTheme.TabStop = false;
             this.pcbAjouterTheme.Click += new System.EventHandler(this.pcbAjouterTheme_Click);
@@ -288,10 +292,10 @@
             // 
             this.pcbAjouterVerJeu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterVerJeu.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterVerJeu.Image")));
-            this.pcbAjouterVerJeu.Location = new System.Drawing.Point(916, 401);
+            this.pcbAjouterVerJeu.Location = new System.Drawing.Point(919, 401);
             this.pcbAjouterVerJeu.Name = "pcbAjouterVerJeu";
-            this.pcbAjouterVerJeu.Size = new System.Drawing.Size(25, 25);
-            this.pcbAjouterVerJeu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbAjouterVerJeu.Size = new System.Drawing.Size(30, 30);
+            this.pcbAjouterVerJeu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbAjouterVerJeu.TabIndex = 47;
             this.pcbAjouterVerJeu.TabStop = false;
             this.pcbAjouterVerJeu.Click += new System.EventHandler(this.pcbAjouterVerJeu_Click);
@@ -398,8 +402,6 @@
             this.lstBoxVersion.Size = new System.Drawing.Size(392, 104);
             this.lstBoxVersion.Sorted = true;
             this.lstBoxVersion.TabIndex = 12;
-            this.lstBoxVersion.DoubleClick += new System.EventHandler(this.lstBoxVersion_DoubleClick);
-            this.lstBoxVersion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstBoxVersion_KeyDown);
             // 
             // lblTheme
             // 
@@ -561,12 +563,38 @@
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
+            // pcbSuprimmerVersion
+            // 
+            this.pcbSuprimmerVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcbSuprimmerVersion.Image = ((System.Drawing.Image)(resources.GetObject("pcbSuprimmerVersion.Image")));
+            this.pcbSuprimmerVersion.Location = new System.Drawing.Point(919, 473);
+            this.pcbSuprimmerVersion.Name = "pcbSuprimmerVersion";
+            this.pcbSuprimmerVersion.Size = new System.Drawing.Size(30, 30);
+            this.pcbSuprimmerVersion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbSuprimmerVersion.TabIndex = 66;
+            this.pcbSuprimmerVersion.TabStop = false;
+            this.pcbSuprimmerVersion.Click += new System.EventHandler(this.pcbSuprimmerVersion_Click);
+            // 
+            // pcbModifVersion
+            // 
+            this.pcbModifVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcbModifVersion.Image = ((System.Drawing.Image)(resources.GetObject("pcbModifVersion.Image")));
+            this.pcbModifVersion.Location = new System.Drawing.Point(919, 437);
+            this.pcbModifVersion.Name = "pcbModifVersion";
+            this.pcbModifVersion.Size = new System.Drawing.Size(30, 30);
+            this.pcbModifVersion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbModifVersion.TabIndex = 67;
+            this.pcbModifVersion.TabStop = false;
+            this.pcbModifVersion.Click += new System.EventHandler(this.pcbModifVersion_Click);
+            // 
             // frmJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1054, 922);
+            this.Controls.Add(this.pcbModifVersion);
+            this.Controls.Add(this.pcbSuprimmerVersion);
             this.Controls.Add(this.picJeu);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -618,6 +646,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterGenre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterTheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterVerJeu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSuprimmerVersion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbModifVersion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,6 +698,8 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.PictureBox picJeu;
+        private System.Windows.Forms.PictureBox pcbSuprimmerVersion;
+        private System.Windows.Forms.PictureBox pcbModifVersion;
 
     }
 }

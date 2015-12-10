@@ -19,7 +19,6 @@ namespace Texcel.Interfaces.Jeu
         public frmJeu()
         {
             InitializeComponent();
-            cmbClassification.SelectedItem = "";
             modif = false;
         }
 
@@ -538,18 +537,26 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
-        private void lstBoxVersion_DoubleClick(object sender, EventArgs e)
+
+        private void pcbModifVersion_Click(object sender, EventArgs e)
         {
-            VersionJeu _Version = CtrlVersionJeu.GetVersionJeu(lstBoxVersion.SelectedItem.ToString());
-            frmAjouterVersionJeu frmVersion = new frmAjouterVersionJeu(_Version);
-            frmVersion.ShowDialog();
+            if (lstBoxVersion.SelectedIndex != -1)
+            {
+                VersionJeu _Version = CtrlVersionJeu.GetVersionJeu(lstBoxVersion.SelectedItem.ToString());
+                frmAjouterVersionJeu frmVersion = new frmAjouterVersionJeu(_Version);
+                frmVersion.ShowDialog();
+            }
+            else
+            {
+                CtrlController.MessageErreur("Veuillez selectionner une version dans la liste afin de la modifier.");
+            }
         }
 
-        private void lstBoxVersion_KeyDown(object sender, KeyEventArgs e)
+        private void pcbSuprimmerVersion_Click(object sender, EventArgs e)
         {
-            string message;
-            if (e.KeyData == Keys.Delete)
+            if (lstBoxVersion.SelectedIndex != -1)
             {
+                string message;
                 message = CtrlVersionJeu.Supprimer(lstBoxVersion.SelectedItem.ToString());
                 if (message.Contains("erreur"))
                 {
@@ -565,7 +572,12 @@ namespace Texcel.Interfaces.Jeu
                     {
                         lstBoxVersion.Items.Add(version.nomVersionJeu);
                     }
-                }
+                }    
+                
+            }
+            else
+            {
+                CtrlController.MessageErreur("Veuillez selectionner une version dans la liste afin de la supprimer.");
             }
         }
 
