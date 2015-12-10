@@ -27,12 +27,19 @@ namespace Texcel.Interfaces.Personnel
         //Lorsque la fenetre est ouverte via recherche d'une équipe
         public frmCreerEquipe(Equipe _equ)
         {
-            
             InitializeComponent();
+            fillDropDownList();
             id = _equ.idEquipe;
             txtNom.Text = _equ.nomEquipe;
             cmbNom.Text = _equ.Employe.nomEmploye+" "+_equ.Employe.prenomEmploye;
-            cmbProjet.Text = CtrlProjet.getNomProjet(_equ.codeProjet);
+            if (_equ.codeProjet != null)
+            {
+                cmbProjet.Text = CtrlProjet.getNomProjet(_equ.codeProjet);
+            }
+            else
+            {
+                cmbProjet.SelectedItem = "Aucun";
+            }
             rtbCommentaire.Text = _equ.descEquipe;
             foreach (Employe employe in _equ.Employe1)
             {
@@ -56,11 +63,13 @@ namespace Texcel.Interfaces.Personnel
         {
             lstTesteurGlobal.Items.Clear();
             lstTesteurEquipe.Items.Clear();
+            fillDropDownList();
             //Load list box 1
             foreach (AllTesteurs testeur in CtrlAdmin.GetAllTesteursView())
             {
                 lstTesteurGlobal.Items.Add(testeur.nomEmploye + " " + testeur.prenomEmploye);
             }
+            cmbProjet.SelectedItem = "Aucun";
             txtNom.Text = "";
             rtbCommentaire.Text = "";
             cmbNom.Text = "";
@@ -92,7 +101,7 @@ namespace Texcel.Interfaces.Personnel
             }
             if (cmbNom.Text == "")
             {
-                MessageBox.Show("Veuillez ajouter un `chef d'équipe!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez ajouter un chef d'équipe!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -102,8 +111,7 @@ namespace Texcel.Interfaces.Personnel
             }
             if (Modification == false)
             {
-                cProjet projet = CtrlProjet.getProjet(cmbProjet.Text);
-                message = CtrlEquipe.Ajouter(txtNom.Text, projet.codeProjet, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp, CtrlProjet.getProjet(cmbProjet.Text));
+                message = CtrlEquipe.Ajouter(txtNom.Text, cmbProjet.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -116,8 +124,7 @@ namespace Texcel.Interfaces.Personnel
             }
             else
             {
-                cProjet projet = CtrlProjet.getProjet(cmbProjet.Text);
-                message = CtrlEquipe.Modifier(id, txtNom.Text, projet.codeProjet, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
+                message = CtrlEquipe.Modifier(id, txtNom.Text, cmbProjet.Text, Convert.ToInt16(lstTesteurEquipe.Items.Count), rtbCommentaire.Text, CtrlEmploye.emp(cmbNom.Text), listEmp);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -130,14 +137,6 @@ namespace Texcel.Interfaces.Personnel
             }
         }
 
-        private void cmbNom_DropDown(object sender, EventArgs e)
-        {
-            cmbNom.Items.Clear();
-            foreach (Employe emp in CtrlEmploye.listEmployeChefEquipe())
-            {
-                cmbNom.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
-            }
-        }
 
         //Ajoutes des employés dans list box 2
         private void button1_Click(object sender, EventArgs e)
@@ -198,15 +197,19 @@ namespace Texcel.Interfaces.Personnel
             this.Close();
         }
 
-     
-
-        private void cmbProjet_DropDown(object sender, EventArgs e)
+        private void fillDropDownList()
         {
             cmbProjet.Items.Clear();
-
+            cmbProjet.Items.Add("Aucun");
             foreach (cProjet proj in CtrlProjet.listDeProjet())
             {
                 cmbProjet.Items.Add(proj.nomProjet);
+            }
+
+            cmbNom.Items.Clear();
+            foreach (Employe emp in CtrlEmploye.listEmployeChefEquipe())
+            {
+                cmbNom.Items.Add(emp.nomEmploye + " " + emp.prenomEmploye);
             }
         }
     }

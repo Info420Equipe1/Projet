@@ -77,7 +77,6 @@
             this.cmbNom.Size = new System.Drawing.Size(395, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
-            this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             // 
             // label1
             // 
@@ -233,6 +232,7 @@
             // 
             // cmbProjet
             // 
+            this.cmbProjet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProjet.FormattingEnabled = true;
             this.cmbProjet.Location = new System.Drawing.Point(134, 93);
@@ -241,8 +241,6 @@
             this.cmbProjet.Size = new System.Drawing.Size(677, 28);
             this.cmbProjet.Sorted = true;
             this.cmbProjet.TabIndex = 2;
-            this.cmbProjet.DropDown += new System.EventHandler(this.cmbProjet_DropDown);
-          
             // 
             // label3
             // 

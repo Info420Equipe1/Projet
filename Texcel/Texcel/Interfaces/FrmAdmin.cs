@@ -409,7 +409,14 @@ namespace Texcel.Interfaces
                     lblNomEquipe.Text = selectedEquipe.nomEquipe;
                     lblChefEquipe.Text = nomChefEquipe;
                     string codeProj = selectedEquipe.codeProjet;
-                    lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
+                    if (codeProj != null)
+                    {
+                        lblProjetEquipe.Text = CtrlProjet.getNomProjet(codeProj);
+                    }
+                    else
+                    {
+                        lblProjetEquipe.Text = "Aucun";
+                    }
                     rtbCommentaire.Text = selectedEquipe.descEquipe;
                     lstTesteurEquipe.Items.Clear();
                     foreach (Employe emp in selectedEquipe.Employe1)

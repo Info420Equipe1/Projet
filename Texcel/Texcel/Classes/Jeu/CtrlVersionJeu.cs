@@ -52,11 +52,13 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de l'ajout de la Version de test du jeu. Les données n'ont pas été enregistrées.";
             }
         }
-        public static string Modifier(string _NomVersion, string _Comm)
+        public static string Modifier(string _NomVersion, string _Comm, string _nomJeu)
         {
             VersionduJeu = GetVersionJeu(_NomVersion);
 
             VersionduJeu.commVersionJeu = _Comm;
+            cJeu _Jeu = CtrlJeu.GetJeu(_nomJeu);
+            VersionduJeu.cJeu = _Jeu;
 
             try
             {
@@ -94,7 +96,7 @@ namespace Texcel.Classes.Jeu
             {
                 if (versionJeu.nomVersionJeu == _nomVersionJeu)
                 {
-                    return true; //True lorsque le theme existe deja
+                    return true; //True lorsque la version existe deja
                 }
             }
             return false;

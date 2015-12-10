@@ -13,21 +13,27 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmAjouterVersionJeu : frmForm
     {
-        string nomJeu;
-        string versionJeu;
+        static string nomJeu;
+        bool modif;
         public frmAjouterVersionJeu()
         {
             InitializeComponent();
+            fillDropDownJeu();
         }
         public frmAjouterVersionJeu(string _nomJeu)
         {
             InitializeComponent();
+            fillDropDownJeu();
             nomJeu = _nomJeu;
+            cmbJeux.SelectedItem = nomJeu;
+            modif = false;
         }
         public frmAjouterVersionJeu(VersionJeu _versionJeu)
         {
             InitializeComponent();
-            versionJeu = _versionJeu.nomVersionJeu;
+            fillDropDownJeu();
+            modif = true;
+            cmbJeux.SelectedItem = _versionJeu.cJeu.nomJeu;
             btnEnregistrer.Text = "Modifier";
             this.Text = "Modifier une Version de Jeu";
             txtNomVersion.Text = _versionJeu.nomVersionJeu;
@@ -38,14 +44,18 @@ namespace Texcel.Interfaces.Jeu
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             string message;
-
+            if (cmbJeux.SelectedIndex == -1)
+            {
+                MessageBox.Show("Veuillez ajouter un jeu afin de lier la version au jeu.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (txtNomVersion.Text == "")
             {
-                MessageBox.Show("Veuillez ajouter un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez ajouter un nom pour la version.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (versionJeu == null)
+            if (!modif)
             {
                 if (CtrlVersionJeu.VerifierVersionJeu(txtNomVersion.Text.Trim()))
                 {
@@ -69,7 +79,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
-                message = CtrlVersionJeu.Modifier(txtNomVersion.Text.Trim(), rtxtComm.Text.Trim());
+                message = CtrlVersionJeu.Modifier(txtNomVersion.Text.Trim(), rtxtComm.Text.Trim(), nomJeu);
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,10 +97,18 @@ namespace Texcel.Interfaces.Jeu
         {
             this.Close();
         }
+        private void fillDropDownJeu()
+        {
+            cmbJeux.Items.Clear();
+            foreach (cJeu jeu in CtrlJeu.LstJeu())
+	        {
+                cmbJeux.Items.Add(jeu.nomJeu);
+	        }
+        }
 
         private void frmAjouterVersionJeu_Shown(object sender, EventArgs e)
         {
-            if (versionJeu != null)
+            if (modif)
             {
                 rtxtComm.Focus();
                 rtxtComm.SelectAll();
@@ -98,6 +116,14 @@ namespace Texcel.Interfaces.Jeu
             else
             {
                 txtNomVersion.Focus();
+            }
+        }
+
+        private void cmbJeux_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbJeux.SelectedIndex != -1)
+            {
+                nomJeu = cmbJeux.SelectedItem.ToString();
             }
         }
 

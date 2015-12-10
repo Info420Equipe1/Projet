@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomVersion = new System.Windows.Forms.TextBox();
             this.rtxtComm = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbJeux = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAnnuler
@@ -43,7 +45,7 @@
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(414, 278);
+            this.btnAnnuler.Location = new System.Drawing.Point(417, 319);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
             this.btnAnnuler.TabIndex = 16;
@@ -58,7 +60,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(283, 278);
+            this.btnEnregistrer.Location = new System.Drawing.Point(286, 319);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 15;
@@ -70,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Location = new System.Drawing.Point(15, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 20);
             this.label1.TabIndex = 17;
@@ -80,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 103);
+            this.label2.Location = new System.Drawing.Point(15, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 18;
@@ -89,25 +91,47 @@
             // txtNomVersion
             // 
             this.txtNomVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomVersion.Location = new System.Drawing.Point(175, 53);
+            this.txtNomVersion.Location = new System.Drawing.Point(178, 94);
             this.txtNomVersion.Name = "txtNomVersion";
-            this.txtNomVersion.Size = new System.Drawing.Size(191, 27);
+            this.txtNomVersion.Size = new System.Drawing.Size(233, 27);
             this.txtNomVersion.TabIndex = 19;
             // 
             // rtxtComm
             // 
             this.rtxtComm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtComm.Location = new System.Drawing.Point(137, 103);
+            this.rtxtComm.Location = new System.Drawing.Point(140, 144);
             this.rtxtComm.Name = "rtxtComm";
             this.rtxtComm.Size = new System.Drawing.Size(402, 169);
             this.rtxtComm.TabIndex = 20;
             this.rtxtComm.Text = "";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(126, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Jeu :";
+            // 
+            // cmbJeux
+            // 
+            this.cmbJeux.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbJeux.FormattingEnabled = true;
+            this.cmbJeux.Location = new System.Drawing.Point(178, 48);
+            this.cmbJeux.Name = "cmbJeux";
+            this.cmbJeux.Size = new System.Drawing.Size(233, 24);
+            this.cmbJeux.TabIndex = 22;
+            this.cmbJeux.SelectedIndexChanged += new System.EventHandler(this.cmbJeux_SelectedIndexChanged);
+            // 
             // frmAjouterVersionJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 338);
+            this.ClientSize = new System.Drawing.Size(552, 385);
+            this.Controls.Add(this.cmbJeux);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.rtxtComm);
             this.Controls.Add(this.txtNomVersion);
             this.Controls.Add(this.label2);
@@ -130,5 +154,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomVersion;
         private System.Windows.Forms.RichTextBox rtxtComm;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbJeux;
     }
 }
