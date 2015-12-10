@@ -44,6 +44,7 @@ namespace TexcelWeb
             txtDerniereConnexion.InnerText = date.ToString("d");
             List<string> filterNames = CtrlFiltreDataSource.GetAllNomFiltre();
             filterNames.Sort();
+            ddlFiltre.Items.Add("Sélectionnez un filtre");
             foreach (string nom in filterNames)
             {
                 ddlFiltre.Items.Add(nom);
@@ -108,13 +109,17 @@ namespace TexcelWeb
                     lienCasTest.Visible = false;
                 }
             }
+            ddlFiltre.SelectedIndex = 0;
             AfficherGV(ddlFiltre.Text);
         }
 
         private void AfficherGV(string _filtre)
         {
             txtChampRecherche.Text = txtChampRecherche.Text.Trim();
-            gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text);
+            if (ddlFiltre.Text != "Sélectionnez un filtre")
+            {
+                gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text); 
+            }
             switch (_filtre)
             {
                 case "Projet":              
