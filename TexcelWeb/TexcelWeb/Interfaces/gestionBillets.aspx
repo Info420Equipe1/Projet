@@ -66,16 +66,16 @@ $(function(){
                             <div id="div_1a">
                                 <div class="lblInfo">
                                     <asp:Label CssClass="lblinfo" runat="server" Text="Projet : " />                              
-                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="True" style="width:250px"></asp:DropDownList> 
+                                    <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="True" style="width:250px" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged"></asp:DropDownList> 
                                     <br /><br />               
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label CssClass="lblinfo" runat="server" Text="Équipe :" />
-                                    <asp:DropDownList runat="server"  ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False"/> <br /><br />
+                                    <asp:DropDownList runat="server"  ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" /> <br /><br />
                                 </div>
                                 <div class="lblInfo">
                                     <asp:Label CssClass="lblinfo" runat="server" Text="Testeur :" />
-                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False" />
+                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" />
                                 </div>
                             </div>
                         </div>     
@@ -83,7 +83,7 @@ $(function(){
                             <div class="div_1b">
                                 <div class="info">
                                     <asp:Label CssClass="lblinfo" runat="server" Text="Nb cas Test : " />
-                                    <asp:TextBox runat="server" ID="txtCodeProjet" CssClass="txtColum1"/>
+                                    <asp:TextBox runat="server" ID="txtNbCasTest" CssClass="txtColum1"/>
                                 </div>
                                 <div class="info">
                                     <asp:Label  CssClass="lblinfo" runat="server" Text="Nb billet: " />
@@ -123,7 +123,7 @@ $(function(){
             <div id="content2">
                 <div id="main2">					
 		            <div class="gridView">
-                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail">
+                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail" AllowSorting="true">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -177,7 +177,7 @@ $(function(){
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="CasTest" HeaderText="Cas de Test" />       
-                                <asp:BoundField DataField="Date_Livraison" HeaderText="Date de livraison">
+                                <asp:BoundField DataField="Date_Livraison" HeaderText="Livraison">
                                 <ItemStyle Wrap="False" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Jours_Restant" HeaderText="Nb.Jours" />

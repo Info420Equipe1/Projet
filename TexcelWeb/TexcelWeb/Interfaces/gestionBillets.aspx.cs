@@ -82,7 +82,7 @@ namespace TexcelWeb.Interfaces
 
         private void ChargerPage()
         {
-            AfficherDdlProjetItem();           
+            AfficherDdlProjetItem();
         }
 
         protected void AfficherDdlProjetItem()
@@ -93,7 +93,7 @@ namespace TexcelWeb.Interfaces
             ddlProjet.DataTextField = "nomProjet";
             ddlProjet.DataValueField = "codeProjet";           
             ddlProjet.DataSource = CtrlGestionBillet.getLstProj;
-           
+            ddlProjet.Visible = true;
             ddlProjet.DataBind();
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlProjet.Items.Insert(ddlProjet.Items.Count,"Choisissez un projet");
@@ -149,6 +149,11 @@ namespace TexcelWeb.Interfaces
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlEquipe.Visible = false;
             }
+            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlProjet.Text + "%'";
+            if (ddlProjet.Text != "Choisissez un projet")
+            {
+                AfficherStatistiques(CtrlProjet.getProjetByCode(ddlProjet.Text));
+            }
         }
         
 
@@ -166,7 +171,8 @@ namespace TexcelWeb.Interfaces
                 // Donc il faut remettre la variable Testeur a null
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlTesteur.Visible = false;
-            }  
+            }
+            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlEquipe.Text + "%'";
         }
 
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,6 +185,7 @@ namespace TexcelWeb.Interfaces
             {
                 // affiche rien car l'index choisi c'est "Choisissez.."
             }
+            edsBilletsTravail.Where = "it.[tagCasTestBilletTravail] like '%" + ddlTesteur.Text + "%'";
         }
   
         //*************************************GRIDVIEW EVENT***************************************//
@@ -192,9 +199,26 @@ namespace TexcelWeb.Interfaces
                     {
                         row.Cells[9].Text = Convert.ToDateTime(row.Cells[9].Text).ToString("yyyy-MM-dd");
                         row.Cells[9].HorizontalAlign = HorizontalAlign.Center;
-                    }
-                }
+                        if (Convert.ToInt32(row.Cells[10].Text) < 5)
+                        {
+                            row.BackColor = System.Drawing.Color.FromArgb(255, 105, 107);
+                        }
+                        else if (Convert.ToInt32(row.Cells[10].Text) >= 5 && Convert.ToInt32(row.Cells[10].Text) <= 8)
+                        {
+                            row.BackColor = System.Drawing.Color.Khaki;
+                        }
+                        else if (Convert.ToInt32(row.Cells[10].Text) > 8 && Convert.ToInt32(row.Cells[10].Text) <= 10)
+                        {
+                            row.BackColor = System.Drawing.Color.LightGreen;
+                        }
+                    }               
+                 }
             } 
+        }
+
+        protected void AfficherStatistiques(cProjet _projet)
+        {
+            txtNbCasTest.Text = _projet.CasTest.Count().ToString();
         }
     }
 }

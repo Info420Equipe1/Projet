@@ -1,23 +1,22 @@
 ﻿.div_1 {
-
- padding:20px;
- display: inline-block; 
- float:left;    
+     padding:20px;
+     display: inline-block; 
+     float:left;    
 }
 
 #div_1a {
- padding:20px;
-    height: 177px;
-    width: 290px;
-  display: inline-block;
+     padding:20px;
+     height: 177px;
+     width: 290px;
+     display: inline-block;
   
 }
 
 .div_1b {
- height: 166px;
- padding-top:60px;
- width: 250px;
- display: inline-block;
+     height: 166px;
+     padding-top:60px;
+     width: 250px;
+     display: inline-block;
 }
 
 #div_1c {
@@ -34,4 +33,5 @@ input, textarea, select, checkbox{
 
 #dgvBillets{
     background:white;
+    width:1400px;
 }

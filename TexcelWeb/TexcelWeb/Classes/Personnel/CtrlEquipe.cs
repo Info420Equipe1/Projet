@@ -94,10 +94,13 @@ namespace TexcelWeb.Classes.Personnel
             {
                 if (equipe.Employe.noEmploye == _noChefEquipe)
                 {
-                    cProjet projet = CtrlProjet.getProjetByCode(equipe.codeProjet);
-                    if (!lstProjet.Contains(projet))
+                    if (equipe.codeProjet != null)
                     {
-                        lstProjet.Add(projet);
+                        cProjet projet = CtrlProjet.getProjetByCode(equipe.codeProjet);
+                        if (!lstProjet.Contains(projet))
+                        {
+                            lstProjet.Add(projet);
+                        }
                     }
                 }
             }

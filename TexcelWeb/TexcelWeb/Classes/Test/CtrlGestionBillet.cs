@@ -50,7 +50,8 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                lstProjAfficher = (CtrlController.GetCurrentUser()).Employe.cProjet.Cast<cProjet>().ToList();
+                lstProjAfficher = CtrlEquipe.lstProjetByChefEquipe(CtrlController.GetCurrentUser().noEmploye);
+                //lstProjAfficher = (CtrlController.GetCurrentUser()).Employe.cProjet.Cast<cProjet>().ToList();
                 //lstProjAfficher = CtrlProjet.GetListProjetChefProjetByNoEmp(CtrlController.GetCurrentUser().noEmploye);
             }
             catch (Exception)

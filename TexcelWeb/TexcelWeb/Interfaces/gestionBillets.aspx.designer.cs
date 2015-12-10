@@ -173,7 +173,7 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProjet;
-        
+
         /// <summary>
         /// Contrôle ddlEquipe.
         /// </summary>
@@ -182,7 +182,7 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEquipe;
-        
+
         /// <summary>
         /// Contrôle ddlTesteur.
         /// </summary>
@@ -193,13 +193,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.DropDownList ddlTesteur;
         
         /// <summary>
-        /// Contrôle txtCodeProjet.
+        /// Contrôle txtNbCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodeProjet;
+        protected global::System.Web.UI.WebControls.TextBox txtNbCasTest;
         
         /// <summary>
         /// Contrôle txtNbBillet.
