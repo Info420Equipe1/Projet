@@ -66,7 +66,6 @@ namespace Texcel.Interfaces
                     }
                     if (!lstDroits.Contains(16))
                     {
-                        this.smiEmploye.Visible = false;
                         this.btnModifierEmp.Visible = false;
                     }
                     if (!lstDroits.Contains(18))
