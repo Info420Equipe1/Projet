@@ -325,6 +325,20 @@ namespace Texcel.Interfaces.Jeu
             this.Close();
         }
 
+        private void cmbNomSE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nomSysExp = ((ComboBox)sender).Text;
+            SysExp sysExp = CtrlSysExp.GetSysExp(nomSysExp);
+            try
+            {
+                picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\SysExp\" + sysExp.codeSysExp + "logo.png");
+            }
+            catch (Exception)
+            {
+                picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\NoImage.png");
+            }
+        }
+
 
     }
 }

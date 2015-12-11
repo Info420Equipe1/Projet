@@ -89,9 +89,10 @@ namespace Texcel.Interfaces.Jeu
                 lstBoxGenre2.Items.Add(genre.nomGenre);
             }
 
+            //Emplissage de la list box des Classifications globales
             foreach (ClassificationJeu classJeu in CtrlClassificationJeu.Rechercher())
             {
-                cmbClassification.Items.Add(classJeu.nomClassification);
+                cmbClassification.Items.Add(classJeu.codeClassification + " - " + classJeu.nomClassification);
             }
         }
 
@@ -101,14 +102,6 @@ namespace Texcel.Interfaces.Jeu
             foreach (cJeu jeu in CtrlJeu.LstJeu())
             {
                 cmbNom.Items.Add(jeu.nomJeu);
-            }
-        }
-        private void cmbClassification_DropDown(object sender, EventArgs e)
-        {
-            cmbClassification.Items.Clear();
-            foreach (ClassificationJeu classJeu in CtrlClassificationJeu.Rechercher())
-            {
-                cmbClassification.Items.Add(classJeu.codeClassification + " - " + classJeu.nomClassification);
             }
         }
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,7 +117,7 @@ namespace Texcel.Interfaces.Jeu
             cJeu jeu = CtrlJeu.GetJeu(nomJeu);
             txtID.Text = jeu.idJeu.ToString();
             txtDeveloppeur.Text = jeu.developeur;
-            cmbClassification.Text = (jeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification); //jeu.ClassificationJeu.nomClassification;
+            cmbClassification.Text = (jeu.ClassificationJeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification);
             rtbDescription.Text = jeu.descJeu;
             rtbConfiguration.Text = jeu.configMinimal;
             try

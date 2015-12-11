@@ -43,6 +43,8 @@
             this.txtCode = new System.Windows.Forms.TextBox();
             this.lblCode = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.picSysExp = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picSysExp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCommentaire
@@ -60,7 +62,7 @@
             this.rtbCommentaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbCommentaire.Location = new System.Drawing.Point(132, 183);
             this.rtbCommentaire.Name = "rtbCommentaire";
-            this.rtbCommentaire.Size = new System.Drawing.Size(388, 96);
+            this.rtbCommentaire.Size = new System.Drawing.Size(457, 140);
             this.rtbCommentaire.TabIndex = 4;
             this.rtbCommentaire.Text = "";
             // 
@@ -92,7 +94,7 @@
             this.cmbEdition.Location = new System.Drawing.Point(132, 82);
             this.cmbEdition.MaxLength = 50;
             this.cmbEdition.Name = "cmbEdition";
-            this.cmbEdition.Size = new System.Drawing.Size(478, 28);
+            this.cmbEdition.Size = new System.Drawing.Size(238, 28);
             this.cmbEdition.Sorted = true;
             this.cmbEdition.TabIndex = 2;
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
@@ -104,7 +106,7 @@
             this.cmbNom.Location = new System.Drawing.Point(132, 45);
             this.cmbNom.MaxLength = 30;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(300, 28);
+            this.cmbNom.Size = new System.Drawing.Size(238, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 0;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -127,7 +129,7 @@
             this.cmbVersion.Location = new System.Drawing.Point(132, 149);
             this.cmbVersion.MaxLength = 30;
             this.cmbVersion.Name = "cmbVersion";
-            this.cmbVersion.Size = new System.Drawing.Size(300, 28);
+            this.cmbVersion.Size = new System.Drawing.Size(238, 28);
             this.cmbVersion.Sorted = true;
             this.cmbVersion.TabIndex = 3;
             this.cmbVersion.DropDown += new System.EventHandler(this.cmbVersion_DropDown);
@@ -139,7 +141,7 @@
             this.btnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Location = new System.Drawing.Point(133, 285);
+            this.btnSupprimer.Location = new System.Drawing.Point(202, 329);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
             this.btnSupprimer.TabIndex = 5;
@@ -154,7 +156,7 @@
             this.btnAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(395, 285);
+            this.btnAnnuler.Location = new System.Drawing.Point(464, 329);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
             this.btnAnnuler.TabIndex = 7;
@@ -169,7 +171,7 @@
             this.btnEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnEnregistrer.Location = new System.Drawing.Point(264, 285);
+            this.btnEnregistrer.Location = new System.Drawing.Point(333, 329);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
             this.btnEnregistrer.TabIndex = 6;
@@ -194,7 +196,7 @@
             this.txtCode.Location = new System.Drawing.Point(132, 116);
             this.txtCode.MaxLength = 20;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(188, 27);
+            this.txtCode.Size = new System.Drawing.Size(126, 27);
             this.txtCode.TabIndex = 30;
             // 
             // lblCode
@@ -217,13 +219,23 @@
             this.txtID.TabIndex = 27;
             this.txtID.Visible = false;
             // 
+            // picSysExp
+            // 
+            this.picSysExp.Location = new System.Drawing.Point(435, 23);
+            this.picSysExp.Name = "picSysExp";
+            this.picSysExp.Size = new System.Drawing.Size(133, 149);
+            this.picSysExp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSysExp.TabIndex = 31;
+            this.picSysExp.TabStop = false;
+            // 
             // frmAjouterSysExp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(628, 356);
+            this.ClientSize = new System.Drawing.Size(601, 391);
+            this.Controls.Add(this.picSysExp);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.txtID);
@@ -242,6 +254,7 @@
             this.Name = "frmAjouterSysExp";
             this.Text = "Ajouter un systèmes d\'exploitation";
             this.Load += new System.EventHandler(this.frmSysExp_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picSysExp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +277,6 @@
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label lblCode;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.PictureBox picSysExp;
     }
 }

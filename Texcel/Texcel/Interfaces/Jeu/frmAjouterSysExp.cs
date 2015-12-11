@@ -68,6 +68,16 @@ namespace Texcel.Interfaces.Jeu
             //rtbCommentaire.Text = sysExp.descSysExp;
             cmbEdition.Text = "";
             cmbVersion.Text = "";
+
+            //Image du Systeme d'exploitation
+            try
+            {
+                picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\SysExp\" + sysExp.codeSysExp + "logo.png");
+            }
+            catch (Exception)
+            {
+                picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\NoImage.png");
+            }
         }
 
         private void cmbEdition_DropDown(object sender, EventArgs e)

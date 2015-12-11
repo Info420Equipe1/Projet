@@ -191,7 +191,6 @@
             this.cmbClassification.Size = new System.Drawing.Size(215, 28);
             this.cmbClassification.Sorted = true;
             this.cmbClassification.TabIndex = 3;
-            this.cmbClassification.DropDown += new System.EventHandler(this.cmbClassification_DropDown);
             // 
             // label1
             // 

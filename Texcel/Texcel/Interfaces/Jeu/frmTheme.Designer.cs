@@ -94,7 +94,7 @@
             this.cmbNom.Location = new System.Drawing.Point(138, 61);
             this.cmbNom.MaxLength = 50;
             this.cmbNom.Name = "cmbNom";
-            this.cmbNom.Size = new System.Drawing.Size(481, 28);
+            this.cmbNom.Size = new System.Drawing.Size(463, 28);
             this.cmbNom.Sorted = true;
             this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
@@ -152,7 +152,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.ClientSize = new System.Drawing.Size(659, 306);
+            this.ClientSize = new System.Drawing.Size(617, 306);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEnregistrer);

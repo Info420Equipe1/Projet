@@ -467,6 +467,16 @@
     <Content Include="Images\Jeu\Jeux\7.jpg" />
     <Content Include="Images\Jeu\Jeux\8.jpg" />
     <Content Include="Images\Jeu\Jeux\9.jpg" />
+    <Content Include="Images\Jeu\SysExp\andmoblogo.png" />
+    <Content Include="Images\Jeu\SysExp\ioslogo.png" />
+    <Content Include="Images\Jeu\SysExp\osxlogo.png" />
+    <Content Include="Images\Jeu\SysExp\win10logo.png" />
+    <Content Include="Images\Jeu\SysExp\win2000logo.png" />
+    <Content Include="Images\Jeu\SysExp\win7logo.png" />
+    <Content Include="Images\Jeu\SysExp\win8.1logo.png" />
+    <Content Include="Images\Jeu\SysExp\win8logo.png" />
+    <Content Include="Images\Jeu\SysExp\winvistalogo.png" />
+    <Content Include="Images\Jeu\SysExp\winxplogo.png" />
     <Content Include="Images\NoImage.png" />
   </ItemGroup>
   <ItemGroup>

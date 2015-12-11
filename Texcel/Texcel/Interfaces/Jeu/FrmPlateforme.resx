@@ -120,9 +120,14 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pcbAjouterSE.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAIAAABvSEP3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnEAABJxAfPceo4AAAA6SURBVDhPY3jz8j7liC6mFDdNgCA0cTQ0agp2NGxNgasm
-        FQ1aU3AhNNW40Kgp2NGIM4VIRA1TXt4HAL2EGfl0jwEzAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABXUlEQVQ4T6WTzytEURzF559Q
+        slAWyoKaokghPzYk+Z2m6Y2SkpKSyJ9gSEQvhpSFjY0NGySNGaNJw1ggjImGf2D+gOOe73Sn6d63UBaf
+        dzrnnu999916PgD/wjMkS3vtrgIluF49K9As7rYh/RMqQm92iBVoFiItePh2kMoFRenNDrECzfxOswwn
+        P8dE6c0OsQLN3HYj7r4CiH8Mi9KbHSKPWbfeVcAkkR3B1WufqMd6XhGWDWa2/HJRLGpimUFcvvTi7Klb
+        lF6v3WZH1b2EoObyssH0Zi3imSGcPnb+kS7cqE/jnGwwtVEjJ4i+9RfhW0/SHThOtYrS67Xr9wHc5xyo
+        ucIJJterXQVMztXxj5JNoh7reUXhDryYWKuStx4mGkTpzQ6xAs34aiUunntwEPOL0psdYgUaZ6VCjr4f
+        rROlNzvECjTBcLlcLIep9GaHWIEmsFzmKlCCx98I3y+WdMUpndaXpQAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

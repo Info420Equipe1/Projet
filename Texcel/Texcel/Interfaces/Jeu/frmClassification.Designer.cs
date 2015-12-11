@@ -93,7 +93,7 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNom.Location = new System.Drawing.Point(12, 42);
+            this.lblNom.Location = new System.Drawing.Point(63, 95);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(49, 20);
             this.lblNom.TabIndex = 26;
@@ -103,7 +103,7 @@
             // 
             this.lblCode.AutoSize = true;
             this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(12, 76);
+            this.lblCode.Location = new System.Drawing.Point(59, 52);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(53, 20);
             this.lblCode.TabIndex = 35;
@@ -113,7 +113,7 @@
             // 
             this.cmbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNom.FormattingEnabled = true;
-            this.cmbNom.Location = new System.Drawing.Point(71, 39);
+            this.cmbNom.Location = new System.Drawing.Point(118, 92);
             this.cmbNom.MaxLength = 20;
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(210, 28);
@@ -126,10 +126,10 @@
             // txtCode
             // 
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(71, 73);
+            this.txtCode.Location = new System.Drawing.Point(118, 49);
             this.txtCode.MaxLength = 3;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(41, 27);
+            this.txtCode.Size = new System.Drawing.Size(107, 27);
             this.txtCode.TabIndex = 1;
             // 
             // picClassification

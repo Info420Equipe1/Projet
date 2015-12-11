@@ -50,8 +50,10 @@
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.picSysExp = new System.Windows.Forms.PictureBox();
             this.grbSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterSE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSysExp)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAjouter
@@ -71,6 +73,7 @@
             // 
             // grbSE
             // 
+            this.grbSE.Controls.Add(this.picSysExp);
             this.grbSE.Controls.Add(this.pcbAjouterSE);
             this.grbSE.Controls.Add(this.lblVersionSE);
             this.grbSE.Controls.Add(this.lblEditionSE);
@@ -91,10 +94,10 @@
             // 
             this.pcbAjouterSE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcbAjouterSE.Image = ((System.Drawing.Image)(resources.GetObject("pcbAjouterSE.Image")));
-            this.pcbAjouterSE.Location = new System.Drawing.Point(375, 120);
+            this.pcbAjouterSE.Location = new System.Drawing.Point(375, 115);
             this.pcbAjouterSE.Name = "pcbAjouterSE";
-            this.pcbAjouterSE.Size = new System.Drawing.Size(25, 25);
-            this.pcbAjouterSE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbAjouterSE.Size = new System.Drawing.Size(30, 30);
+            this.pcbAjouterSE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbAjouterSE.TabIndex = 14;
             this.pcbAjouterSE.TabStop = false;
             this.pcbAjouterSE.Click += new System.EventHandler(this.pcbAjouterSE_Click);
@@ -154,6 +157,7 @@
             this.cmbNomSE.Sorted = true;
             this.cmbNomSE.TabIndex = 5;
             this.cmbNomSE.DropDown += new System.EventHandler(this.cmbNomSE_DropDown);
+            this.cmbNomSE.SelectedIndexChanged += new System.EventHandler(this.cmbNomSE_SelectedIndexChanged);
             // 
             // cmbEditionSE
             // 
@@ -306,6 +310,15 @@
             this.txtID.Size = new System.Drawing.Size(100, 27);
             this.txtID.TabIndex = 0;
             // 
+            // picSysExp
+            // 
+            this.picSysExp.Location = new System.Drawing.Point(460, 40);
+            this.picSysExp.Name = "picSysExp";
+            this.picSysExp.Size = new System.Drawing.Size(141, 177);
+            this.picSysExp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSysExp.TabIndex = 15;
+            this.picSysExp.TabStop = false;
+            // 
             // frmPlateforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,6 +345,7 @@
             this.grbSE.ResumeLayout(false);
             this.grbSE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterSE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSysExp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +374,6 @@
         private System.Windows.Forms.PictureBox pcbAjouterSE;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.PictureBox picSysExp;
     }
 }
