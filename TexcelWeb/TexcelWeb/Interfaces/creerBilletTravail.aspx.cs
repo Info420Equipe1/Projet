@@ -225,6 +225,7 @@ namespace TexcelWeb.Interfaces
                 {
                     case "billetajoute":
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Billet ajouté!', 'Le billet a été ajouté avec succès.', 'success');", true);
+                        clearFields();
                         break;
                     case "erreur":
                         this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du billet.', 'error');", true);
@@ -354,7 +355,7 @@ namespace TexcelWeb.Interfaces
                 cmbStatutBillet.Items.Add(statut.nomStatut);
             }
             lst = new ListItem();
-            lst.Text = "En création";
+            lst.Text = "À planifier";
             cmbStatutBillet.SelectedIndex = cmbStatutBillet.Items.IndexOf(lst);
 
             //Emplissage du drop down priorité
@@ -446,6 +447,65 @@ namespace TexcelWeb.Interfaces
                 lst.Text = "Aucun";
                 cmbTesteurBillet.Items.Add(lst);
                 cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
+            }
+        }
+        private void clearFields()
+        {
+            txtTitreBillet.Text = "";
+            txtDureeBillet.Text = "15";
+            txtDateCreationBillet.Text = DateTime.Now.ToShortDateString();
+            txtDateLivraisonBillet.Text = "";
+            cmbTesteurBillet.SelectedValue = "Aucun";
+            cmbStatutBillet.SelectedValue = "À planifier";
+            cmbPrioriteBillet.SelectedValue = "Normale";
+            dateTerminaisonBillet.Visible = false;
+            txtDateTerminaison.Text = "";
+            rtxtDescriptionBillet.Text = "";
+        }
+
+        protected void txtDateLivraisonBillet_TextChanged(object sender, EventArgs e)
+        {
+            CompareValidatorDate.Validate();
+            RequireValidator.Validate();
+            if (!CompareValidatorDate.IsValid)
+            {
+                divDate.Style.Add(HtmlTextWriterStyle.BorderStyle, "solid");
+                divDate.Style.Add(HtmlTextWriterStyle.BorderWidth, "5px");
+                divDate.Style.Add(HtmlTextWriterStyle.BorderColor, "#FF696B");
+            }
+            else
+            {
+                divDate.Style.Clear();
+            }
+            if (((TextBox)sender).Text == "")
+            {
+                if (RequireValidator.IsValid)
+                {
+                    divDate.Style.Clear();
+                }
+            }
+        }
+
+        protected void txtDateCreationBillet_TextChanged(object sender, EventArgs e)
+        {
+            CompareValidatorDate.Validate();
+            RequireValidator.Validate();
+            if (!CompareValidatorDate.IsValid)
+            {
+                divDate.Style.Add(HtmlTextWriterStyle.BorderStyle, "solid");
+                divDate.Style.Add(HtmlTextWriterStyle.BorderWidth, "5px");
+                divDate.Style.Add(HtmlTextWriterStyle.BorderColor, "#FF696B");
+            }
+            else
+            {
+                divDate.Style.Clear();
+            }
+            if (txtDateLivraisonBillet.Text == "")
+            {
+                if (RequireValidator.IsValid)
+                {
+                    divDate.Style.Clear();
+                }
             }
         }
     }

@@ -256,6 +256,24 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtDureeBillet;
         
         /// <summary>
+        /// Contrôle updatePanelValidationDate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelValidationDate;
+        
+        /// <summary>
+        /// Contrôle divDate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDate;
+        
+        /// <summary>
         /// Contrôle txtDateLivraisonBillet.
         /// </summary>
         /// <remarks>
@@ -283,13 +301,22 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.TextBox txtDateCreationBillet;
         
         /// <summary>
-        /// Contrôle CompareValidator1.
+        /// Contrôle CompareValidatorDate.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDate;
+        
+        /// <summary>
+        /// Contrôle RequireValidator.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequireValidator;
         
         /// <summary>
         /// Contrôle updatePanelStatutDateTerminaison.
