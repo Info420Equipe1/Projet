@@ -295,5 +295,55 @@ namespace TexcelWeb.Classes.Projet
             }
             return nbBillets;
         }
+
+        public static int nbBilletsduProjetparStatut(cProjet _projet, string _statut)
+        {
+            int nbBillets = 0;
+            foreach (CasTest casTest in _projet.CasTest)
+            {
+                foreach (BilletTravail billet in casTest.BilletTravail)
+                {
+                    if (billet.Statut.nomStatut == _statut)
+                    {
+                        nbBillets++;
+                    }   
+                }
+            }
+            return nbBillets;
+        }
+
+        public static int nbBilletsduProjetUrgent(cProjet _projet)
+        {
+            return 0;
+        }
+
+        public static string tempsEstimeGlobalduProjet(cProjet _projet)
+        {
+            double dureeEstime = 0;
+            foreach (CasTest casTest in _projet.CasTest)
+            {
+                foreach (BilletTravail billet in casTest.BilletTravail)
+                {
+                    dureeEstime += Convert.ToDouble(billet.dureeBilletTravail);
+                }
+            }
+            return dureeEstime.ToString();
+        }
+
+        public static string tempsInvestiduProjet(cProjet _projet)
+        {
+            double tempsInvesti = 0;
+            foreach (CasTest casTest in _projet.CasTest)
+            {
+                foreach (BilletTravail billet in casTest.BilletTravail)
+                {
+                    if (billet.Statut.nomStatut == "Terminé")
+                    {
+                        tempsInvesti += Convert.ToDouble(billet.dureeBilletTravail);
+                    }
+                }
+            }
+            return tempsInvesti.ToString();
+        }
     }
 }

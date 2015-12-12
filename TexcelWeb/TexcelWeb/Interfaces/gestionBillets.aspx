@@ -28,6 +28,9 @@ $(function(){
 			    <div class="left">
 				    <p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			    </div>
+                <div class="right">
+                    <p><asp:Image ID="imgLogo" runat="server" ImageUrl="../img/logo_texcel.png"/></p>
+                </div>
 		    </div>
 	    </div>
         <form id="form1" runat="server">
@@ -65,65 +68,67 @@ $(function(){
                         <div class="div_1">
                             <div id="div_1a">
                                 <div class="lblInfo">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Projet : " />                              
+                                    <asp:Label runat="server" Text="Projet : " />                              
                                     <asp:DropDownList runat="server" ID="ddlProjet" CssClass="txtColum1" AutoPostBack="True" style="width:250px" OnSelectedIndexChanged="ddlProjet_SelectedIndexChanged"></asp:DropDownList> 
                                     <br /><br />               
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Équipe :" />
-                                    <asp:DropDownList runat="server"  ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" /> <br /><br />
+                                    <asp:Label runat="server" Text="Équipe :" />
+                                    <asp:DropDownList runat="server"  ID="ddlEquipe" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Enabled="False" OnSelectedIndexChanged="ddlEquipe_SelectedIndexChanged" /> <br /><br />
                                 </div>
                                 <div class="lblInfo">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Testeur :" />
-                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Visible="False" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" />
+                                    <asp:Label runat="server" Text="Testeur :" />
+                                    <asp:DropDownList runat="server" ID="ddlTesteur" CssClass="txtColum1" AutoPostBack="true" style="width:250px" Enabled="False" OnSelectedIndexChanged="ddlTesteur_SelectedIndexChanged" />
                                 </div>
-                            </div>
-                        </div>     
-                        <div class="div_1bb">
-                            <div class="div_1b">
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb cas Test : " />
-                                    <asp:TextBox runat="server" ID="txtNbCasTest" CssClass="txtColum1"/>
-                                </div>
-                                <div class="info">
-                                    <asp:Label  CssClass="lblinfo" runat="server" Text="Nb billet: " />
-                                    <asp:TextBox runat="server" ID="txtNbBillet" CssClass="txtColum1"/>
-                                </div>
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb billet(en cours): " />
-                                    <asp:TextBox runat="server" ID="txtNbBilletEnCours" CssClass="txtColum1"/>
-                                </div>                      
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo" runat="server" Text="Nb billet(terminé) : " />
-                                    <asp:TextBox runat="server" ID="txtNbBilletTermine" CssClass="txtColum1"/>
-                                </div>                          
-                            </div> 
-                            <div class="div_1b">
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb billet(urgent): " />
-                                    <asp:TextBox runat="server" ID="txtNbBilletUrgent" CssClass="txtColum1"/>
-                                </div>
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps estimé: " />
-                                    <asp:TextBox runat="server" ID="txtTempsEstime" CssClass="txtColum1"/>           
-                                </div>
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps estimé(globale): " />
-                                    <asp:TextBox runat="server" ID="txtTempsTotal" CssClass="txtColum1"/>      
-                                </div>              
-                                <div class="info">
-                                    <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps investie : " />
-                                    <asp:TextBox runat="server" ID="txtTempInvestie" CssClass="txtColum1" />
-                                </div>                         
                             </div>
                         </div>
+                        <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques du projet"> 
+                            <div class="div_1bb">
+                                <div class="div_1b">
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb cas Test : " />
+                                        <asp:Label ID="lblNbCasTest" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>
+                                    <div class="info">
+                                        <asp:Label  CssClass="lblinfo lblColum1" runat="server" Text="Nb billet : " />
+                                        <asp:Label ID="lblNbBillet" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb billet en cours : " />
+                                        <asp:Label ID="lblNbBilletEnCours" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>                      
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb billet terminé : " />
+                                        <asp:Label ID="lblNbBilletTermine" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>                          
+                                </div> 
+                                <div class="div_1b">
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Nb billet urgent : " />
+                                        <asp:Label ID="lblNbBilletUrgent" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Temps estimé : " />
+                                        <asp:Label ID="lblTempsEstime" CssClass="txtColum1" runat="server" Text="" />      
+                                    </div>
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Temps estimé total : " />
+                                        <asp:Label ID="lblTempsTotal" CssClass="txtColum1" runat="server" Text="" />  
+                                    </div>              
+                                    <div class="info">
+                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Temps investi : " />
+                                        <asp:Label ID="lblTempsInvesti" CssClass="txtColum1" runat="server" Text="" />
+                                    </div>                         
+                                </div>
+                            </div>
+                        </asp:Panel>  
                     </div>
                 </div>
             </div>
             <div id="content2">
                 <div id="main2">					
 		            <div class="gridView">
-                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" DataSourceID="edsBilletsTravail" AllowSorting="True">
+                        <asp:GridView ID="dgvBillets" runat="server" AutoGenerateColumns="False" OnRowDataBound="dgvBillets_RowDataBound" AllowSorting="True">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>

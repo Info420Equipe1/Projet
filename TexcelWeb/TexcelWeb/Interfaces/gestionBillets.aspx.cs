@@ -91,9 +91,8 @@ namespace TexcelWeb.Interfaces
             CtrlGestionBillet.SaveLstProjetAffiche();        
             // .selectedvalue va etre le code du projet
             ddlProjet.DataTextField = "nomProjet";
-            ddlProjet.DataValueField = "codeProjet";           
+            ddlProjet.DataValueField = "codeProjet";
             ddlProjet.DataSource = CtrlGestionBillet.getLstProj;
-            ddlProjet.Visible = true;
             ddlProjet.DataBind();
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlProjet.Items.Insert(ddlProjet.Items.Count,"Choisissez un projet");
@@ -109,7 +108,7 @@ namespace TexcelWeb.Interfaces
             ddlEquipe.DataValueField = "idEquipe";
             ddlEquipe.DataSource = CtrlGestionBillet.getLstEquipe;
             ddlEquipe.DataBind();
-            ddlEquipe.Visible = true;
+            ddlEquipe.Enabled = true;
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlEquipe.Items.Insert(ddlEquipe.Items.Count, "Choisissez une équipe");
             ddlEquipe.SelectedValue = "Choisissez une équipe";
@@ -124,7 +123,7 @@ namespace TexcelWeb.Interfaces
             ddlTesteur.DataValueField = "noEmploye";
             ddlTesteur.DataSource = CtrlGestionBillet.getLstTesteur;
             ddlTesteur.DataBind();
-            ddlTesteur.Visible = true;
+            ddlTesteur.Enabled = true;
 
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlTesteur.Items.Insert(ddlTesteur.Items.Count, "Choisissez un testeur");
@@ -134,7 +133,7 @@ namespace TexcelWeb.Interfaces
         //*****************************DROP_DOWN_LIST DU HAUT **********************************************//
         protected void ddlProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlTesteur.Visible = false;
+            ddlTesteur.Enabled = false;
             // enregistrer le projet qui a été sélectionné dans la classe controle
             if (CtrlGestionBillet.SaveProjetChoisi(ddlProjet.SelectedIndex))
             {
@@ -147,9 +146,11 @@ namespace TexcelWeb.Interfaces
                 // Donc il faut remettre la variable Equipe et TEsteur a null
                 CtrlGestionBillet.SaveEquipeChoisi(-1);
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
-                ddlEquipe.Visible = false;
+                ddlEquipe.Enabled = false;
             }
+            dgvBillets.DataSourceID = "edsBilletsTRavail";
             edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlProjet.Text + "%'";
+            dgvBillets.DataBind();
             if (ddlProjet.Text != "Choisissez un projet")
             {
                 AfficherStatistiques(CtrlProjet.getProjetByCode(ddlProjet.Text));
@@ -170,7 +171,7 @@ namespace TexcelWeb.Interfaces
                 // ca veut  dire que  l'index choisi c'est "Choisissez.."
                 // Donc il faut remettre la variable Testeur a null
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
-                ddlTesteur.Visible = false;
+                ddlTesteur.Enabled = false;
             }
             edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlEquipe.Text + "%'";
         }
@@ -218,9 +219,12 @@ namespace TexcelWeb.Interfaces
 
         protected void AfficherStatistiques(cProjet _projet)
         {
-            txtNbCasTest.Text = CtrlProjet.nbCasTestduProjet(_projet).ToString();
-            txtNbBillet.Text = CtrlProjet.nbBilletsduProjet(_projet).ToString();
-            //txtNbBilletEnCours.Text = CtrlProjet.
+            lblNbCasTest.Text = CtrlProjet.nbCasTestduProjet(_projet).ToString();
+            lblNbBillet.Text = CtrlProjet.nbBilletsduProjet(_projet).ToString();
+            lblNbBilletEnCours.Text = CtrlProjet.nbBilletsduProjetparStatut(_projet, "En cours").ToString();
+            lblNbBilletTermine.Text = CtrlProjet.nbBilletsduProjetparStatut(_projet, "Terminé").ToString();
+            lblTempsTotal.Text = CtrlProjet.tempsEstimeGlobalduProjet(_projet) + " minute(s)";
+            lblTempsInvesti.Text = CtrlProjet.tempsInvestiduProjet(_projet) + " minute(s)";
         }
     }
 }

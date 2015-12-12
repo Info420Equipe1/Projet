@@ -22,6 +22,15 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCurrentUserName;
         
         /// <summary>
+        /// Contrôle imgLogo.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgLogo;
+        
+        /// <summary>
         /// Contrôle form1.
         /// </summary>
         /// <remarks>
@@ -173,7 +182,7 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProjet;
-
+        
         /// <summary>
         /// Contrôle ddlEquipe.
         /// </summary>
@@ -182,7 +191,7 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEquipe;
-
+        
         /// <summary>
         /// Contrôle ddlTesteur.
         /// </summary>
@@ -193,76 +202,85 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.DropDownList ddlTesteur;
         
         /// <summary>
-        /// Contrôle txtNbCasTest.
+        /// Contrôle pnlStats.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNbCasTest;
+        protected global::System.Web.UI.WebControls.Panel pnlStats;
         
         /// <summary>
-        /// Contrôle txtNbBillet.
+        /// Contrôle lblNbCasTest.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNbBillet;
+        protected global::System.Web.UI.WebControls.Label lblNbCasTest;
         
         /// <summary>
-        /// Contrôle txtNbBilletEnCours.
+        /// Contrôle lblNbBillet.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNbBilletEnCours;
+        protected global::System.Web.UI.WebControls.Label lblNbBillet;
         
         /// <summary>
-        /// Contrôle txtNbBilletTermine.
+        /// Contrôle lblNbBilletEnCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNbBilletTermine;
+        protected global::System.Web.UI.WebControls.Label lblNbBilletEnCours;
         
         /// <summary>
-        /// Contrôle txtNbBilletUrgent.
+        /// Contrôle lblNbBilletTermine.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNbBilletUrgent;
+        protected global::System.Web.UI.WebControls.Label lblNbBilletTermine;
         
         /// <summary>
-        /// Contrôle txtTempsEstime.
+        /// Contrôle lblNbBilletUrgent.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTempsEstime;
+        protected global::System.Web.UI.WebControls.Label lblNbBilletUrgent;
         
         /// <summary>
-        /// Contrôle txtTempsTotal.
+        /// Contrôle lblTempsEstime.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTempsTotal;
+        protected global::System.Web.UI.WebControls.Label lblTempsEstime;
         
         /// <summary>
-        /// Contrôle txtTempInvestie.
+        /// Contrôle lblTempsTotal.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTempInvestie;
+        protected global::System.Web.UI.WebControls.Label lblTempsTotal;
+        
+        /// <summary>
+        /// Contrôle lblTempsInvesti.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTempsInvesti;
         
         /// <summary>
         /// Contrôle dgvBillets.
