@@ -9,7 +9,7 @@
 <title>Texcel - Recherche</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../css/casTest.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/recherche.css" media="screen" />
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -29,11 +29,9 @@ a {color:white; text-decoration:none}
 			<div class="left">
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server"></strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			</div>
-			<!-- <div class="right">
-				<div class="align-right">
-					<p>Dernière connexion: <strong id="txtDerniereConnexion" runat="server">28-10-2015</strong></p>
-				</div>
-			</div> -->
+			<div class="right">
+                <p><asp:Image ID="imgLogo" runat="server" ImageUrl="../img/logo_texcel.png"/></p>
+            </div>
 		</div>
 	</div>
 	<div id="content">
@@ -73,7 +71,7 @@ a {color:white; text-decoration:none}
                         <ContentTemplate>
                             <div id="recherche">
                                 <asp:TextBox ID="txtChampRecherche" runat="server" Width="389px" />
-                                <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlFiltre_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlFiltre" runat="server" AutoPostBack="true"></asp:DropDownList>
                                 <asp:Button ID="btnRechercher" runat="server" Text="Rechercher" OnClick="btnRechercher_Click" />
                             </div>
                         </ContentTemplate>

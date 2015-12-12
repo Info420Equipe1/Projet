@@ -25,11 +25,9 @@ $(function(){
 			<div class="left">
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server"></strong> [ <a href="login.aspx">deconnection</a> ]</p>
 			</div>
-			<!-- <div class="right">
-				<div class="align-right">
-					<p>Dernière connexion: <strong>28-10-2015</strong></p>
-				</div>
-			</div> -->
+			<div class="right">
+                <p><asp:Image ID="imgLogo" runat="server" ImageUrl="../img/logo_texcel.png"/></p>
+            </div>
 		</div>
 	</div>
 	<div id="content">

@@ -28,6 +28,9 @@ $(function(){
 			<div class="left">
 				<p>Bienvenue, <strong id="txtCurrentUserName" runat="server">Marcel L.</strong> [ <a href="login.aspx">deconnection</a>]</p>
 			</div>
+            <div class="right">
+                <p><asp:Image ID="imgLogo" runat="server" ImageUrl="../img/logo_texcel.png"/></p>
+            </div>
         </div>
 	</div>	
 	<div id="content">

@@ -238,13 +238,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.Label lblNbBilletEnCours;
         
         /// <summary>
-        /// Contrôle lblNbBilletTermine.
+        /// Contrôle lblTempsEstime.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNbBilletTermine;
+        protected global::System.Web.UI.WebControls.Label lblTempsEstime;
         
         /// <summary>
         /// Contrôle lblNbBilletUrgent.
@@ -256,13 +256,13 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.Label lblNbBilletUrgent;
         
         /// <summary>
-        /// Contrôle lblTempsEstime.
+        /// Contrôle lblNbBilletTermine.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTempsEstime;
+        protected global::System.Web.UI.WebControls.Label lblNbBilletTermine;
         
         /// <summary>
         /// Contrôle lblTempsTotal.

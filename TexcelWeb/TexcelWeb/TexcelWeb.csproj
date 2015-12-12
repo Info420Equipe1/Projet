@@ -80,6 +80,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\recherche.css" />
     <Content Include="Interfaces\creerBilletChefEquipe.aspx" />
     <Content Include="css\billetTravail.css" />
     <Content Include="css\gestionBillet.css" />

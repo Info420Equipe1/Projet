@@ -72,3 +72,10 @@
 .textBox{
     width:340px;
 }
+
+#imgLogo{
+    height:34px;
+    width:156px;
+    margin-top:-11px;
+    margin-right:-10px;
+}

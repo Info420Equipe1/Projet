@@ -41,7 +41,6 @@ namespace TexcelWeb
             Utilisateur currentUser = CtrlController.GetCurrentUser();
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
-            txtDerniereConnexion.InnerText = date.ToString("d");
             List<string> filterNames = CtrlFiltreDataSource.GetAllNomFiltre();
             filterNames.Sort();
             ddlFiltre.Items.Add("Sélectionnez un filtre");
@@ -110,7 +109,6 @@ namespace TexcelWeb
                 }
             }
             ddlFiltre.SelectedIndex = 0;
-            AfficherGV(ddlFiltre.Text);
         }
 
         private void AfficherGV(string _filtre)
@@ -120,6 +118,7 @@ namespace TexcelWeb
             {
                 gvRecherche.DataSourceID = CtrlFiltreDataSource.GetDataSourceName(ddlFiltre.Text); 
             }
+            txtChampRecherche.Text = txtChampRecherche.Text.Replace(", ", "");
             switch (_filtre)
             {
                 case "Projet":              
@@ -174,18 +173,11 @@ namespace TexcelWeb
             CtrlRecherche.SauvegarderDonnees(gvRecherche);
             CtrlRecherche.CopierElement();
         }
-   
-        protected void ddlFiltre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //qqchose avant??
-            CtrlRecherche.SauvegarderDonnees(gvRecherche);
-            gvRecherche.DataSourceID = "";
-            gvRecherche.DataBind();
-        }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
-        {
+        {         
             AfficherGV(ddlFiltre.Text);
+            txtChampRecherche.Text = "";
         }
 
         protected void gvRecherche_SelectedIndexChanged(object sender, EventArgs e)

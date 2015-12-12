@@ -98,8 +98,8 @@ $(function(){
                                         <asp:Label ID="lblNbBilletEnCours" CssClass="txtColum1" runat="server" Text="" />
                                     </div>                      
                                     <div class="info">
-                                        <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Nb billet terminé : " />
-                                        <asp:Label ID="lblNbBilletTermine" CssClass="txtColum1" runat="server" Text="" />
+                                        <asp:Label CssClass="lblinfo lblColum1" runat="server" Text="Temps estimé des billets en cours : " />
+                                        <asp:Label ID="lblTempsEstime" CssClass="txtColum1" runat="server" Text="" />      
                                     </div>                          
                                 </div> 
                                 <div class="div_1b">
@@ -108,8 +108,8 @@ $(function(){
                                         <asp:Label ID="lblNbBilletUrgent" CssClass="txtColum1" runat="server" Text="" />
                                     </div>
                                     <div class="info">
-                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Temps estimé : " />
-                                        <asp:Label ID="lblTempsEstime" CssClass="txtColum1" runat="server" Text="" />      
+                                        <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Nb billet terminé : " />
+                                        <asp:Label ID="lblNbBilletTermine" CssClass="txtColum1" runat="server" Text="" />
                                     </div>
                                     <div class="info">
                                         <asp:Label CssClass="lblinfo lblColum2" runat="server" Text="Temps estimé total : " />
