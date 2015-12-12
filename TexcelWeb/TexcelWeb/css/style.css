@@ -430,3 +430,5 @@ table .chb{
 .addonly{ background: url(../img/down.png) no-repeat center; padding-left: 25px}
 .cancelonly{ background: url(../img/delete.png) no-repeat center; padding-left: 25px}
 .file{ background: url(../img/icone_dossier.png) no-repeat center; padding-left: 25px}
+
+.loupe{ background: url(../img/loupe.png) no-repeat center; padding-left: 25px}

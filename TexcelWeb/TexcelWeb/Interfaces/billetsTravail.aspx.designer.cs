@@ -67,15 +67,6 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.Label lblNbrBillet;
         
         /// <summary>
-        /// Contrôle lblNbrBilletPersonnel.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNbrBilletPersonnel;
-        
-        /// <summary>
         /// Contrôle Label2.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace TexcelWeb.Interfaces {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Contrôle lblNbrBilletPersonnel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNbrBilletPersonnel;
         
         /// <summary>
         /// Contrôle GridView1.

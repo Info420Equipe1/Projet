@@ -195,7 +195,7 @@ $(function(){
         </form>
         <div id="footer">
 		    <div class="left">
-			    <p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
+			    <p>Design: <a href="#">Marcel Leblond, Benoit Simard, Sébastien Tremblay, Jérémie Tremblay, Louis-Alexandre Munger</a> <!--| Admin Panel: <a href=""></a> --></p>
 		    </div>
 	    </div>
     </div>

@@ -66,12 +66,11 @@ $(function(){
 				<div class="h_title" id="Titre" runat="server">Billets de travail</div>
                 <div id="StatDiv">
                 <form runat="server">
-                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques" Width="422px">
-                        <asp:Label ID="StatLbl1" runat="server" Text="nbr de billet urgent: "></asp:Label>
-                        <asp:Label ID="lblNbrBillet" runat="server" Text=""></asp:Label>
-                        <asp:Label ID="lblNbrBilletPersonnel" runat="server" Text="" ></asp:Label>
-                        <asp:Label ID="Label2" runat="server" Text="Nbr de billet personnel: "></asp:Label>
-                        
+                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques">
+                        <asp:Label ID="StatLbl1" runat="server" Text="Nombre de billet urgent: "></asp:Label>
+                        <asp:Label ID="lblNbrBillet" runat="server" Text=""></asp:Label><br />
+                        <asp:Label ID="Label2" runat="server" Text="Nombre de billet personnel: "></asp:Label>
+                        <asp:Label ID="lblNbrBilletPersonnel" runat="server" Text="" ></asp:Label><br /><br />         
                     </asp:Panel>    
                       </div>
                     <div id="billets">
@@ -101,7 +100,7 @@ $(function(){
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Cas de test">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkCasDeTest" runat="server" CssClass="add" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkCasDeTest_Click" ForeColor="Blue"/>
+                                    <asp:LinkButton ID="lnkCasDeTest" runat="server" CssClass="loupe" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkCasDeTest_Click" ForeColor="Blue"/>
                                     
                                     
                                 </ItemTemplate>
@@ -110,7 +109,7 @@ $(function(){
                                  <asp:TemplateField HeaderText="Billet de trevail">
                                 <ItemTemplate>
                                     
-                                    <asp:LinkButton ID="lnkBilletTravail" runat="server" CssClass="add" ForeColor="Blue" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkBilletTravail_Click"/>
+                                    <asp:LinkButton ID="lnkBilletTravail" runat="server" CssClass="loupe" ForeColor="Blue" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkBilletTravail_Click"/>
                                     
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
@@ -127,7 +126,7 @@ $(function(){
 		</div>  
 	<div id="footer">
 		<div class="left">
-			<p>Design: <a href="#">Équipe 1</a> <!--| Admin Panel: <a href=""></a> --></p>
+			<p>Design: <a href="#">Marcel Leblond, Benoit Simard, Sébastien Tremblay, Jérémie Tremblay, Louis-Alexandre Munger</a> <!--| Admin Panel: <a href=""></a> --></p>
 		</div>
 	</div>
 </div>
