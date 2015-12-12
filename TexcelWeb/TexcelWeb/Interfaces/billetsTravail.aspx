@@ -30,7 +30,7 @@ $(function(){
         </div>
 	</div>	
 	<div id="content">
-		<%--<div id="sidebar">
+        <%--<div id="sidebar">
 			<div class="box">
                 <div class="h_title">&#8250; Recherche</div>
                 <ul>
@@ -63,8 +63,8 @@ $(function(){
 				<div class="h_title" id="Titre" runat="server">Billets de travail</div>
                 <div id="StatDiv">
                 <form runat="server">
-                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques" Width="1283px">
-                        <asp:Label ID="Label1" runat="server" Text="nbr de billet urgent: "></asp:Label>
+                    <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques" Width="422px">
+                        <asp:Label ID="StatLbl1" runat="server" Text="nbr de billet urgent: "></asp:Label>
                         <asp:Label ID="lblNbrBillet" runat="server" Text=""></asp:Label>
                         <asp:Label ID="lblNbrBilletPersonnel" runat="server" Text="" ></asp:Label>
                         <asp:Label ID="Label2" runat="server" Text="Nbr de billet personnel: "></asp:Label>
@@ -73,33 +73,41 @@ $(function(){
                       </div>
                     <div id="billets">
                         <div>
-                            <asp:Label ID="Label3" runat="server" Text="Billets"></asp:Label>
+
                         </div>
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True" OnSorting="GridView1_Sorting" Width="1367px">
                             <Columns>
-                                <asp:BoundField DataField="Titre" HeaderText="Titre" HtmlEncode="false" SortExpression="Titre"/>
-                                <asp:BoundField DataField="Priorite" HeaderText="Priorité" SortExpression="Priorite"/>
-                                <asp:BoundField DataField="Difficulte" HeaderText="Difficulté" SortExpression="Difficulte"/>
-                                <asp:BoundField DataField="DateLivraison" HeaderText="Date de livraison" SortExpression="DateLivraison"/>
-                                <asp:BoundField DataField="TypeTest" HeaderText="Type de test" SortExpression="TypeTest"/>
-                                <asp:BoundField DataField="Duree" HeaderText="Durée" SortExpression="Duree"/>
-                                <asp:BoundField DataField="Projet" HeaderText="Projet" SortExpression="Projet"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Titre" HeaderText="Titre" HtmlEncode="false" SortExpression="Titre"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Priorite" HeaderText="Priorité" SortExpression="Priorite"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Difficulte" HeaderText="Difficulté" SortExpression="Difficulte"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="DateLivraison" HeaderText="Date de livraison" SortExpression="DateLivraison"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="TypeTest" HeaderText="Type de test" SortExpression="TypeTest"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Duree" HeaderText="Durée" SortExpression="Duree"/>
+                                <asp:BoundField ItemStyle-HorizontalAlign="Center" DataField="Projet" HeaderText="Projet" SortExpression="Projet"/>
                                
                                 
-                                <asp:TemplateField HeaderText="Sélectionné">
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Sélectionné">
                                     <ItemTemplate>
                                         <asp:CheckBox ID="CBSelec" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBSelec_CheckedChanged"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Terminé">
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Terminé">
                                     <ItemTemplate>
                                         <asp:CheckBox ID="CBTer" runat="server" AutoPostBack="true" Checked="false" ViewStateMode="Enabled" OnCheckedChanged="CBTer_CheckedChanged"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Détail">
+                                <asp:TemplateField HeaderText="Cas de test">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkCasDeTest" runat="server" Text="Cas de test" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkCasDeTest_Click" ForeColor="Blue"/>
-                                    <asp:LinkButton ID="lnkBilletTravail" runat="server" Text="Billet de travail" ForeColor="Blue" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkBilletTravail_Click"/>
+                                    <asp:LinkButton ID="lnkCasDeTest" runat="server" CssClass="add" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkCasDeTest_Click" ForeColor="Blue"/>
+                                    
+                                    
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="Billet de trevail">
+                                <ItemTemplate>
+                                    
+                                    <asp:LinkButton ID="lnkBilletTravail" runat="server" CssClass="add" ForeColor="Blue" CommandArgument='<%# Eval("Titre") %>' OnClick="lnkBilletTravail_Click"/>
                                     
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />

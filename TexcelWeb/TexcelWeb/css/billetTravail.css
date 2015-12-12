@@ -123,6 +123,7 @@ lblColum1{
 
 #lblNbrBilletPersonnel{
     float:right;
+    margin-left:5px;
 }
 
 
@@ -147,3 +148,15 @@ a {
     text-decoration:none;
     color:white;
 }
+
+#GridView1{
+    margin-left:10px;
+    margin-right:10px;
+    
+}
+
+#StatLbl1{
+    margin-left:5px;
+}
+
+

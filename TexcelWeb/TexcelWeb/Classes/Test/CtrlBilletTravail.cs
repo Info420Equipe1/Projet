@@ -247,7 +247,7 @@ namespace TexcelWeb.Classes.Test
                     lst.Add(bT);
                 }
             }
-
+            //lst.Sort((x, y) => x.idStatut.CompareTo(y.idStatut));
             return lst;
 	
         }

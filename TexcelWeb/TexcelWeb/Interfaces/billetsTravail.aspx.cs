@@ -137,15 +137,15 @@ namespace TexcelWeb.Interfaces
                 CheckBox checkBoxTerm = (e.Row.FindControl("CBTer") as CheckBox);
                 if (e.Row.Cells[1].Text == "Basse")
                 {
-                    e.Row.Cells[1].BackColor = Color.Green;
+                    e.Row.BackColor = Color.LightGreen;
                 }
                 else if (e.Row.Cells[1].Text == "Normale")
                 {
-                    e.Row.Cells[1].BackColor = Color.Yellow;
+                    e.Row.BackColor = Color.Khaki;
                 }
                 else if (e.Row.Cells[1].Text == "Elevee")
                 {
-                    e.Row.Cells[1].BackColor = Color.Red;
+                    e.Row.BackColor = Color.FromArgb(255, 105, 107); ;
                 }
                 if (VerifSelec.Count() != 0)
                 {
