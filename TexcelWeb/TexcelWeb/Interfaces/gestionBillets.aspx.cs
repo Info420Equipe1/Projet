@@ -91,7 +91,7 @@ namespace TexcelWeb.Interfaces
             CtrlGestionBillet.SaveLstProjetAffiche();        
             // .selectedvalue va etre le code du projet
             ddlProjet.DataTextField = "nomProjet";
-            ddlProjet.DataValueField = "codeProjet";
+            // ddlProjet.DataValueField = "codeProjet";
             ddlProjet.DataSource = CtrlGestionBillet.getLstProj;
             ddlProjet.DataBind();
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
@@ -105,7 +105,7 @@ namespace TexcelWeb.Interfaces
             CtrlGestionBillet.SaveLstEquipeAffiche();
             // .selectedvalue va etre l'id de l'equipe
             ddlEquipe.DataTextField = "nomEquipe";
-            ddlEquipe.DataValueField = "idEquipe";
+            // ddlEquipe.DataValueField = "idEquipe";
             ddlEquipe.DataSource = CtrlGestionBillet.getLstEquipe;
             ddlEquipe.DataBind();
             ddlEquipe.Enabled = true;
@@ -120,7 +120,7 @@ namespace TexcelWeb.Interfaces
             CtrlGestionBillet.SaveLstTesteurAffiche();
             // .selectedvalue va etre le no du testeur
             ddlTesteur.DataTextField = "nomEmploye";
-            ddlTesteur.DataValueField = "noEmploye";
+            // ddlTesteur.DataValueField = "noEmploye";
             ddlTesteur.DataSource = CtrlGestionBillet.getLstTesteur;
             ddlTesteur.DataBind();
             ddlTesteur.Enabled = true;
@@ -153,7 +153,7 @@ namespace TexcelWeb.Interfaces
             dgvBillets.DataBind();
             if (ddlProjet.Text != "Choisissez un projet")
             {
-                AfficherStatistiques(CtrlProjet.getProjetByCode(ddlProjet.Text));
+                AfficherStatistiques(CtrlProjet.GetProjet(ddlProjet.Text));
             }
         }
         
