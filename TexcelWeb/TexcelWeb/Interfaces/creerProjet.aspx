@@ -139,9 +139,9 @@ $(function(){
                     </div>
                     <asp:GridView ID="dataGridLstCasTest" runat="server" AutoGenerateColumns="False" PageSize="5" Visible="False">
                         <Columns>
-                            <asp:TemplateField>
+                            <asp:TemplateField ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15px">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                    <asp:CheckBox ID="CheckBox1" runat="server"  />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >

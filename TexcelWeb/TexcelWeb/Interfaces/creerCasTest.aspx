@@ -141,7 +141,7 @@ $(function(){
                     <hr />
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" EmptyDataText = "No files uploaded" >
                         <Columns>
-                            <asp:TemplateField>
+                            <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:CheckBox ID="CheckBox1" runat="server" />
                                 </ItemTemplate>

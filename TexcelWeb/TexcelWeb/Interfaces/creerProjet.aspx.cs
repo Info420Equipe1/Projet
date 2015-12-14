@@ -20,14 +20,18 @@ namespace TexcelWeb
         int indexTableCasTest;
         static bool modifierProjet;
         Utilisateur currentUser;
+        static List<CasTest> lstCasTestAfficher;
 
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                bool modifier = Convert.ToBoolean(Session["modifProjet"]);
-                modifierProjet = modifier;
-                Session["modifProjet"] = false;
+                if (Request.QueryString["index"] == null)
+                {
+                    bool modifier = Convert.ToBoolean(Session["modifProjet"]);
+                    modifierProjet = modifier;
+                    Session["modifProjet"] = false;
+                }
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -325,7 +329,7 @@ namespace TexcelWeb
                 }
             }
 
-            List<CasTest> lstCasTestAfficher = new List<CasTest>();
+            lstCasTestAfficher = new List<CasTest>();
             //Emplissage des cas de test dans le gridView
             for (int i = nuCasTest; i < nuCasTest + 5; i++)
             {
@@ -387,7 +391,7 @@ namespace TexcelWeb
             foreach (GridViewRow gvr in dataGridLstCasTest.Rows)
 	        {
                 HtmlAnchor hgc = (HtmlAnchor)gvr.Cells[5].FindControl("btnModifierGridView");
-                hgc.Attributes["href"] = "creerCasTest.aspx?codeCasTest="+gvr.Cells[0].Text;
+                hgc.Attributes["href"] = "creerCasTest.aspx?codeCasTest="+gvr.Cells[1].Text;
 	        }
         }
         private void showEmptyDataGrid()
@@ -523,6 +527,7 @@ namespace TexcelWeb
         protected void btnSupprimerCasTest_Click(object sender, EventArgs e)
         {
             List<CasTest> lst = new List<CasTest>();
+            CasTest casTest = null;
             foreach (GridViewRow gVRow in dataGridLstCasTest.Rows)
             {
                 if (gVRow.RowType == DataControlRowType.DataRow)
@@ -530,12 +535,18 @@ namespace TexcelWeb
                     CheckBox checkBox = (gVRow.Cells[0].FindControl("CheckBox1") as CheckBox);
                     if (checkBox.Checked)
                     {
-                        lst.Add(CtrlCasTest.GetCasTestByNom(gVRow.Cells[2].Text));
+                        casTest = CtrlCasTest.GetCasTestByNom(gVRow.Cells[2].Text);
+                        lst.Add(casTest);
+                        lstCasTestAfficher.Remove(casTest);
                     }
                 }
             }
+            cProjet projet = CtrlProjet.getProjetByCode(casTest.cProjet.codeProjet);
             CtrlCasTest.Supprimer(lst);
-            
+            if (projet != null)
+            {
+                fillDataGridViewCasTest(projet);
+            }
         }
 
 
