@@ -63,6 +63,7 @@ namespace Texcel.Interfaces
                     {
                         this.smiJeu.Visible = false;
                         this.btnModifierJeu.Visible = false;
+                        this.smiVersionJeu.Visible = false;
                     }
                     if (!lstDroits.Contains(16))
                     {
@@ -76,6 +77,14 @@ namespace Texcel.Interfaces
                     if (!lstDroits.Contains(26))
                     {
                         this.smiGestionTest.Visible = false;
+                    }
+                    if (!lstDroits.Contains(16) && !lstDroits.Contains(18))
+                    {
+                        this.smiGestionPersonnel.Visible = false;
+                    }
+                    if (!lstDroits.Contains(2) && !lstDroits.Contains(4) && !lstDroits.Contains(6) && !lstDroits.Contains(8) && !lstDroits.Contains(10) && !lstDroits.Contains(12) &&  !lstDroits.Contains(14))
+                    {
+                        this.smiGestionJeu.Visible = false;
                     }
                     if (groupe.idGroupe == 1)
                     {

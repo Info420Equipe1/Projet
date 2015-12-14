@@ -179,7 +179,7 @@
             this.smiClassification = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.smiJeu = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionDeJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smiVersionJeu = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionTest = new System.Windows.Forms.ToolStripMenuItem();
@@ -1747,7 +1747,7 @@
             this.smiClassification,
             this.toolStripMenuItem3,
             this.smiJeu,
-            this.versionDeJeuToolStripMenuItem});
+            this.smiVersionJeu});
             this.smiGestionJeu.Name = "smiGestionJeu";
             this.smiGestionJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.J)));
             this.smiGestionJeu.Size = new System.Drawing.Size(129, 24);
@@ -1824,13 +1824,13 @@
             this.smiJeu.Text = "&Jeu";
             this.smiJeu.Click += new System.EventHandler(this.SmiJeu_Click);
             // 
-            // versionDeJeuToolStripMenuItem
+            // smiVersionJeu
             // 
-            this.versionDeJeuToolStripMenuItem.Name = "versionDeJeuToolStripMenuItem";
-            this.versionDeJeuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
-            this.versionDeJeuToolStripMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.versionDeJeuToolStripMenuItem.Text = "&Version de jeu";
-            this.versionDeJeuToolStripMenuItem.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
+            this.smiVersionJeu.Name = "smiVersionJeu";
+            this.smiVersionJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
+            this.smiVersionJeu.Size = new System.Drawing.Size(275, 24);
+            this.smiVersionJeu.Text = "&Version de jeu";
+            this.smiVersionJeu.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
             // 
             // smiGestionPersonnel
             // 
@@ -2067,7 +2067,7 @@
         private System.Windows.Forms.Label txtTypeTest;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.RichTextBox rtbDiv;
-        private System.Windows.Forms.ToolStripMenuItem versionDeJeuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smiVersionJeu;
 
     }
 }
