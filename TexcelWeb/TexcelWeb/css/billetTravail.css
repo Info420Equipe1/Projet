@@ -175,4 +175,9 @@ input{
     margin-bottom:-11px;
 }
 
+table tr:hover td{ 
+	background: none;
+	color: #565656;
+    cursor:pointer;
+}
 
