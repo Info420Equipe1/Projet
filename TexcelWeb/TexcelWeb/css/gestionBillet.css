@@ -68,3 +68,8 @@ table tr:hover td{
 	color: #565656;
     cursor:pointer;
 }
+
+a{
+    text-transform:none;
+    color:white;
+}
