@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbProjetE1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.dbo.FiltreDataSource' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="FiltreDataSource">
           <Key>
             <PropertyRef Name="idFiltre" />
@@ -344,10 +344,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.dbo.FiltreDataSource' n'a pas d
           <Property Name="descTest" Type="text" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Jeu.AllPlateforme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllPlateforme">
           <Key>
-            
             <PropertyRef Name="nomPlateforme" />
           </Key>
           <Property Name="nomPlateforme" Type="varchar" MaxLength="50" Nullable="false" />
@@ -355,13 +354,12 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllPlateforme' n'a pas de c
           <Property Name="tagPlateforme" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Jeu.AllSysExp' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllSysExp">
           <Key>
             <PropertyRef Name="nomSysExp" />
             <PropertyRef Name="nomEdition" />
             <PropertyRef Name="noVersion" />
-            
           </Key>
           <Property Name="nomSysExp" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="codeSysExp" Type="varchar" MaxLength="20" Nullable="false" />
@@ -371,12 +369,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Jeu.AllSysExp' n'a pas de clé 
           <Property Name="tagSysExp" Type="varchar" MaxLength="130" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Personnel.AllEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEquipe">
           <Key>
             <PropertyRef Name="idEquipe" />
-            
-            
           </Key>
           <Property Name="idEquipe" Type="smallint" Nullable="false" />
           <Property Name="nomEquipe" Type="varchar" MaxLength="20" Nullable="false" />
@@ -384,12 +380,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllEquipe' n'a pas de
           <Property Name="tagEquipe" Type="varchar" MaxLength="60" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Personnel.AllTesteurs' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllTesteurs">
           <Key>
             <PropertyRef Name="nomEmploye" />
             <PropertyRef Name="prenomEmploye" />
-            <PropertyRef Name="nomComplet" />
           </Key>
           <Property Name="nomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="prenomEmploye" Type="varchar" MaxLength="20" Nullable="false" />
@@ -397,7 +392,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Personnel.AllTesteurs' n'a pas 
           <Property Name="tagEmploye" Type="varchar" MaxLength="40" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllBilletTravailPriorite' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllBilletTravailPriorite' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllBilletTravailPriorite">
           <Key>
             <PropertyRef Name="titreBilletTravail" />
@@ -408,7 +403,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllBilletTravailPrior
           <Property Name="tagBilletTravailPriorite" Type="varchar" MaxLength="70" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllBilletTravailStatut' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllBilletTravailStatut' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllBilletTravailStatut">
           <Key>
             <PropertyRef Name="titreBilletTravail" />
@@ -419,14 +414,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllBilletTravailStatu
           <Property Name="tagBilletTravailStatut" Type="varchar" MaxLength="80" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllCasTest">
           <Key>
             <PropertyRef Name="codeCasTest" />
-            
-            
-            
-            
           </Key>
           <Property Name="codeCasTest" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nomCasTest" Type="varchar" MaxLength="50" Nullable="false" />
@@ -438,7 +429,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTest' n'a pas d
           <Property Name="tagCasTest" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTestBilletTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllCasTestBilletTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllCasTestBilletTravail">
           <Key>
             <PropertyRef Name="nomCasTest" />
@@ -449,7 +440,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllCasTestBilletTrava
           <Property Name="tagCasTestBilletTravail" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeBilletTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllEmployeBilletTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEmployeBilletTravail">
           <Key>
             <PropertyRef Name="nomEmploye" />
@@ -460,7 +451,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeBilletTrava
           <Property Name="tagEmployeBilletTravail" Type="varchar" MaxLength="90" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllEmployeEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEmployeEquipe">
           <Key>
             <PropertyRef Name="nomEmploye" />
@@ -473,7 +464,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeEquipe' n'a
           <Property Name="tagEmployeEquipe" Type="varchar" MaxLength="90" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeTypeTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllEmployeTypeTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllEmployeTypeTest">
           <Key>
             <PropertyRef Name="nomEmploye" />
@@ -484,7 +475,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllEmployeTypeTest' n
           <Property Name="tagEmployeTypeTest" Type="varchar" MaxLength="70" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllJeuProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllJeuProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllJeuProjet">
           <Key>
             <PropertyRef Name="nomProjet" />
@@ -497,13 +488,10 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllJeuProjet' n'a pas
           <Property Name="tagJeuProjet" Type="varchar" MaxLength="110" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjet">
           <Key>
             <PropertyRef Name="codeProjet" />
-            
-            
-            
           </Key>
           <Property Name="codeProjet" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="nomProjet" Type="varchar" MaxLength="40" Nullable="false" />
@@ -514,7 +502,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjet' n'a pas de
           <Property Name="tagProjet" Type="varchar" MaxLength="140" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjetCasTest' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjetCasTest">
           <Key>
             <PropertyRef Name="nomProjet" />
@@ -525,7 +513,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetCasTest' n'a
           <Property Name="tagProjetCasTest" Type="varchar" MaxLength="90" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetClassification' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjetClassification' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjetClassification">
           <Key>
             <PropertyRef Name="nomProjet" />
@@ -538,7 +526,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetClassificati
           <Property Name="tagProjetClassification" Type="varchar" MaxLength="63" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjetEquipe' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjetEquipe">
           <Key>
             <PropertyRef Name="nomEquipe" />
@@ -551,7 +539,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetEquipe' n'a 
           <Property Name="tagProjetEquipe" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetGenre' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjetGenre' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjetGenre">
           <Key>
             <PropertyRef Name="nomProjet" />
@@ -562,7 +550,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetGenre' n'a p
           <Property Name="tagProjetGenre" Type="varchar" MaxLength="90" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Recherche.AllProjetTheme' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllProjetTheme">
           <Key>
             <PropertyRef Name="nomProjet" />
@@ -573,25 +561,19 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Recherche.AllProjetTheme' n'a p
           <Property Name="tagProjetTheme" Type="varchar" MaxLength="90" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+avertissement 6002: La table/vue 'dbProjetE1Prod.Test.AllBilletsTravail' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="AllBilletsTravail">
           <Key>
             <PropertyRef Name="Titre" />
-            <PropertyRef Name="CasTest" />
-            <PropertyRef Name="Type de Test" />
-            <PropertyRef Name="Statut" />
-            <PropertyRef Name="Priorité" />
-            <PropertyRef Name="Difficulté" />
-            <PropertyRef Name="Testeur" />
           </Key>
           <Property Name="Titre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CasTest" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type de Test" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Statut" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Priorité" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Difficulté" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CasTest" Type="varchar" MaxLength="50" />
+          <Property Name="Type de Test" Type="varchar" MaxLength="30" />
+          <Property Name="Statut" Type="varchar" MaxLength="30" />
+          <Property Name="Priorité" Type="varchar" MaxLength="20" />
+          <Property Name="Difficulté" Type="varchar" MaxLength="30" />
           <Property Name="Durée" Type="float" />
-          <Property Name="Testeur" Type="varchar" MaxLength="42" Nullable="false" />
+          <Property Name="Testeur" Type="varchar" MaxLength="42" />
           <Property Name="Date Livraison" Type="date" />
           <Property Name="Jours Restant" Type="int" />
           <Property Name="tagBilletTravail" Type="varchar" MaxLength="100" />
@@ -776,7 +758,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="E_FK_idChefEquipe">
+        <Association Name="E_FK_noChefEquipe">
           <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
           <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1337,7 +1319,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <End Role="Groupe" EntitySet="Groupe" />
             <End Role="Droit" EntitySet="Droit" />
           </AssociationSet>
-          <AssociationSet Name="E_FK_idChefEquipe" Association="Self.E_FK_idChefEquipe">
+          <AssociationSet Name="E_FK_noChefEquipe" Association="Self.E_FK_noChefEquipe">
             <End Role="Employe" EntitySet="Employe" />
             <End Role="Equipe" EntitySet="Equipe" />
           </AssociationSet>
@@ -1438,7 +1420,8 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <End Role="VersionSysExp" EntitySet="VersionSysExp" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbProjetE1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1570,7 +1553,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Property Name="tagEmployeTypeTest" Type="String" MaxLength="70" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="tagEmployeBilletTravail" Type="String" MaxLength="90" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="BilletTravail" Relationship="Self.BT_FK_noEmploye" FromRole="Employe" ToRole="BilletTravail" />
-          <NavigationProperty Name="Equipe" Relationship="Self.E_FK_idChefEquipe" FromRole="Employe" ToRole="Equipe" />
+          <NavigationProperty Name="Equipe" Relationship="Self.E_FK_noChefEquipe" FromRole="Employe" ToRole="Equipe" />
           <NavigationProperty Name="cProjet" Relationship="Self.P_FK_noEmploye" FromRole="Employe" ToRole="Projet" />
           <NavigationProperty Name="Utilisateur" Relationship="Self.U_FK_noEmploye" FromRole="Employe" ToRole="Utilisateur" />
           <NavigationProperty Name="Equipe1" Relationship="Self.EmployeEquipe" FromRole="Employe" ToRole="Equipe" />
@@ -1589,7 +1572,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Property Name="codeProjet" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="tagEquipe" Type="String" MaxLength="60" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="tagProjetEquipe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="Employe" Relationship="Self.E_FK_idChefEquipe" FromRole="Equipe" ToRole="Employe" />
+          <NavigationProperty Name="Employe" Relationship="Self.E_FK_noChefEquipe" FromRole="Equipe" ToRole="Employe" />
           <NavigationProperty Name="BilletTravail" Relationship="Self.BT_FK_idEquipe" FromRole="Equipe" ToRole="BilletTravail" />
           <NavigationProperty Name="Employe1" Relationship="Self.EmployeEquipe" FromRole="Equipe" ToRole="Employe" />
           <NavigationProperty Name="CasTest" Relationship="Self.EquipeCasTest" FromRole="Equipe" ToRole="CasTest" />
@@ -1782,12 +1765,11 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <Key>
             <PropertyRef Name="nomEmploye" />
             <PropertyRef Name="prenomEmploye" />
-            <PropertyRef Name="nomComplet" />
           </Key>
           <Property Name="nomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="prenomEmploye" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomComplet" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tagEmploye" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="nomComplet" Type="String" Nullable="false" MaxLength="42" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AllBilletTravailPriorite">
           <Key>
@@ -1933,21 +1915,15 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
         <EntityType Name="AllBilletsTravail">
           <Key>
             <PropertyRef Name="Titre" />
-            <PropertyRef Name="CasTest" />
-            <PropertyRef Name="Type_de_Test" />
-            <PropertyRef Name="Statut" />
-            <PropertyRef Name="Priorité" />
-            <PropertyRef Name="Difficulté" />
-            <PropertyRef Name="Testeur" />
           </Key>
           <Property Name="Titre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Type_de_Test" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Statut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Priorité" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Difficulté" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CasTest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type_de_Test" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Statut" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Priorité" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Difficulté" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Durée" Type="Double" />
-          <Property Name="Testeur" Type="String" MaxLength="42" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Testeur" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
           <Property Name="Date_Livraison" Type="DateTime" Precision="0" />
           <Property Name="Jours_Restant" Type="Int32" />
           <Property Name="tagBilletTravail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -2036,7 +2012,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="E_FK_idChefEquipe">
+        <Association Name="E_FK_noChefEquipe">
           <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
           <End Role="Equipe" Type="Self.Equipe" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2283,7 +2259,7 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
             <End Role="Employe" EntitySet="Employe" />
             <End Role="BilletTravail" EntitySet="BilletTravail" />
           </AssociationSet>
-          <AssociationSet Name="E_FK_idChefEquipe" Association="Self.E_FK_idChefEquipe">
+          <AssociationSet Name="E_FK_noChefEquipe" Association="Self.E_FK_noChefEquipe">
             <End Role="Employe" EntitySet="Employe" />
             <End Role="Equipe" EntitySet="Equipe" />
           </AssociationSet>
@@ -2680,9 +2656,9 @@ avertissement 6002: La table/vue 'dbProjetE1Test.Test.AllBilletsTravail' n'a pas
           <EntitySetMapping Name="AllTesteurs">
             <EntityTypeMapping TypeName="dbProjetE1Model.AllTesteurs">
               <MappingFragment StoreEntitySet="AllTesteurs">
-                <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
                 <ScalarProperty Name="nomEmploye" ColumnName="nomEmploye" />
                 <ScalarProperty Name="prenomEmploye" ColumnName="prenomEmploye" />
+                <ScalarProperty Name="nomComplet" ColumnName="nomComplet" />
                 <ScalarProperty Name="tagEmploye" ColumnName="tagEmploye" />
               </MappingFragment>
             </EntityTypeMapping>

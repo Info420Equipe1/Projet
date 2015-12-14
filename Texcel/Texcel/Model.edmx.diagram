@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ed8ca24d585b4021be3c43b21e556017" Name="Diagram1">
+      <Diagram DiagramId="4cfd326b9466441d9d54b0f9f71efeb8" Name="Diagram1">
         <EntityTypeShape EntityType="dbProjetE1Model.ClassificationJeu" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.EditionSysExp" Width="1.5" PointX="14.75" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbProjetE1Model.GenreJeu" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
@@ -54,7 +54,7 @@
         <AssociationConnector Association="dbProjetE1Model.P_FK_idTypePlateforme" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.P_FK_idVersion" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.BT_FK_noEmploye" ManuallyRouted="false" />
-        <AssociationConnector Association="dbProjetE1Model.E_FK_idChefEquipe" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetE1Model.E_FK_noChefEquipe" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.P_FK_noEmploye" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.U_FK_noEmploye" ManuallyRouted="false" />
         <AssociationConnector Association="dbProjetE1Model.BT_FK_idEquipe" ManuallyRouted="false" />
