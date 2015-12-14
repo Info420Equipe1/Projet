@@ -98,7 +98,7 @@ $(function(){
                             </asp:BoundField>  
                             <asp:TemplateField HeaderText="Options" HeaderStyle-Width="65px" ControlStyle-CssClass="align-center">
                                 <ItemTemplate>
-                                    <a id="btnAjouterBilletCasTest" runat="server" class="table-icon addCasTest" title="Ajouter un Cas de test pour ce billet"></a>
+                                    <a id="btnAjouterBilletCasTest" runat="server" class="table-icon addCasTest" title="Ajouter un billet pour ce cas de test"></a>
                                     <a id="btnConsulterCasTest" runat="server" class="table-icon consulteCasTest" title="Consulter le Cas de test" ></a>  
                                 </ItemTemplate>
                             </asp:TemplateField>
