@@ -60,7 +60,7 @@ namespace TexcelWeb.Interfaces
                     }
                     else
                     {
-                        dR["DateLivraison"] = "YO";
+                        dR["DateLivraison"] = "Aucune date";
                     }
                     dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
 
@@ -98,6 +98,7 @@ namespace TexcelWeb.Interfaces
                 dT.Rows[0].SetField("Titre", "No Record Available");
                 lblNbrBillet.Text = "0";
                 lblNbrBilletPersonnel.Text = "0";
+                GridView1.Enabled = false;
             }
             ViewState["dtbl"] = dT;
             GridView1.DataSource = dT;
