@@ -230,7 +230,7 @@ namespace Texcel.Interfaces.Jeu
                 DR = CtrlController.getDR("Vous ètes en train de modifier un Jeu, voulez-vous continuer?");
                 if (DR == DialogResult.Yes)
                 {
-                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
+                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, ((cmbClassification.Text).Substring(0, 3)), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
                     if (message.Contains("erreur"))
                     {
                         CtrlController.MessageErreur(message);
@@ -248,7 +248,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
-                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), CtrlClassificationJeu.GetClassificationName(cmbClassification.Text), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
+                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), ((cmbClassification.Text).Substring(0,3)), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
                     CtrlController.MessageErreur(message);

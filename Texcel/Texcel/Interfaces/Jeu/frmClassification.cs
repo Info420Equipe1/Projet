@@ -60,6 +60,11 @@ namespace Texcel.Interfaces.Jeu
                 MessageBox.Show("Veuillez ajouter un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (txtCode.Text == "")
+            {
+                MessageBox.Show("Veuillez ajouter un code.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             //Validation
             if (CtrlClassificationJeu.VerifierClassificationJeu(cmbNom.Text.Trim()))

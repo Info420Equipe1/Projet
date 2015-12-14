@@ -24,7 +24,7 @@ namespace Texcel.Classes.Jeu
             cJeu jeu = new cJeu();
             jeu.nomJeu = _nomJeu;
             jeu.developeur = _devJeu;
-            ClassificationJeu cJeu = CtrlClassificationJeu.GetClassification(_classificationJeu);
+            ClassificationJeu cJeu = CtrlClassificationJeu.GetClassificationByCode(_classificationJeu);
             jeu.ClassificationJeu = cJeu;
             jeu.descJeu = _descJeu;
             jeu.configMinimal = _configMinJeu;
@@ -49,7 +49,7 @@ namespace Texcel.Classes.Jeu
         {
             cJeu jeu = GetJeu(_nomJeu);
             jeu.developeur = _devJeu;
-            ClassificationJeu cJeu = CtrlClassificationJeu.GetClassification(_classificationJeu);
+            ClassificationJeu cJeu = CtrlClassificationJeu.GetClassificationByCode(_classificationJeu);
             jeu.ClassificationJeu = cJeu;
             jeu.descJeu = _descJeu;
             jeu.configMinimal = _configMinJeu;
