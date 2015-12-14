@@ -177,6 +177,11 @@ namespace TexcelWeb
                 {
                     btnEnregistrer.Visible = false;
                 }
+                if (!lstDroits.Contains(23))
+                {
+                    btnCopier.Visible = false;
+                    btnAjoutCasTest.Visible = false;
+                }
             }
         }
         private void fillDataGridViewCasTest(cProjet projet)
