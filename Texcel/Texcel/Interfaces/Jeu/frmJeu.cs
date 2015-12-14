@@ -191,6 +191,7 @@ namespace Texcel.Interfaces.Jeu
         {
             DialogResult DR;
             string message;
+            string classification;
             List<Plateforme> plateforme = new List<Plateforme>();
             List<ThemeJeu> themeJeu = new List<ThemeJeu>();
             List<GenreJeu> genreJeu = new List<GenreJeu>();
@@ -223,14 +224,28 @@ namespace Texcel.Interfaces.Jeu
                 CtrlController.MessageErreur("Veuillez ajouter une classification!");
                 return;
             }
+            else
+            {
+                int cpt = 0, position = 0;
+                foreach (char character in cmbClassification.Text)
+	            {
+		            if (character == '-')
+	                {
+                        position = cpt-1;
+		                break;
+	                }
+                    cpt++;
+	            }
+                classification = ((cmbClassification.Text).Substring(0, position));
+            }
 
             //Validation
             if (CtrlJeu.VerifierJeu(cmbNom.Text.Trim()))
             {
-                DR = CtrlController.getDR("Vous ètes en train de modifier un Jeu, voulez-vous continuer?");
+                DR = CtrlController.getDR("Vous êtes en train de modifier un Jeu, voulez-vous continuer?");
                 if (DR == DialogResult.Yes)
                 {
-                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, ((cmbClassification.Text).Substring(0, 3)), rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
+                    message = CtrlJeu.Modifier(cmbNom.Text, txtDeveloppeur.Text, classification, rtbDescription.Text, rtbConfiguration.Text, plateforme, themeJeu, genreJeu, versionJeu);
                     if (message.Contains("erreur"))
                     {
                         CtrlController.MessageErreur(message);
@@ -248,7 +263,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
-                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), ((cmbClassification.Text).Substring(0,3)), rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
+                message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), classification, rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
                     CtrlController.MessageErreur(message);

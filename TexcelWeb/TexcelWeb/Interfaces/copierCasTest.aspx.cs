@@ -199,7 +199,8 @@ namespace TexcelWeb.Interfaces
                 }
 
 
-
+                Session["modifProjet"] = true;
+                Session["modifCodeProjet"] = proj.codeProjet;
                 this.Form.Dispose();
                 Response.Redirect("creerProjet.aspx");
 
