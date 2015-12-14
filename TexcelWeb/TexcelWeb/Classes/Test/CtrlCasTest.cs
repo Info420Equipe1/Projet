@@ -299,7 +299,17 @@ namespace TexcelWeb.Classes.Test
             }
             context.SaveChanges();
         }
-  
-      
+
+        public static bool VerifCasTestExist(string _codecasTest)
+        {
+            foreach (AllCasTest cT in context.AllCasTest)
+            {
+                if (cT.tagCasTest.Contains(_codecasTest))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

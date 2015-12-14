@@ -582,16 +582,22 @@ namespace TexcelWeb
             //}
             if (!modif)
             {
-                if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
+                if (!CtrlCasTest.VerifCasTestExist(txtCodeCasTest.Text))
                 {
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Cas de test ajouté!', 'Le cas de test a été ajouté avec succès.', 'success');", true);
-                    Session["casTest"] = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
-                    Response.Redirect(Request.RawUrl);
+                    if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
+                    {
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Cas de test ajouté!', 'Le cas de test a été ajouté avec succès.', 'success');", true);
+                        Session["casTest"] = CtrlCasTest.GetCasTestByNom(txtNomCasTest.Text);
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    else
+                    {
+                        this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du cas de test.', 'error');", true);
+                    } 
                 }
                 else
                 {
-                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Une erreur est survenue lors de la création du cas de test.', 'error');", true);
-                    Response.Write("<script type=\"text/javascript\">alert('Une erreur est survenue');</script>");
+                    this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Oops!', 'Le cas de test existe déjà.', 'error');", true);
                 }
             }
         }
