@@ -23,9 +23,12 @@ namespace TexcelWeb
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            bool modifier = Convert.ToBoolean(Session["modifProjet"]);
-            modifierProjet = modifier;
-            Session["modifProjet"] = false;
+            if (!IsPostBack)
+            {
+                bool modifier = Convert.ToBoolean(Session["modifProjet"]);
+                modifierProjet = modifier;
+                Session["modifProjet"] = false;
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -88,13 +91,7 @@ namespace TexcelWeb
         }
         private void initializeComponent(bool modif)
         {
-            //Longueur des champs
-            setFieldLength();
-            //Emplissage des DropDownList
-            fillDropDownBox();
-
             string nomChefProjet = "";
-
             //Premier loading de la page
             if (CtrlController.GetCurrentUser() == null)
             {
@@ -108,6 +105,23 @@ namespace TexcelWeb
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                 nomChefProjet = currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye;
             }
+            //Longueur des champs
+            setFieldLength();
+            //Emplissage des DropDownList
+            fillDropDownBox();
+            //RichTextBoxButton
+            Menulab.RichTextBox.Button button = rtxtDiversProjet.mlButtons.Where(x => x.Title == "Emoticons").First();
+            rtxtDiversProjet.mlButtons.Remove(button);
+            button = rtxtDiversProjet.mlButtons.Where(x => x.Title == "Forecolor").First();
+            rtxtDiversProjet.mlButtons.Remove(button);
+            button = rtxtDiversProjet.mlButtons.Where(x => x.Title == "Backcolor").First();
+            rtxtDiversProjet.mlButtons.Remove(button);
+            button = rtxtDiversProjet.mlButtons.Where(x => x.Title == "Media").First();
+            rtxtDiversProjet.mlButtons.Remove(button);
+            button = rtxtDiversProjet.mlButtons.Where(x => x.Title == "Link").First();
+            rtxtDiversProjet.mlButtons.Remove(button);
+
+            
 
             //Ajout d'un projet
             if (!modif)
@@ -246,7 +260,7 @@ namespace TexcelWeb
 
             rtxtDescriptionProjet.Text = projet.descProjet;
             rtxtObjectifProjet.Text = projet.objProjet;
-            rtxtDiversProjet.Text = projet.divProjet;
+            rtxtDiversProjet.mlHtml = projet.divProjet;
         }
         private void fillDropDownBox()
         {
@@ -393,7 +407,7 @@ namespace TexcelWeb
             string versionJeuProjet = String.Format("{0}", Request.Form["txtVersionJeuProjet"]);
             string descProjet = String.Format("{0}", Request.Form["rtxtDescriptionProjet"]);
             string objProjet = String.Format("{0}", Request.Form["rtxtObjectifProjet"]);
-            string DiversProjet = String.Format("{0}", Request.Form["rtxtDiversProjet"]);
+            string DiversProjet = rtxtDiversProjet.mlHtml;
 
             string idChefProjet;
             if (chefProjet != "Aucun")

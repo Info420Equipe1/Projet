@@ -63,6 +63,10 @@
     border: 1px solid red;
     width: 95%;
 }
+#rtxtDiversProjet table{
+    width:500px;
+    
+}
 
 .richtextbox{
     width: 505px;

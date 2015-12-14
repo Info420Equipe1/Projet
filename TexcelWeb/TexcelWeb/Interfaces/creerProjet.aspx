@@ -123,7 +123,7 @@ $(function(){
                         </div>
                         <div id="CasTestDiv">
                             <asp:Label runat="server" Text="Divers: "/>
-                            <asp:TextBox runat="server" ID="rtxtDiversProjet" TextMode="MultiLine" CssClass="richtextbox"/>
+                            <ml:RichTextBox runat="server" ID="rtxtDiversProjet" mlResizeAble="NotResizeAble" mlHeight="215px" mlWidth="505px" mlAvailableEditModes="Design" TextMode="MultiLine" />
                         </div>
                     </div>
                     <div id="btnCopierEnregistrerAnnuler">
