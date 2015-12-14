@@ -121,7 +121,8 @@ $(function(){
                                     </div>                         
                                 </div>
                             </div>
-                        </asp:Panel>  
+                        </asp:Panel>
+                        <asp:LinkButton ID="btnEnregistrer" runat="server" Text="Enregistrer" CssClass="button" OnClick ="btnEnregistrer_Click" />  
                     </div>
                 </div>
             </div>
@@ -175,7 +176,8 @@ $(function(){
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Testeur">
                                     <ItemTemplate>
-                                        <asp:DropDownList ID="ddlTesteur" runat="server" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" SelectedValue='<%# Bind("Testeur") %>'>
+                                        <asp:DropDownList ID="ddlTesteur" runat="server" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" SelectedValue='<%# Eval("Testeur") %>' AppendDataBoundItems="True">
+                                            <asp:ListItem Selected="True" Value="">(aucun)</asp:ListItem>
                                         </asp:DropDownList>
                                         <asp:EntityDataSource ID="edsTesteurs" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllTesteurs" EntityTypeFilter="AllTesteurs" Select="it.[nomComplet]">
                                         </asp:EntityDataSource>                                       

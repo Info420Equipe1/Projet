@@ -9,7 +9,7 @@ using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes.Test
 {
-    public class CtrlGestionBillet
+    public class CtrlGestionBillet : CtrlController
     {
         // Les choix des dropdownlist
         static cProjet ProjChoisi;
@@ -130,6 +130,9 @@ namespace TexcelWeb.Classes.Test
             
         }
 
-
+        public static void SaveAllBilletsTravail()
+        {
+            context.SaveChanges();
+        }
     }
 }

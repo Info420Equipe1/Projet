@@ -57,3 +57,14 @@ input, textarea, select, checkbox{
 lblColum2{
     margin-left:25px;
 }
+
+#btnEnregistrer{
+    margin-left:950px;
+    background: #F3F3F3
+}
+
+table tr:hover td{ 
+	background: none;
+	color: #565656;
+    cursor:pointer;
+}

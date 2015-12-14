@@ -9,7 +9,7 @@
 <title>Texcel - Creer un cas de test</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../css/navi.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="../css/billetTravail.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../css/creerBilletTravail.css" media="screen" />
 <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 $(function(){

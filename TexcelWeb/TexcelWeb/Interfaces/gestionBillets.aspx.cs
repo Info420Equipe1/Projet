@@ -148,7 +148,7 @@ namespace TexcelWeb.Interfaces
                 CtrlGestionBillet.SaveTesteurChoisi(-1);
                 ddlEquipe.Enabled = false;
             }
-            dgvBillets.DataSourceID = "edsBilletsTRavail";
+            dgvBillets.DataSourceID = "edsBilletsTravail";
             edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlProjet.Text + "%'";
             dgvBillets.DataBind();
             if (ddlProjet.Text != "Choisissez un projet")
@@ -225,6 +225,11 @@ namespace TexcelWeb.Interfaces
             lblNbBilletTermine.Text = CtrlProjet.nbBilletsduProjetparStatut(_projet, "Terminé").ToString();
             lblTempsTotal.Text = CtrlProjet.tempsEstimeGlobalduProjet(_projet) + " minute(s)";
             lblTempsInvesti.Text = CtrlProjet.tempsInvestiduProjet(_projet) + " minute(s)";
+        }
+
+        protected void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+            CtrlGestionBillet.SaveAllBilletsTravail();
         }
     }
 }

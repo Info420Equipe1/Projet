@@ -1,0 +1,182 @@
+﻿body {
+}
+
+#CasTestInfo {
+    width: 100%;
+    display:inline-block;
+    border:double;
+    height:50px;
+}
+#lblTop{
+     width: 75%;
+     display:inline-block;
+     text-align:right;
+ }
+#CenterLbl{
+    margin-left:25px;
+    margin-top:15px;
+}
+/* Les deux block pour le centré marcel*/
+#BilletInfo{
+    width: 50%;
+    display:inline-block;
+    position:relative;
+}
+#BilletContainer{
+    text-align:center;
+}
+/* Les deux la*/
+#txtTitreBillet{
+    width:325px;
+}
+#DureeTexte{
+    float:right;
+    padding-right:34.8%;
+}
+#txtDureeBillet{
+    width:65px;
+}
+#lblAjouterBillet{
+    font-family:'Microsoft Sans Serif';
+    font-size:25px;
+    text-align:center;
+    padding-top:25px;
+}
+#CasTestDesc{
+    width: 100%;
+    display:inline-block;
+}
+.info{
+    margin-top:5px;
+    margin-bottom:5px;
+    width: 510px;
+    text-align:left;
+}
+.richtextbox{
+    height:210px;
+    width:550px;
+    resize:none;
+}
+
+#txtEquipe{
+    display:inline-block;
+    width:200px;
+}
+
+
+
+lblColum1{
+    width: 49%;
+    display:inline-block;
+}
+
+.btnDroit{
+    display:inline-block;
+    float:right;
+    margin-right:5px;
+}
+
+#btnCopier{
+    float:left;
+}
+
+#btnCentre{ 
+    display:inline-block;
+}
+
+.lblColum1{
+    width:25%;
+    text-align:right;
+    display:inline-block;
+}
+
+
+.txtColum1{
+    display:inline;
+    width:356px;
+}
+
+
+
+.button{
+    width:175px;
+    text-align:center;
+    top: 0px;
+}
+
+.txtDate1{
+    width:25%;
+}
+
+.lblDate1{
+    width:10%;
+    margin-left:45px;
+}
+
+.txtDate2{
+    width:24%;
+    font-size:20px;
+}
+
+.lblDate2{
+    margin-left:-15px;
+    width:21%;
+}
+
+#lblNbrBillet{
+    margin-left:5px;
+}
+
+#lblNbrBilletPersonnel{
+    margin-left:5px;
+}
+
+
+#Label2{
+    display:inline;
+    margin-left:15px;
+}
+
+#pnlStats{
+    width:375px;
+    float:right;
+    margin-right:10px;
+}
+
+#cmbTesteurBillet{
+    width:360px;
+}
+
+#btnCopier{
+    float:right;
+}
+
+a {
+    text-decoration:none;
+    color:white;
+}
+
+#GridView1{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#StatLbl1{
+    margin-left:15px;
+}
+
+#imgLogo{
+    height:34px;
+    width:156px;
+    margin-top:-11px;
+    margin-right:-10px;
+}
+
+input{
+    margin-bottom:-11px;
+}
+
+#CasTestDesc{
+    text-align:left;
+}
+
