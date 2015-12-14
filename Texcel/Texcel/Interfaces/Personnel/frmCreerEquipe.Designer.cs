@@ -129,7 +129,7 @@
             this.lstTesteurEquipe.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstTesteurEquipe.Size = new System.Drawing.Size(314, 264);
             this.lstTesteurEquipe.Sorted = true;
-            this.lstTesteurEquipe.TabIndex = 5;
+            this.lstTesteurEquipe.TabIndex = 9;
             // 
             // label2
             // 
@@ -151,7 +151,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(423, 499);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 6;
+            this.btnSupprimer.TabIndex = 10;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -166,7 +166,7 @@
             this.btnCancel.Location = new System.Drawing.Point(685, 499);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -181,7 +181,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(554, 499);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 7;
+            this.btnEnregistrer.TabIndex = 11;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
@@ -191,7 +191,7 @@
             this.button1.Location = new System.Drawing.Point(454, 267);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 32);
-            this.button1.TabIndex = 47;
+            this.button1.TabIndex = 5;
             this.button1.TabStop = false;
             this.button1.Text = ">>";
             this.button1.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@
             this.button2.Location = new System.Drawing.Point(454, 446);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(37, 32);
-            this.button2.TabIndex = 48;
+            this.button2.TabIndex = 8;
             this.button2.TabStop = false;
             this.button2.Text = "<<";
             this.button2.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@
             this.button3.Location = new System.Drawing.Point(454, 327);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(37, 32);
-            this.button3.TabIndex = 49;
+            this.button3.TabIndex = 6;
             this.button3.TabStop = false;
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             this.button4.Location = new System.Drawing.Point(454, 388);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(37, 32);
-            this.button4.TabIndex = 50;
+            this.button4.TabIndex = 7;
             this.button4.TabStop = false;
             this.button4.Text = "<";
             this.button4.UseVisualStyleBackColor = true;

@@ -49,7 +49,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(687, 482);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(157, 48);
-            this.btnSupprimer.TabIndex = 3;
+            this.btnSupprimer.TabIndex = 1;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
@@ -62,7 +62,7 @@
             this.dgvSysExp.Name = "dgvSysExp";
             this.dgvSysExp.RowTemplate.Height = 24;
             this.dgvSysExp.Size = new System.Drawing.Size(990, 433);
-            this.dgvSysExp.TabIndex = 4;
+            this.dgvSysExp.TabIndex = 0;
             // 
             // frmListeSysExp
             // 
@@ -75,12 +75,8 @@
             this.Name = "frmListeSysExp";
             this.Text = "frmListeSysExp";
             this.Load += new System.EventHandler(this.frmListeSysExp_Load);
-            this.Controls.SetChildIndex(this.btnModifier, 0);
-            this.Controls.SetChildIndex(this.btnSupprimer, 0);
-            this.Controls.SetChildIndex(this.dgvSysExp, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSysExp)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -49,7 +49,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(232, 255);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 36;
+            this.btnSupprimer.TabIndex = 3;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -64,7 +64,7 @@
             this.btnCancel.Location = new System.Drawing.Point(494, 255);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 38;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -79,7 +79,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(363, 255);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 37;
+            this.btnEnregistrer.TabIndex = 4;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
@@ -91,7 +91,7 @@
             this.txtID.Location = new System.Drawing.Point(156, 39);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 27);
-            this.txtID.TabIndex = 33;
+            this.txtID.TabIndex = 0;
             // 
             // lblID
             // 
@@ -119,7 +119,7 @@
             this.rtbCommentaire.Location = new System.Drawing.Point(156, 106);
             this.rtbCommentaire.Name = "rtbCommentaire";
             this.rtbCommentaire.Size = new System.Drawing.Size(463, 143);
-            this.rtbCommentaire.TabIndex = 35;
+            this.rtbCommentaire.TabIndex = 2;
             this.rtbCommentaire.Text = "";
             // 
             // lblNom
@@ -142,7 +142,7 @@
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(463, 28);
             this.cmbNom.Sorted = true;
-            this.cmbNom.TabIndex = 34;
+            this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);

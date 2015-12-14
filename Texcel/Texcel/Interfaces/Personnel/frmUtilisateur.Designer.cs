@@ -87,7 +87,7 @@
             this.btnPtiteFlecheGauche.Location = new System.Drawing.Point(278, 226);
             this.btnPtiteFlecheGauche.Name = "btnPtiteFlecheGauche";
             this.btnPtiteFlecheGauche.Size = new System.Drawing.Size(37, 23);
-            this.btnPtiteFlecheGauche.TabIndex = 29;
+            this.btnPtiteFlecheGauche.TabIndex = 5;
             this.btnPtiteFlecheGauche.TabStop = false;
             this.btnPtiteFlecheGauche.Text = "<";
             this.btnPtiteFlecheGauche.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.btnPtiteFlecheDroite.Location = new System.Drawing.Point(278, 187);
             this.btnPtiteFlecheDroite.Name = "btnPtiteFlecheDroite";
             this.btnPtiteFlecheDroite.Size = new System.Drawing.Size(37, 25);
-            this.btnPtiteFlecheDroite.TabIndex = 28;
+            this.btnPtiteFlecheDroite.TabIndex = 4;
             this.btnPtiteFlecheDroite.TabStop = false;
             this.btnPtiteFlecheDroite.Text = ">";
             this.btnPtiteFlecheDroite.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.lsbGroupes2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lsbGroupes2.Size = new System.Drawing.Size(249, 124);
             this.lsbGroupes2.Sorted = true;
-            this.lsbGroupes2.TabIndex = 3;
+            this.lsbGroupes2.TabIndex = 7;
             // 
             // lsbGroupes
             // 
@@ -148,7 +148,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(183, 286);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 4;
+            this.btnSupprimer.TabIndex = 8;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -164,7 +164,7 @@
             this.btnCancel.Location = new System.Drawing.Point(445, 286);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -179,7 +179,7 @@
             this.btnAjouter.Location = new System.Drawing.Point(314, 286);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);
-            this.btnAjouter.TabIndex = 5;
+            this.btnAjouter.TabIndex = 9;
             this.btnAjouter.Text = "&Enregistrer";
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
@@ -189,7 +189,7 @@
             this.btn2FlecheDroite.Location = new System.Drawing.Point(278, 156);
             this.btn2FlecheDroite.Name = "btn2FlecheDroite";
             this.btn2FlecheDroite.Size = new System.Drawing.Size(37, 25);
-            this.btn2FlecheDroite.TabIndex = 30;
+            this.btn2FlecheDroite.TabIndex = 3;
             this.btn2FlecheDroite.TabStop = false;
             this.btn2FlecheDroite.Text = ">>";
             this.btn2FlecheDroite.UseVisualStyleBackColor = true;
@@ -200,7 +200,7 @@
             this.btn2FlecheGauche.Location = new System.Drawing.Point(278, 255);
             this.btn2FlecheGauche.Name = "btn2FlecheGauche";
             this.btn2FlecheGauche.Size = new System.Drawing.Size(37, 25);
-            this.btn2FlecheGauche.TabIndex = 31;
+            this.btn2FlecheGauche.TabIndex = 6;
             this.btn2FlecheGauche.TabStop = false;
             this.btn2FlecheGauche.Text = "<<";
             this.btn2FlecheGauche.UseVisualStyleBackColor = true;
@@ -227,7 +227,6 @@
             this.Controls.Add(this.txtNomUtil);
             this.Name = "frmUtilisateur";
             this.Text = "frmUtilisateur";
-            this.Load += new System.EventHandler(this.frmUtilisateur_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUtilisateur_FormClosed);
             this.Load += new System.EventHandler(this.frmUtilisateur_Load);
             this.ResumeLayout(false);

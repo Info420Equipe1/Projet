@@ -89,7 +89,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(526, 761);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 11;
+            this.btnSupprimer.TabIndex = 18;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -105,7 +105,7 @@
             this.btnCancel.Location = new System.Drawing.Point(788, 761);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -121,7 +121,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(657, 761);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 12;
+            this.btnEnregistrer.TabIndex = 19;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
@@ -131,7 +131,7 @@
             this.bntFlecheRetirer.Location = new System.Drawing.Point(443, 458);
             this.bntFlecheRetirer.Name = "bntFlecheRetirer";
             this.bntFlecheRetirer.Size = new System.Drawing.Size(37, 34);
-            this.bntFlecheRetirer.TabIndex = 23;
+            this.bntFlecheRetirer.TabIndex = 14;
             this.bntFlecheRetirer.TabStop = false;
             this.bntFlecheRetirer.Text = "<";
             this.bntFlecheRetirer.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             this.btnFlecheAjouter.Location = new System.Drawing.Point(443, 418);
             this.btnFlecheAjouter.Name = "btnFlecheAjouter";
             this.btnFlecheAjouter.Size = new System.Drawing.Size(37, 34);
-            this.btnFlecheAjouter.TabIndex = 22;
+            this.btnFlecheAjouter.TabIndex = 13;
             this.btnFlecheAjouter.TabStop = false;
             this.btnFlecheAjouter.Text = ">";
             this.btnFlecheAjouter.UseVisualStyleBackColor = true;
@@ -154,7 +154,7 @@
             this.rtbCompParticuliere.Location = new System.Drawing.Point(27, 609);
             this.rtbCompParticuliere.Name = "rtbCompParticuliere";
             this.rtbCompParticuliere.Size = new System.Drawing.Size(886, 146);
-            this.rtbCompParticuliere.TabIndex = 10;
+            this.rtbCompParticuliere.TabIndex = 17;
             this.rtbCompParticuliere.Text = "";
             // 
             // lblCompetences
@@ -188,7 +188,7 @@
             this.lstBoxTypeTestEmp.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxTypeTestEmp.Size = new System.Drawing.Size(427, 224);
             this.lstBoxTypeTestEmp.Sorted = true;
-            this.lstBoxTypeTestEmp.TabIndex = 9;
+            this.lstBoxTypeTestEmp.TabIndex = 16;
             // 
             // lstBoxTypeTest
             // 
@@ -200,7 +200,7 @@
             this.lstBoxTypeTest.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxTypeTest.Size = new System.Drawing.Size(410, 224);
             this.lstBoxTypeTest.Sorted = true;
-            this.lstBoxTypeTest.TabIndex = 8;
+            this.lstBoxTypeTest.TabIndex = 11;
             // 
             // label1
             // 
@@ -364,7 +364,7 @@
             this.btnFlecheAjouterMultiple.Location = new System.Drawing.Point(443, 346);
             this.btnFlecheAjouterMultiple.Name = "btnFlecheAjouterMultiple";
             this.btnFlecheAjouterMultiple.Size = new System.Drawing.Size(37, 34);
-            this.btnFlecheAjouterMultiple.TabIndex = 33;
+            this.btnFlecheAjouterMultiple.TabIndex = 12;
             this.btnFlecheAjouterMultiple.TabStop = false;
             this.btnFlecheAjouterMultiple.Text = ">>";
             this.btnFlecheAjouterMultiple.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             this.bntFlecheRetirerMultiple.Location = new System.Drawing.Point(443, 536);
             this.bntFlecheRetirerMultiple.Name = "bntFlecheRetirerMultiple";
             this.bntFlecheRetirerMultiple.Size = new System.Drawing.Size(37, 34);
-            this.bntFlecheRetirerMultiple.TabIndex = 34;
+            this.bntFlecheRetirerMultiple.TabIndex = 15;
             this.bntFlecheRetirerMultiple.TabStop = false;
             this.bntFlecheRetirerMultiple.Text = "<<";
             this.bntFlecheRetirerMultiple.UseVisualStyleBackColor = true;

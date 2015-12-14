@@ -48,7 +48,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(417, 319);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
-            this.btnAnnuler.TabIndex = 16;
+            this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "&Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
@@ -63,7 +63,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(286, 319);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 15;
+            this.btnEnregistrer.TabIndex = 3;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
@@ -94,7 +94,7 @@
             this.txtNomVersion.Location = new System.Drawing.Point(178, 94);
             this.txtNomVersion.Name = "txtNomVersion";
             this.txtNomVersion.Size = new System.Drawing.Size(233, 27);
-            this.txtNomVersion.TabIndex = 19;
+            this.txtNomVersion.TabIndex = 1;
             // 
             // rtxtComm
             // 
@@ -102,7 +102,7 @@
             this.rtxtComm.Location = new System.Drawing.Point(140, 144);
             this.rtxtComm.Name = "rtxtComm";
             this.rtxtComm.Size = new System.Drawing.Size(402, 169);
-            this.rtxtComm.TabIndex = 20;
+            this.rtxtComm.TabIndex = 2;
             this.rtxtComm.Text = "";
             // 
             // label3
@@ -122,7 +122,7 @@
             this.cmbJeux.Location = new System.Drawing.Point(178, 48);
             this.cmbJeux.Name = "cmbJeux";
             this.cmbJeux.Size = new System.Drawing.Size(233, 24);
-            this.cmbJeux.TabIndex = 22;
+            this.cmbJeux.TabIndex = 0;
             this.cmbJeux.SelectedIndexChanged += new System.EventHandler(this.cmbJeux_SelectedIndexChanged);
             // 
             // frmAjouterVersionJeu

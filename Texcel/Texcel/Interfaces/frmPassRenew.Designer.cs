@@ -42,7 +42,7 @@
             this.btn.Location = new System.Drawing.Point(243, 110);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(134, 42);
-            this.btn.TabIndex = 0;
+            this.btn.TabIndex = 3;
             this.btn.Text = "&Enregistrer";
             this.btn.UseVisualStyleBackColor = true;
             this.btn.Click += new System.EventHandler(this.btn_Click);
@@ -70,7 +70,7 @@
             this.label1.Location = new System.Drawing.Point(100, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 20);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 50;
             this.label1.Text = "Mot de passe";
             // 
             // label2
@@ -80,7 +80,7 @@
             this.label2.Location = new System.Drawing.Point(24, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(186, 20);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 51;
             this.label2.Text = "Ressaisir mot de passe";
             // 
             // frmPassRenew

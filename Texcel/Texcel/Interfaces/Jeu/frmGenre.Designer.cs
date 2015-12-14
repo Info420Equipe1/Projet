@@ -49,7 +49,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(150, 256);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(125, 50);
-            this.btnSupprimer.TabIndex = 33;
+            this.btnSupprimer.TabIndex = 3;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Visible = false;
@@ -65,7 +65,7 @@
             this.btnCancel.Location = new System.Drawing.Point(412, 256);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(125, 50);
-            this.btnCancel.TabIndex = 32;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "&Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -80,7 +80,7 @@
             this.btnAjouter.Location = new System.Drawing.Point(281, 256);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(125, 50);
-            this.btnAjouter.TabIndex = 31;
+            this.btnAjouter.TabIndex = 4;
             this.btnAjouter.Text = "&Enregistrer";
             this.btnAjouter.UseVisualStyleBackColor = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
@@ -92,7 +92,7 @@
             this.txtID.Location = new System.Drawing.Point(132, 30);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 27);
-            this.txtID.TabIndex = 30;
+            this.txtID.TabIndex = 0;
             // 
             // lblNumero
             // 
@@ -120,7 +120,7 @@
             this.rtbCommentaire.Location = new System.Drawing.Point(132, 97);
             this.rtbCommentaire.Name = "rtbCommentaire";
             this.rtbCommentaire.Size = new System.Drawing.Size(405, 153);
-            this.rtbCommentaire.TabIndex = 27;
+            this.rtbCommentaire.TabIndex = 2;
             this.rtbCommentaire.Text = "";
             // 
             // lblNom
@@ -142,7 +142,7 @@
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(405, 28);
             this.cmbNom.Sorted = true;
-            this.cmbNom.TabIndex = 25;
+            this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);

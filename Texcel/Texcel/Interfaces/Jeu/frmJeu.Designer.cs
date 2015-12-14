@@ -97,7 +97,7 @@
             this.button12.Location = new System.Drawing.Point(382, 828);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(32, 23);
-            this.button12.TabIndex = 64;
+            this.button12.TabIndex = 23;
             this.button12.TabStop = false;
             this.button12.Text = "<<";
             this.button12.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.button11.Location = new System.Drawing.Point(382, 747);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(32, 23);
-            this.button11.TabIndex = 63;
+            this.button11.TabIndex = 20;
             this.button11.TabStop = false;
             this.button11.Text = ">>";
             this.button11.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             this.button10.Location = new System.Drawing.Point(382, 718);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(32, 23);
-            this.button10.TabIndex = 62;
+            this.button10.TabIndex = 17;
             this.button10.TabStop = false;
             this.button10.Text = "<<";
             this.button10.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.button9.Location = new System.Drawing.Point(381, 639);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(32, 23);
-            this.button9.TabIndex = 61;
+            this.button9.TabIndex = 14;
             this.button9.TabStop = false;
             this.button9.Text = ">>";
             this.button9.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@
             this.button8.Location = new System.Drawing.Point(382, 610);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(32, 23);
-            this.button8.TabIndex = 60;
+            this.button8.TabIndex = 11;
             this.button8.TabStop = false;
             this.button8.Text = "<<";
             this.button8.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             this.button7.Location = new System.Drawing.Point(381, 525);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(32, 23);
-            this.button7.TabIndex = 59;
+            this.button7.TabIndex = 8;
             this.button7.TabStop = false;
             this.button7.Text = ">>";
             this.button7.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@
             this.button4.Location = new System.Drawing.Point(381, 554);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(32, 23);
-            this.button4.TabIndex = 0;
+            this.button4.TabIndex = 9;
             this.button4.TabStop = false;
             this.button4.Text = ">";
             this.button4.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
             this.button1.Location = new System.Drawing.Point(382, 587);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 53;
+            this.button1.TabIndex = 10;
             this.button1.TabStop = false;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@
             this.lstBoxPlat2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxPlat2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxPlat2.Sorted = true;
-            this.lstBoxPlat2.TabIndex = 6;
+            this.lstBoxPlat2.TabIndex = 7;
             // 
             // lstBoxPlat1
             // 
@@ -246,7 +246,7 @@
             this.lstBoxPlat1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxPlat1.Size = new System.Drawing.Size(392, 104);
             this.lstBoxPlat1.Sorted = true;
-            this.lstBoxPlat1.TabIndex = 7;
+            this.lstBoxPlat1.TabIndex = 12;
             // 
             // btnClear
             // 
@@ -258,7 +258,7 @@
             this.btnClear.Location = new System.Drawing.Point(526, 860);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(125, 50);
-            this.btnClear.TabIndex = 15;
+            this.btnClear.TabIndex = 25;
             this.btnClear.Text = "&Effacer Tout";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -304,7 +304,7 @@
             this.button6.Location = new System.Drawing.Point(381, 772);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(32, 23);
-            this.button6.TabIndex = 46;
+            this.button6.TabIndex = 21;
             this.button6.TabStop = false;
             this.button6.Text = ">";
             this.button6.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@
             this.button5.Location = new System.Drawing.Point(381, 666);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(32, 23);
-            this.button5.TabIndex = 45;
+            this.button5.TabIndex = 15;
             this.button5.TabStop = false;
             this.button5.Text = ">";
             this.button5.UseVisualStyleBackColor = true;
@@ -326,7 +326,7 @@
             this.button3.Location = new System.Drawing.Point(382, 805);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(32, 23);
-            this.button3.TabIndex = 43;
+            this.button3.TabIndex = 22;
             this.button3.TabStop = false;
             this.button3.Text = "<";
             this.button3.UseVisualStyleBackColor = true;
@@ -337,7 +337,7 @@
             this.button2.Location = new System.Drawing.Point(382, 695);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 23);
-            this.button2.TabIndex = 42;
+            this.button2.TabIndex = 16;
             this.button2.TabStop = false;
             this.button2.Text = "<";
             this.button2.UseVisualStyleBackColor = true;
@@ -353,7 +353,7 @@
             this.lstBoxGenre2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxGenre2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxGenre2.Sorted = true;
-            this.lstBoxGenre2.TabIndex = 10;
+            this.lstBoxGenre2.TabIndex = 19;
             // 
             // lstBoxGenre1
             // 
@@ -365,7 +365,7 @@
             this.lstBoxGenre1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxGenre1.Size = new System.Drawing.Size(391, 104);
             this.lstBoxGenre1.Sorted = true;
-            this.lstBoxGenre1.TabIndex = 11;
+            this.lstBoxGenre1.TabIndex = 24;
             // 
             // lstBoxTheme2
             // 
@@ -377,7 +377,7 @@
             this.lstBoxTheme2.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxTheme2.Size = new System.Drawing.Size(341, 104);
             this.lstBoxTheme2.Sorted = true;
-            this.lstBoxTheme2.TabIndex = 8;
+            this.lstBoxTheme2.TabIndex = 13;
             // 
             // lstBoxTheme1
             // 
@@ -389,7 +389,7 @@
             this.lstBoxTheme1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstBoxTheme1.Size = new System.Drawing.Size(391, 104);
             this.lstBoxTheme1.Sorted = true;
-            this.lstBoxTheme1.TabIndex = 9;
+            this.lstBoxTheme1.TabIndex = 18;
             // 
             // lstBoxVersion
             // 
@@ -400,7 +400,7 @@
             this.lstBoxVersion.Name = "lstBoxVersion";
             this.lstBoxVersion.Size = new System.Drawing.Size(392, 104);
             this.lstBoxVersion.Sorted = true;
-            this.lstBoxVersion.TabIndex = 12;
+            this.lstBoxVersion.TabIndex = 6;
             // 
             // lblTheme
             // 
@@ -480,7 +480,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(788, 860);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(125, 50);
-            this.btnAnnuler.TabIndex = 14;
+            this.btnAnnuler.TabIndex = 27;
             this.btnAnnuler.Text = "&Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
@@ -557,7 +557,7 @@
             this.btnEnregistrer.Location = new System.Drawing.Point(657, 860);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(125, 50);
-            this.btnEnregistrer.TabIndex = 13;
+            this.btnEnregistrer.TabIndex = 26;
             this.btnEnregistrer.Text = "&Enregistrer";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);

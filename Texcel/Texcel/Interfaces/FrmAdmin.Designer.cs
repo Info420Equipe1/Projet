@@ -179,11 +179,11 @@
             this.smiClassification = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.smiJeu = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionDeJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionTest = new System.Windows.Forms.ToolStripMenuItem();
             this.typeDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionDeJeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -228,7 +228,7 @@
             this.dgvResultats.RowTemplate.Height = 24;
             this.dgvResultats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvResultats.Size = new System.Drawing.Size(683, 576);
-            this.dgvResultats.TabIndex = 9;
+            this.dgvResultats.TabIndex = 4;
             this.dgvResultats.TabStop = false;
             this.dgvResultats.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultats_CellMouseDown);
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
@@ -1648,7 +1648,7 @@
             this.btnRechercher.Location = new System.Drawing.Point(1120, 47);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(121, 28);
-            this.btnRechercher.TabIndex = 5;
+            this.btnRechercher.TabIndex = 3;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
             this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
@@ -1671,7 +1671,7 @@
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(352, 28);
             this.cmbFiltre.Sorted = true;
-            this.cmbFiltre.TabIndex = 3;
+            this.cmbFiltre.TabIndex = 2;
             this.cmbFiltre.DropDown += new System.EventHandler(this.cmbFiltre_DropDown);
             this.cmbFiltre.SelectedIndexChanged += new System.EventHandler(this.cmbFiltre_SelectedIndexChanged);
             // 
@@ -1722,7 +1722,7 @@
             // smiDeconnection
             // 
             this.smiDeconnection.Name = "smiDeconnection";
-            this.smiDeconnection.Size = new System.Drawing.Size(175, 24);
+            this.smiDeconnection.Size = new System.Drawing.Size(173, 24);
             this.smiDeconnection.Text = "&Déconnexion";
             this.smiDeconnection.Click += new System.EventHandler(this.smiDeconnection_Click);
             // 
@@ -1730,7 +1730,7 @@
             // 
             this.smiQuitter.Name = "smiQuitter";
             this.smiQuitter.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiQuitter.Size = new System.Drawing.Size(175, 24);
+            this.smiQuitter.Size = new System.Drawing.Size(173, 24);
             this.smiQuitter.Text = "&Quitter";
             this.smiQuitter.Click += new System.EventHandler(this.smiQuitter_Click);
             // 
@@ -1824,6 +1824,14 @@
             this.smiJeu.Text = "&Jeu";
             this.smiJeu.Click += new System.EventHandler(this.SmiJeu_Click);
             // 
+            // versionDeJeuToolStripMenuItem
+            // 
+            this.versionDeJeuToolStripMenuItem.Name = "versionDeJeuToolStripMenuItem";
+            this.versionDeJeuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
+            this.versionDeJeuToolStripMenuItem.Size = new System.Drawing.Size(275, 24);
+            this.versionDeJeuToolStripMenuItem.Text = "&Version de jeu";
+            this.versionDeJeuToolStripMenuItem.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
+            // 
             // smiGestionPersonnel
             // 
             this.smiGestionPersonnel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1837,7 +1845,7 @@
             // 
             this.smiEquipe.Name = "smiEquipe";
             this.smiEquipe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.smiEquipe.Size = new System.Drawing.Size(175, 24);
+            this.smiEquipe.Size = new System.Drawing.Size(173, 24);
             this.smiEquipe.Text = "&Équipe";
             this.smiEquipe.Click += new System.EventHandler(this.smiEquipe_Click);
             // 
@@ -1856,14 +1864,6 @@
             this.typeDeTestToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.typeDeTestToolStripMenuItem.Text = "Type de test";
             this.typeDeTestToolStripMenuItem.Click += new System.EventHandler(this.smiTypeTest_Click);
-            // 
-            // versionDeJeuToolStripMenuItem
-            // 
-            this.versionDeJeuToolStripMenuItem.Name = "versionDeJeuToolStripMenuItem";
-            this.versionDeJeuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
-            this.versionDeJeuToolStripMenuItem.Size = new System.Drawing.Size(275, 24);
-            this.versionDeJeuToolStripMenuItem.Text = "&Version de jeu";
-            this.versionDeJeuToolStripMenuItem.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
             // 
             // frmAdmin
             // 

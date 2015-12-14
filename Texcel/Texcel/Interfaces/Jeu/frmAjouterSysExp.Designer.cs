@@ -63,7 +63,7 @@
             this.rtbCommentaire.Location = new System.Drawing.Point(132, 183);
             this.rtbCommentaire.Name = "rtbCommentaire";
             this.rtbCommentaire.Size = new System.Drawing.Size(457, 140);
-            this.rtbCommentaire.TabIndex = 4;
+            this.rtbCommentaire.TabIndex = 3;
             this.rtbCommentaire.Text = "";
             // 
             // lblNom
@@ -96,7 +96,7 @@
             this.cmbEdition.Name = "cmbEdition";
             this.cmbEdition.Size = new System.Drawing.Size(238, 28);
             this.cmbEdition.Sorted = true;
-            this.cmbEdition.TabIndex = 2;
+            this.cmbEdition.TabIndex = 1;
             this.cmbEdition.DropDown += new System.EventHandler(this.cmbEdition_DropDown);
             // 
             // cmbNom
@@ -197,7 +197,7 @@
             this.txtCode.MaxLength = 20;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(126, 27);
-            this.txtCode.TabIndex = 30;
+            this.txtCode.TabIndex = 2;
             // 
             // lblCode
             // 

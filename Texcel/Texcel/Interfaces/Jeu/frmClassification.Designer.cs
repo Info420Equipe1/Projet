@@ -118,7 +118,7 @@
             this.cmbNom.Name = "cmbNom";
             this.cmbNom.Size = new System.Drawing.Size(210, 28);
             this.cmbNom.Sorted = true;
-            this.cmbNom.TabIndex = 0;
+            this.cmbNom.TabIndex = 1;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
             this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);
@@ -130,7 +130,7 @@
             this.txtCode.MaxLength = 3;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(107, 27);
-            this.txtCode.TabIndex = 1;
+            this.txtCode.TabIndex = 0;
             // 
             // picClassification
             // 
