@@ -335,7 +335,7 @@ namespace Texcel.Interfaces.Jeu
             }
             catch (Exception)
             {
-                picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\NoImage.png");
+                picSysExp.Image = Image.FromFile(@"C:\Users\Utilisateur\Documents\GitHub\Projet\Texcel\Texcel\Images\NoImage.png");
             }
         }
 
