@@ -188,6 +188,19 @@ namespace TexcelWeb.Interfaces
             }
             edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlTesteur.Text + "%'";
         }
+
+        protected void ddlDuree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex))
+            {
+                // afficher quelque chose
+            }
+            else
+            {
+                // affiche rien car l'index choisi c'est "Choisissez.."
+            }
+            edsBilletsTravail.Where = "it.[Jours_Restant] like '%" + ddlDuree.Text + "%'";
+        }
   
         //*************************************GRIDVIEW EVENT***************************************//
         protected void dgvBillets_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -136,8 +136,8 @@ $(function(){
                                         <asp:CheckBox ID="ChkBox" runat="server"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="Titre" DataField="Titre" SortExpression="Titre" ></asp:BoundField>
-                                <asp:TemplateField HeaderText="Priorité" SortExpression="nomNivPri">
+                                <asp:BoundField HeaderText="Titre" DataField="Titre" ></asp:BoundField>
+                                <asp:TemplateField HeaderText="Priorité">
                                     <ItemTemplate>
                                         <asp:DropDownList ID="ddlPriorite" runat="server" DataSourceID="edsPriorite" DataTextField="nomNivPri" DataValueField="nomNivPri" SelectedValue='<%# Bind("Priorité") %>'>
                                         </asp:DropDownList>
@@ -145,7 +145,7 @@ $(function(){
                                         </asp:EntityDataSource>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Difficulté" SortExpression="nomDiff" >
+                                <asp:TemplateField HeaderText="Difficulté" >
                                     <ItemTemplate>
                                         <asp:DropDownList ID="ddlDifficulte" runat="server" DataSourceID="edsDifficulte" DataTextField="nomDiff" DataValueField="nomDiff" SelectedValue='<%# Bind("Difficulté") %>'>
                                         </asp:DropDownList>
@@ -153,7 +153,7 @@ $(function(){
                                         </asp:EntityDataSource>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Statut" SortExpression="nomStatut" >
+                                <asp:TemplateField HeaderText="Statut" >
                                     <ItemTemplate>
                                         <asp:DropDownList ID="ddlStatut" runat="server" DataSourceID="edsStatut" DataTextField="nomStatut" DataValueField="nomStatut" SelectedValue='<%# Bind("Statut") %>'>
                                         </asp:DropDownList>
@@ -161,7 +161,7 @@ $(function(){
                                         </asp:EntityDataSource>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Type de Test" SortExpression="nomTest" >
+                                <asp:TemplateField HeaderText="Type de Test" >
                                     <ItemTemplate>
                                         <asp:DropDownList ID="ddlTypeTest" runat="server" DataSourceID="edsTypeTest" DataTextField="nomTest" DataValueField="nomTest" SelectedValue='<%# Bind("Type_de_Test") %>'>
                                         </asp:DropDownList>
@@ -169,12 +169,12 @@ $(function(){
                                         </asp:EntityDataSource>
                                     </ItemTemplate>
                                 </asp:TemplateField>      
-                                <asp:TemplateField HeaderText="Durée" SortExpression="Durée">
+                                <asp:TemplateField HeaderText="Durée">
                                     <ItemTemplate>
                                         <asp:TextBox ID="txtDuree" runat="server" Text='<%# Bind("Durée") %>' Width="50px"></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Testeur" SortExpression="nomComplet">
+                                <asp:TemplateField HeaderText="Testeur">
                                     <ItemTemplate>
                                         <asp:DropDownList ID="ddlTesteur" runat="server" DataSourceID="edsTesteurs" DataTextField="nomComplet" DataValueField="nomComplet" SelectedValue='<%# Eval("Testeur") %>' AppendDataBoundItems="True">
                                             <asp:ListItem Selected="True" Value="">(aucun)</asp:ListItem>
@@ -183,11 +183,11 @@ $(function(){
                                         </asp:EntityDataSource>                                       
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="CasTest" HeaderText="Cas de Test" SortExpression="CasTest" />       
-                                <asp:BoundField DataField="Date_Livraison" HeaderText="Livraison" SortExpression="Date_Livraison">
+                                <asp:BoundField DataField="CasTest" HeaderText="Cas de Test" />       
+                                <asp:BoundField DataField="Date_Livraison" HeaderText="Livraison">
                                 <ItemStyle Wrap="False" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Jours_Restant" HeaderText="Nb.Jours" SortExpression="Jours_Restant" />
+                                <asp:BoundField DataField="Jours_Restant" HeaderText="Nb.Jours" />
                             </Columns>
                         </asp:GridView>
                         <asp:EntityDataSource ID="edsBilletsTravail" runat="server" ConnectionString="name=dbProjetE1Entities" DefaultContainerName="dbProjetE1Entities" EnableFlattening="False" EntitySetName="AllBilletsTravail" EntityTypeFilter="AllBilletsTravail" Select="it.[Titre], it.[CasTest], it.[Type_de_Test], it.[Statut], it.[Priorité], it.[Difficulté], it.[Durée], it.[Testeur], it.[Date_Livraison], it.[Jours_Restant]"></asp:EntityDataSource>       

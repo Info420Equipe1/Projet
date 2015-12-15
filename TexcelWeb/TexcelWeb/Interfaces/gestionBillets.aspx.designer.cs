@@ -202,6 +202,15 @@ namespace TexcelWeb.Interfaces {
         protected global::System.Web.UI.WebControls.DropDownList ddlTesteur;
         
         /// <summary>
+        /// Contrôle ddlDuree.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDuree;
+        
+        /// <summary>
         /// Contrôle pnlStats.
         /// </summary>
         /// <remarks>
