@@ -19,6 +19,7 @@ namespace Texcel.Interfaces.Jeu
         public frmJeu()
         {
             InitializeComponent();
+            fillLstBox();
             modif = false;
         }
 

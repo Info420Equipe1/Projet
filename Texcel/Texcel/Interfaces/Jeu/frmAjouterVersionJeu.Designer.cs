@@ -92,6 +92,7 @@
             // 
             this.txtNomVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomVersion.Location = new System.Drawing.Point(178, 94);
+            this.txtNomVersion.MaxLength = 20;
             this.txtNomVersion.Name = "txtNomVersion";
             this.txtNomVersion.Size = new System.Drawing.Size(233, 27);
             this.txtNomVersion.TabIndex = 1;
