@@ -345,5 +345,21 @@ namespace TexcelWeb.Classes.Projet
             }
             return tempsInvesti.ToString();
         }
+
+        public static string tempsEstimeBilletsEnCoursduProjet(cProjet _projet)
+        {
+            double dureeEstime = 0;
+            foreach (CasTest casTest in _projet.CasTest)
+            {
+                foreach (BilletTravail billet in casTest.BilletTravail)
+                {
+                    if (billet.Statut.nomStatut == "En cours")
+                    {
+                        dureeEstime += Convert.ToDouble(billet.dureeBilletTravail);
+                    } 
+                }
+            }
+            return dureeEstime.ToString();
+        }
     }
 }

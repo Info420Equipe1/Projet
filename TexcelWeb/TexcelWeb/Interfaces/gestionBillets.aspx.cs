@@ -199,7 +199,7 @@ namespace TexcelWeb.Interfaces
             {
                 // affiche rien car l'index choisi c'est "Choisissez.."
             }
-            edsBilletsTravail.Where = "it.[Jours_Restant] like '%" + ddlDuree.Text + "%'";
+            //edsBilletsTravail.Where = "it.[Jours_Restant] like '%" + ddlDuree.Text + "%'";
         }
   
         //*************************************GRIDVIEW EVENT***************************************//
@@ -235,9 +235,10 @@ namespace TexcelWeb.Interfaces
             lblNbCasTest.Text = CtrlProjet.nbCasTestduProjet(_projet).ToString();
             lblNbBillet.Text = CtrlProjet.nbBilletsduProjet(_projet).ToString();
             lblNbBilletEnCours.Text = CtrlProjet.nbBilletsduProjetparStatut(_projet, "En cours").ToString();
+            lblTempsEstime.Text = CtrlProjet.tempsEstimeBilletsEnCoursduProjet(_projet) + " min(s)";
             lblNbBilletTermine.Text = CtrlProjet.nbBilletsduProjetparStatut(_projet, "Terminé").ToString();
-            lblTempsTotal.Text = CtrlProjet.tempsEstimeGlobalduProjet(_projet) + " minute(s)";
-            lblTempsInvesti.Text = CtrlProjet.tempsInvestiduProjet(_projet) + " minute(s)";
+            lblTempsTotal.Text = CtrlProjet.tempsEstimeGlobalduProjet(_projet) + " min(s)";
+            lblTempsInvesti.Text = CtrlProjet.tempsInvestiduProjet(_projet) + " min(s)";
         }
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
