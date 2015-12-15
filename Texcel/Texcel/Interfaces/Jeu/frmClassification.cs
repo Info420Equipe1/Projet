@@ -37,12 +37,12 @@ namespace Texcel.Interfaces.Jeu
 
             try
             {
-                picClassification.Image = Image.FromFile(@"Images\Jeu\Classifications\" + classificationJeu.codeClassification + ".jpg");
+                picClassification.Image = Image.FromFile(@"..\..\Images\Jeu\Classifications\" + classificationJeu.codeClassification + ".jpg");
                 //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
-                picClassification.ImageLocation = @"Images\NoImage.png";
+                picClassification.ImageLocation = @"..\..\Images\NoImage.png";
             }
 
             rtbDescription.SelectAll();

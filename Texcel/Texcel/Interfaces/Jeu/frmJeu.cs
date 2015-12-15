@@ -25,6 +25,7 @@ namespace Texcel.Interfaces.Jeu
         public frmJeu(cJeu jeu)
         {
             InitializeComponent();
+            fillLstBox();
             modif = true;
             btnEnregistrer.Text = "Modifier";
             txtID.Enabled = false;
@@ -32,19 +33,19 @@ namespace Texcel.Interfaces.Jeu
             cmbNom.Enabled = false;
             cmbNom.Text = jeu.nomJeu;
             txtDeveloppeur.Text = jeu.developeur;
-            cmbClassification.Text = jeu.ClassificationJeu.nomClassification; //Probleme daffichage... Prendrait le selected index
+            cmbClassification.Text = (jeu.ClassificationJeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification);
             rtbDescription.Text = jeu.descJeu;
             rtbDescription.Focus();
             rtbDescription.SelectAll();
             rtbConfiguration.Text = jeu.configMinimal;
             try
             {
-                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
                 //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
-                picJeu.ImageLocation = @"Images\NoImage.png";
+                picJeu.ImageLocation = @"..\..\Images\NoImage.png";
             }
             foreach (VersionJeu version in jeu.VersionJeu)
             {
@@ -63,20 +64,14 @@ namespace Texcel.Interfaces.Jeu
                 lstBoxGenre1.Items.Add(genre.nomGenre);
             }
         }
-
-        private void btnAnnuler_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void frmJeu_Load(object sender, EventArgs e)
+        private void fillLstBox()
         {
             //Emplissage de la list box des Plateforme Globales
             foreach (Plateforme plat in CtrlPlateforme.lstPlateformeJeu())
             {
                 lstBoxPlat2.Items.Add(plat.nomPlateforme);
             }
-            
+
             //Emplissage de la list box des Themes globaux
             foreach (ThemeJeu theme in CtrlThemeJeu.LstThemeJeu())
             {
@@ -94,6 +89,11 @@ namespace Texcel.Interfaces.Jeu
             {
                 cmbClassification.Items.Add(classJeu.codeClassification + " - " + classJeu.nomClassification);
             }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void cmbNom_DropDown(object sender, EventArgs e)
@@ -122,12 +122,12 @@ namespace Texcel.Interfaces.Jeu
             rtbConfiguration.Text = jeu.configMinimal;
             try
             {
-                picJeu.Image = Image.FromFile(@"Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
+                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
                 //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
-                picJeu.ImageLocation = @"Images\NoImage.png";
+                picJeu.ImageLocation = @"..\..\Images\NoImage.png";
             }
 
             

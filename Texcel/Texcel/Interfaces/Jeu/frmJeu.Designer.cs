@@ -639,7 +639,6 @@
             this.Controls.Add(this.btnEnregistrer);
             this.Name = "frmJeu";
             this.Text = " Gestion des Jeux";
-            this.Load += new System.EventHandler(this.frmJeu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picJeu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterPlateforme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAjouterGenre)).EndInit();

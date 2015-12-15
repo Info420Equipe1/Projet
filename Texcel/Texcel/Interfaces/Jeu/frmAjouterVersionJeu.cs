@@ -40,6 +40,7 @@ namespace Texcel.Interfaces.Jeu
             txtNomVersion.Text = _versionJeu.nomVersionJeu;
             rtxtComm.Text = _versionJeu.commVersionJeu;
             txtNomVersion.Enabled = false;
+            cmbJeux.Enabled = false;
         }
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
