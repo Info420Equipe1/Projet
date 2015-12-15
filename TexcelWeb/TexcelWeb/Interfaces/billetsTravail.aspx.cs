@@ -50,42 +50,46 @@ namespace TexcelWeb.Interfaces
             {
                 foreach (BilletTravail bT in lstBilletTravail)
                 {
-                    DataRow dR = dT.NewRow();
-                    dR["Titre"] = bT.titreBilletTravail;
-                    dR["Priorite"] = bT.NiveauPriorite.nomNivPri;
-                    dR["Difficulte"] = bT.CasTest.Difficulte.nomDiff;
-                    if (bT.dateLivraison != null)
+                    if (bT.CasTest != null)
                     {
-                        dR["DateLivraison"] = ((DateTime)bT.dateLivraison).ToShortDateString();
-                    }
-                    else
-                    {
-                        dR["DateLivraison"] = "Aucune date";
-                    }
-                    dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
+                        DataRow dR = dT.NewRow();
+                        dR["Titre"] = bT.titreBilletTravail;
+                        dR["Priorite"] = bT.NiveauPriorite.nomNivPri;
 
-                    dR["Duree"] = bT.dureeBilletTravail;
-                    dR["Projet"] = bT.CasTest.cProjet.nomProjet;
-                    dT.Rows.Add(dR);
-                    if (bT.idNivPri == 1)
-                    {
-                        cpt++;
-                    }
-                    if (bT.noEmploye != null)
-                    {
-                        VerifSelec.Add(true);
-                    }
-                    else
-                    {
-                        VerifSelec.Add(false);
-                    }
-                    if (bT.idStatut == 5)
-                    {
-                        VerifTerm.Add(true);
-                    }
-                    else
-                    {
-                        VerifTerm.Add(false);
+                        dR["Difficulte"] = bT.CasTest.Difficulte.nomDiff;
+                        if (bT.dateLivraison != null)
+                        {
+                            dR["DateLivraison"] = ((DateTime)bT.dateLivraison).ToShortDateString();
+                        }
+                        else
+                        {
+                            dR["DateLivraison"] = "Aucune date";
+                        }
+                        dR["TypeTest"] = bT.CasTest.TypeTest.nomTest;
+
+                        dR["Duree"] = bT.dureeBilletTravail;
+                        dR["Projet"] = bT.CasTest.cProjet.nomProjet;
+                        dT.Rows.Add(dR);
+                        if (bT.idNivPri == 1)
+                        {
+                            cpt++;
+                        }
+                        if (bT.noEmploye != null)
+                        {
+                            VerifSelec.Add(true);
+                        }
+                        else
+                        {
+                            VerifSelec.Add(false);
+                        }
+                        if (bT.idStatut == 5)
+                        {
+                            VerifTerm.Add(true);
+                        }
+                        else
+                        {
+                            VerifTerm.Add(false);
+                        }
                     }
                 }
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();

@@ -69,7 +69,7 @@ $(function(){
                     <asp:Panel ID="pnlStats" runat="server" GroupingText="Statistiques">
                         <asp:Label ID="StatLbl1" runat="server" Text="Nombre de billet urgent: "></asp:Label>
                         <asp:Label ID="lblNbrBillet" runat="server" Text=""></asp:Label><br />
-                        <asp:Label ID="Label2" runat="server" Text="Nombre de billet personnel: "></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Nombre de billet total: "></asp:Label>
                         <asp:Label ID="lblNbrBilletPersonnel" runat="server" Text="" ></asp:Label><br /><br />         
                     </asp:Panel>    
                       </div>

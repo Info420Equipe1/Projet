@@ -41,6 +41,7 @@ namespace Texcel.Interfaces
 
                         foreach (Form fo in lstForm)
                         {
+                            fo.WindowState = FormWindowState.Maximized;
                             fo.Visible = true;
                         }              
                     }
