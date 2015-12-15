@@ -234,7 +234,7 @@ namespace TexcelWeb.Classes.Test
             //Billet selectionné
             foreach (BilletTravail bT in context.BilletTravail)
             {
-                if ((bT.noEmploye == _emp.noEmploye) && (bT.idStatut == 3))
+                if ((bT.noEmploye == _emp.noEmploye) && ((bT.idStatut == 2) || (bT.idStatut == 3)))
                 {
                     lst.Add(bT);
                 }
@@ -244,7 +244,7 @@ namespace TexcelWeb.Classes.Test
             {
                 foreach (BilletTravail bT in equipes.BilletTravail)
                 {
-                    if ((bT.noEmploye == null) && (bT.idStatut == 2))
+                    if ((bT.noEmploye == null) && ((bT.idStatut == 2) || (bT.idStatut == 3)))
                     {
                         lst.Add(bT);
                     }
