@@ -164,7 +164,6 @@
             this.Controls.Add(this.cmbNom);
             this.Name = "frmTheme";
             this.Text = "Gestion des thèmes";
-            this.Load += new System.EventHandler(this.frmTheme_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

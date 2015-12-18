@@ -18,11 +18,6 @@ namespace Texcel.Interfaces.Jeu
             InitializeComponent();
         }
 
-        private void frmTheme_Load(object sender, EventArgs e)
-        {
-            // txtID.Text = (CtrlThemeJeu.GetCount() + 1).ToString();
-        }
-
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
@@ -46,6 +41,7 @@ namespace Texcel.Interfaces.Jeu
             //Validation
             if (CtrlThemeJeu.VerifierThemeJeu(cmbNom.Text.Trim()))
             {
+                //Mode modification d'un thème
                 DR = MessageBox.Show("Vous êtes en train de modifier un thème de jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
                 {
@@ -63,6 +59,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Mode ajout d'un thème
                 message = CtrlThemeJeu.Ajouter(cmbNom.Text.Trim(), rtbCommentaire.Text.Trim());
                 
                 if (message.Contains("erreur"))
@@ -80,12 +77,11 @@ namespace Texcel.Interfaces.Jeu
             }
         }
         
-
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             string nomTheme = cmbNom.Text;
 
-            ThemeJeu themeJeu = CtrlThemeJeu.GetTheme(nomTheme);
+            ThemeJeu themeJeu = CtrlThemeJeu.GetThemeByNom(nomTheme);
             txtID.Text = themeJeu.idTheme.ToString();
             rtbCommentaire.Text = themeJeu.commTheme;
             btnSupprimer.Visible = true;
@@ -130,8 +126,5 @@ namespace Texcel.Interfaces.Jeu
             txtID.Text = "";
         }
 
-        
-
-        
     }
 }

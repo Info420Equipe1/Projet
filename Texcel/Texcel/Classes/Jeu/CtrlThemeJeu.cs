@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Thème
+    //Cette classe contient tous les méthodes et traitements en lien avec un Thème de jeu.
+    //
+    //
+
     class CtrlThemeJeu : CtrlController
     {
+        //Thème Global
         private static ThemeJeu themeJeu;
 
+        // Obtenir le nombre d'itération dans la  table ThemeJeu
         public static int GetCount()
         {
             return context.ThemeJeu.Count();
         }
 
+        //Ajouter un Thème
         public static string Ajouter(string _nomThemeJeu, string _commThemeJeu)
         {
             //Nouveau Theme
@@ -32,11 +42,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        public static List<ThemeJeu> Rechercher(string _word)
-        {
-            return null;
-        }
-
+        //Enregistrer un thème dans la BD
         private static void Enregistrer(ThemeJeu _themeJeu)
         {
             //Ajouter dans la BD
@@ -44,20 +50,7 @@ namespace Texcel.Classes.Jeu
             context.SaveChanges();
         }
 
-        //Verifier theme a laide d'un theme
-        private static bool VerifierThemeJeu(ThemeJeu _ThemeJeu)
-        {
-            foreach (ThemeJeu theme in context.ThemeJeu)
-            {
-                if (theme.nomTheme == _ThemeJeu.nomTheme)
-                {
-                    return true; //True lorsque le theme existe deja
-                }
-            }
-            return false; 
-        }
-
-        //verifier theme a laide d'un string
+        //verifier si le Theme exist en fonction du Nom
         public static bool VerifierThemeJeu(string _ThemeJeu)
         {
             foreach (ThemeJeu theme in context.ThemeJeu)
@@ -69,7 +62,8 @@ namespace Texcel.Classes.Jeu
             }
             return false; 
         }
-        //List des Themes de jeu
+
+        //Retourne la list des Themes de jeu
         public static List<ThemeJeu> LstThemeJeu()
         {
             List<ThemeJeu> lstThemeJeu = new List<ThemeJeu>();
@@ -81,26 +75,15 @@ namespace Texcel.Classes.Jeu
             return lstThemeJeu;
         }
 
-        //List des Themes de jeu a laide d'un Nom de JEU
-        public static List<ThemeJeu> LstThemeJeu(string _nomJeu)
-        {
-            List<ThemeJeu> lstThemeJeu = new List<ThemeJeu>();
-            cJeu jeu = CtrlJeu.GetJeu(_nomJeu);
-            foreach (ThemeJeu Theme in jeu.ThemeJeu)
-            {
-                lstThemeJeu.Add(Theme);
-            }
-            return lstThemeJeu;
-        }
-
-        //Trouver un theme a l'aide d'une string
-        public static ThemeJeu GetTheme(string _nomTheme)
+        //Retourne un Thème en fonction du Nom
+        public static ThemeJeu GetThemeByNom(string _nomTheme)
         {
             ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
 
             return Theme;
         }
 
+        //Supprimer un Theme de jeu
         public static string Supprimer(string _nomTheme)
         {
             ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();
@@ -115,6 +98,8 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de la suppression du Thème. Les données n'ont pas été supprimées.";
             }
         }
+
+        //Modifier un Theme de jeu
         public static string ModifierTheme(string _nomTheme, string _nouveauCommentaire)
         {
             ThemeJeu Theme = context.ThemeJeu.Where(x => x.nomTheme == _nomTheme).First();

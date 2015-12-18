@@ -204,7 +204,7 @@ namespace Texcel.Interfaces.Jeu
             }
             foreach (string nomTheme in lstBoxTheme1.Items)
             {
-                themeJeu.Add(CtrlThemeJeu.GetTheme(nomTheme));
+                themeJeu.Add(CtrlThemeJeu.GetThemeByNom(nomTheme));
             }
             foreach (string nomGenre in lstBoxGenre1.Items)
             {
