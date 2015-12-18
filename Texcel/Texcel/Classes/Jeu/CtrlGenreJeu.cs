@@ -6,23 +6,18 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Genre
+    //Cette classe contient tous les méthodes et traitements en lien avec un Genre de jeu.
+    //
+    //
+
     class CtrlGenreJeu : CtrlController
     {
+        //Genre Global
         private static GenreJeu genreJeu;
 
-        //Constructeur aucun paramètre
-        public CtrlGenreJeu()
-        {
-            genreJeu.nomGenre = null;
-            genreJeu.descGenre = null;
-        }
-
-        //Constructeur avec paramètres
-        public CtrlGenreJeu(string _nomGenreJeu, string _commGenre)
-        {
-            genreJeu.nomGenre = _nomGenreJeu;
-            genreJeu.descGenre = _commGenre;
-        }
         // Obtenir le nombre d'itération dans la  table GenreJeu
         public static int GetCount()
         {
@@ -47,17 +42,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        private static bool VerifierGenreJeu(GenreJeu _GenreJeu)
-        {
-            foreach (GenreJeu genre in context.GenreJeu)
-            {
-                if (genre.nomGenre == _GenreJeu.nomGenre)
-                {
-                    return true; //True lorsque le Genre existe deja
-                }
-            }
-            return false;
-        }
+        //Vérifier si le Genre est déjà existant à l'aide du Nom
         public static bool VerifierGenreJeu(string _GenreJeu)
         {
             foreach (GenreJeu genre in context.GenreJeu)
@@ -70,19 +55,7 @@ namespace Texcel.Classes.Jeu
             return false;
         }
 
-        // Rechercher un seul GenreJeu dans la table GenreJeu
-        public static List<GenreJeu> Rechercher(string _nomGenreJeu)
-        {
-            List<GenreJeu> lstGenreJeu = new List<GenreJeu>();;
-
-            foreach (GenreJeu gJ in context.GenreJeu.Where(x => x.nomGenre == _nomGenreJeu))
-            {
-                lstGenreJeu.Add(context.GenreJeu.Where(x => x.nomGenre == gJ.nomGenre).First());
-            }
-
-            return lstGenreJeu;
-        }
-
+        //Enregistrer un Genre dans la BD
         private static void Enregistrer(GenreJeu _genreJeu)
         {
             //Ajouter à la BD
@@ -102,25 +75,15 @@ namespace Texcel.Classes.Jeu
             return lstGenreJeu;
         }
 
-        //List de Genre par rapport à un jeu
-        public static List<GenreJeu> LstGenreJeu(string _nomJeu)
-        {
-            List<GenreJeu> lstGenreJeu = new List<GenreJeu>();
-            cJeu jeu = CtrlJeu.GetJeu(_nomJeu);
-            foreach (GenreJeu Genre in jeu.GenreJeu)
-            {
-                lstGenreJeu.Add(Genre);
-            }
-            return lstGenreJeu;
-        }
-
-        public static GenreJeu GetGenre(string _nomGenre)
+        //Retourne un Genre en fonction du Nom
+        public static GenreJeu GetGenreByNom(string _nomGenre)
         {
             GenreJeu Genre = context.GenreJeu.Where(x => x.nomGenre == _nomGenre).First();
 
             return Genre;
         }
 
+        //Suppression d'un Genre
         public static string Supprimer(string _nomGenre)
         {
             //Supprimer un Genre
@@ -136,6 +99,8 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de la suppression du Genre. Les données n'ont pas été supprimées.";
             }
         }
+
+        //Modification d'un genre
         public static string ModifierGenre(string _nomGenre, string _nouveauCommentaire)
         {
             GenreJeu Genre = context.GenreJeu.Where(x => x.nomGenre == _nomGenre).First();

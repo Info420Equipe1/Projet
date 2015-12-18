@@ -208,7 +208,7 @@ namespace Texcel.Interfaces.Jeu
             }
             foreach (string nomGenre in lstBoxGenre1.Items)
             {
-                genreJeu.Add(CtrlGenreJeu.GetGenre(nomGenre));
+                genreJeu.Add(CtrlGenreJeu.GetGenreByNom(nomGenre));
             }
             foreach (string nomVersion in lstBoxVersion.Items)
             {

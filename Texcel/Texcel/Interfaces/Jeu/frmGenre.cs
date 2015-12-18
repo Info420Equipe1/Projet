@@ -38,6 +38,7 @@ namespace Texcel.Interfaces.Jeu
             //Validation
             if (CtrlGenreJeu.VerifierGenreJeu(cmbNom.Text.Trim()))
             {
+                //Mode modification d'un Genre
                 DR = MessageBox.Show("Vous ètes en train de modifier un Genre de jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
                 {
@@ -55,6 +56,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Mode Ajouter un Genre
                 message = CtrlGenreJeu.Ajouter(cmbNom.Text.Trim(), rtbCommentaire.Text.Trim());
                 if (message.Contains("erreur"))
                 {
@@ -85,7 +87,7 @@ namespace Texcel.Interfaces.Jeu
         {
             string nomGenre = cmbNom.Text;
 
-            GenreJeu genreJeu = CtrlGenreJeu.GetGenre(nomGenre);
+            GenreJeu genreJeu = CtrlGenreJeu.GetGenreByNom(nomGenre);
             txtID.Text = genreJeu.idGenre.ToString();
             rtbCommentaire.Text = genreJeu.descGenre;
             rtbCommentaire.SelectAll();
@@ -93,11 +95,11 @@ namespace Texcel.Interfaces.Jeu
             btnAjouter.Text = "Modifier";
         }
 
-        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             string message;
