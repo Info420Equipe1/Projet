@@ -22,7 +22,7 @@ namespace Texcel.Interfaces.Jeu
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
-            foreach (ClassificationJeu classificationJeu in CtrlClassificationJeu.Rechercher())
+            foreach (ClassificationJeu classificationJeu in CtrlClassificationJeu.getListClassification())
             {
                 cmbNom.Items.Add(classificationJeu.nomClassification);
             }
@@ -30,15 +30,14 @@ namespace Texcel.Interfaces.Jeu
 
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClassificationJeu classificationJeu = CtrlClassificationJeu.Rechercher(cmbNom.Text).First();
-            //txtID.Text = classificationJeu.idClassification.ToString();
+            ClassificationJeu classificationJeu = CtrlClassificationJeu.GetClassificationByName(cmbNom.Text);
             txtCode.Text = classificationJeu.codeClassification;
             rtbDescription.Text = classificationJeu.descClassification;
 
+            //Image de la classification
             try
             {
                 picClassification.Image = Image.FromFile(@"..\..\Images\Jeu\Classifications\" + classificationJeu.codeClassification + ".jpg");
-                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
@@ -69,6 +68,7 @@ namespace Texcel.Interfaces.Jeu
             //Validation
             if (CtrlClassificationJeu.VerifierClassificationJeu(cmbNom.Text.Trim()))
             {
+                //Mode Modification d'une Classification
                 DR = MessageBox.Show("Vous êtes en train de modifier une classification de jeu, voulez-vous continuer?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
                 {
@@ -86,6 +86,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Mode Ajouter une Classification
                 message = CtrlClassificationJeu.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbDescription.Text.Trim());
                 if (message.Contains("erreur"))
                 {
@@ -106,9 +107,11 @@ namespace Texcel.Interfaces.Jeu
         {
             string message;
             DialogResult DR;
+
             DR = MessageBox.Show("Voulez-vous vraiment supprimer cette classification: " + cmbNom.Text.ToString()+" ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == DialogResult.Yes)
             {
+                //Suppression de la Classification
                 message = CtrlClassificationJeu.Supprimer(cmbNom.Text);
                 if (message.Contains("erreur"))
                 {

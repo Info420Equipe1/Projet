@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Classification
+    //Cette classe contient tous les méthodes et traitements en lien avec une classification.
+    //
+    //
+
     class CtrlClassificationJeu : CtrlController
     {
-
+        //Classification Globale
         private static ClassificationJeu classificationJeu;
 
+        //Retourne le nombre de Classification
         public static int GetCount()
         {
             return context.ClassificationJeu.Count();
         }
 
+        //Ajout d'une Classification
         public static string Ajouter(string _nomClassification, string _codeClassification, string _descClassification)
         {
             //Nouvelle classification
@@ -34,7 +43,8 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        public static List<ClassificationJeu> Rechercher()
+        //Retourne la liste de tous les classifications de l'application
+        public static List<ClassificationJeu> getListClassification()
         {
             List<ClassificationJeu> lstClassificationJeu = new List<ClassificationJeu>();
             foreach (ClassificationJeu classificationJeu in context.ClassificationJeu)
@@ -44,16 +54,14 @@ namespace Texcel.Classes.Jeu
             return lstClassificationJeu;
         }
 
-        public static List<ClassificationJeu> Rechercher(string _nomClassification)
+        //Retourne une Classification en fonction du Nom
+        public static ClassificationJeu GetClassificationByName(string _nomClassification)
         {
-            List<ClassificationJeu> lstClassificationJeu = new List<ClassificationJeu>();
-            foreach (ClassificationJeu classificationJeu in context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification))
-            {
-                lstClassificationJeu.Add(classificationJeu);
-            }
-            return lstClassificationJeu;
+            ClassificationJeu classification = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
+            return classification;
         }
 
+        //Enregistrer la Classification dans la BD
         private static void Enregistrer(ClassificationJeu _classificationJeu)
         {
             //Ajouter dans la BD
@@ -62,6 +70,7 @@ namespace Texcel.Classes.Jeu
             context.SaveChanges();
         }
 
+        //Vérifier si la classification existe a l'aide de son Nom
         public static bool VerifierClassificationJeu(string _nomClassificationJeu)
         {
             foreach (ClassificationJeu classificationJeu in context.ClassificationJeu)
@@ -74,6 +83,7 @@ namespace Texcel.Classes.Jeu
             return false; 
         }
 
+        //Supprimer une Classification
         public static string Supprimer(string _nomClassification)
         {
             ClassificationJeu classificationJeu = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
@@ -89,15 +99,11 @@ namespace Texcel.Classes.Jeu
             }
         }
 
+        //Modifier une classification
         public static string ModifierClassificationJeu(string _nomClassification, string _descClassification)
         {
             ClassificationJeu classificationJeu = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
             classificationJeu.descClassification = _descClassification;
-            //List<cJeu> lstClassJeu = classificationJeu.Jeu.Where(x => x.idClassification == classificationJeu.idClassification).ToList();
-            //foreach (cJeu jeu in lstClassJeu)
-            //{
-            //    jeu.ClassificationJeu.Jeu.Where(x=> x.)
-            //}
             try
             {
                 context.SaveChanges();
@@ -107,16 +113,9 @@ namespace Texcel.Classes.Jeu
             {
                 return "Une erreur est survenue lors de la modification de la Classification. Les données n'ont pas été enregistrées.";
             }
-            
         }
 
-
-        public static ClassificationJeu GetClassification(string _nomClassification)
-        {
-            ClassificationJeu classification = context.ClassificationJeu.Where(x => x.nomClassification == _nomClassification).First();
-            return classification;
-        }
-
+        //retourne une classification à l'aide du Code
         public static ClassificationJeu GetClassificationByCode(string _codeClassification)
         {
             ClassificationJeu classification = context.ClassificationJeu.Where(x => x.codeClassification == _codeClassification).First();

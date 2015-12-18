@@ -86,7 +86,7 @@ namespace Texcel.Interfaces.Jeu
             }
 
             //Emplissage de la list box des Classifications globales
-            foreach (ClassificationJeu classJeu in CtrlClassificationJeu.Rechercher())
+            foreach (ClassificationJeu classJeu in CtrlClassificationJeu.getListClassification())
             {
                 cmbClassification.Items.Add(classJeu.codeClassification + " - " + classJeu.nomClassification);
             }
