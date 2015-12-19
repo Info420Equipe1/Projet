@@ -9,16 +9,21 @@ using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes.Test
 {
+    //
+    //
+    //Control Gestion Billet
+    //Cette classe contient tous les méthodes et traitements en lien avec la gestion de billet.
+    //
+    //
     public class CtrlGestionBillet : CtrlController
     {
         // Les choix des dropdownlist
-        static cProjet ProjChoisi;
-        static Equipe EquipChoisi;
-        static Employe TesteurChoisi;
-        static List<cProjet> lstProjAfficher;
-        static List<Equipe> lstEquipeAfficher;
-        static List<Employe> lstTesteurAfficher;
-
+        private static cProjet ProjChoisi;
+        private static Equipe EquipChoisi;
+        private static Employe TesteurChoisi;
+        private static List<cProjet> lstProjAfficher;
+        private static List<Equipe> lstEquipeAfficher;
+        private static List<Employe> lstTesteurAfficher;
 
         // Mes accesseurs
         public static List<cProjet> getLstProj
@@ -56,8 +61,8 @@ namespace TexcelWeb.Classes.Test
             {
                 return;
             }
-           
         }
+
         public static void SaveLstEquipeAffiche()
         {
             try
@@ -68,7 +73,6 @@ namespace TexcelWeb.Classes.Test
             {
                 return;         
             }
-            
         }
 
         public static void SaveLstTesteurAffiche()
@@ -95,10 +99,8 @@ namespace TexcelWeb.Classes.Test
                 ProjChoisi = null;
                 return false;
             }
-           
-            
-           
         }
+
         public static bool SaveEquipeChoisi(int _index)
         {
             if (_index < lstEquipeAfficher.Count && _index >= 0)
@@ -112,6 +114,7 @@ namespace TexcelWeb.Classes.Test
                 return false;
             }
         }
+
         public static bool SaveTesteurChoisi(int _index)
         {
             if (_index < lstTesteurAfficher.Count && _index >= 0)
@@ -124,7 +127,6 @@ namespace TexcelWeb.Classes.Test
                 TesteurChoisi = null;
                 return false;
             }
-            
         }
 
         public static void SaveAllBilletsTravail()

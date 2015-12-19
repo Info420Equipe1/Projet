@@ -5,6 +5,11 @@ using System.Web;
 
 namespace TexcelWeb.Classes.Test
 {
+    //
+    //
+    //Objet fichier
+    //
+    //
     public class Fichier
     {
         private string path, extan;

@@ -317,10 +317,10 @@ namespace TexcelWeb
                 cpt++;
                 DataRow dR = dT.NewRow();
 
-                dR["File Name"] = fichier.path;
-                dR["Taille"] = fichier.taille;
-                dR["Extansion"] = fichier.extan;
-                dR["Derniere modification"] = fichier.derModif;
+                dR["File Name"] = fichier.getPath;
+                dR["Taille"] = fichier.getTaille;
+                dR["Extansion"] = fichier.getExtan;
+                dR["Derniere modification"] = fichier.getDerModif;
                 dT.Rows.Add(dR);
             }
             GridView1.DataSource = dT;

@@ -85,7 +85,7 @@ namespace TexcelWeb.Interfaces
             AfficherDdlProjetItem();
         }
 
-        protected void AfficherDdlProjetItem()
+        private void AfficherDdlProjetItem()
         {
             ddlProjet.Items.Clear();           
             CtrlGestionBillet.SaveLstProjetAffiche();        
@@ -99,7 +99,7 @@ namespace TexcelWeb.Interfaces
             ddlProjet.SelectedValue = "Choisissez un projet";
         }
 
-        protected void AfficherDdlEquipeItem()
+        private void AfficherDdlEquipeItem()
         {
             ddlEquipe.Items.Clear();
             CtrlGestionBillet.SaveLstEquipeAffiche();
@@ -114,7 +114,7 @@ namespace TexcelWeb.Interfaces
             ddlEquipe.SelectedValue = "Choisissez une équipe";
         }
 
-        protected void AfficherDdlTesteurItem()
+        private void AfficherDdlTesteurItem()
         {
             ddlTesteur.Items.Clear();
             CtrlGestionBillet.SaveLstTesteurAffiche();
@@ -124,7 +124,6 @@ namespace TexcelWeb.Interfaces
             ddlTesteur.DataSource = CtrlGestionBillet.getLstTesteur;
             ddlTesteur.DataBind();
             ddlTesteur.Enabled = true;
-
             // Ajouter une valeur par défaut au cas où il n'y aurait qu'une seule valeur dans le DDL
             ddlTesteur.Items.Insert(ddlTesteur.Items.Count, "Choisissez un testeur");
             ddlTesteur.SelectedValue = "Choisissez un testeur";
@@ -157,7 +156,6 @@ namespace TexcelWeb.Interfaces
             }
         }
         
-
         protected void ddlEquipe_SelectedIndexChanged(object sender, EventArgs e)
         {
             // enregistrer l'équipe qui a été sélectionné dans la classe controle
@@ -178,28 +176,13 @@ namespace TexcelWeb.Interfaces
 
         protected void ddlTesteur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex))
-            {
-                // afficher quelque chose
-            }
-            else
-            {
-                // affiche rien car l'index choisi c'est "Choisissez.."
-            }
+            CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex);
             edsBilletsTravail.Where = "it.[tagBilletTravail] like '%" + ddlTesteur.Text + "%'";
         }
 
         protected void ddlDuree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex))
-            {
-                // afficher quelque chose
-            }
-            else
-            {
-                // affiche rien car l'index choisi c'est "Choisissez.."
-            }
-            //edsBilletsTravail.Where = "it.[Jours_Restant] like '%" + ddlDuree.Text + "%'";
+            CtrlGestionBillet.SaveTesteurChoisi(ddlTesteur.SelectedIndex);
         }
   
         //*************************************GRIDVIEW EVENT***************************************//
@@ -230,7 +213,7 @@ namespace TexcelWeb.Interfaces
             } 
         }
 
-        protected void AfficherStatistiques(cProjet _projet)
+        private void AfficherStatistiques(cProjet _projet)
         {
             lblNbCasTest.Text = CtrlProjet.nbCasTestduProjet(_projet).ToString();
             lblNbBillet.Text = CtrlProjet.nbBilletsduProjet(_projet).ToString();
