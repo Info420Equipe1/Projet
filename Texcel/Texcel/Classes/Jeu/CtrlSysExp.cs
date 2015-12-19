@@ -8,6 +8,12 @@ using Texcel.Classes.Jeu;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Controle SysExp
+    //Cette classe contient toutes les méthodes et traitements en lien avec les systèmes d'exploitation.
+    //
+    //
     class CtrlSysExp : CtrlController
     {
         private static SysExp sysExp;

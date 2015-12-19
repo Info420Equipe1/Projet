@@ -7,6 +7,12 @@ using System.Windows.Forms;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Controle EditionSysExp
+    //Cette classe contient toutes les méthodes et traitements en lien avec les éditions.
+    //
+    //
     class CtrlEditionSysExp : CtrlController
     {
         private static EditionSysExp editionSysExp;

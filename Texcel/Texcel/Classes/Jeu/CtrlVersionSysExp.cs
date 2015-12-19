@@ -7,6 +7,12 @@ using System.Windows.Forms;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Controle VersionSysExp
+    //Cette classe contient toutes les méthodes et traitements en lien avec les versions de système d'exploitation.
+    //
+    //
     class CtrlVersionSysExp : CtrlController
     {
         private static VersionSysExp versionSysExp;
