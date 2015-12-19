@@ -22,17 +22,7 @@ namespace TexcelWeb.Classes
         {
             return currentUtilisateur;
         }
-        public static Utilisateur getUtilisateurByName(string nomUtilisateur)
-        {
-            foreach (Utilisateur user in context.Utilisateur)
-            {
-                if (user.nomUtilisateur == nomUtilisateur)
-                {
-                    return user;
-                }
-            }
-            return null;
-        }
+
         public static List<int> GetDroits(Groupe groupeUti)
         {
             List<int> lstDroits = new List<int>();
