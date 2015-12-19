@@ -16,14 +16,14 @@ namespace Texcel.Interfaces.Personnel
 {
     public partial class frmCreerEquipe : frmForm
     {
-        bool Modification = false;
-        int id;
+        private bool Modification = false;
+        private int id;
+        
         public frmCreerEquipe()
         {
             InitializeComponent();
             ChargerPage();
         }
-
         //Lorsque la fenetre est ouverte via recherche d'une équipe
         public frmCreerEquipe(Equipe _equ)
         {
@@ -54,11 +54,6 @@ namespace Texcel.Interfaces.Personnel
             this.Text = "Modifier équipe";
         }
 
-        private void frmCreerEquipe_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         public void ChargerPage()
         {
             lstTesteurGlobal.Items.Clear();
@@ -74,7 +69,6 @@ namespace Texcel.Interfaces.Personnel
             rtbCommentaire.Text = "";
             cmbNom.Text = "";
         }
-
         //Ajouter un employé dans list box 2
         private void button3_Click(object sender, EventArgs e)
         {
@@ -83,7 +77,6 @@ namespace Texcel.Interfaces.Personnel
                 MessageBox.Show("Veuillez selectionner un employé à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             string nomEmploye = (string)lstTesteurGlobal.SelectedItem;
             lstTesteurEquipe.Items.Add(nomEmploye);
             lstTesteurGlobal.Items.Remove(nomEmploye);
@@ -104,7 +97,6 @@ namespace Texcel.Interfaces.Personnel
                 MessageBox.Show("Veuillez ajouter un chef d'équipe!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             foreach (string nom in lstTesteurEquipe.Items)
             {
                 listEmp.Add(CtrlEmploye.emp(nom));
@@ -136,8 +128,6 @@ namespace Texcel.Interfaces.Personnel
                 }
             }
         }
-
-
         //Ajoutes des employés dans list box 2
         private void button1_Click(object sender, EventArgs e)
         {
@@ -146,7 +136,6 @@ namespace Texcel.Interfaces.Personnel
                 MessageBox.Show("Veuillez selectionner plusieurs employées à ajouter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             ListBox.SelectedObjectCollection lstBox= lstTesteurGlobal.SelectedItems;
             string emp;
             int num = lstBox.Count;
@@ -157,7 +146,6 @@ namespace Texcel.Interfaces.Personnel
                 lstTesteurEquipe.Items.Add(emp);
             }
         }
-
         //Enleve des employés dans list box 2
         private void button2_Click(object sender, EventArgs e)
         {
@@ -177,7 +165,6 @@ namespace Texcel.Interfaces.Personnel
                 lstTesteurGlobal.Items.Add(emp);
             }
         }
-
         //Enleve un employé de la list box 2
         private void button4_Click(object sender, EventArgs e)
         {
@@ -186,7 +173,6 @@ namespace Texcel.Interfaces.Personnel
                 MessageBox.Show("Veuillez selectionner un employé à enlever.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             string nomEmploye = (string)lstTesteurEquipe.SelectedItem;
             lstTesteurGlobal.Items.Add(nomEmploye);
             lstTesteurEquipe.Items.Remove(nomEmploye);
@@ -205,7 +191,6 @@ namespace Texcel.Interfaces.Personnel
             {
                 cmbProjet.Items.Add(proj.nomProjet);
             }
-
             cmbNom.Items.Clear();
             foreach (Employe emp in CtrlEmploye.listEmployeChefEquipe())
             {

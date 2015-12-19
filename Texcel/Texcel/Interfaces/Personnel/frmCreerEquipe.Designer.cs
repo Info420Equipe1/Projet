@@ -277,7 +277,6 @@
             this.Controls.Add(this.txtNom);
             this.Name = "frmCreerEquipe";
             this.Text = "Créer une équipe";
-            this.Load += new System.EventHandler(this.frmCreerEquipe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

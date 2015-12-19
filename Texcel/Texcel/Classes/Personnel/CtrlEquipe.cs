@@ -7,14 +7,18 @@ using Texcel.Classes.Projet;
 
 namespace Texcel.Classes.Personnel
 {
+    //
+    //
+    //Control Equipe
+    //Cette classe contient tous les méthodes et traitements en lien avec une equipe.
+    //
+    //
     class CtrlEquipe: CtrlController
     {
-
         //Enregistré équipe
         public static string Ajouter(string _nom, string _nomProjet, Int16 _nbEmp, string _desc, Employe _empChefEquipe, List<Employe> _listEmp)
         {
             Equipe equipe = new Equipe();
-            
             equipe.nomEquipe = _nom;
             if (_nomProjet != "Aucun")
             {
@@ -24,7 +28,6 @@ namespace Texcel.Classes.Personnel
             equipe.nbTesteur = _nbEmp;
             equipe.noChefEquipe = _empChefEquipe.noEmploye;
             equipe.descEquipe = _desc;
-
             try
             {
                 context.Equipe.Add(equipe);
@@ -37,6 +40,7 @@ namespace Texcel.Classes.Personnel
                 return "Une erreur est survenue lors de l'ajout de l'Équipe. Les données n'ont pas été enregistrées.";
             }
         }
+        
         public static string Modifier(int idEquipe, string nomEquipe, string nomProjet, Int16 nbTesteur, string commEquipe, Employe chefEquipe, List<Employe> lstTesteur)
         {
             Equipe equipe = getEquipeById(idEquipe);
@@ -54,7 +58,6 @@ namespace Texcel.Classes.Personnel
             equipe.descEquipe = commEquipe;
             equipe.Employe = chefEquipe;
             equipe.Employe1 = lstTesteur;
-
             try
             {
                 context.SaveChanges();
@@ -75,6 +78,7 @@ namespace Texcel.Classes.Personnel
                 context.SaveChanges();
             }           
         }
+
         public static Equipe getEquipeById(int _id)
         {
             Equipe selectedEquipe = context.Equipe.Where(x => x.idEquipe == _id).First();
