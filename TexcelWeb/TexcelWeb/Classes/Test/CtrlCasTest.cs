@@ -15,17 +15,22 @@ using TexcelWeb.Classes.Projet;
 
 namespace TexcelWeb.Classes.Test
 {
+    //
+    //
+    //Control cas test
+    //Cette classe contient tous les méthodes et traitements en lien avec le cas de test.
+    //
+    //
     public class CtrlCasTest : CtrlController
     {
         static CasTest casTestEnCours;
         static List<FileInfo> lstFichier = new List<FileInfo>();
-        
-           
+
         public static CasTest getCasTestEnCours
         {
             get { return casTestEnCours; }
         }
-        
+
         public static bool Ajouter(CasTest _cT)
         {
             try
@@ -57,7 +62,7 @@ namespace TexcelWeb.Classes.Test
             {
                 casTest.idNivPri = _prio.idNivPri;
             }
-            
+
             casTest.dateCreation = _crea;
             if (_livr != "")
             {
@@ -67,7 +72,7 @@ namespace TexcelWeb.Classes.Test
             {
                 casTest.idTest = _tT.idTest;
             }
-            
+
             casTest.descCasTest = _desc;
             casTest.objCasTest = _obj;
             casTest.divCasTest = _divers;
@@ -87,7 +92,6 @@ namespace TexcelWeb.Classes.Test
 
         public static bool Modifier(string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, DateTime _crea, string _livr, TypeTest _tT, string _desc, string _obj, string _divers, CasTest _casTest)
         {
-           
             _casTest.nomCasTest = _nom;
             if (_proj != null)
             {
@@ -132,7 +136,6 @@ namespace TexcelWeb.Classes.Test
 
             try
             {
-                
                 context.SaveChanges();
                 return true;
             }
@@ -141,7 +144,6 @@ namespace TexcelWeb.Classes.Test
                 return false;
             }
         }
-
         //Rechercher un Cas de test avec le CodeCasTest
         public static CasTest GetCasTestByCode(string codeCasTest)
         {
@@ -151,27 +153,14 @@ namespace TexcelWeb.Classes.Test
             }
             catch (Exception)
             {
-
                 return null;
             }
-           
         }
 
         //Rechercher un Cas de test avec le NomCasTest
         public static CasTest GetCasTestByNom(string nomCasTest)
         {
             return context.CasTest.Where(x => x.nomCasTest == nomCasTest).First();
-        }
-
-        public static List<CasTest> GetLstCasTest()
-        {
-            List<CasTest> lst = new List<CasTest>();
-
-            foreach (CasTest casTest in context.CasTest)
-            {
-                lst.Add(casTest);
-            }
-            return lst;
         }
 
         public static void CreerDossier(CasTest _casTest)
@@ -222,7 +211,7 @@ namespace TexcelWeb.Classes.Test
             return -1;
         }
 
-        public static void CopierCasTestEnCours(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio, 
+        public static void CopierCasTestEnCours(string _code, string _nom, cProjet _proj, Difficulte _diff, NiveauPriorite _prio,
             DateTime _crea, DateTime _livr, TypeTest _tT, string _desc)
         {
             casTestEnCours = new CasTest();
@@ -234,14 +223,12 @@ namespace TexcelWeb.Classes.Test
             casTestEnCours.dateCreation = _crea;
             casTestEnCours.dateLivraison = _livr;
             casTestEnCours.TypeTest = _tT;
-            casTestEnCours.descCasTest = _desc; 
-
+            casTestEnCours.descCasTest = _desc;
         }
-   
+
         public static string[] GetPaths(CasTest _casTest)
         {
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
-
             return filePaths;
         }
 
@@ -251,7 +238,7 @@ namespace TexcelWeb.Classes.Test
             CtrlCopier.CreationDossierParentCasTest(_casTest, path);
 
             string[] filePaths = Directory.GetFiles(HttpContext.Current.Server.MapPath(@"~/cProjets/" + _casTest.codeProjet + "/" + _casTest.codeCasTest));
-             
+
             List<FileInfo> file = new List<FileInfo>();
 
             for (int i = 0; i < filePaths.GetLength(0); i++)
@@ -259,34 +246,32 @@ namespace TexcelWeb.Classes.Test
                 file.Add(new FileInfo(filePaths[i]));
             }
             return file;
-           
+
         }
-           
+
         // Remplir une liste de tous les fichiers des cas de test cochés préalablement
         public static List<FileInfo> PopulateLstPathsFile(List<CasTest> _lstCasTest)
         {
             lstFichier.Clear();
             foreach (CasTest ct in _lstCasTest)
             {
-                List<FileInfo>  mesfichiers = GetFile(ct);
+                List<FileInfo> mesfichiers = GetFile(ct);
 
                 if (mesfichiers.Count != 0)
                 {
                     for (int i = 0; i < mesfichiers.Count; i++)
                     {
                         lstFichier.Add(mesfichiers[i]);
-                    }  
-                }                                              
+                    }
+                }
             }
-
             return lstFichier;
-        }  
+        }
 
         public static void Supprimer(List<CasTest> _lst)
         {
             foreach (CasTest casTest in _lst)
             {
-                
                 foreach (Equipe equ in casTest.Equipe)
                 {
                     equ.CasTest.Remove(casTest);

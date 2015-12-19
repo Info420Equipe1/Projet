@@ -9,6 +9,12 @@ using System.Web;
 
 namespace TexcelWeb.Classes.Personnel
 {
+    //
+    //
+    //Control Utilisateur
+    //Cette classe contient tous les méthodes et traitements en lien avec l'utilisateur.
+    //
+    //
     public class CtrlUtilisateur : CtrlController
     {
         public static bool VerifPremiereConn(Utilisateur _uti)
