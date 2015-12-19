@@ -111,7 +111,7 @@ namespace TexcelWeb.Interfaces
             GridView1.DataBind();
         }
 
-        private void CBSelec_CheckedChanged(object sender, EventArgs e)
+        protected void CBSelec_CheckedChanged(object sender, EventArgs e)
         {
             bool verifChecked = false;
             CheckBox checkBox = (CheckBox)sender;

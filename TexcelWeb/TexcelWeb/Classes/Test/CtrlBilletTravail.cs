@@ -27,18 +27,18 @@ namespace TexcelWeb.Classes.Test
             billet.titreBilletTravail = titreBillet;
             billet.dureeBilletTravail = Convert.ToDouble(dureeBillet);
             billet.dateCreation = (Convert.ToDateTime(dateCreationBillet)).Date;
-            
+
             if (dateLivraisonBillet != "")
             {
                 billet.dateLivraison = (Convert.ToDateTime(dateLivraisonBillet)).Date;
             }
             if (testeurAssigneBillet != "Aucun")
-	        {
+            {
                 Employe emp = CtrlEmploye.getEmployeByName(testeurAssigneBillet);
                 billet.Employe = emp;
-	        }
+            }
             if (statutBillet != "")
-	        {
+            {
                 Statut statut = CtrlStatut.getStatutByName(statutBillet);
                 billet.Statut = statut;
                 if (statut.nomStatut == "Terminé")
@@ -48,7 +48,7 @@ namespace TexcelWeb.Classes.Test
                         billet.dateFin = (Convert.ToDateTime(dateTerminaisonBillet)).Date;
                     }
                 }
-	        }
+            }
             if (prioriteBillet != "")
             {
                 NiveauPriorite priorite = CtrlNivPriorite.getNiveauPrioriteByName(prioriteBillet);
@@ -58,7 +58,7 @@ namespace TexcelWeb.Classes.Test
             CasTest casTestBillet = CtrlCasTest.GetCasTestByNom(nomCasTest);
             billet.CasTest = casTestBillet;
             billet.descBilletTravail = descBillet;
-            if (nomEquipe!= "Aucune")
+            if (nomEquipe != "Aucune")
             {
                 Equipe equipe = CtrlEquipe.getEquipeByNomAndCodeProjet(nomEquipe, casTestBillet.cProjet.codeProjet);
                 billet.Equipe = equipe;
@@ -233,22 +233,19 @@ namespace TexcelWeb.Classes.Test
         {
             List<BilletTravail> lst = new List<BilletTravail>();
             //Billet selectionné
-            foreach (BilletTravail bT in context.BilletTravail)
+            foreach (BilletTravail bT in _emp.BilletTravail)
             {
-                if ((bT.noEmploye == _emp.noEmploye) && ((bT.idStatut == 2) || (bT.idStatut == 3)))
+                if (bT.idStatut == 3)
                 {
                     lst.Add(bT);
                 }
             }
             //Billets assigné
-            foreach (Equipe equipes in _emp.Equipe1)
+            foreach (BilletTravail bT in _emp.BilletTravail1)
             {
-                foreach (BilletTravail bT in equipes.BilletTravail)
+                if (bT.idStatut == 2)
                 {
-                    if ((bT.noEmploye == null) && ((bT.idStatut == 2) || (bT.idStatut == 3)))
-                    {
-                        lst.Add(bT);
-                    }
+                    lst.Add(bT);
                 }
             }
             return lst;
@@ -285,7 +282,6 @@ namespace TexcelWeb.Classes.Test
                 context.SaveChanges();
                 return false;
             }
-           
         }
 
         public static bool TermineBillet(BilletTravail _bT, bool _verifChecked)
@@ -293,7 +289,6 @@ namespace TexcelWeb.Classes.Test
             if (_verifChecked == true)
             {
                 //Le testeur a terminé ce billet
-                
                 _bT.idStatut = 4;
                 context.SaveChanges();
                 return true;
@@ -301,7 +296,6 @@ namespace TexcelWeb.Classes.Test
             else
             {
                 //Le testeur na pas terminé le billet
-                
                 _bT.idStatut = 4;
                 context.SaveChanges();
                 return false;
