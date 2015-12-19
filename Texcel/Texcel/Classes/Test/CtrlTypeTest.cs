@@ -7,6 +7,12 @@ using Texcel.Classes.Test;
 
 namespace Texcel.Classes.Test
 {
+    //
+    //
+    //Control Type test
+    //Cette classe contient tous les méthodes et traitements en lien avec les types de test.
+    //
+    //
     class CtrlTypeTest : CtrlController
     {
         private static Dictionary<TypeTest, int> lstTypeTestLstBox = new Dictionary<TypeTest, int>();
@@ -14,7 +20,6 @@ namespace Texcel.Classes.Test
         public static  Dictionary<TypeTest, int> getlstTypeTestLstBox
         {
             get { return lstTypeTestLstBox; }
-            
         }
              
         public static void  PopulateLstTypeTest()
@@ -25,7 +30,6 @@ namespace Texcel.Classes.Test
                 lstTypeTestLstBox.Add(tT, 0);
             }   
         }
-
         // Pour charger les infos quand l'employé existe
         public static void PopulateLstTypeTest(Employe _emp)
         {
@@ -64,8 +68,6 @@ namespace Texcel.Classes.Test
            
             return lstTypeTestLstBox;
         }
-
-       
         // Rechercher un type de test avec un string
         public static TypeTest GetTypeTest(string _nomTypeTest)
         {
@@ -73,8 +75,6 @@ namespace Texcel.Classes.Test
 
             return monTT;      
         }
-
-
         //Rechercher les types test associé a un employé
         public static List<TypeTest> lstTypeTestAssEmp(Employe _emp)
         {
@@ -84,7 +84,6 @@ namespace Texcel.Classes.Test
                 lstTypTest.Add(typTes);
             }
             
-
             return lstTypTest;
         }
 
@@ -97,6 +96,7 @@ namespace Texcel.Classes.Test
             {
                 lstTypTest.Add(typTest);
             }
+            
             return lstTypTest;
         }
 
@@ -109,6 +109,7 @@ namespace Texcel.Classes.Test
                     return true;
                 }
             }
+            
             return false;
         }
 

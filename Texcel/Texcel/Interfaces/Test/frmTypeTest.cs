@@ -18,7 +18,7 @@ namespace Texcel.Interfaces.Test
         {
             InitializeComponent();
         }
-
+        //Fill dropdown nom
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
@@ -32,21 +32,6 @@ namespace Texcel.Interfaces.Test
         private void frmTypeTest_Load(object sender, EventArgs e)
         {
             txtID.Text = (CtrlTypeTest.lstTypeTest().Count + 1).ToString();
-        }
-
-        private void cmbNom_TextUpdate(object sender, EventArgs e)
-        {
-            //foreach (TypeTest tT in CtrlTypeTest.lstTypeTest())
-            //{
-            //    if (cmbNom.Text != tT.nomTypeTest)
-            //    {
-                   
-            //        txtID.Text = (tT.idTypeTest + 1).ToString();
-            //        rtbCommentaire.Text = "";
-                    
-            //    }
-                
-            //}
         }
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
@@ -75,9 +60,8 @@ namespace Texcel.Interfaces.Test
                     else
                     {
                         CtrlController.MessageSucces(message);
-                        Réaffichage();
+                        Reaffichage();
                     }
-
                 }
             }
             else
@@ -91,10 +75,9 @@ namespace Texcel.Interfaces.Test
                 else
                 {
                     CtrlController.MessageSucces(message);
-
                     cmbNom.Text = "";
                     rtbCommentaire.Text = "";
-                    Réaffichage();
+                    Reaffichage();
                 }
             }
         }
@@ -111,7 +94,7 @@ namespace Texcel.Interfaces.Test
             rtbCommentaire.Text = tT.descTest;
         }
 
-        private void Réaffichage()
+        private void Reaffichage()
         {
             txtID.Text = (CtrlTypeTest.lstTypeTest().Count + 1).ToString();
             cmbNom.Items.Clear();
