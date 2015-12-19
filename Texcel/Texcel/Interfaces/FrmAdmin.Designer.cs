@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblUtilisateurConn = new System.Windows.Forms.Label();
             this.dgvResultats = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateEmbauche = new System.Windows.Forms.DateTimePicker();
             this.btnModifierEmp = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lsbEmpComptesUtilisateur = new System.Windows.Forms.ListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lblCompetences = new System.Windows.Forms.Label();
             this.lblTypeTest = new System.Windows.Forms.Label();
@@ -108,7 +105,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.versionSE = new System.Windows.Forms.Label();
             this.codeSE = new System.Windows.Forms.Label();
-            this.edSE = new System.Windows.Forms.Label();
+            this.lblEdSE = new System.Windows.Forms.Label();
             this.nomSE = new System.Windows.Forms.Label();
             this.noSE = new System.Windows.Forms.Label();
             this.lblNoSysExp = new System.Windows.Forms.Label();
@@ -183,9 +180,8 @@
             this.smiGestionPersonnel = new System.Windows.Forms.ToolStripMenuItem();
             this.smiEquipe = new System.Windows.Forms.ToolStripMenuItem();
             this.smiGestionTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.typeDeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smiTypeTest = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -218,7 +214,6 @@
             this.dgvResultats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultats.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResultats.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvResultats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvResultats.Location = new System.Drawing.Point(15, 107);
             this.dgvResultats.MultiSelect = false;
@@ -232,21 +227,6 @@
             this.dgvResultats.TabStop = false;
             this.dgvResultats.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultats_CellMouseDown);
             this.dgvResultats.Click += new System.EventHandler(this.dgvResultats_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copierToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 28);
-            // 
-            // copierToolStripMenuItem
-            // 
-            this.copierToolStripMenuItem.Name = "copierToolStripMenuItem";
-            this.copierToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.copierToolStripMenuItem.Text = "Copier";
-            this.copierToolStripMenuItem.Click += new System.EventHandler(this.copierToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -275,10 +255,10 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
+            this.tabPage1.Controls.Add(this.dtpDateEmbauche);
             this.tabPage1.Controls.Add(this.btnModifierEmp);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.lsbEmpComptesUtilisateur);
             this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Controls.Add(this.lblCompetences);
             this.tabPage1.Controls.Add(this.lblTypeTest);
@@ -304,14 +284,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employé";
             // 
-            // dateTimePicker1
+            // dtpDateEmbauche
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(165, 226);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 58;
-            this.dateTimePicker1.TabStop = false;
+            this.dtpDateEmbauche.Enabled = false;
+            this.dtpDateEmbauche.Location = new System.Drawing.Point(165, 226);
+            this.dtpDateEmbauche.Name = "dtpDateEmbauche";
+            this.dtpDateEmbauche.Size = new System.Drawing.Size(200, 27);
+            this.dtpDateEmbauche.TabIndex = 58;
+            this.dtpDateEmbauche.TabStop = false;
             // 
             // btnModifierEmp
             // 
@@ -335,17 +315,17 @@
             this.label4.TabIndex = 56;
             this.label4.Text = "Comptes utilisateurs";
             // 
-            // listBox1
+            // lsbEmpComptesUtilisateur
             // 
-            this.listBox1.Enabled = false;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(12, 274);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(332, 84);
-            this.listBox1.TabIndex = 51;
-            this.listBox1.TabStop = false;
+            this.lsbEmpComptesUtilisateur.Enabled = false;
+            this.lsbEmpComptesUtilisateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbEmpComptesUtilisateur.FormattingEnabled = true;
+            this.lsbEmpComptesUtilisateur.ItemHeight = 20;
+            this.lsbEmpComptesUtilisateur.Location = new System.Drawing.Point(12, 274);
+            this.lsbEmpComptesUtilisateur.Name = "lsbEmpComptesUtilisateur";
+            this.lsbEmpComptesUtilisateur.Size = new System.Drawing.Size(332, 84);
+            this.lsbEmpComptesUtilisateur.TabIndex = 51;
+            this.lsbEmpComptesUtilisateur.TabStop = false;
             // 
             // richTextBox1
             // 
@@ -1069,7 +1049,7 @@
             this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(223)))));
             this.tabPage5.Controls.Add(this.versionSE);
             this.tabPage5.Controls.Add(this.codeSE);
-            this.tabPage5.Controls.Add(this.edSE);
+            this.tabPage5.Controls.Add(this.lblEdSE);
             this.tabPage5.Controls.Add(this.nomSE);
             this.tabPage5.Controls.Add(this.noSE);
             this.tabPage5.Controls.Add(this.lblNoSysExp);
@@ -1102,13 +1082,13 @@
             this.codeSE.Size = new System.Drawing.Size(0, 20);
             this.codeSE.TabIndex = 69;
             // 
-            // edSE
+            // lblEdSE
             // 
-            this.edSE.AutoSize = true;
-            this.edSE.Location = new System.Drawing.Point(167, 104);
-            this.edSE.Name = "edSE";
-            this.edSE.Size = new System.Drawing.Size(0, 20);
-            this.edSE.TabIndex = 68;
+            this.lblEdSE.AutoSize = true;
+            this.lblEdSE.Location = new System.Drawing.Point(167, 104);
+            this.lblEdSE.Name = "lblEdSE";
+            this.lblEdSE.Size = new System.Drawing.Size(0, 20);
+            this.lblEdSE.TabIndex = 68;
             // 
             // nomSE
             // 
@@ -1696,7 +1676,6 @@
             // 
             // mnsMain
             // 
-            this.mnsMain.ContextMenuStrip = this.contextMenuStrip1;
             this.mnsMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smiFichier,
@@ -1759,7 +1738,7 @@
             this.smiSysExp.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.smiSysExp.Size = new System.Drawing.Size(275, 24);
             this.smiSysExp.Text = "&Système d\'exploitation";
-            this.smiSysExp.Click += new System.EventHandler(this.SmiSysExp_Click);
+            this.smiSysExp.Click += new System.EventHandler(this.smiSysExp_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -1772,7 +1751,7 @@
             this.smiTypePlateforme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Y)));
             this.smiTypePlateforme.Size = new System.Drawing.Size(275, 24);
             this.smiTypePlateforme.Text = "&Type de plateforme";
-            this.smiTypePlateforme.Click += new System.EventHandler(this.SmiTypePlateforme_Click);
+            this.smiTypePlateforme.Click += new System.EventHandler(this.smiTypePlateforme_Click);
             // 
             // smiPlateforme
             // 
@@ -1780,7 +1759,7 @@
             this.smiPlateforme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.smiPlateforme.Size = new System.Drawing.Size(275, 24);
             this.smiPlateforme.Text = "&Plateforme";
-            this.smiPlateforme.Click += new System.EventHandler(this.SmiPlateforme_Click);
+            this.smiPlateforme.Click += new System.EventHandler(this.smiPlateforme_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -1793,7 +1772,7 @@
             this.smiTheme.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
             this.smiTheme.Size = new System.Drawing.Size(275, 24);
             this.smiTheme.Text = "&Thème";
-            this.smiTheme.Click += new System.EventHandler(this.SmiTheme_Click);
+            this.smiTheme.Click += new System.EventHandler(this.smiTheme_Click);
             // 
             // smiGenre
             // 
@@ -1801,7 +1780,7 @@
             this.smiGenre.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.G)));
             this.smiGenre.Size = new System.Drawing.Size(275, 24);
             this.smiGenre.Text = "&Genre";
-            this.smiGenre.Click += new System.EventHandler(this.SmiGenre_Click);
+            this.smiGenre.Click += new System.EventHandler(this.smiGenre_Click);
             // 
             // smiClassification
             // 
@@ -1809,7 +1788,7 @@
             this.smiClassification.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.smiClassification.Size = new System.Drawing.Size(275, 24);
             this.smiClassification.Text = "&Classification";
-            this.smiClassification.Click += new System.EventHandler(this.SmiClassification_Click);
+            this.smiClassification.Click += new System.EventHandler(this.smiClassification_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -1822,7 +1801,7 @@
             this.smiJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.J)));
             this.smiJeu.Size = new System.Drawing.Size(275, 24);
             this.smiJeu.Text = "&Jeu";
-            this.smiJeu.Click += new System.EventHandler(this.SmiJeu_Click);
+            this.smiJeu.Click += new System.EventHandler(this.smiJeu_Click);
             // 
             // smiVersionJeu
             // 
@@ -1830,7 +1809,7 @@
             this.smiVersionJeu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
             this.smiVersionJeu.Size = new System.Drawing.Size(275, 24);
             this.smiVersionJeu.Text = "&Version de jeu";
-            this.smiVersionJeu.Click += new System.EventHandler(this.versionDeJeuToolStripMenuItem_Click);
+            this.smiVersionJeu.Click += new System.EventHandler(this.smiVersionJeu_Click);
             // 
             // smiGestionPersonnel
             // 
@@ -1852,18 +1831,18 @@
             // smiGestionTest
             // 
             this.smiGestionTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.typeDeTestToolStripMenuItem});
+            this.smiTypeTest});
             this.smiGestionTest.Name = "smiGestionTest";
             this.smiGestionTest.Size = new System.Drawing.Size(132, 24);
             this.smiGestionTest.Text = "&Gestion des tests";
             // 
-            // typeDeTestToolStripMenuItem
+            // smiTypeTest
             // 
-            this.typeDeTestToolStripMenuItem.Name = "typeDeTestToolStripMenuItem";
-            this.typeDeTestToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
-            this.typeDeTestToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.typeDeTestToolStripMenuItem.Text = "Type de test";
-            this.typeDeTestToolStripMenuItem.Click += new System.EventHandler(this.smiTypeTest_Click);
+            this.smiTypeTest.Name = "smiTypeTest";
+            this.smiTypeTest.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
+            this.smiTypeTest.Size = new System.Drawing.Size(204, 24);
+            this.smiTypeTest.Text = "Type de test";
+            this.smiTypeTest.Click += new System.EventHandler(this.smiTypeTest_Click);
             // 
             // frmAdmin
             // 
@@ -1886,7 +1865,6 @@
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.VisibleChanged += new System.EventHandler(this.frmAdmin_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultats)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1953,12 +1931,12 @@
         private System.Windows.Forms.Label lblNumeroEmp;
         private System.Windows.Forms.Button btnModifierEmp;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lsbEmpComptesUtilisateur;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lblCompetences;
         private System.Windows.Forms.Label lblTypeTest;
         private System.Windows.Forms.ListBox lstBoxTypeTest;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDateEmbauche;
         private System.Windows.Forms.Label lblProjetEquipe;
         private System.Windows.Forms.Label lblChefEquipe;
         private System.Windows.Forms.Label lblNomEquipe;
@@ -2019,14 +1997,12 @@
         private System.Windows.Forms.DataGridView dgvResultats;
         private System.Windows.Forms.Label versionSE;
         private System.Windows.Forms.Label codeSE;
-        private System.Windows.Forms.Label edSE;
+        private System.Windows.Forms.Label lblEdSE;
         private System.Windows.Forms.Label nomSE;
         private System.Windows.Forms.Label noSE;
         private System.Windows.Forms.ToolStripMenuItem smiDeconnection;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem copierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem smiGestionTest;
-        private System.Windows.Forms.ToolStripMenuItem typeDeTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smiTypeTest;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label label13;

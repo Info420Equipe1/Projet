@@ -7,6 +7,13 @@ using Texcel.Classes.Personnel;
 
 namespace Texcel.Classes
 {
+    //
+    //
+    //Control Login
+    //Cette classe contient tous les méthodes et traitements en lien avec la form de connexion
+    //
+    //
+
     class CtrlLogin : CtrlController
     {
         public static string VerifierLogin(string _username, string _password)

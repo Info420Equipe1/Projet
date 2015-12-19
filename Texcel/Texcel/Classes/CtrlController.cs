@@ -8,6 +8,13 @@ using System.Windows.Forms;
 
 namespace Texcel.Classes
 {
+    //
+    //
+    //Control Controller
+    //Cette classe contient tous les méthodes et traitements de base pour tous les controllers
+    //
+    //
+
     class CtrlController
     {
         protected static dbProjetE1Entities context = new dbProjetE1Entities();

@@ -20,12 +20,17 @@ namespace Texcel.Interfaces
 {
     public partial class frmAdmin : frmForm
     {
-        List<int> lstDroits;
+        private List<int> lstDroits;
+        
+        // Contructeur de la form
         public frmAdmin()
         {
             InitializeComponent();
         }
 
+        // S'execute lorsque la form est rendu visible ou invisible
+        // Recupère la liste des droits de l'utilisateur connecté et rend invisible les pages
+        // qu'il n'a pas accès dans le menu
         private void frmAdmin_VisibleChanged(object sender, EventArgs e)
         {
             if (CtrlController.GetCurrentUser() != null)
@@ -103,7 +108,6 @@ namespace Texcel.Interfaces
                     }
                     if (groupe.idGroupe == 5)
                     {
-                        //MessageBox.Show("Un administrateur du système est connecté");
                         //Verification du fichier RH
                         cmbFiltre.Text = "Jeu";
                         btnRechercher_Click(this, null);
@@ -122,6 +126,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Lance la recherche en fonction du filtre sélectionné
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             clearTabControl();
@@ -136,8 +141,6 @@ namespace Texcel.Interfaces
             string cle = txtRechercher.Text.ToLower();
             dgvResultats.Columns.Clear();
 
-            // si aucun filtre n'est sélectionner????
-            //J'ai ajouté un default avec un messagebox qui dit d'en selectionner un, à discuter
             switch (_nomFiltre)
             {
                 case "Plateforme":
@@ -271,63 +274,54 @@ namespace Texcel.Interfaces
             this.dgvResultats_Click(this, null);
         }
 
+        // Message d'erreur si l'utilisateur n'a pas accès à la section demandé
         private void messageDroits()
         {
             MessageBox.Show("Vous ne possédez pas les droits requis pour accéder à cette section. Contactez votre administrateur pour plus de détails. ", "Droits insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void SmiSysExp_Click(object sender, EventArgs e)
+        // Cette section renforce tous les actions fait à partir du menu
+        #region liensMenu
+        private void smiSysExp_Click(object sender, EventArgs e)
         {
                 frmAjouterSysExp frmSysExp = new frmAjouterSysExp();
                 frmSysExp.ShowDialog();
         }
 
-        private void SmiTypePlateforme_Click(object sender, EventArgs e)
+        private void smiTypePlateforme_Click(object sender, EventArgs e)
         {
                 frmTypePlateforme frmTypePlateforme = new frmTypePlateforme();
                 frmTypePlateforme.ShowDialog();
         }
 
-        private void SmiPlateforme_Click(object sender, EventArgs e)
+        private void smiPlateforme_Click(object sender, EventArgs e)
         {
                 frmPlateforme frmPlateforme = new frmPlateforme();
                 frmPlateforme.ShowDialog();
         }
 
-        private void SmiTheme_Click(object sender, EventArgs e)
+        private void smiTheme_Click(object sender, EventArgs e)
         {
                 frmTheme frmTheme = new frmTheme();
                 frmTheme.ShowDialog();
         }
 
-        private void SmiGenre_Click(object sender, EventArgs e)
+        private void smiGenre_Click(object sender, EventArgs e)
         {
                 frmGenre frmGenre = new frmGenre();
                 frmGenre.ShowDialog();
         }
 
-        private void SmiClassification_Click(object sender, EventArgs e)
+        private void smiClassification_Click(object sender, EventArgs e)
         {
                 frmClassification frmClassification = new frmClassification();
                 frmClassification.ShowDialog();
         }
 
-        private void SmiJeu_Click(object sender, EventArgs e)
+        private void smiJeu_Click(object sender, EventArgs e)
         {
             frmJeu frmJeu = new frmJeu();
             frmJeu.ShowDialog();
-        }
-
-        private void SmiPersonnel_Click(object sender, EventArgs e)
-        {
-            frmAjouterEmploye frmAjouterEmploye = new frmAjouterEmploye();
-            frmAjouterEmploye.ShowDialog();
-        }
-
-        private void smiEmploye_Click(object sender, EventArgs e)
-        {
-            frmAjouterEmploye frmAjouterEmploye = new frmAjouterEmploye();
-            frmAjouterEmploye.Show();
         }
 
         private void smiEquipe_Click(object sender, EventArgs e)
@@ -342,6 +336,12 @@ namespace Texcel.Interfaces
             frmTypeTest.ShowDialog();
         }
 
+        private void smiVersionJeu_Click(object sender, EventArgs e)
+        {
+            frmAjouterVersionJeu AjouterVersionJeu = new frmAjouterVersionJeu();
+            AjouterVersionJeu.ShowDialog();
+        }
+
         private void smiDeconnection_Click(object sender, EventArgs e)
         {
             CtrlAdmin.SetCurrentUser(null);
@@ -354,7 +354,10 @@ namespace Texcel.Interfaces
         {
             Application.Exit();
         }
+        #endregion
 
+        // S'execute lorsque l'utilisateur change le filtre
+        // Slectionnne le bon tabControl en fonction du filtre choisi
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvResultats.Columns.Clear();
@@ -382,7 +385,7 @@ namespace Texcel.Interfaces
             txtRechercher.SelectAll();
         }
 
-        //Afficher les tab ainsi que l'information de l'élément sélectionné
+        // Affiche le tabControl ainsi que l'information de l'élément sélectionné
         private void dgvResultats_Click(object sender, EventArgs e)
         {
             if (dgvResultats.Rows.Count != 0)
@@ -399,8 +402,8 @@ namespace Texcel.Interfaces
                     lblAdresseEmp.Text = emp.adressePostale;
                     lblTelPrimEmp.Text = emp.numTelPrincipal;
                     lblTelSecEmp.Text = emp.numTelSecondaire;
-                    dateTimePicker1.Value = emp.dateEmbauche;
-                    listBox1.Items.Clear();
+                    dtpDateEmbauche.Value = emp.dateEmbauche;
+                    lsbEmpComptesUtilisateur.Items.Clear();
                     lstBoxTypeTest.Items.Clear();
                     foreach (TypeTest tT in CtrlTypeTest.lstTypeTestAssEmp(emp))
                     {
@@ -409,7 +412,7 @@ namespace Texcel.Interfaces
 
                     foreach (Utilisateur uti in CtrlUtilisateur.lstUtilisateurAssocEmp(emp))
                     {
-                        listBox1.Items.Add(uti.nomUtilisateur);
+                        lsbEmpComptesUtilisateur.Items.Add(uti.nomUtilisateur);
                     }
                     richTextBox1.Text = emp.competenceParticuliere;
                 }
@@ -487,7 +490,7 @@ namespace Texcel.Interfaces
                     VersionSysExp vSE = CtrlVersionSysExp.GetVersionSysExp(eSE.idEdition, versionSysExp);
                     noSE.Text = sE.idSysExp.ToString();
                     nomSE.Text = sE.nomSysExp;
-                    edSE.Text = editionSysExp;
+                    lblEdSE.Text = editionSysExp;
                     versionSE.Text = versionSysExp;
                     codeSE.Text = sE.codeSysExp;
                     rtbCommSysExp.Text = vSE.commSysExp;
@@ -531,6 +534,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Permet d'afficher seulement les filtres autorisés en fonction de l'utilisateur connecté
         private void cmbFiltre_DropDown(object sender, EventArgs e)
         {
             cmbFiltre.Items.Clear();
@@ -568,12 +572,14 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Ouvre la fenêtre de login lors de l'ouverture de cette form
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
             frmLogin.ShowDialog();
         }
 
+        // Permet de modifier l'employé selectionné dans le dataGrid
         private void btnModifierEmp_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Employé")
@@ -591,6 +597,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Permet de modifier l'équipe selectionné dans le dataGrid
         private void btnModifierEquipe_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Équipe")
@@ -607,6 +614,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Permet de modifier le jeu selectionné dans le dataGrid
         private void btnModifierJeu_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Jeu")
@@ -622,6 +630,7 @@ namespace Texcel.Interfaces
             }
         }
 
+        // Permet de modifier la plateforme selectionné dans le dataGrid
         private void btnModifierPlateforme_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Plateforme")
@@ -636,6 +645,8 @@ namespace Texcel.Interfaces
                 dgvResultats_Click(this, null);
             }
         }
+
+        // Permet de modifier le systeme d'exploitation selectionné dans le dataGrid
         private void btnModifierSysExp_Click(object sender, EventArgs e)
         {
             if (cmbFiltre.Text == "Système d'exploitation")
@@ -657,6 +668,7 @@ namespace Texcel.Interfaces
             }
         }
         
+        // Efface tous les champs de tous les tabControls
         private void clearTabControl()
         {
             clearTabControlEmploye();
@@ -668,6 +680,7 @@ namespace Texcel.Interfaces
             clearTabControlCasTest();
         }
 
+        // Efface tous les champs du tabControl Employe
         private void clearTabControlEmploye()
         {
             lblNoEmp.Text = "";
@@ -676,11 +689,13 @@ namespace Texcel.Interfaces
             lblAdresseEmp.Text = "";
             lblTelPrimEmp.Text = "";
             lblTelSecEmp.Text = "";
-            dateTimePicker1.Value = DateTime.Today.AddYears(-100);
-            listBox1.Items.Clear();
+            dtpDateEmbauche.Value = DateTime.Today.AddYears(-100);
+            lsbEmpComptesUtilisateur.Items.Clear();
             lstBoxTypeTest.Items.Clear();
             richTextBox1.Text = "";
         }
+
+        // Efface tous les champs du tabControl Equipe
         private void clearTabControlEquipe()
         {
             lblNomEquipe.Text = "";
@@ -689,6 +704,8 @@ namespace Texcel.Interfaces
             rtbCommentaire.Text = "";
             lstTesteurEquipe.Items.Clear();
         }
+
+        // Efface tous les champs du tabControl Jeu
         private void clearTabControlJeu()
         {
             lblNoJeu.Text = "";
@@ -702,6 +719,8 @@ namespace Texcel.Interfaces
             lstBoxTheme1.Items.Clear();
             lstBoxGenre1.Items.Clear();
         }
+
+        // Efface tous les champs du tabControl Plateforme
         private void clearTabControlPlateforme()
         {
             lblNoPlate.Text = "";
@@ -711,16 +730,18 @@ namespace Texcel.Interfaces
             rtxtCommPlate.Text = "";
         }
         
+        // Efface tous les champs du tabControl Système d'exploitation
         private void clearTabControlSysExp()
         {
             noSE.Text = "";
             nomSE.Text = "";
-            edSE.Text = "";
+            lblEdSE.Text = "";
             codeSE.Text = "";
             versionSE.Text = "";
             rtbCommSysExp.Text = "";
         }
 
+        // Efface tous les champs du tabControl Projet
         private void clearTabControlProjet()
         {
             txtCode.Text = "";
@@ -735,6 +756,7 @@ namespace Texcel.Interfaces
             rtbDiv.Text = "";
         }
 
+        // Efface tous les champs du tabControl CasTest
         private void clearTabControlCasTest()
         {
             txtCodeCT.Text = "";
@@ -748,11 +770,7 @@ namespace Texcel.Interfaces
             rtbDescCT.Text = "";
         }
 
-        private void copierToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(dgvResultats.SelectedCells[0].Value.ToString());
-        }
-
+        // Permet à l'utilisateur de sélectionner un champ dans le dataGrid avec le bouton droit de la souris
         private void dgvResultats_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -760,17 +778,12 @@ namespace Texcel.Interfaces
                 dgvResultats.ClearSelection();
                 dgvResultats[e.ColumnIndex, e.RowIndex].Selected = true;
             }
-        }
+        } 
 
+        // Sélectionne tout le contenu du champ recherche lorsque l'utilisateur clique sur le champ
         private void txtRechercher_Enter(object sender, EventArgs e)
         {
             txtRechercher.SelectAll();
-        }
-
-        private void versionDeJeuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAjouterVersionJeu AjouterVersionJeu = new frmAjouterVersionJeu();
-            AjouterVersionJeu.ShowDialog();
         }
     }
 }
