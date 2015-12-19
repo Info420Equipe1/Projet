@@ -30,28 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJeu));
             this.picJeu = new System.Windows.Forms.PictureBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnRemoveMultipleGenre = new System.Windows.Forms.Button();
+            this.btnAjoutMultipleGenreJeu = new System.Windows.Forms.Button();
+            this.btnRemoveMultipleTheme = new System.Windows.Forms.Button();
+            this.btnAjoutMultipleThemeJeu = new System.Windows.Forms.Button();
+            this.btnRemoveMultiplePlatJeu = new System.Windows.Forms.Button();
+            this.btnAjoutMultiplePlatJeu = new System.Windows.Forms.Button();
             this.pcbAjouterPlateforme = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbClassification = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAjoutPlatJeu = new System.Windows.Forms.Button();
+            this.btnRemovePlatJeu = new System.Windows.Forms.Button();
             this.lstBoxPlat2 = new System.Windows.Forms.ListBox();
             this.lstBoxPlat1 = new System.Windows.Forms.ListBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.pcbAjouterGenre = new System.Windows.Forms.PictureBox();
             this.pcbAjouterTheme = new System.Windows.Forms.PictureBox();
             this.pcbAjouterVerJeu = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAjoutGenreJeu = new System.Windows.Forms.Button();
+            this.btnAjoutThemeJeu = new System.Windows.Forms.Button();
+            this.btnRemoveGenreJeu = new System.Windows.Forms.Button();
+            this.btnRemoveThemeJeu = new System.Windows.Forms.Button();
             this.lstBoxGenre2 = new System.Windows.Forms.ListBox();
             this.lstBoxGenre1 = new System.Windows.Forms.ListBox();
             this.lstBoxTheme2 = new System.Windows.Forms.ListBox();
@@ -92,71 +92,71 @@
             this.picJeu.TabIndex = 65;
             this.picJeu.TabStop = false;
             // 
-            // button12
+            // btnRemoveMultipleGenre
             // 
-            this.button12.Location = new System.Drawing.Point(382, 828);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(32, 23);
-            this.button12.TabIndex = 23;
-            this.button12.TabStop = false;
-            this.button12.Text = "<<";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnRemoveMultipleGenre.Location = new System.Drawing.Point(382, 828);
+            this.btnRemoveMultipleGenre.Name = "btnRemoveMultipleGenre";
+            this.btnRemoveMultipleGenre.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveMultipleGenre.TabIndex = 23;
+            this.btnRemoveMultipleGenre.TabStop = false;
+            this.btnRemoveMultipleGenre.Text = "<<";
+            this.btnRemoveMultipleGenre.UseVisualStyleBackColor = true;
+            this.btnRemoveMultipleGenre.Click += new System.EventHandler(this.btnRemoveMultipleGenre_Click);
             // 
-            // button11
+            // btnAjoutMultipleGenreJeu
             // 
-            this.button11.Location = new System.Drawing.Point(382, 747);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(32, 23);
-            this.button11.TabIndex = 20;
-            this.button11.TabStop = false;
-            this.button11.Text = ">>";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.btnAjoutMultipleGenreJeu.Location = new System.Drawing.Point(382, 747);
+            this.btnAjoutMultipleGenreJeu.Name = "btnAjoutMultipleGenreJeu";
+            this.btnAjoutMultipleGenreJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutMultipleGenreJeu.TabIndex = 20;
+            this.btnAjoutMultipleGenreJeu.TabStop = false;
+            this.btnAjoutMultipleGenreJeu.Text = ">>";
+            this.btnAjoutMultipleGenreJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutMultipleGenreJeu.Click += new System.EventHandler(this.btnAjoutMultipleGenreJeu_Click);
             // 
-            // button10
+            // btnRemoveMultipleTheme
             // 
-            this.button10.Location = new System.Drawing.Point(382, 718);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(32, 23);
-            this.button10.TabIndex = 17;
-            this.button10.TabStop = false;
-            this.button10.Text = "<<";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btnRemoveMultipleTheme.Location = new System.Drawing.Point(382, 718);
+            this.btnRemoveMultipleTheme.Name = "btnRemoveMultipleTheme";
+            this.btnRemoveMultipleTheme.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveMultipleTheme.TabIndex = 17;
+            this.btnRemoveMultipleTheme.TabStop = false;
+            this.btnRemoveMultipleTheme.Text = "<<";
+            this.btnRemoveMultipleTheme.UseVisualStyleBackColor = true;
+            this.btnRemoveMultipleTheme.Click += new System.EventHandler(this.btnRemoveMultipleTheme_Click);
             // 
-            // button9
+            // btnAjoutMultipleThemeJeu
             // 
-            this.button9.Location = new System.Drawing.Point(381, 639);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(32, 23);
-            this.button9.TabIndex = 14;
-            this.button9.TabStop = false;
-            this.button9.Text = ">>";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnAjoutMultipleThemeJeu.Location = new System.Drawing.Point(381, 639);
+            this.btnAjoutMultipleThemeJeu.Name = "btnAjoutMultipleThemeJeu";
+            this.btnAjoutMultipleThemeJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutMultipleThemeJeu.TabIndex = 14;
+            this.btnAjoutMultipleThemeJeu.TabStop = false;
+            this.btnAjoutMultipleThemeJeu.Text = ">>";
+            this.btnAjoutMultipleThemeJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutMultipleThemeJeu.Click += new System.EventHandler(this.btnAjoutMultipleThemeJeu_Click);
             // 
-            // button8
+            // btnRemoveMultiplePlatJeu
             // 
-            this.button8.Location = new System.Drawing.Point(382, 610);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(32, 23);
-            this.button8.TabIndex = 11;
-            this.button8.TabStop = false;
-            this.button8.Text = "<<";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnRemoveMultiplePlatJeu.Location = new System.Drawing.Point(382, 610);
+            this.btnRemoveMultiplePlatJeu.Name = "btnRemoveMultiplePlatJeu";
+            this.btnRemoveMultiplePlatJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveMultiplePlatJeu.TabIndex = 11;
+            this.btnRemoveMultiplePlatJeu.TabStop = false;
+            this.btnRemoveMultiplePlatJeu.Text = "<<";
+            this.btnRemoveMultiplePlatJeu.UseVisualStyleBackColor = true;
+            this.btnRemoveMultiplePlatJeu.Click += new System.EventHandler(this.btnRemoveMultiplePlatJeu_Click);
             // 
-            // button7
+            // btnAjoutMultiplePlatJeu
             // 
-            this.button7.Location = new System.Drawing.Point(381, 525);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(32, 23);
-            this.button7.TabIndex = 8;
-            this.button7.TabStop = false;
-            this.button7.Text = ">>";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnAjoutMultiplePlatJeu.Location = new System.Drawing.Point(381, 525);
+            this.btnAjoutMultiplePlatJeu.Name = "btnAjoutMultiplePlatJeu";
+            this.btnAjoutMultiplePlatJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutMultiplePlatJeu.TabIndex = 8;
+            this.btnAjoutMultiplePlatJeu.TabStop = false;
+            this.btnAjoutMultiplePlatJeu.Text = ">>";
+            this.btnAjoutMultiplePlatJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutMultiplePlatJeu.Click += new System.EventHandler(this.btnAjoutMultiplePlatJeu_Click);
             // 
             // pcbAjouterPlateforme
             // 
@@ -202,27 +202,27 @@
             this.label1.TabIndex = 55;
             this.label1.Text = "Classification:";
             // 
-            // button4
+            // btnAjoutPlatJeu
             // 
-            this.button4.Location = new System.Drawing.Point(381, 554);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(32, 23);
-            this.button4.TabIndex = 9;
-            this.button4.TabStop = false;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnAjoutPlatJeu.Location = new System.Drawing.Point(381, 554);
+            this.btnAjoutPlatJeu.Name = "btnAjoutPlatJeu";
+            this.btnAjoutPlatJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutPlatJeu.TabIndex = 9;
+            this.btnAjoutPlatJeu.TabStop = false;
+            this.btnAjoutPlatJeu.Text = ">";
+            this.btnAjoutPlatJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutPlatJeu.Click += new System.EventHandler(this.btnAjoutPlatJeu_Click);
             // 
-            // button1
+            // btnRemovePlatJeu
             // 
-            this.button1.Location = new System.Drawing.Point(382, 587);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 10;
-            this.button1.TabStop = false;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRemovePlatJeu.Location = new System.Drawing.Point(382, 587);
+            this.btnRemovePlatJeu.Name = "btnRemovePlatJeu";
+            this.btnRemovePlatJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnRemovePlatJeu.TabIndex = 10;
+            this.btnRemovePlatJeu.TabStop = false;
+            this.btnRemovePlatJeu.Text = "<";
+            this.btnRemovePlatJeu.UseVisualStyleBackColor = true;
+            this.btnRemovePlatJeu.Click += new System.EventHandler(this.btnRemovePlatJeu_Click);
             // 
             // lstBoxPlat2
             // 
@@ -299,49 +299,49 @@
             this.pcbAjouterVerJeu.TabStop = false;
             this.pcbAjouterVerJeu.Click += new System.EventHandler(this.pcbAjouterVerJeu_Click);
             // 
-            // button6
+            // btnAjoutGenreJeu
             // 
-            this.button6.Location = new System.Drawing.Point(381, 772);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(32, 23);
-            this.button6.TabIndex = 21;
-            this.button6.TabStop = false;
-            this.button6.Text = ">";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnAjoutGenreJeu.Location = new System.Drawing.Point(381, 772);
+            this.btnAjoutGenreJeu.Name = "btnAjoutGenreJeu";
+            this.btnAjoutGenreJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutGenreJeu.TabIndex = 21;
+            this.btnAjoutGenreJeu.TabStop = false;
+            this.btnAjoutGenreJeu.Text = ">";
+            this.btnAjoutGenreJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutGenreJeu.Click += new System.EventHandler(this.btnAjoutGenreJeu_Click);
             // 
-            // button5
+            // btnAjoutThemeJeu
             // 
-            this.button5.Location = new System.Drawing.Point(381, 666);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(32, 23);
-            this.button5.TabIndex = 15;
-            this.button5.TabStop = false;
-            this.button5.Text = ">";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnAjoutThemeJeu.Location = new System.Drawing.Point(381, 666);
+            this.btnAjoutThemeJeu.Name = "btnAjoutThemeJeu";
+            this.btnAjoutThemeJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnAjoutThemeJeu.TabIndex = 15;
+            this.btnAjoutThemeJeu.TabStop = false;
+            this.btnAjoutThemeJeu.Text = ">";
+            this.btnAjoutThemeJeu.UseVisualStyleBackColor = true;
+            this.btnAjoutThemeJeu.Click += new System.EventHandler(this.btnAjoutThemeJeu_Click);
             // 
-            // button3
+            // btnRemoveGenreJeu
             // 
-            this.button3.Location = new System.Drawing.Point(382, 805);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 23);
-            this.button3.TabIndex = 22;
-            this.button3.TabStop = false;
-            this.button3.Text = "<";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRemoveGenreJeu.Location = new System.Drawing.Point(382, 805);
+            this.btnRemoveGenreJeu.Name = "btnRemoveGenreJeu";
+            this.btnRemoveGenreJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveGenreJeu.TabIndex = 22;
+            this.btnRemoveGenreJeu.TabStop = false;
+            this.btnRemoveGenreJeu.Text = "<";
+            this.btnRemoveGenreJeu.UseVisualStyleBackColor = true;
+            this.btnRemoveGenreJeu.Click += new System.EventHandler(this.btnRemoveGenreJeu_Click);
             // 
-            // button2
+            // btnRemoveThemeJeu
             // 
-            this.button2.Location = new System.Drawing.Point(382, 695);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 23);
-            this.button2.TabIndex = 16;
-            this.button2.TabStop = false;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnRemoveThemeJeu.Location = new System.Drawing.Point(382, 695);
+            this.btnRemoveThemeJeu.Name = "btnRemoveThemeJeu";
+            this.btnRemoveThemeJeu.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveThemeJeu.TabIndex = 16;
+            this.btnRemoveThemeJeu.TabStop = false;
+            this.btnRemoveThemeJeu.Text = "<";
+            this.btnRemoveThemeJeu.UseVisualStyleBackColor = true;
+            this.btnRemoveThemeJeu.Click += new System.EventHandler(this.btnRemoveThemeJeu_Click);
             // 
             // lstBoxGenre2
             // 
@@ -595,28 +595,28 @@
             this.Controls.Add(this.pcbModifVersion);
             this.Controls.Add(this.pcbSuprimmerVersion);
             this.Controls.Add(this.picJeu);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btnRemoveMultipleGenre);
+            this.Controls.Add(this.btnAjoutMultipleGenreJeu);
+            this.Controls.Add(this.btnRemoveMultipleTheme);
+            this.Controls.Add(this.btnAjoutMultipleThemeJeu);
+            this.Controls.Add(this.btnRemoveMultiplePlatJeu);
+            this.Controls.Add(this.btnAjoutMultiplePlatJeu);
             this.Controls.Add(this.pcbAjouterPlateforme);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbClassification);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAjoutPlatJeu);
+            this.Controls.Add(this.btnRemovePlatJeu);
             this.Controls.Add(this.lstBoxPlat2);
             this.Controls.Add(this.lstBoxPlat1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pcbAjouterGenre);
             this.Controls.Add(this.pcbAjouterTheme);
             this.Controls.Add(this.pcbAjouterVerJeu);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAjoutGenreJeu);
+            this.Controls.Add(this.btnAjoutThemeJeu);
+            this.Controls.Add(this.btnRemoveGenreJeu);
+            this.Controls.Add(this.btnRemoveThemeJeu);
             this.Controls.Add(this.lstBoxGenre2);
             this.Controls.Add(this.lstBoxGenre1);
             this.Controls.Add(this.lstBoxTheme2);
@@ -673,28 +673,28 @@
         private System.Windows.Forms.ListBox lstBoxTheme2;
         private System.Windows.Forms.ListBox lstBoxGenre1;
         private System.Windows.Forms.ListBox lstBoxGenre2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnRemoveThemeJeu;
+        private System.Windows.Forms.Button btnRemoveGenreJeu;
+        private System.Windows.Forms.Button btnAjoutGenreJeu;
         private System.Windows.Forms.PictureBox pcbAjouterVerJeu;
         private System.Windows.Forms.PictureBox pcbAjouterTheme;
         private System.Windows.Forms.PictureBox pcbAjouterGenre;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ListBox lstBoxPlat1;
         private System.Windows.Forms.ListBox lstBoxPlat2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnRemovePlatJeu;
+        private System.Windows.Forms.Button btnAjoutThemeJeu;
+        private System.Windows.Forms.Button btnAjoutPlatJeu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbClassification;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pcbAjouterPlateforme;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnAjoutMultiplePlatJeu;
+        private System.Windows.Forms.Button btnRemoveMultiplePlatJeu;
+        private System.Windows.Forms.Button btnAjoutMultipleThemeJeu;
+        private System.Windows.Forms.Button btnRemoveMultipleTheme;
+        private System.Windows.Forms.Button btnAjoutMultipleGenreJeu;
+        private System.Windows.Forms.Button btnRemoveMultipleGenre;
         private System.Windows.Forms.PictureBox picJeu;
         private System.Windows.Forms.PictureBox pcbSuprimmerVersion;
         private System.Windows.Forms.PictureBox pcbModifVersion;

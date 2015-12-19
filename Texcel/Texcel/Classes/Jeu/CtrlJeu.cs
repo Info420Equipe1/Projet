@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Jeu
+    //Cette classe contient tous les méthodes et traitements en lien avec un jeu.
+    //
+    //
     
     class CtrlJeu : CtrlController
     {
-        // private static cJeu cJeu;
-
-        //Nombre d'itération
+        //Nombre d'itération de jeu
         public static int GetCount()
         {
             return context.Jeu.Count();
         }
 
-        //ajout d'un Jeu
+        //Ajout d'un Jeu
         public static string Ajouter(string _nomJeu, string _devJeu, string _classificationJeu, string _descJeu, string _configMinJeu, List<Plateforme> _plateformeJeu, List<ThemeJeu> _themeJeu, List<GenreJeu> _genreJeu, List<VersionJeu> _versionJeu)
         {
-            //Nouveau Jeu
+            //Nouveau Jeu avec l'information recu
             cJeu jeu = new cJeu();
             jeu.nomJeu = _nomJeu;
             jeu.developeur = _devJeu;
@@ -44,7 +48,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-
+        //Modifier un Jeu
         public static string Modifier(string _nomJeu, string _devJeu, string _classificationJeu, string _descJeu, string _configMinJeu, List<Plateforme> _plateformeJeu, List<ThemeJeu> _themeJeu, List<GenreJeu> _genreJeu, List<VersionJeu> _versionJeu)
         {
             cJeu jeu = GetJeu(_nomJeu);
@@ -56,7 +60,7 @@ namespace Texcel.Classes.Jeu
             jeu.Plateforme = _plateformeJeu;
             jeu.ThemeJeu = _themeJeu;
             jeu.GenreJeu = _genreJeu;
-            //jeu.versionJeu = _versionJeu; La version est inexistante pour le moment
+            jeu.VersionJeu = _versionJeu;
 
             try
             {
@@ -69,7 +73,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        //verifier jeu a laide d'un string
+        //Verifier si le jeu existe en fonction d'un nom
         public static bool VerifierJeu(string _nomJeu)
         {
             foreach (cJeu jeu in context.Jeu)
@@ -82,14 +86,14 @@ namespace Texcel.Classes.Jeu
             return false;
         }
 
+        //Enregistrer un jeu dans la BD
         private static void Enregistrer(cJeu _jeu)
         {
-            //Ajouter dans la BD
             context.Jeu.Add(_jeu);
             context.SaveChanges();
         }
         
-        //List des Jeux
+        //Retourne la list des Jeux
         public static List<cJeu> LstJeu()
         {
             List<cJeu> lstJeu = new List<cJeu>();
@@ -100,12 +104,14 @@ namespace Texcel.Classes.Jeu
             }
             return lstJeu;
         }
-        //Trouver un jeu a l'aide d'une string
+
+        //Trouver un jeu en fonction d'un nom
         public static cJeu GetJeu(string _nomJeu)
         {
             cJeu Jeu = context.Jeu.Where(x => x.nomJeu == _nomJeu).First();
 
             return Jeu;
         }
+
     }
 }

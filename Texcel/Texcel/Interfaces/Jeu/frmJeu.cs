@@ -15,7 +15,10 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmJeu : frmForm
     {
+        //Variable Globale permettant de savoir si la Frm est en mode Modifier ou Ajouter
         bool modif;
+
+        //Constructeur en Mode Ajouter
         public frmJeu()
         {
             InitializeComponent();
@@ -23,48 +26,52 @@ namespace Texcel.Interfaces.Jeu
             modif = false;
         }
 
-        public frmJeu(cJeu jeu)
+        //Constructeur en Mode Modifier
+        public frmJeu(cJeu _jeu)
         {
             InitializeComponent();
             fillLstBox();
             modif = true;
             btnEnregistrer.Text = "Modifier";
             txtID.Enabled = false;
-            txtID.Text = jeu.idJeu.ToString();
+            txtID.Text = _jeu.idJeu.ToString();
             cmbNom.Enabled = false;
-            cmbNom.Text = jeu.nomJeu;
-            txtDeveloppeur.Text = jeu.developeur;
-            cmbClassification.Text = (jeu.ClassificationJeu.codeClassification + " - " + jeu.ClassificationJeu.nomClassification);
-            rtbDescription.Text = jeu.descJeu;
+            cmbNom.Text = _jeu.nomJeu;
+            txtDeveloppeur.Text = _jeu.developeur;
+            cmbClassification.Text = (_jeu.ClassificationJeu.codeClassification + " - " + _jeu.ClassificationJeu.nomClassification);
+            rtbDescription.Text = _jeu.descJeu;
             rtbDescription.Focus();
             rtbDescription.SelectAll();
-            rtbConfiguration.Text = jeu.configMinimal;
+            rtbConfiguration.Text = _jeu.configMinimal;
             try
             {
-                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
-                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
+                picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + _jeu.idJeu + ".jpg");
             }
             catch (FileNotFoundException)
             {
                 picJeu.ImageLocation = @"..\..\Images\NoImage.png";
             }
-            foreach (VersionJeu version in jeu.VersionJeu)
+
+            //Emplissage des listbox concernant les informations du jeu
+            foreach (VersionJeu version in _jeu.VersionJeu)
             {
                 lstBoxVersion.Items.Add(version.nomVersionJeu);
             }
-            foreach (Plateforme plat in jeu.Plateforme)
+            foreach (Plateforme plat in _jeu.Plateforme)
             {
                 lstBoxPlat1.Items.Add(plat.nomPlateforme);
             }
-            foreach (ThemeJeu theme in jeu.ThemeJeu)
+            foreach (ThemeJeu theme in _jeu.ThemeJeu)
             {
                 lstBoxTheme1.Items.Add(theme.nomTheme);
             }
-            foreach (GenreJeu genre in jeu.GenreJeu)
+            foreach (GenreJeu genre in _jeu.GenreJeu)
             {
                 lstBoxGenre1.Items.Add(genre.nomGenre);
             }
         }
+
+        //Emplissage des listbox globales
         private void fillLstBox()
         {
             //Emplissage de la list box des Plateforme Globales
@@ -105,6 +112,7 @@ namespace Texcel.Interfaces.Jeu
                 cmbNom.Items.Add(jeu.nomJeu);
             }
         }
+
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstBoxPlat2.SelectedIndex = -1;
@@ -124,7 +132,6 @@ namespace Texcel.Interfaces.Jeu
             try
             {
                 picJeu.Image = Image.FromFile(@"..\..\Images\Jeu\Jeux\" + jeu.idJeu + ".jpg");
-                //picJeu.ImageLocation = @"..\..\Images\Jeu\"+jeu.idJeu+".jpg";
             }
             catch (FileNotFoundException)
             {
@@ -179,7 +186,6 @@ namespace Texcel.Interfaces.Jeu
                 lstBoxGenre2.Items.Remove(name);
                 lstBoxGenre1.SetSelected(i, true);
             }
-            
         }
 
         private void cmbNom_TextUpdate(object sender, EventArgs e)
@@ -198,6 +204,33 @@ namespace Texcel.Interfaces.Jeu
             List<GenreJeu> genreJeu = new List<GenreJeu>();
             List<VersionJeu> versionJeu = new List<VersionJeu>();
 
+            //Validation
+            if (cmbNom.Text == "")
+            {
+                CtrlController.MessageErreur("Veuillez ajouter un nom!");
+                return;
+            }
+            if ((cmbClassification.Text == null) || (cmbClassification.Text == ""))
+            {
+                CtrlController.MessageErreur("Veuillez ajouter une classification!");
+                return;
+            }
+            else
+            {
+                int cpt = 0, position = 0;
+                foreach (char character in cmbClassification.Text)
+                {
+                    if (character == '-')
+                    {
+                        position = cpt - 1;
+                        break;
+                    }
+                    cpt++;
+                }
+                classification = ((cmbClassification.Text).Substring(0, position));
+            }
+
+            //Recupère l'information sur le jeu
             foreach (string nomPlat in lstBoxPlat1.Items)
             {
                 plateforme.Add(CtrlPlateforme.GetPlateforme(nomPlat));
@@ -215,34 +248,10 @@ namespace Texcel.Interfaces.Jeu
                 versionJeu.Add(CtrlVersionJeu.GetVersionJeu(nomVersion));
             }
 
-            if (cmbNom.Text == "")
-            {
-                CtrlController.MessageErreur("Veuillez ajouter un nom!");
-                return;
-            }
-            if ((cmbClassification.Text == null)||(cmbClassification.Text == ""))
-            {
-                CtrlController.MessageErreur("Veuillez ajouter une classification!");
-                return;
-            }
-            else
-            {
-                int cpt = 0, position = 0;
-                foreach (char character in cmbClassification.Text)
-	            {
-		            if (character == '-')
-	                {
-                        position = cpt-1;
-		                break;
-	                }
-                    cpt++;
-	            }
-                classification = ((cmbClassification.Text).Substring(0, position));
-            }
-
             //Validation
             if (CtrlJeu.VerifierJeu(cmbNom.Text.Trim()))
             {
+                //Modifier un Jeu
                 DR = CtrlController.getDR("Vous êtes en train de modifier un Jeu, voulez-vous continuer?");
                 if (DR == DialogResult.Yes)
                 {
@@ -264,6 +273,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Ajouter un Jeu
                 message = CtrlJeu.Ajouter(cmbNom.Text.Trim(), txtDeveloppeur.Text.Trim(), classification, rtbDescription.Text.Trim(), rtbConfiguration.Text.Trim(), plateforme, themeJeu, genreJeu, versionJeu);
                 if (message.Contains("erreur"))
                 {
@@ -282,6 +292,7 @@ namespace Texcel.Interfaces.Jeu
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //Efface tous les champs
             txtID.Text = "";
             cmbNom.Text = "";
             txtDeveloppeur.Text = "";
@@ -299,7 +310,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter une Plateforme par rapport au jeu
-        private void button4_Click(object sender, EventArgs e)
+        private void btnAjoutPlatJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count > 1))
             {
@@ -313,7 +324,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter plusieurs Plateformes par rapport au jeu
-        private void button7_Click(object sender, EventArgs e)
+        private void btnAjoutMultiplePlatJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxPlat2.Items.Count == 0) || (lstBoxPlat2.SelectedIndex == -1) || (lstBoxPlat2.SelectedItems.Count < 2))
             {
@@ -332,7 +343,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter un theme par rapport au jeu
-        private void button5_Click(object sender, EventArgs e)
+        private void btnAjoutThemeJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count > 1))
             {
@@ -346,7 +357,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter plusieurs theme par rapport au jeu
-        private void button9_Click(object sender, EventArgs e)
+        private void btnAjoutMultipleThemeJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxTheme2.Items.Count == 0) || (lstBoxTheme2.SelectedIndex == -1) || (lstBoxTheme2.SelectedItems.Count < 2))
             {
@@ -365,7 +376,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter un Genre par rapport au jeu
-        private void button6_Click(object sender, EventArgs e)
+        private void btnAjoutGenreJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count > 1))
             {
@@ -379,7 +390,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Ajouter plusieurs Genre par rapport au jeu
-        private void button11_Click(object sender, EventArgs e)
+        private void btnAjoutMultipleGenreJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxGenre2.Items.Count == 0) || (lstBoxGenre2.SelectedIndex == -1) || (lstBoxGenre2.SelectedItems.Count < 2))
             {
@@ -399,7 +410,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove une plateforme par rapport au jeu
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRemovePlatJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1)||(lstBoxPlat1.SelectedItems.Count > 1))
             {
@@ -413,7 +424,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove plusieurs plateformes par rapport au jeu
-        private void button8_Click(object sender, EventArgs e)
+        private void btnRemoveMultiplePlatJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxPlat1.Items.Count == 0) || (lstBoxPlat1.SelectedIndex == -1) || (lstBoxPlat1.SelectedItems.Count < 2))
             {
@@ -432,7 +443,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove un Thème par rapport au Jeu
-        private void button2_Click(object sender, EventArgs e)
+        private void btnRemoveThemeJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count > 1))
             {
@@ -446,7 +457,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove plusieurs Thèmes par rapport au Jeu
-        private void button10_Click(object sender, EventArgs e)
+        private void btnRemoveMultipleTheme_Click(object sender, EventArgs e)
         {
             if ((lstBoxTheme1.Items.Count == 0) || (lstBoxTheme1.SelectedIndex == -1) || (lstBoxTheme1.SelectedItems.Count < 2))
             {
@@ -466,7 +477,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove un Genre par rapport au jeu
-        private void button3_Click(object sender, EventArgs e)
+        private void btnRemoveGenreJeu_Click(object sender, EventArgs e)
         {
             if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1)|| (lstBoxGenre1.SelectedItems.Count > 1))
             {
@@ -480,7 +491,7 @@ namespace Texcel.Interfaces.Jeu
         }
 
         //Remove plusieurs Genres par rapport au jeu
-        private void button12_Click(object sender, EventArgs e)
+        private void btnRemoveMultipleGenre_Click(object sender, EventArgs e)
         {
             if ((lstBoxGenre1.Items.Count == 0) || (lstBoxGenre1.SelectedIndex == -1) || (lstBoxGenre1.SelectedItems.Count < 2))
             {
@@ -500,9 +511,11 @@ namespace Texcel.Interfaces.Jeu
         }
 
 
-
+        //Tous les boutons permettant d'ajouter des composants pour le Jeu
+        //
         private void pcbAjouterPlateforme_Click(object sender, EventArgs e)
         {
+            //Ouverture de la forme Plateforme
             frmPlateforme frmPlat = new frmPlateforme();
             frmPlat.ShowDialog();
             this.Refresh();
@@ -510,6 +523,7 @@ namespace Texcel.Interfaces.Jeu
 
         private void pcbAjouterTheme_Click(object sender, EventArgs e)
         {
+            //Ouverture de la forme Theme
             frmTheme frmTheme = new frmTheme();
             frmTheme.ShowDialog();
             this.Refresh();
@@ -517,6 +531,7 @@ namespace Texcel.Interfaces.Jeu
 
         private void pcbAjouterGenre_Click(object sender, EventArgs e)
         {
+            //Ouverture de la forme Genre
             frmGenre frmGenre = new frmGenre();
             frmGenre.ShowDialog();
             this.Refresh();
@@ -526,6 +541,7 @@ namespace Texcel.Interfaces.Jeu
         {
             if (CtrlJeu.VerifierJeu(cmbNom.Text))
             {
+                //Ouverture de la forme Version de Jeu
                 string nomJeu = cmbNom.Text;
                 frmAjouterVersionJeu frmVersionJeu = new frmAjouterVersionJeu(nomJeu);
                 frmVersionJeu.ShowDialog();
@@ -546,11 +562,11 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
-
         private void pcbModifVersion_Click(object sender, EventArgs e)
         {
             if (lstBoxVersion.SelectedIndex != -1)
             {
+                //Ouverture de la forme Plateforme
                 VersionJeu _Version = CtrlVersionJeu.GetVersionJeu(lstBoxVersion.SelectedItem.ToString());
                 frmAjouterVersionJeu frmVersion = new frmAjouterVersionJeu(_Version);
                 frmVersion.ShowDialog();
@@ -566,6 +582,8 @@ namespace Texcel.Interfaces.Jeu
             if (lstBoxVersion.SelectedIndex != -1)
             {
                 string message;
+
+                //Supprimer une version de jeu
                 message = CtrlVersionJeu.Supprimer(lstBoxVersion.SelectedItem.ToString());
                 if (message.Contains("erreur"))
                 {
@@ -582,7 +600,6 @@ namespace Texcel.Interfaces.Jeu
                         lstBoxVersion.Items.Add(version.nomVersionJeu);
                     }
                 }    
-                
             }
             else
             {
@@ -590,7 +607,5 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
-
-    
     }
 }
