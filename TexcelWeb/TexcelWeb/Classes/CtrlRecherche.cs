@@ -11,6 +11,12 @@ using System.Data;
 
 namespace TexcelWeb.Classes
 {
+    //
+    //
+    //Controle Recherche
+    //Cette classe contient tous les méthodes et traitements en lien avec la recherche.
+    //
+    //
     public class CtrlRecherche
     {
         static GridView monGV;
