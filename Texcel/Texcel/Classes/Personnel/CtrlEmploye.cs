@@ -8,11 +8,18 @@ using Texcel.Classes.Test;
 
 namespace Texcel.Classes.Personnel
 {
-    class CtrlEmploye:CtrlController
+    //
+    //
+    //Control Employe
+    //Cette classe contient tous les méthodes et traitements en lien avec un employé.
+    //
+    //
+
+    class CtrlEmploye : CtrlController
     {
-        public static string Ajouter(string _nomEmp, string _prenomEmp,string _adresseEmp, string _telPrimEmp,string _TelSecEmp, string _compPart, DateTime _dateEmbEmp)
+        //Nouvel employé a ajouté
+        public static string Ajouter(string _nomEmp, string _prenomEmp, string _adresseEmp, string _telPrimEmp, string _TelSecEmp, string _compPart, DateTime _dateEmbEmp)
         {
-            //Nouvel employé
             Employe emp = new Employe();
             emp.nomEmploye = _nomEmp;
             emp.prenomEmploye = _prenomEmp;
@@ -34,7 +41,7 @@ namespace Texcel.Classes.Personnel
             }
         }
 
-        public static string Modifier(string _nomEmp, string _prenomEmp,string _adresseEmp, string _telPrimEmp,string _TelSecEmp, string _compPart, DateTime _dateEmbEmp, Employe _emp)
+        public static string Modifier(string _nomEmp, string _prenomEmp, string _adresseEmp, string _telPrimEmp, string _TelSecEmp, string _compPart, DateTime _dateEmbEmp, Employe _emp)
         {
             Employe employe = _emp;
             employe.nomEmploye = _nomEmp;
@@ -44,10 +51,8 @@ namespace Texcel.Classes.Personnel
             employe.numTelSecondaire = _TelSecEmp;
             employe.dateEmbauche = _dateEmbEmp;
             employe.competenceParticuliere = _compPart;
-
             try
             {
-                
                 context.SaveChanges();
                 LierTypeTest(employe);
                 return "L'employé a été modifié avec succès!";
@@ -87,19 +92,12 @@ namespace Texcel.Classes.Personnel
 
             return listEmploye;
         }
-
         //Trouver un employé a l'aide de son nom et prenom
         public static Employe emp(string _nomPren)
         {
-            Employe emp = context.Employe.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();         
+            Employe emp = context.Employe.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();
             return emp;
         }
-        public static string getIdEmploye(string _nomEmp)
-        {
-            Employe emp = context.Employe.Where(x => x.prenomEmploye + " " + x.nomEmploye == _nomEmp).First();
-            return emp.noEmploye;
-        }
-
         //Employés qui sont chef d'équipe
         public static List<Employe> listEmployeChefEquipe()
         {
@@ -117,7 +115,6 @@ namespace Texcel.Classes.Personnel
                     }
                 }
             }
-
             return listEmp;
         }
 
@@ -126,6 +123,5 @@ namespace Texcel.Classes.Personnel
             Employe emp = context.Employe.Where(x => x.noEmploye == _numEmploye).First();
             return emp;
         }
-
     }
 }

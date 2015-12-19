@@ -14,9 +14,9 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmPlateforme : frmForm
     {
-        bool modif;
-        Plateforme platModif;
-        List<EditionSysExp> lstEd = new List<EditionSysExp>();
+        private bool modif;
+        private Plateforme platModif;
+
         public frmPlateforme()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace Texcel.Interfaces.Jeu
             txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
             cmbNom.DropDownStyle = ComboBoxStyle.DropDown;
         }
+
         public frmPlateforme(Plateforme plat)
         {
             InitializeComponent();
@@ -32,28 +33,15 @@ namespace Texcel.Interfaces.Jeu
             cmbTypePlateforme.Enabled = false;
             cmbTypePlateforme.Items.Add(plat.TypePlateforme.nomTypePlateforme);
             cmbTypePlateforme.SelectedIndex = 0;
-            //cmbTypePlateforme.SelectedIndex = cmbTypePlateforme.Items.IndexOf(plat.TypePlateforme.nomTypePlateforme);
             cmbNom.Enabled = true;
             cmbNom.AllowDrop = false;
             cmbNom.Text = plat.nomPlateforme;
             rtbConfiguration.Text = plat.configPlateforme;
             rtbCommentaire.Text = plat.commPlateforme;
-            //Probleme à discuter
-            //SysExp SE = plat.SysExp.First();
-            //cmbNomSE.Text = SE.nomSysExp;
-            //EditionSysExp EditionSE = SE.EditionSysExp.First();
-            //cmbEditionSE.Text = EditionSE.nomEdition;
-            //VersionSysExp VersionSE = EditionSE.VersionSysExp.First();
-            //cmbVersionSE.Text = VersionSE.noVersion;
             btnAjouter.Text = "Modifier";
             modif = true;
             platModif = plat;
-            
         }
-
-        
-
-
         // fill la  liste de type plateforme
         private void cmbTypePlateforme_DropDown(object sender, EventArgs e)
         {
@@ -75,45 +63,13 @@ namespace Texcel.Interfaces.Jeu
             {
                 cmbNom.Enabled = false;
             }
-            Recharger2();
+            RechargerSansEnleverTypeTest();
         }
 
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             grbSE.Enabled = true;
-            if (CtrlPlateforme.Verifier(cmbNom.Text))
-            {
-                //Plateforme plateforme = CtrlPlateforme.GetPlateforme(cmbNom.Text);
-                //txtID.Text = plateforme.idPlateforme.ToString();
-                //Changer lors de la creation BD descPlateforme à commPlateforme
-                //rtbCommentaire.Text = plateforme.commPlateforme;
-                //rtbConfiguration.Text = plateforme.configPlateforme;
-                //rtbCommentaire.SelectAll();
-                //btnAjouter.Text = "Modifier";
-                //btnAjouter.Visible = false;
-                //btnSupprimer.Visible = true;
-            }
         }
-
-        private void cmbNom_TextUpdate(object sender, EventArgs e)
-        {
-            //if (cmbNom.Text.Trim() == null || cmbNom.Text.Trim() == "" || cmbNom.Text.Trim() == "Aucun")
-            //{
-            //    grbSE.Enabled = false;
-            //    //btnAjouter.Text = "Modifier";
-            //}
-            //else
-            //{
-            //    grbSE.Enabled = true;
-            //    btnAjouter.Visible = true;
-            //    btnAjouter.Text = "Enregistrer";
-            //    btnSupprimer.Visible = false;
-            //    txtID.Text = "";
-            //    rtbConfiguration.Text = "";
-            //    rtbCommentaire.Text = "";
-            //}
-        }
-
         // fill la  liste de plateforme
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
@@ -128,12 +84,9 @@ namespace Texcel.Interfaces.Jeu
         private void cmbNomSE_DropDown(object sender, EventArgs e)
         {
             cmbNomSE.Items.Clear();
-
-
             foreach (SysExp sysExp in CtrlSysExp.Rechercher())
             {
                 cmbNomSE.Items.Add(sysExp.nomSysExp);
-
             }
         }
 
@@ -148,26 +101,20 @@ namespace Texcel.Interfaces.Jeu
         {
             //DialogResult DR;
             string message;
-
             if (cmbNom.Text == "")
             {
                 MessageBox.Show("Veuillez ajouter un nom!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             if (cmbTypePlateforme.Text == "")
             {
                 MessageBox.Show("Veuillez choisir un type de plateforme", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
             if (modif)
             {
                 if (cmbNomSE.Text == "")
                 {
-
-
                     message = CtrlPlateforme.Modifier(cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text, platModif);
                     if (message.Contains("erreur"))
                     {
@@ -179,11 +126,9 @@ namespace Texcel.Interfaces.Jeu
                         MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Recharger();
                     }
-                    
                 }
                 else
                 {
-
                     message = CtrlPlateforme.LierPlateformeSysExp(platModif, cmbNomSE.Text.Trim(), cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
                     if (message.Contains("erreur"))
                     {
@@ -216,7 +161,7 @@ namespace Texcel.Interfaces.Jeu
                 }
                 else
                 {
-                    message = CtrlPlateforme.Ajouter(CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text), cmbNom.Text.Trim(), rtbCommentaire.Text.Trim(), rtbConfiguration.Text.Trim(), cmbNomSE.Text.Trim());
+                    message = CtrlPlateforme.CreerPlatLierSysExp(CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text), cmbNom.Text.Trim(), rtbCommentaire.Text.Trim(), rtbConfiguration.Text.Trim(), cmbNomSE.Text.Trim());
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -228,13 +173,11 @@ namespace Texcel.Interfaces.Jeu
                         Recharger();
                     }
                 }
-
             }
         }
-        //Recharger tout
+
         private void Recharger()
         {
-            //txtID.Text = (CtrlPlateforme.GetCount() + 1).ToString();
             rtbCommentaire.Text = "";
             rtbConfiguration.Text = "";
             cmbNom.Text = "";
@@ -244,7 +187,7 @@ namespace Texcel.Interfaces.Jeu
             cmbEditionSE.SelectedItem = null;
         }
         //Recharger sans enlever le type de test
-        private void Recharger2()
+        private void RechargerSansEnleverTypeTest()
         {
             rtbCommentaire.Text = "";
             rtbConfiguration.Text = "";
@@ -258,7 +201,7 @@ namespace Texcel.Interfaces.Jeu
         {
             string message;
             DialogResult DR;
-            DR = MessageBox.Show("Voulez-vous vraiment supprimer la plateforme: " + cmbNom.Text.ToString() +" ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DR = MessageBox.Show("Voulez-vous vraiment supprimer la plateforme: " + cmbNom.Text.ToString() + " ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DR == DialogResult.Yes)
             {
                 if (cmbNomSE.Text == "")
@@ -289,31 +232,22 @@ namespace Texcel.Interfaces.Jeu
                         Recharger();
                     }
                 }
-
-
-                //btnSupprimer.Visible = false;
-                //btnAjouter.Text = "Enregistrer";
             }
             TypePlateforme tp = CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text);
-            //CtrlPlateforme.Ajouter(tp, cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
         }
 
         private void cmbEditionSE_DropDown(object sender, EventArgs e)
         {
             cmbEditionSE.Items.Clear();
-
-
             foreach (EditionSysExp ed in CtrlEditionSysExp.RechercherpourListe(cmbNomSE.Text))
             {
                 cmbEditionSE.Items.Add(ed.nomEdition);
-
             }
         }
 
         private void cmbVersionSE_DropDown(object sender, EventArgs e)
         {
             cmbVersionSE.Items.Clear();
-
             foreach (String ver in CtrlVersionSysExp.RechercherpourListe(cmbEditionSE.Text))
             {
                 cmbVersionSE.Items.Add(ver);
@@ -338,7 +272,5 @@ namespace Texcel.Interfaces.Jeu
                 picSysExp.Image = Image.FromFile(@"C:\Users\Utilisateur\Documents\GitHub\Projet\Texcel\Texcel\Images\NoImage.png");
             }
         }
-
-
     }
 }

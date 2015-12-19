@@ -186,7 +186,7 @@
             this.cmbNom.TabIndex = 2;
             this.cmbNom.DropDown += new System.EventHandler(this.cmbNom_DropDown);
             this.cmbNom.SelectedIndexChanged += new System.EventHandler(this.cmbNom_SelectedIndexChanged);
-            this.cmbNom.TextUpdate += new System.EventHandler(this.cmbNom_TextUpdate);
+            
             // 
             // cmbTypePlateforme
             // 

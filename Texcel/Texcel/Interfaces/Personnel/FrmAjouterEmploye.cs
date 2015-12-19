@@ -17,9 +17,8 @@ namespace Texcel.Interfaces.Personnel
     
     public partial class frmAjouterEmploye : frmForm
     {
-        bool modifier = false;
+        private bool modifier = false;
         Employe employe = new Employe();
-
         //Mode creer employé
         public frmAjouterEmploye()
         {
@@ -29,33 +28,15 @@ namespace Texcel.Interfaces.Personnel
             lstBoxCompteUti.Visible = false;
             label2.Visible = false;
             btnCreerUti.Visible = false;
-      
         }
-
+        //Mode ajouter employé recu par les ressources humaines
         public frmAjouterEmploye(Employe _employe)
         {
             InitializeComponent();
             CtrlTypeTest.PopulateLstTypeTest();
             AfficherLstBox();
             AfficherEmploye(_employe);
-
-            
         }
-
-        private void AfficherEmploye(Employe _employe)
-        {
-            txtNumeroEmp.Text = _employe.noEmploye.ToString();   
-            txtNom.Text = _employe.nomEmploye;
-            txtPrenom.Text = _employe.prenomEmploye;
-            txtAdresse.Text = _employe.adressePostale;
-            txtTelPrim.Text = _employe.numTelPrincipal;
-            txtTelSec.Text = _employe.numTelSecondaire;
-            dateTPEmp.Value = _employe.dateEmbauche;
-            rtbCompParticuliere.Text = _employe.competenceParticuliere;
-
-            
-        }
-
         //Mode modifier (Arrive de la fenetre recherche)
         public frmAjouterEmploye(Employe _employe, int _parRapport)
         {
@@ -68,33 +49,31 @@ namespace Texcel.Interfaces.Personnel
             txtTelSec.Text = _employe.numTelSecondaire;
             dateTPEmp.Value = _employe.dateEmbauche;
             rtbCompParticuliere.Text = _employe.competenceParticuliere;
-
             CtrlTypeTest.PopulateLstTypeTest(_employe);
             AfficherLstBox();
-            //RemplirListBoxPourModeModif(_emp);
             remplirListBoxUtil(_employe);
             modifier = true;
             employe = CtrlEmploye.emp(_employe.nomEmploye + " " + _employe.prenomEmploye);
             btnEnregistrer.Text = "Modifier";
             this.Text = "Modifier employée";
-         
         }
 
-        private void RemplirListBoxPourModeModif(Employe _emp)
+        private void AfficherEmploye(Employe _employe)
         {
-            foreach (TypeTest typTest in CtrlTypeTest.lstTypeTestAssEmp(_emp))
-            {
-                lstBoxTypeTestEmp.Items.Add(typTest.nomTest);
-                
-            }
+            txtNumeroEmp.Text = _employe.noEmploye.ToString();   
+            txtNom.Text = _employe.nomEmploye;
+            txtPrenom.Text = _employe.prenomEmploye;
+            txtAdresse.Text = _employe.adressePostale;
+            txtTelPrim.Text = _employe.numTelPrincipal;
+            txtTelSec.Text = _employe.numTelSecondaire;
+            dateTPEmp.Value = _employe.dateEmbauche;
+            rtbCompParticuliere.Text = _employe.competenceParticuliere;
         }
-
         // Remplir les lstBox
         private void AfficherLstBox()
         {
             lstBoxTypeTest.Items.Clear();
             lstBoxTypeTestEmp.Items.Clear();
-        
             //Emplissage de la list box des TypeTest 
             foreach (KeyValuePair<TypeTest, int> tT in CtrlTypeTest.getlstTypeTestLstBox)
             {
@@ -106,7 +85,6 @@ namespace Texcel.Interfaces.Personnel
                 {
                     lstBoxTypeTestEmp.Items.Add(tT.Key.nomTest);
                 }
-
             }
         }
 
@@ -119,9 +97,7 @@ namespace Texcel.Interfaces.Personnel
                 lstBoxCompteUti.Items.Add(uti.nomUtilisateur);
             }
         }
-      
         
-
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             if ((txtAdresse.Text == "") || (txtNom.Text == "") || (txtPrenom.Text == "") || (txtNom.Text == ""))
@@ -140,7 +116,6 @@ namespace Texcel.Interfaces.Personnel
                 else
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
             else
@@ -181,7 +156,6 @@ namespace Texcel.Interfaces.Personnel
             {
                 CtrlController.MessageErreur("Vous devez choisir un compte!");
             }
-            
         }
 
         private void btnCreerUti_Click(object sender, EventArgs e)
@@ -217,6 +191,7 @@ namespace Texcel.Interfaces.Personnel
                 AfficherLstBox();
             }
         }
+
         private void btnFlecheAjouterMultiple_Click(object sender, EventArgs e)
         {
             if ((lstBoxTypeTest.Items.Count == 0))
@@ -271,8 +246,5 @@ namespace Texcel.Interfaces.Personnel
         {            
             remplirListBoxUtil(employe);
         }
-
-
-
     }
 }

@@ -7,6 +7,12 @@ using System.Windows.Forms;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Plateforme
+    //Cette classe contient tous les méthodes et traitements en lien avec une plateforme.
+    //
+    //
     class CtrlPlateforme : CtrlController
     {
         private static Plateforme plateforme = new Plateforme();
@@ -15,10 +21,7 @@ namespace Texcel.Classes.Jeu
         {
             return context.Plateforme.Count();
         }
-
-
-
-        //list des plateformes
+        //list de toutes les plateformes plateformes
         public static List<Plateforme> lstPlateformeJeu()
         {
             List<Plateforme> lstPlateformeJeu = new List<Plateforme>();
@@ -30,28 +33,6 @@ namespace Texcel.Classes.Jeu
             return lstPlateformeJeu;
         }
 
-        //List des plateformes par rapport a un nom de jeu
-        public static List<Plateforme> lstPlateformeJeu(string _nomJeu)
-        {
-            List<Plateforme> lstPlateformeJeu = new List<Plateforme>();
-            cJeu jeu = CtrlJeu.GetJeu(_nomJeu);
-            foreach (Plateforme plateforme in jeu.Plateforme)
-            {
-                lstPlateformeJeu.Add(plateforme);
-            }
-            return lstPlateformeJeu;
-        }
-
-        public static List<Plateforme> Rechercher()
-        {
-            List<Plateforme> lstPlateforme = new List<Plateforme>();
-            foreach (Plateforme platforme in context.Plateforme)
-            {
-                lstPlateforme.Add(platforme);
-            }
-            return lstPlateforme;
-        }
-
         public static List<Plateforme> Rechercher(string _nomTypePlateforme)
         {
             List<Plateforme> lstPlateforme = new List<Plateforme>();
@@ -61,8 +42,6 @@ namespace Texcel.Classes.Jeu
             }
             return lstPlateforme;
         }
-
-        //public static void Ajouter(TypePlateforme _typePlateforme, string _nomPlateforme, string _configPlateforme, string _descPlateforme, string _sysExp)
 
         public static string CreerPlateforme(TypePlateforme _typePlateforme, string _nomPlateforme, string _configPlateforme, string _commPlateforme)
         {
@@ -81,16 +60,15 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de l'ajout de la Plateforme. Les données n'ont pas été enregistrées.";
             }
         }
-
-
-        public static string Ajouter(TypePlateforme _typePlateforme, string _nomPlateforme, string _configPlateforme, string _descPlateforme, string _sysExp)
+        //Crer plateforme et le lier au sys exp
+        public static string CreerPlatLierSysExp(TypePlateforme _typePlateforme, string _nomPlateforme, string _configPlateforme, string _descPlateforme, string _sysExp)
         {
             Plateforme plateforme = new Plateforme();
             plateforme.nomPlateforme = _nomPlateforme;
             plateforme.configPlateforme = _configPlateforme;
             plateforme.commPlateforme = _descPlateforme;
             plateforme.idTypePlateforme = _typePlateforme.idTypePlateforme;
-            
+
             SysExp sysExp = context.SysExp.Where(x => x.nomSysExp == _sysExp).First(); // On va chercher le  SysExp 
             sysExp.nomSysExp = _sysExp;
 
@@ -103,7 +81,7 @@ namespace Texcel.Classes.Jeu
             {
                 return "Une erreur est survenue lors de l'ajout de la Plateforme. Les données n'ont pas été enregistrées.";
             }
-            
+
         }
 
         // SysExp et Plateforme existent, on veut seulement les associer
@@ -124,54 +102,30 @@ namespace Texcel.Classes.Jeu
             {
                 return "Une erreur est survenue lors de la liaison avec un Système d'Exploitation. Les données n'ont pas été enregistrées.";
             }
-            
+
         }
 
         private static void Enregistrer(Plateforme _Plateforme, SysExp _sysExp)
         {
-
             context.Plateforme.Add(_Plateforme); // on enregistre la plateforme 
             context.SaveChanges();
 
             _Plateforme.SysExp.Add(_sysExp); // lier le SysExp avec la plateforme
             context.SaveChanges();
-
         }
 
         private static void Enregistrer(Plateforme _Plateforme)
         {
-
             context.Plateforme.Add(_Plateforme);
             context.SaveChanges();
-
-
         }
-
-        // verifier si la plateforme avec le nom existe
-        public static bool Verifier(string _nomPlateforme)
-        {
-            foreach (Plateforme p in context.Plateforme)
-            {
-                if (p.nomPlateforme == _nomPlateforme)
-                {
-                    return true; // plateforme existe
-                }
-            }
-            return false; // plateforme n'existe pas
-        }
-
-
-
+        // Retourne la plateforme associer au nom
         public static Plateforme GetPlateforme(string _pateforme)
         {
             Plateforme plateforme = context.Plateforme.Where(x => x.nomPlateforme == _pateforme).First();
 
             return plateforme;
         }
-
-        // Retourne la plateforme associer au nom
-
-
 
         public static string Modifier(string _nomPlateforme, string _configuration, string _comm, Plateforme _plat)
         {
@@ -218,8 +172,6 @@ namespace Texcel.Classes.Jeu
             {
                 return "Une erreur est survenue lors de la suppression de la Plateforme. Les données n'ont pas été supprimées.";
             }
-            
         }
-
     }
 }
