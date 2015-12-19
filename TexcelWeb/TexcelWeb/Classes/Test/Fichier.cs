@@ -7,9 +7,30 @@ namespace TexcelWeb.Classes.Test
 {
     public class Fichier
     {
-        public string path, extan;
-        public long taille;
-        public DateTime derModif;
+        private string path, extan;
+        private long taille;
+        private DateTime derModif;
+        
+        public string getPath
+        {
+            get { return path; }
+        }
+
+        public string getExtan
+        {
+            get { return extan; }
+        }
+
+        public long getTaille
+        {
+            get { return taille; }
+        }
+
+        public DateTime getDerModif
+        {
+            get { return derModif; }
+        }
+        
         public Fichier(string _path, long _taille, string _extan, DateTime _derModif)
         {
             path = _path;
