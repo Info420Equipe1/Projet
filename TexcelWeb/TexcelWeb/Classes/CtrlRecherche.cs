@@ -52,11 +52,6 @@ namespace TexcelWeb.Classes
 	       {
                monObject = CtrlCasTest.GetCasTestByCode(_idUnique);
 	       }
-
-           if (monObject == null)
-           {
-               monObject = null; // ca marche pas
-           }
          
         }
     }
