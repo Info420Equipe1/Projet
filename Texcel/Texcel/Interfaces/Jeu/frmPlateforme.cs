@@ -58,7 +58,7 @@ namespace Texcel.Interfaces.Jeu
         private void cmbTypePlateforme_DropDown(object sender, EventArgs e)
         {
             cmbTypePlateforme.Items.Clear();
-            foreach (TypePlateforme typePlat in CtrlTypePlateforme.Rechercher())
+            foreach (TypePlateforme typePlat in CtrlTypePlateforme.getLstTypePlateforme())
             {
                 cmbTypePlateforme.Items.Add(typePlat.nomTypePlateforme);
             }
@@ -202,7 +202,7 @@ namespace Texcel.Interfaces.Jeu
             {
                 if (cmbNomSE.Text == "")
                 {
-                    message = CtrlPlateforme.CreerPlateforme(CtrlTypePlateforme.Rechercher(cmbTypePlateforme.Text).ElementAt(0), cmbNom.Text.Trim(), rtbConfiguration.Text.Trim(), rtbCommentaire.Text.Trim());
+                    message = CtrlPlateforme.CreerPlateforme(CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text), cmbNom.Text.Trim(), rtbConfiguration.Text.Trim(), rtbCommentaire.Text.Trim());
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -216,7 +216,7 @@ namespace Texcel.Interfaces.Jeu
                 }
                 else
                 {
-                    message = CtrlPlateforme.Ajouter(CtrlTypePlateforme.Rechercher(cmbTypePlateforme.Text).ElementAt(0), cmbNom.Text.Trim(), rtbCommentaire.Text.Trim(), rtbConfiguration.Text.Trim(), cmbNomSE.Text.Trim());
+                    message = CtrlPlateforme.Ajouter(CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text), cmbNom.Text.Trim(), rtbCommentaire.Text.Trim(), rtbConfiguration.Text.Trim(), cmbNomSE.Text.Trim());
                     if (message.Contains("erreur"))
                     {
                         MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -294,7 +294,7 @@ namespace Texcel.Interfaces.Jeu
                 //btnSupprimer.Visible = false;
                 //btnAjouter.Text = "Enregistrer";
             }
-            TypePlateforme tp = CtrlTypePlateforme.Rechercher(cmbTypePlateforme.Text).ElementAt(0);
+            TypePlateforme tp = CtrlTypePlateforme.getPlatByName(cmbTypePlateforme.Text);
             //CtrlPlateforme.Ajouter(tp, cmbNom.Text, rtbConfiguration.Text, rtbCommentaire.Text);
         }
 

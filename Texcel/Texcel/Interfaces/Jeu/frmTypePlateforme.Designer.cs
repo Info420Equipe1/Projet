@@ -165,7 +165,6 @@
             this.Controls.Add(this.cmbNom);
             this.Name = "frmTypePlateforme";
             this.Text = "Gestion des types de plateforme";
-            this.Load += new System.EventHandler(this.frmTypePlateforme_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,23 +13,15 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmTypePlateforme : frmForm
     {
-        
-
         public frmTypePlateforme()
         {
             InitializeComponent();
-            
         }
-
-        private void frmTypePlateforme_Load(object sender, EventArgs e)
-        {
-            //txtID.Text = (CtrlTypePlateforme.GetCount() + 1).ToString();
-        }  
 
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
-            foreach (TypePlateforme typePlat in CtrlTypePlateforme.Rechercher())
+            foreach (TypePlateforme typePlat in CtrlTypePlateforme.getLstTypePlateforme())
             {
                 cmbNom.Items.Add(typePlat.nomTypePlateforme);
             }
@@ -47,7 +39,7 @@ namespace Texcel.Interfaces.Jeu
 
         private void cmbNom_TextUpdate_1(object sender, EventArgs e)
         {
-            foreach (TypePlateforme plat in CtrlTypePlateforme.Rechercher())
+            foreach (TypePlateforme plat in CtrlTypePlateforme.getLstTypePlateforme())
             {
                 if (cmbNom.Text != plat.nomTypePlateforme)
                 {
@@ -71,6 +63,7 @@ namespace Texcel.Interfaces.Jeu
 
             if (CtrlTypePlateforme.Verifier(cmbNom.Text.Trim()))
             {
+                //Mode modifier un type de plateforme
                 message = "Vous êtes en train de modifier un type de plateforme, voulez-vous continuer?";
                 DR = MessageBox.Show(message, "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (DR == DialogResult.Yes)
@@ -90,6 +83,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Mode ajouter un type de plateforme
                 message = CtrlTypePlateforme.Ajouter(cmbNom.Text.Trim(), rtbCommentaire.Text.Trim());
                 if (message.Contains("erreur"))
                 {
@@ -133,13 +127,5 @@ namespace Texcel.Interfaces.Jeu
         {
             this.Close();
         }
-
-       
-
-       
-
-        
-
-        
     }
 }

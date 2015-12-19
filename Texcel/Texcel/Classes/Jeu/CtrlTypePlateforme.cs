@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Type de Plateforme
+    //Cette classe contient tous les méthodes et traitements en lien avec un type de plateforme.
+    //
+    //
+
     class CtrlTypePlateforme : CtrlController
     { 
-        
+        //Type de plateforme Global
         private static TypePlateforme typePlateforme;
 
+        //Retourne le nombre de Type de plateforme
         public static int GetCount()
         {
             return context.TypePlateforme.Count();
         }
     
+        //Ajouter un Type de plateforme
         public static string Ajouter(string _nomTypePlateforme, string _descTypePlateforme)
         {
             typePlateforme = new TypePlateforme();
@@ -31,8 +40,9 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de l'ajout du Type de Plateforme. Les données n'ont pas été enregistrées.";
             }
         }
-
-        public static List<TypePlateforme> Rechercher()
+        
+        //Retourne la liste de tous les type de plateforme
+        public static List<TypePlateforme> getLstTypePlateforme()
         {
             List<TypePlateforme> lstPlateforme = new List<TypePlateforme>();
             foreach (TypePlateforme typePlat in context.TypePlateforme)
@@ -42,15 +52,11 @@ namespace Texcel.Classes.Jeu
             return lstPlateforme;
         }
 
-        public static List<TypePlateforme> Rechercher(string _NomTypePlat)
+        //Retourne une Plateforme en fonction du Nom
+        public static TypePlateforme getPlatByName(string _NomTypePlat)
         {
-            List<TypePlateforme> lstPlateforme = new List<TypePlateforme>();
-            foreach (TypePlateforme typePlat in context.TypePlateforme.Where(x => x.nomTypePlateforme == _NomTypePlat))
-            {
-                lstPlateforme.Add(typePlat);
-            }
-            return lstPlateforme;
-            
+            TypePlateforme typePlat = context.TypePlateforme.Where(x => x.nomTypePlateforme == _NomTypePlat).First();
+            return typePlat;
         }
 
         private static void Enregistrer(TypePlateforme _typePlateforme)
