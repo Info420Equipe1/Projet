@@ -13,15 +13,19 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmAjouterSysExp : frmForm
     {
-        bool modif;
-        SysExp modifSysExp;
-        EditionSysExp modifEd;
-        VersionSysExp modifVersion;
+        private bool modif;
+        private SysExp modifSysExp;
+        private EditionSysExp modifEdition;
+        private VersionSysExp modifVersion;
+
+        //Constructeur par défaut
         public frmAjouterSysExp()
         {
             InitializeComponent();
             modif = false;
         }
+
+        //Constructeur avec paramètres
         public frmAjouterSysExp(SysExp _sE, EditionSysExp _eSE, VersionSysExp _vSE)
         {
             InitializeComponent();
@@ -40,17 +44,19 @@ namespace Texcel.Interfaces.Jeu
             cmbEdition.DropDownStyle = ComboBoxStyle.Simple;
             cmbVersion.DropDownStyle = ComboBoxStyle.Simple;
             modifVersion = _vSE;
-            modifEd = _eSE;
+            modifEdition = _eSE;
             
             modif = true;
             modifSysExp = _sE;
         }
 
+        //Met l'ID au bon chiffre
         private void frmSysExp_Load(object sender, EventArgs e)
         {
             txtID.Text = (CtrlSysExp.GetCount() + 1).ToString();
         }
 
+        //Ajoute les éléments de la liste de nom
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
@@ -60,16 +66,15 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
+        //Sélection d'un système d'exploitation
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
             SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
-            // txtID.Text = sysExp.idSysExp.ToString();
             txtCode.Text = sysExp.codeSysExp;
-            //rtbCommentaire.Text = sysExp.descSysExp;
             cmbEdition.Text = "";
             cmbVersion.Text = "";
 
-            //Image du Systeme d'exploitation
+            //Image du systeme d'exploitation
             try
             {
                 picSysExp.Image = Image.FromFile(@"..\..\Images\Jeu\SysExp\" + sysExp.codeSysExp + "logo.png");
@@ -80,6 +85,7 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
+        //Sélection d'une édition
         private void cmbEdition_DropDown(object sender, EventArgs e)
         {
             cmbEdition.Items.Clear();
@@ -93,6 +99,7 @@ namespace Texcel.Interfaces.Jeu
             } 
         }
 
+        //Sélection d'une version
         private void cmbVersion_DropDown(object sender, EventArgs e)
         {
             cmbVersion.Items.Clear();
@@ -117,14 +124,15 @@ namespace Texcel.Interfaces.Jeu
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            bool boolS, boolE, boolV;
-            boolV = false;
+            bool boolSysExp, boolEdition, boolVersion;
+            boolVersion = false;
 
+            //Si le formulaire est en mode "Modification"
             if (modif)
             {
                 try
                 {
-                    CtrlSysExp.modif(cmbNom.Text, txtCode.Text, rtbCommentaire.Text, modifSysExp, cmbEdition.Text, modifEd, cmbVersion.Text, modifVersion);
+                    CtrlSysExp.modif(cmbNom.Text, txtCode.Text, rtbCommentaire.Text, modifSysExp, cmbEdition.Text, modifEdition, cmbVersion.Text, modifVersion);
                     MessageBox.Show("Modification reussie", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -133,8 +141,8 @@ namespace Texcel.Interfaces.Jeu
                     MessageBox.Show("Une erreur est survenue", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
-                
             }
+            //Si le formulaire est en mode "Ajout"
             else
             {
                 if (cmbNom.Text == "")
@@ -142,20 +150,21 @@ namespace Texcel.Interfaces.Jeu
                     MessageBox.Show("Veuillez entrer un nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
+                //Vérifie si les champs sont remplis ou si l'entrée existe dans la BD.
                 DialogResult rep = MessageBox.Show("Voulez-vous ajouter ce système d'exploitation ?", "Validation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (rep == DialogResult.Yes)
                 {
-                    boolS = CtrlSysExp.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbCommentaire.Text.Trim());
+                    boolSysExp = CtrlSysExp.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbCommentaire.Text.Trim());
                     SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
-                    boolE = CtrlEditionSysExp.Ajouter(sysExp, cmbEdition.Text.Trim());
+                    boolEdition = CtrlEditionSysExp.Ajouter(sysExp, cmbEdition.Text.Trim());
 
                     if (cmbEdition.Text != "")
                     {
                         EditionSysExp editionSysExp = CtrlEditionSysExp.Rechercher(CtrlSysExp.Rechercher(cmbNom.Text).First(), cmbEdition.Text).First();
-                        boolV = CtrlVersionSysExp.Ajouter(sysExp, editionSysExp, cmbVersion.Text.Trim(), rtbCommentaire.Text.Trim());
+                        boolVersion = CtrlVersionSysExp.Ajouter(sysExp, editionSysExp, cmbVersion.Text.Trim(), rtbCommentaire.Text.Trim());
                     }
 
-                    if (boolS || boolE || boolV)
+                    if (boolSysExp || boolEdition || boolVersion)
                     {
                         MessageBox.Show("Le système d'exploitation a été ajouté avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cmbNom.Text = "";

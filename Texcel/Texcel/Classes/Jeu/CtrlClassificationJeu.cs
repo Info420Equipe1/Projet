@@ -9,7 +9,7 @@ namespace Texcel.Classes.Jeu
     //
     //
     //Control Classification
-    //Cette classe contient tous les méthodes et traitements en lien avec une classification.
+    //Cette classe contient toutes les méthodes et traitements en lien avec une classification.
     //
     //
 
@@ -43,7 +43,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        //Retourne la liste de tous les classifications de l'application
+        //Retourne la liste de toutes les classifications de l'application
         public static List<ClassificationJeu> getListClassification()
         {
             List<ClassificationJeu> lstClassificationJeu = new List<ClassificationJeu>();

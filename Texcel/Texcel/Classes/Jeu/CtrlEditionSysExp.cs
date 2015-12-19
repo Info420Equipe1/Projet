@@ -11,13 +11,13 @@ namespace Texcel.Classes.Jeu
     {
         private static EditionSysExp editionSysExp;
 
-        // Obtenir le nombre d'itération dans la table tblEditionSysExp
+        // Obtenir le nombre d'itération dans la table tblEditionSysExp.
         public static int GetCount()
         {
             return context.EditionSysExp.Count();
         }
 
-        // On ajoute une nouvelle edition dans la table tblEditionSysExp
+        // Ajoute une nouvelle édition dans la table tblEditionSysExp, vérifie si elle existe et si l'ajout réussit. Retourne un booléen pour confirmer l'ajout.
         public static bool Ajouter(SysExp _sysExp, string _nomEdition)
         {
             if (!Verifier(_sysExp, _nomEdition) && _nomEdition != "")
@@ -29,7 +29,7 @@ namespace Texcel.Classes.Jeu
             }
             return false;
         }
-
+        // Vérifie si l'édition existe.
         public static bool Verifier(SysExp sysExp, string _nomEdition)
         {
             if (Rechercher(sysExp, _nomEdition).Count != 0)
@@ -39,7 +39,7 @@ namespace Texcel.Classes.Jeu
             return false;   // lorsque l'edition n'existe pas 
         }
 
-        // Rechercher une edition dans la table tblEditionSysExp
+        // Recherche une édition dans la table tblEditionSysExp.
         public static List<EditionSysExp> Rechercher(SysExp sysExp, string _nomEdition)
         {
             List<EditionSysExp> lstEditionSysExp = new List<EditionSysExp>();
@@ -54,7 +54,7 @@ namespace Texcel.Classes.Jeu
             return lstEditionSysExp;
         }
 
-        // On enregistre dans la table la nouvelle edition
+        // Enregistre dans la table la nouvelle edition et retourne un booléen pour confirmer.
         private static bool Enregistrer(EditionSysExp _editionSysExp)
         {
             context.EditionSysExp.Add(_editionSysExp);
@@ -70,6 +70,7 @@ namespace Texcel.Classes.Jeu
             }
         }
 
+        // Recherche les éditions par nom et retourne une liste de celles-ci.
         public static List<EditionSysExp> RechercherpourListe(string _nomSysExp)
         {
             List<EditionSysExp> lstEdition = new List<EditionSysExp>();
@@ -78,13 +79,14 @@ namespace Texcel.Classes.Jeu
                 lstEdition.Add(plat);
             }
             return lstEdition;
-            //Cette classe existe déjà
+            //Cette fonction existe déjà
         }
+
+        // Recherche une édition avec l'ID du système d'exploitation auquel il est lié et son nom puis le retourne.
         public static EditionSysExp GetEditionSysExp(string _nomEdition, int _idSysExp)
         {
-            EditionSysExp monSe = context.EditionSysExp.Where(x => x.idSysExp == _idSysExp && x.nomEdition ==_nomEdition).First();
-           return monSe;
- 
+            EditionSysExp monEdition = context.EditionSysExp.Where(x => x.idSysExp == _idSysExp && x.nomEdition ==_nomEdition).First();
+           return monEdition;
         }
       
     }

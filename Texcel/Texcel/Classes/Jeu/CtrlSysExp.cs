@@ -11,12 +11,14 @@ namespace Texcel.Classes.Jeu
     class CtrlSysExp : CtrlController
     {
         private static SysExp sysExp;
-        
+
+        // Obtenir le nombre d'itération dans la table tblSysExp.
         public static int GetCount()
         {
             return context.SysExp.Count();
         }
 
+        // Retourne la liste de tous les systèmes d'exploitation.
         public static List<SysExp> Rechercher()
         {
             List<SysExp> lstSysExp = new List<SysExp>();
@@ -27,13 +29,14 @@ namespace Texcel.Classes.Jeu
             return lstSysExp;         
         }   
 
+        // Recherche un système d'exploitation par son nom et le retourne.
         public static SysExp GetSysExp(string _nomSysExp)
         {
-           SysExp monSe = context.SysExp.Where(x => x.nomSysExp == _nomSysExp).First();
+           SysExp monSysExp = context.SysExp.Where(x => x.nomSysExp == _nomSysExp).First();
 
-           return monSe;
+           return monSysExp;
         }
-        // On ajoute un nouveau système d'exploitation dans la table tblSysExp
+        // Ajoute un nouveau système d'exploitation dans la table tblSysExp, vérifie s'il existe et si l'ajout réussit. Retourne un booléen pour confirmer l'ajout.
         public static bool Ajouter(string _nomSysExp, string _codeSysExp, string _commSysExp)
         {
             if (!Verifier(_nomSysExp))
@@ -41,16 +44,12 @@ namespace Texcel.Classes.Jeu
                 sysExp = new SysExp();
                 sysExp.nomSysExp = _nomSysExp;
                 sysExp.codeSysExp = _codeSysExp;
-                //sysExp.descSysExp = _commSysExp;
                 return Enregistrer(sysExp);
             }
-            /*if(Rechercher(_nomSysExp).First().commSysExp != _commSysExp)
-            {
-                
-            }*/
             return false;
         }
 
+        // Vérifie si le système d'exploitation existe.
         public static bool Verifier(string _nomSysExp)
         {
             if (context.SysExp.Where(x => x.nomSysExp == _nomSysExp).Count() != 0)
@@ -60,7 +59,7 @@ namespace Texcel.Classes.Jeu
             return false;   // lorsque le système d'exploitation n'existe pas 
         }
 
-        // Rechercher un système d'exploitation dans la table tblSysExp
+        // Recherche un système d'exploitation dans la table tblSysExp et le retourne.
         public static List<SysExp> Rechercher(string _nomSysExp)
         {
             List<SysExp> lstSysExp = new List<SysExp>(); ;
@@ -71,7 +70,7 @@ namespace Texcel.Classes.Jeu
             return lstSysExp;
         }
 
-        // On enregistre dans la table le nouveau système d'exploitation
+        // Enregistre dans la table le nouveau système d'exploitation et retourne un booléen pour confirmer.
         private static bool Enregistrer(SysExp _sysExp)
         {
             context.SysExp.Add(_sysExp);
@@ -88,6 +87,7 @@ namespace Texcel.Classes.Jeu
             
         }
 
+        // Modifie les données dans les tables.
         public static void modif(string _nom, string _code, string _comm, SysExp _sysExp, string _nomEd, EditionSysExp _ed, string _nomVersion, VersionSysExp _ver)
         {
             SysExp sysExp = _sysExp;
@@ -99,26 +99,6 @@ namespace Texcel.Classes.Jeu
             EditionSysExp ed = _ed;
             ed.nomEdition = _nomEd;
             context.SaveChanges();
-
         }
-        // requete qui marche pas mais pourquoi?
-        //public static List<SysExp> GetSysExp(string _editionSysExp,string _versionSysExp)
-        //{          
-        //        return (
-        //            from a in context.tblSysExp
-        //            from b in a.EditionSysExp
-        //            from c in b.VersionSysExp
-        //            where b.nomEdition == _editionSysExp
-        //            where c.noVersion == _versionSysExp
-        //            select new SysExp()
-        //            {
-        //                idSysExp = a.idSysExp,
-        //                nomSysExp = a.nomSysExp,
-        //                codeSysExp = a.codeSysExp,
-        //                EditionSysExp = a.EditionSysExp,
-        //                Plateforme = a.Plateforme
-        //            }).ToList();
-          
-        //}
     }
 }
