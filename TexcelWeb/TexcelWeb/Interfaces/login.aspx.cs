@@ -17,44 +17,51 @@ namespace TexcelWeb
             setFieldLength();
         }
 
+        // Effectue la connection, vérifie si elle s'est bien effectuée et retourne un message d'état.
         void btnConnexion_Click(object sender, EventArgs e)
         {
             string nomUtilisateur = String.Format("{0}", Request.Form["txtNomUtilisateur"]);
             string motPasse = String.Format("{0}", Request.Form["txtMotPasse"]);
-            string mess = CtrlLogin.VerifierLogin(nomUtilisateur, motPasse);
-            switch (mess)
+            string message = CtrlLogin.VerifierLogin(nomUtilisateur, motPasse);
+            switch (message)
             {
                 case "connexionreussie":
-                    //Connexion Réussi
+                    // Connexion réussie.
                     this.Form.Dispose();
                     Response.Redirect("recherche.aspx");
                     break;
 
                 case "changermotdepasse":
+                    // Le mot de passe doit être renouvelé.
                     Session["utilisateur"] = CtrlUtilisateur.getUtilisateur(String.Format("{0}", Request.Form["txtNomUtilisateur"]));
                     this.Form.Dispose();
                     Response.Redirect("renouvPassword.aspx");
                     break;
 
                 case "motdepasseincorrect":
+                    // Le mot de passe est incorrect.
                     this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"Le mot de passe ne correspond pas.\", \"error\");", true);
                     break;
 
                 case "testeur":
+                    // Redirige vers le formulaire attitré au testeur.
                     this.Form.Dispose();
                     Response.Redirect("billetsTravail.aspx");
                     break;
 
                 case "utilisateurinexistant":
+                    // L'utilisateur n'existe pas.
                     this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Oops!\", \"L'utilisateur n'existe pas.\", \"error\");", true);
                     break;
 
                 default:
-                    Response.Write("<script type=\"text/javascript\">alert('Error 404, File not found');</script>");
+                    // Si le code se rend là : ??????????????????????????????????????????????
+                    Response.Write("<script type=\"text/javascript\">alert('Une erreur inconnue est survenue.');</script>");
                     break;
             }
         }
 
+        // Initialise la longueur des champs à la création du formulaire.
         private void setFieldLength()
         {
             int maxLengthNomUtilisateur = CtrlUtilisateur.GetMaxLength<Utilisateur>(user => user.nomUtilisateur);

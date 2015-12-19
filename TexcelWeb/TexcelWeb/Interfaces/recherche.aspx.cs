@@ -17,18 +17,21 @@ namespace TexcelWeb
 {
     public partial class recherche : System.Web.UI.Page
     {
-      
+        private Utilisateur currentUser;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Redirige au formulaire de login si l'utilisateur n'est pas connecté.
             if (CtrlController.GetCurrentUser() == null)
             {
                 Response.Redirect("login.aspx");
             }
+            // Garde les informations de l'utilisateur s'il est connecté.
             else
             {
-                Utilisateur currentUser = CtrlController.GetCurrentUser();
+                currentUser = CtrlController.GetCurrentUser();
                 txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             }
+            // Charge la page.
             if (Page.IsPostBack == false)
             {
                 Session["modifProjet"] = false;
@@ -38,9 +41,11 @@ namespace TexcelWeb
 
         private void ChargerPage()
         {
-            Utilisateur currentUser = CtrlController.GetCurrentUser();
+            // Charge les informations de l'utilisateur.
             txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
             DateTime date = Convert.ToDateTime(currentUser.dateDernModif);
+
+            // Charge les filtres depuis la BD.
             List<string> filterNames = CtrlFiltreDataSource.GetAllNomFiltre();
             filterNames.Sort();
             ddlFiltre.Items.Add("Sélectionnez un filtre");
@@ -48,6 +53,8 @@ namespace TexcelWeb
             {
                 ddlFiltre.Items.Add(nom);
             }
+
+            // Vérifie les droits de l'utilisateur dans la BD et applique les modifications nécessaires sur le formulaire pour les respecter.
             foreach (Groupe groupe in currentUser.Groupe)
             {
                 List<int> lstDroits = CtrlController.GetDroits(groupe);
@@ -111,6 +118,7 @@ namespace TexcelWeb
             ddlFiltre.SelectedIndex = 0;
         }
 
+        // Génère l'affichage des résultats de recherche selon le filtre sélectionné et le texte entré.
         private void AfficherGV(string _filtre)
         {
             txtChampRecherche.Text = txtChampRecherche.Text.Trim();
@@ -167,7 +175,7 @@ namespace TexcelWeb
             gvRecherche.DataBind();
         }      
 
-        // copier tous les éléments de  la liste qui sont coché
+        // Copie tous les éléments de  la liste qui sont cochés.
         protected void btn_Copier(object sender, EventArgs e)
         {
             CtrlRecherche.SauvegarderDonnees(gvRecherche);
@@ -202,20 +210,10 @@ namespace TexcelWeb
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["ondblclick"] = Page.ClientScript.GetPostBackEventReference(gvRecherche, "Select$" + e.Row.RowIndex);
-                /*TableCell tc = new TableCell();
-                tc.HorizontalAlign = HorizontalAlign.Center;
-                tc.VerticalAlign = VerticalAlign.Middle;
-                e.Row.Cells.Add(tc);
-
-                LinkButton lnkDetails = new LinkButton();
-                lnkDetails.Height = 10;
-                lnkDetails.Width = 10;
-                lnkDetails.Controls.Add(new Image { ImageUrl = "../img/loupe.png" });
-                lnkDetails.Click += new EventHandler(lnkDetails_Click);
-                e.Row.Cells[5].Controls.Add(lnkDetails);*/
             }
         }
 
+        //Crée les colonnes et les noms de colonne selon le filtre sélectionné.
         protected void gvRecherche_DataBound(object sender, EventArgs e)
         {
             if (gvRecherche.Rows.Count != 0)
