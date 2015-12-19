@@ -9,6 +9,12 @@ using System.IO;
 
 namespace Texcel.Classes.Personnel
 {
+    //
+    //
+    //Control File employées
+    //Cette classe contient tous les méthodes et traitements en lien avec le fichier d'employée.
+    //
+    //
     class CtrlFileEmployes
     {
         private static XmlDocument xmlDoc = new XmlDocument();
