@@ -51,12 +51,10 @@ namespace TexcelWeb.Classes.Test
             try
             {
                 lstProjAfficher = CtrlEquipe.lstProjetByChefEquipe(CtrlController.GetCurrentUser().noEmploye);
-                //lstProjAfficher = (CtrlController.GetCurrentUser()).Employe.cProjet.Cast<cProjet>().ToList();
-                //lstProjAfficher = CtrlProjet.GetListProjetChefProjetByNoEmp(CtrlController.GetCurrentUser().noEmploye);
             }
             catch (Exception)
             {
-              // erreur
+                return;
             }
            
         }
@@ -64,12 +62,11 @@ namespace TexcelWeb.Classes.Test
         {
             try
             {
-                //lstEquipeAfficher = (List<Equipe>)ProjChoisi.Employe.Equipe1;
                 lstEquipeAfficher = CtrlEquipe.lstEquipeByCodeProjet(ProjChoisi.codeProjet);
             }
             catch (Exception)
             {
-                      //erreur          
+                return;         
             }
             
         }
@@ -82,7 +79,7 @@ namespace TexcelWeb.Classes.Test
             }
             catch (Exception)
             {
-                //erreur          
+                return;        
             }
         }
 
