@@ -14,22 +14,23 @@ namespace Texcel
 {
     public partial class frmPassRenew : Form
     {
-        Utilisateur uti;
-        
-        public frmPassRenew(Utilisateur _uti)
+        Utilisateur utilisateur;
+
+        // Constructeur de la form avec l'utilisateur en paramètre
+        public frmPassRenew(Utilisateur _utilisateur)
         {
             InitializeComponent();
-            uti = _uti;
-           
+            utilisateur = _utilisateur;  
         }
 
+        // S'execute lorsque l'utilisateur appuit sur le bouton enregistrer
         private void btn_Click(object sender, EventArgs e)
         {
             if (txtPass1.Text == txtBoxPass2.Text)
             {
                 try
                 {
-                    CtrlUtilisateur.ModifMotDePasse(uti, txtPass1.Text);
+                    CtrlUtilisateur.ModifMotDePasse(utilisateur, txtPass1.Text);
                     this.Close();
                 }
                 catch (Exception)
