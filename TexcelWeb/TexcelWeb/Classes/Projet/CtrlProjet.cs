@@ -14,6 +14,13 @@ using TexcelWeb.Classes.Test;
 
 namespace TexcelWeb.Classes.Projet
 {
+    //
+    //
+    //Control Projet
+    //Cette classe contient tous les méthodes et traitements en lien avec les projets
+    //
+    //
+
     public class CtrlProjet : CtrlController
     {
         //Dictionnaire contenant les cas de test et les chemins des dossiers de cas test pour la copie de cas de test
