@@ -13,14 +13,22 @@ namespace Texcel.Interfaces.Jeu
 {
     public partial class frmAjouterVersionJeu : frmForm
     {
+        //Variable globale permettant de savoir le nom du jeu pour la version que l'on ajoute
         static string nomJeu;
+        //Variable globale permettant de savoir si la Frm est en mode Modifier ou Ajouter
         bool modif;
+
+
+        //Constructeur en mode Ajouter une Version de jeu
         public frmAjouterVersionJeu()
         {
             InitializeComponent();
             fillDropDownJeu();
             modif = false;
         }
+
+        //Constructeur en mode Ajouter une Version de jeu
+        //Le nom de jeu sera utilisé pour la liaison de la version au jeu
         public frmAjouterVersionJeu(string _nomJeu)
         {
             InitializeComponent();
@@ -29,6 +37,8 @@ namespace Texcel.Interfaces.Jeu
             cmbJeux.SelectedItem = nomJeu;
             modif = false;
         }
+
+        //Constructeur en mode Modifier une Version de jeu
         public frmAjouterVersionJeu(VersionJeu _versionJeu)
         {
             InitializeComponent();
@@ -46,6 +56,8 @@ namespace Texcel.Interfaces.Jeu
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             string message;
+
+            //Validation
             if (cmbJeux.SelectedIndex == -1)
             {
                 MessageBox.Show("Veuillez ajouter un jeu afin de lier la version au jeu.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -59,6 +71,7 @@ namespace Texcel.Interfaces.Jeu
 
             if (!modif)
             {
+                //Ajouter une version de jeu
                 if (CtrlVersionJeu.VerifierVersionJeu(txtNomVersion.Text.Trim()))
                 {
                     MessageBox.Show("La version test du jeu existe déjà, veuillez choisir un autre nom.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -81,6 +94,7 @@ namespace Texcel.Interfaces.Jeu
             }
             else
             {
+                //Modifier une version de jeu
                 message = CtrlVersionJeu.Modifier(txtNomVersion.Text.Trim(), rtxtComm.Text.Trim(), nomJeu);
                 if (message.Contains("erreur"))
                 {
@@ -99,6 +113,7 @@ namespace Texcel.Interfaces.Jeu
         {
             this.Close();
         }
+
         private void fillDropDownJeu()
         {
             cmbJeux.Items.Clear();
@@ -129,6 +144,5 @@ namespace Texcel.Interfaces.Jeu
             }
         }
 
-       
     }
 }

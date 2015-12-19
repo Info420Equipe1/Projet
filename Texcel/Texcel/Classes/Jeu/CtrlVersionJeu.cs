@@ -7,37 +7,37 @@ using System.Threading.Tasks;
 
 namespace Texcel.Classes.Jeu
 {
+    //
+    //
+    //Control Version de jeu
+    //Cette classe contient tous les méthodes et traitements en lien avec une version de jeu.
+    //
+    //
+
     class CtrlVersionJeu : CtrlController
     {
+        //Objet VersionJeu global
         private static VersionJeu VersionduJeu;
-        //List des version pour un ID Donner
-        public static List<VersionJeu> LstVersionJeu(int IDJeu)
+
+        //Retourne la list des version en fonction d'un nom
+        public static List<VersionJeu> LstVersionJeu(string _nomJeu)
         {
             List<VersionJeu> lstVersionJeu = new List<VersionJeu>();
 
-            foreach (VersionJeu versionJeu in context.VersionJeu.Where(x => x.idJeu == IDJeu))
+            foreach (VersionJeu versionJeu in context.VersionJeu.Where(x => x.cJeu.nomJeu == _nomJeu))
             {
                 lstVersionJeu.Add(versionJeu);
             }
             return lstVersionJeu;
         }
-        //List des version pour un Nom Donner
-        public static List<VersionJeu> LstVersionJeu(string nomJeu)
-        {
-            List<VersionJeu> lstVersionJeu = new List<VersionJeu>();
 
-            foreach (VersionJeu versionJeu in context.VersionJeu.Where(x => x.cJeu.nomJeu == nomJeu))
-            {
-                lstVersionJeu.Add(versionJeu);
-            }
-            return lstVersionJeu;
-        }
-        public static string Ajouter(string _NomVersion, string _Comm, string _nomJeu)
+        //Ajouter une version de jeu
+        public static string Ajouter(string _nomVersion, string _commVersion, string _nomJeu)
         {
             VersionduJeu = new VersionJeu();
 
-            VersionduJeu.nomVersionJeu = _NomVersion;
-            VersionduJeu.commVersionJeu = _Comm;
+            VersionduJeu.nomVersionJeu = _nomVersion;
+            VersionduJeu.commVersionJeu = _commVersion;
 
             cJeu _Jeu = CtrlJeu.GetJeu(_nomJeu);
             VersionduJeu.cJeu = _Jeu;
@@ -52,11 +52,13 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de l'ajout de la Version de test du jeu. Les données n'ont pas été enregistrées.";
             }
         }
-        public static string Modifier(string _NomVersion, string _Comm, string _nomJeu)
-        {
-            VersionduJeu = GetVersionJeu(_NomVersion);
 
-            VersionduJeu.commVersionJeu = _Comm;
+        //Modifier une version de jeu
+        public static string Modifier(string _nomVersion, string _comm, string _nomJeu)
+        {
+            VersionduJeu = GetVersionJeu(_nomVersion);
+
+            VersionduJeu.commVersionJeu = _comm;
             cJeu _Jeu = CtrlJeu.GetJeu(_nomJeu);
             VersionduJeu.cJeu = _Jeu;
 
@@ -70,6 +72,8 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de l'ajout de la Version de test du jeu. Les données n'ont pas été enregistrées.";
             }
         }
+
+        //Supprimer une version de jeu
         public static string Supprimer(string _nomVersion)
         {
             VersionJeu versionJeu = context.VersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
@@ -84,12 +88,15 @@ namespace Texcel.Classes.Jeu
                 return "Une erreur est survenue lors de la suppression de la Version de test de jeu. Les données n'ont pas été supprimées.";
             }
         }
+
+        //Enregistrer une version dans la BD
         private static void Enregistrer(VersionJeu _versionJeu)
         {
-            //Ajouter dans la BD
             context.VersionJeu.Add(_versionJeu);
             context.SaveChanges();
         }
+
+        //Verifier si la version de jeu existe dans la BD
         public static bool VerifierVersionJeu(string _nomVersionJeu)
         {
             foreach (VersionJeu versionJeu in context.VersionJeu)
@@ -102,10 +109,12 @@ namespace Texcel.Classes.Jeu
             return false;
         }
 
-        public static VersionJeu GetVersionJeu(string _nomVersion)
+        //Retourne une Version de jeu en fonction d'un nom
+        public static VersionJeu GetVersionJeu(string _nomVersion) 
         {
             VersionJeu Version = context.VersionJeu.Where(x => x.nomVersionJeu == _nomVersion).First();
             return Version;
         }
+
     }
 }
