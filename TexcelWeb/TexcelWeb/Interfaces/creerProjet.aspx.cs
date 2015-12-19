@@ -98,6 +98,8 @@ namespace TexcelWeb
                 }
             }
         }
+
+        //Initialisation des composants de la page
         private void initializeComponent(bool modif)
         {
             string nomChefProjet = "";
@@ -131,10 +133,9 @@ namespace TexcelWeb
             rtxtDiversProjet.mlButtons.Remove(button);
 
             
-
-            //Ajout d'un projet
             if (!modif)
             {
+                // Mode Ajouter un projet
                 txtForm.InnerText = "Créer un projet";
                 txtCodeProjet.Enabled = true;
                 txtNomProjet.Enabled = true;
@@ -179,6 +180,8 @@ namespace TexcelWeb
                 //Emplissage du GridView pour les cas de test
                 fillDataGridViewCasTest(projet);
             }
+
+            //Droit de l'utilisateur
             foreach (Groupe groupe in currentUser.Groupe)
             {
                 List<int> lstDroits = CtrlController.GetDroits(groupe);
@@ -193,6 +196,8 @@ namespace TexcelWeb
                 }
             }
         }
+
+        //Emplissage du gridview avec les cas de test d'un projet
         private void fillDataGridViewCasTest(cProjet projet)
         {
             if (projet.CasTest.Count != 0)
@@ -225,6 +230,8 @@ namespace TexcelWeb
                 showEmptyDataGrid();
             }
         }
+
+        //Emplissage des champs destinés au projet
         private void fillFieldsWithProjet(cProjet projet)
         {
             txtCodeProjet.Text = projet.codeProjet;
@@ -276,6 +283,8 @@ namespace TexcelWeb
             rtxtObjectifProjet.Text = projet.objProjet;
             rtxtDiversProjet.mlHtml = projet.divProjet;
         }
+
+        //Emplissage des drop down de la page
         private void fillDropDownBox()
         {
             ListItem lst;
@@ -305,9 +314,12 @@ namespace TexcelWeb
             txtVersionJeuProjet.Items.Add(lst);
             txtVersionJeuProjet.SelectedIndex = txtVersionJeuProjet.Items.IndexOf(lst);
         }
+
+        //Pagination du Grid View et collecte des bons cas de test à afficher dans le gridview
         private void fillTableCasTest(int index, List<CasTest> lstCasTest, int nbPage)
         {
             int nuCasTest;
+            //Definir le nombre de page
             if (index == 0 || index == 1)
             {
                 index = 1;
@@ -349,6 +361,8 @@ namespace TexcelWeb
             }
             ajoutDonnesDataGrid(lstCasTestAfficher);
         }
+
+        //Emplissage du gridView avec la liste des cas de test à afficher
         private void ajoutDonnesDataGrid(List<CasTest> lstCasTest)
         {
             //Emplissage du gridView pour les cas de test
@@ -399,6 +413,8 @@ namespace TexcelWeb
                 hgc.Attributes["href"] = "creerCasTest.aspx?codeCasTest="+gvr.Cells[1].Text;
 	        }
         }
+
+        //Afficher un gridView vide
         private void showEmptyDataGrid()
         {
             DataTable dT = new DataTable();
@@ -410,6 +426,7 @@ namespace TexcelWeb
             dataGridLstCasTest.DataBind();
             dataGridLstCasTest.HeaderRow.Visible = true;
         }
+
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             //Collecte de l'information pour un projet
@@ -503,6 +520,7 @@ namespace TexcelWeb
             }
         }
 
+        //Longueur des champs
         private void setFieldLength()
         {
             int maxLengthCodeProjet = CtrlProjet.GetMaxLength<cProjet>(cProjet => cProjet.codeProjet);
@@ -510,6 +528,7 @@ namespace TexcelWeb
             txtCodeProjet.MaxLength = maxLengthCodeProjet;
             txtNomProjet.MaxLength = maxLengthNomProjet;
         }
+
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
             Session["modifProjet"] = false;
@@ -519,14 +538,17 @@ namespace TexcelWeb
         protected void btnCopier_Click(object sender, EventArgs e)
         {
             string Param = "Projet";
+
+            //Ouverture de la page copier des cas de test
             ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
         }
 
         protected void btnAjoutCasTest_Click(object sender, EventArgs e)
         {
             string nomProjet = String.Format("{0}", Request.Form["txtNomProjet"]);
+
+            //Ouverture de la page creerCasTest
             Response.Redirect("creerCasTest.aspx?nomProjet=" + nomProjet);
-           
         }
 
         protected void btnSupprimerCasTest_Click(object sender, EventArgs e)
@@ -554,9 +576,5 @@ namespace TexcelWeb
             }
         }
 
-
-
-
- 
     }
 }

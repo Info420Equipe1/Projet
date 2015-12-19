@@ -16,16 +16,15 @@ namespace TexcelWeb.Classes.Projet
 {
     public class CtrlProjet : CtrlController
     {
-
+        //Dictionnaire contenant les cas de test et les chemins des dossiers de cas test pour la copie de cas de test
         static Dictionary<CasTest, List<FileInfo>> dictCasTestClone = new Dictionary<CasTest, List<FileInfo>>();
 
+        //Retourne le dictionnaire de Cas de test copiés
         public static Dictionary<CasTest, List<FileInfo>> getDictCasTestClone
         {
             get { return dictCasTestClone; }
-
         }
         
-
         //Ajouter un projet
         public static string AjouterProjet(string codeProjet, string nomProjet, string chefProjet, string dateCreationProjet, string dateLivraisonProjet, string versionJeuProjet, string descProjet, string objProjet, string DiversProjet)
         {
@@ -73,6 +72,8 @@ namespace TexcelWeb.Classes.Projet
                 return "erreur";
             }
         }
+
+        //Enregistrer un Projet dans la BD
         private static void Enregistrer(cProjet _projet)
         {
             //Ajouter un projet dans la BD
@@ -85,10 +86,6 @@ namespace TexcelWeb.Classes.Projet
         {
             cProjet projet = getProjetByCode(codeProjet);
 
-            //if ((context.tblProjet.Contains(projet)) == true)
-            //{
-            //    return "AucuneModifProjet";
-            //}
             projet.nomProjet = nomProjet;
             if (chefProjet != "-1")
             {
@@ -150,6 +147,8 @@ namespace TexcelWeb.Classes.Projet
                 return null;                
             }
         } 
+
+        //Retourne la liste de tous les projets de l'application
         public static List<cProjet> GetListProjet()
         {
             List<cProjet> lstProjet = new List<cProjet>();
@@ -180,6 +179,7 @@ namespace TexcelWeb.Classes.Projet
             return lstProjet;
         }
 
+        //Retourne la liste de projet pour un chef de projet
         public static List<cProjet> GetListProjetChefProjetByNoEmp(string _noEmp)
         {
             List<cProjet> lstProjet = new List<cProjet>();
@@ -193,6 +193,7 @@ namespace TexcelWeb.Classes.Projet
             
             return lstProjet;
         }
+
         //Retourne un projet à l'aide d'un nom de projet
         public static cProjet GetProjet(string _nomProjet)
         {
@@ -200,6 +201,7 @@ namespace TexcelWeb.Classes.Projet
             return proj;
         }
 
+        //Vérifier si le projet existe dans la BD
         private static bool projetExist(string codeProjet)
         {
             foreach (cProjet projet in context.Projet)
@@ -212,7 +214,7 @@ namespace TexcelWeb.Classes.Projet
             return false;
         }
 
-        //Retourne la longueur d'un champs
+        //Retourne la longueur d'un champs dans la table Projet
         public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
            where TEntity : cProjet
         {
@@ -252,7 +254,7 @@ namespace TexcelWeb.Classes.Projet
             return -1;
         }
 
- 
+        //Fonction permettant de cloner des cas de test
         public static Dictionary<CasTest,List<FileInfo> > ClonerLstCt(List<CasTest> _lstClone,cProjet _projetEnCours)
         {
             int CtNum = 1;
@@ -277,15 +279,16 @@ namespace TexcelWeb.Classes.Projet
                 dictCasTestClone.Add(temp, CtrlCasTest.GetFile(cT));
                 CtNum++;
             }
-            // ajouter les nouveau cas de test plus tard lorsque le client enregistre le projet
             return dictCasTestClone;
         }
        
+        //Retourne le nombre de cas test dans un projet
         public static int nbCasTestduProjet(cProjet _projet)
         {
             return _projet.CasTest.Count();
         }
-       
+
+        //Retourne le nombre de billet de travaille dans un projet
         public static int nbBilletsduProjet(cProjet _projet)
         {
             int nbBillets = 0;
@@ -296,6 +299,7 @@ namespace TexcelWeb.Classes.Projet
             return nbBillets;
         }
 
+        //Retourne le nombre de billet de travaille dans un projet avec un statut spécifique
         public static int nbBilletsduProjetparStatut(cProjet _projet, string _statut)
         {
             int nbBillets = 0;
@@ -312,11 +316,7 @@ namespace TexcelWeb.Classes.Projet
             return nbBillets;
         }
 
-        public static int nbBilletsduProjetUrgent(cProjet _projet)
-        {
-            return 0;
-        }
-
+        //Retourne la durée estimé pour tous les billets de travail d'un projet
         public static string tempsEstimeGlobalduProjet(cProjet _projet)
         {
             double dureeEstime = 0;
@@ -330,6 +330,7 @@ namespace TexcelWeb.Classes.Projet
             return dureeEstime.ToString();
         }
 
+        //Retourne la durée investi pour tous les billets de travail d'un projet
         public static string tempsInvestiduProjet(cProjet _projet)
         {
             double tempsInvesti = 0;
@@ -346,6 +347,7 @@ namespace TexcelWeb.Classes.Projet
             return tempsInvesti.ToString();
         }
 
+        //Retourne la durée estimé pour les billets de travail en cours d'un projet
         public static string tempsEstimeBilletsEnCoursduProjet(cProjet _projet)
         {
             double dureeEstime = 0;
@@ -361,5 +363,6 @@ namespace TexcelWeb.Classes.Projet
             }
             return dureeEstime.ToString();
         }
+
     }
 }
