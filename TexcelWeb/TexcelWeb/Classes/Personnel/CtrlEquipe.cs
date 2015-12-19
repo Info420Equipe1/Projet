@@ -7,20 +7,30 @@ using TexcelWeb.Classes.Test;
 
 namespace TexcelWeb.Classes.Personnel
 {
+    //
+    //
+    //Control Equipe
+    //Cette classe contient tous les méthodes et traitements en lien avec les equipes.
+    //
+    //
+
     public class CtrlEquipe : CtrlController
     {
+        //Retourne une equipe en fonction d'un ID
         public static Equipe getEquipeById(int _id)
         {
             Equipe selectedEquipe = context.Equipe.Where(x => x.idEquipe == _id).First();
             return selectedEquipe;
         }
 
+        //Retourne une equipe en fonction d'un Nom et d'un code de projet
         public static Equipe getEquipeByNomAndCodeProjet(string nomEquipe, string codeProjet)
         {
             Equipe selectedEquipe = context.Equipe.Where(x => x.nomEquipe == nomEquipe && x.codeProjet == codeProjet).First();
             return selectedEquipe;
         }
 
+        //Liaison d'une equipe à des cas de test
         public static string lierEquipeCasTest(Equipe equipe, List<string> casTest)
         {
             List<CasTest> lstCasTestEquipe = new List<CasTest>();
@@ -42,6 +52,7 @@ namespace TexcelWeb.Classes.Personnel
             }
         }
 
+        //Enlever tous les cas de test d'une equipe
         public static string removeCasTestEquipe(Equipe equipe)
         {
             equipe.CasTest = null;
@@ -55,6 +66,7 @@ namespace TexcelWeb.Classes.Personnel
                 return "liaisonCasTestNullEchoue";
             }
         }
+
         //Retourne la liste des equipes pour un Projet en utilisant le codeProjet
         public static List<Equipe> lstEquipeByCodeProjet(string codeProjet)
         {
