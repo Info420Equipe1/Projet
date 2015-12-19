@@ -9,6 +9,12 @@ using System.Web.UI;
 
 namespace TexcelWeb.Classes
 {
+    //
+    //
+    //Control Controller
+    //Cette classe contient tous les méthodes et traitements dont héritent les autres contrôleurs.
+    //
+    //
     public class CtrlController
     {
         protected static dbProjetE1Entities context = new dbProjetE1Entities();
