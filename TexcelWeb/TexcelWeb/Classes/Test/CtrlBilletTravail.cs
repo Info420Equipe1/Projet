@@ -142,9 +142,9 @@ namespace TexcelWeb.Classes.Test
             }
         }
 
+        //Ajouter un billet dans la BD
         private static void Enregistrer(BilletTravail _billet)
         {
-            //Ajouter un billet dans la BD
             context.BilletTravail.Add(_billet);
             context.SaveChanges();
         }
@@ -188,7 +188,7 @@ namespace TexcelWeb.Classes.Test
             return false;
         }
 
-        //Retourne la longueur d'un champs
+        //Retourne la longueur d'un champs de la table BilletTravail
         public static int GetMaxLength<TEntity>(Expression<Func<TEntity, string>> property)
            where TEntity : BilletTravail
         {
@@ -228,6 +228,7 @@ namespace TexcelWeb.Classes.Test
             return -1;
         }
 
+        //Retourne la list des billets de travail pour un Employe
         public static List<BilletTravail> GetLstBilletTravail(Employe _emp)
         {
             List<BilletTravail> lst = new List<BilletTravail>();
@@ -250,9 +251,7 @@ namespace TexcelWeb.Classes.Test
                     }
                 }
             }
-            //lst.Sort((x, y) => x.idStatut.CompareTo(y.idStatut));
             return lst;
-	
         }
 
         public static BilletTravail GetBillet(string _nom)

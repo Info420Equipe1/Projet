@@ -17,6 +17,7 @@ namespace TexcelWeb
 {
     public partial class creerProjet : System.Web.UI.Page
     {
+        //Objets et variables globals
         int indexTableCasTest;
         static bool modifierProjet;
         Utilisateur currentUser;
@@ -28,12 +29,14 @@ namespace TexcelWeb
             {
                 if (Request.QueryString["index"] == null)
                 {
+                    //Variable permettant de savoir si la page est en mode Modifier ou Ajouter
                     bool modifier = Convert.ToBoolean(Session["modifProjet"]);
                     modifierProjet = modifier;
                     Session["modifProjet"] = false;
                 }
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -46,6 +49,8 @@ namespace TexcelWeb
                     this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Projet ajouté!', 'Le projet a été ajouté avec succès.', 'success');", true);
                 }
             }
+
+            //Current utilisateur et Droits que possède l'utilisateur
             Utilisateur currentUser = CtrlController.GetCurrentUser();
             foreach (Groupe groupe in currentUser.Groupe)
             {

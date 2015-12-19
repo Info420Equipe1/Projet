@@ -12,16 +12,19 @@ namespace TexcelWeb.Interfaces
 {
     public partial class creerBilletTravail : System.Web.UI.Page
     {
+        //Objets et variables globals
         static bool modifierBillet;
         static bool consulterBillet;
         static Utilisateur currentUser;
         static BilletTravail billetActuel;
         static CasTest casTestCreationBillet;
         static Equipe equipeActuelle;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                //Variable permettant de savoir si la page est en mode Modifier ou Ajouter
                 bool modifier = Convert.ToBoolean(Session["modifBillet"]);
                 bool consulter = Convert.ToBoolean(Request.QueryString["consulteBillet"]);
 
@@ -46,11 +49,12 @@ namespace TexcelWeb.Interfaces
                 consulterBillet = consulter;
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //Premier loading de la page
+                //Current utilisateur
                 if (CtrlController.GetCurrentUser() == null)
                 {
                     //Not logged in
@@ -76,6 +80,8 @@ namespace TexcelWeb.Interfaces
 
                 initializeComponent();
             }
+
+            //Initialisation des controls que l'utilisateur a accès
             foreach (Groupe groupe in currentUser.Groupe)
             {
                 List<int> lstDroits = CtrlController.GetDroits(groupe);
@@ -154,14 +160,15 @@ namespace TexcelWeb.Interfaces
                 cmbPrioriteBillet.Enabled = true;
                 cmbStatutBillet.Enabled = true;
                 rtxtDescriptionBillet.Enabled = true;
-                //Date Creation par défaut
+                //Date Creation par défaut : Date actuelle
                 txtDateCreationBillet.Text = Convert.ToString(DateTime.Today.ToString("d"));
             }
             else if (modifierBillet)
             {
                 //Mode modifier Billet
                 txtForm.InnerText = "Modifier un billet";
-                //Control actifs
+
+                //Control actifs lors de la modification
                 txtEquipe.Enabled = true;
                 txtDateCreationBillet.Visible = true;
                 lblDateCreation.Visible = true;
@@ -181,7 +188,8 @@ namespace TexcelWeb.Interfaces
             {
                 //Mode consulter billet
                 txtForm.InnerText = "Consulter un billet";
-                //Control actifs
+
+                //Control actifs lors de la consultation
                 txtEquipe.Enabled = false;
                 txtDateCreationBillet.Visible = false;
                 lblDateCreation.Visible = false;
@@ -198,7 +206,6 @@ namespace TexcelWeb.Interfaces
                 fillInformationBillet();
             }
         }
-
 
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
@@ -264,16 +271,20 @@ namespace TexcelWeb.Interfaces
             int maxLengthTitreBillet = CtrlBilletTravail.GetMaxLength<BilletTravail>(BilletTravail => BilletTravail.titreBilletTravail);
             txtTitreBillet.MaxLength = maxLengthTitreBillet;
         }
+
         private void fillInformationCasTest()
         {
-            //Information pour le cas de test
+            //Emplissage des champs avec les informations du cas de test
             txtProjetCasTest.Text = casTestCreationBillet.cProjet.nomProjet;
             txtNomCasTest.Text = casTestCreationBillet.nomCasTest;
             txtNomTypeTest.Text = casTestCreationBillet.TypeTest.nomTest;
             txtDifficulte.Text = casTestCreationBillet.Difficulte.nomDiff;
         }
+
         private void fillInformationBillet()
         {
+            //Emplissage des champs avec les informations d'un billet
+
             ListItem lstitem;
             txtTitreBillet.Text = billetActuel.titreBilletTravail;
             txtDureeBillet.Text = Convert.ToInt16(billetActuel.dureeBilletTravail).ToString();
@@ -305,10 +316,12 @@ namespace TexcelWeb.Interfaces
             cmbPrioriteBillet.SelectedIndex = cmbPrioriteBillet.Items.IndexOf(lstitem);
             rtxtDescriptionBillet.Text = billetActuel.descBilletTravail;
         }
+
         private void fillDropDownBox()
         {
+            //Emplissage des drop down de la page
+            //
             ListItem lst;
-
             //EquipeDropDown
             txtEquipe.Items.Clear();
             lst = new ListItem();
@@ -371,6 +384,7 @@ namespace TexcelWeb.Interfaces
 
         protected void cmbStatutBillet_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //afficher la date de terminaison si le statut est à terminé
             if (cmbStatutBillet.SelectedItem.Text == "Terminé")
             {
                 dateTerminaisonBillet.Visible = true;
@@ -385,6 +399,7 @@ namespace TexcelWeb.Interfaces
         {
             if (modifierBillet)
             {
+                //Retour à la page recherche lors d'une modification
                 Session["modifBillet"] = false;
                 modifierBillet = false;
                 Response.Redirect("recherche.aspx");
@@ -395,19 +410,19 @@ namespace TexcelWeb.Interfaces
                 consulterBillet = false;
                 if (btnFermer.Text !="Retour")
                 {
+                    //Retour à la page recherche lors d'une consultation à partir de la page recherche
                     Response.Redirect("recherche.aspx");
                 }
                 else
                 {
+                    //Retour à la page des testeurs lors de la consultation à partir de la page des testeurs
                     Response.Redirect("billetsTravail.aspx");
                 }
-                //Dla marde sa marche pas. Post back pi revien sur la meme page a cause du post back
-                //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
             }
             else
             {
+                //Retour à la page des testeurs lors de la consultation à partir de la page des testeurs
                 Response.Redirect("recherche.aspx");
-                //ClientScript.RegisterStartupScript(this.GetType(), "goBack", "history.go(-1);", true);
             }
         }
 
@@ -417,6 +432,8 @@ namespace TexcelWeb.Interfaces
             {
                 ListItem lst;
                 string nomEquipe = txtEquipe.Text;
+
+                //Recherche de l'equipe actuelle
                 foreach (Equipe equipe in casTestCreationBillet.Equipe)
                 {
                     if (equipe.nomEquipe == nomEquipe)
@@ -449,8 +466,10 @@ namespace TexcelWeb.Interfaces
                 cmbTesteurBillet.SelectedIndex = cmbTesteurBillet.Items.IndexOf(lst);
             }
         }
+
         private void clearFields()
         {
+            //Vider tous les champs
             txtTitreBillet.Text = "";
             txtDureeBillet.Text = "15";
             txtDateCreationBillet.Text = DateTime.Now.ToShortDateString();
@@ -465,6 +484,8 @@ namespace TexcelWeb.Interfaces
 
         protected void txtDateLivraisonBillet_TextChanged(object sender, EventArgs e)
         {
+            //Validation de la date de livraison plus élevé que la date de création
+            //Un carré rouge apparait lorsque les dates sont invalides
             CompareValidatorDate.Validate();
             RequireValidator.Validate();
             if (!CompareValidatorDate.IsValid)
@@ -488,6 +509,8 @@ namespace TexcelWeb.Interfaces
 
         protected void txtDateCreationBillet_TextChanged(object sender, EventArgs e)
         {
+            //Validation de la date de livraison plus élevé que la date de création
+            //Un carré rouge apparait lorsque les dates sont invalides
             CompareValidatorDate.Validate();
             RequireValidator.Validate();
             if (!CompareValidatorDate.IsValid)
@@ -508,5 +531,6 @@ namespace TexcelWeb.Interfaces
                 }
             }
         }
+
     }
 }
