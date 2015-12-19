@@ -343,7 +343,7 @@ namespace TexcelWeb
 
             if (String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]) != "Aucun")
             {
-                nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
+                nivPri = CtrlNivPriorite.getNiveauPrioriteByName(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
             }
 
             if (!modif)
@@ -557,7 +557,7 @@ namespace TexcelWeb
 
             if (String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]) != "Aucun")
             {
-                nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
+                nivPri = CtrlNivPriorite.getNiveauPrioriteByName(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
             }
 
             if (!modif)
