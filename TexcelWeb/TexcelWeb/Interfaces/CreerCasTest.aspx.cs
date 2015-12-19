@@ -16,8 +16,8 @@ namespace TexcelWeb
 {
     public partial class CreerCasTest : System.Web.UI.Page
     {
-        static bool modif, consulteChefEquipe;
-        Utilisateur currentUser;
+        private static bool modif, consulteChefEquipe;
+        private Utilisateur currentUser;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -159,6 +159,7 @@ namespace TexcelWeb
                     }
                 }
 
+                //Droits
                 foreach (Groupe groupe in currentUser.Groupe)
                 {
                     List<int> lstDroits = CtrlController.GetDroits(groupe);
@@ -302,9 +303,9 @@ namespace TexcelWeb
                     break;
                 }
             }
-            ajoutDonnesDataGrid(lstFichierAfficher);
+            ajoutDonneesDataGrid(lstFichierAfficher);
         }
-        private void ajoutDonnesDataGrid(List<Fichier> lstFichier)
+        private void ajoutDonneesDataGrid(List<Fichier> lstFichier)
         {
 
             DataTable dT = new DataTable();
@@ -345,10 +346,6 @@ namespace TexcelWeb
                 nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
             }
 
-            //if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
-            //{
-            //    typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
-            //}
             if (!modif)
             {
                 if (CtrlCasTest.Ajouter(txtCodeCasTest.Text, txtNomCasTest.Text, proj, diff, nivPri, Convert.ToDateTime(txtDateCreationCasTest.Text), txtDateLivraisonCasTest.Text, typTest, rtxtDescriptionCasTest.Text, rtxtObjectifCastest.Text, rtxtDiversCasTest.Text))
@@ -378,6 +375,8 @@ namespace TexcelWeb
            
            
         }
+
+        //Longueur des champs
         private void setFieldLength()
         {
             int maxLengthCodeCasTest = CtrlCasTest.GetMaxLength<CasTest>(CasTest => CasTest.codeCasTest);
@@ -385,11 +384,11 @@ namespace TexcelWeb
             txtCodeCasTest.MaxLength = maxLengthCodeCasTest;
             txtNomCasTest.MaxLength = maxLengthNomCasTest;
         }
+
         protected void ChargerDropDownList()
         {
             dropDownProjet.Items.Clear();
             dropDownTypeTestCasTest.Items.Clear();
-            //dropDownTypeTestCasTest.Items.Add("Aucun");
             dropDownDifficulteCasTest.Items.Clear();
             dropDownDifficulteCasTest.Items.Add("Aucun");
             dropDownPrioritéCasTest.Items.Clear();
@@ -427,12 +426,6 @@ namespace TexcelWeb
             {
                dt =  Convert.ToDateTime(txtDateLivraisonCasTest.Text);
             }
-                    
-            // Envoie de param 
-            //CtrlCasTest.CopierCasTestEnCours(txtCodeCasTest.Text,txtNomCasTest.Text,CtrlProjet.getProjetByCode(dropDownProjet.SelectedValue),
-            //    CtrlDifficulte.GetDiff(dropDownDifficulteCasTest.SelectedValue),CtrlNivPriorite.GetNivPrio(dropDownPrioritéCasTest.SelectedValue),
-            //    Convert.ToDateTime(txtDateCreationCasTest.Text),Convert.ToDateTime(dt),CtrlTypeTest.GetTypeTest(dropDownTypeTestCasTest.SelectedValue),
-            //    rtxtDescriptionCasTest.Text);    
                         
             ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('copierCasTest.aspx?Param=" + Param + "');", true);
            
@@ -471,15 +464,6 @@ namespace TexcelWeb
         {
             txtCodeCasTest.Text = "";
             txtNomCasTest.Text = "";
-
-            //Salut Jay, Ne pas vider la box projet après un ajout car c'est plus facile
-            //d'ajouter plusieurs cas de test au projet.
-            //Moi, à partir de ma forme projet, je peux ajouter un cas de test et le projet
-            //se met par défaut dans ta box de creerCasTest.aspx et la fonctionnalité est parfaite!
-            //Merci, 
-            //Cordialement, Ti-Ben Simard
-            //
-            //Ce message devra être effacé donc fait le donc tu suite ^^
 
             dropDownDifficulteCasTest.Text = "Aucun";
             dropDownPrioritéCasTest.Text = "Aucun";
@@ -576,10 +560,6 @@ namespace TexcelWeb
                 nivPri = CtrlNivPriorite.GetNivPrio(String.Format("{0}", Request.Form["dropDownPrioritéCasTest"]));
             }
 
-            //if (String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]) != "Aucun")
-            //{
-            //    typTest = CtrlTypeTest.GetTypeTest(String.Format("{0}", Request.Form["dropDownTypeTestCasTest"]));
-            //}
             if (!modif)
             {
                 if (!CtrlCasTest.VerifCasTestExist(txtCodeCasTest.Text))
