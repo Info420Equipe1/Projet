@@ -51,11 +51,11 @@ namespace Texcel.Classes.Jeu
         }
 
         //verifier si le Theme exist en fonction du Nom
-        public static bool VerifierThemeJeu(string _ThemeJeu)
+        public static bool VerifierThemeJeu(string _themeJeu)
         {
             foreach (ThemeJeu theme in context.ThemeJeu)
             {
-                if (theme.nomTheme == _ThemeJeu)
+                if (theme.nomTheme == _themeJeu)
                 {
                     return true; //True lorsque le theme existe deja
                 }

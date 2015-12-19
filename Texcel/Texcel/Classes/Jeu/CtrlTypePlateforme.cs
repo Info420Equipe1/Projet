@@ -18,12 +18,6 @@ namespace Texcel.Classes.Jeu
         //Type de plateforme Global
         private static TypePlateforme typePlateforme;
 
-        //Retourne le nombre de Type de plateforme
-        public static int GetCount()
-        {
-            return context.TypePlateforme.Count();
-        }
-    
         //Ajouter un Type de plateforme
         public static string Ajouter(string _nomTypePlateforme, string _descTypePlateforme)
         {
@@ -59,25 +53,14 @@ namespace Texcel.Classes.Jeu
             return typePlat;
         }
 
+        //Enregistrer un Type de plateforme dans la BD
         private static void Enregistrer(TypePlateforme _typePlateforme)
         {
-            
             context.TypePlateforme.Add(typePlateforme);
             context.SaveChanges();
-            
         }
 
-        private static bool Verifier(TypePlateforme _typePlat)
-        {
-            foreach (TypePlateforme typePlat in context.TypePlateforme)
-            {
-                if (typePlat.nomTypePlateforme == _typePlat.nomTypePlateforme)
-                {
-                    return true; 
-                }
-            }
-            return false; 
-        }
+        //Verifier si le Type de Plateforme existe dans la BD
         public static bool Verifier(string _nomPlat)
         {
             foreach (TypePlateforme typePlat in context.TypePlateforme)
@@ -90,6 +73,7 @@ namespace Texcel.Classes.Jeu
             return false;
         }
 
+        //Modifier un Type de Plateforme
         public static string Modifier(string _nomTypePlateforme, string _nouveauCommentaire)
         {
             TypePlateforme typePlat = GetTypePlateforme(_nomTypePlateforme);
@@ -105,13 +89,15 @@ namespace Texcel.Classes.Jeu
             }
         }
 
-        public static TypePlateforme GetTypePlateforme(string _typePateforme)
+        //Retourne un Type de Plateforme en fonction du nom
+        public static TypePlateforme GetTypePlateforme(string _nomTypePateforme)
         {
-            TypePlateforme typePlateforme = context.TypePlateforme.Where(x => x.nomTypePlateforme == _typePateforme).First();
+            TypePlateforme typePlateforme = context.TypePlateforme.Where(x => x.nomTypePlateforme == _nomTypePateforme).First();
 
             return typePlateforme;
         }
 
+        //Supprimer un Type de plateforme en fonction du nom
         public static string Supprimer(string _nomTypePlateforme)
         {
             context.TypePlateforme.Remove(GetTypePlateforme(_nomTypePlateforme));
