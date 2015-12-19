@@ -17,11 +17,6 @@ namespace TexcelWeb.Classes
         static object monObject;
         static List<object> lstMesSelection = new List<object>();
 
-        public CtrlRecherche()
-        {
-
-        }
-
         public static void SauvegarderDonnees(GridView _monGV)
         {
             monGV = _monGV;
@@ -39,10 +34,8 @@ namespace TexcelWeb.Classes
                 {
                     DetermineObject(row.Cells[1].Text);
                     RemplirDonneeLst();
-
                 }
             }
-
         }
         private static void RemplirDonneeLst()
         {
@@ -53,7 +46,6 @@ namespace TexcelWeb.Classes
         {           
            if(CtrlProjet.getProjetByCode(_idUnique) != null)
            {
-             
                monObject = CtrlProjet.getProjetByCode(_idUnique);         
            }
            else if(CtrlCasTest.GetCasTestByCode(_idUnique) != null)

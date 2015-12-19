@@ -42,9 +42,5 @@ namespace TexcelWeb.Classes
             }
             return lstDroits;
         }
-
-       
-
-        
     }
 }
