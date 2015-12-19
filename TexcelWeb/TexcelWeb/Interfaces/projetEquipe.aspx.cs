@@ -13,22 +13,26 @@ namespace TexcelWeb.Interfaces
 {
     public partial class projetEquipe : System.Web.UI.Page
     {
-        static string actualSelectedCodeProjet;
+        public static string actualSelectedCodeProjet;
+        
+        // S'execute lors du chargement de la page
+        // Verifie qu'un utilisateur est connecté, et affiche les sections du menu qu'il a droit en 
+        // fonction des droits de cet utilisateur
         protected void Page_Load(object sender, EventArgs e)
         {
             Utilisateur currentUser = CtrlController.GetCurrentUser();
             if (!IsPostBack)
 	        {
-                //Premier loading de la page
+                // Premier loading de la page
                 Session["modifProjet"] = false;
                 if (CtrlController.GetCurrentUser() == null)
                 {
-                    //Not logged in
+                    // Non connecté
                     Response.Redirect("login.aspx");
                 }
                 else
                 {
-                    //Formatage Bienvenue, [NomUtilisateur] et la Date
+                    // Formatage Bienvenue, [NomUtilisateur] et la Date
                     txtCurrentUserName.InnerText = currentUser.nomUtilisateur;
                     lsbProjets.DataSource = CtrlProjet.GetListProjetChefProjet(currentUser.Employe.prenomEmploye + " " + currentUser.Employe.nomEmploye);
                     lsbProjets.DataTextField = "nomProjet";
@@ -36,6 +40,7 @@ namespace TexcelWeb.Interfaces
                 }
 	        }
             
+            // Verification des droits selon les groupes de l'utilisateur connecté
             foreach (Groupe groupe in currentUser.Groupe)
             {
                 List<int> lstDroits = CtrlController.GetDroits(groupe);
@@ -83,6 +88,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Affiche les informations relatives au projet et popule les champs qui sont en lien avec celui-ci
         protected void lsbProjets_SelectedIndexChanged(object sender, EventArgs e)
         {
             string nomProjet = lsbProjets.SelectedItem.ToString();
@@ -113,6 +119,7 @@ namespace TexcelWeb.Interfaces
             lsbCasTestProjet.DataBind();
         }
 
+        // Affiche les informations relatives aux équipes et popule les champs qui sont en lien avec celui-ci
         protected void lsbEquipes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lsbEquipes.SelectedIndex != -1)
@@ -140,6 +147,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Déplace tous les éléments sélectionnés dans le listBox de gauche dans celui de droite
         protected void btnAllRight_Click(object sender, EventArgs e)
         {
             if (lsbEquipes.SelectedIndex != -1)
@@ -154,6 +162,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Déplace l'élément sélectionné dans le listBox de gauche dans celui de droite
         protected void btnRight_Click(object sender, EventArgs e)
         {
             if (lsbEquipes.SelectedIndex != -1)
@@ -174,6 +183,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Déplace l'élément sélectionné dans le listBox de droite dans celui de gauche
         protected void btnLeft_Click(object sender, EventArgs e)
         {
             if (lsbCasTestEquipe.SelectedIndex != -1)
@@ -195,6 +205,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Déplace tous les éléments sélectionnés dans le listBox de droite dans celui de gauche
         protected void btnAllLeft_Click(object sender, EventArgs e)
         {
             if (lsbCasTestEquipe.Items.Count != 0)
@@ -203,6 +214,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Enregistre les équipes au projet et crée les entrées dans la BD
         protected void btnEnregistrer_Click(object sender, EventArgs e)
         {
             if (lsbProjets.SelectedIndex != -1)
@@ -214,15 +226,11 @@ namespace TexcelWeb.Interfaces
                     if (lsbCasTestEquipe.Items.Count != 0)
                     {
                         List<string> lstCasTest = new List<string>();
-
                         for (int i = 0; i < lsbCasTestEquipe.Items.Count; i++)
                         {
                             lstCasTest.Add(lsbCasTestEquipe.Items[i].Text);
                         }
-
                         string message = CtrlEquipe.lierEquipeCasTest(equipe, lstCasTest);
-
-                        
                         switch (message)
                         {
                             case "liaisonCasTestReussi":
@@ -238,7 +246,6 @@ namespace TexcelWeb.Interfaces
                     else if(equipe.CasTest.Count != 0)
                     {
                         string message = CtrlEquipe.removeCasTestEquipe(equipe);
-
                         switch (message)
                         {
                             case "liaisonCasTestNullReussi":
@@ -270,18 +277,18 @@ namespace TexcelWeb.Interfaces
             }
         }
 
+        // Retour à la page de recherche dans le cas où l'utilisateur clique sur le bouton annuler
         protected void btnAnnuler_Click(object sender, EventArgs e)
         {
             Response.Redirect("recherche.aspx");
         }
 
+        // Affiche seulement le cas de test non assiocié à un projet lorque l'utilise active le checkBox
         protected void chkCasTestNonAssocier_CheckedChanged(object sender, EventArgs e)
         {
             cProjet projet = CtrlProjet.getProjetByCode(actualSelectedCodeProjet);
             List<CasTest> lstCasTest = new List<CasTest>();
-
             lsbCasTestProjet.Items.Clear();
-
             if (chkCasTestNonAssocier.Checked)
             {
                 //Pour chaque cas test sans equipe, on l'affiche
@@ -303,8 +310,6 @@ namespace TexcelWeb.Interfaces
                 lsbCasTestProjet.DataBind();
             }
             
-        }
-
-        
+        }  
     }
 }
