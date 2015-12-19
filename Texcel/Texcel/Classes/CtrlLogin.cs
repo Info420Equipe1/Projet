@@ -23,8 +23,7 @@ namespace Texcel.Classes
                     else
                     {
                         CtrlController.SetCurrentUser(user);
-                        return "Connexion réussie";
-                        
+                        return "Connexion réussie";    
                     }
                 }
                 else

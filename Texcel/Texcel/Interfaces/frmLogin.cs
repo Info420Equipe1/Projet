@@ -20,6 +20,7 @@ namespace Texcel.Interfaces
             InitializeComponent();
         }
 
+        // S'execute lorsque l'utilisateur appuit sur le bouton connexion
         private void btnConnect_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -33,17 +34,16 @@ namespace Texcel.Interfaces
                      
                         this.Close();
                         List<Form> lstForm = new List<Form>();
-
-                        foreach (Form f in Application.OpenForms)
+                        foreach (Form form in Application.OpenForms)
                         {
-                            lstForm.Add(f);
+                            lstForm.Add(form);
                         }
 
-                        foreach (Form fo in lstForm)
+                        foreach (Form form in lstForm)
                         {
-                            fo.WindowState = FormWindowState.Maximized;
-                            fo.Visible = true;
-                        }              
+                            form.WindowState = FormWindowState.Maximized;
+                            form.Visible = true;
+                        } 
                     }
                     else if (message == "Vous devez changer de mot de passe")
                     {
@@ -67,14 +67,13 @@ namespace Texcel.Interfaces
             Cursor.Current = Cursors.Default;
         }
 
+        // S'execute lorsque l'utilisateur appuit sur le bouton annuler
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            //txtUsername.Text = "";
-            //txtPassword.Text = "";
-            //this.Close();
             Application.Exit();
         }
 
+        // S'execute lorsque la form se ferme
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (txtPassword.Text == "" && txtUsername.Text == "")
@@ -83,17 +82,13 @@ namespace Texcel.Interfaces
             }
         }
 
+        // S'execute lorsque l'utilisateur appuit sur une touche dans le champ mot de passe
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Modifiers == Keys.Control)
             {
                 e.SuppressKeyPress = true;
             }
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            
         }
     }
 }

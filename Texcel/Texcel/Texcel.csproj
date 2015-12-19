@@ -226,12 +226,6 @@
     <Compile Include="Interfaces\Personnel\frmAjouterEmploye.Designer.cs">
       <DependentUpon>frmAjouterEmploye.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\Jeu\frmListeSysExp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\Jeu\frmListeSysExp.Designer.cs">
-      <DependentUpon>frmListeSysExp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\Personnel\frmCreerEquipe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,9 +362,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Jeu\frmAjouterSysExp.resx">
       <DependentUpon>frmAjouterSysExp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\Jeu\frmListeSysExp.resx">
-      <DependentUpon>frmListeSysExp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Jeu\frmPlateforme.resx">
       <DependentUpon>frmPlateforme.cs</DependentUpon>
