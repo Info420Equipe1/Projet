@@ -13,12 +13,13 @@ using System.Drawing;
 namespace TexcelWeb.Interfaces
 {
     public partial class billetsTravail : System.Web.UI.Page
-    {
-        static List<bool> VerifSelec = new List<bool>();
-        static List<bool> VerifTerm = new List<bool>();
-        static Utilisateur user;
-        static int cpt = 0;
-        protected void Page_Load(object sender, EventArgs e)
+    {   
+        private static List<bool> VerifSelec = new List<bool>();
+        private static List<bool> VerifTerm = new List<bool>();
+        private static Utilisateur user;
+        private static int cpt = 0;
+        
+        private void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
@@ -38,7 +39,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
-        public void RemplirChamps()
+        private void RemplirChamps()
         {
             List<BilletTravail> lstBilletTravail = CtrlBilletTravail.GetLstBilletTravail(CtrlEmploye.getEmployeById(user.noEmploye.ToString()));
             int cpt = new int();
@@ -92,6 +93,7 @@ namespace TexcelWeb.Interfaces
                         }
                     }
                 }
+
                 lblNbrBilletPersonnel.Text = lstBilletTravail.Count.ToString();
                 lblNbrBillet.Text = cpt.ToString();
 
@@ -107,11 +109,9 @@ namespace TexcelWeb.Interfaces
             ViewState["dtbl"] = dT;
             GridView1.DataSource = dT;
             GridView1.DataBind();
-
-
         }
 
-        protected void CBSelec_CheckedChanged(object sender, EventArgs e)
+        private void CBSelec_CheckedChanged(object sender, EventArgs e)
         {
             bool verifChecked = false;
             CheckBox checkBox = (CheckBox)sender;
@@ -128,11 +128,7 @@ namespace TexcelWeb.Interfaces
             {
                 this.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal(\"Attention!\", \"Billet déselectionné.\", \"error\");", true);
             }
-
-
         }
-
-
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -165,16 +161,7 @@ namespace TexcelWeb.Interfaces
                     }
                     cpt++;
                 }
-
             }
-
-        }
-        private void sortColorDataGrid()
-        {
-            //foreach (DataGridItem item in GridView1)
-            //{
-		        
-            //}
         }
 
         protected void lnkCasDeTest_Click(object sender, EventArgs e)
@@ -190,9 +177,8 @@ namespace TexcelWeb.Interfaces
         {
             cpt = 0;
             DataTable dataTable = ViewState["dtbl"] as DataTable;
-
-
             string sortingDirection = string.Empty;
+
             if (dir == SortDirection.Ascending)
             {
                 dir = SortDirection.Descending;
@@ -203,7 +189,7 @@ namespace TexcelWeb.Interfaces
                 dir = SortDirection.Ascending;
                 sortingDirection = "Asc";
             }
-
+            
             DataView sortedView = new DataView(dataTable);
             sortedView.Sort = e.SortExpression + " " + sortingDirection;
             GarderEtatsCheckBoxSorting(sortedView);
@@ -211,9 +197,7 @@ namespace TexcelWeb.Interfaces
             GridView1.DataBind();
         }
 
-
-
-        public SortDirection dir
+        private SortDirection dir
         {
             get
             {
@@ -229,7 +213,7 @@ namespace TexcelWeb.Interfaces
             }
         }
 
-        public void GarderEtatsCheckBoxSorting(DataView _dT)
+        private void GarderEtatsCheckBoxSorting(DataView _dT)
         {
             VerifSelec.Clear();
             VerifTerm.Clear();
