@@ -10,6 +10,12 @@ using TexcelWeb.Classes.Personnel;
 
 namespace TexcelWeb.Classes.Test
 {
+    //
+    //
+    //Control Billet travail
+    //Cette classe contient tous les méthodes et traitements en lien avec le billet travail.
+    //
+    //
     public class CtrlBilletTravail : CtrlController
     {
         //Ajouter un billet de travail

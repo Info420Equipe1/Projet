@@ -16,14 +16,9 @@ namespace TexcelWeb.Interfaces
 {
 	public partial class copierCasTest : System.Web.UI.Page
     {
-
         Utilisateur currentUser;
-        public copierCasTest()
-        {
-            
-        }
-
-		protected void Page_Load(object sender, EventArgs e)
+      
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack == false)
             {
@@ -42,6 +37,7 @@ namespace TexcelWeb.Interfaces
                 ChargerPage();
             }
 		}
+
         private void ChargerPage()
         {            
             Session["TypeCopie"] = Request.QueryString["Param"];
@@ -109,7 +105,6 @@ namespace TexcelWeb.Interfaces
 
         private void AfficherGV(string _filtre)
         {           
-
             switch (_filtre)
             {
                 case "Projet":
@@ -145,7 +140,6 @@ namespace TexcelWeb.Interfaces
             {                
                
             }
-            
             CtrlCopier.SauvegarderDonnees(gvCopierCasTest);
         }
 
@@ -172,7 +166,6 @@ namespace TexcelWeb.Interfaces
 
             if (Session["TypeCopie"].ToString() == "CasTest")
             {
-
                 CasTest casTest = (CasTest)Session["casTest"];                              
                 foreach (FileInfo file in lstFile)
                 {
@@ -180,7 +173,6 @@ namespace TexcelWeb.Interfaces
                 }
                 this.Form.Dispose();
                 Response.Redirect("CreerCasTest.aspx");
-
             }
             else
             {
@@ -197,15 +189,11 @@ namespace TexcelWeb.Interfaces
                     }
                     CtrlCasTest.Ajouter(maPair.Key);
                 }
-
-
                 Session["modifProjet"] = true;
                 Session["modifCodeProjet"] = proj.codeProjet;
                 this.Form.Dispose();
                 Response.Redirect("creerProjet.aspx");
-
             }
-            
         }
 	}
 }
