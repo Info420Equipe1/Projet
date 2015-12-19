@@ -14,17 +14,11 @@ namespace Texcel.Interfaces.Personnel
 {
     public partial class frmUtilisateur : frmForm
     {
-        bool ModifierUtilisateur;
-        string NomUtilisateurAModifier;
-        Employe EmployeLier;
-        frmAjouterEmploye frmAjouEmp;
-        Utilisateur monUti;
-
-        public frmUtilisateur()
-        {
-
-        }
-
+        private bool ModifierUtilisateur;
+        private string NomUtilisateurAModifier;
+        private Employe EmployeLier;
+        private frmAjouterEmploye frmAjouEmp;
+        private Utilisateur monUti;
         //Construteur avec employé
         public frmUtilisateur(Employe _Employe, frmAjouterEmploye _rfmAjou)
         {
@@ -46,20 +40,19 @@ namespace Texcel.Interfaces.Personnel
             txtMotPasse.Text = _MotDePasse;
             frmAjouEmp = _rfmAjou;
             monUti = CtrlUtilisateur.getUtilisateur(_NomUtilisateur);
-
         }
 
         private void frmUtilisateur_Load(object sender, EventArgs e)
         {
-            Réaffichage();
+            Reaffichage();
         }
 
-        private void Réaffichage()
+        private void Reaffichage()
         {
             lsbGroupes.Items.Clear();
             lsbGroupes2.Items.Clear();
 
-           if (!ModifierUtilisateur)
+            if (!ModifierUtilisateur)
             {
                 foreach (Groupe groupe in CtrlGroupe.GetAllGroupe())
                 {
@@ -72,14 +65,12 @@ namespace Texcel.Interfaces.Personnel
                 {
                     lsbGroupes.Items.Add(grp.nomGroupe);
                 }
-
                 foreach (Groupe groupe in monUti.Groupe)
                 {
                     lsbGroupes2.Items.Add(groupe.nomGroupe);
                     lsbGroupes.Items.Remove(groupe.nomGroupe);
-
                 }
-            }        
+            }
         }
 
         // Bouton enregistrer et/ou modifier
@@ -87,7 +78,6 @@ namespace Texcel.Interfaces.Personnel
         {
             string message;
             List<Groupe> lstGroupeUtilisateur = new List<Groupe>();
-
             //Ajout d'un nouvel Utilisateur si false
             if (!ModifierUtilisateur)
             {
@@ -108,14 +98,12 @@ namespace Texcel.Interfaces.Personnel
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomUtil.Text = "";
                     txtMotPasse.Text = "";
-                    Réaffichage();
+                    Reaffichage();
                 }
-               
             }
             //Modifier un Utilisateur existant
             else
             {
-                
                 foreach (string nomGroupe in lsbGroupes2.Items)
                 {
                     lstGroupeUtilisateur.Add(CtrlGroupe.GetGroupByName(nomGroupe));
@@ -125,22 +113,17 @@ namespace Texcel.Interfaces.Personnel
                 if (message.Contains("erreur"))
                 {
                     MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Réaffichage();
+                    Reaffichage();
                     return;
-                    
                 }
                 else
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FermetureForm();
-                }              
-                
-                
+                }
             }
-            
-          
         }
-       
+
         //ajouter un groupe par rapport a l'utilisateur
         private void btnPtiteFlecheDroite_Click(object sender, EventArgs e)
         {
@@ -229,22 +212,19 @@ namespace Texcel.Interfaces.Personnel
                 {
                     MessageBox.Show(message, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FermetureForm();
-                                        
                 }
             }
         }
         private void FermetureForm()
-        {          
+        {
             this.Close();
-            Réaffichage();
-            frmAjouEmp.ActualiserLstCompte(); 
-
+            Reaffichage();
+            frmAjouEmp.ActualiserLstCompte();
         }
 
         private void frmUtilisateur_FormClosed(object sender, FormClosedEventArgs e)
         {
             FermetureForm();
         }
-     
     }
 }
