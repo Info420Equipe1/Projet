@@ -79,7 +79,7 @@ $(function(){
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="UPGridView" runat="server">
                         <ContentTemplate>              
-                            <asp:GridView ID="dataGridCasTest" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnDataBound="dataGridCasTest_DataBound">
+                            <asp:GridView ID="dataGridCasTest" runat="server" AutoGenerateColumns="False" AllowSorting="true">
                         <Columns>
                             <asp:BoundField ItemStyle-Width="85px" ItemStyle-CssClass="align-center" DataField="CodeCasTest" HeaderText="Code" >
                             <ItemStyle CssClass="align-center" Width="85px" />

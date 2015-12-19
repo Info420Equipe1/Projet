@@ -83,6 +83,8 @@ namespace TexcelWeb
                 }
             }
         }
+
+        //Emplissage des drop down list de la page
         private void fillDropDownList()
         {
             Employe employe = (CtrlController.GetCurrentUser()).Employe;
@@ -102,6 +104,7 @@ namespace TexcelWeb
             }
         }
 
+        //Emplissage du drop down equipe en fonction du projet selectionné
         protected void cmbProjet_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListItem lst = new ListItem("Aucune");
@@ -131,9 +134,10 @@ namespace TexcelWeb
             }
             cmbEquipe.SelectedIndex = cmbEquipe.Items.IndexOf(lst);
         }
+
+        //Emplissage du gridView avec les cas de test à afficher
         private void ajoutDonnesDataGrid(List<CasTest> lstCasTest)
         {
-            //Emplissage du gridView pour les cas de test
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             dt.Columns.Add("CodeCasTest");
@@ -183,6 +187,8 @@ namespace TexcelWeb
                 hgc2.Attributes["href"] = "creerCasTest.aspx?codeCasTestConsult=" + gvr.Cells[0].Text + "&consulteBillet=true";
             }
         }
+
+        //Afficher un gridview vide
         private void showEmptyDataGrid()
         {
             DataTable dT = new DataTable();
@@ -195,19 +201,9 @@ namespace TexcelWeb
             dataGridCasTest.HeaderRow.Visible = true;
         }
 
-        protected void dataGridCasTest_DataBound(object sender, EventArgs e)
-        {
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[0].Controls[0])).Text = "Code";
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[1].Controls[0])).Text = "Nom Cas de Test";
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[2].Controls[0])).Text = "Date livraison";
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[3].Controls[0])).Text = "Priorité";
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[4].Controls[0])).Text = "Difficulté";
-            //((LinkButton)(dataGridCasTest.HeaderRow.Cells[5].Controls[0])).Text = "Options";
-        }
 
         protected void btnRechercher_Click(object sender, EventArgs e)
         {
-            
             string nomProjet = cmbProjet.Text;
             string nomEquipe = cmbEquipe.Text;
 
@@ -228,7 +224,7 @@ namespace TexcelWeb
                         }
                         catch (Exception)
                         {
-                            //Aucune equipe dans le cas de test
+                            //Aucune equipe dans le cas de test donc on ne prend pas le cas de test
                         }
                     }
                     if (lstCasTestAAfficher.Count != 0)
