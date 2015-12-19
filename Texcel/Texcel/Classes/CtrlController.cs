@@ -13,15 +13,20 @@ namespace Texcel.Classes
         protected static dbProjetE1Entities context = new dbProjetE1Entities();
         protected static Utilisateur currentUtilisateur;
 
-
+        // Affiche une boite de message d'erreur
         public static void MessageErreur(string _monWarning)
         {
             MessageBox.Show(_monWarning, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        // Affiche une boite de message de succès
         public static void MessageSucces(string _monSucces)
         {
             MessageBox.Show(_monSucces, "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        // Crée une fenêtre avec les boutons oui et non contenant le message passé en paramètre
+        // Elle retourne ensuite le choix de l'utilisateur
         public static DialogResult getDR(string _monMessage)
         {
             DialogResult monDR;
@@ -29,32 +34,19 @@ namespace Texcel.Classes
             return monDR;
         }
 
+        // Défini l'utiliateur actuellement connecté
         public static void SetCurrentUser(Utilisateur user)
         {
             currentUtilisateur = user;
         }
+
+        // Récupère l'utilisateur actuellement connecté
         public static Utilisateur GetCurrentUser()
         {
             return currentUtilisateur;
         }
 
-        public static string GetNomUtilisateur()
-        {
-            List<Employe> lstEmploye = new List<Employe>();
-            using (context)
-            {
-                var query = (from s in context.Employe
-                             where s.noEmploye == currentUtilisateur.noEmploye
-                             select s);
-
-                foreach (var r in query)
-                {
-                    lstEmploye.Add(r);
-                }
-            }
-            return lstEmploye[0].prenomEmploye + " " + lstEmploye[0].nomEmploye;
-        }
-
+        // Récupère les droits associé à un groupe utilisateur
         public static List<int> GetDroits(Groupe groupeUti)
         {
             List<int> lstDroits = new List<int>();
@@ -64,6 +56,5 @@ namespace Texcel.Classes
             }
             return lstDroits;
         }
-
     }
 }

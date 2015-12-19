@@ -16,15 +16,5 @@ namespace Texcel.Interfaces
         {
             InitializeComponent();
         }
-
-        public void AfficherInfo()
-        {
-
-        }
-
-        public void GetInfo()
-        {
-
-        }
     }
 }
