@@ -15,13 +15,9 @@ namespace Texcel.Classes.Jeu
     //
     class CtrlEditionSysExp : CtrlController
     {
+        //Objet Edition global
         private static EditionSysExp editionSysExp;
 
-        // Obtenir le nombre d'itération dans la table tblEditionSysExp.
-        public static int GetCount()
-        {
-            return context.EditionSysExp.Count();
-        }
 
         // Ajoute une nouvelle édition dans la table tblEditionSysExp, vérifie si elle existe et si l'ajout réussit. Retourne un booléen pour confirmer l'ajout.
         public static bool Ajouter(SysExp _sysExp, string _nomEdition)
@@ -35,6 +31,7 @@ namespace Texcel.Classes.Jeu
             }
             return false;
         }
+
         // Vérifie si l'édition existe.
         public static bool Verifier(SysExp sysExp, string _nomEdition)
         {

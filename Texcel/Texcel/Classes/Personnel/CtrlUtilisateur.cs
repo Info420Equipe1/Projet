@@ -21,6 +21,7 @@ namespace Texcel.Classes.Personnel
             newUtilisateur.nomUtilisateur = _nomUtilisateur;
             newUtilisateur.motPasse = _motDePasse;
             newUtilisateur.Employe = _employe;
+
             //Vérifier si le aucun groupe n'est associé
             if (VerifierSiGroupeVide(_lstGroupeUtilisateur))
             {
@@ -98,6 +99,7 @@ namespace Texcel.Classes.Personnel
             context.Utilisateur.Add(_newUtilisateur);
             context.SaveChanges();
         }
+
         //Liste des utilisateurs associé a un employé
         public static List<Utilisateur> lstUtilisateurAssocEmp(Employe _emp)
         {
@@ -110,6 +112,7 @@ namespace Texcel.Classes.Personnel
 
             return lstUti;
         }
+
         //Trouver utilisateur par son nom d'utilisateur
         public static Utilisateur getUtilisateur(string _nomUti)
         {
@@ -117,6 +120,7 @@ namespace Texcel.Classes.Personnel
 
             return uti;
         }
+
         //Liste des groupes associés a un utilisateur
         public static List<Groupe> lstGrAssUtil(Utilisateur _uti)
         {
@@ -128,6 +132,7 @@ namespace Texcel.Classes.Personnel
             }
             return lstGr;
         }
+
         // on vérifier si le listbox de groupe est vide        
         public static bool VerifierSiGroupeVide(List<Groupe> _lstGroupeUtilisateur)
         {
@@ -138,6 +143,7 @@ namespace Texcel.Classes.Personnel
 
             return true;
         }
+
         //Verifie si c'est sa premiere connection
         public static bool VerifPremiereConn(Utilisateur _uti)
         {
@@ -147,6 +153,7 @@ namespace Texcel.Classes.Personnel
             }
             return false;
         }
+
         //Verifie si le mot de passe est vieux de 6 mois
         public static bool VerifApres6Mois(Utilisateur _uti)
         {
@@ -158,6 +165,7 @@ namespace Texcel.Classes.Personnel
             }
             return false;
         }
+
         //Modifier mot de passe
         public static void ModifMotDePasse(Utilisateur _uti, string _motPasse)
         {

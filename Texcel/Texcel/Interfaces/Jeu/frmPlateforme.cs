@@ -84,7 +84,7 @@ namespace Texcel.Interfaces.Jeu
         private void cmbNomSE_DropDown(object sender, EventArgs e)
         {
             cmbNomSE.Items.Clear();
-            foreach (SysExp sysExp in CtrlSysExp.Rechercher())
+            foreach (SysExp sysExp in CtrlSysExp.getListSysExp())
             {
                 cmbNomSE.Items.Add(sysExp.nomSysExp);
             }

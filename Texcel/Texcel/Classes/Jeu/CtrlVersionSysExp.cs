@@ -15,6 +15,7 @@ namespace Texcel.Classes.Jeu
     //
     class CtrlVersionSysExp : CtrlController
     {
+        //Objet VersionSysExp Global
         private static VersionSysExp versionSysExp;
 
         // Obtenir le nombre d'itération dans la table tblVersionSysExp

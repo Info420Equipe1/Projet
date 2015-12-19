@@ -25,7 +25,7 @@ namespace Texcel.Classes.Jeu
         }
 
         // Retourne la liste de tous les systèmes d'exploitation.
-        public static List<SysExp> Rechercher()
+        public static List<SysExp> getListSysExp()
         {
             List<SysExp> lstSysExp = new List<SysExp>();
             foreach (SysExp sysExp in context.SysExp)
@@ -42,6 +42,7 @@ namespace Texcel.Classes.Jeu
 
            return monSysExp;
         }
+
         // Ajoute un nouveau système d'exploitation dans la table tblSysExp, vérifie s'il existe et si l'ajout réussit. Retourne un booléen pour confirmer l'ajout.
         public static bool Ajouter(string _nomSysExp, string _codeSysExp, string _commSysExp)
         {
@@ -65,17 +66,6 @@ namespace Texcel.Classes.Jeu
             return false;   // lorsque le système d'exploitation n'existe pas 
         }
 
-        // Recherche un système d'exploitation dans la table tblSysExp et le retourne.
-        public static List<SysExp> Rechercher(string _nomSysExp)
-        {
-            List<SysExp> lstSysExp = new List<SysExp>(); ;
-            foreach (SysExp sysExp in context.SysExp.Where(x => x.nomSysExp == _nomSysExp))
-            {
-                lstSysExp.Add(sysExp);
-            }
-            return lstSysExp;
-        }
-
         // Enregistre dans la table le nouveau système d'exploitation et retourne un booléen pour confirmer.
         private static bool Enregistrer(SysExp _sysExp)
         {
@@ -93,7 +83,7 @@ namespace Texcel.Classes.Jeu
             
         }
 
-        // Modifie les données dans les tables.
+        // Modifie les données d'un systeme d'exploitation.
         public static void modif(string _nom, string _code, string _comm, SysExp _sysExp, string _nomEd, EditionSysExp _ed, string _nomVersion, VersionSysExp _ver)
         {
             SysExp sysExp = _sysExp;
@@ -104,7 +94,16 @@ namespace Texcel.Classes.Jeu
             ver.commSysExp = _comm;
             EditionSysExp ed = _ed;
             ed.nomEdition = _nomEd;
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                //erreur de l'enregistrement
+                return;
+            }
         }
+
     }
 }

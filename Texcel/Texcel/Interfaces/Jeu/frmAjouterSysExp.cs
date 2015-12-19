@@ -60,7 +60,7 @@ namespace Texcel.Interfaces.Jeu
         private void cmbNom_DropDown(object sender, EventArgs e)
         {
             cmbNom.Items.Clear();
-            foreach (SysExp sysExp in CtrlSysExp.Rechercher())
+            foreach (SysExp sysExp in CtrlSysExp.getListSysExp())
             {
                 cmbNom.Items.Add(sysExp.nomSysExp);
             }
@@ -69,7 +69,7 @@ namespace Texcel.Interfaces.Jeu
         //Sélection d'un système d'exploitation
         private void cmbNom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
+            SysExp sysExp = CtrlSysExp.GetSysExp(cmbNom.Text);
             txtCode.Text = sysExp.codeSysExp;
             cmbEdition.Text = "";
             cmbVersion.Text = "";
@@ -91,7 +91,7 @@ namespace Texcel.Interfaces.Jeu
             cmbEdition.Items.Clear();
             if (CtrlSysExp.Verifier(cmbNom.Text))
             {
-                SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
+                SysExp sysExp = CtrlSysExp.GetSysExp(cmbNom.Text);
                 foreach (EditionSysExp editionSysExp in sysExp.EditionSysExp)
                 {
                     cmbEdition.Items.Add(editionSysExp.nomEdition);
@@ -105,7 +105,7 @@ namespace Texcel.Interfaces.Jeu
             cmbVersion.Items.Clear();
             if (CtrlSysExp.Verifier(cmbNom.Text))
             {
-                foreach (VersionSysExp versionSysExp in CtrlVersionSysExp.Rechercher(CtrlSysExp.Rechercher(cmbNom.Text).First(), cmbEdition.Text))
+                foreach (VersionSysExp versionSysExp in CtrlVersionSysExp.Rechercher(CtrlSysExp.GetSysExp(cmbNom.Text), cmbEdition.Text))
                 {
                     cmbVersion.Items.Add(versionSysExp.noVersion);
                 } 
@@ -155,12 +155,12 @@ namespace Texcel.Interfaces.Jeu
                 if (rep == DialogResult.Yes)
                 {
                     boolSysExp = CtrlSysExp.Ajouter(cmbNom.Text.Trim(), txtCode.Text.Trim(), rtbCommentaire.Text.Trim());
-                    SysExp sysExp = CtrlSysExp.Rechercher(cmbNom.Text).First();
+                    SysExp sysExp = CtrlSysExp.GetSysExp(cmbNom.Text);
                     boolEdition = CtrlEditionSysExp.Ajouter(sysExp, cmbEdition.Text.Trim());
 
                     if (cmbEdition.Text != "")
                     {
-                        EditionSysExp editionSysExp = CtrlEditionSysExp.Rechercher(CtrlSysExp.Rechercher(cmbNom.Text).First(), cmbEdition.Text).First();
+                        EditionSysExp editionSysExp = CtrlEditionSysExp.Rechercher(CtrlSysExp.GetSysExp(cmbNom.Text), cmbEdition.Text).First();
                         boolVersion = CtrlVersionSysExp.Ajouter(sysExp, editionSysExp, cmbVersion.Text.Trim(), rtbCommentaire.Text.Trim());
                     }
 

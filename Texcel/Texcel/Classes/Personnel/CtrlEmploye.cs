@@ -92,12 +92,14 @@ namespace Texcel.Classes.Personnel
 
             return listEmploye;
         }
+
         //Trouver un employé a l'aide de son nom et prenom
         public static Employe emp(string _nomPren)
         {
             Employe emp = context.Employe.Where(x => x.nomEmploye + " " + x.prenomEmploye == _nomPren).First();
             return emp;
         }
+
         //Employés qui sont chef d'équipe
         public static List<Employe> listEmployeChefEquipe()
         {
@@ -123,5 +125,6 @@ namespace Texcel.Classes.Personnel
             Employe emp = context.Employe.Where(x => x.noEmploye == _numEmploye).First();
             return emp;
         }
+
     }
 }
