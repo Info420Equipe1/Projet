@@ -90,7 +90,6 @@ namespace Texcel.Classes.Jeu
             }
             List<String> Distinct = lstVersion.Distinct().ToList();
             return Distinct;
-            //Cette fonction existe déjà
         }
 
         // Recherche une version avec l'ID d'édition et le numéro de version.

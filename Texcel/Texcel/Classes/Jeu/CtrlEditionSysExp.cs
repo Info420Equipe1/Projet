@@ -79,7 +79,6 @@ namespace Texcel.Classes.Jeu
                 lstEdition.Add(plat);
             }
             return lstEdition;
-            //Cette fonction existe déjà
         }
 
         // Recherche une édition avec l'ID du système d'exploitation auquel il est lié et son nom puis le retourne.
