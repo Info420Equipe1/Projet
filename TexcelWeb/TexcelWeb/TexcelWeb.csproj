@@ -82,6 +82,7 @@
   <ItemGroup>
     <Content Include="css\creerBilletTravail.css" />
     <Content Include="css\recherche.css" />
+    <Content Include="css\renouvPassword.css" />
     <Content Include="Interfaces\creerBilletChefEquipe.aspx" />
     <Content Include="css\billetTravail.css" />
     <Content Include="css\gestionBillet.css" />
@@ -96,7 +97,6 @@
     <Content Include="Interfaces\recherche.aspx" />
     <Content Include="Interfaces\projetEquipe.aspx" />
     <Content Include="Interfaces\renouvPassword.aspx" />
-    <Content Include="Interfaces\statistiques.aspx" />
     <Content Include="js\btnLoading.js" />
     <Content Include="js\MessageAjouterProjet.js" />
     <Content Include="packages.config" />
@@ -332,13 +332,6 @@
     </Compile>
     <Compile Include="Interfaces\renouvPassword.aspx.designer.cs">
       <DependentUpon>renouvPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\statistiques.aspx.cs">
-      <DependentUpon>statistiques.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Interfaces\statistiques.aspx.designer.cs">
-      <DependentUpon>statistiques.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
